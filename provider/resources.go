@@ -25,7 +25,7 @@ import (
 	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/jfrog/terraform-provider-artifactory/artifactory"
+	artifactory "gopkg.in/resty.v1"
 )
 
 // all of the token components used below.
