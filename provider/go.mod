@@ -9,8 +9,8 @@ replace (
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
+	github.com/jfrog/terraform-provider-artifactory v0.0.0-20211108203830-a482006c47c5
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.9.0
 	github.com/pulumi/pulumi/sdk/v3 v3.14.1-0.20211007222624-789e39219452
-	github.com/jfrog/terraform-provider-artifactory/mod/v2 v2.6.16
 
 )
