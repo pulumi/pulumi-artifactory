@@ -19,13 +19,13 @@ import (
 	"path/filepath"
 	"unicode"
 
+	"github.com/jfrog/terraform-provider-artifactory/pkg/artifactory"
+	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/jfrog/terraform-provider-artifactory/pkg/artifactory"
 )
 
 // all of the token components used below.
@@ -127,8 +127,18 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: makeType(mainPkg, "Tags")},
 			// 	},
 			// },
-			"artifactory_access_token": {Tok: makeResource(mainMod, "AccessToken")},
-			"artifactory_api_key": {Tok: makeResource(mainMod, "ApiKey")},
+			"artifactory_access_token": {
+				Tok: makeResource(mainMod, "AccessToken"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"details": {Type: makeType(mainPkg, "Details")},
+				},
+			},
+			"artifactory_api_key": {
+				Tok: makeResource(mainMod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"details": {Type: makeType(mainPkg, "Details")},
+				},
+			},
 			"artifactory_certificate": {Tok: makeResource(mainMod, "Certificate")},
 			"artifactory_general_security": {Tok: makeResource(mainMod, "GeneralSecurity")},
 			"artifactory_group": {Tok: makeResource(mainMod, "Group")},
