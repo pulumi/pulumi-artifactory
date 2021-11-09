@@ -102,6 +102,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-artifactory",
+		GitHubOrg: "jfrog",
 		Config:      map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
@@ -126,11 +127,42 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: makeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"artifactory_access_token": {Tok: makeResource(mainMod, "AccessToken")},
+			"artifactory_api_key": {Tok: makeResource(mainMod, "ApiKey")},
+			"artifactory_certificate": {Tok: makeResource(mainMod, "Certificate")},
+			"artifactory_general_security": {Tok: makeResource(mainMod, "GeneralSecurity")},
+			"artifactory_group": {Tok: makeResource(mainMod, "Group")},
+			"artifactory_keypair": {Tok: makeResource(mainMod, "Keypair")},
+			"artifactory_local_alpine_repository": {Tok: makeResource(mainMod, "AlpineRepository")},
+			"artifactory_local_debian_repository": {Tok: makeResource(mainMod, "DebianRepository")},
+			"artifactory_local_docker_v1_repository": {Tok: makeResource(mainMod, "DockerV1Repository")},
+			"artifactory_local_docker_v2_repository": {Tok: makeResource(mainMod, "DockerV2Repository")},
+			"artifactory_local_repository": {Tok: makeResource(mainMod, "LocalRepository")},
+			"artifactory_oauth_settings": {Tok: makeResource(mainMod, "OauthSettings")},
+			"artifactory_permission_target": {Tok: makeResource(mainMod, "PermissionTarget")},
+			"artifactory_permission_targets": {Tok: makeResource(mainMod, "PermissionTargets")},
+			"artifactory_remote_cargo_repository": {Tok: makeResource(mainMod, "RemoteCargoRepository")},
+			"artifactory_remote_docker_repository": {Tok: makeResource(mainMod, "RemoteDockerRepository")},
+			"artifactory_remote_helm_repository": {Tok: makeResource(mainMod, "RemoteHelmRepository")},
+			"artifactory_remote_repository": {Tok: makeResource(mainMod, "RemoteRepository")},
+			"artifactory_replication_config": {Tok: makeResource(mainMod, "ReplicationConfig")},
+			"artifactory_saml_settings": {Tok: makeResource(mainMod, "SamlSettings")},
+			"artifactory_single_replication_config": {Tok: makeResource(mainMod, "SingleReplicationConfig")},
+			"artifactory_user": {Tok: makeResource(mainMod, "User")},
+			"artifactory_virtual_go_repository": {Tok: makeResource(mainMod, "GoRepository")},
+			"artifactory_virtual_maven_repository": {Tok: makeResource(mainMod, "MavenRepository")},
+			"artifactory_virtual_repository": {Tok: makeResource(mainMod, "VirtualRepository")},
+			"artifactory_xray_policy": {Tok: makeResource(mainMod, "XrayPolicy")},
+			"artifactory_xray_watch": {Tok: makeResource(mainMod, "XrayWatch")},
+
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
 			// is below.
 			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+			"artifactory_file": {Tok: makeDataSource(mainMod, "getFile")},
+			"artifactory_fileinfo": {Tok: makeDataSource(mainMod, "getFileinfo")},
+
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
