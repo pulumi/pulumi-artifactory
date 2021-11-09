@@ -1485,7 +1485,12 @@
             "properties": {
                 "accessToken": {
                     "type": "string",
-                    "description": "Returns the access token to authenciate to Artifactory\n"
+                    "description": "Returns the access token to authenciate to Artifactory\n",
+                    "language": {
+                        "csharp": {
+                            "name": "Details"
+                        }
+                    }
                 },
                 "adminToken": {
                     "$ref": "#/types/artifactory:index/AccessTokenAdminToken:AccessTokenAdminToken",
@@ -1570,7 +1575,12 @@
                 "properties": {
                     "accessToken": {
                         "type": "string",
-                        "description": "Returns the access token to authenciate to Artifactory\n"
+                        "description": "Returns the access token to authenciate to Artifactory\n",
+                        "language": {
+                            "csharp": {
+                                "name": "Details"
+                            }
+                        }
                     },
                     "adminToken": {
                         "$ref": "#/types/artifactory:index/AccessTokenAdminToken:AccessTokenAdminToken",
@@ -1790,7 +1800,12 @@
             "properties": {
                 "apiKey": {
                     "type": "string",
-                    "description": "The API key.\n"
+                    "description": "The API key.\n",
+                    "language": {
+                        "csharp": {
+                            "name": "Key"
+                        }
+                    }
                 }
             },
             "required": [
@@ -1801,7 +1816,12 @@
                 "properties": {
                     "apiKey": {
                         "type": "string",
-                        "description": "The API key.\n"
+                        "description": "The API key.\n",
+                        "language": {
+                            "csharp": {
+                                "name": "Key"
+                            }
+                        }
                     }
                 },
                 "type": "object"

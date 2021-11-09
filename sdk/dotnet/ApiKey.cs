@@ -25,7 +25,7 @@ namespace Pulumi.Artifactory
         /// The API key.
         /// </summary>
         [Output("apiKey")]
-        public Output<string> ApiKey { get; private set; } = null!;
+        public Output<string> Key { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Artifactory
         /// The API key.
         /// </summary>
         [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        public Input<string>? Key { get; set; }
 
         public ApiKeyState()
         {

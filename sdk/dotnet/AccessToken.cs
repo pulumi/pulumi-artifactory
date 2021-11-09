@@ -21,7 +21,7 @@ namespace Pulumi.Artifactory
         /// Returns the access token to authenciate to Artifactory
         /// </summary>
         [Output("accessToken")]
-        public Output<string> AccessToken { get; private set; } = null!;
+        public Output<string> Details { get; private set; } = null!;
 
         /// <summary>
         /// (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
@@ -176,7 +176,7 @@ namespace Pulumi.Artifactory
         /// Returns the access token to authenciate to Artifactory
         /// </summary>
         [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? Details { get; set; }
 
         /// <summary>
         /// (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.

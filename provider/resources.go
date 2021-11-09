@@ -130,13 +130,13 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_access_token": {
 				Tok: makeResource(mainMod, "AccessToken"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"details": {Type: makeType(mainPkg, "Details")},
+					"access_token": {CSharpName: "Details"},
 				},
 			},
 			"artifactory_api_key": {
 				Tok: makeResource(mainMod, "ApiKey"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"details": {Type: makeType(mainPkg, "Details")},
+					"api_key": {CSharpName: "Key"},
 				},
 			},
 			"artifactory_certificate": {Tok: makeResource(mainMod, "Certificate")},
