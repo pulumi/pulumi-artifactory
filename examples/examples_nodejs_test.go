@@ -4,7 +4,6 @@
 package examples
 
 import (
-	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
@@ -14,9 +13,18 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			"@pulumi/foo",
+			"@pulumi/artifactory",
 		},
 	})
 
 	return baseJS
 }
+func TestAccLocalRepositoryTs(t *testing.T) { //TODO this dhouls be TestAccLocalRepositoryTs
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "local-repository", "ts"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
