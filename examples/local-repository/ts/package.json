@@ -1,5 +1,5 @@
 {
-    "name": "api-key",
+    "name": "guins-artifactory",
     "devDependencies": {
         "@types/node": "^14"
     },
