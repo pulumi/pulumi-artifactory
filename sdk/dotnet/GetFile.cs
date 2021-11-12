@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Artifactory
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("artifactory:index/getFile:getFile", args ?? new GetFileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ## # Artifactory File Data Source
+        /// 
+        /// Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var my_file = Output.Create(Artifactory.GetFile.InvokeAsync(new Artifactory.GetFileArgs
+        ///         {
+        ///             OutputPath = "tmp/artifact.zip",
+        ///             Path = "/path/to/the/artifact.zip",
+        ///             Repository = "repo-key",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileResult>("artifactory:index/getFile:getFile", args ?? new GetFileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -73,6 +107,37 @@ namespace Pulumi.Artifactory
         public string Repository { get; set; } = null!;
 
         public GetFileArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// If set to true, an existing file in the output_path will be overwritten. Default: false
+        /// </summary>
+        [Input("forceOverwrite")]
+        public Input<bool>? ForceOverwrite { get; set; }
+
+        /// <summary>
+        /// The local path the file should be downloaded to.
+        /// </summary>
+        [Input("outputPath", required: true)]
+        public Input<string> OutputPath { get; set; } = null!;
+
+        /// <summary>
+        /// The path to the file within the repository.
+        /// </summary>
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the repository where the file is stored.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetFileInvokeArgs()
         {
         }
     }

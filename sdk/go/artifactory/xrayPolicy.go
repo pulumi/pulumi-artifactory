@@ -327,6 +327,10 @@ func (o XrayPolicyMapOutput) MapIndex(k pulumi.StringInput) XrayPolicyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyInput)(nil)).Elem(), &XrayPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyPtrInput)(nil)).Elem(), &XrayPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyArrayInput)(nil)).Elem(), XrayPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyMapInput)(nil)).Elem(), XrayPolicyMap{})
 	pulumi.RegisterOutputType(XrayPolicyOutput{})
 	pulumi.RegisterOutputType(XrayPolicyPtrOutput{})
 	pulumi.RegisterOutputType(XrayPolicyArrayOutput{})

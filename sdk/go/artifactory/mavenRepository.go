@@ -419,6 +419,10 @@ func (o MavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) MavenRepository
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryInput)(nil)).Elem(), &MavenRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryPtrInput)(nil)).Elem(), &MavenRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryArrayInput)(nil)).Elem(), MavenRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryMapInput)(nil)).Elem(), MavenRepositoryMap{})
 	pulumi.RegisterOutputType(MavenRepositoryOutput{})
 	pulumi.RegisterOutputType(MavenRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(MavenRepositoryArrayOutput{})

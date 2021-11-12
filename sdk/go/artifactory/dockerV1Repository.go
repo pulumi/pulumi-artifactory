@@ -400,6 +400,10 @@ func (o DockerV1RepositoryMapOutput) MapIndex(k pulumi.StringInput) DockerV1Repo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerV1RepositoryInput)(nil)).Elem(), &DockerV1Repository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerV1RepositoryPtrInput)(nil)).Elem(), &DockerV1Repository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerV1RepositoryArrayInput)(nil)).Elem(), DockerV1RepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerV1RepositoryMapInput)(nil)).Elem(), DockerV1RepositoryMap{})
 	pulumi.RegisterOutputType(DockerV1RepositoryOutput{})
 	pulumi.RegisterOutputType(DockerV1RepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DockerV1RepositoryArrayOutput{})

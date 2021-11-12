@@ -340,6 +340,10 @@ func (o AccessTokenMapOutput) MapIndex(k pulumi.StringInput) AccessTokenOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenInput)(nil)).Elem(), &AccessToken{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenPtrInput)(nil)).Elem(), &AccessToken{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenArrayInput)(nil)).Elem(), AccessTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenMapInput)(nil)).Elem(), AccessTokenMap{})
 	pulumi.RegisterOutputType(AccessTokenOutput{})
 	pulumi.RegisterOutputType(AccessTokenPtrOutput{})
 	pulumi.RegisterOutputType(AccessTokenArrayOutput{})

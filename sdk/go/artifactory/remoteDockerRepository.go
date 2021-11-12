@@ -622,6 +622,10 @@ func (o RemoteDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteDo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryInput)(nil)).Elem(), &RemoteDockerRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryPtrInput)(nil)).Elem(), &RemoteDockerRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryArrayInput)(nil)).Elem(), RemoteDockerRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryMapInput)(nil)).Elem(), RemoteDockerRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryArrayOutput{})

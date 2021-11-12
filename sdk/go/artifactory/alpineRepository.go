@@ -397,6 +397,10 @@ func (o AlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) AlpineReposito
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryInput)(nil)).Elem(), &AlpineRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryPtrInput)(nil)).Elem(), &AlpineRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryArrayInput)(nil)).Elem(), AlpineRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryMapInput)(nil)).Elem(), AlpineRepositoryMap{})
 	pulumi.RegisterOutputType(AlpineRepositoryOutput{})
 	pulumi.RegisterOutputType(AlpineRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(AlpineRepositoryArrayOutput{})

@@ -590,6 +590,10 @@ func (o RemoteCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCar
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryInput)(nil)).Elem(), &RemoteCargoRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryPtrInput)(nil)).Elem(), &RemoteCargoRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryArrayInput)(nil)).Elem(), RemoteCargoRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryMapInput)(nil)).Elem(), RemoteCargoRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryArrayOutput{})

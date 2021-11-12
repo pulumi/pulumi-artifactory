@@ -451,6 +451,10 @@ func (o DebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) DebianReposito
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryInput)(nil)).Elem(), &DebianRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryPtrInput)(nil)).Elem(), &DebianRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryArrayInput)(nil)).Elem(), DebianRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryMapInput)(nil)).Elem(), DebianRepositoryMap{})
 	pulumi.RegisterOutputType(DebianRepositoryOutput{})
 	pulumi.RegisterOutputType(DebianRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DebianRepositoryArrayOutput{})

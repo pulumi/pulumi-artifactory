@@ -330,6 +330,10 @@ func (o SingleReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) SingleR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigInput)(nil)).Elem(), &SingleReplicationConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigPtrInput)(nil)).Elem(), &SingleReplicationConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigArrayInput)(nil)).Elem(), SingleReplicationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigMapInput)(nil)).Elem(), SingleReplicationConfigMap{})
 	pulumi.RegisterOutputType(SingleReplicationConfigOutput{})
 	pulumi.RegisterOutputType(SingleReplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(SingleReplicationConfigArrayOutput{})

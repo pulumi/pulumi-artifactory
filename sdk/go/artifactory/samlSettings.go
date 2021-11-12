@@ -428,6 +428,10 @@ func (o SamlSettingsMapOutput) MapIndex(k pulumi.StringInput) SamlSettingsOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsInput)(nil)).Elem(), &SamlSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsPtrInput)(nil)).Elem(), &SamlSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsArrayInput)(nil)).Elem(), SamlSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsMapInput)(nil)).Elem(), SamlSettingsMap{})
 	pulumi.RegisterOutputType(SamlSettingsOutput{})
 	pulumi.RegisterOutputType(SamlSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SamlSettingsArrayOutput{})

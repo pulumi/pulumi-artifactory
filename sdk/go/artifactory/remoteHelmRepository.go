@@ -575,6 +575,10 @@ func (o RemoteHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteHelm
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryInput)(nil)).Elem(), &RemoteHelmRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryPtrInput)(nil)).Elem(), &RemoteHelmRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryArrayInput)(nil)).Elem(), RemoteHelmRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryMapInput)(nil)).Elem(), RemoteHelmRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryArrayOutput{})

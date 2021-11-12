@@ -384,6 +384,10 @@ func (o VirtualRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualReposi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryInput)(nil)).Elem(), &VirtualRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryPtrInput)(nil)).Elem(), &VirtualRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryArrayInput)(nil)).Elem(), VirtualRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryMapInput)(nil)).Elem(), VirtualRepositoryMap{})
 	pulumi.RegisterOutputType(VirtualRepositoryOutput{})
 	pulumi.RegisterOutputType(VirtualRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRepositoryArrayOutput{})

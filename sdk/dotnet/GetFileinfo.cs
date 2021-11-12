@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Artifactory
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Artifactory
         /// </summary>
         public static Task<GetFileinfoResult> InvokeAsync(GetFileinfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithVersion());
+
+        /// <summary>
+        /// ## # Artifactory File Info Data Source
+        /// 
+        /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var my_file = Output.Create(Artifactory.GetFileinfo.InvokeAsync(new Artifactory.GetFileinfoArgs
+        ///         {
+        ///             Path = "/path/to/the/artifact.zip",
+        ///             Repository = "repo-key",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithVersion());
     }
 
 
@@ -60,6 +93,25 @@ namespace Pulumi.Artifactory
         public string Repository { get; set; } = null!;
 
         public GetFileinfoArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileinfoInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The path to the file within the repository.
+        /// </summary>
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the repository where the file is stored.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetFileinfoInvokeArgs()
         {
         }
     }
