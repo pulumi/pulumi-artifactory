@@ -21,4 +21,4 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return basePython
 }
 
-//TODO: add the test for the local repository look at Sumologic; https://github.com/pulumi/pulumi-sumologic/blob/master/examples/examples_nodejs_test.go
+//TODO: add the test for the local repository once the Pyton example exists

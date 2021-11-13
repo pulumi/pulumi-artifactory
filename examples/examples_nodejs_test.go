@@ -19,7 +19,7 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 
 	return baseJS
 }
-func TestAccLocalRepositoryTs(t *testing.T) { //TODO this dhouls be TestAccLocalRepositoryTs
+func TestAccLocalRepositoryTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "local-repository", "ts"),
