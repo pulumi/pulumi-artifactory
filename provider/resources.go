@@ -12,29 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package artifactory
 
 import (
 	"fmt"
 	"path/filepath"
 	"unicode"
 
+	"github.com/jfrog/terraform-provider-artifactory/pkg/artifactory"
+	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi-xyz/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-xyz/xyz"
 )
 
 // all of the token components used below.
 const (
 	// This variable controls the default name of the package in the package
 	// registries for nodejs and python:
-	mainPkg = "xyz"
+	mainPkg = "artifactory"
 	// modules:
-	mainMod = "index" // the xyz module
+	mainMod = "index" // the artifactory module
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -63,20 +63,6 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod+"/"+fn, res)
 }
 
-// boolRef returns a reference to the bool argument.
-func boolRef(b bool) *bool {
-	return &b
-}
-
-// stringValue gets a string value from a property map if present, else ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey) string {
-	val, ok := vars[prop]
-	if ok && val.IsString() {
-		return val.StringValue()
-	}
-	return ""
-}
-
 // preConfigureCallback is called before the providerConfigure function of the underlying provider.
 // It should validate that the provider can be configured, and provide actionable errors in the case
 // it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
@@ -85,52 +71,65 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	return nil
 }
 
-// managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
-var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(xyz.Provider())
+	p := shimv2.NewProvider(artifactory.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "xyz",
-		Description: "A Pulumi package for creating and managing xyz cloud resources.",
-		Keywords:    []string{"pulumi", "xyz"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-xyz",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
-		},
+		P:                    p,
+		Name:                 "artifactory",
+		Description:          "A Pulumi package for creating and managing artifactory cloud resources.",
+		Keywords:             []string{"pulumi", "artifactory"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		Repository:           "https://github.com/pulumi/pulumi-artifactory",
+		GitHubOrg:            "jfrog",
+		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
-		Resources:            map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"artifactory_access_token": {
+				Tok: makeResource(mainMod, "AccessToken"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"access_token": {CSharpName: "Details"},
+				},
+			},
+			"artifactory_api_key": {
+				Tok: makeResource(mainMod, "ApiKey"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"api_key": {CSharpName: "Key"},
+				},
+			},
+			"artifactory_certificate":                {Tok: makeResource(mainMod, "Certificate")},
+			"artifactory_general_security":           {Tok: makeResource(mainMod, "GeneralSecurity")},
+			"artifactory_group":                      {Tok: makeResource(mainMod, "Group")},
+			"artifactory_keypair":                    {Tok: makeResource(mainMod, "Keypair")},
+			"artifactory_local_alpine_repository":    {Tok: makeResource(mainMod, "AlpineRepository")},
+			"artifactory_local_debian_repository":    {Tok: makeResource(mainMod, "DebianRepository")},
+			"artifactory_local_docker_v1_repository": {Tok: makeResource(mainMod, "DockerV1Repository")},
+			"artifactory_local_docker_v2_repository": {Tok: makeResource(mainMod, "DockerV2Repository")},
+			"artifactory_local_repository":           {Tok: makeResource(mainMod, "LocalRepository")},
+			"artifactory_oauth_settings":             {Tok: makeResource(mainMod, "OauthSettings")},
+			"artifactory_permission_target":          {Tok: makeResource(mainMod, "PermissionTarget")},
+			"artifactory_permission_targets":         {Tok: makeResource(mainMod, "PermissionTargets")},
+			"artifactory_remote_cargo_repository":    {Tok: makeResource(mainMod, "RemoteCargoRepository")},
+			"artifactory_remote_docker_repository":   {Tok: makeResource(mainMod, "RemoteDockerRepository")},
+			"artifactory_remote_helm_repository":     {Tok: makeResource(mainMod, "RemoteHelmRepository")},
+			"artifactory_remote_repository":          {Tok: makeResource(mainMod, "RemoteRepository")},
+			"artifactory_replication_config":         {Tok: makeResource(mainMod, "ReplicationConfig")},
+			"artifactory_saml_settings":              {Tok: makeResource(mainMod, "SamlSettings")},
+			"artifactory_single_replication_config":  {Tok: makeResource(mainMod, "SingleReplicationConfig")},
+			"artifactory_user":                       {Tok: makeResource(mainMod, "User")},
+			"artifactory_virtual_go_repository":      {Tok: makeResource(mainMod, "GoRepository")},
+			"artifactory_virtual_maven_repository":   {Tok: makeResource(mainMod, "MavenRepository")},
+			"artifactory_virtual_repository":         {Tok: makeResource(mainMod, "VirtualRepository")},
+			"artifactory_xray_policy":                {Tok: makeResource(mainMod, "XrayPolicy")},
+			"artifactory_xray_watch":                 {Tok: makeResource(mainMod, "XrayWatch")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
+			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},
+			"artifactory_fileinfo": {Tok: makeDataSource(mainMod, "getFileinfo")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// List any npm dependencies and their versions
@@ -141,10 +140,6 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
-			// See the documentation for tfbridge.OverlayInfo for how to lay out this
-			// section, or refer to the AWS provider. Delete this section if there are
-			// no overlay files.
-			//Overlay: &tfbridge.OverlayInfo{},
 		},
 		Python: &tfbridge.PythonInfo{
 			// List any Python dependencies and their version ranges
