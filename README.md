@@ -1,10 +1,10 @@
-[![Actions Status](https://github.com/pulumi/pulumi-artifactory/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-artifactory/actions)
+[![Actions Status](https://github.com/pulumi/pulumi-artifactory/workflows/main/badge.svg)](https://github.com/pulumi/pulumi-artifactory/actions)
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fartifactory.svg)](https://www.npmjs.com/package/@pulumi/artifactory)
 [![Python version](https://badge.fury.io/py/pulumi-artifactory.svg)](https://pypi.org/project/pulumi-artifactory)
 [![NuGet version](https://badge.fury.io/nu/pulumi.artifactory.svg)](https://badge.fury.io/nu/pulumi.artifactory)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-artifactory/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-artifactory/sdk/go)
-[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-artifactory/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-artifactory/blob/main/LICENSE)
 
 # Artifactory Resource Provider
 
