@@ -78,38 +78,17 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "artifactory",
-		Description: "A Pulumi package for creating and managing artifactory cloud resources.",
-		Keywords:    []string{"pulumi", "artifactory"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-artifactory",
-		GitHubOrg:   "jfrog",
-		Config:      map[string]*tfbridge.SchemaInfo{
-			// Add any required configuration here, or remove the example below if
-			// no additional points are required.
-			// "region": {
-			// 	Type: makeType("region", "Region"),
-			// 	Default: &tfbridge.DefaultInfo{
-			// 		EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
-			// 	},
-			// },
-		},
+		P:                    p,
+		Name:                 "artifactory",
+		Description:          "A Pulumi package for creating and managing artifactory cloud resources.",
+		Keywords:             []string{"pulumi", "artifactory"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		Repository:           "https://github.com/pulumi/pulumi-artifactory",
+		GitHubOrg:            "jfrog",
+		Config:               map[string]*tfbridge.SchemaInfo{},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi type. Two examples
-			// are below - the single line form is the common case. The multi-line form is
-			// needed only if you wish to override types or other default options.
-			//
-			// "aws_iam_role": {Tok: makeResource(mainMod, "IamRole")}
-			//
-			// "aws_acm_certificate": {
-			// 	Tok: makeResource(mainMod, "Certificate"),
-			// 	Fields: map[string]*tfbridge.SchemaInfo{
-			// 		"tags": {Type: makeType(mainPkg, "Tags")},
-			// 	},
-			// },
 			"artifactory_access_token": {
 				Tok: makeResource(mainMod, "AccessToken"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -149,9 +128,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_xray_watch":                 {Tok: makeResource(mainMod, "XrayWatch")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Map each resource in the Terraform provider to a Pulumi function. An example
-			// is below.
-			// "aws_ami": {Tok: makeDataSource(mainMod, "getAmi")},
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},
 			"artifactory_fileinfo": {Tok: makeDataSource(mainMod, "getFileinfo")},
 		},
@@ -164,10 +140,6 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/mime": "^2.0.0",
 			},
-			// See the documentation for tfbridge.OverlayInfo for how to lay out this
-			// section, or refer to the AWS provider. Delete this section if there are
-			// no overlay files.
-			//Overlay: &tfbridge.OverlayInfo{},
 		},
 		Python: &tfbridge.PythonInfo{
 			// List any Python dependencies and their version ranges

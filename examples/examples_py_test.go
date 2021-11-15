@@ -21,4 +21,11 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return basePython
 }
 
-//TODO: add the test for the local repository once the Pyton example exists
+func TestAccLocalRepositoryPy(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "local-repository", "py"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
