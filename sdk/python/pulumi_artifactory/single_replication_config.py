@@ -17,7 +17,6 @@ class SingleReplicationConfigArgs:
                  repo_key: pulumi.Input[str],
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
@@ -27,7 +26,6 @@ class SingleReplicationConfigArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SingleReplicationConfig resource.
-        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -35,8 +33,6 @@ class SingleReplicationConfigArgs:
             pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
         if socket_timeout_millis is not None:
@@ -87,18 +83,6 @@ class SingleReplicationConfigArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Requires password encryption to be turned off `POST /api/system/decrypt`
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="pathPrefix")
@@ -328,7 +312,6 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
@@ -349,7 +332,6 @@ class SingleReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`
         """
         ...
     @overload
@@ -384,7 +366,6 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
@@ -410,7 +391,6 @@ class SingleReplicationConfig(pulumi.CustomResource):
             __props__.__dict__["cron_exp"] = cron_exp
             __props__.__dict__["enable_event_replication"] = enable_event_replication
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["password"] = password
             __props__.__dict__["path_prefix"] = path_prefix
             if repo_key is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_key'")
@@ -421,6 +401,7 @@ class SingleReplicationConfig(pulumi.CustomResource):
             __props__.__dict__["sync_statistics"] = sync_statistics
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
+            __props__.__dict__["password"] = None
         super(SingleReplicationConfig, __self__).__init__(
             'artifactory:index/singleReplicationConfig:SingleReplicationConfig',
             resource_name,
@@ -487,7 +468,7 @@ class SingleReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[Optional[str]]:
+    def password(self) -> pulumi.Output[str]:
         """
         Requires password encryption to be turned off `POST /api/system/decrypt`
         """

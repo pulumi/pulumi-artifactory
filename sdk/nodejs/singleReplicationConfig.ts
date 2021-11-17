@@ -47,7 +47,7 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
     /**
      * Requires password encryption to be turned off `POST /api/system/decrypt`
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly password!: pulumi.Output<string>;
     public readonly pathPrefix!: pulumi.Output<string | undefined>;
     public readonly repoKey!: pulumi.Output<string>;
     public readonly socketTimeoutMillis!: pulumi.Output<number>;
@@ -93,7 +93,6 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
             inputs["cronExp"] = args ? args.cronExp : undefined;
             inputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["password"] = args ? args.password : undefined;
             inputs["pathPrefix"] = args ? args.pathPrefix : undefined;
             inputs["repoKey"] = args ? args.repoKey : undefined;
             inputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
@@ -102,6 +101,7 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
             inputs["syncStatistics"] = args ? args.syncStatistics : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["username"] = args ? args.username : undefined;
+            inputs["password"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -138,10 +138,6 @@ export interface SingleReplicationConfigArgs {
     cronExp: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`
-     */
-    password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
     repoKey: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;

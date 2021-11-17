@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## # Artifactory Local Docker V2 Repository Resource
     /// 
-    /// Creates a local docker v2 repository
+    /// Creates a local Docker v2 repository
     /// 
     /// ## Example Usage
     /// 
@@ -72,6 +72,9 @@ namespace Pulumi.Artifactory
 
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
+
+        [Output("indexCompressionFormats")]
+        public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
         /// - the identity key of the repo
@@ -183,6 +186,14 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        [Input("indexCompressionFormats")]
+        private InputList<string>? _indexCompressionFormats;
+        public InputList<string> IndexCompressionFormats
+        {
+            get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
+            set => _indexCompressionFormats = value;
+        }
+
         /// <summary>
         /// - the identity key of the repo
         /// </summary>
@@ -261,6 +272,14 @@ namespace Pulumi.Artifactory
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
+
+        [Input("indexCompressionFormats")]
+        private InputList<string>? _indexCompressionFormats;
+        public InputList<string> IndexCompressionFormats
+        {
+            get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
+            set => _indexCompressionFormats = value;
+        }
 
         /// <summary>
         /// - the identity key of the repo

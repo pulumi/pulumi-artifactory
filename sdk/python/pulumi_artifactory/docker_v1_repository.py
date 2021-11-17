@@ -20,6 +20,7 @@ class DockerV1RepositoryArgs:
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -48,6 +49,8 @@ class DockerV1RepositoryArgs:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if max_unique_tags is not None:
             pulumi.set(__self__, "max_unique_tags", max_unique_tags)
         if notes is not None:
@@ -131,6 +134,15 @@ class DockerV1RepositoryArgs:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
         """
@@ -192,6 +204,7 @@ class _DockerV1RepositoryState:
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -230,6 +243,8 @@ class _DockerV1RepositoryState:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if max_unique_tags is not None:
@@ -331,6 +346,15 @@ class _DockerV1RepositoryState:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -426,6 +450,7 @@ class DockerV1Repository(pulumi.CustomResource):
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -436,7 +461,7 @@ class DockerV1Repository(pulumi.CustomResource):
         """
         ## # Artifactory Local Docker V1 Repository Resource
 
-        Creates a local docker v1 repository - By choosing a V1 repository, you don't really have many options
+        Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
 
         ## Example Usage
 
@@ -466,7 +491,7 @@ class DockerV1Repository(pulumi.CustomResource):
         """
         ## # Artifactory Local Docker V1 Repository Resource
 
-        Creates a local docker v1 repository - By choosing a V1 repository, you don't really have many options
+        Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
 
         ## Example Usage
 
@@ -498,6 +523,7 @@ class DockerV1Repository(pulumi.CustomResource):
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -522,6 +548,7 @@ class DockerV1Repository(pulumi.CustomResource):
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
+            __props__.__dict__["index_compression_formats"] = index_compression_formats
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -552,6 +579,7 @@ class DockerV1Repository(pulumi.CustomResource):
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
+            index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key: Optional[pulumi.Input[str]] = None,
             max_unique_tags: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
@@ -591,6 +619,7 @@ class DockerV1Repository(pulumi.CustomResource):
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
+        __props__.__dict__["index_compression_formats"] = index_compression_formats
         __props__.__dict__["key"] = key
         __props__.__dict__["max_unique_tags"] = max_unique_tags
         __props__.__dict__["notes"] = notes
@@ -651,6 +680,11 @@ class DockerV1Repository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
         return pulumi.get(self, "includes_pattern")
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "index_compression_formats")
 
     @property
     @pulumi.getter

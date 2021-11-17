@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.6.18 of the Jfrog Artifactory Terraform Provider
 
  ---
 

@@ -268,7 +268,7 @@ export interface ReplicationConfigReplication {
     /**
      * Requires password encryption to be turned off `POST /api/system/decrypt`
      */
-    password?: string;
+    password: string;
     pathPrefix?: string;
     socketTimeoutMillis: number;
     syncDeletes: boolean;
