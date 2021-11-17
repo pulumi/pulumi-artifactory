@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Local Alpine Repository Resource
  *
- * Creates a local alpine repository and allows for the creation of a
+ * Creates a local Alpine repository and allows for the creation of a
  *
  * ## Example Usage
  *

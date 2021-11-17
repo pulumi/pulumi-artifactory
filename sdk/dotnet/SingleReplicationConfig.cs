@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory
         /// Requires password encryption to be turned off `POST /api/system/decrypt`
         /// </summary>
         [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
+        public Output<string> Password { get; private set; } = null!;
 
         [Output("pathPrefix")]
         public Output<string?> PathPrefix { get; private set; } = null!;
@@ -114,12 +114,6 @@ namespace Pulumi.Artifactory
 
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
 
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
