@@ -247,6 +247,21 @@ export interface PermissionTargetsRepoActionsUser {
     permissions: string[];
 }
 
+export interface PushReplicationReplication {
+    enabled: boolean;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`
+     */
+    password: string;
+    pathPrefix?: string;
+    socketTimeoutMillis: number;
+    syncDeletes: boolean;
+    syncProperties: boolean;
+    syncStatistics: boolean;
+    url?: string;
+    username?: string;
+}
+
 export interface RemoteCargoRepositoryContentSynchronisation {
     enabled?: boolean;
 }
@@ -256,6 +271,10 @@ export interface RemoteDockerRepositoryContentSynchronisation {
 }
 
 export interface RemoteHelmRepositoryContentSynchronisation {
+    enabled?: boolean;
+}
+
+export interface RemoteNpmRepositoryContentSynchronisation {
     enabled?: boolean;
 }
 

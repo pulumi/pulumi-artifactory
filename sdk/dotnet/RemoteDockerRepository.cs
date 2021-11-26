@@ -164,6 +164,9 @@ namespace Pulumi.Artifactory
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        [Output("priorityResolution")]
+        public Output<bool> PriorityResolution { get; private set; } = null!;
+
         [Output("propagateQueryParams")]
         public Output<bool?> PropagateQueryParams { get; private set; } = null!;
 
@@ -172,6 +175,9 @@ namespace Pulumi.Artifactory
 
         [Output("proxy")]
         public Output<string> Proxy { get; private set; } = null!;
+
+        [Output("remoteRepoLayoutRef")]
+        public Output<string> RemoteRepoLayoutRef { get; private set; } = null!;
 
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
@@ -350,9 +356,6 @@ namespace Pulumi.Artifactory
             set => _externalDependenciesPatterns = value;
         }
 
-        [Input("failedRetrievalCachePeriodSecs")]
-        public Input<int>? FailedRetrievalCachePeriodSecs { get; set; }
-
         [Input("hardFail")]
         public Input<bool>? HardFail { get; set; }
 
@@ -386,6 +389,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
+
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -399,6 +405,9 @@ namespace Pulumi.Artifactory
 
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
+
+        [Input("remoteRepoLayoutRef")]
+        public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -577,6 +586,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
+
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -590,6 +602,9 @@ namespace Pulumi.Artifactory
 
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
+
+        [Input("remoteRepoLayoutRef")]
+        public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

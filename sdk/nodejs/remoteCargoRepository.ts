@@ -97,7 +97,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
     /**
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
-    public readonly failedRetrievalCachePeriodSecs!: pulumi.Output<number>;
+    public /*out*/ readonly failedRetrievalCachePeriodSecs!: pulumi.Output<number>;
     /**
      * - This is the index url, expected to be a git repository. for remote artifactory use "arturl/git/repokey.git"
      */
@@ -120,9 +120,11 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
     public readonly offline!: pulumi.Output<boolean>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     public readonly password!: pulumi.Output<string | undefined>;
+    public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly proxy!: pulumi.Output<string>;
+    public readonly remoteRepoLayoutRef!: pulumi.Output<string>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -182,9 +184,11 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             inputs["offline"] = state ? state.offline : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
             inputs["password"] = state ? state.password : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propagateQueryParams"] = state ? state.propagateQueryParams : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["proxy"] = state ? state.proxy : undefined;
+            inputs["remoteRepoLayoutRef"] = state ? state.remoteRepoLayoutRef : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
             inputs["shareConfiguration"] = state ? state.shareConfiguration : undefined;
@@ -218,7 +222,6 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["failedRetrievalCachePeriodSecs"] = args ? args.failedRetrievalCachePeriodSecs : undefined;
             inputs["gitRegistryUrl"] = args ? args.gitRegistryUrl : undefined;
             inputs["hardFail"] = args ? args.hardFail : undefined;
             inputs["includesPattern"] = args ? args.includesPattern : undefined;
@@ -228,9 +231,11 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["offline"] = args ? args.offline : undefined;
             inputs["password"] = args ? args.password : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propagateQueryParams"] = args ? args.propagateQueryParams : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["proxy"] = args ? args.proxy : undefined;
+            inputs["remoteRepoLayoutRef"] = args ? args.remoteRepoLayoutRef : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
             inputs["shareConfiguration"] = args ? args.shareConfiguration : undefined;
@@ -242,6 +247,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             inputs["url"] = args ? args.url : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            inputs["failedRetrievalCachePeriodSecs"] = undefined /*out*/;
             inputs["packageType"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -316,9 +322,11 @@ export interface RemoteCargoRepositoryState {
     offline?: pulumi.Input<boolean>;
     packageType?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
+    priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
+    remoteRepoLayoutRef?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -384,10 +392,6 @@ export interface RemoteCargoRepositoryArgs {
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     /**
-     * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-     */
-    failedRetrievalCachePeriodSecs?: pulumi.Input<number>;
-    /**
      * - This is the index url, expected to be a git repository. for remote artifactory use "arturl/git/repokey.git"
      */
     gitRegistryUrl: pulumi.Input<string>;
@@ -408,9 +412,11 @@ export interface RemoteCargoRepositoryArgs {
      */
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
+    priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
+    remoteRepoLayoutRef?: pulumi.Input<string>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.

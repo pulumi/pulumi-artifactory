@@ -85,6 +85,9 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        [Output("indexCompressionFormats")]
+        public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
+
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -203,6 +206,14 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        [Input("indexCompressionFormats")]
+        private InputList<string>? _indexCompressionFormats;
+        public InputList<string> IndexCompressionFormats
+        {
+            get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
+            set => _indexCompressionFormats = value;
+        }
+
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -286,6 +297,14 @@ namespace Pulumi.Artifactory
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
+
+        [Input("indexCompressionFormats")]
+        private InputList<string>? _indexCompressionFormats;
+        public InputList<string> IndexCompressionFormats
+        {
+            get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
+            set => _indexCompressionFormats = value;
+        }
 
         [Input("key")]
         public Input<string>? Key { get; set; }

@@ -62,6 +62,7 @@ type LocalRepository struct {
 	HandleReleases               pulumi.BoolOutput        `pulumi:"handleReleases"`
 	HandleSnapshots              pulumi.BoolOutput        `pulumi:"handleSnapshots"`
 	IncludesPattern              pulumi.StringOutput      `pulumi:"includesPattern"`
+	IndexCompressionFormats      pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
 	Key                          pulumi.StringOutput      `pulumi:"key"`
 	MaxUniqueSnapshots           pulumi.IntOutput         `pulumi:"maxUniqueSnapshots"`
 	MaxUniqueTags                pulumi.IntOutput         `pulumi:"maxUniqueTags"`
@@ -120,6 +121,7 @@ type localRepositoryState struct {
 	HandleReleases               *bool    `pulumi:"handleReleases"`
 	HandleSnapshots              *bool    `pulumi:"handleSnapshots"`
 	IncludesPattern              *string  `pulumi:"includesPattern"`
+	IndexCompressionFormats      []string `pulumi:"indexCompressionFormats"`
 	Key                          *string  `pulumi:"key"`
 	MaxUniqueSnapshots           *int     `pulumi:"maxUniqueSnapshots"`
 	MaxUniqueTags                *int     `pulumi:"maxUniqueTags"`
@@ -147,6 +149,7 @@ type LocalRepositoryState struct {
 	HandleReleases               pulumi.BoolPtrInput
 	HandleSnapshots              pulumi.BoolPtrInput
 	IncludesPattern              pulumi.StringPtrInput
+	IndexCompressionFormats      pulumi.StringArrayInput
 	Key                          pulumi.StringPtrInput
 	MaxUniqueSnapshots           pulumi.IntPtrInput
 	MaxUniqueTags                pulumi.IntPtrInput
@@ -178,6 +181,7 @@ type localRepositoryArgs struct {
 	HandleReleases               *bool    `pulumi:"handleReleases"`
 	HandleSnapshots              *bool    `pulumi:"handleSnapshots"`
 	IncludesPattern              *string  `pulumi:"includesPattern"`
+	IndexCompressionFormats      []string `pulumi:"indexCompressionFormats"`
 	Key                          string   `pulumi:"key"`
 	MaxUniqueSnapshots           *int     `pulumi:"maxUniqueSnapshots"`
 	MaxUniqueTags                *int     `pulumi:"maxUniqueTags"`
@@ -206,6 +210,7 @@ type LocalRepositoryArgs struct {
 	HandleReleases               pulumi.BoolPtrInput
 	HandleSnapshots              pulumi.BoolPtrInput
 	IncludesPattern              pulumi.StringPtrInput
+	IndexCompressionFormats      pulumi.StringArrayInput
 	Key                          pulumi.StringInput
 	MaxUniqueSnapshots           pulumi.IntPtrInput
 	MaxUniqueTags                pulumi.IntPtrInput

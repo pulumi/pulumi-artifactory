@@ -148,6 +148,9 @@ namespace Pulumi.Artifactory
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        [Output("priorityResolution")]
+        public Output<bool> PriorityResolution { get; private set; } = null!;
+
         [Output("propagateQueryParams")]
         public Output<bool?> PropagateQueryParams { get; private set; } = null!;
 
@@ -156,6 +159,9 @@ namespace Pulumi.Artifactory
 
         [Output("proxy")]
         public Output<string> Proxy { get; private set; } = null!;
+
+        [Output("remoteRepoLayoutRef")]
+        public Output<string> RemoteRepoLayoutRef { get; private set; } = null!;
 
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
@@ -305,9 +311,6 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
-        [Input("failedRetrievalCachePeriodSecs")]
-        public Input<int>? FailedRetrievalCachePeriodSecs { get; set; }
-
         /// <summary>
         /// - This is the index url, expected to be a git repository. for remote artifactory use "arturl/git/repokey.git"
         /// </summary>
@@ -347,6 +350,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
+
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -360,6 +366,9 @@ namespace Pulumi.Artifactory
 
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
+
+        [Input("remoteRepoLayoutRef")]
+        public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -515,6 +524,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
+
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -528,6 +540,9 @@ namespace Pulumi.Artifactory
 
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
+
+        [Input("remoteRepoLayoutRef")]
+        public Input<string>? RemoteRepoLayoutRef { get; set; }
 
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

@@ -31,7 +31,6 @@ class RemoteDockerRepositoryArgs:
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
                  external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
@@ -39,9 +38,11 @@ class RemoteDockerRepositoryArgs:
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
+                 remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
@@ -112,11 +113,6 @@ class RemoteDockerRepositoryArgs:
             pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
         if external_dependencies_patterns is not None:
             pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
-        if failed_retrieval_cache_period_secs is not None:
-            warnings.warn("""This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""", DeprecationWarning)
-            pulumi.log.warn("""failed_retrieval_cache_period_secs is deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""")
-        if failed_retrieval_cache_period_secs is not None:
-            pulumi.set(__self__, "failed_retrieval_cache_period_secs", failed_retrieval_cache_period_secs)
         if hard_fail is not None:
             pulumi.set(__self__, "hard_fail", hard_fail)
         if includes_pattern is not None:
@@ -131,12 +127,16 @@ class RemoteDockerRepositoryArgs:
             pulumi.set(__self__, "offline", offline)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if propagate_query_params is not None:
             pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
             pulumi.set(__self__, "proxy", proxy)
+        if remote_repo_layout_ref is not None:
+            pulumi.set(__self__, "remote_repo_layout_ref", remote_repo_layout_ref)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
@@ -344,15 +344,6 @@ class RemoteDockerRepositoryArgs:
         pulumi.set(self, "external_dependencies_patterns", value)
 
     @property
-    @pulumi.getter(name="failedRetrievalCachePeriodSecs")
-    def failed_retrieval_cache_period_secs(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "failed_retrieval_cache_period_secs")
-
-    @failed_retrieval_cache_period_secs.setter
-    def failed_retrieval_cache_period_secs(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "failed_retrieval_cache_period_secs", value)
-
-    @property
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "hard_fail")
@@ -422,6 +413,15 @@ class RemoteDockerRepositoryArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "propagate_query_params")
@@ -447,6 +447,15 @@ class RemoteDockerRepositoryArgs:
     @proxy.setter
     def proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "proxy", value)
+
+    @property
+    @pulumi.getter(name="remoteRepoLayoutRef")
+    def remote_repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "remote_repo_layout_ref")
+
+    @remote_repo_layout_ref.setter
+    def remote_repo_layout_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_repo_layout_ref", value)
 
     @property
     @pulumi.getter(name="repoLayoutRef")
@@ -578,9 +587,11 @@ class _RemoteDockerRepositoryState:
                  offline: Optional[pulumi.Input[bool]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
+                 remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
@@ -673,12 +684,16 @@ class _RemoteDockerRepositoryState:
             pulumi.set(__self__, "package_type", package_type)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if propagate_query_params is not None:
             pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
             pulumi.set(__self__, "proxy", proxy)
+        if remote_repo_layout_ref is not None:
+            pulumi.set(__self__, "remote_repo_layout_ref", remote_repo_layout_ref)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if retrieval_cache_period_seconds is not None:
@@ -963,6 +978,15 @@ class _RemoteDockerRepositoryState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "propagate_query_params")
@@ -988,6 +1012,15 @@ class _RemoteDockerRepositoryState:
     @proxy.setter
     def proxy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "proxy", value)
+
+    @property
+    @pulumi.getter(name="remoteRepoLayoutRef")
+    def remote_repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "remote_repo_layout_ref")
+
+    @remote_repo_layout_ref.setter
+    def remote_repo_layout_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_repo_layout_ref", value)
 
     @property
     @pulumi.getter(name="repoLayoutRef")
@@ -1123,7 +1156,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
                  external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
@@ -1132,9 +1164,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
+                 remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
@@ -1264,7 +1298,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
                  external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
@@ -1273,9 +1306,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
+                 remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  share_configuration: Optional[pulumi.Input[bool]] = None,
@@ -1313,10 +1348,6 @@ class RemoteDockerRepository(pulumi.CustomResource):
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
             __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
-            if failed_retrieval_cache_period_secs is not None and not opts.urn:
-                warnings.warn("""This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""", DeprecationWarning)
-                pulumi.log.warn("""failed_retrieval_cache_period_secs is deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""")
-            __props__.__dict__["failed_retrieval_cache_period_secs"] = failed_retrieval_cache_period_secs
             __props__.__dict__["hard_fail"] = hard_fail
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
@@ -1327,9 +1358,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
             __props__.__dict__["notes"] = notes
             __props__.__dict__["offline"] = offline
             __props__.__dict__["password"] = password
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
+            __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
             __props__.__dict__["share_configuration"] = share_configuration
@@ -1343,6 +1376,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
             __props__.__dict__["xray_index"] = xray_index
+            __props__.__dict__["failed_retrieval_cache_period_secs"] = None
             __props__.__dict__["package_type"] = None
         super(RemoteDockerRepository, __self__).__init__(
             'artifactory:index/remoteDockerRepository:RemoteDockerRepository',
@@ -1378,9 +1412,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
             offline: Optional[pulumi.Input[bool]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             propagate_query_params: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             proxy: Optional[pulumi.Input[str]] = None,
+            remote_repo_layout_ref: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
             share_configuration: Optional[pulumi.Input[bool]] = None,
@@ -1455,9 +1491,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
         __props__.__dict__["offline"] = offline
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["password"] = password
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
+        __props__.__dict__["remote_repo_layout_ref"] = remote_repo_layout_ref
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
         __props__.__dict__["share_configuration"] = share_configuration
@@ -1636,6 +1674,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "priority_resolution")
+
+    @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "propagate_query_params")
@@ -1649,6 +1692,11 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[str]:
         return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter(name="remoteRepoLayoutRef")
+    def remote_repo_layout_ref(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "remote_repo_layout_ref")
 
     @property
     @pulumi.getter(name="repoLayoutRef")
