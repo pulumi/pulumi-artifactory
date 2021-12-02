@@ -3557,6 +3557,151 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 	}).(PermissionTargetsRepoActionsUserOutput)
 }
 
+type PushReplicationReplication struct {
+	Enabled *bool `pulumi:"enabled"`
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	Password            *string `pulumi:"password"`
+	PathPrefix          *string `pulumi:"pathPrefix"`
+	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
+	SyncDeletes         *bool   `pulumi:"syncDeletes"`
+	SyncProperties      *bool   `pulumi:"syncProperties"`
+	SyncStatistics      *bool   `pulumi:"syncStatistics"`
+	Url                 *string `pulumi:"url"`
+	Username            *string `pulumi:"username"`
+}
+
+// PushReplicationReplicationInput is an input type that accepts PushReplicationReplicationArgs and PushReplicationReplicationOutput values.
+// You can construct a concrete instance of `PushReplicationReplicationInput` via:
+//
+//          PushReplicationReplicationArgs{...}
+type PushReplicationReplicationInput interface {
+	pulumi.Input
+
+	ToPushReplicationReplicationOutput() PushReplicationReplicationOutput
+	ToPushReplicationReplicationOutputWithContext(context.Context) PushReplicationReplicationOutput
+}
+
+type PushReplicationReplicationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	Password            pulumi.StringPtrInput `pulumi:"password"`
+	PathPrefix          pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
+	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
+	SyncProperties      pulumi.BoolPtrInput   `pulumi:"syncProperties"`
+	SyncStatistics      pulumi.BoolPtrInput   `pulumi:"syncStatistics"`
+	Url                 pulumi.StringPtrInput `pulumi:"url"`
+	Username            pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (PushReplicationReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushReplicationReplication)(nil)).Elem()
+}
+
+func (i PushReplicationReplicationArgs) ToPushReplicationReplicationOutput() PushReplicationReplicationOutput {
+	return i.ToPushReplicationReplicationOutputWithContext(context.Background())
+}
+
+func (i PushReplicationReplicationArgs) ToPushReplicationReplicationOutputWithContext(ctx context.Context) PushReplicationReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationReplicationOutput)
+}
+
+// PushReplicationReplicationArrayInput is an input type that accepts PushReplicationReplicationArray and PushReplicationReplicationArrayOutput values.
+// You can construct a concrete instance of `PushReplicationReplicationArrayInput` via:
+//
+//          PushReplicationReplicationArray{ PushReplicationReplicationArgs{...} }
+type PushReplicationReplicationArrayInput interface {
+	pulumi.Input
+
+	ToPushReplicationReplicationArrayOutput() PushReplicationReplicationArrayOutput
+	ToPushReplicationReplicationArrayOutputWithContext(context.Context) PushReplicationReplicationArrayOutput
+}
+
+type PushReplicationReplicationArray []PushReplicationReplicationInput
+
+func (PushReplicationReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PushReplicationReplication)(nil)).Elem()
+}
+
+func (i PushReplicationReplicationArray) ToPushReplicationReplicationArrayOutput() PushReplicationReplicationArrayOutput {
+	return i.ToPushReplicationReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i PushReplicationReplicationArray) ToPushReplicationReplicationArrayOutputWithContext(ctx context.Context) PushReplicationReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationReplicationArrayOutput)
+}
+
+type PushReplicationReplicationOutput struct{ *pulumi.OutputState }
+
+func (PushReplicationReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PushReplicationReplication)(nil)).Elem()
+}
+
+func (o PushReplicationReplicationOutput) ToPushReplicationReplicationOutput() PushReplicationReplicationOutput {
+	return o
+}
+
+func (o PushReplicationReplicationOutput) ToPushReplicationReplicationOutputWithContext(ctx context.Context) PushReplicationReplicationOutput {
+	return o
+}
+
+func (o PushReplicationReplicationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Requires password encryption to be turned off `POST /api/system/decrypt`
+func (o PushReplicationReplicationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *int { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) SyncDeletes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncDeletes }).(pulumi.BoolPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) SyncProperties() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncProperties }).(pulumi.BoolPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) SyncStatistics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncStatistics }).(pulumi.BoolPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+func (o PushReplicationReplicationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type PushReplicationReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (PushReplicationReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PushReplicationReplication)(nil)).Elem()
+}
+
+func (o PushReplicationReplicationArrayOutput) ToPushReplicationReplicationArrayOutput() PushReplicationReplicationArrayOutput {
+	return o
+}
+
+func (o PushReplicationReplicationArrayOutput) ToPushReplicationReplicationArrayOutputWithContext(ctx context.Context) PushReplicationReplicationArrayOutput {
+	return o
+}
+
+func (o PushReplicationReplicationArrayOutput) Index(i pulumi.IntInput) PushReplicationReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PushReplicationReplication {
+		return vs[0].([]PushReplicationReplication)[vs[1].(int)]
+	}).(PushReplicationReplicationOutput)
+}
+
 type RemoteCargoRepositoryContentSynchronisation struct {
 	Enabled *bool `pulumi:"enabled"`
 }
@@ -3949,6 +4094,139 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Elem() RemoteHelmRe
 
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RemoteNpmRepositoryContentSynchronisation struct {
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// RemoteNpmRepositoryContentSynchronisationInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs and RemoteNpmRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteNpmRepositoryContentSynchronisationInput` via:
+//
+//          RemoteNpmRepositoryContentSynchronisationArgs{...}
+type RemoteNpmRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteNpmRepositoryContentSynchronisationOutput() RemoteNpmRepositoryContentSynchronisationOutput
+	ToRemoteNpmRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteNpmRepositoryContentSynchronisationOutput
+}
+
+type RemoteNpmRepositoryContentSynchronisationArgs struct {
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (RemoteNpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteNpmRepositoryContentSynchronisationArgs) ToRemoteNpmRepositoryContentSynchronisationOutput() RemoteNpmRepositoryContentSynchronisationOutput {
+	return i.ToRemoteNpmRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteNpmRepositoryContentSynchronisationArgs) ToRemoteNpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteNpmRepositoryContentSynchronisationArgs) ToRemoteNpmRepositoryContentSynchronisationPtrOutput() RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteNpmRepositoryContentSynchronisationArgs) ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryContentSynchronisationOutput).ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteNpmRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs, RemoteNpmRepositoryContentSynchronisationPtr and RemoteNpmRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteNpmRepositoryContentSynchronisationPtrInput` via:
+//
+//          RemoteNpmRepositoryContentSynchronisationArgs{...}
+//
+//  or:
+//
+//          nil
+type RemoteNpmRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteNpmRepositoryContentSynchronisationPtrOutput() RemoteNpmRepositoryContentSynchronisationPtrOutput
+	ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteNpmRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteNpmRepositoryContentSynchronisationPtrType RemoteNpmRepositoryContentSynchronisationArgs
+
+func RemoteNpmRepositoryContentSynchronisationPtr(v *RemoteNpmRepositoryContentSynchronisationArgs) RemoteNpmRepositoryContentSynchronisationPtrInput {
+	return (*remoteNpmRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteNpmRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteNpmRepositoryContentSynchronisationPtrType) ToRemoteNpmRepositoryContentSynchronisationPtrOutput() RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteNpmRepositoryContentSynchronisationPtrType) ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteNpmRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteNpmRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryContentSynchronisationOutput() RemoteNpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryContentSynchronisationPtrOutput() RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteNpmRepositoryContentSynchronisation) *RemoteNpmRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteNpmRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteNpmRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteNpmRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) ToRemoteNpmRepositoryContentSynchronisationPtrOutput() RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) ToRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Elem() RemoteNpmRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) RemoteNpmRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteNpmRepositoryContentSynchronisation
+		return ret
+	}).(RemoteNpmRepositoryContentSynchronisationOutput)
+}
+
+func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
@@ -5369,12 +5647,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsGroupArrayInput)(nil)).Elem(), PermissionTargetsRepoActionsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsUserInput)(nil)).Elem(), PermissionTargetsRepoActionsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsUserArrayInput)(nil)).Elem(), PermissionTargetsRepoActionsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationInput)(nil)).Elem(), PushReplicationReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationArrayInput)(nil)).Elem(), PushReplicationReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteDockerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteDockerRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
@@ -5446,12 +5728,16 @@ func init() {
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsGroupArrayOutput{})
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsUserOutput{})
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsUserArrayOutput{})
+	pulumi.RegisterOutputType(PushReplicationReplicationOutput{})
+	pulumi.RegisterOutputType(PushReplicationReplicationArrayOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})

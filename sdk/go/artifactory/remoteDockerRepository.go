@@ -95,9 +95,11 @@ type RemoteDockerRepository struct {
 	Offline              pulumi.BoolOutput        `pulumi:"offline"`
 	PackageType          pulumi.StringOutput      `pulumi:"packageType"`
 	Password             pulumi.StringPtrOutput   `pulumi:"password"`
+	PriorityResolution   pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	PropagateQueryParams pulumi.BoolPtrOutput     `pulumi:"propagateQueryParams"`
 	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
 	Proxy                pulumi.StringOutput      `pulumi:"proxy"`
+	RemoteRepoLayoutRef  pulumi.StringOutput      `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntOutput  `pulumi:"retrievalCachePeriodSeconds"`
@@ -198,9 +200,11 @@ type remoteDockerRepositoryState struct {
 	Offline              *bool    `pulumi:"offline"`
 	PackageType          *string  `pulumi:"packageType"`
 	Password             *string  `pulumi:"password"`
+	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
+	RemoteRepoLayoutRef  *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        *string  `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
@@ -267,9 +271,11 @@ type RemoteDockerRepositoryState struct {
 	Offline              pulumi.BoolPtrInput
 	PackageType          pulumi.StringPtrInput
 	Password             pulumi.StringPtrInput
+	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput
+	RemoteRepoLayoutRef  pulumi.StringPtrInput
 	RepoLayoutRef        pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
@@ -326,10 +332,8 @@ type remoteDockerRepositoryArgs struct {
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An allow list of Ant-style path patterns that determine which remote VCS
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-	FailedRetrievalCachePeriodSecs *int    `pulumi:"failedRetrievalCachePeriodSecs"`
-	HardFail                       *bool   `pulumi:"hardFail"`
-	IncludesPattern                *string `pulumi:"includesPattern"`
+	HardFail                     *bool    `pulumi:"hardFail"`
+	IncludesPattern              *string  `pulumi:"includesPattern"`
 	// The repository identifier. Must be unique system-wide
 	Key          string  `pulumi:"key"`
 	LocalAddress *string `pulumi:"localAddress"`
@@ -339,9 +343,11 @@ type remoteDockerRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline              *bool    `pulumi:"offline"`
 	Password             *string  `pulumi:"password"`
+	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
+	RemoteRepoLayoutRef  *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        *string  `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
@@ -395,10 +401,8 @@ type RemoteDockerRepositoryArgs struct {
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An allow list of Ant-style path patterns that determine which remote VCS
 	ExternalDependenciesPatterns pulumi.StringArrayInput
-	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
-	HardFail                       pulumi.BoolPtrInput
-	IncludesPattern                pulumi.StringPtrInput
+	HardFail                     pulumi.BoolPtrInput
+	IncludesPattern              pulumi.StringPtrInput
 	// The repository identifier. Must be unique system-wide
 	Key          pulumi.StringInput
 	LocalAddress pulumi.StringPtrInput
@@ -408,9 +412,11 @@ type RemoteDockerRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline              pulumi.BoolPtrInput
 	Password             pulumi.StringPtrInput
+	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput
+	RemoteRepoLayoutRef  pulumi.StringPtrInput
 	RepoLayoutRef        pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput

@@ -77,7 +77,7 @@ namespace Pulumi.Artifactory
         /// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         /// </summary>
         [Output("externalDependenciesEnabled")]
-        public Output<bool> ExternalDependenciesEnabled { get; private set; } = null!;
+        public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// - 'go-import' Allow List on the UI.

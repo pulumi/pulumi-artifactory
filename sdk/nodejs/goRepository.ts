@@ -79,7 +79,7 @@ export class GoRepository extends pulumi.CustomResource {
     /**
      * . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
-    public readonly externalDependenciesEnabled!: pulumi.Output<boolean>;
+    public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * - 'go-import' Allow List on the UI.
      */

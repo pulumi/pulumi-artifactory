@@ -42,8 +42,52 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "artifactory:index/keypair:Keypair":
 		r = &Keypair{}
+	case "artifactory:index/localBowerRepository:LocalBowerRepository":
+		r = &LocalBowerRepository{}
+	case "artifactory:index/localChefRepository:LocalChefRepository":
+		r = &LocalChefRepository{}
+	case "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository":
+		r = &LocalCocoapodsRepository{}
+	case "artifactory:index/localComposerRepository:LocalComposerRepository":
+		r = &LocalComposerRepository{}
+	case "artifactory:index/localConanRepository:LocalConanRepository":
+		r = &LocalConanRepository{}
+	case "artifactory:index/localCranRepository:LocalCranRepository":
+		r = &LocalCranRepository{}
+	case "artifactory:index/localGemsRepository:LocalGemsRepository":
+		r = &LocalGemsRepository{}
+	case "artifactory:index/localGenericRepository:LocalGenericRepository":
+		r = &LocalGenericRepository{}
+	case "artifactory:index/localGitltfsRepository:LocalGitltfsRepository":
+		r = &LocalGitltfsRepository{}
+	case "artifactory:index/localGoRepository:LocalGoRepository":
+		r = &LocalGoRepository{}
+	case "artifactory:index/localGradleRepository:LocalGradleRepository":
+		r = &LocalGradleRepository{}
+	case "artifactory:index/localHelmRepository:LocalHelmRepository":
+		r = &LocalHelmRepository{}
+	case "artifactory:index/localIvyRepository:LocalIvyRepository":
+		r = &LocalIvyRepository{}
+	case "artifactory:index/localMavenRepository:LocalMavenRepository":
+		r = &LocalMavenRepository{}
+	case "artifactory:index/localNpmRepository:LocalNpmRepository":
+		r = &LocalNpmRepository{}
+	case "artifactory:index/localNugetRepository:LocalNugetRepository":
+		r = &LocalNugetRepository{}
+	case "artifactory:index/localOpkgRepository:LocalOpkgRepository":
+		r = &LocalOpkgRepository{}
+	case "artifactory:index/localPuppetRepository:LocalPuppetRepository":
+		r = &LocalPuppetRepository{}
+	case "artifactory:index/localPypiRepository:LocalPypiRepository":
+		r = &LocalPypiRepository{}
 	case "artifactory:index/localRepository:LocalRepository":
 		r = &LocalRepository{}
+	case "artifactory:index/localRpmRepository:LocalRpmRepository":
+		r = &LocalRpmRepository{}
+	case "artifactory:index/localSbtRepository:LocalSbtRepository":
+		r = &LocalSbtRepository{}
+	case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
+		r = &LocalVagrantRepository{}
 	case "artifactory:index/mavenRepository:MavenRepository":
 		r = &MavenRepository{}
 	case "artifactory:index/oauthSettings:OauthSettings":
@@ -52,12 +96,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionTarget{}
 	case "artifactory:index/permissionTargets:PermissionTargets":
 		r = &PermissionTargets{}
+	case "artifactory:index/pullReplication:PullReplication":
+		r = &PullReplication{}
+	case "artifactory:index/pushReplication:PushReplication":
+		r = &PushReplication{}
 	case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
 		r = &RemoteCargoRepository{}
 	case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
 		r = &RemoteDockerRepository{}
 	case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
 		r = &RemoteHelmRepository{}
+	case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
+		r = &RemoteNpmRepository{}
 	case "artifactory:index/remoteRepository:RemoteRepository":
 		r = &RemoteRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -162,7 +212,117 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localBowerRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localChefRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localCocoapodsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localComposerRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localConanRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localCranRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localGemsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localGenericRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localGitltfsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localGoRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localGradleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localHelmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localMavenRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localNpmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localOpkgRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localPuppetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localPypiRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localRpmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localVagrantRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -187,6 +347,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/pullReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/pushReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteCargoRepository",
 		&module{version},
 	)
@@ -198,6 +368,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteHelmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteNpmRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

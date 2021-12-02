@@ -247,6 +247,21 @@ export interface PermissionTargetsRepoActionsUser {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface PushReplicationReplication {
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`
+     */
+    password?: pulumi.Input<string>;
+    pathPrefix?: pulumi.Input<string>;
+    socketTimeoutMillis?: pulumi.Input<number>;
+    syncDeletes?: pulumi.Input<boolean>;
+    syncProperties?: pulumi.Input<boolean>;
+    syncStatistics?: pulumi.Input<boolean>;
+    url?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
 export interface RemoteCargoRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
 }
@@ -256,6 +271,10 @@ export interface RemoteDockerRepositoryContentSynchronisation {
 }
 
 export interface RemoteHelmRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteNpmRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
 }
 
@@ -409,3 +428,4 @@ export interface XrayWatchResourceFilter {
      */
     value: pulumi.Input<string>;
 }
+

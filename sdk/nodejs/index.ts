@@ -18,15 +18,40 @@ export * from "./getFileinfo";
 export * from "./goRepository";
 export * from "./group";
 export * from "./keypair";
+export * from "./localBowerRepository";
+export * from "./localChefRepository";
+export * from "./localCocoapodsRepository";
+export * from "./localComposerRepository";
+export * from "./localConanRepository";
+export * from "./localCranRepository";
+export * from "./localGemsRepository";
+export * from "./localGenericRepository";
+export * from "./localGitltfsRepository";
+export * from "./localGoRepository";
+export * from "./localGradleRepository";
+export * from "./localHelmRepository";
+export * from "./localIvyRepository";
+export * from "./localMavenRepository";
+export * from "./localNpmRepository";
+export * from "./localNugetRepository";
+export * from "./localOpkgRepository";
+export * from "./localPuppetRepository";
+export * from "./localPypiRepository";
 export * from "./localRepository";
+export * from "./localRpmRepository";
+export * from "./localSbtRepository";
+export * from "./localVagrantRepository";
 export * from "./mavenRepository";
 export * from "./oauthSettings";
 export * from "./permissionTarget";
 export * from "./permissionTargets";
 export * from "./provider";
+export * from "./pullReplication";
+export * from "./pushReplication";
 export * from "./remoteCargoRepository";
 export * from "./remoteDockerRepository";
 export * from "./remoteHelmRepository";
+export * from "./remoteNpmRepository";
 export * from "./remoteRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
@@ -57,14 +82,39 @@ import { GeneralSecurity } from "./generalSecurity";
 import { GoRepository } from "./goRepository";
 import { Group } from "./group";
 import { Keypair } from "./keypair";
+import { LocalBowerRepository } from "./localBowerRepository";
+import { LocalChefRepository } from "./localChefRepository";
+import { LocalCocoapodsRepository } from "./localCocoapodsRepository";
+import { LocalComposerRepository } from "./localComposerRepository";
+import { LocalConanRepository } from "./localConanRepository";
+import { LocalCranRepository } from "./localCranRepository";
+import { LocalGemsRepository } from "./localGemsRepository";
+import { LocalGenericRepository } from "./localGenericRepository";
+import { LocalGitltfsRepository } from "./localGitltfsRepository";
+import { LocalGoRepository } from "./localGoRepository";
+import { LocalGradleRepository } from "./localGradleRepository";
+import { LocalHelmRepository } from "./localHelmRepository";
+import { LocalIvyRepository } from "./localIvyRepository";
+import { LocalMavenRepository } from "./localMavenRepository";
+import { LocalNpmRepository } from "./localNpmRepository";
+import { LocalNugetRepository } from "./localNugetRepository";
+import { LocalOpkgRepository } from "./localOpkgRepository";
+import { LocalPuppetRepository } from "./localPuppetRepository";
+import { LocalPypiRepository } from "./localPypiRepository";
 import { LocalRepository } from "./localRepository";
+import { LocalRpmRepository } from "./localRpmRepository";
+import { LocalSbtRepository } from "./localSbtRepository";
+import { LocalVagrantRepository } from "./localVagrantRepository";
 import { MavenRepository } from "./mavenRepository";
 import { OauthSettings } from "./oauthSettings";
 import { PermissionTarget } from "./permissionTarget";
 import { PermissionTargets } from "./permissionTargets";
+import { PullReplication } from "./pullReplication";
+import { PushReplication } from "./pushReplication";
 import { RemoteCargoRepository } from "./remoteCargoRepository";
 import { RemoteDockerRepository } from "./remoteDockerRepository";
 import { RemoteHelmRepository } from "./remoteHelmRepository";
+import { RemoteNpmRepository } from "./remoteNpmRepository";
 import { RemoteRepository } from "./remoteRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
@@ -100,8 +150,52 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "artifactory:index/keypair:Keypair":
                 return new Keypair(name, <any>undefined, { urn })
+            case "artifactory:index/localBowerRepository:LocalBowerRepository":
+                return new LocalBowerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localChefRepository:LocalChefRepository":
+                return new LocalChefRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository":
+                return new LocalCocoapodsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localComposerRepository:LocalComposerRepository":
+                return new LocalComposerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localConanRepository:LocalConanRepository":
+                return new LocalConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localCranRepository:LocalCranRepository":
+                return new LocalCranRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localGemsRepository:LocalGemsRepository":
+                return new LocalGemsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localGenericRepository:LocalGenericRepository":
+                return new LocalGenericRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localGitltfsRepository:LocalGitltfsRepository":
+                return new LocalGitltfsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localGoRepository:LocalGoRepository":
+                return new LocalGoRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localGradleRepository:LocalGradleRepository":
+                return new LocalGradleRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localHelmRepository:LocalHelmRepository":
+                return new LocalHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localIvyRepository:LocalIvyRepository":
+                return new LocalIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localMavenRepository:LocalMavenRepository":
+                return new LocalMavenRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localNpmRepository:LocalNpmRepository":
+                return new LocalNpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localNugetRepository:LocalNugetRepository":
+                return new LocalNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localOpkgRepository:LocalOpkgRepository":
+                return new LocalOpkgRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localPuppetRepository:LocalPuppetRepository":
+                return new LocalPuppetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localPypiRepository:LocalPypiRepository":
+                return new LocalPypiRepository(name, <any>undefined, { urn })
             case "artifactory:index/localRepository:LocalRepository":
                 return new LocalRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localRpmRepository:LocalRpmRepository":
+                return new LocalRpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localSbtRepository:LocalSbtRepository":
+                return new LocalSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
+                return new LocalVagrantRepository(name, <any>undefined, { urn })
             case "artifactory:index/mavenRepository:MavenRepository":
                 return new MavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/oauthSettings:OauthSettings":
@@ -110,12 +204,18 @@ const _module = {
                 return new PermissionTarget(name, <any>undefined, { urn })
             case "artifactory:index/permissionTargets:PermissionTargets":
                 return new PermissionTargets(name, <any>undefined, { urn })
+            case "artifactory:index/pullReplication:PullReplication":
+                return new PullReplication(name, <any>undefined, { urn })
+            case "artifactory:index/pushReplication:PushReplication":
+                return new PushReplication(name, <any>undefined, { urn })
             case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
                 return new RemoteCargoRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
                 return new RemoteDockerRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
+                return new RemoteNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteRepository:RemoteRepository":
                 return new RemoteRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -148,14 +248,39 @@ pulumi.runtime.registerResourceModule("artifactory", "index/generalSecurity", _m
 pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/group", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localBowerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localChefRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localCocoapodsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localComposerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localCranRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localGemsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localGenericRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localGitltfsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localGoRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localGradleRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteDockerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)

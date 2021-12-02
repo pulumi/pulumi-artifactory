@@ -67,7 +67,7 @@ type GoRepository struct {
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-	ExternalDependenciesEnabled pulumi.BoolOutput `pulumi:"externalDependenciesEnabled"`
+	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
 	// - 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only

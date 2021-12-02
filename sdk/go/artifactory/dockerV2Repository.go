@@ -50,12 +50,11 @@ type DockerV2Repository struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-	BlockPushingSchema1     pulumi.BoolOutput        `pulumi:"blockPushingSchema1"`
-	Description             pulumi.StringPtrOutput   `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrOutput     `pulumi:"downloadDirect"`
-	ExcludesPattern         pulumi.StringOutput      `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
-	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
+	BlockPushingSchema1 pulumi.BoolOutput      `pulumi:"blockPushingSchema1"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	DownloadDirect      pulumi.BoolPtrOutput   `pulumi:"downloadDirect"`
+	ExcludesPattern     pulumi.StringOutput    `pulumi:"excludesPattern"`
+	IncludesPattern     pulumi.StringOutput    `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key pulumi.StringOutput `pulumi:"key"`
 	// - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
@@ -111,12 +110,11 @@ type dockerV2RepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool `pulumi:"blackedOut"`
 	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-	BlockPushingSchema1     *bool    `pulumi:"blockPushingSchema1"`
-	Description             *string  `pulumi:"description"`
-	DownloadDirect          *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern         *string  `pulumi:"excludesPattern"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
-	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
+	BlockPushingSchema1 *bool   `pulumi:"blockPushingSchema1"`
+	Description         *string `pulumi:"description"`
+	DownloadDirect      *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern     *string `pulumi:"excludesPattern"`
+	IncludesPattern     *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key *string `pulumi:"key"`
 	// - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
@@ -141,12 +139,11 @@ type DockerV2RepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	BlackedOut             pulumi.BoolPtrInput
 	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-	BlockPushingSchema1     pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
-	DownloadDirect          pulumi.BoolPtrInput
-	ExcludesPattern         pulumi.StringPtrInput
-	IncludesPattern         pulumi.StringPtrInput
-	IndexCompressionFormats pulumi.StringArrayInput
+	BlockPushingSchema1 pulumi.BoolPtrInput
+	Description         pulumi.StringPtrInput
+	DownloadDirect      pulumi.BoolPtrInput
+	ExcludesPattern     pulumi.StringPtrInput
+	IncludesPattern     pulumi.StringPtrInput
 	// - the identity key of the repo
 	Key pulumi.StringPtrInput
 	// - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
@@ -173,12 +170,11 @@ type dockerV2RepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool `pulumi:"blackedOut"`
 	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-	BlockPushingSchema1     *bool    `pulumi:"blockPushingSchema1"`
-	Description             *string  `pulumi:"description"`
-	DownloadDirect          *bool    `pulumi:"downloadDirect"`
-	ExcludesPattern         *string  `pulumi:"excludesPattern"`
-	IncludesPattern         *string  `pulumi:"includesPattern"`
-	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
+	BlockPushingSchema1 *bool   `pulumi:"blockPushingSchema1"`
+	Description         *string `pulumi:"description"`
+	DownloadDirect      *bool   `pulumi:"downloadDirect"`
+	ExcludesPattern     *string `pulumi:"excludesPattern"`
+	IncludesPattern     *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key string `pulumi:"key"`
 	// - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
@@ -201,12 +197,11 @@ type DockerV2RepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	BlackedOut             pulumi.BoolPtrInput
 	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-	BlockPushingSchema1     pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
-	DownloadDirect          pulumi.BoolPtrInput
-	ExcludesPattern         pulumi.StringPtrInput
-	IncludesPattern         pulumi.StringPtrInput
-	IndexCompressionFormats pulumi.StringArrayInput
+	BlockPushingSchema1 pulumi.BoolPtrInput
+	Description         pulumi.StringPtrInput
+	DownloadDirect      pulumi.BoolPtrInput
+	ExcludesPattern     pulumi.StringPtrInput
+	IncludesPattern     pulumi.StringPtrInput
 	// - the identity key of the repo
 	Key pulumi.StringInput
 	// - The maximum number of unique tags of a single Docker image to store in this repository.\n" +

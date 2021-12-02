@@ -67,7 +67,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     public readonly excludesPattern!: pulumi.Output<string>;
     public readonly includesPattern!: pulumi.Output<string>;
-    public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
      * - the identity key of the repo
      */
@@ -110,7 +109,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
             inputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
             inputs["notes"] = state ? state.notes : undefined;
@@ -130,7 +128,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
             inputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
             inputs["notes"] = args ? args.notes : undefined;
@@ -172,7 +169,6 @@ export interface DockerV1RepositoryState {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * - the identity key of the repo
      */
@@ -210,7 +206,6 @@ export interface DockerV1RepositoryArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
-    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * - the identity key of the repo
      */

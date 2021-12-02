@@ -36,9 +36,11 @@ __all__ = [
     'PermissionTargetsRepoActions',
     'PermissionTargetsRepoActionsGroup',
     'PermissionTargetsRepoActionsUser',
+    'PushReplicationReplication',
     'RemoteCargoRepositoryContentSynchronisation',
     'RemoteDockerRepositoryContentSynchronisation',
     'RemoteHelmRepositoryContentSynchronisation',
+    'RemoteNpmRepositoryContentSynchronisation',
     'RemoteRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
     'XrayPolicyRule',
@@ -1006,6 +1008,114 @@ class PermissionTargetsRepoActionsUser(dict):
 
 
 @pulumi.output_type
+class PushReplicationReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathPrefix":
+            suggest = "path_prefix"
+        elif key == "socketTimeoutMillis":
+            suggest = "socket_timeout_millis"
+        elif key == "syncDeletes":
+            suggest = "sync_deletes"
+        elif key == "syncProperties":
+            suggest = "sync_properties"
+        elif key == "syncStatistics":
+            suggest = "sync_statistics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PushReplicationReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PushReplicationReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PushReplicationReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 password: Optional[str] = None,
+                 path_prefix: Optional[str] = None,
+                 socket_timeout_millis: Optional[int] = None,
+                 sync_deletes: Optional[bool] = None,
+                 sync_properties: Optional[bool] = None,
+                 sync_statistics: Optional[bool] = None,
+                 url: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        :param str password: Requires password encryption to be turned off `POST /api/system/decrypt`
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if path_prefix is not None:
+            pulumi.set(__self__, "path_prefix", path_prefix)
+        if socket_timeout_millis is not None:
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+        if sync_deletes is not None:
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
+        if sync_properties is not None:
+            pulumi.set(__self__, "sync_properties", sync_properties)
+        if sync_statistics is not None:
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Requires password encryption to be turned off `POST /api/system/decrypt`
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pathPrefix")
+    def path_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "path_prefix")
+
+    @property
+    @pulumi.getter(name="socketTimeoutMillis")
+    def socket_timeout_millis(self) -> Optional[int]:
+        return pulumi.get(self, "socket_timeout_millis")
+
+    @property
+    @pulumi.getter(name="syncDeletes")
+    def sync_deletes(self) -> Optional[bool]:
+        return pulumi.get(self, "sync_deletes")
+
+    @property
+    @pulumi.getter(name="syncProperties")
+    def sync_properties(self) -> Optional[bool]:
+        return pulumi.get(self, "sync_properties")
+
+    @property
+    @pulumi.getter(name="syncStatistics")
+    def sync_statistics(self) -> Optional[bool]:
+        return pulumi.get(self, "sync_statistics")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class RemoteCargoRepositoryContentSynchronisation(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
@@ -1033,6 +1143,19 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
 
 @pulumi.output_type
 class RemoteHelmRepositoryContentSynchronisation(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RemoteNpmRepositoryContentSynchronisation(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         if enabled is not None:

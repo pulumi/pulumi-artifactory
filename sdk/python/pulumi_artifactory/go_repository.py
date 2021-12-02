@@ -576,7 +576,7 @@ class GoRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDependenciesEnabled")
-    def external_dependencies_enabled(self) -> pulumi.Output[bool]:
+    def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         """

@@ -89,9 +89,11 @@ type RemoteCargoRepository struct {
 	Offline              pulumi.BoolOutput        `pulumi:"offline"`
 	PackageType          pulumi.StringOutput      `pulumi:"packageType"`
 	Password             pulumi.StringPtrOutput   `pulumi:"password"`
+	PriorityResolution   pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	PropagateQueryParams pulumi.BoolPtrOutput     `pulumi:"propagateQueryParams"`
 	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
 	Proxy                pulumi.StringOutput      `pulumi:"proxy"`
+	RemoteRepoLayoutRef  pulumi.StringOutput      `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntOutput  `pulumi:"retrievalCachePeriodSeconds"`
@@ -188,9 +190,11 @@ type remoteCargoRepositoryState struct {
 	Offline              *bool    `pulumi:"offline"`
 	PackageType          *string  `pulumi:"packageType"`
 	Password             *string  `pulumi:"password"`
+	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
+	RemoteRepoLayoutRef  *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        *string  `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
@@ -250,9 +254,11 @@ type RemoteCargoRepositoryState struct {
 	Offline              pulumi.BoolPtrInput
 	PackageType          pulumi.StringPtrInput
 	Password             pulumi.StringPtrInput
+	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput
+	RemoteRepoLayoutRef  pulumi.StringPtrInput
 	RepoLayoutRef        pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
@@ -300,8 +306,6 @@ type remoteCargoRepositoryArgs struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-	FailedRetrievalCachePeriodSecs *int `pulumi:"failedRetrievalCachePeriodSecs"`
 	// - This is the index url, expected to be a git repository. for remote artifactory use "arturl/git/repokey.git"
 	GitRegistryUrl  string  `pulumi:"gitRegistryUrl"`
 	HardFail        *bool   `pulumi:"hardFail"`
@@ -315,9 +319,11 @@ type remoteCargoRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline              *bool    `pulumi:"offline"`
 	Password             *string  `pulumi:"password"`
+	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
+	RemoteRepoLayoutRef  *string  `pulumi:"remoteRepoLayoutRef"`
 	RepoLayoutRef        *string  `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
@@ -362,8 +368,6 @@ type RemoteCargoRepositoryArgs struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
-	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
 	// - This is the index url, expected to be a git repository. for remote artifactory use "arturl/git/repokey.git"
 	GitRegistryUrl  pulumi.StringInput
 	HardFail        pulumi.BoolPtrInput
@@ -377,9 +381,11 @@ type RemoteCargoRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline              pulumi.BoolPtrInput
 	Password             pulumi.StringPtrInput
+	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput
+	RemoteRepoLayoutRef  pulumi.StringPtrInput
 	RepoLayoutRef        pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput

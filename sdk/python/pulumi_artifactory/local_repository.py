@@ -27,6 +27,7 @@ class LocalRepositoryArgs:
                  handle_releases: Optional[pulumi.Input[bool]] = None,
                  handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -67,6 +68,8 @@ class LocalRepositoryArgs:
             pulumi.set(__self__, "handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if max_unique_snapshots is not None:
             pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if max_unique_tags is not None:
@@ -215,6 +218,15 @@ class LocalRepositoryArgs:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter(name="maxUniqueSnapshots")
     def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "max_unique_snapshots")
@@ -321,6 +333,7 @@ class _LocalRepositoryState:
                  handle_releases: Optional[pulumi.Input[bool]] = None,
                  handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
@@ -361,6 +374,8 @@ class _LocalRepositoryState:
             pulumi.set(__self__, "handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if max_unique_snapshots is not None:
@@ -502,6 +517,15 @@ class _LocalRepositoryState:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "key")
@@ -619,6 +643,7 @@ class LocalRepository(pulumi.CustomResource):
                  handle_releases: Optional[pulumi.Input[bool]] = None,
                  handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
@@ -718,6 +743,7 @@ class LocalRepository(pulumi.CustomResource):
                  handle_releases: Optional[pulumi.Input[bool]] = None,
                  handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
@@ -754,6 +780,7 @@ class LocalRepository(pulumi.CustomResource):
             __props__.__dict__["handle_releases"] = handle_releases
             __props__.__dict__["handle_snapshots"] = handle_snapshots
             __props__.__dict__["includes_pattern"] = includes_pattern
+            __props__.__dict__["index_compression_formats"] = index_compression_formats
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -790,6 +817,7 @@ class LocalRepository(pulumi.CustomResource):
             handle_releases: Optional[pulumi.Input[bool]] = None,
             handle_snapshots: Optional[pulumi.Input[bool]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
+            index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key: Optional[pulumi.Input[str]] = None,
             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             max_unique_tags: Optional[pulumi.Input[int]] = None,
@@ -826,6 +854,7 @@ class LocalRepository(pulumi.CustomResource):
         __props__.__dict__["handle_releases"] = handle_releases
         __props__.__dict__["handle_snapshots"] = handle_snapshots
         __props__.__dict__["includes_pattern"] = includes_pattern
+        __props__.__dict__["index_compression_formats"] = index_compression_formats
         __props__.__dict__["key"] = key
         __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["max_unique_tags"] = max_unique_tags
@@ -903,6 +932,11 @@ class LocalRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
         return pulumi.get(self, "includes_pattern")
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "index_compression_formats")
 
     @property
     @pulumi.getter

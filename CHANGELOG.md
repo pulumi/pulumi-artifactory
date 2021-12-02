@@ -2,7 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v2.6.21 of the Jfrog Artifactory Terraform Provider
+  **PLEASE NOTE:** The following breaking changes:
+  * `artifactory.DockerV1Repository` no longer supports `indexCompressionFormats`
+  * `artifactory.DockerV2Repository` no longer supports `indexCompressionFormats`
+  * `artifactory.RemoteHelmRepository` no longer supports `failedRetrievalCachePeriodSecs` input
+  * `artifactory.RemoteCargoRepository` no longer supports `failedRetrievalCachePeriodSecs` input
+  * `artifactory.RemoteDockerRepository` no longer supports `failedRetrievalCachePeriodSecs` input
 
 ---
 

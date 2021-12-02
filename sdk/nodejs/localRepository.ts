@@ -71,6 +71,7 @@ export class LocalRepository extends pulumi.CustomResource {
     public readonly handleReleases!: pulumi.Output<boolean>;
     public readonly handleSnapshots!: pulumi.Output<boolean>;
     public readonly includesPattern!: pulumi.Output<string>;
+    public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     public readonly key!: pulumi.Output<string>;
     public readonly maxUniqueSnapshots!: pulumi.Output<number>;
     public readonly maxUniqueTags!: pulumi.Output<number>;
@@ -109,6 +110,7 @@ export class LocalRepository extends pulumi.CustomResource {
             inputs["handleReleases"] = state ? state.handleReleases : undefined;
             inputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
             inputs["includesPattern"] = state ? state.includesPattern : undefined;
+            inputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
             inputs["key"] = state ? state.key : undefined;
             inputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
             inputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
@@ -138,6 +140,7 @@ export class LocalRepository extends pulumi.CustomResource {
             inputs["handleReleases"] = args ? args.handleReleases : undefined;
             inputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
             inputs["includesPattern"] = args ? args.includesPattern : undefined;
+            inputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
             inputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
@@ -174,6 +177,7 @@ export interface LocalRepositoryState {
     handleReleases?: pulumi.Input<boolean>;
     handleSnapshots?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     key?: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
     maxUniqueTags?: pulumi.Input<number>;
@@ -204,6 +208,7 @@ export interface LocalRepositoryArgs {
     handleReleases?: pulumi.Input<boolean>;
     handleSnapshots?: pulumi.Input<boolean>;
     includesPattern?: pulumi.Input<string>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     key: pulumi.Input<string>;
     maxUniqueSnapshots?: pulumi.Input<number>;
     maxUniqueTags?: pulumi.Input<number>;

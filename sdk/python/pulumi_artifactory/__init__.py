@@ -18,15 +18,40 @@ from .get_fileinfo import *
 from .go_repository import *
 from .group import *
 from .keypair import *
+from .local_bower_repository import *
+from .local_chef_repository import *
+from .local_cocoapods_repository import *
+from .local_composer_repository import *
+from .local_conan_repository import *
+from .local_cran_repository import *
+from .local_gems_repository import *
+from .local_generic_repository import *
+from .local_gitltfs_repository import *
+from .local_go_repository import *
+from .local_gradle_repository import *
+from .local_helm_repository import *
+from .local_ivy_repository import *
+from .local_maven_repository import *
+from .local_npm_repository import *
+from .local_nuget_repository import *
+from .local_opkg_repository import *
+from .local_puppet_repository import *
+from .local_pypi_repository import *
 from .local_repository import *
+from .local_rpm_repository import *
+from .local_sbt_repository import *
+from .local_vagrant_repository import *
 from .maven_repository import *
 from .oauth_settings import *
 from .permission_target import *
 from .permission_targets import *
 from .provider import *
+from .pull_replication import *
+from .push_replication import *
 from .remote_cargo_repository import *
 from .remote_docker_repository import *
 from .remote_helm_repository import *
+from .remote_npm_repository import *
 from .remote_repository import *
 from .replication_config import *
 from .saml_settings import *
@@ -138,10 +163,186 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localBowerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localBowerRepository:LocalBowerRepository": "LocalBowerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localChefRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localChefRepository:LocalChefRepository": "LocalChefRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localCocoapodsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository": "LocalCocoapodsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localComposerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localComposerRepository:LocalComposerRepository": "LocalComposerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localConanRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localConanRepository:LocalConanRepository": "LocalConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localCranRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localCranRepository:LocalCranRepository": "LocalCranRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localGemsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localGemsRepository:LocalGemsRepository": "LocalGemsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localGenericRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localGenericRepository:LocalGenericRepository": "LocalGenericRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localGitltfsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localGitltfsRepository:LocalGitltfsRepository": "LocalGitltfsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localGoRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localGoRepository:LocalGoRepository": "LocalGoRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localGradleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localGradleRepository:LocalGradleRepository": "LocalGradleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localHelmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localHelmRepository:LocalHelmRepository": "LocalHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localIvyRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localIvyRepository:LocalIvyRepository": "LocalIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localMavenRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localMavenRepository:LocalMavenRepository": "LocalMavenRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localNpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localNpmRepository:LocalNpmRepository": "LocalNpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localNugetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localNugetRepository:LocalNugetRepository": "LocalNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localOpkgRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localOpkgRepository:LocalOpkgRepository": "LocalOpkgRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localPuppetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localPuppetRepository:LocalPuppetRepository": "LocalPuppetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localPypiRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localPypiRepository:LocalPypiRepository": "LocalPypiRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localRepository:LocalRepository": "LocalRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localRpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localRpmRepository:LocalRpmRepository": "LocalRpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localSbtRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localSbtRepository:LocalSbtRepository": "LocalSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localVagrantRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localVagrantRepository:LocalVagrantRepository": "LocalVagrantRepository"
   }
  },
  {
@@ -178,6 +379,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/pullReplication",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/pullReplication:PullReplication": "PullReplication"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/pushReplication",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/pushReplication:PushReplication": "PushReplication"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteCargoRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -198,6 +415,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteHelmRepository:RemoteHelmRepository": "RemoteHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteNpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteNpmRepository:RemoteNpmRepository": "RemoteNpmRepository"
   }
  },
  {
