@@ -521,6 +521,7 @@ jobs:
         - "3.7"
 name: main
 "on":
+  workflow_dispatch: {}
   push:
     branches:
     - main
