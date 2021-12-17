@@ -15,6 +15,11 @@ This is a bearer token that can be given to you by your admin under `Identity an
 
 apiKey: Optional[str]
 
+checkLicense: bool
+"""
+Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+"""
+
 password: Optional[str]
 """
 Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a

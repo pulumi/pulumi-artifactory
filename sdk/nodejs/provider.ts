@@ -59,6 +59,7 @@ export class Provider extends pulumi.ProviderResource {
         {
             inputs["accessToken"] = args ? args.accessToken : undefined;
             inputs["apiKey"] = args ? args.apiKey : undefined;
+            inputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
             inputs["password"] = args ? args.password : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["username"] = args ? args.username : undefined;
@@ -82,6 +83,10 @@ export interface ProviderArgs {
      * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+     */
+    checkLicense?: pulumi.Input<boolean>;
     /**
      * Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
      * bearer token

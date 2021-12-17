@@ -103,7 +103,7 @@ export class SamlSettings extends pulumi.CustomResource {
      */
     public readonly logoutUrl!: pulumi.Output<string>;
     /**
-     * Enable the creation of local Artifactory users.  Default value is `false`.
+     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
      */
     public readonly noAutoUserCreation!: pulumi.Output<boolean | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface SamlSettingsState {
      */
     logoutUrl?: pulumi.Input<string>;
     /**
-     * Enable the creation of local Artifactory users.  Default value is `false`.
+     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
      */
     noAutoUserCreation?: pulumi.Input<boolean>;
     /**
@@ -266,7 +266,7 @@ export interface SamlSettingsArgs {
      */
     logoutUrl: pulumi.Input<string>;
     /**
-     * Enable the creation of local Artifactory users.  Default value is `false`.
+     * When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
      */
     noAutoUserCreation?: pulumi.Input<boolean>;
     /**

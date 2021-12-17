@@ -26,6 +26,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('apiKey')
 
     @property
+    def check_license(self) -> bool:
+        """
+        Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        """
+        return __config__.get_bool('checkLicense') or False
+
+    @property
     def password(self) -> Optional[str]:
         """
         Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a

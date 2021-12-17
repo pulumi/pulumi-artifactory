@@ -18,6 +18,15 @@ func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
 }
 
+// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+func GetCheckLicense(ctx *pulumi.Context) bool {
+	v, err := config.TryBool(ctx, "artifactory:checkLicense")
+	if err == nil {
+		return v
+	}
+	return false
+}
+
 // Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
 // bearer token
 //

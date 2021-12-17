@@ -78,6 +78,12 @@ namespace Pulumi.Artifactory
         public Input<string>? ApiKey { get; set; }
 
         /// <summary>
+        /// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        /// </summary>
+        [Input("checkLicense", json: true)]
+        public Input<bool>? CheckLicense { get; set; }
+
+        /// <summary>
         /// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
         /// bearer token
         /// </summary>
@@ -92,6 +98,7 @@ namespace Pulumi.Artifactory
 
         public ProviderArgs()
         {
+            CheckLicense = false;
         }
     }
 }

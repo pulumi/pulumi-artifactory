@@ -56,6 +56,9 @@ class RemoteNpmRepositoryArgs:
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
         :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
                resolution.
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -184,6 +187,11 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
+        """
         return pulumi.get(self, "assumed_offline_period_secs")
 
     @assumed_offline_period_secs.setter
@@ -565,6 +573,9 @@ class _RemoteNpmRepositoryState:
         Input properties used for looking up and filtering RemoteNpmRepository resources.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
         :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
                resolution.
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -682,6 +693,11 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
+        """
         return pulumi.get(self, "assumed_offline_period_secs")
 
     @assumed_offline_period_secs.setter
@@ -1125,6 +1141,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
         :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
                resolution.
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -1336,6 +1355,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
         :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
                resolution.
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -1413,6 +1435,11 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
+        """
         return pulumi.get(self, "assumed_offline_period_secs")
 
     @property

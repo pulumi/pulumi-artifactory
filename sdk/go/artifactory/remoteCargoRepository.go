@@ -54,8 +54,11 @@ type RemoteCargoRepository struct {
 	// any other host.
 	AllowAnyHostAuth pulumi.BoolOutput `pulumi:"allowAnyHostAuth"`
 	// - Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	AnonymousAccess          pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
-	AssumedOfflinePeriodSecs pulumi.IntPtrOutput  `pulumi:"assumedOfflinePeriodSecs"`
+	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
+	AssumedOfflinePeriodSecs pulumi.IntPtrOutput `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
@@ -155,8 +158,11 @@ type remoteCargoRepositoryState struct {
 	// any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
 	// - Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	AnonymousAccess          *bool `pulumi:"anonymousAccess"`
-	AssumedOfflinePeriodSecs *int  `pulumi:"assumedOfflinePeriodSecs"`
+	AnonymousAccess *bool `pulumi:"anonymousAccess"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
+	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
@@ -219,7 +225,10 @@ type RemoteCargoRepositoryState struct {
 	// any other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
 	// - Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	AnonymousAccess          pulumi.BoolPtrInput
+	AnonymousAccess pulumi.BoolPtrInput
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
@@ -287,8 +296,11 @@ type remoteCargoRepositoryArgs struct {
 	// any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
 	// - Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	AnonymousAccess          *bool `pulumi:"anonymousAccess"`
-	AssumedOfflinePeriodSecs *int  `pulumi:"assumedOfflinePeriodSecs"`
+	AnonymousAccess *bool `pulumi:"anonymousAccess"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
+	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
@@ -349,7 +361,10 @@ type RemoteCargoRepositoryArgs struct {
 	// any other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
 	// - Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	AnonymousAccess          pulumi.BoolPtrInput
+	AnonymousAccess pulumi.BoolPtrInput
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.

@@ -47,7 +47,10 @@ type RemoteHelmRepository struct {
 
 	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
 	// any other host.
-	AllowAnyHostAuth         pulumi.BoolOutput   `pulumi:"allowAnyHostAuth"`
+	AllowAnyHostAuth pulumi.BoolOutput `pulumi:"allowAnyHostAuth"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrOutput `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
@@ -146,8 +149,11 @@ func GetRemoteHelmRepository(ctx *pulumi.Context,
 type remoteHelmRepositoryState struct {
 	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
 	// any other host.
-	AllowAnyHostAuth         *bool `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs *int  `pulumi:"assumedOfflinePeriodSecs"`
+	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
+	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
@@ -208,7 +214,10 @@ type remoteHelmRepositoryState struct {
 type RemoteHelmRepositoryState struct {
 	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
 	// any other host.
-	AllowAnyHostAuth         pulumi.BoolPtrInput
+	AllowAnyHostAuth pulumi.BoolPtrInput
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
@@ -274,8 +283,11 @@ func (RemoteHelmRepositoryState) ElementType() reflect.Type {
 type remoteHelmRepositoryArgs struct {
 	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
 	// any other host.
-	AllowAnyHostAuth         *bool `pulumi:"allowAnyHostAuth"`
-	AssumedOfflinePeriodSecs *int  `pulumi:"assumedOfflinePeriodSecs"`
+	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
+	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
@@ -334,7 +346,10 @@ type remoteHelmRepositoryArgs struct {
 type RemoteHelmRepositoryArgs struct {
 	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
 	// any other host.
-	AllowAnyHostAuth         pulumi.BoolPtrInput
+	AllowAnyHostAuth pulumi.BoolPtrInput
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+	// offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
 	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
 	// resolution.

@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v2.6.21 of the Jfrog Artifactory Terraform Provider
+* Upgrade to v2.6.24 of the Jfrog Artifactory Terraform Provider
   **PLEASE NOTE:** The following breaking changes:
   * `artifactory.DockerV1Repository` no longer supports `indexCompressionFormats`
   * `artifactory.DockerV2Repository` no longer supports `indexCompressionFormats`
