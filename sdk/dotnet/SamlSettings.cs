@@ -107,7 +107,7 @@ namespace Pulumi.Artifactory
         public Output<string> LogoutUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         /// </summary>
         [Output("noAutoUserCreation")]
         public Output<bool?> NoAutoUserCreation { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Artifactory
         public Input<string> LogoutUrl { get; set; } = null!;
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         /// </summary>
         [Input("noAutoUserCreation")]
         public Input<bool>? NoAutoUserCreation { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LogoutUrl { get; set; }
 
         /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
+        /// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         /// </summary>
         [Input("noAutoUserCreation")]
         public Input<bool>? NoAutoUserCreation { get; set; }

@@ -36,7 +36,7 @@ class SamlSettingsArgs:
         :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email.
         :param pulumi.Input[bool] enable: Enable SAML SSO.  Default value is `true`.
         :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
-        :param pulumi.Input[bool] no_auto_user_creation: Enable the creation of local Artifactory users.  Default value is `false`.
+        :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
@@ -174,7 +174,7 @@ class SamlSettingsArgs:
     @pulumi.getter(name="noAutoUserCreation")
     def no_auto_user_creation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable the creation of local Artifactory users.  Default value is `false`.
+        When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         """
         return pulumi.get(self, "no_auto_user_creation")
 
@@ -232,7 +232,7 @@ class _SamlSettingsState:
         :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
-        :param pulumi.Input[bool] no_auto_user_creation: Enable the creation of local Artifactory users.  Default value is `false`.
+        :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
@@ -362,7 +362,7 @@ class _SamlSettingsState:
     @pulumi.getter(name="noAutoUserCreation")
     def no_auto_user_creation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable the creation of local Artifactory users.  Default value is `false`.
+        When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         """
         return pulumi.get(self, "no_auto_user_creation")
 
@@ -472,7 +472,7 @@ class SamlSettings(pulumi.CustomResource):
         :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
-        :param pulumi.Input[bool] no_auto_user_creation: Enable the creation of local Artifactory users.  Default value is `false`.
+        :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
@@ -614,7 +614,7 @@ class SamlSettings(pulumi.CustomResource):
         :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
-        :param pulumi.Input[bool] no_auto_user_creation: Enable the creation of local Artifactory users.  Default value is `false`.
+        :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
@@ -705,7 +705,7 @@ class SamlSettings(pulumi.CustomResource):
     @pulumi.getter(name="noAutoUserCreation")
     def no_auto_user_creation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable the creation of local Artifactory users.  Default value is `false`.
+        When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         """
         return pulumi.get(self, "no_auto_user_creation")
 

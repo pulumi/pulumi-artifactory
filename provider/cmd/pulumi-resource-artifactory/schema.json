@@ -22,6 +22,11 @@
                 "type": "string",
                 "deprecationMessage": "Xray and projects functionality will not work with any auth method other than access tokens (Bearer)"
             },
+            "checkLicense": {
+                "type": "boolean",
+                "description": "Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.\n",
+                "default": false
+            },
             "password": {
                 "type": "string",
                 "description": "Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a\nbearer token\n",
@@ -1547,6 +1552,10 @@
                 "type": "string",
                 "deprecationMessage": "Xray and projects functionality will not work with any auth method other than access tokens (Bearer)"
             },
+            "checkLicense": {
+                "type": "boolean",
+                "description": "Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.\n"
+            },
             "password": {
                 "type": "string",
                 "description": "Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a\nbearer token\n",
@@ -1568,6 +1577,11 @@
             "apiKey": {
                 "type": "string",
                 "deprecationMessage": "Xray and projects functionality will not work with any auth method other than access tokens (Bearer)"
+            },
+            "checkLicense": {
+                "type": "boolean",
+                "description": "Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.\n",
+                "default": false
             },
             "password": {
                 "type": "string",
@@ -7239,7 +7253,8 @@
                     "description": "- Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -7404,7 +7419,8 @@
                     "description": "- Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -7537,7 +7553,8 @@
                         "description": "- Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.\n"
                     },
                     "assumedOfflinePeriodSecs": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                     },
                     "blackedOut": {
                         "type": "boolean",
@@ -7671,7 +7688,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -7850,7 +7868,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -7994,7 +8013,8 @@
                         "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                     },
                     "assumedOfflinePeriodSecs": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                     },
                     "blackedOut": {
                         "type": "boolean",
@@ -8144,7 +8164,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -8305,7 +8326,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -8434,7 +8456,8 @@
                         "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                     },
                     "assumedOfflinePeriodSecs": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                     },
                     "blackedOut": {
                         "type": "boolean",
@@ -8568,7 +8591,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -8732,7 +8756,8 @@
                     "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                 },
                 "assumedOfflinePeriodSecs": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                 },
                 "blackedOut": {
                     "type": "boolean",
@@ -8864,7 +8889,8 @@
                         "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
                     },
                     "assumedOfflinePeriodSecs": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
                     },
                     "blackedOut": {
                         "type": "boolean",
@@ -9602,7 +9628,7 @@
                 },
                 "noAutoUserCreation": {
                     "type": "boolean",
-                    "description": "Enable the creation of local Artifactory users.  Default value is `false`.\n"
+                    "description": "When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.\n"
                 },
                 "serviceProviderName": {
                     "type": "string",
@@ -9657,7 +9683,7 @@
                 },
                 "noAutoUserCreation": {
                     "type": "boolean",
-                    "description": "Enable the creation of local Artifactory users.  Default value is `false`.\n"
+                    "description": "When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.\n"
                 },
                 "serviceProviderName": {
                     "type": "string",
@@ -9714,7 +9740,7 @@
                     },
                     "noAutoUserCreation": {
                         "type": "boolean",
-                        "description": "Enable the creation of local Artifactory users.  Default value is `false`.\n"
+                        "description": "When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.\n"
                     },
                     "serviceProviderName": {
                         "type": "string",

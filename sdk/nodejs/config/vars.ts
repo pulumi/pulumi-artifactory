@@ -27,6 +27,17 @@ Object.defineProperty(exports, "apiKey", {
 });
 
 /**
+ * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+ */
+export declare const checkLicense: boolean;
+Object.defineProperty(exports, "checkLicense", {
+    get() {
+        return __config.getObject<boolean>("checkLicense") ?? false;
+    },
+    enumerable: true,
+});
+
+/**
  * Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
  * bearer token
  */

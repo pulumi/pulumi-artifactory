@@ -15,12 +15,14 @@ class ProviderArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 check_license: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] access_token: This is a bearer token that can be given to you by your admin under `Identity and Access`
+        :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         :param pulumi.Input[str] password: Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
                bearer token
         """
@@ -31,6 +33,10 @@ class ProviderArgs:
             pulumi.log.warn("""api_key is deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""")
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if check_license is None:
+            check_license = False
+        if check_license is not None:
+            pulumi.set(__self__, "check_license", check_license)
         if password is not None:
             warnings.warn("""Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""", DeprecationWarning)
             pulumi.log.warn("""password is deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""")
@@ -64,6 +70,18 @@ class ProviderArgs:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="checkLicense")
+    def check_license(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        """
+        return pulumi.get(self, "check_license")
+
+    @check_license.setter
+    def check_license(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "check_license", value)
 
     @property
     @pulumi.getter
@@ -104,6 +122,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 check_license: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -117,6 +136,7 @@ class Provider(pulumi.ProviderResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: This is a bearer token that can be given to you by your admin under `Identity and Access`
+        :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         :param pulumi.Input[str] password: Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
                bearer token
         """
@@ -149,6 +169,7 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 check_license: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -169,6 +190,9 @@ class Provider(pulumi.ProviderResource):
                 warnings.warn("""Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""", DeprecationWarning)
                 pulumi.log.warn("""api_key is deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""")
             __props__.__dict__["api_key"] = api_key
+            if check_license is None:
+                check_license = False
+            __props__.__dict__["check_license"] = pulumi.Output.from_input(check_license).apply(pulumi.runtime.to_json) if check_license is not None else None
             if password is not None and not opts.urn:
                 warnings.warn("""Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""", DeprecationWarning)
                 pulumi.log.warn("""password is deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)""")

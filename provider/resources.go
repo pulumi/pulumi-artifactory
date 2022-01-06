@@ -78,15 +78,21 @@ func Provider() tfbridge.ProviderInfo {
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
-		P:                    p,
-		Name:                 "artifactory",
-		Description:          "A Pulumi package for creating and managing artifactory cloud resources.",
-		Keywords:             []string{"pulumi", "artifactory"},
-		License:              "Apache-2.0",
-		Homepage:             "https://pulumi.io",
-		Repository:           "https://github.com/pulumi/pulumi-artifactory",
-		GitHubOrg:            "jfrog",
-		Config:               map[string]*tfbridge.SchemaInfo{},
+		P:           p,
+		Name:        "artifactory",
+		Description: "A Pulumi package for creating and managing artifactory cloud resources.",
+		Keywords:    []string{"pulumi", "artifactory"},
+		License:     "Apache-2.0",
+		Homepage:    "https://pulumi.io",
+		Repository:  "https://github.com/pulumi/pulumi-artifactory",
+		GitHubOrg:   "jfrog",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"check_license": {
+				Default: &tfbridge.DefaultInfo{
+					Value: false,
+				},
+			},
+		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"artifactory_access_token": {

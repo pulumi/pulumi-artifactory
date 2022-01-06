@@ -55,6 +55,11 @@ namespace Pulumi.Artifactory
         [Output("allowAnyHostAuth")]
         public Output<bool> AllowAnyHostAuth { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        /// offline. Default to 300.
+        /// </summary>
         [Output("assumedOfflinePeriodSecs")]
         public Output<int?> AssumedOfflinePeriodSecs { get; private set; } = null!;
 
@@ -280,6 +285,11 @@ namespace Pulumi.Artifactory
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
+        /// <summary>
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        /// offline. Default to 300.
+        /// </summary>
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
 
@@ -471,6 +481,11 @@ namespace Pulumi.Artifactory
         [Input("allowAnyHostAuth")]
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
+        /// <summary>
+        /// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        /// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        /// offline. Default to 300.
+        /// </summary>
         [Input("assumedOfflinePeriodSecs")]
         public Input<int>? AssumedOfflinePeriodSecs { get; set; }
 

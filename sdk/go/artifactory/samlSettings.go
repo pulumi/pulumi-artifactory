@@ -77,7 +77,7 @@ type SamlSettings struct {
 	LoginUrl pulumi.StringOutput `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringOutput `pulumi:"logoutUrl"`
-	// Enable the creation of local Artifactory users.  Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
 	NoAutoUserCreation pulumi.BoolPtrOutput `pulumi:"noAutoUserCreation"`
 	// Name of the service provider configured on the .
 	ServiceProviderName pulumi.StringOutput `pulumi:"serviceProviderName"`
@@ -141,7 +141,7 @@ type samlSettingsState struct {
 	LoginUrl *string `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl *string `pulumi:"logoutUrl"`
-	// Enable the creation of local Artifactory users.  Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
 	NoAutoUserCreation *bool `pulumi:"noAutoUserCreation"`
 	// Name of the service provider configured on the .
 	ServiceProviderName *string `pulumi:"serviceProviderName"`
@@ -168,7 +168,7 @@ type SamlSettingsState struct {
 	LoginUrl pulumi.StringPtrInput
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringPtrInput
-	// Enable the creation of local Artifactory users.  Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
 	NoAutoUserCreation pulumi.BoolPtrInput
 	// Name of the service provider configured on the .
 	ServiceProviderName pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type samlSettingsArgs struct {
 	LoginUrl string `pulumi:"loginUrl"`
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl string `pulumi:"logoutUrl"`
-	// Enable the creation of local Artifactory users.  Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
 	NoAutoUserCreation *bool `pulumi:"noAutoUserCreation"`
 	// Name of the service provider configured on the .
 	ServiceProviderName string `pulumi:"serviceProviderName"`
@@ -227,7 +227,7 @@ type SamlSettingsArgs struct {
 	LoginUrl pulumi.StringInput
 	// Service provider logout url, or where to redirect after user logs out.
 	LogoutUrl pulumi.StringInput
-	// Enable the creation of local Artifactory users.  Default value is `false`.
+	// When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
 	NoAutoUserCreation pulumi.BoolPtrInput
 	// Name of the service provider configured on the .
 	ServiceProviderName pulumi.StringInput

@@ -49,6 +49,16 @@ namespace Pulumi.Artifactory
             set => _apiKey.Set(value);
         }
 
+        private static readonly __Value<bool?> _checkLicense = new __Value<bool?>(() => __config.GetBoolean("checkLicense") ?? false);
+        /// <summary>
+        /// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+        /// </summary>
+        public static bool? CheckLicense
+        {
+            get => _checkLicense.Get();
+            set => _checkLicense.Set(value);
+        }
+
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password"));
         /// <summary>
         /// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a

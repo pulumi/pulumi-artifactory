@@ -38,6 +38,9 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
+	if args.CheckLicense == nil {
+		args.CheckLicense = pulumi.BoolPtr(false)
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:artifactory", name, args, &resource, opts...)
 	if err != nil {
@@ -51,6 +54,8 @@ type providerArgs struct {
 	AccessToken *string `pulumi:"accessToken"`
 	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
 	ApiKey *string `pulumi:"apiKey"`
+	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+	CheckLicense *bool `pulumi:"checkLicense"`
 	// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
 	// bearer token
 	//
@@ -67,6 +72,8 @@ type ProviderArgs struct {
 	AccessToken pulumi.StringPtrInput
 	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
 	ApiKey pulumi.StringPtrInput
+	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
+	CheckLicense pulumi.BoolPtrInput
 	// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
 	// bearer token
 	//
