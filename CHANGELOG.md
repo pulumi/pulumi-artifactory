@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+## Notice (2022-01-06)
+
+*As of this notice, using CHANGELOG.md is DEPRECATED. We will be using [GitHub Releases](https://github.com/pulumi/pulumi-artifactory/releases) for this repository*
+
 ## HEAD (Unreleased)
 * Upgrade to v2.6.24 of the Jfrog Artifactory Terraform Provider
   **PLEASE NOTE:** The following breaking changes:
