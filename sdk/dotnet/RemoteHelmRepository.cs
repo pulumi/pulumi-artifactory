@@ -17,7 +17,7 @@ namespace Pulumi.Artifactory
     /// although helm is (currently) not listed as a supported format
     /// 
     /// ## Example Usage
-    /// ### Additional Examples
+    /// 
     /// Includes only new and relevant fields, for anything else, see: generic repo.
     /// ```csharp
     /// using Pulumi;
@@ -29,6 +29,11 @@ namespace Pulumi.Artifactory
     ///     {
     ///         var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new Artifactory.RemoteHelmRepositoryArgs
     ///         {
+    ///             ExternalDependenciesEnabled = true,
+    ///             ExternalDependenciesPatterns = 
+    ///             {
+    ///                 "**github.com**",
+    ///             },
     ///             HelmChartsBaseUrl = "https://foo.com",
     ///             Key = "helm-remote-foo25",
     ///             Url = "https://repo.chartcenter.io/",
@@ -96,6 +101,20 @@ namespace Pulumi.Artifactory
 
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
+
+        /// <summary>
+        /// When set, external dependencies are rewritten.
+        /// </summary>
+        [Output("externalDependenciesEnabled")]
+        public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// An Allow List of Ant-style path expressions that specify where external
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
+        /// </summary>
+        [Output("externalDependenciesPatterns")]
+        public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
 
         [Output("failedRetrievalCachePeriodSecs")]
         public Output<int> FailedRetrievalCachePeriodSecs { get; private set; } = null!;
@@ -304,6 +323,26 @@ namespace Pulumi.Artifactory
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// When set, external dependencies are rewritten.
+        /// </summary>
+        [Input("externalDependenciesEnabled")]
+        public Input<bool>? ExternalDependenciesEnabled { get; set; }
+
+        [Input("externalDependenciesPatterns")]
+        private InputList<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// An Allow List of Ant-style path expressions that specify where external
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
+        /// </summary>
+        public InputList<string> ExternalDependenciesPatterns
+        {
+            get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
+            set => _externalDependenciesPatterns = value;
+        }
+
         [Input("hardFail")]
         public Input<bool>? HardFail { get; set; }
 
@@ -470,6 +509,26 @@ namespace Pulumi.Artifactory
 
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
+
+        /// <summary>
+        /// When set, external dependencies are rewritten.
+        /// </summary>
+        [Input("externalDependenciesEnabled")]
+        public Input<bool>? ExternalDependenciesEnabled { get; set; }
+
+        [Input("externalDependenciesPatterns")]
+        private InputList<string>? _externalDependenciesPatterns;
+
+        /// <summary>
+        /// An Allow List of Ant-style path expressions that specify where external
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
+        /// </summary>
+        public InputList<string> ExternalDependenciesPatterns
+        {
+            get => _externalDependenciesPatterns ?? (_externalDependenciesPatterns = new InputList<string>());
+            set => _externalDependenciesPatterns = value;
+        }
 
         [Input("failedRetrievalCachePeriodSecs")]
         public Input<int>? FailedRetrievalCachePeriodSecs { get; set; }

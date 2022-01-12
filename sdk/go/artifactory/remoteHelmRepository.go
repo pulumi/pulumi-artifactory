@@ -18,7 +18,7 @@ import (
 // although helm is (currently) not listed as a supported format
 //
 // ## Example Usage
-// ### Additional Examples
+//
 // Includes only new and relevant fields, for anything else, see: generic repo.
 // ```go
 // package main
@@ -31,6 +31,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := artifactory.NewRemoteHelmRepository(ctx, "helm_remote", &artifactory.RemoteHelmRepositoryArgs{
+// 			ExternalDependenciesEnabled: pulumi.Bool(true),
+// 			ExternalDependenciesPatterns: pulumi.StringArray{
+// 				pulumi.String("**github.com**"),
+// 			},
 // 			HelmChartsBaseUrl: pulumi.String("https://foo.com"),
 // 			Key:               pulumi.String("helm-remote-foo25"),
 // 			Url:               pulumi.String("https://repo.chartcenter.io/"),
@@ -69,6 +73,12 @@ type RemoteHelmRepository struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput   `pulumi:"enableCookieManagement"`
 	ExcludesPattern        pulumi.StringOutput `pulumi:"excludesPattern"`
+	// When set, external dependencies are rewritten.
+	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
+	// An Allow List of Ant-style path expressions that specify where external
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
+	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntOutput  `pulumi:"failedRetrievalCachePeriodSecs"`
 	HardFail                       pulumi.BoolOutput `pulumi:"hardFail"`
@@ -171,6 +181,12 @@ type remoteHelmRepositoryState struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
+	// When set, external dependencies are rewritten.
+	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
+	// An Allow List of Ant-style path expressions that specify where external
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
+	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs *int  `pulumi:"failedRetrievalCachePeriodSecs"`
 	HardFail                       *bool `pulumi:"hardFail"`
@@ -236,6 +252,12 @@ type RemoteHelmRepositoryState struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
+	// When set, external dependencies are rewritten.
+	ExternalDependenciesEnabled pulumi.BoolPtrInput
+	// An Allow List of Ant-style path expressions that specify where external
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
+	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
 	HardFail                       pulumi.BoolPtrInput
@@ -305,7 +327,13 @@ type remoteHelmRepositoryArgs struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool   `pulumi:"enableCookieManagement"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
-	HardFail               *bool   `pulumi:"hardFail"`
+	// When set, external dependencies are rewritten.
+	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
+	// An Allow List of Ant-style path expressions that specify where external
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
+	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
+	HardFail                     *bool    `pulumi:"hardFail"`
 	// - No documentation is available. Hopefully you know what this means
 	HelmChartsBaseUrl string  `pulumi:"helmChartsBaseUrl"`
 	IncludesPattern   *string `pulumi:"includesPattern"`
@@ -368,7 +396,13 @@ type RemoteHelmRepositoryArgs struct {
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
-	HardFail               pulumi.BoolPtrInput
+	// When set, external dependencies are rewritten.
+	ExternalDependenciesEnabled pulumi.BoolPtrInput
+	// An Allow List of Ant-style path expressions that specify where external
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
+	ExternalDependenciesPatterns pulumi.StringArrayInput
+	HardFail                     pulumi.BoolPtrInput
 	// - No documentation is available. Hopefully you know what this means
 	HelmChartsBaseUrl pulumi.StringInput
 	IncludesPattern   pulumi.StringPtrInput
