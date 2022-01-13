@@ -13,13 +13,15 @@ import * as utilities from "./utilities";
  * although helm is (currently) not listed as a supported format
  *
  * ## Example Usage
- * ### Additional Examples
+ *
  * Includes only new and relevant fields, for anything else, see: generic repo.
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * const helm_remote = new artifactory.RemoteHelmRepository("helm-remote", {
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: ["**github.com**"],
  *     helmChartsBaseUrl: "https://foo.com",
  *     key: "helm-remote-foo25",
  *     url: "https://repo.chartcenter.io/",
@@ -90,6 +92,16 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean>;
     public readonly excludesPattern!: pulumi.Output<string>;
+    /**
+     * When set, external dependencies are rewritten.
+     */
+    public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * An Allow List of Ant-style path expressions that specify where external
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
+     */
+    public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
@@ -168,6 +180,8 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
             inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            inputs["externalDependenciesEnabled"] = state ? state.externalDependenciesEnabled : undefined;
+            inputs["externalDependenciesPatterns"] = state ? state.externalDependenciesPatterns : undefined;
             inputs["failedRetrievalCachePeriodSecs"] = state ? state.failedRetrievalCachePeriodSecs : undefined;
             inputs["hardFail"] = state ? state.hardFail : undefined;
             inputs["helmChartsBaseUrl"] = state ? state.helmChartsBaseUrl : undefined;
@@ -216,6 +230,8 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            inputs["externalDependenciesEnabled"] = args ? args.externalDependenciesEnabled : undefined;
+            inputs["externalDependenciesPatterns"] = args ? args.externalDependenciesPatterns : undefined;
             inputs["hardFail"] = args ? args.hardFail : undefined;
             inputs["helmChartsBaseUrl"] = args ? args.helmChartsBaseUrl : undefined;
             inputs["includesPattern"] = args ? args.includesPattern : undefined;
@@ -291,6 +307,16 @@ export interface RemoteHelmRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * When set, external dependencies are rewritten.
+     */
+    externalDependenciesEnabled?: pulumi.Input<boolean>;
+    /**
+     * An Allow List of Ant-style path expressions that specify where external
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
+     */
+    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
@@ -387,6 +413,16 @@ export interface RemoteHelmRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * When set, external dependencies are rewritten.
+     */
+    externalDependenciesEnabled?: pulumi.Input<boolean>;
+    /**
+     * An Allow List of Ant-style path expressions that specify where external
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
+     */
+    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     hardFail?: pulumi.Input<boolean>;
     /**
      * - No documentation is available. Hopefully you know what this means

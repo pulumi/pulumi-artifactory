@@ -8157,7 +8157,7 @@
             }
         },
         "artifactory:index/remoteHelmRepository:RemoteHelmRepository": {
-            "description": "## # Artifactory Remote Repository Resource\n\nProvides an Artifactory remote `helm` repository resource. This provides helm specific fields and is the only way to get them.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Package+Management), \nalthough helm is (currently) not listed as a supported format\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Additional Examples\nIncludes only new and relevant fields, for anything else, see: generic repo.\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst helm_remote = new artifactory.RemoteHelmRepository(\"helm-remote\", {\n    helmChartsBaseUrl: \"https://foo.com\",\n    key: \"helm-remote-foo25\",\n    url: \"https://repo.chartcenter.io/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nhelm_remote = artifactory.RemoteHelmRepository(\"helm-remote\",\n    helm_charts_base_url=\"https://foo.com\",\n    key=\"helm-remote-foo25\",\n    url=\"https://repo.chartcenter.io/\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var helm_remote = new Artifactory.RemoteHelmRepository(\"helm-remote\", new Artifactory.RemoteHelmRepositoryArgs\n        {\n            HelmChartsBaseUrl = \"https://foo.com\",\n            Key = \"helm-remote-foo25\",\n            Url = \"https://repo.chartcenter.io/\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteHelmRepository(ctx, \"helm_remote\", \u0026artifactory.RemoteHelmRepositoryArgs{\n\t\t\tHelmChartsBaseUrl: pulumi.String(\"https://foo.com\"),\n\t\t\tKey:               pulumi.String(\"helm-remote-foo25\"),\n\t\t\tUrl:               pulumi.String(\"https://repo.chartcenter.io/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "## # Artifactory Remote Repository Resource\n\nProvides an Artifactory remote `helm` repository resource. This provides helm specific fields and is the only way to get them.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Package+Management), \nalthough helm is (currently) not listed as a supported format\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nIncludes only new and relevant fields, for anything else, see: generic repo.\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst helm_remote = new artifactory.RemoteHelmRepository(\"helm-remote\", {\n    externalDependenciesEnabled: true,\n    externalDependenciesPatterns: [\"**github.com**\"],\n    helmChartsBaseUrl: \"https://foo.com\",\n    key: \"helm-remote-foo25\",\n    url: \"https://repo.chartcenter.io/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nhelm_remote = artifactory.RemoteHelmRepository(\"helm-remote\",\n    external_dependencies_enabled=True,\n    external_dependencies_patterns=[\"**github.com**\"],\n    helm_charts_base_url=\"https://foo.com\",\n    key=\"helm-remote-foo25\",\n    url=\"https://repo.chartcenter.io/\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var helm_remote = new Artifactory.RemoteHelmRepository(\"helm-remote\", new Artifactory.RemoteHelmRepositoryArgs\n        {\n            ExternalDependenciesEnabled = true,\n            ExternalDependenciesPatterns = \n            {\n                \"**github.com**\",\n            },\n            HelmChartsBaseUrl = \"https://foo.com\",\n            Key = \"helm-remote-foo25\",\n            Url = \"https://repo.chartcenter.io/\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteHelmRepository(ctx, \"helm_remote\", \u0026artifactory.RemoteHelmRepositoryArgs{\n\t\t\tExternalDependenciesEnabled: pulumi.Bool(true),\n\t\t\tExternalDependenciesPatterns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"**github.com**\"),\n\t\t\t},\n\t\t\tHelmChartsBaseUrl: pulumi.String(\"https://foo.com\"),\n\t\t\tKey:               pulumi.String(\"helm-remote-foo25\"),\n\t\t\tUrl:               pulumi.String(\"https://repo.chartcenter.io/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowAnyHostAuth": {
                     "type": "boolean",
@@ -8194,6 +8194,17 @@
                 },
                 "excludesPattern": {
                     "type": "string"
+                },
+                "externalDependenciesEnabled": {
+                    "type": "boolean",
+                    "description": "When set, external dependencies are rewritten.\n"
+                },
+                "externalDependenciesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -8357,6 +8368,17 @@
                 "excludesPattern": {
                     "type": "string"
                 },
+                "externalDependenciesEnabled": {
+                    "type": "boolean",
+                    "description": "When set, external dependencies are rewritten.\n"
+                },
+                "externalDependenciesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
+                },
                 "hardFail": {
                     "type": "boolean"
                 },
@@ -8486,6 +8508,17 @@
                     },
                     "excludesPattern": {
                         "type": "string"
+                    },
+                    "externalDependenciesEnabled": {
+                        "type": "boolean",
+                        "description": "When set, external dependencies are rewritten.\n"
+                    },
+                    "externalDependenciesPatterns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",

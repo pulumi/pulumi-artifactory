@@ -28,6 +28,8 @@ class RemoteHelmRepositoryArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
+                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
@@ -68,6 +70,10 @@ class RemoteHelmRepositoryArgs:
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -100,6 +106,10 @@ class RemoteHelmRepositoryArgs:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if external_dependencies_enabled is not None:
+            pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
+        if external_dependencies_patterns is not None:
+            pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
         if hard_fail is not None:
             pulumi.set(__self__, "hard_fail", hard_fail)
         if includes_pattern is not None:
@@ -293,6 +303,32 @@ class RemoteHelmRepositoryArgs:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="externalDependenciesEnabled")
+    def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, external dependencies are rewritten.
+        """
+        return pulumi.get(self, "external_dependencies_enabled")
+
+    @external_dependencies_enabled.setter
+    def external_dependencies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "external_dependencies_enabled", value)
+
+    @property
+    @pulumi.getter(name="externalDependenciesPatterns")
+    def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An Allow List of Ant-style path expressions that specify where external
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
+        """
+        return pulumi.get(self, "external_dependencies_patterns")
+
+    @external_dependencies_patterns.setter
+    def external_dependencies_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_dependencies_patterns", value)
 
     @property
     @pulumi.getter(name="hardFail")
@@ -524,6 +560,8 @@ class _RemoteHelmRepositoryState:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
+                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  helm_charts_base_url: Optional[pulumi.Input[str]] = None,
@@ -567,6 +605,10 @@ class _RemoteHelmRepositoryState:
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
@@ -598,6 +640,10 @@ class _RemoteHelmRepositoryState:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if external_dependencies_enabled is not None:
+            pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
+        if external_dependencies_patterns is not None:
+            pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
         if failed_retrieval_cache_period_secs is not None:
             warnings.warn("""This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""", DeprecationWarning)
             pulumi.log.warn("""failed_retrieval_cache_period_secs is deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function""")
@@ -771,6 +817,32 @@ class _RemoteHelmRepositoryState:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
+
+    @property
+    @pulumi.getter(name="externalDependenciesEnabled")
+    def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, external dependencies are rewritten.
+        """
+        return pulumi.get(self, "external_dependencies_enabled")
+
+    @external_dependencies_enabled.setter
+    def external_dependencies_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "external_dependencies_enabled", value)
+
+    @property
+    @pulumi.getter(name="externalDependenciesPatterns")
+    def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An Allow List of Ant-style path expressions that specify where external
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
+        """
+        return pulumi.get(self, "external_dependencies_patterns")
+
+    @external_dependencies_patterns.setter
+    def external_dependencies_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "external_dependencies_patterns", value)
 
     @property
     @pulumi.getter(name="failedRetrievalCachePeriodSecs")
@@ -1055,6 +1127,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
+                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  helm_charts_base_url: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1089,13 +1163,15 @@ class RemoteHelmRepository(pulumi.CustomResource):
         although helm is (currently) not listed as a supported format
 
         ## Example Usage
-        ### Additional Examples
+
         Includes only new and relevant fields, for anything else, see: generic repo.
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         helm_remote = artifactory.RemoteHelmRepository("helm-remote",
+            external_dependencies_enabled=True,
+            external_dependencies_patterns=["**github.com**"],
             helm_charts_base_url="https://foo.com",
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
@@ -1117,6 +1193,10 @@ class RemoteHelmRepository(pulumi.CustomResource):
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
@@ -1142,13 +1222,15 @@ class RemoteHelmRepository(pulumi.CustomResource):
         although helm is (currently) not listed as a supported format
 
         ## Example Usage
-        ### Additional Examples
+
         Includes only new and relevant fields, for anything else, see: generic repo.
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
         helm_remote = artifactory.RemoteHelmRepository("helm-remote",
+            external_dependencies_enabled=True,
+            external_dependencies_patterns=["**github.com**"],
             helm_charts_base_url="https://foo.com",
             key="helm-remote-foo25",
             url="https://repo.chartcenter.io/")
@@ -1179,6 +1261,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
+                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  helm_charts_base_url: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -1226,6 +1310,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
+            __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
             __props__.__dict__["hard_fail"] = hard_fail
             if helm_charts_base_url is None and not opts.urn:
                 raise TypeError("Missing required property 'helm_charts_base_url'")
@@ -1279,6 +1365,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
+            external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
+            external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
             hard_fail: Optional[pulumi.Input[bool]] = None,
             helm_charts_base_url: Optional[pulumi.Input[str]] = None,
@@ -1327,6 +1415,10 @@ class RemoteHelmRepository(pulumi.CustomResource):
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
@@ -1352,6 +1444,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
+        __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
         __props__.__dict__["failed_retrieval_cache_period_secs"] = failed_retrieval_cache_period_secs
         __props__.__dict__["hard_fail"] = hard_fail
         __props__.__dict__["helm_charts_base_url"] = helm_charts_base_url
@@ -1456,6 +1550,24 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="externalDependenciesEnabled")
+    def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, external dependencies are rewritten.
+        """
+        return pulumi.get(self, "external_dependencies_enabled")
+
+    @property
+    @pulumi.getter(name="externalDependenciesPatterns")
+    def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An Allow List of Ant-style path expressions that specify where external
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
+        """
+        return pulumi.get(self, "external_dependencies_patterns")
 
     @property
     @pulumi.getter(name="failedRetrievalCachePeriodSecs")
