@@ -34,6 +34,60 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DockerV1Repository{}
 	case "artifactory:index/dockerV2Repository:DockerV2Repository":
 		r = &DockerV2Repository{}
+	case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
+		r = &FederatedAlpineRepository{}
+	case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
+		r = &FederatedBowerRepository{}
+	case "artifactory:index/federatedCargoRepository:FederatedCargoRepository":
+		r = &FederatedCargoRepository{}
+	case "artifactory:index/federatedChefRepository:FederatedChefRepository":
+		r = &FederatedChefRepository{}
+	case "artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository":
+		r = &FederatedCocoapodsRepository{}
+	case "artifactory:index/federatedComposerRepository:FederatedComposerRepository":
+		r = &FederatedComposerRepository{}
+	case "artifactory:index/federatedConanRepository:FederatedConanRepository":
+		r = &FederatedConanRepository{}
+	case "artifactory:index/federatedCondaRepository:FederatedCondaRepository":
+		r = &FederatedCondaRepository{}
+	case "artifactory:index/federatedCranRepository:FederatedCranRepository":
+		r = &FederatedCranRepository{}
+	case "artifactory:index/federatedDebianRepository:FederatedDebianRepository":
+		r = &FederatedDebianRepository{}
+	case "artifactory:index/federatedDockerRepository:FederatedDockerRepository":
+		r = &FederatedDockerRepository{}
+	case "artifactory:index/federatedGemsRepository:FederatedGemsRepository":
+		r = &FederatedGemsRepository{}
+	case "artifactory:index/federatedGenericRepository:FederatedGenericRepository":
+		r = &FederatedGenericRepository{}
+	case "artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository":
+		r = &FederatedGitltfsRepository{}
+	case "artifactory:index/federatedGoRepository:FederatedGoRepository":
+		r = &FederatedGoRepository{}
+	case "artifactory:index/federatedGradleRepository:FederatedGradleRepository":
+		r = &FederatedGradleRepository{}
+	case "artifactory:index/federatedHelmRepository:FederatedHelmRepository":
+		r = &FederatedHelmRepository{}
+	case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
+		r = &FederatedIvyRepository{}
+	case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
+		r = &FederatedMavenRepository{}
+	case "artifactory:index/federatedNpmRepository:FederatedNpmRepository":
+		r = &FederatedNpmRepository{}
+	case "artifactory:index/federatedNugetRepository:FederatedNugetRepository":
+		r = &FederatedNugetRepository{}
+	case "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository":
+		r = &FederatedOpkgRepository{}
+	case "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository":
+		r = &FederatedPuppetRepository{}
+	case "artifactory:index/federatedPypiRepository:FederatedPypiRepository":
+		r = &FederatedPypiRepository{}
+	case "artifactory:index/federatedRpmRepository:FederatedRpmRepository":
+		r = &FederatedRpmRepository{}
+	case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
+		r = &FederatedSbtRepository{}
+	case "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository":
+		r = &FederatedVagrantRepository{}
 	case "artifactory:index/generalSecurity:GeneralSecurity":
 		r = &GeneralSecurity{}
 	case "artifactory:index/goRepository:GoRepository":
@@ -42,6 +96,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Group{}
 	case "artifactory:index/keypair:Keypair":
 		r = &Keypair{}
+	case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
+		r = &LdapGroupSetting{}
+	case "artifactory:index/ldapSetting:LdapSetting":
+		r = &LdapSetting{}
 	case "artifactory:index/localBowerRepository:LocalBowerRepository":
 		r = &LocalBowerRepository{}
 	case "artifactory:index/localChefRepository:LocalChefRepository":
@@ -118,8 +176,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SingleReplicationConfig{}
 	case "artifactory:index/user:User":
 		r = &User{}
+	case "artifactory:index/virtualConanRepository:VirtualConanRepository":
+		r = &VirtualConanRepository{}
+	case "artifactory:index/virtualGenericRepository:VirtualGenericRepository":
+		r = &VirtualGenericRepository{}
 	case "artifactory:index/virtualRepository:VirtualRepository":
 		r = &VirtualRepository{}
+	case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
+		r = &VirtualRpmRepository{}
 	case "artifactory:index/xrayPolicy:XrayPolicy":
 		r = &XrayPolicy{}
 	case "artifactory:index/xrayWatch:XrayWatch":
@@ -192,6 +256,141 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/federatedAlpineRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedBowerRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedCargoRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedChefRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedCocoapodsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedComposerRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedConanRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedCondaRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedCranRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedDebianRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedDockerRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedGemsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedGenericRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedGitltfsRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedGoRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedGradleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedHelmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedMavenRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedNpmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedNugetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedOpkgRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedPuppetRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedPypiRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedRpmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedVagrantRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/generalSecurity",
 		&module{version},
 	)
@@ -208,6 +407,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/keypair",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/ldapGroupSetting",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/ldapSetting",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -402,7 +611,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/virtualConanRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualGenericRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/virtualRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualRpmRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

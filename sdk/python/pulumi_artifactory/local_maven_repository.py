@@ -25,6 +25,7 @@ class LocalMavenRepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class LocalMavenRepositoryArgs:
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -76,6 +78,8 @@ class LocalMavenRepositoryArgs:
             pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -220,6 +224,18 @@ class LocalMavenRepositoryArgs:
         pulumi.set(self, "notes", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -293,6 +309,7 @@ class _LocalMavenRepositoryState:
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
@@ -312,6 +329,7 @@ class _LocalMavenRepositoryState:
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -347,6 +365,8 @@ class _LocalMavenRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -500,6 +520,18 @@ class _LocalMavenRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -574,6 +606,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
@@ -615,6 +648,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -678,6 +712,7 @@ class LocalMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
@@ -709,6 +744,7 @@ class LocalMavenRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["snapshot_version_behavior"] = snapshot_version_behavior
@@ -738,6 +774,7 @@ class LocalMavenRepository(pulumi.CustomResource):
             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
@@ -762,6 +799,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -788,6 +826,7 @@ class LocalMavenRepository(pulumi.CustomResource):
         __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["snapshot_version_behavior"] = snapshot_version_behavior
@@ -883,6 +922,14 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

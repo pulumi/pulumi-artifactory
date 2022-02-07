@@ -15,7 +15,6 @@ __all__ = ['RemoteHelmRepositoryArgs', 'RemoteHelmRepository']
 @pulumi.input_type
 class RemoteHelmRepositoryArgs:
     def __init__(__self__, *,
-                 helm_charts_base_url: pulumi.Input[str],
                  key: pulumi.Input[str],
                  url: pulumi.Input[str],
                  allow_any_host_auth: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +30,7 @@ class RemoteHelmRepositoryArgs:
                  external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
                  external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
+                 helm_charts_base_url: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -54,7 +54,6 @@ class RemoteHelmRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteHelmRepository resource.
-        :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
@@ -69,13 +68,17 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input['RemoteHelmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+               from external sources. Note that the official documentation states the default is '**', which is correct when creating
+               repositories in the UI, but incorrect for the API.
+        :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -83,7 +86,6 @@ class RemoteHelmRepositoryArgs:
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         """
-        pulumi.set(__self__, "helm_charts_base_url", helm_charts_base_url)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "url", url)
         if allow_any_host_auth is not None:
@@ -112,6 +114,8 @@ class RemoteHelmRepositoryArgs:
             pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
         if hard_fail is not None:
             pulumi.set(__self__, "hard_fail", hard_fail)
+        if helm_charts_base_url is not None:
+            pulumi.set(__self__, "helm_charts_base_url", helm_charts_base_url)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if local_address is not None:
@@ -154,18 +158,6 @@ class RemoteHelmRepositoryArgs:
             pulumi.set(__self__, "username", username)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
-
-    @property
-    @pulumi.getter(name="helmChartsBaseUrl")
-    def helm_charts_base_url(self) -> pulumi.Input[str]:
-        """
-        - No documentation is available. Hopefully you know what this means
-        """
-        return pulumi.get(self, "helm_charts_base_url")
-
-    @helm_charts_base_url.setter
-    def helm_charts_base_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "helm_charts_base_url", value)
 
     @property
     @pulumi.getter
@@ -268,6 +260,9 @@ class RemoteHelmRepositoryArgs:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteHelmRepositoryContentSynchronisationArgs']]:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -321,8 +316,9 @@ class RemoteHelmRepositoryArgs:
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        repositories in the UI, but incorrect for the API.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -338,6 +334,18 @@ class RemoteHelmRepositoryArgs:
     @hard_fail.setter
     def hard_fail(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "hard_fail", value)
+
+    @property
+    @pulumi.getter(name="helmChartsBaseUrl")
+    def helm_charts_base_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        - No documentation is available. Hopefully you know what this means
+        """
+        return pulumi.get(self, "helm_charts_base_url")
+
+    @helm_charts_base_url.setter
+    def helm_charts_base_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "helm_charts_base_url", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -402,6 +410,9 @@ class RemoteHelmRepositoryArgs:
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
@@ -604,15 +615,18 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input['RemoteHelmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+               from external sources. Note that the official documentation states the default is '**', which is correct when creating
+               repositories in the UI, but incorrect for the API.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -782,6 +796,9 @@ class _RemoteHelmRepositoryState:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteHelmRepositoryContentSynchronisationArgs']]:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -835,8 +852,9 @@ class _RemoteHelmRepositoryState:
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        repositories in the UI, but incorrect for the API.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -958,6 +976,9 @@ class _RemoteHelmRepositoryState:
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
@@ -1192,15 +1213,18 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[pulumi.InputType['RemoteHelmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+               from external sources. Note that the official documentation states the default is '**', which is correct when creating
+               repositories in the UI, but incorrect for the API.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1313,8 +1337,6 @@ class RemoteHelmRepository(pulumi.CustomResource):
             __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
             __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
             __props__.__dict__["hard_fail"] = hard_fail
-            if helm_charts_base_url is None and not opts.urn:
-                raise TypeError("Missing required property 'helm_charts_base_url'")
             __props__.__dict__["helm_charts_base_url"] = helm_charts_base_url
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
@@ -1414,15 +1436,18 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[pulumi.InputType['RemoteHelmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+               from external sources. Note that the official documentation states the default is '**', which is correct when creating
+               repositories in the UI, but incorrect for the API.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1531,6 +1556,9 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output['outputs.RemoteHelmRepositoryContentSynchronisation']:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @property
@@ -1564,8 +1592,9 @@ class RemoteHelmRepository(pulumi.CustomResource):
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        repositories in the UI, but incorrect for the API.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1581,7 +1610,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="helmChartsBaseUrl")
-    def helm_charts_base_url(self) -> pulumi.Output[str]:
+    def helm_charts_base_url(self) -> pulumi.Output[Optional[str]]:
         """
         - No documentation is available. Hopefully you know what this means
         """
@@ -1639,6 +1668,9 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> pulumi.Output[bool]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @property

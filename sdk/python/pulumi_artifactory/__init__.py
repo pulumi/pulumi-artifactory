@@ -12,12 +12,41 @@ from .certificate import *
 from .debian_repository import *
 from .docker_v1_repository import *
 from .docker_v2_repository import *
+from .federated_alpine_repository import *
+from .federated_bower_repository import *
+from .federated_cargo_repository import *
+from .federated_chef_repository import *
+from .federated_cocoapods_repository import *
+from .federated_composer_repository import *
+from .federated_conan_repository import *
+from .federated_conda_repository import *
+from .federated_cran_repository import *
+from .federated_debian_repository import *
+from .federated_docker_repository import *
+from .federated_gems_repository import *
+from .federated_generic_repository import *
+from .federated_gitltfs_repository import *
+from .federated_go_repository import *
+from .federated_gradle_repository import *
+from .federated_helm_repository import *
+from .federated_ivy_repository import *
+from .federated_maven_repository import *
+from .federated_npm_repository import *
+from .federated_nuget_repository import *
+from .federated_opkg_repository import *
+from .federated_puppet_repository import *
+from .federated_pypi_repository import *
+from .federated_rpm_repository import *
+from .federated_sbt_repository import *
+from .federated_vagrant_repository import *
 from .general_security import *
 from .get_file import *
 from .get_fileinfo import *
 from .go_repository import *
 from .group import *
 from .keypair import *
+from .ldap_group_setting import *
+from .ldap_setting import *
 from .local_bower_repository import *
 from .local_chef_repository import *
 from .local_cocoapods_repository import *
@@ -57,7 +86,10 @@ from .replication_config import *
 from .saml_settings import *
 from .single_replication_config import *
 from .user import *
+from .virtual_conan_repository import *
+from .virtual_generic_repository import *
 from .virtual_repository import *
+from .virtual_rpm_repository import *
 from .xray_policy import *
 from .xray_watch import *
 from ._inputs import *
@@ -131,6 +163,222 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/federatedAlpineRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository": "FederatedAlpineRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedBowerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedBowerRepository:FederatedBowerRepository": "FederatedBowerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedCargoRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedCargoRepository:FederatedCargoRepository": "FederatedCargoRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedChefRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedChefRepository:FederatedChefRepository": "FederatedChefRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedCocoapodsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository": "FederatedCocoapodsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedComposerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedComposerRepository:FederatedComposerRepository": "FederatedComposerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedConanRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedConanRepository:FederatedConanRepository": "FederatedConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedCondaRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedCondaRepository:FederatedCondaRepository": "FederatedCondaRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedCranRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedCranRepository:FederatedCranRepository": "FederatedCranRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedDebianRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedDebianRepository:FederatedDebianRepository": "FederatedDebianRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedDockerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedDockerRepository:FederatedDockerRepository": "FederatedDockerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedGemsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedGemsRepository:FederatedGemsRepository": "FederatedGemsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedGenericRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedGenericRepository:FederatedGenericRepository": "FederatedGenericRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedGitltfsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository": "FederatedGitltfsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedGoRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedGoRepository:FederatedGoRepository": "FederatedGoRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedGradleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedGradleRepository:FederatedGradleRepository": "FederatedGradleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedHelmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedHelmRepository:FederatedHelmRepository": "FederatedHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedIvyRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedIvyRepository:FederatedIvyRepository": "FederatedIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedMavenRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedMavenRepository:FederatedMavenRepository": "FederatedMavenRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedNpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedNpmRepository:FederatedNpmRepository": "FederatedNpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedNugetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedNugetRepository:FederatedNugetRepository": "FederatedNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedOpkgRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository": "FederatedOpkgRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedPuppetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository": "FederatedPuppetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedPypiRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedPypiRepository:FederatedPypiRepository": "FederatedPypiRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedRpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedRpmRepository:FederatedRpmRepository": "FederatedRpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedSbtRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedSbtRepository:FederatedSbtRepository": "FederatedSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedVagrantRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository": "FederatedVagrantRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/generalSecurity",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -159,6 +407,22 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/keypair:Keypair": "Keypair"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/ldapGroupSetting",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/ldapGroupSetting:LdapGroupSetting": "LdapGroupSetting"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/ldapSetting",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/ldapSetting:LdapSetting": "LdapSetting"
   }
  },
  {
@@ -467,10 +731,34 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/virtualConanRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualConanRepository:VirtualConanRepository": "VirtualConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualGenericRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualGenericRepository:VirtualGenericRepository": "VirtualGenericRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/virtualRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualRepository:VirtualRepository": "VirtualRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualRpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualRpmRepository:VirtualRpmRepository": "VirtualRpmRepository"
   }
  },
  {

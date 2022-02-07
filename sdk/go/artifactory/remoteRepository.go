@@ -21,12 +21,13 @@ import (
 type RemoteRepository struct {
 	pulumi.CustomResourceState
 
-	AllowAnyHostAuth          pulumi.BoolOutput                            `pulumi:"allowAnyHostAuth"`
-	BlackedOut                pulumi.BoolOutput                            `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes pulumi.BoolOutput                            `pulumi:"blockMismatchingMimeTypes"`
-	BowerRegistryUrl          pulumi.StringOutput                          `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests        pulumi.BoolOutput                            `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate      pulumi.StringOutput                          `pulumi:"clientTlsCertificate"`
+	AllowAnyHostAuth          pulumi.BoolOutput   `pulumi:"allowAnyHostAuth"`
+	BlackedOut                pulumi.BoolOutput   `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes pulumi.BoolOutput   `pulumi:"blockMismatchingMimeTypes"`
+	BowerRegistryUrl          pulumi.StringOutput `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        pulumi.BoolOutput   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate      pulumi.StringOutput `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation    RemoteRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description               pulumi.StringPtrOutput                       `pulumi:"description"`
 	DownloadContextPath       pulumi.StringPtrOutput                       `pulumi:"downloadContextPath"`
@@ -49,13 +50,14 @@ type RemoteRepository struct {
 	Offline                   pulumi.BoolOutput                            `pulumi:"offline"`
 	PackageType               pulumi.StringPtrOutput                       `pulumi:"packageType"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password                     pulumi.StringPtrOutput   `pulumi:"password"`
-	PropagateQueryParams         pulumi.BoolOutput        `pulumi:"propagateQueryParams"`
-	PropertySets                 pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy                        pulumi.StringOutput      `pulumi:"proxy"`
-	PypiRegistryUrl              pulumi.StringOutput      `pulumi:"pypiRegistryUrl"`
-	RemoteRepoChecksumPolicyType pulumi.StringOutput      `pulumi:"remoteRepoChecksumPolicyType"`
-	RepoLayoutRef                pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	Password             pulumi.StringPtrOutput   `pulumi:"password"`
+	PropagateQueryParams pulumi.BoolOutput        `pulumi:"propagateQueryParams"`
+	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy                        pulumi.StringPtrOutput `pulumi:"proxy"`
+	PypiRegistryUrl              pulumi.StringOutput    `pulumi:"pypiRegistryUrl"`
+	RemoteRepoChecksumPolicyType pulumi.StringOutput    `pulumi:"remoteRepoChecksumPolicyType"`
+	RepoLayoutRef                pulumi.StringOutput    `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds       pulumi.IntOutput       `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration                pulumi.BoolOutput      `pulumi:"shareConfiguration"`
@@ -108,12 +110,13 @@ func GetRemoteRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemoteRepository resources.
 type remoteRepositoryState struct {
-	AllowAnyHostAuth          *bool                                   `pulumi:"allowAnyHostAuth"`
-	BlackedOut                *bool                                   `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool                                   `pulumi:"blockMismatchingMimeTypes"`
-	BowerRegistryUrl          *string                                 `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests        *bool                                   `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate      *string                                 `pulumi:"clientTlsCertificate"`
+	AllowAnyHostAuth          *bool   `pulumi:"allowAnyHostAuth"`
+	BlackedOut                *bool   `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool   `pulumi:"blockMismatchingMimeTypes"`
+	BowerRegistryUrl          *string `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate      *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation    *RemoteRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                 `pulumi:"description"`
 	DownloadContextPath       *string                                 `pulumi:"downloadContextPath"`
@@ -136,13 +139,14 @@ type remoteRepositoryState struct {
 	Offline                   *bool                                   `pulumi:"offline"`
 	PackageType               *string                                 `pulumi:"packageType"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password                     *string  `pulumi:"password"`
-	PropagateQueryParams         *bool    `pulumi:"propagateQueryParams"`
-	PropertySets                 []string `pulumi:"propertySets"`
-	Proxy                        *string  `pulumi:"proxy"`
-	PypiRegistryUrl              *string  `pulumi:"pypiRegistryUrl"`
-	RemoteRepoChecksumPolicyType *string  `pulumi:"remoteRepoChecksumPolicyType"`
-	RepoLayoutRef                *string  `pulumi:"repoLayoutRef"`
+	Password             *string  `pulumi:"password"`
+	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
+	PropertySets         []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy                        *string `pulumi:"proxy"`
+	PypiRegistryUrl              *string `pulumi:"pypiRegistryUrl"`
+	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds       *int    `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration                *bool   `pulumi:"shareConfiguration"`
@@ -167,6 +171,7 @@ type RemoteRepositoryState struct {
 	BowerRegistryUrl          pulumi.StringPtrInput
 	BypassHeadRequests        pulumi.BoolPtrInput
 	ClientTlsCertificate      pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation    RemoteRepositoryContentSynchronisationPtrInput
 	Description               pulumi.StringPtrInput
 	DownloadContextPath       pulumi.StringPtrInput
@@ -189,9 +194,10 @@ type RemoteRepositoryState struct {
 	Offline                   pulumi.BoolPtrInput
 	PackageType               pulumi.StringPtrInput
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password                     pulumi.StringPtrInput
-	PropagateQueryParams         pulumi.BoolPtrInput
-	PropertySets                 pulumi.StringArrayInput
+	Password             pulumi.StringPtrInput
+	PropagateQueryParams pulumi.BoolPtrInput
+	PropertySets         pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies setting
 	Proxy                        pulumi.StringPtrInput
 	PypiRegistryUrl              pulumi.StringPtrInput
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
@@ -218,12 +224,13 @@ func (RemoteRepositoryState) ElementType() reflect.Type {
 }
 
 type remoteRepositoryArgs struct {
-	AllowAnyHostAuth          *bool                                   `pulumi:"allowAnyHostAuth"`
-	BlackedOut                *bool                                   `pulumi:"blackedOut"`
-	BlockMismatchingMimeTypes *bool                                   `pulumi:"blockMismatchingMimeTypes"`
-	BowerRegistryUrl          *string                                 `pulumi:"bowerRegistryUrl"`
-	BypassHeadRequests        *bool                                   `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate      *string                                 `pulumi:"clientTlsCertificate"`
+	AllowAnyHostAuth          *bool   `pulumi:"allowAnyHostAuth"`
+	BlackedOut                *bool   `pulumi:"blackedOut"`
+	BlockMismatchingMimeTypes *bool   `pulumi:"blockMismatchingMimeTypes"`
+	BowerRegistryUrl          *string `pulumi:"bowerRegistryUrl"`
+	BypassHeadRequests        *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate      *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation    *RemoteRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description               *string                                 `pulumi:"description"`
 	DownloadContextPath       *string                                 `pulumi:"downloadContextPath"`
@@ -246,13 +253,14 @@ type remoteRepositoryArgs struct {
 	Offline                   *bool                                   `pulumi:"offline"`
 	PackageType               *string                                 `pulumi:"packageType"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password                     *string  `pulumi:"password"`
-	PropagateQueryParams         *bool    `pulumi:"propagateQueryParams"`
-	PropertySets                 []string `pulumi:"propertySets"`
-	Proxy                        *string  `pulumi:"proxy"`
-	PypiRegistryUrl              *string  `pulumi:"pypiRegistryUrl"`
-	RemoteRepoChecksumPolicyType *string  `pulumi:"remoteRepoChecksumPolicyType"`
-	RepoLayoutRef                *string  `pulumi:"repoLayoutRef"`
+	Password             *string  `pulumi:"password"`
+	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
+	PropertySets         []string `pulumi:"propertySets"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy                        *string `pulumi:"proxy"`
+	PypiRegistryUrl              *string `pulumi:"pypiRegistryUrl"`
+	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
+	RepoLayoutRef                *string `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds       *int    `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration                *bool   `pulumi:"shareConfiguration"`
@@ -278,6 +286,7 @@ type RemoteRepositoryArgs struct {
 	BowerRegistryUrl          pulumi.StringPtrInput
 	BypassHeadRequests        pulumi.BoolPtrInput
 	ClientTlsCertificate      pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation    RemoteRepositoryContentSynchronisationPtrInput
 	Description               pulumi.StringPtrInput
 	DownloadContextPath       pulumi.StringPtrInput
@@ -300,9 +309,10 @@ type RemoteRepositoryArgs struct {
 	Offline                   pulumi.BoolPtrInput
 	PackageType               pulumi.StringPtrInput
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password                     pulumi.StringPtrInput
-	PropagateQueryParams         pulumi.BoolPtrInput
-	PropertySets                 pulumi.StringArrayInput
+	Password             pulumi.StringPtrInput
+	PropagateQueryParams pulumi.BoolPtrInput
+	PropertySets         pulumi.StringArrayInput
+	// Proxy key from Artifactory Proxies setting
 	Proxy                        pulumi.StringPtrInput
 	PypiRegistryUrl              pulumi.StringPtrInput
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput

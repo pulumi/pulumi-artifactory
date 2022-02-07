@@ -79,6 +79,10 @@ export class DockerV1Repository extends pulumi.CustomResource {
     public readonly maxUniqueTags!: pulumi.Output<number>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
@@ -113,6 +117,7 @@ export class DockerV1Repository extends pulumi.CustomResource {
             inputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
             inputs["notes"] = state ? state.notes : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["tagRetention"] = state ? state.tagRetention : undefined;
@@ -131,6 +136,7 @@ export class DockerV1Repository extends pulumi.CustomResource {
             inputs["key"] = args ? args.key : undefined;
             inputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
             inputs["notes"] = args ? args.notes : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
@@ -181,6 +187,10 @@ export interface DockerV1RepositoryState {
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -217,6 +227,10 @@ export interface DockerV1RepositoryArgs {
      */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;

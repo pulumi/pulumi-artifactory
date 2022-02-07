@@ -41,35 +41,38 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    public readonly admin!: pulumi.Output<boolean>;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
-    public readonly disableUiAccess!: pulumi.Output<boolean>;
+    public readonly admin!: pulumi.Output<boolean | undefined>;
     /**
-     * Email for user
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+     */
+    public readonly disableUiAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * Email for user.
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * List of groups this user is a part of
+     * List of groups this user is a part of.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
      * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
-    public readonly internalPasswordDisabled!: pulumi.Output<boolean>;
+    public readonly internalPasswordDisabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Username for user
+     * Username for user.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password for the user
+     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string>;
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
-    public readonly profileUpdatable!: pulumi.Output<boolean>;
+    public readonly profileUpdatable!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -97,6 +100,9 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
+            if ((!args || args.password === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'password'");
+            }
             inputs["admin"] = args ? args.admin : undefined;
             inputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
             inputs["email"] = args ? args.email : undefined;
@@ -117,17 +123,20 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
+    /**
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     */
     admin?: pulumi.Input<boolean>;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: pulumi.Input<boolean>;
     /**
-     * Email for user
+     * Email for user.
      */
     email?: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of
+     * List of groups this user is a part of.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -135,15 +144,15 @@ export interface UserState {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user
+     * Username for user.
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user
+     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
     password?: pulumi.Input<string>;
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: pulumi.Input<boolean>;
 }
@@ -152,17 +161,20 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+     */
     admin?: pulumi.Input<boolean>;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: pulumi.Input<boolean>;
     /**
-     * Email for user
+     * Email for user.
      */
     email: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of
+     * List of groups this user is a part of.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -170,15 +182,15 @@ export interface UserArgs {
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
-     * Username for user
+     * Username for user.
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user
+     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
      */
-    password?: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
-     * When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: pulumi.Input<boolean>;
 }

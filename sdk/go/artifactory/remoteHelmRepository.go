@@ -66,8 +66,9 @@ type RemoteHelmRepository struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolOutput                                `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   pulumi.StringOutput                              `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   pulumi.BoolOutput   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteHelmRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                              `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -76,15 +77,16 @@ type RemoteHelmRepository struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+	// repositories in the UI, but incorrect for the API.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntOutput  `pulumi:"failedRetrievalCachePeriodSecs"`
 	HardFail                       pulumi.BoolOutput `pulumi:"hardFail"`
 	// - No documentation is available. Hopefully you know what this means
-	HelmChartsBaseUrl pulumi.StringOutput `pulumi:"helmChartsBaseUrl"`
-	IncludesPattern   pulumi.StringOutput `pulumi:"includesPattern"`
+	HelmChartsBaseUrl pulumi.StringPtrOutput `pulumi:"helmChartsBaseUrl"`
+	IncludesPattern   pulumi.StringOutput    `pulumi:"includesPattern"`
 	// The repository identifier. Must be unique system-wide
 	Key          pulumi.StringOutput    `pulumi:"key"`
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
@@ -92,9 +94,10 @@ type RemoteHelmRepository struct {
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
 	Notes                    pulumi.StringPtrOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolOutput        `pulumi:"offline"`
-	PackageType          pulumi.StringOutput      `pulumi:"packageType"`
-	Password             pulumi.StringPtrOutput   `pulumi:"password"`
+	Offline     pulumi.BoolOutput      `pulumi:"offline"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	Password    pulumi.StringPtrOutput `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	PropagateQueryParams pulumi.BoolPtrOutput     `pulumi:"propagateQueryParams"`
 	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -126,9 +129,6 @@ func NewRemoteHelmRepository(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.HelmChartsBaseUrl == nil {
-		return nil, errors.New("invalid value for required argument 'HelmChartsBaseUrl'")
-	}
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
@@ -174,8 +174,9 @@ type remoteHelmRepositoryState struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                       `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                     `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteHelmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                     `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -184,8 +185,9 @@ type remoteHelmRepositoryState struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+	// repositories in the UI, but incorrect for the API.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs *int  `pulumi:"failedRetrievalCachePeriodSecs"`
@@ -200,9 +202,10 @@ type remoteHelmRepositoryState struct {
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              *bool    `pulumi:"offline"`
-	PackageType          *string  `pulumi:"packageType"`
-	Password             *string  `pulumi:"password"`
+	Offline     *bool   `pulumi:"offline"`
+	PackageType *string `pulumi:"packageType"`
+	Password    *string `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
@@ -245,8 +248,9 @@ type RemoteHelmRepositoryState struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteHelmRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -255,8 +259,9 @@ type RemoteHelmRepositoryState struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+	// repositories in the UI, but incorrect for the API.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
@@ -271,9 +276,10 @@ type RemoteHelmRepositoryState struct {
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolPtrInput
-	PackageType          pulumi.StringPtrInput
-	Password             pulumi.StringPtrInput
+	Offline     pulumi.BoolPtrInput
+	PackageType pulumi.StringPtrInput
+	Password    pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
@@ -320,8 +326,9 @@ type remoteHelmRepositoryArgs struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                       `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                     `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteHelmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                     `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -330,12 +337,13 @@ type remoteHelmRepositoryArgs struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+	// repositories in the UI, but incorrect for the API.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	HardFail                     *bool    `pulumi:"hardFail"`
 	// - No documentation is available. Hopefully you know what this means
-	HelmChartsBaseUrl string  `pulumi:"helmChartsBaseUrl"`
+	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
 	IncludesPattern   *string `pulumi:"includesPattern"`
 	// The repository identifier. Must be unique system-wide
 	Key          string  `pulumi:"key"`
@@ -344,8 +352,9 @@ type remoteHelmRepositoryArgs struct {
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              *bool    `pulumi:"offline"`
-	Password             *string  `pulumi:"password"`
+	Offline  *bool   `pulumi:"offline"`
+	Password *string `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
@@ -389,8 +398,9 @@ type RemoteHelmRepositoryArgs struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteHelmRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -399,12 +409,13 @@ type RemoteHelmRepositoryArgs struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+	// repositories in the UI, but incorrect for the API.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	HardFail                     pulumi.BoolPtrInput
 	// - No documentation is available. Hopefully you know what this means
-	HelmChartsBaseUrl pulumi.StringInput
+	HelmChartsBaseUrl pulumi.StringPtrInput
 	IncludesPattern   pulumi.StringPtrInput
 	// The repository identifier. Must be unique system-wide
 	Key          pulumi.StringInput
@@ -413,8 +424,9 @@ type RemoteHelmRepositoryArgs struct {
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolPtrInput
-	Password             pulumi.StringPtrInput
+	Offline  pulumi.BoolPtrInput
+	Password pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput

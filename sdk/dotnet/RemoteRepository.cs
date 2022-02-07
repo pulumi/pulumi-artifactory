@@ -39,6 +39,9 @@ namespace Pulumi.Artifactory
         [Output("clientTlsCertificate")]
         public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Output("contentSynchronisation")]
         public Output<Outputs.RemoteRepositoryContentSynchronisation> ContentSynchronisation { get; private set; } = null!;
 
@@ -114,8 +117,11 @@ namespace Pulumi.Artifactory
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Output("proxy")]
-        public Output<string> Proxy { get; private set; } = null!;
+        public Output<string?> Proxy { get; private set; } = null!;
 
         [Output("pypiRegistryUrl")]
         public Output<string> PypiRegistryUrl { get; private set; } = null!;
@@ -235,6 +241,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
@@ -315,6 +324,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
@@ -397,6 +409,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
 
@@ -477,6 +492,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class RemoteRepositoryContentSynchronisation
     {
+        /// <summary>
+        /// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]

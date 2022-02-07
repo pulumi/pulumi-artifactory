@@ -58,11 +58,13 @@ type DockerV1Repository struct {
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
-	MaxUniqueTags pulumi.IntOutput         `pulumi:"maxUniqueTags"`
-	Notes         pulumi.StringPtrOutput   `pulumi:"notes"`
-	PackageType   pulumi.StringOutput      `pulumi:"packageType"`
-	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	MaxUniqueTags pulumi.IntOutput       `pulumi:"maxUniqueTags"`
+	Notes         pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType   pulumi.StringOutput    `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention pulumi.IntOutput  `pulumi:"tagRetention"`
@@ -119,11 +121,13 @@ type dockerV1RepositoryState struct {
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
-	MaxUniqueTags *int     `pulumi:"maxUniqueTags"`
-	Notes         *string  `pulumi:"notes"`
-	PackageType   *string  `pulumi:"packageType"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
+	Notes         *string `pulumi:"notes"`
+	PackageType   *string `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention *int  `pulumi:"tagRetention"`
@@ -152,8 +156,10 @@ type DockerV1RepositoryState struct {
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput
 	PackageType   pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention pulumi.IntPtrInput
@@ -179,11 +185,13 @@ type dockerV1RepositoryArgs struct {
 	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
 	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
 	// applies to manifest v2
-	MaxUniqueTags *int     `pulumi:"maxUniqueTags"`
-	Notes         *string  `pulumi:"notes"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
+	Notes         *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a DockerV1Repository resource.
@@ -204,9 +212,11 @@ type DockerV1RepositoryArgs struct {
 	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (DockerV1RepositoryArgs) ElementType() reflect.Type {

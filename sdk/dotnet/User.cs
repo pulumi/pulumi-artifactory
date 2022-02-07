@@ -21,23 +21,26 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         [Output("admin")]
-        public Output<bool> Admin { get; private set; } = null!;
+        public Output<bool?> Admin { get; private set; } = null!;
 
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         /// </summary>
         [Output("disableUiAccess")]
-        public Output<bool> DisableUiAccess { get; private set; } = null!;
+        public Output<bool?> DisableUiAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Email for user
+        /// Email for user.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// List of groups this user is a part of
+        /// List of groups this user is a part of.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -46,25 +49,25 @@ namespace Pulumi.Artifactory
         /// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         /// </summary>
         [Output("internalPasswordDisabled")]
-        public Output<bool> InternalPasswordDisabled { get; private set; } = null!;
+        public Output<bool?> InternalPasswordDisabled { get; private set; } = null!;
 
         /// <summary>
-        /// Username for user
+        /// Username for user.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the user
+        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         /// </summary>
         [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
+        public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         /// </summary>
         [Output("profileUpdatable")]
-        public Output<bool> ProfileUpdatable { get; private set; } = null!;
+        public Output<bool?> ProfileUpdatable { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,17 +115,20 @@ namespace Pulumi.Artifactory
 
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         [Input("admin")]
         public Input<bool>? Admin { get; set; }
 
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         /// </summary>
         [Input("disableUiAccess")]
         public Input<bool>? DisableUiAccess { get; set; }
 
         /// <summary>
-        /// Email for user
+        /// Email for user.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
@@ -131,7 +137,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of
+        /// List of groups this user is a part of.
         /// </summary>
         public InputList<string> Groups
         {
@@ -146,19 +152,19 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user
+        /// Username for user.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password for the user
+        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         /// </summary>
         [Input("profileUpdatable")]
         public Input<bool>? ProfileUpdatable { get; set; }
@@ -170,17 +176,20 @@ namespace Pulumi.Artifactory
 
     public sealed class UserState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        /// </summary>
         [Input("admin")]
         public Input<bool>? Admin { get; set; }
 
         /// <summary>
-        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+        /// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         /// </summary>
         [Input("disableUiAccess")]
         public Input<bool>? DisableUiAccess { get; set; }
 
         /// <summary>
-        /// Email for user
+        /// Email for user.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
@@ -189,7 +198,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of
+        /// List of groups this user is a part of.
         /// </summary>
         public InputList<string> Groups
         {
@@ -204,19 +213,19 @@ namespace Pulumi.Artifactory
         public Input<bool>? InternalPasswordDisabled { get; set; }
 
         /// <summary>
-        /// Username for user
+        /// Username for user.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password for the user
+        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+        /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         /// </summary>
         [Input("profileUpdatable")]
         public Input<bool>? ProfileUpdatable { get; set; }

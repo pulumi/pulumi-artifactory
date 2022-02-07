@@ -21,21 +21,22 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	Admin pulumi.BoolOutput `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
-	DisableUiAccess pulumi.BoolOutput `pulumi:"disableUiAccess"`
-	// Email for user
+	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+	Admin pulumi.BoolPtrOutput `pulumi:"admin"`
+	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
+	DisableUiAccess pulumi.BoolPtrOutput `pulumi:"disableUiAccess"`
+	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// List of groups this user is a part of
+	// List of groups this user is a part of.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
-	InternalPasswordDisabled pulumi.BoolOutput `pulumi:"internalPasswordDisabled"`
-	// Username for user
+	InternalPasswordDisabled pulumi.BoolPtrOutput `pulumi:"internalPasswordDisabled"`
+	// Username for user.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password for the user
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
-	ProfileUpdatable pulumi.BoolOutput `pulumi:"profileUpdatable"`
+	// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	Password pulumi.StringOutput `pulumi:"password"`
+	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
+	ProfileUpdatable pulumi.BoolPtrOutput `pulumi:"profileUpdatable"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -47,6 +48,9 @@ func NewUser(ctx *pulumi.Context,
 
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
 	}
 	var resource User
 	err := ctx.RegisterResource("artifactory:index/user:User", name, args, &resource, opts...)
@@ -70,38 +74,40 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
+	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
 	Admin *bool `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
-	// Email for user
+	// Email for user.
 	Email *string `pulumi:"email"`
-	// List of groups this user is a part of
+	// List of groups this user is a part of.
 	Groups []string `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user
+	// Username for user.
 	Name *string `pulumi:"name"`
-	// Password for the user
+	// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	Password *string `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
 type UserState struct {
+	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
 	Admin pulumi.BoolPtrInput
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
 	DisableUiAccess pulumi.BoolPtrInput
-	// Email for user
+	// Email for user.
 	Email pulumi.StringPtrInput
-	// List of groups this user is a part of
+	// List of groups this user is a part of.
 	Groups pulumi.StringArrayInput
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user
+	// Username for user.
 	Name pulumi.StringPtrInput
-	// Password for the user
+	// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
 	Password pulumi.StringPtrInput
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 
@@ -110,39 +116,41 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
+	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
 	Admin *bool `pulumi:"admin"`
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
-	// Email for user
+	// Email for user.
 	Email string `pulumi:"email"`
-	// List of groups this user is a part of
+	// List of groups this user is a part of.
 	Groups []string `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
-	// Username for user
+	// Username for user.
 	Name *string `pulumi:"name"`
-	// Password for the user
-	Password *string `pulumi:"password"`
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+	// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	Password string `pulumi:"password"`
+	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
+	// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
 	Admin pulumi.BoolPtrInput
-	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges.
+	// When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
 	DisableUiAccess pulumi.BoolPtrInput
-	// Email for user
+	// Email for user.
 	Email pulumi.StringInput
-	// List of groups this user is a part of
+	// List of groups this user is a part of.
 	Groups pulumi.StringArrayInput
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
-	// Username for user
+	// Username for user.
 	Name pulumi.StringPtrInput
-	// Password for the user
-	Password pulumi.StringPtrInput
-	// When set, this user can update his profile details (except for the password. Only an administrator can update the password).
+	// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+	Password pulumi.StringInput
+	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrInput
 }
 

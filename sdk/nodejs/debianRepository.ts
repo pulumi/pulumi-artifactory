@@ -101,6 +101,10 @@ export class DebianRepository extends pulumi.CustomResource {
      * - The RSA key to be used to sign packages
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
@@ -139,6 +143,7 @@ export class DebianRepository extends pulumi.CustomResource {
             inputs["notes"] = state ? state.notes : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
             inputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["secondaryKeypairRef"] = state ? state.secondaryKeypairRef : undefined;
@@ -159,6 +164,7 @@ export class DebianRepository extends pulumi.CustomResource {
             inputs["key"] = args ? args.key : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["secondaryKeypairRef"] = args ? args.secondaryKeypairRef : undefined;
@@ -202,6 +208,10 @@ export interface DebianRepositoryState {
      * - The RSA key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -245,6 +255,10 @@ export interface DebianRepositoryArgs {
      * - The RSA key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     /**

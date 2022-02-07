@@ -56,12 +56,14 @@ type LocalRpmRepository struct {
 	ExcludesPattern         pulumi.StringOutput    `pulumi:"excludesPattern"`
 	IncludesPattern         pulumi.StringOutput    `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           pulumi.StringOutput      `pulumi:"key"`
-	Notes         pulumi.StringPtrOutput   `pulumi:"notes"`
-	PackageType   pulumi.StringOutput      `pulumi:"packageType"`
-	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	Key         pulumi.StringOutput    `pulumi:"key"`
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrOutput `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -112,12 +114,14 @@ type localRpmRepositoryState struct {
 	ExcludesPattern         *string `pulumi:"excludesPattern"`
 	IncludesPattern         *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           *string  `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PackageType   *string  `pulumi:"packageType"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key         *string `pulumi:"key"`
+	Notes       *string `pulumi:"notes"`
+	PackageType *string `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -137,12 +141,14 @@ type LocalRpmRepositoryState struct {
 	ExcludesPattern         pulumi.StringPtrInput
 	IncludesPattern         pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringPtrInput
-	Notes         pulumi.StringPtrInput
-	PackageType   pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key         pulumi.StringPtrInput
+	Notes       pulumi.StringPtrInput
+	PackageType pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -166,11 +172,13 @@ type localRpmRepositoryArgs struct {
 	ExcludesPattern         *string `pulumi:"excludesPattern"`
 	IncludesPattern         *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           string   `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -191,11 +199,13 @@ type LocalRpmRepositoryArgs struct {
 	ExcludesPattern         pulumi.StringPtrInput
 	IncludesPattern         pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringInput
-	Notes         pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key   pulumi.StringInput
+	Notes pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.

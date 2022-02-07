@@ -70,12 +70,23 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/mavenRepository:MavenRepository")]
     public partial class MavenRepository : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        /// another Artifactory instance.
+        /// </summary>
         [Output("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Output<bool?> ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; private set; } = null!;
 
+        /// <summary>
+        /// Default repository to deploy artifacts.
+        /// </summary>
         [Output("defaultDeploymentRepo")]
         public Output<string?> DefaultDeploymentRepo { get; private set; } = null!;
 
+        /// <summary>
+        /// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        /// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -99,6 +110,11 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        /// 'libs-release-local').
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -108,9 +124,15 @@ namespace Pulumi.Artifactory
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
 
+        /// <summary>
+        /// A free text field to add additional notes about the repository. These are only visible to the administrator.
+        /// </summary>
         [Output("notes")]
         public Output<string?> Notes { get; private set; } = null!;
 
+        /// <summary>
+        /// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        /// </summary>
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
 
@@ -120,11 +142,25 @@ namespace Pulumi.Artifactory
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
 
+        /// <summary>
+        /// The effective list of actual repositories included in this virtual repository.
+        /// </summary>
         [Output("repositories")]
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
+        /// </summary>
+        [Output("retrievalCachePeriodSeconds")]
+        public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
 
         /// <summary>
@@ -172,12 +208,23 @@ namespace Pulumi.Artifactory
 
     public sealed class MavenRepositoryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        /// another Artifactory instance.
+        /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
+        /// <summary>
+        /// Default repository to deploy artifacts.
+        /// </summary>
         [Input("defaultDeploymentRepo")]
         public Input<string>? DefaultDeploymentRepo { get; set; }
 
+        /// <summary>
+        /// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        /// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -201,6 +248,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        /// 'libs-release-local').
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -210,6 +262,9 @@ namespace Pulumi.Artifactory
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
+        /// <summary>
+        /// A free text field to add additional notes about the repository. These are only visible to the administrator.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
@@ -219,16 +274,31 @@ namespace Pulumi.Artifactory
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
 
+        /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
-        [Input("repositories", required: true)]
+        [Input("repositories")]
         private InputList<string>? _repositories;
+
+        /// <summary>
+        /// The effective list of actual repositories included in this virtual repository.
+        /// </summary>
         public InputList<string> Repositories
         {
             get => _repositories ?? (_repositories = new InputList<string>());
             set => _repositories = value;
         }
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
+        /// </summary>
+        [Input("retrievalCachePeriodSeconds")]
+        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         public MavenRepositoryArgs()
         {
@@ -237,12 +307,23 @@ namespace Pulumi.Artifactory
 
     public sealed class MavenRepositoryState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        /// another Artifactory instance.
+        /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
+        /// <summary>
+        /// Default repository to deploy artifacts.
+        /// </summary>
         [Input("defaultDeploymentRepo")]
         public Input<string>? DefaultDeploymentRepo { get; set; }
 
+        /// <summary>
+        /// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        /// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -266,6 +347,11 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        /// 'libs-release-local').
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -275,9 +361,15 @@ namespace Pulumi.Artifactory
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
+        /// <summary>
+        /// A free text field to add additional notes about the repository. These are only visible to the administrator.
+        /// </summary>
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
@@ -287,16 +379,31 @@ namespace Pulumi.Artifactory
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
 
+        /// <summary>
+        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
         [Input("repositories")]
         private InputList<string>? _repositories;
+
+        /// <summary>
+        /// The effective list of actual repositories included in this virtual repository.
+        /// </summary>
         public InputList<string> Repositories
         {
             get => _repositories ?? (_repositories = new InputList<string>());
             set => _repositories = value;
         }
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
+        /// </summary>
+        [Input("retrievalCachePeriodSeconds")]
+        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         public MavenRepositoryState()
         {

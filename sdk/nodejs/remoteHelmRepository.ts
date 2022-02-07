@@ -85,6 +85,9 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     public readonly clientTlsCertificate!: pulumi.Output<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteHelmRepositoryContentSynchronisation>;
     public readonly description!: pulumi.Output<string>;
     /**
@@ -98,8 +101,9 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
+     * repositories in the UI, but incorrect for the API.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -110,7 +114,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
     /**
      * - No documentation is available. Hopefully you know what this means
      */
-    public readonly helmChartsBaseUrl!: pulumi.Output<string>;
+    public readonly helmChartsBaseUrl!: pulumi.Output<string | undefined>;
     public readonly includesPattern!: pulumi.Output<string>;
     /**
      * The repository identifier. Must be unique system-wide
@@ -128,6 +132,9 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
     public readonly offline!: pulumi.Output<boolean>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
@@ -211,9 +218,6 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as RemoteHelmRepositoryArgs | undefined;
-            if ((!args || args.helmChartsBaseUrl === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'helmChartsBaseUrl'");
-            }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
@@ -300,6 +304,9 @@ export interface RemoteHelmRepositoryState {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteHelmRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
@@ -313,8 +320,9 @@ export interface RemoteHelmRepositoryState {
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
+     * repositories in the UI, but incorrect for the API.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -343,6 +351,9 @@ export interface RemoteHelmRepositoryState {
     offline?: pulumi.Input<boolean>;
     packageType?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
@@ -406,6 +417,9 @@ export interface RemoteHelmRepositoryArgs {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteHelmRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
@@ -419,15 +433,16 @@ export interface RemoteHelmRepositoryArgs {
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
+     * repositories in the UI, but incorrect for the API.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     hardFail?: pulumi.Input<boolean>;
     /**
      * - No documentation is available. Hopefully you know what this means
      */
-    helmChartsBaseUrl: pulumi.Input<string>;
+    helmChartsBaseUrl?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
     /**
      * The repository identifier. Must be unique system-wide
@@ -444,6 +459,9 @@ export interface RemoteHelmRepositoryArgs {
      */
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;

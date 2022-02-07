@@ -11,6 +11,33 @@ from . import outputs
 
 __all__ = [
     'AccessTokenAdminToken',
+    'FederatedAlpineRepositoryMember',
+    'FederatedBowerRepositoryMember',
+    'FederatedCargoRepositoryMember',
+    'FederatedChefRepositoryMember',
+    'FederatedCocoapodsRepositoryMember',
+    'FederatedComposerRepositoryMember',
+    'FederatedConanRepositoryMember',
+    'FederatedCondaRepositoryMember',
+    'FederatedCranRepositoryMember',
+    'FederatedDebianRepositoryMember',
+    'FederatedDockerRepositoryMember',
+    'FederatedGemsRepositoryMember',
+    'FederatedGenericRepositoryMember',
+    'FederatedGitltfsRepositoryMember',
+    'FederatedGoRepositoryMember',
+    'FederatedGradleRepositoryMember',
+    'FederatedHelmRepositoryMember',
+    'FederatedIvyRepositoryMember',
+    'FederatedMavenRepositoryMember',
+    'FederatedNpmRepositoryMember',
+    'FederatedNugetRepositoryMember',
+    'FederatedOpkgRepositoryMember',
+    'FederatedPuppetRepositoryMember',
+    'FederatedPypiRepositoryMember',
+    'FederatedRpmRepositoryMember',
+    'FederatedSbtRepositoryMember',
+    'FederatedVagrantRepositoryMember',
     'OauthSettingsOauthProvider',
     'PermissionTargetBuild',
     'PermissionTargetBuildActions',
@@ -80,6 +107,789 @@ class AccessTokenAdminToken(dict):
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
         return pulumi.get(self, "instance_id")
+
+
+@pulumi.output_type
+class FederatedAlpineRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedBowerRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedCargoRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedChefRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedCocoapodsRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedComposerRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedConanRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedCondaRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedCranRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedDebianRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedDockerRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedGemsRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedGenericRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedGitltfsRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedGoRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedGradleRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedHelmRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedIvyRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedMavenRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedNpmRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedNugetRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedOpkgRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedPuppetRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedPypiRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedRpmRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedSbtRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedVagrantRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type
@@ -1117,66 +1927,324 @@ class PushReplicationReplication(dict):
 
 @pulumi.output_type
 class RemoteCargoRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteCargoRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteCargoRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteCargoRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
 
 
 @pulumi.output_type
 class RemoteDockerRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteDockerRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteDockerRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteDockerRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
 
 
 @pulumi.output_type
 class RemoteHelmRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteHelmRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteHelmRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteHelmRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
 
 
 @pulumi.output_type
 class RemoteNpmRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteNpmRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteNpmRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteNpmRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
 
 
 @pulumi.output_type
 class RemoteRepositoryContentSynchronisation(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
         return pulumi.get(self, "enabled")
 
 

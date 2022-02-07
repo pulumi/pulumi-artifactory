@@ -14,7 +14,6 @@ __all__ = ['MavenRepositoryArgs', 'MavenRepository']
 class MavenRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 repositories: pulumi.Input[Sequence[pulumi.Input[str]]],
                  artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
                  default_deployment_repo: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,19 +23,34 @@ class MavenRepositoryArgs:
                  key_pair: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
-                 repo_layout_ref: Optional[pulumi.Input[str]] = None):
+                 repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a MavenRepository resource.
+        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+               'libs-release-local').
+        :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+               another Artifactory instance.
+        :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
+        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "repositories", repositories)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
         if default_deployment_repo is not None:
@@ -57,10 +71,19 @@ class MavenRepositoryArgs:
             pulumi.set(__self__, "pom_repository_references_cleanup_policy", pom_repository_references_cleanup_policy)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+        if retrieval_cache_period_seconds is not None:
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        'libs-release-local').
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -68,17 +91,12 @@ class MavenRepositoryArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter
-    def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        return pulumi.get(self, "repositories")
-
-    @repositories.setter
-    def repositories(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "repositories", value)
-
-    @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
     def artifactory_requests_can_retrieve_remote_artifacts(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        another Artifactory instance.
+        """
         return pulumi.get(self, "artifactory_requests_can_retrieve_remote_artifacts")
 
     @artifactory_requests_can_retrieve_remote_artifacts.setter
@@ -88,6 +106,9 @@ class MavenRepositoryArgs:
     @property
     @pulumi.getter(name="defaultDeploymentRepo")
     def default_deployment_repo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default repository to deploy artifacts.
+        """
         return pulumi.get(self, "default_deployment_repo")
 
     @default_deployment_repo.setter
@@ -97,6 +118,10 @@ class MavenRepositoryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -156,6 +181,9 @@ class MavenRepositoryArgs:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -177,11 +205,40 @@ class MavenRepositoryArgs:
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
     def repo_layout_ref(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repo_layout_ref", value)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The effective list of actual repositories included in this virtual repository.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repositories", value)
+
+    @property
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @retrieval_cache_period_seconds.setter
+    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
 @pulumi.input_type
@@ -199,16 +256,32 @@ class _MavenRepositoryState:
                  package_type: Optional[pulumi.Input[str]] = None,
                  pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering MavenRepository resources.
+        :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+               another Artifactory instance.
+        :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
+        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+               'libs-release-local').
         :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
+        :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -236,10 +309,16 @@ class _MavenRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
+        if retrieval_cache_period_seconds is not None:
+            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
     def artifactory_requests_can_retrieve_remote_artifacts(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        another Artifactory instance.
+        """
         return pulumi.get(self, "artifactory_requests_can_retrieve_remote_artifacts")
 
     @artifactory_requests_can_retrieve_remote_artifacts.setter
@@ -249,6 +328,9 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter(name="defaultDeploymentRepo")
     def default_deployment_repo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default repository to deploy artifacts.
+        """
         return pulumi.get(self, "default_deployment_repo")
 
     @default_deployment_repo.setter
@@ -258,6 +340,10 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -305,6 +391,11 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        'libs-release-local').
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -326,6 +417,9 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
+        """
+        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -335,6 +429,9 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        """
         return pulumi.get(self, "package_type")
 
     @package_type.setter
@@ -356,6 +453,10 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
@@ -365,11 +466,27 @@ class _MavenRepositoryState:
     @property
     @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The effective list of actual repositories included in this virtual repository.
+        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
+
+    @property
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
+
+    @retrieval_cache_period_seconds.setter
+    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
 class MavenRepository(pulumi.CustomResource):
@@ -389,6 +506,7 @@ class MavenRepository(pulumi.CustomResource):
                  pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         ## # Artifactory Virtual Maven Repository Resource
@@ -436,13 +554,27 @@ class MavenRepository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+               another Artifactory instance.
+        :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
+        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+               'libs-release-local').
         :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         ...
     @overload
@@ -521,6 +653,7 @@ class MavenRepository(pulumi.CustomResource):
                  pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -546,9 +679,8 @@ class MavenRepository(pulumi.CustomResource):
             __props__.__dict__["notes"] = notes
             __props__.__dict__["pom_repository_references_cleanup_policy"] = pom_repository_references_cleanup_policy
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
-            if repositories is None and not opts.urn:
-                raise TypeError("Missing required property 'repositories'")
             __props__.__dict__["repositories"] = repositories
+            __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
             __props__.__dict__["package_type"] = None
         super(MavenRepository, __self__).__init__(
             'artifactory:index/mavenRepository:MavenRepository',
@@ -572,7 +704,8 @@ class MavenRepository(pulumi.CustomResource):
             package_type: Optional[pulumi.Input[str]] = None,
             pom_repository_references_cleanup_policy: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'MavenRepository':
+            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None) -> 'MavenRepository':
         """
         Get an existing MavenRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -580,13 +713,28 @@ class MavenRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+               another Artifactory instance.
+        :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
+        :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+               field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+               'libs-release-local').
         :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
+        :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -605,21 +753,33 @@ class MavenRepository(pulumi.CustomResource):
         __props__.__dict__["pom_repository_references_cleanup_policy"] = pom_repository_references_cleanup_policy
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["repositories"] = repositories
+        __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
         return MavenRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
     def artifactory_requests_can_retrieve_remote_artifacts(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+        another Artifactory instance.
+        """
         return pulumi.get(self, "artifactory_requests_can_retrieve_remote_artifacts")
 
     @property
     @pulumi.getter(name="defaultDeploymentRepo")
     def default_deployment_repo(self) -> pulumi.Output[Optional[str]]:
+        """
+        Default repository to deploy artifacts.
+        """
         return pulumi.get(self, "default_deployment_repo")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+        field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -651,6 +811,11 @@ class MavenRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+        'libs-release-local').
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -664,11 +829,17 @@ class MavenRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def notes(self) -> pulumi.Output[Optional[str]]:
+        """
+        A free text field to add additional notes about the repository. These are only visible to the administrator.
+        """
         return pulumi.get(self, "notes")
 
     @property
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
+        """
+        The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        """
         return pulumi.get(self, "package_type")
 
     @property
@@ -682,10 +853,26 @@ class MavenRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[str]:
+        """
+        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @property
     @pulumi.getter
-    def repositories(self) -> pulumi.Output[Sequence[str]]:
+    def repositories(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The effective list of actual repositories included in this virtual repository.
+        """
         return pulumi.get(self, "repositories")
+
+    @property
+    @pulumi.getter(name="retrievalCachePeriodSeconds")
+    def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
+        """
+        return pulumi.get(self, "retrieval_cache_period_seconds")
 

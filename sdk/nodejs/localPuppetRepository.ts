@@ -65,6 +65,10 @@ export class LocalPuppetRepository extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     public readonly xrayIndex!: pulumi.Output<boolean>;
@@ -91,6 +95,7 @@ export class LocalPuppetRepository extends pulumi.CustomResource {
             inputs["key"] = state ? state.key : undefined;
             inputs["notes"] = state ? state.notes : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
@@ -107,6 +112,7 @@ export class LocalPuppetRepository extends pulumi.CustomResource {
             inputs["includesPattern"] = args ? args.includesPattern : undefined;
             inputs["key"] = args ? args.key : undefined;
             inputs["notes"] = args ? args.notes : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
@@ -140,6 +146,10 @@ export interface LocalPuppetRepositoryState {
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
@@ -165,6 +175,10 @@ export interface LocalPuppetRepositoryArgs {
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;

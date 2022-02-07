@@ -23,6 +23,7 @@ class LocalNugetRepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -36,6 +37,7 @@ class LocalNugetRepositoryArgs:
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -56,6 +58,8 @@ class LocalNugetRepositoryArgs:
             pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -170,6 +174,18 @@ class LocalNugetRepositoryArgs:
         pulumi.set(self, "notes", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -211,6 +227,7 @@ class _LocalNugetRepositoryState:
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -224,6 +241,7 @@ class _LocalNugetRepositoryState:
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -247,6 +265,8 @@ class _LocalNugetRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -370,6 +390,18 @@ class _LocalNugetRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -412,6 +444,7 @@ class LocalNugetRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -443,6 +476,7 @@ class LocalNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         ...
     @overload
@@ -492,6 +526,7 @@ class LocalNugetRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -519,6 +554,7 @@ class LocalNugetRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
@@ -544,6 +580,7 @@ class LocalNugetRepository(pulumi.CustomResource):
             max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'LocalNugetRepository':
@@ -562,6 +599,7 @@ class LocalNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -578,6 +616,7 @@ class LocalNugetRepository(pulumi.CustomResource):
         __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
@@ -653,6 +692,14 @@ class LocalNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

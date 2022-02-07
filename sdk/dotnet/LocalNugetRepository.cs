@@ -87,6 +87,12 @@ namespace Pulumi.Artifactory
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
+        [Output("priorityResolution")]
+        public Output<bool?> PriorityResolution { get; private set; } = null!;
+
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
@@ -188,6 +194,12 @@ namespace Pulumi.Artifactory
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
+
         [Input("propertySets")]
         private InputList<string>? _propertySets;
         public InputList<string> PropertySets
@@ -257,6 +269,12 @@ namespace Pulumi.Artifactory
 
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
+
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
+        [Input("priorityResolution")]
+        public Input<bool>? PriorityResolution { get; set; }
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;

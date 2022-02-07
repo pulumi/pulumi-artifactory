@@ -50,12 +50,14 @@ type LocalGitltfsRepository struct {
 	ExcludesPattern        pulumi.StringOutput    `pulumi:"excludesPattern"`
 	IncludesPattern        pulumi.StringOutput    `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           pulumi.StringOutput      `pulumi:"key"`
-	Notes         pulumi.StringPtrOutput   `pulumi:"notes"`
-	PackageType   pulumi.StringOutput      `pulumi:"packageType"`
-	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	Key         pulumi.StringOutput    `pulumi:"key"`
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
 }
 
 // NewLocalGitltfsRepository registers a new resource with the given unique name, arguments, and options.
@@ -100,12 +102,14 @@ type localGitltfsRepositoryState struct {
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           *string  `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PackageType   *string  `pulumi:"packageType"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key         *string `pulumi:"key"`
+	Notes       *string `pulumi:"notes"`
+	PackageType *string `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 type LocalGitltfsRepositoryState struct {
@@ -119,12 +123,14 @@ type LocalGitltfsRepositoryState struct {
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringPtrInput
-	Notes         pulumi.StringPtrInput
-	PackageType   pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key         pulumi.StringPtrInput
+	Notes       pulumi.StringPtrInput
+	PackageType pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (LocalGitltfsRepositoryState) ElementType() reflect.Type {
@@ -142,11 +148,13 @@ type localGitltfsRepositoryArgs struct {
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           string   `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalGitltfsRepository resource.
@@ -161,11 +169,13 @@ type LocalGitltfsRepositoryArgs struct {
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringInput
-	Notes         pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key   pulumi.StringInput
+	Notes pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (LocalGitltfsRepositoryArgs) ElementType() reflect.Type {

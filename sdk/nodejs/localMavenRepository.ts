@@ -91,6 +91,10 @@ export class LocalMavenRepository extends pulumi.CustomResource {
     public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
@@ -135,6 +139,7 @@ export class LocalMavenRepository extends pulumi.CustomResource {
             inputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
             inputs["notes"] = state ? state.notes : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["snapshotVersionBehavior"] = state ? state.snapshotVersionBehavior : undefined;
@@ -157,6 +162,7 @@ export class LocalMavenRepository extends pulumi.CustomResource {
             inputs["key"] = args ? args.key : undefined;
             inputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
             inputs["notes"] = args ? args.notes : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["snapshotVersionBehavior"] = args ? args.snapshotVersionBehavior : undefined;
@@ -212,6 +218,10 @@ export interface LocalMavenRepositoryState {
     maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -271,6 +281,10 @@ export interface LocalMavenRepositoryArgs {
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     /**
