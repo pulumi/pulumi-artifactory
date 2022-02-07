@@ -69,8 +69,9 @@ type RemoteCargoRepository struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolOutput                                 `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   pulumi.StringOutput                               `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   pulumi.BoolOutput   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                               `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -89,9 +90,10 @@ type RemoteCargoRepository struct {
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
 	Notes                    pulumi.StringPtrOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolOutput        `pulumi:"offline"`
-	PackageType          pulumi.StringOutput      `pulumi:"packageType"`
-	Password             pulumi.StringPtrOutput   `pulumi:"password"`
+	Offline     pulumi.BoolOutput      `pulumi:"offline"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	Password    pulumi.StringPtrOutput `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolOutput        `pulumi:"priorityResolution"`
 	PropagateQueryParams pulumi.BoolPtrOutput     `pulumi:"propagateQueryParams"`
 	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -173,8 +175,9 @@ type remoteCargoRepositoryState struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                        `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                      `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                      `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -193,9 +196,10 @@ type remoteCargoRepositoryState struct {
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              *bool    `pulumi:"offline"`
-	PackageType          *string  `pulumi:"packageType"`
-	Password             *string  `pulumi:"password"`
+	Offline     *bool   `pulumi:"offline"`
+	PackageType *string `pulumi:"packageType"`
+	Password    *string `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
@@ -240,8 +244,9 @@ type RemoteCargoRepositoryState struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -260,9 +265,10 @@ type RemoteCargoRepositoryState struct {
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolPtrInput
-	PackageType          pulumi.StringPtrInput
-	Password             pulumi.StringPtrInput
+	Offline     pulumi.BoolPtrInput
+	PackageType pulumi.StringPtrInput
+	Password    pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
@@ -311,8 +317,9 @@ type remoteCargoRepositoryArgs struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                        `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                      `pulumi:"clientTlsCertificate"`
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                      `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -329,8 +336,9 @@ type remoteCargoRepositoryArgs struct {
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              *bool    `pulumi:"offline"`
-	Password             *string  `pulumi:"password"`
+	Offline  *bool   `pulumi:"offline"`
+	Password *string `pulumi:"password"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   *bool    `pulumi:"priorityResolution"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
@@ -376,8 +384,9 @@ type RemoteCargoRepositoryArgs struct {
 	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
@@ -394,8 +403,9 @@ type RemoteCargoRepositoryArgs struct {
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline              pulumi.BoolPtrInput
-	Password             pulumi.StringPtrInput
+	Offline  pulumi.BoolPtrInput
+	Password pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution   pulumi.BoolPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput

@@ -18,9 +18,12 @@ class GroupArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
                  realm_attributes: Optional[pulumi.Input[str]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 reports_manager: Optional[pulumi.Input[bool]] = None,
+                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 watch_manager: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -28,9 +31,12 @@ class GroupArgs:
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] name: Name of the group
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
         """
         if admin_privileges is not None:
             pulumi.set(__self__, "admin_privileges", admin_privileges)
@@ -42,12 +48,18 @@ class GroupArgs:
             pulumi.set(__self__, "detach_all_users", detach_all_users)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policy_manager is not None:
+            pulumi.set(__self__, "policy_manager", policy_manager)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
         if realm_attributes is not None:
             pulumi.set(__self__, "realm_attributes", realm_attributes)
+        if reports_manager is not None:
+            pulumi.set(__self__, "reports_manager", reports_manager)
         if users_names is not None:
             pulumi.set(__self__, "users_names", users_names)
+        if watch_manager is not None:
+            pulumi.set(__self__, "watch_manager", watch_manager)
 
     @property
     @pulumi.getter(name="adminPrivileges")
@@ -110,6 +122,18 @@ class GroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="policyManager")
+    def policy_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        """
+        return pulumi.get(self, "policy_manager")
+
+    @policy_manager.setter
+    def policy_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "policy_manager", value)
+
+    @property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[str]]:
         """
@@ -134,6 +158,18 @@ class GroupArgs:
         pulumi.set(self, "realm_attributes", value)
 
     @property
+    @pulumi.getter(name="reportsManager")
+    def reports_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "reports_manager")
+
+    @reports_manager.setter
+    def reports_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reports_manager", value)
+
+    @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -144,6 +180,18 @@ class GroupArgs:
     @users_names.setter
     def users_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "users_names", value)
+
+    @property
+    @pulumi.getter(name="watchManager")
+    def watch_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "watch_manager")
+
+    @watch_manager.setter
+    def watch_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "watch_manager", value)
 
 
 @pulumi.input_type
@@ -154,9 +202,12 @@ class _GroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
                  realm_attributes: Optional[pulumi.Input[str]] = None,
-                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 reports_manager: Optional[pulumi.Input[bool]] = None,
+                 users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 watch_manager: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -164,9 +215,12 @@ class _GroupState:
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] name: Name of the group
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
         """
         if admin_privileges is not None:
             pulumi.set(__self__, "admin_privileges", admin_privileges)
@@ -178,12 +232,18 @@ class _GroupState:
             pulumi.set(__self__, "detach_all_users", detach_all_users)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if policy_manager is not None:
+            pulumi.set(__self__, "policy_manager", policy_manager)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
         if realm_attributes is not None:
             pulumi.set(__self__, "realm_attributes", realm_attributes)
+        if reports_manager is not None:
+            pulumi.set(__self__, "reports_manager", reports_manager)
         if users_names is not None:
             pulumi.set(__self__, "users_names", users_names)
+        if watch_manager is not None:
+            pulumi.set(__self__, "watch_manager", watch_manager)
 
     @property
     @pulumi.getter(name="adminPrivileges")
@@ -246,6 +306,18 @@ class _GroupState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="policyManager")
+    def policy_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        """
+        return pulumi.get(self, "policy_manager")
+
+    @policy_manager.setter
+    def policy_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "policy_manager", value)
+
+    @property
     @pulumi.getter
     def realm(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,6 +342,18 @@ class _GroupState:
         pulumi.set(self, "realm_attributes", value)
 
     @property
+    @pulumi.getter(name="reportsManager")
+    def reports_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "reports_manager")
+
+    @reports_manager.setter
+    def reports_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reports_manager", value)
+
+    @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -280,6 +364,18 @@ class _GroupState:
     @users_names.setter
     def users_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "users_names", value)
+
+    @property
+    @pulumi.getter(name="watchManager")
+    def watch_manager(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "watch_manager")
+
+    @watch_manager.setter
+    def watch_manager(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "watch_manager", value)
 
 
 class Group(pulumi.CustomResource):
@@ -292,9 +388,12 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
                  realm_attributes: Optional[pulumi.Input[str]] = None,
+                 reports_manager: Optional[pulumi.Input[bool]] = None,
                  users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 watch_manager: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         ## Import
@@ -312,9 +411,12 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] name: Name of the group
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
         """
         ...
     @overload
@@ -351,9 +453,12 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
                  realm_attributes: Optional[pulumi.Input[str]] = None,
+                 reports_manager: Optional[pulumi.Input[bool]] = None,
                  users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 watch_manager: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -371,9 +476,12 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["detach_all_users"] = detach_all_users
             __props__.__dict__["name"] = name
+            __props__.__dict__["policy_manager"] = policy_manager
             __props__.__dict__["realm"] = realm
             __props__.__dict__["realm_attributes"] = realm_attributes
+            __props__.__dict__["reports_manager"] = reports_manager
             __props__.__dict__["users_names"] = users_names
+            __props__.__dict__["watch_manager"] = watch_manager
         super(Group, __self__).__init__(
             'artifactory:index/group:Group',
             resource_name,
@@ -389,9 +497,12 @@ class Group(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             detach_all_users: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            policy_manager: Optional[pulumi.Input[bool]] = None,
             realm: Optional[pulumi.Input[str]] = None,
             realm_attributes: Optional[pulumi.Input[str]] = None,
-            users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Group':
+            reports_manager: Optional[pulumi.Input[bool]] = None,
+            users_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            watch_manager: Optional[pulumi.Input[bool]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -404,9 +515,12 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] name: Name of the group
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -417,9 +531,12 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["detach_all_users"] = detach_all_users
         __props__.__dict__["name"] = name
+        __props__.__dict__["policy_manager"] = policy_manager
         __props__.__dict__["realm"] = realm
         __props__.__dict__["realm_attributes"] = realm_attributes
+        __props__.__dict__["reports_manager"] = reports_manager
         __props__.__dict__["users_names"] = users_names
+        __props__.__dict__["watch_manager"] = watch_manager
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -463,6 +580,14 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="policyManager")
+    def policy_manager(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        """
+        return pulumi.get(self, "policy_manager")
+
+    @property
     @pulumi.getter
     def realm(self) -> pulumi.Output[str]:
         """
@@ -479,10 +604,26 @@ class Group(pulumi.CustomResource):
         return pulumi.get(self, "realm_attributes")
 
     @property
+    @pulumi.getter(name="reportsManager")
+    def reports_manager(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "reports_manager")
+
+    @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of users assigned to the group. If missing or empty, tf will not manage group membership
         """
         return pulumi.get(self, "users_names")
+
+    @property
+    @pulumi.getter(name="watchManager")
+    def watch_manager(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        """
+        return pulumi.get(self, "watch_manager")
 

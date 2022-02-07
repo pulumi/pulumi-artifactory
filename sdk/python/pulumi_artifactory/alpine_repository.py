@@ -23,6 +23,7 @@ class AlpineRepositoryArgs:
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -33,6 +34,7 @@ class AlpineRepositoryArgs:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -53,6 +55,8 @@ class AlpineRepositoryArgs:
             pulumi.set(__self__, "notes", notes)
         if primary_keypair_ref is not None:
             pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -162,6 +166,18 @@ class AlpineRepositoryArgs:
         pulumi.set(self, "primary_keypair_ref", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -203,6 +219,7 @@ class _AlpineRepositoryState:
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -213,6 +230,7 @@ class _AlpineRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -236,6 +254,8 @@ class _AlpineRepositoryState:
             pulumi.set(__self__, "package_type", package_type)
         if primary_keypair_ref is not None:
             pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -354,6 +374,18 @@ class _AlpineRepositoryState:
         pulumi.set(self, "primary_keypair_ref", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -396,6 +428,7 @@ class AlpineRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -430,6 +463,7 @@ class AlpineRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         ...
     @overload
@@ -485,6 +519,7 @@ class AlpineRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -512,6 +547,7 @@ class AlpineRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["notes"] = notes
             __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
@@ -537,6 +573,7 @@ class AlpineRepository(pulumi.CustomResource):
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'AlpineRepository':
@@ -552,6 +589,7 @@ class AlpineRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -568,6 +606,7 @@ class AlpineRepository(pulumi.CustomResource):
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
@@ -638,6 +677,14 @@ class AlpineRepository(pulumi.CustomResource):
         - The RSA key to be used to sign alpine indecies
         """
         return pulumi.get(self, "primary_keypair_ref")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

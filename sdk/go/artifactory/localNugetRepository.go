@@ -58,9 +58,11 @@ type LocalNugetRepository struct {
 	// - The maximum number of unique snapshots of a single artifact to store.
 	//   Once the number of snapshots exceeds this setting, older versions are removed.
 	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-	MaxUniqueSnapshots pulumi.IntPtrOutput      `pulumi:"maxUniqueSnapshots"`
-	Notes              pulumi.StringPtrOutput   `pulumi:"notes"`
-	PackageType        pulumi.StringOutput      `pulumi:"packageType"`
+	MaxUniqueSnapshots pulumi.IntPtrOutput    `pulumi:"maxUniqueSnapshots"`
+	Notes              pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType        pulumi.StringOutput    `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
 	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
 	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
@@ -114,9 +116,11 @@ type localNugetRepositoryState struct {
 	// - The maximum number of unique snapshots of a single artifact to store.
 	//   Once the number of snapshots exceeds this setting, older versions are removed.
 	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-	MaxUniqueSnapshots *int     `pulumi:"maxUniqueSnapshots"`
-	Notes              *string  `pulumi:"notes"`
-	PackageType        *string  `pulumi:"packageType"`
+	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
+	Notes              *string `pulumi:"notes"`
+	PackageType        *string `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
 	PropertySets       []string `pulumi:"propertySets"`
 	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
 	XrayIndex          *bool    `pulumi:"xrayIndex"`
@@ -142,6 +146,8 @@ type LocalNugetRepositoryState struct {
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	Notes              pulumi.StringPtrInput
 	PackageType        pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
 	PropertySets       pulumi.StringArrayInput
 	RepoLayoutRef      pulumi.StringPtrInput
 	XrayIndex          pulumi.BoolPtrInput
@@ -168,8 +174,10 @@ type localNugetRepositoryArgs struct {
 	// - The maximum number of unique snapshots of a single artifact to store.
 	//   Once the number of snapshots exceeds this setting, older versions are removed.
 	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
-	MaxUniqueSnapshots *int     `pulumi:"maxUniqueSnapshots"`
-	Notes              *string  `pulumi:"notes"`
+	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
+	Notes              *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
 	PropertySets       []string `pulumi:"propertySets"`
 	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
 	XrayIndex          *bool    `pulumi:"xrayIndex"`
@@ -195,6 +203,8 @@ type LocalNugetRepositoryArgs struct {
 	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	Notes              pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
 	PropertySets       pulumi.StringArrayInput
 	RepoLayoutRef      pulumi.StringPtrInput
 	XrayIndex          pulumi.BoolPtrInput

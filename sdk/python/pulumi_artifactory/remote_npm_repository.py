@@ -67,11 +67,13 @@ class RemoteNpmRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[bool] list_remote_folder_items: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[str] mismatching_mime_types_override_list: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -251,6 +253,9 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -383,6 +388,9 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
@@ -584,12 +592,14 @@ class _RemoteNpmRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[str] mismatching_mime_types_override_list: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -757,6 +767,9 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -919,6 +932,9 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @priority_resolution.setter
@@ -1152,12 +1168,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[str] mismatching_mime_types_override_list: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1366,12 +1384,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[str] mismatching_mime_types_override_list: - No documentation could be found. This field exist in the API but not in the UI
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1479,6 +1499,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output['outputs.RemoteNpmRepositoryContentSynchronisation']:
+        """
+        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        """
         return pulumi.get(self, "content_synchronisation")
 
     @property
@@ -1577,6 +1600,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> pulumi.Output[bool]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
         return pulumi.get(self, "priority_resolution")
 
     @property

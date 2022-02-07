@@ -68,8 +68,19 @@ export class GoRepository extends pulumi.CustomResource {
         return obj['__pulumiType'] === GoRepository.__pulumiType;
     }
 
+    /**
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
+     */
     public readonly artifactoryRequestsCanRetrieveRemoteArtifacts!: pulumi.Output<boolean | undefined>;
+    /**
+     * Default repository to deploy artifacts.
+     */
     public readonly defaultDeploymentRepo!: pulumi.Output<string | undefined>;
+    /**
+     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
@@ -89,11 +100,34 @@ export class GoRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
+    /**
+     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+     * 'libs-release-local').
+     */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     */
     public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+     */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
     public readonly repoLayoutRef!: pulumi.Output<string>;
-    public readonly repositories!: pulumi.Output<string[]>;
+    /**
+     * The effective list of actual repositories included in this virtual repository.
+     */
+    public readonly repositories!: pulumi.Output<string[] | undefined>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
+     */
+    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a GoRepository resource with the given unique name, arguments, and options.
@@ -120,13 +154,11 @@ export class GoRepository extends pulumi.CustomResource {
             inputs["packageType"] = state ? state.packageType : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["repositories"] = state ? state.repositories : undefined;
+            inputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
         } else {
             const args = argsOrState as GoRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
-            }
-            if ((!args || args.repositories === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'repositories'");
             }
             inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
             inputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
@@ -139,6 +171,7 @@ export class GoRepository extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["repositories"] = args ? args.repositories : undefined;
+            inputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
             inputs["packageType"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -152,8 +185,19 @@ export class GoRepository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GoRepository resources.
  */
 export interface GoRepositoryState {
+    /**
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
+     */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
+    /**
+     * Default repository to deploy artifacts.
+     */
     defaultDeploymentRepo?: pulumi.Input<string>;
+    /**
+     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     */
     description?: pulumi.Input<string>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
@@ -173,19 +217,53 @@ export interface GoRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+     * 'libs-release-local').
+     */
     key?: pulumi.Input<string>;
+    /**
+     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     */
     notes?: pulumi.Input<string>;
+    /**
+     * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+     */
     packageType?: pulumi.Input<string>;
+    /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * The effective list of actual repositories included in this virtual repository.
+     */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
+     */
+    retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
 
 /**
  * The set of arguments for constructing a GoRepository resource.
  */
 export interface GoRepositoryArgs {
+    /**
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
+     */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
+    /**
+     * Default repository to deploy artifacts.
+     */
     defaultDeploymentRepo?: pulumi.Input<string>;
+    /**
+     * A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+     * field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+     */
     description?: pulumi.Input<string>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
@@ -205,8 +283,28 @@ export interface GoRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+     * 'libs-release-local').
+     */
     key: pulumi.Input<string>;
+    /**
+     * A free text field to add additional notes about the repository. These are only visible to the administrator.
+     */
     notes?: pulumi.Input<string>;
+    /**
+     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     */
     repoLayoutRef?: pulumi.Input<string>;
-    repositories: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The effective list of actual repositories included in this virtual repository.
+     */
+    repositories?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
+     */
+    retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

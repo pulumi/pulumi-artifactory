@@ -12,12 +12,41 @@ export * from "./certificate";
 export * from "./debianRepository";
 export * from "./dockerV1Repository";
 export * from "./dockerV2Repository";
+export * from "./federatedAlpineRepository";
+export * from "./federatedBowerRepository";
+export * from "./federatedCargoRepository";
+export * from "./federatedChefRepository";
+export * from "./federatedCocoapodsRepository";
+export * from "./federatedComposerRepository";
+export * from "./federatedConanRepository";
+export * from "./federatedCondaRepository";
+export * from "./federatedCranRepository";
+export * from "./federatedDebianRepository";
+export * from "./federatedDockerRepository";
+export * from "./federatedGemsRepository";
+export * from "./federatedGenericRepository";
+export * from "./federatedGitltfsRepository";
+export * from "./federatedGoRepository";
+export * from "./federatedGradleRepository";
+export * from "./federatedHelmRepository";
+export * from "./federatedIvyRepository";
+export * from "./federatedMavenRepository";
+export * from "./federatedNpmRepository";
+export * from "./federatedNugetRepository";
+export * from "./federatedOpkgRepository";
+export * from "./federatedPuppetRepository";
+export * from "./federatedPypiRepository";
+export * from "./federatedRpmRepository";
+export * from "./federatedSbtRepository";
+export * from "./federatedVagrantRepository";
 export * from "./generalSecurity";
 export * from "./getFile";
 export * from "./getFileinfo";
 export * from "./goRepository";
 export * from "./group";
 export * from "./keypair";
+export * from "./ldapGroupSetting";
+export * from "./ldapSetting";
 export * from "./localBowerRepository";
 export * from "./localChefRepository";
 export * from "./localCocoapodsRepository";
@@ -57,7 +86,10 @@ export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
 export * from "./user";
+export * from "./virtualConanRepository";
+export * from "./virtualGenericRepository";
 export * from "./virtualRepository";
+export * from "./virtualRpmRepository";
 export * from "./xrayPolicy";
 export * from "./xrayWatch";
 
@@ -78,10 +110,39 @@ import { Certificate } from "./certificate";
 import { DebianRepository } from "./debianRepository";
 import { DockerV1Repository } from "./dockerV1Repository";
 import { DockerV2Repository } from "./dockerV2Repository";
+import { FederatedAlpineRepository } from "./federatedAlpineRepository";
+import { FederatedBowerRepository } from "./federatedBowerRepository";
+import { FederatedCargoRepository } from "./federatedCargoRepository";
+import { FederatedChefRepository } from "./federatedChefRepository";
+import { FederatedCocoapodsRepository } from "./federatedCocoapodsRepository";
+import { FederatedComposerRepository } from "./federatedComposerRepository";
+import { FederatedConanRepository } from "./federatedConanRepository";
+import { FederatedCondaRepository } from "./federatedCondaRepository";
+import { FederatedCranRepository } from "./federatedCranRepository";
+import { FederatedDebianRepository } from "./federatedDebianRepository";
+import { FederatedDockerRepository } from "./federatedDockerRepository";
+import { FederatedGemsRepository } from "./federatedGemsRepository";
+import { FederatedGenericRepository } from "./federatedGenericRepository";
+import { FederatedGitltfsRepository } from "./federatedGitltfsRepository";
+import { FederatedGoRepository } from "./federatedGoRepository";
+import { FederatedGradleRepository } from "./federatedGradleRepository";
+import { FederatedHelmRepository } from "./federatedHelmRepository";
+import { FederatedIvyRepository } from "./federatedIvyRepository";
+import { FederatedMavenRepository } from "./federatedMavenRepository";
+import { FederatedNpmRepository } from "./federatedNpmRepository";
+import { FederatedNugetRepository } from "./federatedNugetRepository";
+import { FederatedOpkgRepository } from "./federatedOpkgRepository";
+import { FederatedPuppetRepository } from "./federatedPuppetRepository";
+import { FederatedPypiRepository } from "./federatedPypiRepository";
+import { FederatedRpmRepository } from "./federatedRpmRepository";
+import { FederatedSbtRepository } from "./federatedSbtRepository";
+import { FederatedVagrantRepository } from "./federatedVagrantRepository";
 import { GeneralSecurity } from "./generalSecurity";
 import { GoRepository } from "./goRepository";
 import { Group } from "./group";
 import { Keypair } from "./keypair";
+import { LdapGroupSetting } from "./ldapGroupSetting";
+import { LdapSetting } from "./ldapSetting";
 import { LocalBowerRepository } from "./localBowerRepository";
 import { LocalChefRepository } from "./localChefRepository";
 import { LocalCocoapodsRepository } from "./localCocoapodsRepository";
@@ -120,7 +181,10 @@ import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
 import { User } from "./user";
+import { VirtualConanRepository } from "./virtualConanRepository";
+import { VirtualGenericRepository } from "./virtualGenericRepository";
 import { VirtualRepository } from "./virtualRepository";
+import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { XrayPolicy } from "./xrayPolicy";
 import { XrayWatch } from "./xrayWatch";
 
@@ -142,6 +206,60 @@ const _module = {
                 return new DockerV1Repository(name, <any>undefined, { urn })
             case "artifactory:index/dockerV2Repository:DockerV2Repository":
                 return new DockerV2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
+                return new FederatedAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
+                return new FederatedBowerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedCargoRepository:FederatedCargoRepository":
+                return new FederatedCargoRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedChefRepository:FederatedChefRepository":
+                return new FederatedChefRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository":
+                return new FederatedCocoapodsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedComposerRepository:FederatedComposerRepository":
+                return new FederatedComposerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedConanRepository:FederatedConanRepository":
+                return new FederatedConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedCondaRepository:FederatedCondaRepository":
+                return new FederatedCondaRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedCranRepository:FederatedCranRepository":
+                return new FederatedCranRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedDebianRepository:FederatedDebianRepository":
+                return new FederatedDebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedDockerRepository:FederatedDockerRepository":
+                return new FederatedDockerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedGemsRepository:FederatedGemsRepository":
+                return new FederatedGemsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedGenericRepository:FederatedGenericRepository":
+                return new FederatedGenericRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository":
+                return new FederatedGitltfsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedGoRepository:FederatedGoRepository":
+                return new FederatedGoRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedGradleRepository:FederatedGradleRepository":
+                return new FederatedGradleRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedHelmRepository:FederatedHelmRepository":
+                return new FederatedHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedIvyRepository:FederatedIvyRepository":
+                return new FederatedIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedMavenRepository:FederatedMavenRepository":
+                return new FederatedMavenRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedNpmRepository:FederatedNpmRepository":
+                return new FederatedNpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedNugetRepository:FederatedNugetRepository":
+                return new FederatedNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedOpkgRepository:FederatedOpkgRepository":
+                return new FederatedOpkgRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedPuppetRepository:FederatedPuppetRepository":
+                return new FederatedPuppetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedPypiRepository:FederatedPypiRepository":
+                return new FederatedPypiRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedRpmRepository:FederatedRpmRepository":
+                return new FederatedRpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
+                return new FederatedSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository":
+                return new FederatedVagrantRepository(name, <any>undefined, { urn })
             case "artifactory:index/generalSecurity:GeneralSecurity":
                 return new GeneralSecurity(name, <any>undefined, { urn })
             case "artifactory:index/goRepository:GoRepository":
@@ -150,6 +268,10 @@ const _module = {
                 return new Group(name, <any>undefined, { urn })
             case "artifactory:index/keypair:Keypair":
                 return new Keypair(name, <any>undefined, { urn })
+            case "artifactory:index/ldapGroupSetting:LdapGroupSetting":
+                return new LdapGroupSetting(name, <any>undefined, { urn })
+            case "artifactory:index/ldapSetting:LdapSetting":
+                return new LdapSetting(name, <any>undefined, { urn })
             case "artifactory:index/localBowerRepository:LocalBowerRepository":
                 return new LocalBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/localChefRepository:LocalChefRepository":
@@ -226,8 +348,14 @@ const _module = {
                 return new SingleReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "artifactory:index/virtualConanRepository:VirtualConanRepository":
+                return new VirtualConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualGenericRepository:VirtualGenericRepository":
+                return new VirtualGenericRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRepository:VirtualRepository":
                 return new VirtualRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
+                return new VirtualRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/xrayPolicy:XrayPolicy":
                 return new XrayPolicy(name, <any>undefined, { urn })
             case "artifactory:index/xrayWatch:XrayWatch":
@@ -244,10 +372,39 @@ pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _modul
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV1Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedBowerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedCargoRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedChefRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedCocoapodsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedComposerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedCondaRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedCranRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedDebianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedDockerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedGemsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedGenericRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedGitltfsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedGoRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedGradleRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedMavenRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedNpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedOpkgRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedPuppetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedPypiRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedRpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedVagrantRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/generalSecurity", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/group", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSetting", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/ldapSetting", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localChefRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localCocoapodsRepository", _module)
@@ -286,7 +443,10 @@ pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", 
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualGenericRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/xrayPolicy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/xrayWatch", _module)
 

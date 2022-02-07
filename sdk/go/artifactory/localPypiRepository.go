@@ -50,12 +50,14 @@ type LocalPypiRepository struct {
 	ExcludesPattern        pulumi.StringOutput    `pulumi:"excludesPattern"`
 	IncludesPattern        pulumi.StringOutput    `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           pulumi.StringOutput      `pulumi:"key"`
-	Notes         pulumi.StringPtrOutput   `pulumi:"notes"`
-	PackageType   pulumi.StringOutput      `pulumi:"packageType"`
-	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	Key         pulumi.StringOutput    `pulumi:"key"`
+	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
 }
 
 // NewLocalPypiRepository registers a new resource with the given unique name, arguments, and options.
@@ -100,12 +102,14 @@ type localPypiRepositoryState struct {
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           *string  `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PackageType   *string  `pulumi:"packageType"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key         *string `pulumi:"key"`
+	Notes       *string `pulumi:"notes"`
+	PackageType *string `pulumi:"packageType"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 type LocalPypiRepositoryState struct {
@@ -119,12 +123,14 @@ type LocalPypiRepositoryState struct {
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringPtrInput
-	Notes         pulumi.StringPtrInput
-	PackageType   pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key         pulumi.StringPtrInput
+	Notes       pulumi.StringPtrInput
+	PackageType pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (LocalPypiRepositoryState) ElementType() reflect.Type {
@@ -142,11 +148,13 @@ type localPypiRepositoryArgs struct {
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key           string   `pulumi:"key"`
-	Notes         *string  `pulumi:"notes"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	Key   string  `pulumi:"key"`
+	Notes *string `pulumi:"notes"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalPypiRepository resource.
@@ -161,11 +169,13 @@ type LocalPypiRepositoryArgs struct {
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key           pulumi.StringInput
-	Notes         pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
-	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	Key   pulumi.StringInput
+	Notes pulumi.StringPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (LocalPypiRepositoryArgs) ElementType() reflect.Type {

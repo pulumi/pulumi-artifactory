@@ -21,6 +21,7 @@ class LocalGitltfsRepositoryArgs:
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -30,6 +31,7 @@ class LocalGitltfsRepositoryArgs:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -46,6 +48,8 @@ class LocalGitltfsRepositoryArgs:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -134,6 +138,18 @@ class LocalGitltfsRepositoryArgs:
         pulumi.set(self, "notes", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -173,6 +189,7 @@ class _LocalGitltfsRepositoryState:
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -182,6 +199,7 @@ class _LocalGitltfsRepositoryState:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -201,6 +219,8 @@ class _LocalGitltfsRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -298,6 +318,18 @@ class _LocalGitltfsRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -338,6 +370,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -362,6 +395,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         ...
     @overload
@@ -406,6 +440,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -431,6 +466,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
@@ -454,6 +490,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'LocalGitltfsRepository':
@@ -468,6 +505,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -482,6 +520,7 @@ class LocalGitltfsRepository(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
@@ -539,6 +578,14 @@ class LocalGitltfsRepository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

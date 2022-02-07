@@ -22,6 +22,7 @@ class DockerV1RepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -34,6 +35,7 @@ class DockerV1RepositoryArgs:
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -52,6 +54,8 @@ class DockerV1RepositoryArgs:
             pulumi.set(__self__, "max_unique_tags", max_unique_tags)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -154,6 +158,18 @@ class DockerV1RepositoryArgs:
         pulumi.set(self, "notes", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -196,6 +212,7 @@ class _DockerV1RepositoryState:
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  tag_retention: Optional[pulumi.Input[int]] = None,
@@ -211,6 +228,7 @@ class _DockerV1RepositoryState:
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         """
@@ -238,6 +256,8 @@ class _DockerV1RepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -375,6 +395,18 @@ class _DockerV1RepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -429,6 +461,7 @@ class DockerV1Repository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -456,6 +489,7 @@ class DockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         ...
     @overload
@@ -501,6 +535,7 @@ class DockerV1Repository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -527,6 +562,7 @@ class DockerV1Repository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["max_unique_tags"] = max_unique_tags
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
@@ -556,6 +592,7 @@ class DockerV1Repository(pulumi.CustomResource):
             max_unique_tags: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             tag_retention: Optional[pulumi.Input[int]] = None,
@@ -576,6 +613,7 @@ class DockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
                image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
                applies to manifest v2
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
         """
@@ -595,6 +633,7 @@ class DockerV1Repository(pulumi.CustomResource):
         __props__.__dict__["max_unique_tags"] = max_unique_tags
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["tag_retention"] = tag_retention
@@ -679,6 +718,14 @@ class DockerV1Repository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

@@ -93,6 +93,9 @@ namespace Pulumi.Artifactory
         [Output("clientTlsCertificate")]
         public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Output("contentSynchronisation")]
         public Output<Outputs.RemoteCargoRepositoryContentSynchronisation> ContentSynchronisation { get; private set; } = null!;
 
@@ -153,6 +156,9 @@ namespace Pulumi.Artifactory
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
@@ -306,6 +312,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteCargoRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
@@ -360,6 +369,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 
@@ -479,6 +491,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteCargoRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
 
@@ -539,6 +554,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 

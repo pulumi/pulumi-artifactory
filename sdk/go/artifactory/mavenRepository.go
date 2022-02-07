@@ -77,9 +77,14 @@ import (
 type MavenRepository struct {
 	pulumi.CustomResourceState
 
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
-	Description                                   pulumi.StringPtrOutput `pulumi:"description"`
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	// Default repository to deploy artifacts.
+	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
+	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
@@ -88,15 +93,26 @@ type MavenRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
-	Key             pulumi.StringOutput    `pulumi:"key"`
+	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+	// 'libs-release-local').
+	Key pulumi.StringOutput `pulumi:"key"`
 	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
-	KeyPair     pulumi.StringPtrOutput `pulumi:"keyPair"`
-	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
+	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
+	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+	PackageType pulumi.StringOutput `pulumi:"packageType"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput      `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	RepoLayoutRef                        pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	Repositories                         pulumi.StringArrayOutput `pulumi:"repositories"`
+	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	// The effective list of actual repositories included in this virtual repository.
+	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // NewMavenRepository registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +124,6 @@ func NewMavenRepository(ctx *pulumi.Context,
 
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
-	}
-	if args.Repositories == nil {
-		return nil, errors.New("invalid value for required argument 'Repositories'")
 	}
 	var resource MavenRepository
 	err := ctx.RegisterResource("artifactory:index/mavenRepository:MavenRepository", name, args, &resource, opts...)
@@ -134,9 +147,14 @@ func GetMavenRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MavenRepository resources.
 type mavenRepositoryState struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	// Default repository to deploy artifacts.
+	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
+	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -145,21 +163,37 @@ type mavenRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             *string `pulumi:"key"`
+	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+	// 'libs-release-local').
+	Key *string `pulumi:"key"`
 	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
-	KeyPair     *string `pulumi:"keyPair"`
-	Notes       *string `pulumi:"notes"`
+	KeyPair *string `pulumi:"keyPair"`
+	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	Notes *string `pulumi:"notes"`
+	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	RepoLayoutRef                        *string  `pulumi:"repoLayoutRef"`
-	Repositories                         []string `pulumi:"repositories"`
+	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// The effective list of actual repositories included in this virtual repository.
+	Repositories []string `pulumi:"repositories"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 type MavenRepositoryState struct {
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	DefaultDeploymentRepo                         pulumi.StringPtrInput
-	Description                                   pulumi.StringPtrInput
+	// Default repository to deploy artifacts.
+	DefaultDeploymentRepo pulumi.StringPtrInput
+	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -168,15 +202,26 @@ type MavenRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringPtrInput
+	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+	// 'libs-release-local').
+	Key pulumi.StringPtrInput
 	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
-	KeyPair     pulumi.StringPtrInput
-	Notes       pulumi.StringPtrInput
+	KeyPair pulumi.StringPtrInput
+	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	Notes pulumi.StringPtrInput
+	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	RepoLayoutRef                        pulumi.StringPtrInput
-	Repositories                         pulumi.StringArrayInput
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringPtrInput
+	// The effective list of actual repositories included in this virtual repository.
+	Repositories pulumi.StringArrayInput
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
 func (MavenRepositoryState) ElementType() reflect.Type {
@@ -184,9 +229,14 @@ func (MavenRepositoryState) ElementType() reflect.Type {
 }
 
 type mavenRepositoryArgs struct {
-	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool   `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	DefaultDeploymentRepo                         *string `pulumi:"defaultDeploymentRepo"`
-	Description                                   *string `pulumi:"description"`
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
+	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
+	// Default repository to deploy artifacts.
+	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
+	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	Description *string `pulumi:"description"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -195,21 +245,36 @@ type mavenRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
+	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+	// 'libs-release-local').
+	Key string `pulumi:"key"`
 	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
 	KeyPair *string `pulumi:"keyPair"`
-	Notes   *string `pulumi:"notes"`
+	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	Notes *string `pulumi:"notes"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
-	PomRepositoryReferencesCleanupPolicy *string  `pulumi:"pomRepositoryReferencesCleanupPolicy"`
-	RepoLayoutRef                        *string  `pulumi:"repoLayoutRef"`
-	Repositories                         []string `pulumi:"repositories"`
+	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// The effective list of actual repositories included in this virtual repository.
+	Repositories []string `pulumi:"repositories"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // The set of arguments for constructing a MavenRepository resource.
 type MavenRepositoryArgs struct {
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	DefaultDeploymentRepo                         pulumi.StringPtrInput
-	Description                                   pulumi.StringPtrInput
+	// Default repository to deploy artifacts.
+	DefaultDeploymentRepo pulumi.StringPtrInput
+	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
+	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
+	Description pulumi.StringPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -218,14 +283,24 @@ type MavenRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringInput
+	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
+	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
+	// 'libs-release-local').
+	Key pulumi.StringInput
 	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
 	KeyPair pulumi.StringPtrInput
-	Notes   pulumi.StringPtrInput
+	// A free text field to add additional notes about the repository. These are only visible to the administrator.
+	Notes pulumi.StringPtrInput
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
-	RepoLayoutRef                        pulumi.StringPtrInput
-	Repositories                         pulumi.StringArrayInput
+	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
+	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	RepoLayoutRef pulumi.StringPtrInput
+	// The effective list of actual repositories included in this virtual repository.
+	Repositories pulumi.StringArrayInput
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
+	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
 func (MavenRepositoryArgs) ElementType() reflect.Type {

@@ -48,6 +48,9 @@ export class RemoteRepository extends pulumi.CustomResource {
     public readonly bowerRegistryUrl!: pulumi.Output<string>;
     public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     public readonly clientTlsCertificate!: pulumi.Output<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteRepositoryContentSynchronisation>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly downloadContextPath!: pulumi.Output<string | undefined>;
@@ -75,7 +78,10 @@ export class RemoteRepository extends pulumi.CustomResource {
     public readonly password!: pulumi.Output<string | undefined>;
     public readonly propagateQueryParams!: pulumi.Output<boolean>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     public readonly pypiRegistryUrl!: pulumi.Output<string>;
     public readonly remoteRepoChecksumPolicyType!: pulumi.Output<string>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
@@ -232,6 +238,9 @@ export interface RemoteRepositoryState {
     bowerRegistryUrl?: pulumi.Input<string>;
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     downloadContextPath?: pulumi.Input<string>;
@@ -259,6 +268,9 @@ export interface RemoteRepositoryState {
     password?: pulumi.Input<string>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     pypiRegistryUrl?: pulumi.Input<string>;
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;
@@ -292,6 +304,9 @@ export interface RemoteRepositoryArgs {
     bowerRegistryUrl?: pulumi.Input<string>;
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     downloadContextPath?: pulumi.Input<string>;
@@ -319,6 +334,9 @@ export interface RemoteRepositoryArgs {
     password?: pulumi.Input<string>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     pypiRegistryUrl?: pulumi.Input<string>;
     remoteRepoChecksumPolicyType?: pulumi.Input<string>;

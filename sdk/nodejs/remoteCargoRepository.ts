@@ -92,6 +92,9 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     public readonly clientTlsCertificate!: pulumi.Output<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteCargoRepositoryContentSynchronisation>;
     public readonly description!: pulumi.Output<string>;
     /**
@@ -125,6 +128,9 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
     public readonly offline!: pulumi.Output<boolean>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     public readonly priorityResolution!: pulumi.Output<boolean>;
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
@@ -299,6 +305,9 @@ export interface RemoteCargoRepositoryState {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteCargoRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
@@ -332,6 +341,9 @@ export interface RemoteCargoRepositoryState {
     offline?: pulumi.Input<boolean>;
     packageType?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
@@ -399,6 +411,9 @@ export interface RemoteCargoRepositoryArgs {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
+    /**
+     * Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+     */
     contentSynchronisation?: pulumi.Input<inputs.RemoteCargoRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
@@ -427,6 +442,9 @@ export interface RemoteCargoRepositoryArgs {
      */
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
     priorityResolution?: pulumi.Input<boolean>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;

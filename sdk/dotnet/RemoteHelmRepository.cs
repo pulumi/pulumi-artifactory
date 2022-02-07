@@ -87,6 +87,9 @@ namespace Pulumi.Artifactory
         [Output("clientTlsCertificate")]
         public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Output("contentSynchronisation")]
         public Output<Outputs.RemoteHelmRepositoryContentSynchronisation> ContentSynchronisation { get; private set; } = null!;
 
@@ -110,8 +113,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        /// repositories in the UI, but incorrect for the API.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -126,7 +130,7 @@ namespace Pulumi.Artifactory
         /// - No documentation is available. Hopefully you know what this means
         /// </summary>
         [Output("helmChartsBaseUrl")]
-        public Output<string> HelmChartsBaseUrl { get; private set; } = null!;
+        public Output<string?> HelmChartsBaseUrl { get; private set; } = null!;
 
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
@@ -161,6 +165,9 @@ namespace Pulumi.Artifactory
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
@@ -308,6 +315,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteHelmRepositoryContentSynchronisationArgs>? ContentSynchronisation { get; set; }
 
@@ -334,8 +344,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        /// repositories in the UI, but incorrect for the API.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -349,8 +360,8 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// - No documentation is available. Hopefully you know what this means
         /// </summary>
-        [Input("helmChartsBaseUrl", required: true)]
-        public Input<string> HelmChartsBaseUrl { get; set; } = null!;
+        [Input("helmChartsBaseUrl")]
+        public Input<string>? HelmChartsBaseUrl { get; set; }
 
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -382,6 +393,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 
@@ -495,6 +509,9 @@ namespace Pulumi.Artifactory
         [Input("clientTlsCertificate")]
         public Input<string>? ClientTlsCertificate { get; set; }
 
+        /// <summary>
+        /// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        /// </summary>
         [Input("contentSynchronisation")]
         public Input<Inputs.RemoteHelmRepositoryContentSynchronisationGetArgs>? ContentSynchronisation { get; set; }
 
@@ -521,8 +538,9 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
+        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
+        /// repositories in the UI, but incorrect for the API.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -575,6 +593,9 @@ namespace Pulumi.Artifactory
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        /// <summary>
+        /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 

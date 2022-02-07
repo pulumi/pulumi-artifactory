@@ -78,10 +78,12 @@ type AlpineRepository struct {
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	// - The RSA key to be used to sign alpine indecies
-	PrimaryKeypairRef pulumi.StringPtrOutput   `pulumi:"primaryKeypairRef"`
-	PropertySets      pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef     pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex         pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
+	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
 }
 
 // NewAlpineRepository registers a new resource with the given unique name, arguments, and options.
@@ -131,10 +133,12 @@ type alpineRepositoryState struct {
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
 	// - The RSA key to be used to sign alpine indecies
-	PrimaryKeypairRef *string  `pulumi:"primaryKeypairRef"`
-	PropertySets      []string `pulumi:"propertySets"`
-	RepoLayoutRef     *string  `pulumi:"repoLayoutRef"`
-	XrayIndex         *bool    `pulumi:"xrayIndex"`
+	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 type AlpineRepositoryState struct {
@@ -154,9 +158,11 @@ type AlpineRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// - The RSA key to be used to sign alpine indecies
 	PrimaryKeypairRef pulumi.StringPtrInput
-	PropertySets      pulumi.StringArrayInput
-	RepoLayoutRef     pulumi.StringPtrInput
-	XrayIndex         pulumi.BoolPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (AlpineRepositoryState) ElementType() reflect.Type {
@@ -178,10 +184,12 @@ type alpineRepositoryArgs struct {
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
 	// - The RSA key to be used to sign alpine indecies
-	PrimaryKeypairRef *string  `pulumi:"primaryKeypairRef"`
-	PropertySets      []string `pulumi:"propertySets"`
-	RepoLayoutRef     *string  `pulumi:"repoLayoutRef"`
-	XrayIndex         *bool    `pulumi:"xrayIndex"`
+	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution *bool    `pulumi:"priorityResolution"`
+	PropertySets       []string `pulumi:"propertySets"`
+	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	XrayIndex          *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a AlpineRepository resource.
@@ -201,9 +209,11 @@ type AlpineRepositoryArgs struct {
 	Notes pulumi.StringPtrInput
 	// - The RSA key to be used to sign alpine indecies
 	PrimaryKeypairRef pulumi.StringPtrInput
-	PropertySets      pulumi.StringArrayInput
-	RepoLayoutRef     pulumi.StringPtrInput
-	XrayIndex         pulumi.BoolPtrInput
+	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+	PriorityResolution pulumi.BoolPtrInput
+	PropertySets       pulumi.StringArrayInput
+	RepoLayoutRef      pulumi.StringPtrInput
+	XrayIndex          pulumi.BoolPtrInput
 }
 
 func (AlpineRepositoryArgs) ElementType() reflect.Type {

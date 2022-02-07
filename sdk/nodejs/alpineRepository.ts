@@ -81,6 +81,10 @@ export class AlpineRepository extends pulumi.CustomResource {
      * - The RSA key to be used to sign alpine indecies
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     public readonly xrayIndex!: pulumi.Output<boolean>;
@@ -109,6 +113,7 @@ export class AlpineRepository extends pulumi.CustomResource {
             inputs["notes"] = state ? state.notes : undefined;
             inputs["packageType"] = state ? state.packageType : undefined;
             inputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
+            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             inputs["propertySets"] = state ? state.propertySets : undefined;
             inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
@@ -127,6 +132,7 @@ export class AlpineRepository extends pulumi.CustomResource {
             inputs["key"] = args ? args.key : undefined;
             inputs["notes"] = args ? args.notes : undefined;
             inputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
+            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             inputs["propertySets"] = args ? args.propertySets : undefined;
             inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
@@ -165,6 +171,10 @@ export interface AlpineRepositoryState {
      * - The RSA key to be used to sign alpine indecies
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
@@ -195,6 +205,10 @@ export interface AlpineRepositoryArgs {
      * - The RSA key to be used to sign alpine indecies
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     */
+    priorityResolution?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;

@@ -24,20 +24,22 @@ class SamlSettingsArgs:
                  group_attribute: Optional[pulumi.Input[str]] = None,
                  no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
                  sync_groups: Optional[pulumi.Input[bool]] = None,
+                 use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
                  verify_audience_restriction: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SamlSettings resource.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
-        :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
+        :param pulumi.Input[str] service_provider_name: The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
         :param pulumi.Input[bool] auto_redirect: Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
-        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
-        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email.
+        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         :param pulumi.Input[bool] enable: Enable SAML SSO.  Default value is `true`.
-        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+        :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         pulumi.set(__self__, "login_url", login_url)
@@ -59,6 +61,8 @@ class SamlSettingsArgs:
             pulumi.set(__self__, "no_auto_user_creation", no_auto_user_creation)
         if sync_groups is not None:
             pulumi.set(__self__, "sync_groups", sync_groups)
+        if use_encrypted_assertion is not None:
+            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
             pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
 
@@ -90,7 +94,7 @@ class SamlSettingsArgs:
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> pulumi.Input[str]:
         """
-        Name of the service provider configured on the .
+        The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         """
         return pulumi.get(self, "service_provider_name")
 
@@ -126,7 +130,7 @@ class SamlSettingsArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
+        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
         """
         return pulumi.get(self, "certificate")
 
@@ -138,7 +142,7 @@ class SamlSettingsArgs:
     @pulumi.getter(name="emailAttribute")
     def email_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's email.
+        Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         """
         return pulumi.get(self, "email_attribute")
 
@@ -162,7 +166,7 @@ class SamlSettingsArgs:
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         """
         return pulumi.get(self, "group_attribute")
 
@@ -195,6 +199,18 @@ class SamlSettingsArgs:
         pulumi.set(self, "sync_groups", value)
 
     @property
+    @pulumi.getter(name="useEncryptedAssertion")
+    def use_encrypted_assertion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+        """
+        return pulumi.get(self, "use_encrypted_assertion")
+
+    @use_encrypted_assertion.setter
+    def use_encrypted_assertion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_encrypted_assertion", value)
+
+    @property
     @pulumi.getter(name="verifyAudienceRestriction")
     def verify_audience_restriction(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -221,20 +237,22 @@ class _SamlSettingsState:
                  no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  sync_groups: Optional[pulumi.Input[bool]] = None,
+                 use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
                  verify_audience_restriction: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SamlSettings resources.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
         :param pulumi.Input[bool] auto_redirect: Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
-        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
-        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email.
+        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         :param pulumi.Input[bool] enable: Enable SAML SSO.  Default value is `true`.
-        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
         :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
-        :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
+        :param pulumi.Input[str] service_provider_name: The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+        :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         if allow_user_to_access_profile is not None:
@@ -259,6 +277,8 @@ class _SamlSettingsState:
             pulumi.set(__self__, "service_provider_name", service_provider_name)
         if sync_groups is not None:
             pulumi.set(__self__, "sync_groups", sync_groups)
+        if use_encrypted_assertion is not None:
+            pulumi.set(__self__, "use_encrypted_assertion", use_encrypted_assertion)
         if verify_audience_restriction is not None:
             pulumi.set(__self__, "verify_audience_restriction", verify_audience_restriction)
 
@@ -290,7 +310,7 @@ class _SamlSettingsState:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
+        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
         """
         return pulumi.get(self, "certificate")
 
@@ -302,7 +322,7 @@ class _SamlSettingsState:
     @pulumi.getter(name="emailAttribute")
     def email_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's email.
+        Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         """
         return pulumi.get(self, "email_attribute")
 
@@ -326,7 +346,7 @@ class _SamlSettingsState:
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         """
         return pulumi.get(self, "group_attribute")
 
@@ -374,7 +394,7 @@ class _SamlSettingsState:
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the service provider configured on the .
+        The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         """
         return pulumi.get(self, "service_provider_name")
 
@@ -393,6 +413,18 @@ class _SamlSettingsState:
     @sync_groups.setter
     def sync_groups(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sync_groups", value)
+
+    @property
+    @pulumi.getter(name="useEncryptedAssertion")
+    def use_encrypted_assertion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+        """
+        return pulumi.get(self, "use_encrypted_assertion")
+
+    @use_encrypted_assertion.setter
+    def use_encrypted_assertion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_encrypted_assertion", value)
 
     @property
     @pulumi.getter(name="verifyAudienceRestriction")
@@ -423,6 +455,7 @@ class SamlSettings(pulumi.CustomResource):
                  no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  sync_groups: Optional[pulumi.Input[bool]] = None,
+                 use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
                  verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -451,6 +484,7 @@ class SamlSettings(pulumi.CustomResource):
             no_auto_user_creation=False,
             service_provider_name="okta",
             sync_groups=True,
+            use_encrypted_assertion=False,
             verify_audience_restriction=True)
         ```
 
@@ -466,15 +500,16 @@ class SamlSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
         :param pulumi.Input[bool] auto_redirect: Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
-        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
-        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email.
+        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         :param pulumi.Input[bool] enable: Enable SAML SSO.  Default value is `true`.
-        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
         :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
-        :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
+        :param pulumi.Input[str] service_provider_name: The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+        :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         ...
@@ -509,6 +544,7 @@ class SamlSettings(pulumi.CustomResource):
             no_auto_user_creation=False,
             service_provider_name="okta",
             sync_groups=True,
+            use_encrypted_assertion=False,
             verify_audience_restriction=True)
         ```
 
@@ -546,6 +582,7 @@ class SamlSettings(pulumi.CustomResource):
                  no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
                  service_provider_name: Optional[pulumi.Input[str]] = None,
                  sync_groups: Optional[pulumi.Input[bool]] = None,
+                 use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
                  verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -576,6 +613,7 @@ class SamlSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_provider_name'")
             __props__.__dict__["service_provider_name"] = service_provider_name
             __props__.__dict__["sync_groups"] = sync_groups
+            __props__.__dict__["use_encrypted_assertion"] = use_encrypted_assertion
             __props__.__dict__["verify_audience_restriction"] = verify_audience_restriction
         super(SamlSettings, __self__).__init__(
             'artifactory:index/samlSettings:SamlSettings',
@@ -598,6 +636,7 @@ class SamlSettings(pulumi.CustomResource):
             no_auto_user_creation: Optional[pulumi.Input[bool]] = None,
             service_provider_name: Optional[pulumi.Input[str]] = None,
             sync_groups: Optional[pulumi.Input[bool]] = None,
+            use_encrypted_assertion: Optional[pulumi.Input[bool]] = None,
             verify_audience_restriction: Optional[pulumi.Input[bool]] = None) -> 'SamlSettings':
         """
         Get an existing SamlSettings resource's state with the given name, id, and optional extra
@@ -608,15 +647,16 @@ class SamlSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_user_to_access_profile: Allow persisted users to access their profile.  Default value is `true`.
         :param pulumi.Input[bool] auto_redirect: Auto redirect to login through the IdP when clicking on Artifactory's login link.  Default value is `false`.
-        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
-        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email.
+        :param pulumi.Input[str] certificate: SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+        :param pulumi.Input[str] email_attribute: Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         :param pulumi.Input[bool] enable: Enable SAML SSO.  Default value is `true`.
-        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        :param pulumi.Input[str] group_attribute: Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         :param pulumi.Input[str] login_url: Service provider login url configured on the IdP.
         :param pulumi.Input[str] logout_url: Service provider logout url, or where to redirect after user logs out.
         :param pulumi.Input[bool] no_auto_user_creation: When automatic user creation is off, authenticated users are not automatically created inside Artifactory. Instead, for every request from an SSO user, the user is temporarily associated with default groups (if such groups are defined), and the permissions for these groups apply. Without auto-user creation, you must manually create the user inside Artifactory to manage user permissions not attached to their default groups. Default value is `false`.
-        :param pulumi.Input[str] service_provider_name: Name of the service provider configured on the .
+        :param pulumi.Input[str] service_provider_name: The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         :param pulumi.Input[bool] sync_groups: Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
+        :param pulumi.Input[bool] use_encrypted_assertion: When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
         :param pulumi.Input[bool] verify_audience_restriction: Enable "audience", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -634,6 +674,7 @@ class SamlSettings(pulumi.CustomResource):
         __props__.__dict__["no_auto_user_creation"] = no_auto_user_creation
         __props__.__dict__["service_provider_name"] = service_provider_name
         __props__.__dict__["sync_groups"] = sync_groups
+        __props__.__dict__["use_encrypted_assertion"] = use_encrypted_assertion
         __props__.__dict__["verify_audience_restriction"] = verify_audience_restriction
         return SamlSettings(resource_name, opts=opts, __props__=__props__)
 
@@ -657,7 +698,7 @@ class SamlSettings(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[Optional[str]]:
         """
-        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests.
+        SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
         """
         return pulumi.get(self, "certificate")
 
@@ -665,7 +706,7 @@ class SamlSettings(pulumi.CustomResource):
     @pulumi.getter(name="emailAttribute")
     def email_attribute(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's email.
+        Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
         """
         return pulumi.get(self, "email_attribute")
 
@@ -681,7 +722,7 @@ class SamlSettings(pulumi.CustomResource):
     @pulumi.getter(name="groupAttribute")
     def group_attribute(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the attribute in the SAML response from the IdP that contains the user's group memberships.
+        Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
         """
         return pulumi.get(self, "group_attribute")
 
@@ -713,7 +754,7 @@ class SamlSettings(pulumi.CustomResource):
     @pulumi.getter(name="serviceProviderName")
     def service_provider_name(self) -> pulumi.Output[str]:
         """
-        Name of the service provider configured on the .
+        The SAML service provider name. This should be a URI that is also known as the entityID, providerID, or entity identity.
         """
         return pulumi.get(self, "service_provider_name")
 
@@ -724,6 +765,14 @@ class SamlSettings(pulumi.CustomResource):
         Associate user with Artifactory groups based on the `group_attribute` provided in the SAML response from the identity provider.  Default value is `false`.
         """
         return pulumi.get(self, "sync_groups")
+
+    @property
+    @pulumi.getter(name="useEncryptedAssertion")
+    def use_encrypted_assertion(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, an X.509 public certificate will be created by Artifactory. Download this certificate and upload it to your IDP and choose your own encryption algorithm. This process will let you encrypt the assertion section in your SAML response. Default value is `false`.
+        """
+        return pulumi.get(self, "use_encrypted_assertion")
 
     @property
     @pulumi.getter(name="verifyAudienceRestriction")

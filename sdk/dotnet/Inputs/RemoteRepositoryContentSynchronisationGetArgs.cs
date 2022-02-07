@@ -12,6 +12,9 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class RemoteRepositoryContentSynchronisationGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 

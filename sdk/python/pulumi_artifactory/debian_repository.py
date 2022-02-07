@@ -23,6 +23,7 @@ class DebianRepositoryArgs:
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class DebianRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
         :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
         """
@@ -58,6 +60,8 @@ class DebianRepositoryArgs:
             pulumi.set(__self__, "notes", notes)
         if primary_keypair_ref is not None:
             pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -177,6 +181,18 @@ class DebianRepositoryArgs:
         pulumi.set(self, "primary_keypair_ref", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -242,6 +258,7 @@ class _DebianRepositoryState:
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -255,6 +272,7 @@ class _DebianRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
         :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
         """
@@ -280,6 +298,8 @@ class _DebianRepositoryState:
             pulumi.set(__self__, "package_type", package_type)
         if primary_keypair_ref is not None:
             pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
+        if priority_resolution is not None:
+            pulumi.set(__self__, "priority_resolution", priority_resolution)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -408,6 +428,18 @@ class _DebianRepositoryState:
         pulumi.set(self, "primary_keypair_ref", value)
 
     @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
+
+    @priority_resolution.setter
+    def priority_resolution(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "priority_resolution", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -474,6 +506,7 @@ class DebianRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -527,6 +560,7 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
         :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
         """
@@ -600,6 +634,7 @@ class DebianRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 priority_resolution: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -629,6 +664,7 @@ class DebianRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["notes"] = notes
             __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
+            __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
@@ -659,6 +695,7 @@ class DebianRepository(pulumi.CustomResource):
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             primary_keypair_ref: Optional[pulumi.Input[str]] = None,
+            priority_resolution: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
@@ -677,6 +714,7 @@ class DebianRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
         :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
         """
@@ -695,6 +733,7 @@ class DebianRepository(pulumi.CustomResource):
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
+        __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
@@ -770,6 +809,14 @@ class DebianRepository(pulumi.CustomResource):
         - The RSA key to be used to sign packages
         """
         return pulumi.get(self, "primary_keypair_ref")
+
+    @property
+    @pulumi.getter(name="priorityResolution")
+    def priority_resolution(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        """
+        return pulumi.get(self, "priority_resolution")
 
     @property
     @pulumi.getter(name="propertySets")

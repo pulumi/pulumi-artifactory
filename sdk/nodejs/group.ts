@@ -62,6 +62,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     */
+    public readonly policyManager!: pulumi.Output<boolean | undefined>;
+    /**
      * The realm for the group.
      */
     public readonly realm!: pulumi.Output<string>;
@@ -70,9 +74,17 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly realmAttributes!: pulumi.Output<string | undefined>;
     /**
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     */
+    public readonly reportsManager!: pulumi.Output<boolean | undefined>;
+    /**
      * List of users assigned to the group. If missing or empty, tf will not manage group membership
      */
     public readonly usersNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     */
+    public readonly watchManager!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -92,9 +104,12 @@ export class Group extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["detachAllUsers"] = state ? state.detachAllUsers : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["policyManager"] = state ? state.policyManager : undefined;
             inputs["realm"] = state ? state.realm : undefined;
             inputs["realmAttributes"] = state ? state.realmAttributes : undefined;
+            inputs["reportsManager"] = state ? state.reportsManager : undefined;
             inputs["usersNames"] = state ? state.usersNames : undefined;
+            inputs["watchManager"] = state ? state.watchManager : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             inputs["adminPrivileges"] = args ? args.adminPrivileges : undefined;
@@ -102,9 +117,12 @@ export class Group extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["detachAllUsers"] = args ? args.detachAllUsers : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["policyManager"] = args ? args.policyManager : undefined;
             inputs["realm"] = args ? args.realm : undefined;
             inputs["realmAttributes"] = args ? args.realmAttributes : undefined;
+            inputs["reportsManager"] = args ? args.reportsManager : undefined;
             inputs["usersNames"] = args ? args.usersNames : undefined;
+            inputs["watchManager"] = args ? args.watchManager : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -138,6 +156,10 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     */
+    policyManager?: pulumi.Input<boolean>;
+    /**
      * The realm for the group.
      */
     realm?: pulumi.Input<string>;
@@ -146,9 +168,17 @@ export interface GroupState {
      */
     realmAttributes?: pulumi.Input<string>;
     /**
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     */
+    reportsManager?: pulumi.Input<boolean>;
+    /**
      * List of users assigned to the group. If missing or empty, tf will not manage group membership
      */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     */
+    watchManager?: pulumi.Input<boolean>;
 }
 
 /**
@@ -176,6 +206,10 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     */
+    policyManager?: pulumi.Input<boolean>;
+    /**
      * The realm for the group.
      */
     realm?: pulumi.Input<string>;
@@ -184,7 +218,15 @@ export interface GroupArgs {
      */
     realmAttributes?: pulumi.Input<string>;
     /**
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     */
+    reportsManager?: pulumi.Input<boolean>;
+    /**
      * List of users assigned to the group. If missing or empty, tf will not manage group membership
      */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     */
+    watchManager?: pulumi.Input<boolean>;
 }
