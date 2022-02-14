@@ -7340,6 +7340,200 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemotePypiRepositoryContentSynchronisation struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled *bool `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemotePypiRepositoryContentSynchronisationInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs and RemotePypiRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemotePypiRepositoryContentSynchronisationInput` via:
+//
+//          RemotePypiRepositoryContentSynchronisationArgs{...}
+type RemotePypiRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemotePypiRepositoryContentSynchronisationOutput() RemotePypiRepositoryContentSynchronisationOutput
+	ToRemotePypiRepositoryContentSynchronisationOutputWithContext(context.Context) RemotePypiRepositoryContentSynchronisationOutput
+}
+
+type RemotePypiRepositoryContentSynchronisationArgs struct {
+	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemotePypiRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemotePypiRepositoryContentSynchronisationArgs) ToRemotePypiRepositoryContentSynchronisationOutput() RemotePypiRepositoryContentSynchronisationOutput {
+	return i.ToRemotePypiRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemotePypiRepositoryContentSynchronisationArgs) ToRemotePypiRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePypiRepositoryContentSynchronisationOutput)
+}
+
+func (i RemotePypiRepositoryContentSynchronisationArgs) ToRemotePypiRepositoryContentSynchronisationPtrOutput() RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemotePypiRepositoryContentSynchronisationArgs) ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePypiRepositoryContentSynchronisationOutput).ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemotePypiRepositoryContentSynchronisationPtrInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs, RemotePypiRepositoryContentSynchronisationPtr and RemotePypiRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemotePypiRepositoryContentSynchronisationPtrInput` via:
+//
+//          RemotePypiRepositoryContentSynchronisationArgs{...}
+//
+//  or:
+//
+//          nil
+type RemotePypiRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemotePypiRepositoryContentSynchronisationPtrOutput() RemotePypiRepositoryContentSynchronisationPtrOutput
+	ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemotePypiRepositoryContentSynchronisationPtrOutput
+}
+
+type remotePypiRepositoryContentSynchronisationPtrType RemotePypiRepositoryContentSynchronisationArgs
+
+func RemotePypiRepositoryContentSynchronisationPtr(v *RemotePypiRepositoryContentSynchronisationArgs) RemotePypiRepositoryContentSynchronisationPtrInput {
+	return (*remotePypiRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remotePypiRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remotePypiRepositoryContentSynchronisationPtrType) ToRemotePypiRepositoryContentSynchronisationPtrOutput() RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remotePypiRepositoryContentSynchronisationPtrType) ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemotePypiRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemotePypiRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemotePypiRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepositoryContentSynchronisationOutput() RemotePypiRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepositoryContentSynchronisationPtrOutput() RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemotePypiRepositoryContentSynchronisation) *RemotePypiRepositoryContentSynchronisation {
+		return &v
+	}).(RemotePypiRepositoryContentSynchronisationPtrOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemotePypiRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemotePypiRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemotePypiRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) ToRemotePypiRepositoryContentSynchronisationPtrOutput() RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) ToRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Elem() RemotePypiRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) RemotePypiRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemotePypiRepositoryContentSynchronisation
+		return ret
+	}).(RemotePypiRepositoryContentSynchronisationOutput)
+}
+
+// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+func (o RemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -8821,6 +9015,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteHelmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteNpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePypiRepositoryContentSynchronisationInput)(nil)).Elem(), RemotePypiRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemotePypiRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemotePypiRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
@@ -8956,6 +9152,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteHelmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemotePypiRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemotePypiRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})

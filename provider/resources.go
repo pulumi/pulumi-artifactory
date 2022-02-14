@@ -190,6 +190,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_virtual_conan_repository":       {Tok: makeResource(mainMod, "VirtualConanRepository")},
 			"artifactory_virtual_generic_repository":     {Tok: makeResource(mainMod, "VirtualGenericRepository")},
 			"artifactory_virtual_rpm_repository":         {Tok: makeResource(mainMod, "VirtualRpmRepository")},
+			"artifactory_remote_pypi_repository":         {Tok: makeResource(mainMod, "RemotePypiRepository")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

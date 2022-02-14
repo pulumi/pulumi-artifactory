@@ -166,6 +166,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteHelmRepository{}
 	case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
 		r = &RemoteNpmRepository{}
+	case "artifactory:index/remotePypiRepository:RemotePypiRepository":
+		r = &RemotePypiRepository{}
 	case "artifactory:index/remoteRepository:RemoteRepository":
 		r = &RemoteRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -582,6 +584,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteNpmRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remotePypiRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
