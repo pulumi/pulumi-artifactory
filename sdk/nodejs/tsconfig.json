@@ -92,6 +92,7 @@
         "remoteDockerRepository.ts",
         "remoteHelmRepository.ts",
         "remoteNpmRepository.ts",
+        "remotePypiRepository.ts",
         "remoteRepository.ts",
         "replicationConfig.ts",
         "samlSettings.ts",

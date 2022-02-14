@@ -81,6 +81,7 @@ from .remote_cargo_repository import *
 from .remote_docker_repository import *
 from .remote_helm_repository import *
 from .remote_npm_repository import *
+from .remote_pypi_repository import *
 from .remote_repository import *
 from .replication_config import *
 from .saml_settings import *
@@ -687,6 +688,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteNpmRepository:RemoteNpmRepository": "RemoteNpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remotePypiRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remotePypiRepository:RemotePypiRepository": "RemotePypiRepository"
   }
  },
  {

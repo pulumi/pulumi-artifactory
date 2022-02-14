@@ -1943,6 +1943,47 @@
             },
             "type": "object"
         },
+        "artifactory:index/RemotePypiRepositoryContentSynchronisation:RemotePypiRepositoryContentSynchronisation": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "propertiesEnabled": {
+                    "type": "boolean",
+                    "description": "If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceOriginAbsenceDetection": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "statisticsEnabled": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "artifactory:index/RemoteRepositoryContentSynchronisation:RemoteRepositoryContentSynchronisation": {
             "properties": {
                 "enabled": {
@@ -15450,6 +15491,449 @@
                     },
                     "proxy": {
                         "type": "string"
+                    },
+                    "remoteRepoLayoutRef": {
+                        "type": "string"
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "retrievalCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                    },
+                    "shareConfiguration": {
+                        "type": "boolean"
+                    },
+                    "socketTimeoutMillis": {
+                        "type": "integer"
+                    },
+                    "storeArtifactsLocally": {
+                        "type": "boolean",
+                        "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                    },
+                    "synchronizeProperties": {
+                        "type": "boolean",
+                        "description": "When set, remote artifacts are fetched along with their properties.\n"
+                    },
+                    "unusedArtifactsCleanupPeriodEnabled": {
+                        "type": "boolean"
+                    },
+                    "unusedArtifactsCleanupPeriodHours": {
+                        "type": "integer"
+                    },
+                    "url": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/remotePypiRepository:RemotePypiRepository": {
+            "description": "## # Artifactory Remote Repository Resource\n\nProvides an Artifactory remote `pypi` repository resource. This provides pypi specific fields and is the only way to get them.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Package+Management).\nPypi specific documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories). \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nIncludes only new and relevant fields, for anything else, see: generic repo.\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst pypi_remote = new artifactory.RemotePypiRepository(\"pypi-remote\", {\n    key: \"pypi-remote-foo\",\n    pypiRegistryUrl: \"https://pypi.org\",\n    pypiRepositorySuffix: \"simple\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\npypi_remote = artifactory.RemotePypiRepository(\"pypi-remote\",\n    key=\"pypi-remote-foo\",\n    pypi_registry_url=\"https://pypi.org\",\n    pypi_repository_suffix=\"simple\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pypi_remote = new Artifactory.RemotePypiRepository(\"pypi-remote\", new Artifactory.RemotePypiRepositoryArgs\n        {\n            Key = \"pypi-remote-foo\",\n            PypiRegistryUrl = \"https://pypi.org\",\n            PypiRepositorySuffix = \"simple\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemotePypiRepository(ctx, \"pypi-remote\", \u0026artifactory.RemotePypiRepositoryArgs{\n\t\t\tKey:                  pulumi.String(\"pypi-remote-foo\"),\n\t\t\tPypiRegistryUrl:      pulumi.String(\"https://pypi.org\"),\n\t\t\tPypiRepositorySuffix: pulumi.String(\"simple\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "bypassHeadRequests": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "clientTlsCertificate": {
+                    "type": "string"
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemotePypiRepositoryContentSynchronisation:RemotePypiRepositoryContentSynchronisation",
+                    "description": "Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                },
+                "excludesPattern": {
+                    "type": "string"
+                },
+                "failedRetrievalCachePeriodSecs": {
+                    "type": "integer",
+                    "deprecationMessage": "This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function"
+                },
+                "hardFail": {
+                    "type": "boolean"
+                },
+                "includesPattern": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The repository identifier. Must be unique system-wide\n"
+                },
+                "localAddress": {
+                    "type": "string"
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "This is actually the missedRetrievalCachePeriodSecs in the API\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                },
+                "packageType": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "propagateQueryParams": {
+                    "type": "boolean"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "proxy": {
+                    "type": "string"
+                },
+                "pypiRegistryUrl": {
+                    "type": "string",
+                    "description": "To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.\n"
+                },
+                "pypiRepositorySuffix": {
+                    "type": "string",
+                    "description": "Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.\n"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string"
+                },
+                "repoLayoutRef": {
+                    "type": "string"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer"
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties.\n"
+                },
+                "unusedArtifactsCleanupPeriodEnabled": {
+                    "type": "boolean"
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "allowAnyHostAuth",
+                "blackedOut",
+                "blockMismatchingMimeTypes",
+                "bypassHeadRequests",
+                "clientTlsCertificate",
+                "contentSynchronisation",
+                "description",
+                "enableCookieManagement",
+                "excludesPattern",
+                "failedRetrievalCachePeriodSecs",
+                "hardFail",
+                "includesPattern",
+                "key",
+                "missedCachePeriodSeconds",
+                "offline",
+                "packageType",
+                "priorityResolution",
+                "proxy",
+                "remoteRepoLayoutRef",
+                "repoLayoutRef",
+                "retrievalCachePeriodSeconds",
+                "shareConfiguration",
+                "socketTimeoutMillis",
+                "storeArtifactsLocally",
+                "synchronizeProperties",
+                "unusedArtifactsCleanupPeriodEnabled",
+                "unusedArtifactsCleanupPeriodHours",
+                "url",
+                "xrayIndex"
+            ],
+            "inputProperties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "bypassHeadRequests": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "clientTlsCertificate": {
+                    "type": "string"
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemotePypiRepositoryContentSynchronisation:RemotePypiRepositoryContentSynchronisation",
+                    "description": "Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                },
+                "excludesPattern": {
+                    "type": "string"
+                },
+                "hardFail": {
+                    "type": "boolean"
+                },
+                "includesPattern": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The repository identifier. Must be unique system-wide\n"
+                },
+                "localAddress": {
+                    "type": "string"
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "This is actually the missedRetrievalCachePeriodSecs in the API\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "propagateQueryParams": {
+                    "type": "boolean"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "proxy": {
+                    "type": "string"
+                },
+                "pypiRegistryUrl": {
+                    "type": "string",
+                    "description": "To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.\n"
+                },
+                "pypiRepositorySuffix": {
+                    "type": "string",
+                    "description": "Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.\n"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string"
+                },
+                "repoLayoutRef": {
+                    "type": "string"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer"
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties.\n"
+                },
+                "unusedArtifactsCleanupPeriodEnabled": {
+                    "type": "boolean"
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RemotePypiRepository resources.\n",
+                "properties": {
+                    "allowAnyHostAuth": {
+                        "type": "boolean",
+                        "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                    },
+                    "assumedOfflinePeriodSecs": {
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                    },
+                    "blackedOut": {
+                        "type": "boolean",
+                        "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                    },
+                    "blockMismatchingMimeTypes": {
+                        "type": "boolean",
+                        "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                    },
+                    "bypassHeadRequests": {
+                        "type": "boolean",
+                        "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                    },
+                    "clientTlsCertificate": {
+                        "type": "string"
+                    },
+                    "contentSynchronisation": {
+                        "$ref": "#/types/artifactory:index/RemotePypiRepositoryContentSynchronisation:RemotePypiRepositoryContentSynchronisation",
+                        "description": "Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)\n"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enableCookieManagement": {
+                        "type": "boolean",
+                        "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "failedRetrievalCachePeriodSecs": {
+                        "type": "integer",
+                        "deprecationMessage": "This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function"
+                    },
+                    "hardFail": {
+                        "type": "boolean"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The repository identifier. Must be unique system-wide\n"
+                    },
+                    "localAddress": {
+                        "type": "string"
+                    },
+                    "missedCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "This is actually the missedRetrievalCachePeriodSecs in the API\n"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "offline": {
+                        "type": "boolean",
+                        "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean",
+                        "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                    },
+                    "propagateQueryParams": {
+                        "type": "boolean"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "proxy": {
+                        "type": "string"
+                    },
+                    "pypiRegistryUrl": {
+                        "type": "string",
+                        "description": "To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.\n"
+                    },
+                    "pypiRepositorySuffix": {
+                        "type": "string",
+                        "description": "Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.\n"
                     },
                     "remoteRepoLayoutRef": {
                         "type": "string"
