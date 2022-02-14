@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedComposerRepository(ctx, "terraform_federated_test_composer_repo", &artifactory.FederatedComposerRepositoryArgs{
+// 		_, err := artifactory.NewFederatedComposerRepository(ctx, "terraform-federated-test-composer-repo", &artifactory.FederatedComposerRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-composer-repo"),
 // 			Members: FederatedComposerRepositoryMemberArray{
 // 				&FederatedComposerRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedComposerRepositoryInput interface {
 }
 
 func (*FederatedComposerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedComposerRepository)(nil))
+	return reflect.TypeOf((**FederatedComposerRepository)(nil)).Elem()
 }
 
 func (i *FederatedComposerRepository) ToFederatedComposerRepositoryOutput() FederatedComposerRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedComposerRepository) ToFederatedComposerRepositoryOutput() Fede
 
 func (i *FederatedComposerRepository) ToFederatedComposerRepositoryOutputWithContext(ctx context.Context) FederatedComposerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryOutput)
-}
-
-func (i *FederatedComposerRepository) ToFederatedComposerRepositoryPtrOutput() FederatedComposerRepositoryPtrOutput {
-	return i.ToFederatedComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedComposerRepository) ToFederatedComposerRepositoryPtrOutputWithContext(ctx context.Context) FederatedComposerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryPtrOutput)
-}
-
-type FederatedComposerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedComposerRepositoryPtrOutput() FederatedComposerRepositoryPtrOutput
-	ToFederatedComposerRepositoryPtrOutputWithContext(ctx context.Context) FederatedComposerRepositoryPtrOutput
-}
-
-type federatedComposerRepositoryPtrType FederatedComposerRepositoryArgs
-
-func (*federatedComposerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedComposerRepository)(nil))
-}
-
-func (i *federatedComposerRepositoryPtrType) ToFederatedComposerRepositoryPtrOutput() FederatedComposerRepositoryPtrOutput {
-	return i.ToFederatedComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedComposerRepositoryPtrType) ToFederatedComposerRepositoryPtrOutputWithContext(ctx context.Context) FederatedComposerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedComposerRepositoryPtrOutput)
 }
 
 // FederatedComposerRepositoryArrayInput is an input type that accepts FederatedComposerRepositoryArray and FederatedComposerRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedComposerRepositoryMap) ToFederatedComposerRepositoryMapOutputWi
 type FederatedComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedComposerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedComposerRepository)(nil))
+	return reflect.TypeOf((**FederatedComposerRepository)(nil)).Elem()
 }
 
 func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryOutput() FederatedComposerRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryOutputWi
 	return o
 }
 
-func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryPtrOutput() FederatedComposerRepositoryPtrOutput {
-	return o.ToFederatedComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedComposerRepositoryOutput) ToFederatedComposerRepositoryPtrOutputWithContext(ctx context.Context) FederatedComposerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedComposerRepository) *FederatedComposerRepository {
-		return &v
-	}).(FederatedComposerRepositoryPtrOutput)
-}
-
-type FederatedComposerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedComposerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedComposerRepository)(nil))
-}
-
-func (o FederatedComposerRepositoryPtrOutput) ToFederatedComposerRepositoryPtrOutput() FederatedComposerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedComposerRepositoryPtrOutput) ToFederatedComposerRepositoryPtrOutputWithContext(ctx context.Context) FederatedComposerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedComposerRepositoryPtrOutput) Elem() FederatedComposerRepositoryOutput {
-	return o.ApplyT(func(v *FederatedComposerRepository) FederatedComposerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedComposerRepository
-		return ret
-	}).(FederatedComposerRepositoryOutput)
-}
-
 type FederatedComposerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedComposerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedComposerRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedComposerRepository)(nil)).Elem()
 }
 
 func (o FederatedComposerRepositoryArrayOutput) ToFederatedComposerRepositoryArrayOutput() FederatedComposerRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedComposerRepositoryArrayOutput) ToFederatedComposerRepositoryArr
 }
 
 func (o FederatedComposerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedComposerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedComposerRepository {
-		return vs[0].([]FederatedComposerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedComposerRepository {
+		return vs[0].([]*FederatedComposerRepository)[vs[1].(int)]
 	}).(FederatedComposerRepositoryOutput)
 }
 
 type FederatedComposerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedComposerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedComposerRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedComposerRepository)(nil)).Elem()
 }
 
 func (o FederatedComposerRepositoryMapOutput) ToFederatedComposerRepositoryMapOutput() FederatedComposerRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedComposerRepositoryMapOutput) ToFederatedComposerRepositoryMapOu
 }
 
 func (o FederatedComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedComposerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedComposerRepository {
-		return vs[0].(map[string]FederatedComposerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedComposerRepository {
+		return vs[0].(map[string]*FederatedComposerRepository)[vs[1].(string)]
 	}).(FederatedComposerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedComposerRepositoryInput)(nil)).Elem(), &FederatedComposerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedComposerRepositoryPtrInput)(nil)).Elem(), &FederatedComposerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedComposerRepositoryArrayInput)(nil)).Elem(), FederatedComposerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedComposerRepositoryMapInput)(nil)).Elem(), FederatedComposerRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedComposerRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedComposerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedComposerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedComposerRepositoryMapOutput{})
 }

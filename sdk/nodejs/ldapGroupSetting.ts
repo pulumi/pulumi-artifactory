@@ -118,19 +118,19 @@ export class LdapGroupSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: LdapGroupSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LdapGroupSettingArgs | LdapGroupSettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LdapGroupSettingState | undefined;
-            inputs["descriptionAttribute"] = state ? state.descriptionAttribute : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["groupBaseDn"] = state ? state.groupBaseDn : undefined;
-            inputs["groupMemberAttribute"] = state ? state.groupMemberAttribute : undefined;
-            inputs["groupNameAttribute"] = state ? state.groupNameAttribute : undefined;
-            inputs["ldapSettingKey"] = state ? state.ldapSettingKey : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["strategy"] = state ? state.strategy : undefined;
-            inputs["subTree"] = state ? state.subTree : undefined;
+            resourceInputs["descriptionAttribute"] = state ? state.descriptionAttribute : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["groupBaseDn"] = state ? state.groupBaseDn : undefined;
+            resourceInputs["groupMemberAttribute"] = state ? state.groupMemberAttribute : undefined;
+            resourceInputs["groupNameAttribute"] = state ? state.groupNameAttribute : undefined;
+            resourceInputs["ldapSettingKey"] = state ? state.ldapSettingKey : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["strategy"] = state ? state.strategy : undefined;
+            resourceInputs["subTree"] = state ? state.subTree : undefined;
         } else {
             const args = argsOrState as LdapGroupSettingArgs | undefined;
             if ((!args || args.descriptionAttribute === undefined) && !opts.urn) {
@@ -151,20 +151,18 @@ export class LdapGroupSetting extends pulumi.CustomResource {
             if ((!args || args.strategy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            inputs["descriptionAttribute"] = args ? args.descriptionAttribute : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["groupBaseDn"] = args ? args.groupBaseDn : undefined;
-            inputs["groupMemberAttribute"] = args ? args.groupMemberAttribute : undefined;
-            inputs["groupNameAttribute"] = args ? args.groupNameAttribute : undefined;
-            inputs["ldapSettingKey"] = args ? args.ldapSettingKey : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["strategy"] = args ? args.strategy : undefined;
-            inputs["subTree"] = args ? args.subTree : undefined;
+            resourceInputs["descriptionAttribute"] = args ? args.descriptionAttribute : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["groupBaseDn"] = args ? args.groupBaseDn : undefined;
+            resourceInputs["groupMemberAttribute"] = args ? args.groupMemberAttribute : undefined;
+            resourceInputs["groupNameAttribute"] = args ? args.groupNameAttribute : undefined;
+            resourceInputs["ldapSettingKey"] = args ? args.ldapSettingKey : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["subTree"] = args ? args.subTree : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LdapGroupSetting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LdapGroupSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

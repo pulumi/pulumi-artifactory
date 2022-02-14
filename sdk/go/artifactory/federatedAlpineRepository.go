@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedAlpineRepository(ctx, "terraform_federated_test_alpine_repo", &artifactory.FederatedAlpineRepositoryArgs{
+// 		_, err := artifactory.NewFederatedAlpineRepository(ctx, "terraform-federated-test-alpine-repo", &artifactory.FederatedAlpineRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-alpine-repo"),
 // 			Members: FederatedAlpineRepositoryMemberArray{
 // 				&FederatedAlpineRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedAlpineRepositoryInput interface {
 }
 
 func (*FederatedAlpineRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedAlpineRepository)(nil))
+	return reflect.TypeOf((**FederatedAlpineRepository)(nil)).Elem()
 }
 
 func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryOutput() FederatedAlpineRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryOutput() Federate
 
 func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryOutputWithContext(ctx context.Context) FederatedAlpineRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryOutput)
-}
-
-func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryPtrOutput() FederatedAlpineRepositoryPtrOutput {
-	return i.ToFederatedAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryPtrOutputWithContext(ctx context.Context) FederatedAlpineRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryPtrOutput)
-}
-
-type FederatedAlpineRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedAlpineRepositoryPtrOutput() FederatedAlpineRepositoryPtrOutput
-	ToFederatedAlpineRepositoryPtrOutputWithContext(ctx context.Context) FederatedAlpineRepositoryPtrOutput
-}
-
-type federatedAlpineRepositoryPtrType FederatedAlpineRepositoryArgs
-
-func (*federatedAlpineRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedAlpineRepository)(nil))
-}
-
-func (i *federatedAlpineRepositoryPtrType) ToFederatedAlpineRepositoryPtrOutput() FederatedAlpineRepositoryPtrOutput {
-	return i.ToFederatedAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedAlpineRepositoryPtrType) ToFederatedAlpineRepositoryPtrOutputWithContext(ctx context.Context) FederatedAlpineRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedAlpineRepositoryPtrOutput)
 }
 
 // FederatedAlpineRepositoryArrayInput is an input type that accepts FederatedAlpineRepositoryArray and FederatedAlpineRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedAlpineRepositoryMap) ToFederatedAlpineRepositoryMapOutputWithCo
 type FederatedAlpineRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedAlpineRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedAlpineRepository)(nil))
+	return reflect.TypeOf((**FederatedAlpineRepository)(nil)).Elem()
 }
 
 func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryOutput() FederatedAlpineRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryOutputWithCo
 	return o
 }
 
-func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryPtrOutput() FederatedAlpineRepositoryPtrOutput {
-	return o.ToFederatedAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedAlpineRepositoryOutput) ToFederatedAlpineRepositoryPtrOutputWithContext(ctx context.Context) FederatedAlpineRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedAlpineRepository) *FederatedAlpineRepository {
-		return &v
-	}).(FederatedAlpineRepositoryPtrOutput)
-}
-
-type FederatedAlpineRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedAlpineRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedAlpineRepository)(nil))
-}
-
-func (o FederatedAlpineRepositoryPtrOutput) ToFederatedAlpineRepositoryPtrOutput() FederatedAlpineRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedAlpineRepositoryPtrOutput) ToFederatedAlpineRepositoryPtrOutputWithContext(ctx context.Context) FederatedAlpineRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedAlpineRepositoryPtrOutput) Elem() FederatedAlpineRepositoryOutput {
-	return o.ApplyT(func(v *FederatedAlpineRepository) FederatedAlpineRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedAlpineRepository
-		return ret
-	}).(FederatedAlpineRepositoryOutput)
-}
-
 type FederatedAlpineRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedAlpineRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedAlpineRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedAlpineRepository)(nil)).Elem()
 }
 
 func (o FederatedAlpineRepositoryArrayOutput) ToFederatedAlpineRepositoryArrayOutput() FederatedAlpineRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedAlpineRepositoryArrayOutput) ToFederatedAlpineRepositoryArrayOu
 }
 
 func (o FederatedAlpineRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedAlpineRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedAlpineRepository {
-		return vs[0].([]FederatedAlpineRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedAlpineRepository {
+		return vs[0].([]*FederatedAlpineRepository)[vs[1].(int)]
 	}).(FederatedAlpineRepositoryOutput)
 }
 
 type FederatedAlpineRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedAlpineRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedAlpineRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedAlpineRepository)(nil)).Elem()
 }
 
 func (o FederatedAlpineRepositoryMapOutput) ToFederatedAlpineRepositoryMapOutput() FederatedAlpineRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedAlpineRepositoryMapOutput) ToFederatedAlpineRepositoryMapOutput
 }
 
 func (o FederatedAlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedAlpineRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedAlpineRepository {
-		return vs[0].(map[string]FederatedAlpineRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedAlpineRepository {
+		return vs[0].(map[string]*FederatedAlpineRepository)[vs[1].(string)]
 	}).(FederatedAlpineRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryInput)(nil)).Elem(), &FederatedAlpineRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryPtrInput)(nil)).Elem(), &FederatedAlpineRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryArrayInput)(nil)).Elem(), FederatedAlpineRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryMapInput)(nil)).Elem(), FederatedAlpineRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedAlpineRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryMapOutput{})
 }

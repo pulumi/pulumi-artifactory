@@ -93,24 +93,24 @@ export class VirtualRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualRepositoryArgs | VirtualRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualRepositoryState | undefined;
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["debianTrivialLayout"] = state ? state.debianTrivialLayout : undefined;
-            inputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["keyPair"] = state ? state.keyPair : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["pomRepositoryReferencesCleanupPolicy"] = state ? state.pomRepositoryReferencesCleanupPolicy : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["repositories"] = state ? state.repositories : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["debianTrivialLayout"] = state ? state.debianTrivialLayout : undefined;
+            resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["keyPair"] = state ? state.keyPair : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["pomRepositoryReferencesCleanupPolicy"] = state ? state.pomRepositoryReferencesCleanupPolicy : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = state ? state.repositories : undefined;
         } else {
             const args = argsOrState as VirtualRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -122,25 +122,23 @@ export class VirtualRepository extends pulumi.CustomResource {
             if ((!args || args.repositories === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositories'");
             }
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["debianTrivialLayout"] = args ? args.debianTrivialLayout : undefined;
-            inputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["keyPair"] = args ? args.keyPair : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["packageType"] = args ? args.packageType : undefined;
-            inputs["pomRepositoryReferencesCleanupPolicy"] = args ? args.pomRepositoryReferencesCleanupPolicy : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["repositories"] = args ? args.repositories : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["debianTrivialLayout"] = args ? args.debianTrivialLayout : undefined;
+            resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["pomRepositoryReferencesCleanupPolicy"] = args ? args.pomRepositoryReferencesCleanupPolicy : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = args ? args.repositories : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

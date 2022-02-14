@@ -315,7 +315,7 @@ type MavenRepositoryInput interface {
 }
 
 func (*MavenRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*MavenRepository)(nil))
+	return reflect.TypeOf((**MavenRepository)(nil)).Elem()
 }
 
 func (i *MavenRepository) ToMavenRepositoryOutput() MavenRepositoryOutput {
@@ -324,35 +324,6 @@ func (i *MavenRepository) ToMavenRepositoryOutput() MavenRepositoryOutput {
 
 func (i *MavenRepository) ToMavenRepositoryOutputWithContext(ctx context.Context) MavenRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryOutput)
-}
-
-func (i *MavenRepository) ToMavenRepositoryPtrOutput() MavenRepositoryPtrOutput {
-	return i.ToMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *MavenRepository) ToMavenRepositoryPtrOutputWithContext(ctx context.Context) MavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryPtrOutput)
-}
-
-type MavenRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToMavenRepositoryPtrOutput() MavenRepositoryPtrOutput
-	ToMavenRepositoryPtrOutputWithContext(ctx context.Context) MavenRepositoryPtrOutput
-}
-
-type mavenRepositoryPtrType MavenRepositoryArgs
-
-func (*mavenRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MavenRepository)(nil))
-}
-
-func (i *mavenRepositoryPtrType) ToMavenRepositoryPtrOutput() MavenRepositoryPtrOutput {
-	return i.ToMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *mavenRepositoryPtrType) ToMavenRepositoryPtrOutputWithContext(ctx context.Context) MavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MavenRepositoryPtrOutput)
 }
 
 // MavenRepositoryArrayInput is an input type that accepts MavenRepositoryArray and MavenRepositoryArrayOutput values.
@@ -408,7 +379,7 @@ func (i MavenRepositoryMap) ToMavenRepositoryMapOutputWithContext(ctx context.Co
 type MavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (MavenRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MavenRepository)(nil))
+	return reflect.TypeOf((**MavenRepository)(nil)).Elem()
 }
 
 func (o MavenRepositoryOutput) ToMavenRepositoryOutput() MavenRepositoryOutput {
@@ -419,44 +390,10 @@ func (o MavenRepositoryOutput) ToMavenRepositoryOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MavenRepositoryOutput) ToMavenRepositoryPtrOutput() MavenRepositoryPtrOutput {
-	return o.ToMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o MavenRepositoryOutput) ToMavenRepositoryPtrOutputWithContext(ctx context.Context) MavenRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MavenRepository) *MavenRepository {
-		return &v
-	}).(MavenRepositoryPtrOutput)
-}
-
-type MavenRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (MavenRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MavenRepository)(nil))
-}
-
-func (o MavenRepositoryPtrOutput) ToMavenRepositoryPtrOutput() MavenRepositoryPtrOutput {
-	return o
-}
-
-func (o MavenRepositoryPtrOutput) ToMavenRepositoryPtrOutputWithContext(ctx context.Context) MavenRepositoryPtrOutput {
-	return o
-}
-
-func (o MavenRepositoryPtrOutput) Elem() MavenRepositoryOutput {
-	return o.ApplyT(func(v *MavenRepository) MavenRepository {
-		if v != nil {
-			return *v
-		}
-		var ret MavenRepository
-		return ret
-	}).(MavenRepositoryOutput)
-}
-
 type MavenRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (MavenRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MavenRepository)(nil))
+	return reflect.TypeOf((*[]*MavenRepository)(nil)).Elem()
 }
 
 func (o MavenRepositoryArrayOutput) ToMavenRepositoryArrayOutput() MavenRepositoryArrayOutput {
@@ -468,15 +405,15 @@ func (o MavenRepositoryArrayOutput) ToMavenRepositoryArrayOutputWithContext(ctx 
 }
 
 func (o MavenRepositoryArrayOutput) Index(i pulumi.IntInput) MavenRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MavenRepository {
-		return vs[0].([]MavenRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MavenRepository {
+		return vs[0].([]*MavenRepository)[vs[1].(int)]
 	}).(MavenRepositoryOutput)
 }
 
 type MavenRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (MavenRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MavenRepository)(nil))
+	return reflect.TypeOf((*map[string]*MavenRepository)(nil)).Elem()
 }
 
 func (o MavenRepositoryMapOutput) ToMavenRepositoryMapOutput() MavenRepositoryMapOutput {
@@ -488,18 +425,16 @@ func (o MavenRepositoryMapOutput) ToMavenRepositoryMapOutputWithContext(ctx cont
 }
 
 func (o MavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) MavenRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MavenRepository {
-		return vs[0].(map[string]MavenRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MavenRepository {
+		return vs[0].(map[string]*MavenRepository)[vs[1].(string)]
 	}).(MavenRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryInput)(nil)).Elem(), &MavenRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryPtrInput)(nil)).Elem(), &MavenRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryArrayInput)(nil)).Elem(), MavenRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MavenRepositoryMapInput)(nil)).Elem(), MavenRepositoryMap{})
 	pulumi.RegisterOutputType(MavenRepositoryOutput{})
-	pulumi.RegisterOutputType(MavenRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(MavenRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(MavenRepositoryMapOutput{})
 }

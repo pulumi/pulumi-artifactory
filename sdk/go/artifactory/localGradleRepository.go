@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGradleRepository(ctx, "terraform_local_test_gradle_repo_basic", &artifactory.LocalGradleRepositoryArgs{
+// 		_, err := artifactory.NewLocalGradleRepository(ctx, "terraform-local-test-gradle-repo-basic", &artifactory.LocalGradleRepositoryArgs{
 // 			ChecksumPolicyType:           pulumi.String("client-checksums"),
 // 			HandleReleases:               pulumi.Bool(true),
 // 			HandleSnapshots:              pulumi.Bool(true),
@@ -306,7 +306,7 @@ type LocalGradleRepositoryInput interface {
 }
 
 func (*LocalGradleRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGradleRepository)(nil))
+	return reflect.TypeOf((**LocalGradleRepository)(nil)).Elem()
 }
 
 func (i *LocalGradleRepository) ToLocalGradleRepositoryOutput() LocalGradleRepositoryOutput {
@@ -315,35 +315,6 @@ func (i *LocalGradleRepository) ToLocalGradleRepositoryOutput() LocalGradleRepos
 
 func (i *LocalGradleRepository) ToLocalGradleRepositoryOutputWithContext(ctx context.Context) LocalGradleRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryOutput)
-}
-
-func (i *LocalGradleRepository) ToLocalGradleRepositoryPtrOutput() LocalGradleRepositoryPtrOutput {
-	return i.ToLocalGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalGradleRepository) ToLocalGradleRepositoryPtrOutputWithContext(ctx context.Context) LocalGradleRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryPtrOutput)
-}
-
-type LocalGradleRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalGradleRepositoryPtrOutput() LocalGradleRepositoryPtrOutput
-	ToLocalGradleRepositoryPtrOutputWithContext(ctx context.Context) LocalGradleRepositoryPtrOutput
-}
-
-type localGradleRepositoryPtrType LocalGradleRepositoryArgs
-
-func (*localGradleRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGradleRepository)(nil))
-}
-
-func (i *localGradleRepositoryPtrType) ToLocalGradleRepositoryPtrOutput() LocalGradleRepositoryPtrOutput {
-	return i.ToLocalGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localGradleRepositoryPtrType) ToLocalGradleRepositoryPtrOutputWithContext(ctx context.Context) LocalGradleRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGradleRepositoryPtrOutput)
 }
 
 // LocalGradleRepositoryArrayInput is an input type that accepts LocalGradleRepositoryArray and LocalGradleRepositoryArrayOutput values.
@@ -399,7 +370,7 @@ func (i LocalGradleRepositoryMap) ToLocalGradleRepositoryMapOutputWithContext(ct
 type LocalGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGradleRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGradleRepository)(nil))
+	return reflect.TypeOf((**LocalGradleRepository)(nil)).Elem()
 }
 
 func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryOutput() LocalGradleRepositoryOutput {
@@ -410,44 +381,10 @@ func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryOutputWithContext(ct
 	return o
 }
 
-func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryPtrOutput() LocalGradleRepositoryPtrOutput {
-	return o.ToLocalGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGradleRepositoryOutput) ToLocalGradleRepositoryPtrOutputWithContext(ctx context.Context) LocalGradleRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGradleRepository) *LocalGradleRepository {
-		return &v
-	}).(LocalGradleRepositoryPtrOutput)
-}
-
-type LocalGradleRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGradleRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGradleRepository)(nil))
-}
-
-func (o LocalGradleRepositoryPtrOutput) ToLocalGradleRepositoryPtrOutput() LocalGradleRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGradleRepositoryPtrOutput) ToLocalGradleRepositoryPtrOutputWithContext(ctx context.Context) LocalGradleRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGradleRepositoryPtrOutput) Elem() LocalGradleRepositoryOutput {
-	return o.ApplyT(func(v *LocalGradleRepository) LocalGradleRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGradleRepository
-		return ret
-	}).(LocalGradleRepositoryOutput)
-}
-
 type LocalGradleRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalGradleRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGradleRepository)(nil))
+	return reflect.TypeOf((*[]*LocalGradleRepository)(nil)).Elem()
 }
 
 func (o LocalGradleRepositoryArrayOutput) ToLocalGradleRepositoryArrayOutput() LocalGradleRepositoryArrayOutput {
@@ -459,15 +396,15 @@ func (o LocalGradleRepositoryArrayOutput) ToLocalGradleRepositoryArrayOutputWith
 }
 
 func (o LocalGradleRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGradleRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGradleRepository {
-		return vs[0].([]LocalGradleRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGradleRepository {
+		return vs[0].([]*LocalGradleRepository)[vs[1].(int)]
 	}).(LocalGradleRepositoryOutput)
 }
 
 type LocalGradleRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalGradleRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalGradleRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalGradleRepository)(nil)).Elem()
 }
 
 func (o LocalGradleRepositoryMapOutput) ToLocalGradleRepositoryMapOutput() LocalGradleRepositoryMapOutput {
@@ -479,18 +416,16 @@ func (o LocalGradleRepositoryMapOutput) ToLocalGradleRepositoryMapOutputWithCont
 }
 
 func (o LocalGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGradleRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalGradleRepository {
-		return vs[0].(map[string]LocalGradleRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalGradleRepository {
+		return vs[0].(map[string]*LocalGradleRepository)[vs[1].(string)]
 	}).(LocalGradleRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGradleRepositoryInput)(nil)).Elem(), &LocalGradleRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGradleRepositoryPtrInput)(nil)).Elem(), &LocalGradleRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGradleRepositoryArrayInput)(nil)).Elem(), LocalGradleRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGradleRepositoryMapInput)(nil)).Elem(), LocalGradleRepositoryMap{})
 	pulumi.RegisterOutputType(LocalGradleRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalGradleRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalGradleRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalGradleRepositoryMapOutput{})
 }

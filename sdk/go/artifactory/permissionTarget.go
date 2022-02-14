@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewPermissionTarget(ctx, "test_perm", &artifactory.PermissionTargetArgs{
+// 		_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
 // 			Build: &PermissionTargetBuildArgs{
 // 				Actions: &PermissionTargetBuildActionsArgs{
 // 					Users: PermissionTargetBuildActionsUserArray{
@@ -208,7 +208,7 @@ type PermissionTargetInput interface {
 }
 
 func (*PermissionTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionTarget)(nil))
+	return reflect.TypeOf((**PermissionTarget)(nil)).Elem()
 }
 
 func (i *PermissionTarget) ToPermissionTargetOutput() PermissionTargetOutput {
@@ -217,35 +217,6 @@ func (i *PermissionTarget) ToPermissionTargetOutput() PermissionTargetOutput {
 
 func (i *PermissionTarget) ToPermissionTargetOutputWithContext(ctx context.Context) PermissionTargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetOutput)
-}
-
-func (i *PermissionTarget) ToPermissionTargetPtrOutput() PermissionTargetPtrOutput {
-	return i.ToPermissionTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *PermissionTarget) ToPermissionTargetPtrOutputWithContext(ctx context.Context) PermissionTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetPtrOutput)
-}
-
-type PermissionTargetPtrInput interface {
-	pulumi.Input
-
-	ToPermissionTargetPtrOutput() PermissionTargetPtrOutput
-	ToPermissionTargetPtrOutputWithContext(ctx context.Context) PermissionTargetPtrOutput
-}
-
-type permissionTargetPtrType PermissionTargetArgs
-
-func (*permissionTargetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionTarget)(nil))
-}
-
-func (i *permissionTargetPtrType) ToPermissionTargetPtrOutput() PermissionTargetPtrOutput {
-	return i.ToPermissionTargetPtrOutputWithContext(context.Background())
-}
-
-func (i *permissionTargetPtrType) ToPermissionTargetPtrOutputWithContext(ctx context.Context) PermissionTargetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionTargetPtrOutput)
 }
 
 // PermissionTargetArrayInput is an input type that accepts PermissionTargetArray and PermissionTargetArrayOutput values.
@@ -301,7 +272,7 @@ func (i PermissionTargetMap) ToPermissionTargetMapOutputWithContext(ctx context.
 type PermissionTargetOutput struct{ *pulumi.OutputState }
 
 func (PermissionTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionTarget)(nil))
+	return reflect.TypeOf((**PermissionTarget)(nil)).Elem()
 }
 
 func (o PermissionTargetOutput) ToPermissionTargetOutput() PermissionTargetOutput {
@@ -312,44 +283,10 @@ func (o PermissionTargetOutput) ToPermissionTargetOutputWithContext(ctx context.
 	return o
 }
 
-func (o PermissionTargetOutput) ToPermissionTargetPtrOutput() PermissionTargetPtrOutput {
-	return o.ToPermissionTargetPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionTargetOutput) ToPermissionTargetPtrOutputWithContext(ctx context.Context) PermissionTargetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionTarget) *PermissionTarget {
-		return &v
-	}).(PermissionTargetPtrOutput)
-}
-
-type PermissionTargetPtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionTargetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionTarget)(nil))
-}
-
-func (o PermissionTargetPtrOutput) ToPermissionTargetPtrOutput() PermissionTargetPtrOutput {
-	return o
-}
-
-func (o PermissionTargetPtrOutput) ToPermissionTargetPtrOutputWithContext(ctx context.Context) PermissionTargetPtrOutput {
-	return o
-}
-
-func (o PermissionTargetPtrOutput) Elem() PermissionTargetOutput {
-	return o.ApplyT(func(v *PermissionTarget) PermissionTarget {
-		if v != nil {
-			return *v
-		}
-		var ret PermissionTarget
-		return ret
-	}).(PermissionTargetOutput)
-}
-
 type PermissionTargetArrayOutput struct{ *pulumi.OutputState }
 
 func (PermissionTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionTarget)(nil))
+	return reflect.TypeOf((*[]*PermissionTarget)(nil)).Elem()
 }
 
 func (o PermissionTargetArrayOutput) ToPermissionTargetArrayOutput() PermissionTargetArrayOutput {
@@ -361,15 +298,15 @@ func (o PermissionTargetArrayOutput) ToPermissionTargetArrayOutputWithContext(ct
 }
 
 func (o PermissionTargetArrayOutput) Index(i pulumi.IntInput) PermissionTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionTarget {
-		return vs[0].([]PermissionTarget)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionTarget {
+		return vs[0].([]*PermissionTarget)[vs[1].(int)]
 	}).(PermissionTargetOutput)
 }
 
 type PermissionTargetMapOutput struct{ *pulumi.OutputState }
 
 func (PermissionTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PermissionTarget)(nil))
+	return reflect.TypeOf((*map[string]*PermissionTarget)(nil)).Elem()
 }
 
 func (o PermissionTargetMapOutput) ToPermissionTargetMapOutput() PermissionTargetMapOutput {
@@ -381,18 +318,16 @@ func (o PermissionTargetMapOutput) ToPermissionTargetMapOutputWithContext(ctx co
 }
 
 func (o PermissionTargetMapOutput) MapIndex(k pulumi.StringInput) PermissionTargetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PermissionTarget {
-		return vs[0].(map[string]PermissionTarget)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PermissionTarget {
+		return vs[0].(map[string]*PermissionTarget)[vs[1].(string)]
 	}).(PermissionTargetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetInput)(nil)).Elem(), &PermissionTarget{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetPtrInput)(nil)).Elem(), &PermissionTarget{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetArrayInput)(nil)).Elem(), PermissionTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetMapInput)(nil)).Elem(), PermissionTargetMap{})
 	pulumi.RegisterOutputType(PermissionTargetOutput{})
-	pulumi.RegisterOutputType(PermissionTargetPtrOutput{})
 	pulumi.RegisterOutputType(PermissionTargetArrayOutput{})
 	pulumi.RegisterOutputType(PermissionTargetMapOutput{})
 }

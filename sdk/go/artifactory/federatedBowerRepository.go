@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedBowerRepository(ctx, "terraform_federated_test_bower_repo", &artifactory.FederatedBowerRepositoryArgs{
+// 		_, err := artifactory.NewFederatedBowerRepository(ctx, "terraform-federated-test-bower-repo", &artifactory.FederatedBowerRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-bower-repo"),
 // 			Members: FederatedBowerRepositoryMemberArray{
 // 				&FederatedBowerRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedBowerRepositoryInput interface {
 }
 
 func (*FederatedBowerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedBowerRepository)(nil))
+	return reflect.TypeOf((**FederatedBowerRepository)(nil)).Elem()
 }
 
 func (i *FederatedBowerRepository) ToFederatedBowerRepositoryOutput() FederatedBowerRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedBowerRepository) ToFederatedBowerRepositoryOutput() FederatedB
 
 func (i *FederatedBowerRepository) ToFederatedBowerRepositoryOutputWithContext(ctx context.Context) FederatedBowerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryOutput)
-}
-
-func (i *FederatedBowerRepository) ToFederatedBowerRepositoryPtrOutput() FederatedBowerRepositoryPtrOutput {
-	return i.ToFederatedBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedBowerRepository) ToFederatedBowerRepositoryPtrOutputWithContext(ctx context.Context) FederatedBowerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryPtrOutput)
-}
-
-type FederatedBowerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedBowerRepositoryPtrOutput() FederatedBowerRepositoryPtrOutput
-	ToFederatedBowerRepositoryPtrOutputWithContext(ctx context.Context) FederatedBowerRepositoryPtrOutput
-}
-
-type federatedBowerRepositoryPtrType FederatedBowerRepositoryArgs
-
-func (*federatedBowerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedBowerRepository)(nil))
-}
-
-func (i *federatedBowerRepositoryPtrType) ToFederatedBowerRepositoryPtrOutput() FederatedBowerRepositoryPtrOutput {
-	return i.ToFederatedBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedBowerRepositoryPtrType) ToFederatedBowerRepositoryPtrOutputWithContext(ctx context.Context) FederatedBowerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedBowerRepositoryPtrOutput)
 }
 
 // FederatedBowerRepositoryArrayInput is an input type that accepts FederatedBowerRepositoryArray and FederatedBowerRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedBowerRepositoryMap) ToFederatedBowerRepositoryMapOutputWithCont
 type FederatedBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedBowerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedBowerRepository)(nil))
+	return reflect.TypeOf((**FederatedBowerRepository)(nil)).Elem()
 }
 
 func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryOutput() FederatedBowerRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryPtrOutput() FederatedBowerRepositoryPtrOutput {
-	return o.ToFederatedBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedBowerRepositoryOutput) ToFederatedBowerRepositoryPtrOutputWithContext(ctx context.Context) FederatedBowerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedBowerRepository) *FederatedBowerRepository {
-		return &v
-	}).(FederatedBowerRepositoryPtrOutput)
-}
-
-type FederatedBowerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedBowerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedBowerRepository)(nil))
-}
-
-func (o FederatedBowerRepositoryPtrOutput) ToFederatedBowerRepositoryPtrOutput() FederatedBowerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedBowerRepositoryPtrOutput) ToFederatedBowerRepositoryPtrOutputWithContext(ctx context.Context) FederatedBowerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedBowerRepositoryPtrOutput) Elem() FederatedBowerRepositoryOutput {
-	return o.ApplyT(func(v *FederatedBowerRepository) FederatedBowerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedBowerRepository
-		return ret
-	}).(FederatedBowerRepositoryOutput)
-}
-
 type FederatedBowerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedBowerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedBowerRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedBowerRepository)(nil)).Elem()
 }
 
 func (o FederatedBowerRepositoryArrayOutput) ToFederatedBowerRepositoryArrayOutput() FederatedBowerRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedBowerRepositoryArrayOutput) ToFederatedBowerRepositoryArrayOutp
 }
 
 func (o FederatedBowerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedBowerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedBowerRepository {
-		return vs[0].([]FederatedBowerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedBowerRepository {
+		return vs[0].([]*FederatedBowerRepository)[vs[1].(int)]
 	}).(FederatedBowerRepositoryOutput)
 }
 
 type FederatedBowerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedBowerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedBowerRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedBowerRepository)(nil)).Elem()
 }
 
 func (o FederatedBowerRepositoryMapOutput) ToFederatedBowerRepositoryMapOutput() FederatedBowerRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedBowerRepositoryMapOutput) ToFederatedBowerRepositoryMapOutputWi
 }
 
 func (o FederatedBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedBowerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedBowerRepository {
-		return vs[0].(map[string]FederatedBowerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedBowerRepository {
+		return vs[0].(map[string]*FederatedBowerRepository)[vs[1].(string)]
 	}).(FederatedBowerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryInput)(nil)).Elem(), &FederatedBowerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryPtrInput)(nil)).Elem(), &FederatedBowerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryArrayInput)(nil)).Elem(), FederatedBowerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryMapInput)(nil)).Elem(), FederatedBowerRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedBowerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryMapOutput{})
 }

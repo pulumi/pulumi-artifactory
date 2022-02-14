@@ -180,7 +180,7 @@ type FederatedGemsRepositoryInput interface {
 }
 
 func (*FederatedGemsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGemsRepository)(nil))
+	return reflect.TypeOf((**FederatedGemsRepository)(nil)).Elem()
 }
 
 func (i *FederatedGemsRepository) ToFederatedGemsRepositoryOutput() FederatedGemsRepositoryOutput {
@@ -189,35 +189,6 @@ func (i *FederatedGemsRepository) ToFederatedGemsRepositoryOutput() FederatedGem
 
 func (i *FederatedGemsRepository) ToFederatedGemsRepositoryOutputWithContext(ctx context.Context) FederatedGemsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryOutput)
-}
-
-func (i *FederatedGemsRepository) ToFederatedGemsRepositoryPtrOutput() FederatedGemsRepositoryPtrOutput {
-	return i.ToFederatedGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedGemsRepository) ToFederatedGemsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGemsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryPtrOutput)
-}
-
-type FederatedGemsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedGemsRepositoryPtrOutput() FederatedGemsRepositoryPtrOutput
-	ToFederatedGemsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGemsRepositoryPtrOutput
-}
-
-type federatedGemsRepositoryPtrType FederatedGemsRepositoryArgs
-
-func (*federatedGemsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGemsRepository)(nil))
-}
-
-func (i *federatedGemsRepositoryPtrType) ToFederatedGemsRepositoryPtrOutput() FederatedGemsRepositoryPtrOutput {
-	return i.ToFederatedGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedGemsRepositoryPtrType) ToFederatedGemsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGemsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGemsRepositoryPtrOutput)
 }
 
 // FederatedGemsRepositoryArrayInput is an input type that accepts FederatedGemsRepositoryArray and FederatedGemsRepositoryArrayOutput values.
@@ -273,7 +244,7 @@ func (i FederatedGemsRepositoryMap) ToFederatedGemsRepositoryMapOutputWithContex
 type FederatedGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGemsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGemsRepository)(nil))
+	return reflect.TypeOf((**FederatedGemsRepository)(nil)).Elem()
 }
 
 func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryOutput() FederatedGemsRepositoryOutput {
@@ -284,44 +255,10 @@ func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryPtrOutput() FederatedGemsRepositoryPtrOutput {
-	return o.ToFederatedGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedGemsRepositoryOutput) ToFederatedGemsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGemsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedGemsRepository) *FederatedGemsRepository {
-		return &v
-	}).(FederatedGemsRepositoryPtrOutput)
-}
-
-type FederatedGemsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedGemsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGemsRepository)(nil))
-}
-
-func (o FederatedGemsRepositoryPtrOutput) ToFederatedGemsRepositoryPtrOutput() FederatedGemsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGemsRepositoryPtrOutput) ToFederatedGemsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGemsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGemsRepositoryPtrOutput) Elem() FederatedGemsRepositoryOutput {
-	return o.ApplyT(func(v *FederatedGemsRepository) FederatedGemsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedGemsRepository
-		return ret
-	}).(FederatedGemsRepositoryOutput)
-}
-
 type FederatedGemsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedGemsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedGemsRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedGemsRepository)(nil)).Elem()
 }
 
 func (o FederatedGemsRepositoryArrayOutput) ToFederatedGemsRepositoryArrayOutput() FederatedGemsRepositoryArrayOutput {
@@ -333,15 +270,15 @@ func (o FederatedGemsRepositoryArrayOutput) ToFederatedGemsRepositoryArrayOutput
 }
 
 func (o FederatedGemsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGemsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedGemsRepository {
-		return vs[0].([]FederatedGemsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGemsRepository {
+		return vs[0].([]*FederatedGemsRepository)[vs[1].(int)]
 	}).(FederatedGemsRepositoryOutput)
 }
 
 type FederatedGemsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedGemsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedGemsRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedGemsRepository)(nil)).Elem()
 }
 
 func (o FederatedGemsRepositoryMapOutput) ToFederatedGemsRepositoryMapOutput() FederatedGemsRepositoryMapOutput {
@@ -353,18 +290,16 @@ func (o FederatedGemsRepositoryMapOutput) ToFederatedGemsRepositoryMapOutputWith
 }
 
 func (o FederatedGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGemsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedGemsRepository {
-		return vs[0].(map[string]FederatedGemsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedGemsRepository {
+		return vs[0].(map[string]*FederatedGemsRepository)[vs[1].(string)]
 	}).(FederatedGemsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryInput)(nil)).Elem(), &FederatedGemsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryPtrInput)(nil)).Elem(), &FederatedGemsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryArrayInput)(nil)).Elem(), FederatedGemsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryMapInput)(nil)).Elem(), FederatedGemsRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedGemsRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedGemsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedGemsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGemsRepositoryMapOutput{})
 }

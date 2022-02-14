@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCargoRepository(ctx, "terraform_federated_test_cargo_repo", &artifactory.FederatedCargoRepositoryArgs{
+// 		_, err := artifactory.NewFederatedCargoRepository(ctx, "terraform-federated-test-cargo-repo", &artifactory.FederatedCargoRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-cargo-repo"),
 // 			Members: FederatedCargoRepositoryMemberArray{
 // 				&FederatedCargoRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedCargoRepositoryInput interface {
 }
 
 func (*FederatedCargoRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCargoRepository)(nil))
+	return reflect.TypeOf((**FederatedCargoRepository)(nil)).Elem()
 }
 
 func (i *FederatedCargoRepository) ToFederatedCargoRepositoryOutput() FederatedCargoRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedCargoRepository) ToFederatedCargoRepositoryOutput() FederatedC
 
 func (i *FederatedCargoRepository) ToFederatedCargoRepositoryOutputWithContext(ctx context.Context) FederatedCargoRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryOutput)
-}
-
-func (i *FederatedCargoRepository) ToFederatedCargoRepositoryPtrOutput() FederatedCargoRepositoryPtrOutput {
-	return i.ToFederatedCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedCargoRepository) ToFederatedCargoRepositoryPtrOutputWithContext(ctx context.Context) FederatedCargoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryPtrOutput)
-}
-
-type FederatedCargoRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedCargoRepositoryPtrOutput() FederatedCargoRepositoryPtrOutput
-	ToFederatedCargoRepositoryPtrOutputWithContext(ctx context.Context) FederatedCargoRepositoryPtrOutput
-}
-
-type federatedCargoRepositoryPtrType FederatedCargoRepositoryArgs
-
-func (*federatedCargoRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCargoRepository)(nil))
-}
-
-func (i *federatedCargoRepositoryPtrType) ToFederatedCargoRepositoryPtrOutput() FederatedCargoRepositoryPtrOutput {
-	return i.ToFederatedCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedCargoRepositoryPtrType) ToFederatedCargoRepositoryPtrOutputWithContext(ctx context.Context) FederatedCargoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCargoRepositoryPtrOutput)
 }
 
 // FederatedCargoRepositoryArrayInput is an input type that accepts FederatedCargoRepositoryArray and FederatedCargoRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedCargoRepositoryMap) ToFederatedCargoRepositoryMapOutputWithCont
 type FederatedCargoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCargoRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCargoRepository)(nil))
+	return reflect.TypeOf((**FederatedCargoRepository)(nil)).Elem()
 }
 
 func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryOutput() FederatedCargoRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryPtrOutput() FederatedCargoRepositoryPtrOutput {
-	return o.ToFederatedCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedCargoRepositoryOutput) ToFederatedCargoRepositoryPtrOutputWithContext(ctx context.Context) FederatedCargoRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedCargoRepository) *FederatedCargoRepository {
-		return &v
-	}).(FederatedCargoRepositoryPtrOutput)
-}
-
-type FederatedCargoRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedCargoRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCargoRepository)(nil))
-}
-
-func (o FederatedCargoRepositoryPtrOutput) ToFederatedCargoRepositoryPtrOutput() FederatedCargoRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCargoRepositoryPtrOutput) ToFederatedCargoRepositoryPtrOutputWithContext(ctx context.Context) FederatedCargoRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCargoRepositoryPtrOutput) Elem() FederatedCargoRepositoryOutput {
-	return o.ApplyT(func(v *FederatedCargoRepository) FederatedCargoRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedCargoRepository
-		return ret
-	}).(FederatedCargoRepositoryOutput)
-}
-
 type FederatedCargoRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedCargoRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedCargoRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedCargoRepository)(nil)).Elem()
 }
 
 func (o FederatedCargoRepositoryArrayOutput) ToFederatedCargoRepositoryArrayOutput() FederatedCargoRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedCargoRepositoryArrayOutput) ToFederatedCargoRepositoryArrayOutp
 }
 
 func (o FederatedCargoRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCargoRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedCargoRepository {
-		return vs[0].([]FederatedCargoRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCargoRepository {
+		return vs[0].([]*FederatedCargoRepository)[vs[1].(int)]
 	}).(FederatedCargoRepositoryOutput)
 }
 
 type FederatedCargoRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedCargoRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedCargoRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedCargoRepository)(nil)).Elem()
 }
 
 func (o FederatedCargoRepositoryMapOutput) ToFederatedCargoRepositoryMapOutput() FederatedCargoRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedCargoRepositoryMapOutput) ToFederatedCargoRepositoryMapOutputWi
 }
 
 func (o FederatedCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCargoRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedCargoRepository {
-		return vs[0].(map[string]FederatedCargoRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedCargoRepository {
+		return vs[0].(map[string]*FederatedCargoRepository)[vs[1].(string)]
 	}).(FederatedCargoRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCargoRepositoryInput)(nil)).Elem(), &FederatedCargoRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCargoRepositoryPtrInput)(nil)).Elem(), &FederatedCargoRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCargoRepositoryArrayInput)(nil)).Elem(), FederatedCargoRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCargoRepositoryMapInput)(nil)).Elem(), FederatedCargoRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedCargoRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedCargoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedCargoRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedCargoRepositoryMapOutput{})
 }

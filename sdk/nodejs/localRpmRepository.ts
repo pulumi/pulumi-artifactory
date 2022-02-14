@@ -96,54 +96,52 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocalRpmRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocalRpmRepositoryArgs | LocalRpmRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRpmRepositoryState | undefined;
-            inputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = state ? state.blackedOut : undefined;
-            inputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            inputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            inputs["propertySets"] = state ? state.propertySets : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
-            inputs["yumGroupFileNames"] = state ? state.yumGroupFileNames : undefined;
-            inputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
+            resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["yumGroupFileNames"] = state ? state.yumGroupFileNames : undefined;
+            resourceInputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
         } else {
             const args = argsOrState as LocalRpmRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = args ? args.blackedOut : undefined;
-            inputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            inputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            inputs["propertySets"] = args ? args.propertySets : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            inputs["yumGroupFileNames"] = args ? args.yumGroupFileNames : undefined;
-            inputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
-            inputs["packageType"] = undefined /*out*/;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
+            resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["yumGroupFileNames"] = args ? args.yumGroupFileNames : undefined;
+            resourceInputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
+            resourceInputs["packageType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalRpmRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalRpmRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

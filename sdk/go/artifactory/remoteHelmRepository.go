@@ -30,7 +30,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteHelmRepository(ctx, "helm_remote", &artifactory.RemoteHelmRepositoryArgs{
+// 		_, err := artifactory.NewRemoteHelmRepository(ctx, "helm-remote", &artifactory.RemoteHelmRepositoryArgs{
 // 			ExternalDependenciesEnabled: pulumi.Bool(true),
 // 			ExternalDependenciesPatterns: pulumi.StringArray{
 // 				pulumi.String("**github.com**"),
@@ -463,7 +463,7 @@ type RemoteHelmRepositoryInput interface {
 }
 
 func (*RemoteHelmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteHelmRepository)(nil))
+	return reflect.TypeOf((**RemoteHelmRepository)(nil)).Elem()
 }
 
 func (i *RemoteHelmRepository) ToRemoteHelmRepositoryOutput() RemoteHelmRepositoryOutput {
@@ -472,35 +472,6 @@ func (i *RemoteHelmRepository) ToRemoteHelmRepositoryOutput() RemoteHelmReposito
 
 func (i *RemoteHelmRepository) ToRemoteHelmRepositoryOutputWithContext(ctx context.Context) RemoteHelmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryOutput)
-}
-
-func (i *RemoteHelmRepository) ToRemoteHelmRepositoryPtrOutput() RemoteHelmRepositoryPtrOutput {
-	return i.ToRemoteHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *RemoteHelmRepository) ToRemoteHelmRepositoryPtrOutputWithContext(ctx context.Context) RemoteHelmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryPtrOutput)
-}
-
-type RemoteHelmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToRemoteHelmRepositoryPtrOutput() RemoteHelmRepositoryPtrOutput
-	ToRemoteHelmRepositoryPtrOutputWithContext(ctx context.Context) RemoteHelmRepositoryPtrOutput
-}
-
-type remoteHelmRepositoryPtrType RemoteHelmRepositoryArgs
-
-func (*remoteHelmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteHelmRepository)(nil))
-}
-
-func (i *remoteHelmRepositoryPtrType) ToRemoteHelmRepositoryPtrOutput() RemoteHelmRepositoryPtrOutput {
-	return i.ToRemoteHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteHelmRepositoryPtrType) ToRemoteHelmRepositoryPtrOutputWithContext(ctx context.Context) RemoteHelmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteHelmRepositoryPtrOutput)
 }
 
 // RemoteHelmRepositoryArrayInput is an input type that accepts RemoteHelmRepositoryArray and RemoteHelmRepositoryArrayOutput values.
@@ -556,7 +527,7 @@ func (i RemoteHelmRepositoryMap) ToRemoteHelmRepositoryMapOutputWithContext(ctx 
 type RemoteHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteHelmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteHelmRepository)(nil))
+	return reflect.TypeOf((**RemoteHelmRepository)(nil)).Elem()
 }
 
 func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryOutput() RemoteHelmRepositoryOutput {
@@ -567,44 +538,10 @@ func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryPtrOutput() RemoteHelmRepositoryPtrOutput {
-	return o.ToRemoteHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteHelmRepositoryOutput) ToRemoteHelmRepositoryPtrOutputWithContext(ctx context.Context) RemoteHelmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteHelmRepository) *RemoteHelmRepository {
-		return &v
-	}).(RemoteHelmRepositoryPtrOutput)
-}
-
-type RemoteHelmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteHelmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteHelmRepository)(nil))
-}
-
-func (o RemoteHelmRepositoryPtrOutput) ToRemoteHelmRepositoryPtrOutput() RemoteHelmRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteHelmRepositoryPtrOutput) ToRemoteHelmRepositoryPtrOutputWithContext(ctx context.Context) RemoteHelmRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteHelmRepositoryPtrOutput) Elem() RemoteHelmRepositoryOutput {
-	return o.ApplyT(func(v *RemoteHelmRepository) RemoteHelmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteHelmRepository
-		return ret
-	}).(RemoteHelmRepositoryOutput)
-}
-
 type RemoteHelmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RemoteHelmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemoteHelmRepository)(nil))
+	return reflect.TypeOf((*[]*RemoteHelmRepository)(nil)).Elem()
 }
 
 func (o RemoteHelmRepositoryArrayOutput) ToRemoteHelmRepositoryArrayOutput() RemoteHelmRepositoryArrayOutput {
@@ -616,15 +553,15 @@ func (o RemoteHelmRepositoryArrayOutput) ToRemoteHelmRepositoryArrayOutputWithCo
 }
 
 func (o RemoteHelmRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteHelmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteHelmRepository {
-		return vs[0].([]RemoteHelmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteHelmRepository {
+		return vs[0].([]*RemoteHelmRepository)[vs[1].(int)]
 	}).(RemoteHelmRepositoryOutput)
 }
 
 type RemoteHelmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (RemoteHelmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemoteHelmRepository)(nil))
+	return reflect.TypeOf((*map[string]*RemoteHelmRepository)(nil)).Elem()
 }
 
 func (o RemoteHelmRepositoryMapOutput) ToRemoteHelmRepositoryMapOutput() RemoteHelmRepositoryMapOutput {
@@ -636,18 +573,16 @@ func (o RemoteHelmRepositoryMapOutput) ToRemoteHelmRepositoryMapOutputWithContex
 }
 
 func (o RemoteHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteHelmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemoteHelmRepository {
-		return vs[0].(map[string]RemoteHelmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemoteHelmRepository {
+		return vs[0].(map[string]*RemoteHelmRepository)[vs[1].(string)]
 	}).(RemoteHelmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryInput)(nil)).Elem(), &RemoteHelmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryPtrInput)(nil)).Elem(), &RemoteHelmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryArrayInput)(nil)).Elem(), RemoteHelmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteHelmRepositoryMapInput)(nil)).Elem(), RemoteHelmRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryOutput{})
-	pulumi.RegisterOutputType(RemoteHelmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(RemoteHelmRepositoryMapOutput{})
 }

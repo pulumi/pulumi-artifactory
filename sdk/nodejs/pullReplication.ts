@@ -97,22 +97,22 @@ export class PullReplication extends pulumi.CustomResource {
      */
     constructor(name: string, args: PullReplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PullReplicationArgs | PullReplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PullReplicationState | undefined;
-            inputs["cronExp"] = state ? state.cronExp : undefined;
-            inputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["pathPrefix"] = state ? state.pathPrefix : undefined;
-            inputs["repoKey"] = state ? state.repoKey : undefined;
-            inputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
-            inputs["syncDeletes"] = state ? state.syncDeletes : undefined;
-            inputs["syncProperties"] = state ? state.syncProperties : undefined;
-            inputs["syncStatistics"] = state ? state.syncStatistics : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
+            resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["pathPrefix"] = state ? state.pathPrefix : undefined;
+            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
+            resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
+            resourceInputs["syncDeletes"] = state ? state.syncDeletes : undefined;
+            resourceInputs["syncProperties"] = state ? state.syncProperties : undefined;
+            resourceInputs["syncStatistics"] = state ? state.syncStatistics : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as PullReplicationArgs | undefined;
             if ((!args || args.cronExp === undefined) && !opts.urn) {
@@ -121,23 +121,21 @@ export class PullReplication extends pulumi.CustomResource {
             if ((!args || args.repoKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            inputs["cronExp"] = args ? args.cronExp : undefined;
-            inputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["pathPrefix"] = args ? args.pathPrefix : undefined;
-            inputs["repoKey"] = args ? args.repoKey : undefined;
-            inputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
-            inputs["syncDeletes"] = args ? args.syncDeletes : undefined;
-            inputs["syncProperties"] = args ? args.syncProperties : undefined;
-            inputs["syncStatistics"] = args ? args.syncStatistics : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["password"] = undefined /*out*/;
+            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
+            resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["pathPrefix"] = args ? args.pathPrefix : undefined;
+            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
+            resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
+            resourceInputs["syncDeletes"] = args ? args.syncDeletes : undefined;
+            resourceInputs["syncProperties"] = args ? args.syncProperties : undefined;
+            resourceInputs["syncStatistics"] = args ? args.syncStatistics : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["password"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PullReplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PullReplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

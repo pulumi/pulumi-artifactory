@@ -106,7 +106,7 @@ type PushReplicationInput interface {
 }
 
 func (*PushReplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushReplication)(nil))
+	return reflect.TypeOf((**PushReplication)(nil)).Elem()
 }
 
 func (i *PushReplication) ToPushReplicationOutput() PushReplicationOutput {
@@ -115,35 +115,6 @@ func (i *PushReplication) ToPushReplicationOutput() PushReplicationOutput {
 
 func (i *PushReplication) ToPushReplicationOutputWithContext(ctx context.Context) PushReplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationOutput)
-}
-
-func (i *PushReplication) ToPushReplicationPtrOutput() PushReplicationPtrOutput {
-	return i.ToPushReplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *PushReplication) ToPushReplicationPtrOutputWithContext(ctx context.Context) PushReplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationPtrOutput)
-}
-
-type PushReplicationPtrInput interface {
-	pulumi.Input
-
-	ToPushReplicationPtrOutput() PushReplicationPtrOutput
-	ToPushReplicationPtrOutputWithContext(ctx context.Context) PushReplicationPtrOutput
-}
-
-type pushReplicationPtrType PushReplicationArgs
-
-func (*pushReplicationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushReplication)(nil))
-}
-
-func (i *pushReplicationPtrType) ToPushReplicationPtrOutput() PushReplicationPtrOutput {
-	return i.ToPushReplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *pushReplicationPtrType) ToPushReplicationPtrOutputWithContext(ctx context.Context) PushReplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushReplicationPtrOutput)
 }
 
 // PushReplicationArrayInput is an input type that accepts PushReplicationArray and PushReplicationArrayOutput values.
@@ -199,7 +170,7 @@ func (i PushReplicationMap) ToPushReplicationMapOutputWithContext(ctx context.Co
 type PushReplicationOutput struct{ *pulumi.OutputState }
 
 func (PushReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushReplication)(nil))
+	return reflect.TypeOf((**PushReplication)(nil)).Elem()
 }
 
 func (o PushReplicationOutput) ToPushReplicationOutput() PushReplicationOutput {
@@ -210,44 +181,10 @@ func (o PushReplicationOutput) ToPushReplicationOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o PushReplicationOutput) ToPushReplicationPtrOutput() PushReplicationPtrOutput {
-	return o.ToPushReplicationPtrOutputWithContext(context.Background())
-}
-
-func (o PushReplicationOutput) ToPushReplicationPtrOutputWithContext(ctx context.Context) PushReplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushReplication) *PushReplication {
-		return &v
-	}).(PushReplicationPtrOutput)
-}
-
-type PushReplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (PushReplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushReplication)(nil))
-}
-
-func (o PushReplicationPtrOutput) ToPushReplicationPtrOutput() PushReplicationPtrOutput {
-	return o
-}
-
-func (o PushReplicationPtrOutput) ToPushReplicationPtrOutputWithContext(ctx context.Context) PushReplicationPtrOutput {
-	return o
-}
-
-func (o PushReplicationPtrOutput) Elem() PushReplicationOutput {
-	return o.ApplyT(func(v *PushReplication) PushReplication {
-		if v != nil {
-			return *v
-		}
-		var ret PushReplication
-		return ret
-	}).(PushReplicationOutput)
-}
-
 type PushReplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (PushReplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PushReplication)(nil))
+	return reflect.TypeOf((*[]*PushReplication)(nil)).Elem()
 }
 
 func (o PushReplicationArrayOutput) ToPushReplicationArrayOutput() PushReplicationArrayOutput {
@@ -259,15 +196,15 @@ func (o PushReplicationArrayOutput) ToPushReplicationArrayOutputWithContext(ctx 
 }
 
 func (o PushReplicationArrayOutput) Index(i pulumi.IntInput) PushReplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PushReplication {
-		return vs[0].([]PushReplication)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PushReplication {
+		return vs[0].([]*PushReplication)[vs[1].(int)]
 	}).(PushReplicationOutput)
 }
 
 type PushReplicationMapOutput struct{ *pulumi.OutputState }
 
 func (PushReplicationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PushReplication)(nil))
+	return reflect.TypeOf((*map[string]*PushReplication)(nil)).Elem()
 }
 
 func (o PushReplicationMapOutput) ToPushReplicationMapOutput() PushReplicationMapOutput {
@@ -279,18 +216,16 @@ func (o PushReplicationMapOutput) ToPushReplicationMapOutputWithContext(ctx cont
 }
 
 func (o PushReplicationMapOutput) MapIndex(k pulumi.StringInput) PushReplicationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PushReplication {
-		return vs[0].(map[string]PushReplication)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PushReplication {
+		return vs[0].(map[string]*PushReplication)[vs[1].(string)]
 	}).(PushReplicationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationInput)(nil)).Elem(), &PushReplication{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationPtrInput)(nil)).Elem(), &PushReplication{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationArrayInput)(nil)).Elem(), PushReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationMapInput)(nil)).Elem(), PushReplicationMap{})
 	pulumi.RegisterOutputType(PushReplicationOutput{})
-	pulumi.RegisterOutputType(PushReplicationPtrOutput{})
 	pulumi.RegisterOutputType(PushReplicationArrayOutput{})
 	pulumi.RegisterOutputType(PushReplicationMapOutput{})
 }

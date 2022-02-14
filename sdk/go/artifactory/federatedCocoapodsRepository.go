@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCocoapodsRepository(ctx, "terraform_federated_test_cocoapods_repo", &artifactory.FederatedCocoapodsRepositoryArgs{
+// 		_, err := artifactory.NewFederatedCocoapodsRepository(ctx, "terraform-federated-test-cocoapods-repo", &artifactory.FederatedCocoapodsRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-cocoapods-repo"),
 // 			Members: FederatedCocoapodsRepositoryMemberArray{
 // 				&FederatedCocoapodsRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedCocoapodsRepositoryInput interface {
 }
 
 func (*FederatedCocoapodsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCocoapodsRepository)(nil))
+	return reflect.TypeOf((**FederatedCocoapodsRepository)(nil)).Elem()
 }
 
 func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryOutput() FederatedCocoapodsRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryOutput() Fe
 
 func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryOutput)
-}
-
-func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryPtrOutput() FederatedCocoapodsRepositoryPtrOutput {
-	return i.ToFederatedCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryPtrOutput)
-}
-
-type FederatedCocoapodsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedCocoapodsRepositoryPtrOutput() FederatedCocoapodsRepositoryPtrOutput
-	ToFederatedCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryPtrOutput
-}
-
-type federatedCocoapodsRepositoryPtrType FederatedCocoapodsRepositoryArgs
-
-func (*federatedCocoapodsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCocoapodsRepository)(nil))
-}
-
-func (i *federatedCocoapodsRepositoryPtrType) ToFederatedCocoapodsRepositoryPtrOutput() FederatedCocoapodsRepositoryPtrOutput {
-	return i.ToFederatedCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedCocoapodsRepositoryPtrType) ToFederatedCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCocoapodsRepositoryPtrOutput)
 }
 
 // FederatedCocoapodsRepositoryArrayInput is an input type that accepts FederatedCocoapodsRepositoryArray and FederatedCocoapodsRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedCocoapodsRepositoryMap) ToFederatedCocoapodsRepositoryMapOutput
 type FederatedCocoapodsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCocoapodsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCocoapodsRepository)(nil))
+	return reflect.TypeOf((**FederatedCocoapodsRepository)(nil)).Elem()
 }
 
 func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryOutput() FederatedCocoapodsRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryOutput
 	return o
 }
 
-func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryPtrOutput() FederatedCocoapodsRepositoryPtrOutput {
-	return o.ToFederatedCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedCocoapodsRepositoryOutput) ToFederatedCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedCocoapodsRepository) *FederatedCocoapodsRepository {
-		return &v
-	}).(FederatedCocoapodsRepositoryPtrOutput)
-}
-
-type FederatedCocoapodsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedCocoapodsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCocoapodsRepository)(nil))
-}
-
-func (o FederatedCocoapodsRepositoryPtrOutput) ToFederatedCocoapodsRepositoryPtrOutput() FederatedCocoapodsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCocoapodsRepositoryPtrOutput) ToFederatedCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) FederatedCocoapodsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCocoapodsRepositoryPtrOutput) Elem() FederatedCocoapodsRepositoryOutput {
-	return o.ApplyT(func(v *FederatedCocoapodsRepository) FederatedCocoapodsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedCocoapodsRepository
-		return ret
-	}).(FederatedCocoapodsRepositoryOutput)
-}
-
 type FederatedCocoapodsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedCocoapodsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedCocoapodsRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedCocoapodsRepository)(nil)).Elem()
 }
 
 func (o FederatedCocoapodsRepositoryArrayOutput) ToFederatedCocoapodsRepositoryArrayOutput() FederatedCocoapodsRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedCocoapodsRepositoryArrayOutput) ToFederatedCocoapodsRepositoryA
 }
 
 func (o FederatedCocoapodsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCocoapodsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedCocoapodsRepository {
-		return vs[0].([]FederatedCocoapodsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCocoapodsRepository {
+		return vs[0].([]*FederatedCocoapodsRepository)[vs[1].(int)]
 	}).(FederatedCocoapodsRepositoryOutput)
 }
 
 type FederatedCocoapodsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedCocoapodsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedCocoapodsRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedCocoapodsRepository)(nil)).Elem()
 }
 
 func (o FederatedCocoapodsRepositoryMapOutput) ToFederatedCocoapodsRepositoryMapOutput() FederatedCocoapodsRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedCocoapodsRepositoryMapOutput) ToFederatedCocoapodsRepositoryMap
 }
 
 func (o FederatedCocoapodsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCocoapodsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedCocoapodsRepository {
-		return vs[0].(map[string]FederatedCocoapodsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedCocoapodsRepository {
+		return vs[0].(map[string]*FederatedCocoapodsRepository)[vs[1].(string)]
 	}).(FederatedCocoapodsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCocoapodsRepositoryInput)(nil)).Elem(), &FederatedCocoapodsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCocoapodsRepositoryPtrInput)(nil)).Elem(), &FederatedCocoapodsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCocoapodsRepositoryArrayInput)(nil)).Elem(), FederatedCocoapodsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCocoapodsRepositoryMapInput)(nil)).Elem(), FederatedCocoapodsRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedCocoapodsRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedCocoapodsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedCocoapodsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedCocoapodsRepositoryMapOutput{})
 }

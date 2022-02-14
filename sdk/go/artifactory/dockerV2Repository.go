@@ -238,7 +238,7 @@ type DockerV2RepositoryInput interface {
 }
 
 func (*DockerV2Repository) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerV2Repository)(nil))
+	return reflect.TypeOf((**DockerV2Repository)(nil)).Elem()
 }
 
 func (i *DockerV2Repository) ToDockerV2RepositoryOutput() DockerV2RepositoryOutput {
@@ -247,35 +247,6 @@ func (i *DockerV2Repository) ToDockerV2RepositoryOutput() DockerV2RepositoryOutp
 
 func (i *DockerV2Repository) ToDockerV2RepositoryOutputWithContext(ctx context.Context) DockerV2RepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DockerV2RepositoryOutput)
-}
-
-func (i *DockerV2Repository) ToDockerV2RepositoryPtrOutput() DockerV2RepositoryPtrOutput {
-	return i.ToDockerV2RepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *DockerV2Repository) ToDockerV2RepositoryPtrOutputWithContext(ctx context.Context) DockerV2RepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DockerV2RepositoryPtrOutput)
-}
-
-type DockerV2RepositoryPtrInput interface {
-	pulumi.Input
-
-	ToDockerV2RepositoryPtrOutput() DockerV2RepositoryPtrOutput
-	ToDockerV2RepositoryPtrOutputWithContext(ctx context.Context) DockerV2RepositoryPtrOutput
-}
-
-type dockerV2RepositoryPtrType DockerV2RepositoryArgs
-
-func (*dockerV2RepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DockerV2Repository)(nil))
-}
-
-func (i *dockerV2RepositoryPtrType) ToDockerV2RepositoryPtrOutput() DockerV2RepositoryPtrOutput {
-	return i.ToDockerV2RepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *dockerV2RepositoryPtrType) ToDockerV2RepositoryPtrOutputWithContext(ctx context.Context) DockerV2RepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DockerV2RepositoryPtrOutput)
 }
 
 // DockerV2RepositoryArrayInput is an input type that accepts DockerV2RepositoryArray and DockerV2RepositoryArrayOutput values.
@@ -331,7 +302,7 @@ func (i DockerV2RepositoryMap) ToDockerV2RepositoryMapOutputWithContext(ctx cont
 type DockerV2RepositoryOutput struct{ *pulumi.OutputState }
 
 func (DockerV2RepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerV2Repository)(nil))
+	return reflect.TypeOf((**DockerV2Repository)(nil)).Elem()
 }
 
 func (o DockerV2RepositoryOutput) ToDockerV2RepositoryOutput() DockerV2RepositoryOutput {
@@ -342,44 +313,10 @@ func (o DockerV2RepositoryOutput) ToDockerV2RepositoryOutputWithContext(ctx cont
 	return o
 }
 
-func (o DockerV2RepositoryOutput) ToDockerV2RepositoryPtrOutput() DockerV2RepositoryPtrOutput {
-	return o.ToDockerV2RepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o DockerV2RepositoryOutput) ToDockerV2RepositoryPtrOutputWithContext(ctx context.Context) DockerV2RepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DockerV2Repository) *DockerV2Repository {
-		return &v
-	}).(DockerV2RepositoryPtrOutput)
-}
-
-type DockerV2RepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (DockerV2RepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DockerV2Repository)(nil))
-}
-
-func (o DockerV2RepositoryPtrOutput) ToDockerV2RepositoryPtrOutput() DockerV2RepositoryPtrOutput {
-	return o
-}
-
-func (o DockerV2RepositoryPtrOutput) ToDockerV2RepositoryPtrOutputWithContext(ctx context.Context) DockerV2RepositoryPtrOutput {
-	return o
-}
-
-func (o DockerV2RepositoryPtrOutput) Elem() DockerV2RepositoryOutput {
-	return o.ApplyT(func(v *DockerV2Repository) DockerV2Repository {
-		if v != nil {
-			return *v
-		}
-		var ret DockerV2Repository
-		return ret
-	}).(DockerV2RepositoryOutput)
-}
-
 type DockerV2RepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (DockerV2RepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DockerV2Repository)(nil))
+	return reflect.TypeOf((*[]*DockerV2Repository)(nil)).Elem()
 }
 
 func (o DockerV2RepositoryArrayOutput) ToDockerV2RepositoryArrayOutput() DockerV2RepositoryArrayOutput {
@@ -391,15 +328,15 @@ func (o DockerV2RepositoryArrayOutput) ToDockerV2RepositoryArrayOutputWithContex
 }
 
 func (o DockerV2RepositoryArrayOutput) Index(i pulumi.IntInput) DockerV2RepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DockerV2Repository {
-		return vs[0].([]DockerV2Repository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DockerV2Repository {
+		return vs[0].([]*DockerV2Repository)[vs[1].(int)]
 	}).(DockerV2RepositoryOutput)
 }
 
 type DockerV2RepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (DockerV2RepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DockerV2Repository)(nil))
+	return reflect.TypeOf((*map[string]*DockerV2Repository)(nil)).Elem()
 }
 
 func (o DockerV2RepositoryMapOutput) ToDockerV2RepositoryMapOutput() DockerV2RepositoryMapOutput {
@@ -411,18 +348,16 @@ func (o DockerV2RepositoryMapOutput) ToDockerV2RepositoryMapOutputWithContext(ct
 }
 
 func (o DockerV2RepositoryMapOutput) MapIndex(k pulumi.StringInput) DockerV2RepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DockerV2Repository {
-		return vs[0].(map[string]DockerV2Repository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DockerV2Repository {
+		return vs[0].(map[string]*DockerV2Repository)[vs[1].(string)]
 	}).(DockerV2RepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerV2RepositoryInput)(nil)).Elem(), &DockerV2Repository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DockerV2RepositoryPtrInput)(nil)).Elem(), &DockerV2Repository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerV2RepositoryArrayInput)(nil)).Elem(), DockerV2RepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerV2RepositoryMapInput)(nil)).Elem(), DockerV2RepositoryMap{})
 	pulumi.RegisterOutputType(DockerV2RepositoryOutput{})
-	pulumi.RegisterOutputType(DockerV2RepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DockerV2RepositoryArrayOutput{})
 	pulumi.RegisterOutputType(DockerV2RepositoryMapOutput{})
 }

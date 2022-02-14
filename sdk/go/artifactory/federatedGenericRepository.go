@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGenericRepository(ctx, "terraform_federated_test_generic_repo", &artifactory.FederatedGenericRepositoryArgs{
+// 		_, err := artifactory.NewFederatedGenericRepository(ctx, "terraform-federated-test-generic-repo", &artifactory.FederatedGenericRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-generic-repo"),
 // 			Members: FederatedGenericRepositoryMemberArray{
 // 				&FederatedGenericRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedGenericRepositoryInput interface {
 }
 
 func (*FederatedGenericRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGenericRepository)(nil))
+	return reflect.TypeOf((**FederatedGenericRepository)(nil)).Elem()
 }
 
 func (i *FederatedGenericRepository) ToFederatedGenericRepositoryOutput() FederatedGenericRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedGenericRepository) ToFederatedGenericRepositoryOutput() Federa
 
 func (i *FederatedGenericRepository) ToFederatedGenericRepositoryOutputWithContext(ctx context.Context) FederatedGenericRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryOutput)
-}
-
-func (i *FederatedGenericRepository) ToFederatedGenericRepositoryPtrOutput() FederatedGenericRepositoryPtrOutput {
-	return i.ToFederatedGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedGenericRepository) ToFederatedGenericRepositoryPtrOutputWithContext(ctx context.Context) FederatedGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryPtrOutput)
-}
-
-type FederatedGenericRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedGenericRepositoryPtrOutput() FederatedGenericRepositoryPtrOutput
-	ToFederatedGenericRepositoryPtrOutputWithContext(ctx context.Context) FederatedGenericRepositoryPtrOutput
-}
-
-type federatedGenericRepositoryPtrType FederatedGenericRepositoryArgs
-
-func (*federatedGenericRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGenericRepository)(nil))
-}
-
-func (i *federatedGenericRepositoryPtrType) ToFederatedGenericRepositoryPtrOutput() FederatedGenericRepositoryPtrOutput {
-	return i.ToFederatedGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedGenericRepositoryPtrType) ToFederatedGenericRepositoryPtrOutputWithContext(ctx context.Context) FederatedGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGenericRepositoryPtrOutput)
 }
 
 // FederatedGenericRepositoryArrayInput is an input type that accepts FederatedGenericRepositoryArray and FederatedGenericRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedGenericRepositoryMap) ToFederatedGenericRepositoryMapOutputWith
 type FederatedGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGenericRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGenericRepository)(nil))
+	return reflect.TypeOf((**FederatedGenericRepository)(nil)).Elem()
 }
 
 func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryOutput() FederatedGenericRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryOutputWith
 	return o
 }
 
-func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryPtrOutput() FederatedGenericRepositoryPtrOutput {
-	return o.ToFederatedGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedGenericRepositoryOutput) ToFederatedGenericRepositoryPtrOutputWithContext(ctx context.Context) FederatedGenericRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedGenericRepository) *FederatedGenericRepository {
-		return &v
-	}).(FederatedGenericRepositoryPtrOutput)
-}
-
-type FederatedGenericRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedGenericRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGenericRepository)(nil))
-}
-
-func (o FederatedGenericRepositoryPtrOutput) ToFederatedGenericRepositoryPtrOutput() FederatedGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGenericRepositoryPtrOutput) ToFederatedGenericRepositoryPtrOutputWithContext(ctx context.Context) FederatedGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGenericRepositoryPtrOutput) Elem() FederatedGenericRepositoryOutput {
-	return o.ApplyT(func(v *FederatedGenericRepository) FederatedGenericRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedGenericRepository
-		return ret
-	}).(FederatedGenericRepositoryOutput)
-}
-
 type FederatedGenericRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedGenericRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedGenericRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedGenericRepository)(nil)).Elem()
 }
 
 func (o FederatedGenericRepositoryArrayOutput) ToFederatedGenericRepositoryArrayOutput() FederatedGenericRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedGenericRepositoryArrayOutput) ToFederatedGenericRepositoryArray
 }
 
 func (o FederatedGenericRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGenericRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedGenericRepository {
-		return vs[0].([]FederatedGenericRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGenericRepository {
+		return vs[0].([]*FederatedGenericRepository)[vs[1].(int)]
 	}).(FederatedGenericRepositoryOutput)
 }
 
 type FederatedGenericRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedGenericRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedGenericRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedGenericRepository)(nil)).Elem()
 }
 
 func (o FederatedGenericRepositoryMapOutput) ToFederatedGenericRepositoryMapOutput() FederatedGenericRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedGenericRepositoryMapOutput) ToFederatedGenericRepositoryMapOutp
 }
 
 func (o FederatedGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGenericRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedGenericRepository {
-		return vs[0].(map[string]FederatedGenericRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedGenericRepository {
+		return vs[0].(map[string]*FederatedGenericRepository)[vs[1].(string)]
 	}).(FederatedGenericRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGenericRepositoryInput)(nil)).Elem(), &FederatedGenericRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGenericRepositoryPtrInput)(nil)).Elem(), &FederatedGenericRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGenericRepositoryArrayInput)(nil)).Elem(), FederatedGenericRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGenericRepositoryMapInput)(nil)).Elem(), FederatedGenericRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedGenericRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedGenericRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedGenericRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGenericRepositoryMapOutput{})
 }

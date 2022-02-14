@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedHelmRepository(ctx, "terraform_federated_test_helm_repo", &artifactory.FederatedHelmRepositoryArgs{
+// 		_, err := artifactory.NewFederatedHelmRepository(ctx, "terraform-federated-test-helm-repo", &artifactory.FederatedHelmRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-helm-repo"),
 // 			Members: FederatedHelmRepositoryMemberArray{
 // 				&FederatedHelmRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedHelmRepositoryInput interface {
 }
 
 func (*FederatedHelmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedHelmRepository)(nil))
+	return reflect.TypeOf((**FederatedHelmRepository)(nil)).Elem()
 }
 
 func (i *FederatedHelmRepository) ToFederatedHelmRepositoryOutput() FederatedHelmRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedHelmRepository) ToFederatedHelmRepositoryOutput() FederatedHel
 
 func (i *FederatedHelmRepository) ToFederatedHelmRepositoryOutputWithContext(ctx context.Context) FederatedHelmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryOutput)
-}
-
-func (i *FederatedHelmRepository) ToFederatedHelmRepositoryPtrOutput() FederatedHelmRepositoryPtrOutput {
-	return i.ToFederatedHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedHelmRepository) ToFederatedHelmRepositoryPtrOutputWithContext(ctx context.Context) FederatedHelmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryPtrOutput)
-}
-
-type FederatedHelmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedHelmRepositoryPtrOutput() FederatedHelmRepositoryPtrOutput
-	ToFederatedHelmRepositoryPtrOutputWithContext(ctx context.Context) FederatedHelmRepositoryPtrOutput
-}
-
-type federatedHelmRepositoryPtrType FederatedHelmRepositoryArgs
-
-func (*federatedHelmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedHelmRepository)(nil))
-}
-
-func (i *federatedHelmRepositoryPtrType) ToFederatedHelmRepositoryPtrOutput() FederatedHelmRepositoryPtrOutput {
-	return i.ToFederatedHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedHelmRepositoryPtrType) ToFederatedHelmRepositoryPtrOutputWithContext(ctx context.Context) FederatedHelmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedHelmRepositoryPtrOutput)
 }
 
 // FederatedHelmRepositoryArrayInput is an input type that accepts FederatedHelmRepositoryArray and FederatedHelmRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedHelmRepositoryMap) ToFederatedHelmRepositoryMapOutputWithContex
 type FederatedHelmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedHelmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedHelmRepository)(nil))
+	return reflect.TypeOf((**FederatedHelmRepository)(nil)).Elem()
 }
 
 func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryOutput() FederatedHelmRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryPtrOutput() FederatedHelmRepositoryPtrOutput {
-	return o.ToFederatedHelmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedHelmRepositoryOutput) ToFederatedHelmRepositoryPtrOutputWithContext(ctx context.Context) FederatedHelmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedHelmRepository) *FederatedHelmRepository {
-		return &v
-	}).(FederatedHelmRepositoryPtrOutput)
-}
-
-type FederatedHelmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedHelmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedHelmRepository)(nil))
-}
-
-func (o FederatedHelmRepositoryPtrOutput) ToFederatedHelmRepositoryPtrOutput() FederatedHelmRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedHelmRepositoryPtrOutput) ToFederatedHelmRepositoryPtrOutputWithContext(ctx context.Context) FederatedHelmRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedHelmRepositoryPtrOutput) Elem() FederatedHelmRepositoryOutput {
-	return o.ApplyT(func(v *FederatedHelmRepository) FederatedHelmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedHelmRepository
-		return ret
-	}).(FederatedHelmRepositoryOutput)
-}
-
 type FederatedHelmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedHelmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedHelmRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedHelmRepository)(nil)).Elem()
 }
 
 func (o FederatedHelmRepositoryArrayOutput) ToFederatedHelmRepositoryArrayOutput() FederatedHelmRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedHelmRepositoryArrayOutput) ToFederatedHelmRepositoryArrayOutput
 }
 
 func (o FederatedHelmRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedHelmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedHelmRepository {
-		return vs[0].([]FederatedHelmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedHelmRepository {
+		return vs[0].([]*FederatedHelmRepository)[vs[1].(int)]
 	}).(FederatedHelmRepositoryOutput)
 }
 
 type FederatedHelmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedHelmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedHelmRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedHelmRepository)(nil)).Elem()
 }
 
 func (o FederatedHelmRepositoryMapOutput) ToFederatedHelmRepositoryMapOutput() FederatedHelmRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedHelmRepositoryMapOutput) ToFederatedHelmRepositoryMapOutputWith
 }
 
 func (o FederatedHelmRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedHelmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedHelmRepository {
-		return vs[0].(map[string]FederatedHelmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedHelmRepository {
+		return vs[0].(map[string]*FederatedHelmRepository)[vs[1].(string)]
 	}).(FederatedHelmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryInput)(nil)).Elem(), &FederatedHelmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryPtrInput)(nil)).Elem(), &FederatedHelmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryArrayInput)(nil)).Elem(), FederatedHelmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedHelmRepositoryMapInput)(nil)).Elem(), FederatedHelmRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedHelmRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedHelmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedHelmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedHelmRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalPuppetRepository(ctx, "terraform_local_test_puppet_repo", &artifactory.LocalPuppetRepositoryArgs{
+// 		_, err := artifactory.NewLocalPuppetRepository(ctx, "terraform-local-test-puppet-repo", &artifactory.LocalPuppetRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-puppet-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalPuppetRepositoryInput interface {
 }
 
 func (*LocalPuppetRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalPuppetRepository)(nil))
+	return reflect.TypeOf((**LocalPuppetRepository)(nil)).Elem()
 }
 
 func (i *LocalPuppetRepository) ToLocalPuppetRepositoryOutput() LocalPuppetRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalPuppetRepository) ToLocalPuppetRepositoryOutput() LocalPuppetRepos
 
 func (i *LocalPuppetRepository) ToLocalPuppetRepositoryOutputWithContext(ctx context.Context) LocalPuppetRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalPuppetRepositoryOutput)
-}
-
-func (i *LocalPuppetRepository) ToLocalPuppetRepositoryPtrOutput() LocalPuppetRepositoryPtrOutput {
-	return i.ToLocalPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalPuppetRepository) ToLocalPuppetRepositoryPtrOutputWithContext(ctx context.Context) LocalPuppetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalPuppetRepositoryPtrOutput)
-}
-
-type LocalPuppetRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalPuppetRepositoryPtrOutput() LocalPuppetRepositoryPtrOutput
-	ToLocalPuppetRepositoryPtrOutputWithContext(ctx context.Context) LocalPuppetRepositoryPtrOutput
-}
-
-type localPuppetRepositoryPtrType LocalPuppetRepositoryArgs
-
-func (*localPuppetRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalPuppetRepository)(nil))
-}
-
-func (i *localPuppetRepositoryPtrType) ToLocalPuppetRepositoryPtrOutput() LocalPuppetRepositoryPtrOutput {
-	return i.ToLocalPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localPuppetRepositoryPtrType) ToLocalPuppetRepositoryPtrOutputWithContext(ctx context.Context) LocalPuppetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalPuppetRepositoryPtrOutput)
 }
 
 // LocalPuppetRepositoryArrayInput is an input type that accepts LocalPuppetRepositoryArray and LocalPuppetRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalPuppetRepositoryMap) ToLocalPuppetRepositoryMapOutputWithContext(ct
 type LocalPuppetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalPuppetRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalPuppetRepository)(nil))
+	return reflect.TypeOf((**LocalPuppetRepository)(nil)).Elem()
 }
 
 func (o LocalPuppetRepositoryOutput) ToLocalPuppetRepositoryOutput() LocalPuppetRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalPuppetRepositoryOutput) ToLocalPuppetRepositoryOutputWithContext(ct
 	return o
 }
 
-func (o LocalPuppetRepositoryOutput) ToLocalPuppetRepositoryPtrOutput() LocalPuppetRepositoryPtrOutput {
-	return o.ToLocalPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalPuppetRepositoryOutput) ToLocalPuppetRepositoryPtrOutputWithContext(ctx context.Context) LocalPuppetRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalPuppetRepository) *LocalPuppetRepository {
-		return &v
-	}).(LocalPuppetRepositoryPtrOutput)
-}
-
-type LocalPuppetRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalPuppetRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalPuppetRepository)(nil))
-}
-
-func (o LocalPuppetRepositoryPtrOutput) ToLocalPuppetRepositoryPtrOutput() LocalPuppetRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalPuppetRepositoryPtrOutput) ToLocalPuppetRepositoryPtrOutputWithContext(ctx context.Context) LocalPuppetRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalPuppetRepositoryPtrOutput) Elem() LocalPuppetRepositoryOutput {
-	return o.ApplyT(func(v *LocalPuppetRepository) LocalPuppetRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalPuppetRepository
-		return ret
-	}).(LocalPuppetRepositoryOutput)
-}
-
 type LocalPuppetRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalPuppetRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalPuppetRepository)(nil))
+	return reflect.TypeOf((*[]*LocalPuppetRepository)(nil)).Elem()
 }
 
 func (o LocalPuppetRepositoryArrayOutput) ToLocalPuppetRepositoryArrayOutput() LocalPuppetRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalPuppetRepositoryArrayOutput) ToLocalPuppetRepositoryArrayOutputWith
 }
 
 func (o LocalPuppetRepositoryArrayOutput) Index(i pulumi.IntInput) LocalPuppetRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalPuppetRepository {
-		return vs[0].([]LocalPuppetRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalPuppetRepository {
+		return vs[0].([]*LocalPuppetRepository)[vs[1].(int)]
 	}).(LocalPuppetRepositoryOutput)
 }
 
 type LocalPuppetRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalPuppetRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalPuppetRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalPuppetRepository)(nil)).Elem()
 }
 
 func (o LocalPuppetRepositoryMapOutput) ToLocalPuppetRepositoryMapOutput() LocalPuppetRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalPuppetRepositoryMapOutput) ToLocalPuppetRepositoryMapOutputWithCont
 }
 
 func (o LocalPuppetRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalPuppetRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalPuppetRepository {
-		return vs[0].(map[string]LocalPuppetRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalPuppetRepository {
+		return vs[0].(map[string]*LocalPuppetRepository)[vs[1].(string)]
 	}).(LocalPuppetRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPuppetRepositoryInput)(nil)).Elem(), &LocalPuppetRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalPuppetRepositoryPtrInput)(nil)).Elem(), &LocalPuppetRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPuppetRepositoryArrayInput)(nil)).Elem(), LocalPuppetRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPuppetRepositoryMapInput)(nil)).Elem(), LocalPuppetRepositoryMap{})
 	pulumi.RegisterOutputType(LocalPuppetRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalPuppetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalPuppetRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalPuppetRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalSbtRepository(ctx, "terraform_local_test_sbt_repo", &artifactory.LocalSbtRepositoryArgs{
+// 		_, err := artifactory.NewLocalSbtRepository(ctx, "terraform-local-test-sbt-repo", &artifactory.LocalSbtRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-sbt-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalSbtRepositoryInput interface {
 }
 
 func (*LocalSbtRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalSbtRepository)(nil))
+	return reflect.TypeOf((**LocalSbtRepository)(nil)).Elem()
 }
 
 func (i *LocalSbtRepository) ToLocalSbtRepositoryOutput() LocalSbtRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalSbtRepository) ToLocalSbtRepositoryOutput() LocalSbtRepositoryOutp
 
 func (i *LocalSbtRepository) ToLocalSbtRepositoryOutputWithContext(ctx context.Context) LocalSbtRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryOutput)
-}
-
-func (i *LocalSbtRepository) ToLocalSbtRepositoryPtrOutput() LocalSbtRepositoryPtrOutput {
-	return i.ToLocalSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalSbtRepository) ToLocalSbtRepositoryPtrOutputWithContext(ctx context.Context) LocalSbtRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryPtrOutput)
-}
-
-type LocalSbtRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalSbtRepositoryPtrOutput() LocalSbtRepositoryPtrOutput
-	ToLocalSbtRepositoryPtrOutputWithContext(ctx context.Context) LocalSbtRepositoryPtrOutput
-}
-
-type localSbtRepositoryPtrType LocalSbtRepositoryArgs
-
-func (*localSbtRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalSbtRepository)(nil))
-}
-
-func (i *localSbtRepositoryPtrType) ToLocalSbtRepositoryPtrOutput() LocalSbtRepositoryPtrOutput {
-	return i.ToLocalSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localSbtRepositoryPtrType) ToLocalSbtRepositoryPtrOutputWithContext(ctx context.Context) LocalSbtRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalSbtRepositoryPtrOutput)
 }
 
 // LocalSbtRepositoryArrayInput is an input type that accepts LocalSbtRepositoryArray and LocalSbtRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalSbtRepositoryMap) ToLocalSbtRepositoryMapOutputWithContext(ctx cont
 type LocalSbtRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalSbtRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalSbtRepository)(nil))
+	return reflect.TypeOf((**LocalSbtRepository)(nil)).Elem()
 }
 
 func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryOutput() LocalSbtRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryOutputWithContext(ctx cont
 	return o
 }
 
-func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryPtrOutput() LocalSbtRepositoryPtrOutput {
-	return o.ToLocalSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalSbtRepositoryOutput) ToLocalSbtRepositoryPtrOutputWithContext(ctx context.Context) LocalSbtRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalSbtRepository) *LocalSbtRepository {
-		return &v
-	}).(LocalSbtRepositoryPtrOutput)
-}
-
-type LocalSbtRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalSbtRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalSbtRepository)(nil))
-}
-
-func (o LocalSbtRepositoryPtrOutput) ToLocalSbtRepositoryPtrOutput() LocalSbtRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalSbtRepositoryPtrOutput) ToLocalSbtRepositoryPtrOutputWithContext(ctx context.Context) LocalSbtRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalSbtRepositoryPtrOutput) Elem() LocalSbtRepositoryOutput {
-	return o.ApplyT(func(v *LocalSbtRepository) LocalSbtRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalSbtRepository
-		return ret
-	}).(LocalSbtRepositoryOutput)
-}
-
 type LocalSbtRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalSbtRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalSbtRepository)(nil))
+	return reflect.TypeOf((*[]*LocalSbtRepository)(nil)).Elem()
 }
 
 func (o LocalSbtRepositoryArrayOutput) ToLocalSbtRepositoryArrayOutput() LocalSbtRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalSbtRepositoryArrayOutput) ToLocalSbtRepositoryArrayOutputWithContex
 }
 
 func (o LocalSbtRepositoryArrayOutput) Index(i pulumi.IntInput) LocalSbtRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalSbtRepository {
-		return vs[0].([]LocalSbtRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalSbtRepository {
+		return vs[0].([]*LocalSbtRepository)[vs[1].(int)]
 	}).(LocalSbtRepositoryOutput)
 }
 
 type LocalSbtRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalSbtRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalSbtRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalSbtRepository)(nil)).Elem()
 }
 
 func (o LocalSbtRepositoryMapOutput) ToLocalSbtRepositoryMapOutput() LocalSbtRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalSbtRepositoryMapOutput) ToLocalSbtRepositoryMapOutputWithContext(ct
 }
 
 func (o LocalSbtRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalSbtRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalSbtRepository {
-		return vs[0].(map[string]LocalSbtRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalSbtRepository {
+		return vs[0].(map[string]*LocalSbtRepository)[vs[1].(string)]
 	}).(LocalSbtRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalSbtRepositoryInput)(nil)).Elem(), &LocalSbtRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalSbtRepositoryPtrInput)(nil)).Elem(), &LocalSbtRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalSbtRepositoryArrayInput)(nil)).Elem(), LocalSbtRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalSbtRepositoryMapInput)(nil)).Elem(), LocalSbtRepositoryMap{})
 	pulumi.RegisterOutputType(LocalSbtRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalSbtRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalSbtRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalSbtRepositoryMapOutput{})
 }

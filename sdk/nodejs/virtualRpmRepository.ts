@@ -148,46 +148,44 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualRpmRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualRpmRepositoryArgs | VirtualRpmRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualRpmRepositoryState | undefined;
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["repositories"] = state ? state.repositories : undefined;
-            inputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
-            inputs["secondaryKeypairRef"] = state ? state.secondaryKeypairRef : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = state ? state.repositories : undefined;
+            resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["secondaryKeypairRef"] = state ? state.secondaryKeypairRef : undefined;
         } else {
             const args = argsOrState as VirtualRpmRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["repositories"] = args ? args.repositories : undefined;
-            inputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
-            inputs["secondaryKeypairRef"] = args ? args.secondaryKeypairRef : undefined;
-            inputs["packageType"] = undefined /*out*/;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = args ? args.repositories : undefined;
+            resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["secondaryKeypairRef"] = args ? args.secondaryKeypairRef : undefined;
+            resourceInputs["packageType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualRpmRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualRpmRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

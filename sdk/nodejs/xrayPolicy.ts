@@ -84,17 +84,17 @@ export class XrayPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: XrayPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: XrayPolicyArgs | XrayPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as XrayPolicyState | undefined;
-            inputs["author"] = state ? state.author : undefined;
-            inputs["created"] = state ? state.created : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["modified"] = state ? state.modified : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["author"] = state ? state.author : undefined;
+            resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["modified"] = state ? state.modified : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as XrayPolicyArgs | undefined;
             if ((!args || args.rules === undefined) && !opts.urn) {
@@ -103,18 +103,16 @@ export class XrayPolicy extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["author"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["modified"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["modified"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(XrayPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(XrayPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

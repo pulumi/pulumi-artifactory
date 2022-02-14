@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGradleRepository(ctx, "terraform_federated_test_gradle_repo", &artifactory.FederatedGradleRepositoryArgs{
+// 		_, err := artifactory.NewFederatedGradleRepository(ctx, "terraform-federated-test-gradle-repo", &artifactory.FederatedGradleRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-gradle-repo"),
 // 			Members: FederatedGradleRepositoryMemberArray{
 // 				&FederatedGradleRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedGradleRepositoryInput interface {
 }
 
 func (*FederatedGradleRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGradleRepository)(nil))
+	return reflect.TypeOf((**FederatedGradleRepository)(nil)).Elem()
 }
 
 func (i *FederatedGradleRepository) ToFederatedGradleRepositoryOutput() FederatedGradleRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedGradleRepository) ToFederatedGradleRepositoryOutput() Federate
 
 func (i *FederatedGradleRepository) ToFederatedGradleRepositoryOutputWithContext(ctx context.Context) FederatedGradleRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryOutput)
-}
-
-func (i *FederatedGradleRepository) ToFederatedGradleRepositoryPtrOutput() FederatedGradleRepositoryPtrOutput {
-	return i.ToFederatedGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedGradleRepository) ToFederatedGradleRepositoryPtrOutputWithContext(ctx context.Context) FederatedGradleRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryPtrOutput)
-}
-
-type FederatedGradleRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedGradleRepositoryPtrOutput() FederatedGradleRepositoryPtrOutput
-	ToFederatedGradleRepositoryPtrOutputWithContext(ctx context.Context) FederatedGradleRepositoryPtrOutput
-}
-
-type federatedGradleRepositoryPtrType FederatedGradleRepositoryArgs
-
-func (*federatedGradleRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGradleRepository)(nil))
-}
-
-func (i *federatedGradleRepositoryPtrType) ToFederatedGradleRepositoryPtrOutput() FederatedGradleRepositoryPtrOutput {
-	return i.ToFederatedGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedGradleRepositoryPtrType) ToFederatedGradleRepositoryPtrOutputWithContext(ctx context.Context) FederatedGradleRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGradleRepositoryPtrOutput)
 }
 
 // FederatedGradleRepositoryArrayInput is an input type that accepts FederatedGradleRepositoryArray and FederatedGradleRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedGradleRepositoryMap) ToFederatedGradleRepositoryMapOutputWithCo
 type FederatedGradleRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGradleRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGradleRepository)(nil))
+	return reflect.TypeOf((**FederatedGradleRepository)(nil)).Elem()
 }
 
 func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryOutput() FederatedGradleRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryOutputWithCo
 	return o
 }
 
-func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryPtrOutput() FederatedGradleRepositoryPtrOutput {
-	return o.ToFederatedGradleRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedGradleRepositoryOutput) ToFederatedGradleRepositoryPtrOutputWithContext(ctx context.Context) FederatedGradleRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedGradleRepository) *FederatedGradleRepository {
-		return &v
-	}).(FederatedGradleRepositoryPtrOutput)
-}
-
-type FederatedGradleRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedGradleRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGradleRepository)(nil))
-}
-
-func (o FederatedGradleRepositoryPtrOutput) ToFederatedGradleRepositoryPtrOutput() FederatedGradleRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGradleRepositoryPtrOutput) ToFederatedGradleRepositoryPtrOutputWithContext(ctx context.Context) FederatedGradleRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGradleRepositoryPtrOutput) Elem() FederatedGradleRepositoryOutput {
-	return o.ApplyT(func(v *FederatedGradleRepository) FederatedGradleRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedGradleRepository
-		return ret
-	}).(FederatedGradleRepositoryOutput)
-}
-
 type FederatedGradleRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedGradleRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedGradleRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedGradleRepository)(nil)).Elem()
 }
 
 func (o FederatedGradleRepositoryArrayOutput) ToFederatedGradleRepositoryArrayOutput() FederatedGradleRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedGradleRepositoryArrayOutput) ToFederatedGradleRepositoryArrayOu
 }
 
 func (o FederatedGradleRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGradleRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedGradleRepository {
-		return vs[0].([]FederatedGradleRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGradleRepository {
+		return vs[0].([]*FederatedGradleRepository)[vs[1].(int)]
 	}).(FederatedGradleRepositoryOutput)
 }
 
 type FederatedGradleRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedGradleRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedGradleRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedGradleRepository)(nil)).Elem()
 }
 
 func (o FederatedGradleRepositoryMapOutput) ToFederatedGradleRepositoryMapOutput() FederatedGradleRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedGradleRepositoryMapOutput) ToFederatedGradleRepositoryMapOutput
 }
 
 func (o FederatedGradleRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGradleRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedGradleRepository {
-		return vs[0].(map[string]FederatedGradleRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedGradleRepository {
+		return vs[0].(map[string]*FederatedGradleRepository)[vs[1].(string)]
 	}).(FederatedGradleRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGradleRepositoryInput)(nil)).Elem(), &FederatedGradleRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGradleRepositoryPtrInput)(nil)).Elem(), &FederatedGradleRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGradleRepositoryArrayInput)(nil)).Elem(), FederatedGradleRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGradleRepositoryMapInput)(nil)).Elem(), FederatedGradleRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedGradleRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedGradleRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedGradleRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGradleRepositoryMapOutput{})
 }

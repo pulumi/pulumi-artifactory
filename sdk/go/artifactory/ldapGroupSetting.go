@@ -214,7 +214,7 @@ type LdapGroupSettingInput interface {
 }
 
 func (*LdapGroupSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*LdapGroupSetting)(nil))
+	return reflect.TypeOf((**LdapGroupSetting)(nil)).Elem()
 }
 
 func (i *LdapGroupSetting) ToLdapGroupSettingOutput() LdapGroupSettingOutput {
@@ -223,35 +223,6 @@ func (i *LdapGroupSetting) ToLdapGroupSettingOutput() LdapGroupSettingOutput {
 
 func (i *LdapGroupSetting) ToLdapGroupSettingOutputWithContext(ctx context.Context) LdapGroupSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingOutput)
-}
-
-func (i *LdapGroupSetting) ToLdapGroupSettingPtrOutput() LdapGroupSettingPtrOutput {
-	return i.ToLdapGroupSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *LdapGroupSetting) ToLdapGroupSettingPtrOutputWithContext(ctx context.Context) LdapGroupSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingPtrOutput)
-}
-
-type LdapGroupSettingPtrInput interface {
-	pulumi.Input
-
-	ToLdapGroupSettingPtrOutput() LdapGroupSettingPtrOutput
-	ToLdapGroupSettingPtrOutputWithContext(ctx context.Context) LdapGroupSettingPtrOutput
-}
-
-type ldapGroupSettingPtrType LdapGroupSettingArgs
-
-func (*ldapGroupSettingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LdapGroupSetting)(nil))
-}
-
-func (i *ldapGroupSettingPtrType) ToLdapGroupSettingPtrOutput() LdapGroupSettingPtrOutput {
-	return i.ToLdapGroupSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *ldapGroupSettingPtrType) ToLdapGroupSettingPtrOutputWithContext(ctx context.Context) LdapGroupSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapGroupSettingPtrOutput)
 }
 
 // LdapGroupSettingArrayInput is an input type that accepts LdapGroupSettingArray and LdapGroupSettingArrayOutput values.
@@ -307,7 +278,7 @@ func (i LdapGroupSettingMap) ToLdapGroupSettingMapOutputWithContext(ctx context.
 type LdapGroupSettingOutput struct{ *pulumi.OutputState }
 
 func (LdapGroupSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LdapGroupSetting)(nil))
+	return reflect.TypeOf((**LdapGroupSetting)(nil)).Elem()
 }
 
 func (o LdapGroupSettingOutput) ToLdapGroupSettingOutput() LdapGroupSettingOutput {
@@ -318,44 +289,10 @@ func (o LdapGroupSettingOutput) ToLdapGroupSettingOutputWithContext(ctx context.
 	return o
 }
 
-func (o LdapGroupSettingOutput) ToLdapGroupSettingPtrOutput() LdapGroupSettingPtrOutput {
-	return o.ToLdapGroupSettingPtrOutputWithContext(context.Background())
-}
-
-func (o LdapGroupSettingOutput) ToLdapGroupSettingPtrOutputWithContext(ctx context.Context) LdapGroupSettingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapGroupSetting) *LdapGroupSetting {
-		return &v
-	}).(LdapGroupSettingPtrOutput)
-}
-
-type LdapGroupSettingPtrOutput struct{ *pulumi.OutputState }
-
-func (LdapGroupSettingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LdapGroupSetting)(nil))
-}
-
-func (o LdapGroupSettingPtrOutput) ToLdapGroupSettingPtrOutput() LdapGroupSettingPtrOutput {
-	return o
-}
-
-func (o LdapGroupSettingPtrOutput) ToLdapGroupSettingPtrOutputWithContext(ctx context.Context) LdapGroupSettingPtrOutput {
-	return o
-}
-
-func (o LdapGroupSettingPtrOutput) Elem() LdapGroupSettingOutput {
-	return o.ApplyT(func(v *LdapGroupSetting) LdapGroupSetting {
-		if v != nil {
-			return *v
-		}
-		var ret LdapGroupSetting
-		return ret
-	}).(LdapGroupSettingOutput)
-}
-
 type LdapGroupSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (LdapGroupSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LdapGroupSetting)(nil))
+	return reflect.TypeOf((*[]*LdapGroupSetting)(nil)).Elem()
 }
 
 func (o LdapGroupSettingArrayOutput) ToLdapGroupSettingArrayOutput() LdapGroupSettingArrayOutput {
@@ -367,15 +304,15 @@ func (o LdapGroupSettingArrayOutput) ToLdapGroupSettingArrayOutputWithContext(ct
 }
 
 func (o LdapGroupSettingArrayOutput) Index(i pulumi.IntInput) LdapGroupSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LdapGroupSetting {
-		return vs[0].([]LdapGroupSetting)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LdapGroupSetting {
+		return vs[0].([]*LdapGroupSetting)[vs[1].(int)]
 	}).(LdapGroupSettingOutput)
 }
 
 type LdapGroupSettingMapOutput struct{ *pulumi.OutputState }
 
 func (LdapGroupSettingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LdapGroupSetting)(nil))
+	return reflect.TypeOf((*map[string]*LdapGroupSetting)(nil)).Elem()
 }
 
 func (o LdapGroupSettingMapOutput) ToLdapGroupSettingMapOutput() LdapGroupSettingMapOutput {
@@ -387,18 +324,16 @@ func (o LdapGroupSettingMapOutput) ToLdapGroupSettingMapOutputWithContext(ctx co
 }
 
 func (o LdapGroupSettingMapOutput) MapIndex(k pulumi.StringInput) LdapGroupSettingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LdapGroupSetting {
-		return vs[0].(map[string]LdapGroupSetting)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LdapGroupSetting {
+		return vs[0].(map[string]*LdapGroupSetting)[vs[1].(string)]
 	}).(LdapGroupSettingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapGroupSettingInput)(nil)).Elem(), &LdapGroupSetting{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LdapGroupSettingPtrInput)(nil)).Elem(), &LdapGroupSetting{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapGroupSettingArrayInput)(nil)).Elem(), LdapGroupSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapGroupSettingMapInput)(nil)).Elem(), LdapGroupSettingMap{})
 	pulumi.RegisterOutputType(LdapGroupSettingOutput{})
-	pulumi.RegisterOutputType(LdapGroupSettingPtrOutput{})
 	pulumi.RegisterOutputType(LdapGroupSettingArrayOutput{})
 	pulumi.RegisterOutputType(LdapGroupSettingMapOutput{})
 }

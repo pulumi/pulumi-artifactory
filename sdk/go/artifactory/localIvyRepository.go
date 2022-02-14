@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalIvyRepository(ctx, "terraform_local_test_ivy_repo", &artifactory.LocalIvyRepositoryArgs{
+// 		_, err := artifactory.NewLocalIvyRepository(ctx, "terraform-local-test-ivy-repo", &artifactory.LocalIvyRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-ivy-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalIvyRepositoryInput interface {
 }
 
 func (*LocalIvyRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalIvyRepository)(nil))
+	return reflect.TypeOf((**LocalIvyRepository)(nil)).Elem()
 }
 
 func (i *LocalIvyRepository) ToLocalIvyRepositoryOutput() LocalIvyRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalIvyRepository) ToLocalIvyRepositoryOutput() LocalIvyRepositoryOutp
 
 func (i *LocalIvyRepository) ToLocalIvyRepositoryOutputWithContext(ctx context.Context) LocalIvyRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryOutput)
-}
-
-func (i *LocalIvyRepository) ToLocalIvyRepositoryPtrOutput() LocalIvyRepositoryPtrOutput {
-	return i.ToLocalIvyRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalIvyRepository) ToLocalIvyRepositoryPtrOutputWithContext(ctx context.Context) LocalIvyRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryPtrOutput)
-}
-
-type LocalIvyRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalIvyRepositoryPtrOutput() LocalIvyRepositoryPtrOutput
-	ToLocalIvyRepositoryPtrOutputWithContext(ctx context.Context) LocalIvyRepositoryPtrOutput
-}
-
-type localIvyRepositoryPtrType LocalIvyRepositoryArgs
-
-func (*localIvyRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalIvyRepository)(nil))
-}
-
-func (i *localIvyRepositoryPtrType) ToLocalIvyRepositoryPtrOutput() LocalIvyRepositoryPtrOutput {
-	return i.ToLocalIvyRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localIvyRepositoryPtrType) ToLocalIvyRepositoryPtrOutputWithContext(ctx context.Context) LocalIvyRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalIvyRepositoryPtrOutput)
 }
 
 // LocalIvyRepositoryArrayInput is an input type that accepts LocalIvyRepositoryArray and LocalIvyRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalIvyRepositoryMap) ToLocalIvyRepositoryMapOutputWithContext(ctx cont
 type LocalIvyRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalIvyRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalIvyRepository)(nil))
+	return reflect.TypeOf((**LocalIvyRepository)(nil)).Elem()
 }
 
 func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryOutput() LocalIvyRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryOutputWithContext(ctx cont
 	return o
 }
 
-func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryPtrOutput() LocalIvyRepositoryPtrOutput {
-	return o.ToLocalIvyRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalIvyRepositoryOutput) ToLocalIvyRepositoryPtrOutputWithContext(ctx context.Context) LocalIvyRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalIvyRepository) *LocalIvyRepository {
-		return &v
-	}).(LocalIvyRepositoryPtrOutput)
-}
-
-type LocalIvyRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalIvyRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalIvyRepository)(nil))
-}
-
-func (o LocalIvyRepositoryPtrOutput) ToLocalIvyRepositoryPtrOutput() LocalIvyRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalIvyRepositoryPtrOutput) ToLocalIvyRepositoryPtrOutputWithContext(ctx context.Context) LocalIvyRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalIvyRepositoryPtrOutput) Elem() LocalIvyRepositoryOutput {
-	return o.ApplyT(func(v *LocalIvyRepository) LocalIvyRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalIvyRepository
-		return ret
-	}).(LocalIvyRepositoryOutput)
-}
-
 type LocalIvyRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalIvyRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalIvyRepository)(nil))
+	return reflect.TypeOf((*[]*LocalIvyRepository)(nil)).Elem()
 }
 
 func (o LocalIvyRepositoryArrayOutput) ToLocalIvyRepositoryArrayOutput() LocalIvyRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalIvyRepositoryArrayOutput) ToLocalIvyRepositoryArrayOutputWithContex
 }
 
 func (o LocalIvyRepositoryArrayOutput) Index(i pulumi.IntInput) LocalIvyRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalIvyRepository {
-		return vs[0].([]LocalIvyRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalIvyRepository {
+		return vs[0].([]*LocalIvyRepository)[vs[1].(int)]
 	}).(LocalIvyRepositoryOutput)
 }
 
 type LocalIvyRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalIvyRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalIvyRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalIvyRepository)(nil)).Elem()
 }
 
 func (o LocalIvyRepositoryMapOutput) ToLocalIvyRepositoryMapOutput() LocalIvyRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalIvyRepositoryMapOutput) ToLocalIvyRepositoryMapOutputWithContext(ct
 }
 
 func (o LocalIvyRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalIvyRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalIvyRepository {
-		return vs[0].(map[string]LocalIvyRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalIvyRepository {
+		return vs[0].(map[string]*LocalIvyRepository)[vs[1].(string)]
 	}).(LocalIvyRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalIvyRepositoryInput)(nil)).Elem(), &LocalIvyRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalIvyRepositoryPtrInput)(nil)).Elem(), &LocalIvyRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalIvyRepositoryArrayInput)(nil)).Elem(), LocalIvyRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalIvyRepositoryMapInput)(nil)).Elem(), LocalIvyRepositoryMap{})
 	pulumi.RegisterOutputType(LocalIvyRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalIvyRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalIvyRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalIvyRepositoryMapOutput{})
 }

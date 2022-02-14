@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualGenericRepository(ctx, "foo_generic", &artifactory.VirtualGenericRepositoryArgs{
+// 		_, err := artifactory.NewVirtualGenericRepository(ctx, "foo-generic", &artifactory.VirtualGenericRepositoryArgs{
 // 			Description:     pulumi.String("A test virtual repo"),
 // 			ExcludesPattern: pulumi.String("com/google/**"),
 // 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
@@ -263,7 +263,7 @@ type VirtualGenericRepositoryInput interface {
 }
 
 func (*VirtualGenericRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGenericRepository)(nil))
+	return reflect.TypeOf((**VirtualGenericRepository)(nil)).Elem()
 }
 
 func (i *VirtualGenericRepository) ToVirtualGenericRepositoryOutput() VirtualGenericRepositoryOutput {
@@ -272,35 +272,6 @@ func (i *VirtualGenericRepository) ToVirtualGenericRepositoryOutput() VirtualGen
 
 func (i *VirtualGenericRepository) ToVirtualGenericRepositoryOutputWithContext(ctx context.Context) VirtualGenericRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryOutput)
-}
-
-func (i *VirtualGenericRepository) ToVirtualGenericRepositoryPtrOutput() VirtualGenericRepositoryPtrOutput {
-	return i.ToVirtualGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualGenericRepository) ToVirtualGenericRepositoryPtrOutputWithContext(ctx context.Context) VirtualGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryPtrOutput)
-}
-
-type VirtualGenericRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToVirtualGenericRepositoryPtrOutput() VirtualGenericRepositoryPtrOutput
-	ToVirtualGenericRepositoryPtrOutputWithContext(ctx context.Context) VirtualGenericRepositoryPtrOutput
-}
-
-type virtualGenericRepositoryPtrType VirtualGenericRepositoryArgs
-
-func (*virtualGenericRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGenericRepository)(nil))
-}
-
-func (i *virtualGenericRepositoryPtrType) ToVirtualGenericRepositoryPtrOutput() VirtualGenericRepositoryPtrOutput {
-	return i.ToVirtualGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualGenericRepositoryPtrType) ToVirtualGenericRepositoryPtrOutputWithContext(ctx context.Context) VirtualGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualGenericRepositoryPtrOutput)
 }
 
 // VirtualGenericRepositoryArrayInput is an input type that accepts VirtualGenericRepositoryArray and VirtualGenericRepositoryArrayOutput values.
@@ -356,7 +327,7 @@ func (i VirtualGenericRepositoryMap) ToVirtualGenericRepositoryMapOutputWithCont
 type VirtualGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualGenericRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualGenericRepository)(nil))
+	return reflect.TypeOf((**VirtualGenericRepository)(nil)).Elem()
 }
 
 func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryOutput() VirtualGenericRepositoryOutput {
@@ -367,44 +338,10 @@ func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryOutputWithCont
 	return o
 }
 
-func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryPtrOutput() VirtualGenericRepositoryPtrOutput {
-	return o.ToVirtualGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualGenericRepositoryOutput) ToVirtualGenericRepositoryPtrOutputWithContext(ctx context.Context) VirtualGenericRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGenericRepository) *VirtualGenericRepository {
-		return &v
-	}).(VirtualGenericRepositoryPtrOutput)
-}
-
-type VirtualGenericRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualGenericRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualGenericRepository)(nil))
-}
-
-func (o VirtualGenericRepositoryPtrOutput) ToVirtualGenericRepositoryPtrOutput() VirtualGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualGenericRepositoryPtrOutput) ToVirtualGenericRepositoryPtrOutputWithContext(ctx context.Context) VirtualGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualGenericRepositoryPtrOutput) Elem() VirtualGenericRepositoryOutput {
-	return o.ApplyT(func(v *VirtualGenericRepository) VirtualGenericRepository {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualGenericRepository
-		return ret
-	}).(VirtualGenericRepositoryOutput)
-}
-
 type VirtualGenericRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualGenericRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualGenericRepository)(nil))
+	return reflect.TypeOf((*[]*VirtualGenericRepository)(nil)).Elem()
 }
 
 func (o VirtualGenericRepositoryArrayOutput) ToVirtualGenericRepositoryArrayOutput() VirtualGenericRepositoryArrayOutput {
@@ -416,15 +353,15 @@ func (o VirtualGenericRepositoryArrayOutput) ToVirtualGenericRepositoryArrayOutp
 }
 
 func (o VirtualGenericRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualGenericRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualGenericRepository {
-		return vs[0].([]VirtualGenericRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualGenericRepository {
+		return vs[0].([]*VirtualGenericRepository)[vs[1].(int)]
 	}).(VirtualGenericRepositoryOutput)
 }
 
 type VirtualGenericRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualGenericRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualGenericRepository)(nil))
+	return reflect.TypeOf((*map[string]*VirtualGenericRepository)(nil)).Elem()
 }
 
 func (o VirtualGenericRepositoryMapOutput) ToVirtualGenericRepositoryMapOutput() VirtualGenericRepositoryMapOutput {
@@ -436,18 +373,16 @@ func (o VirtualGenericRepositoryMapOutput) ToVirtualGenericRepositoryMapOutputWi
 }
 
 func (o VirtualGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualGenericRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualGenericRepository {
-		return vs[0].(map[string]VirtualGenericRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualGenericRepository {
+		return vs[0].(map[string]*VirtualGenericRepository)[vs[1].(string)]
 	}).(VirtualGenericRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGenericRepositoryInput)(nil)).Elem(), &VirtualGenericRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGenericRepositoryPtrInput)(nil)).Elem(), &VirtualGenericRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGenericRepositoryArrayInput)(nil)).Elem(), VirtualGenericRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGenericRepositoryMapInput)(nil)).Elem(), VirtualGenericRepositoryMap{})
 	pulumi.RegisterOutputType(VirtualGenericRepositoryOutput{})
-	pulumi.RegisterOutputType(VirtualGenericRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGenericRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualGenericRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedRpmRepository(ctx, "terraform_federated_test_rpm_repo", &artifactory.FederatedRpmRepositoryArgs{
+// 		_, err := artifactory.NewFederatedRpmRepository(ctx, "terraform-federated-test-rpm-repo", &artifactory.FederatedRpmRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-rpm-repo"),
 // 			Members: FederatedRpmRepositoryMemberArray{
 // 				&FederatedRpmRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedRpmRepositoryInput interface {
 }
 
 func (*FederatedRpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedRpmRepository)(nil))
+	return reflect.TypeOf((**FederatedRpmRepository)(nil)).Elem()
 }
 
 func (i *FederatedRpmRepository) ToFederatedRpmRepositoryOutput() FederatedRpmRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedRpmRepository) ToFederatedRpmRepositoryOutput() FederatedRpmRe
 
 func (i *FederatedRpmRepository) ToFederatedRpmRepositoryOutputWithContext(ctx context.Context) FederatedRpmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryOutput)
-}
-
-func (i *FederatedRpmRepository) ToFederatedRpmRepositoryPtrOutput() FederatedRpmRepositoryPtrOutput {
-	return i.ToFederatedRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedRpmRepository) ToFederatedRpmRepositoryPtrOutputWithContext(ctx context.Context) FederatedRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryPtrOutput)
-}
-
-type FederatedRpmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedRpmRepositoryPtrOutput() FederatedRpmRepositoryPtrOutput
-	ToFederatedRpmRepositoryPtrOutputWithContext(ctx context.Context) FederatedRpmRepositoryPtrOutput
-}
-
-type federatedRpmRepositoryPtrType FederatedRpmRepositoryArgs
-
-func (*federatedRpmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedRpmRepository)(nil))
-}
-
-func (i *federatedRpmRepositoryPtrType) ToFederatedRpmRepositoryPtrOutput() FederatedRpmRepositoryPtrOutput {
-	return i.ToFederatedRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedRpmRepositoryPtrType) ToFederatedRpmRepositoryPtrOutputWithContext(ctx context.Context) FederatedRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedRpmRepositoryPtrOutput)
 }
 
 // FederatedRpmRepositoryArrayInput is an input type that accepts FederatedRpmRepositoryArray and FederatedRpmRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedRpmRepositoryMap) ToFederatedRpmRepositoryMapOutputWithContext(
 type FederatedRpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedRpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedRpmRepository)(nil))
+	return reflect.TypeOf((**FederatedRpmRepository)(nil)).Elem()
 }
 
 func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryOutput() FederatedRpmRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryOutputWithContext(
 	return o
 }
 
-func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryPtrOutput() FederatedRpmRepositoryPtrOutput {
-	return o.ToFederatedRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedRpmRepositoryOutput) ToFederatedRpmRepositoryPtrOutputWithContext(ctx context.Context) FederatedRpmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedRpmRepository) *FederatedRpmRepository {
-		return &v
-	}).(FederatedRpmRepositoryPtrOutput)
-}
-
-type FederatedRpmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedRpmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedRpmRepository)(nil))
-}
-
-func (o FederatedRpmRepositoryPtrOutput) ToFederatedRpmRepositoryPtrOutput() FederatedRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedRpmRepositoryPtrOutput) ToFederatedRpmRepositoryPtrOutputWithContext(ctx context.Context) FederatedRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedRpmRepositoryPtrOutput) Elem() FederatedRpmRepositoryOutput {
-	return o.ApplyT(func(v *FederatedRpmRepository) FederatedRpmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedRpmRepository
-		return ret
-	}).(FederatedRpmRepositoryOutput)
-}
-
 type FederatedRpmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedRpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedRpmRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedRpmRepository)(nil)).Elem()
 }
 
 func (o FederatedRpmRepositoryArrayOutput) ToFederatedRpmRepositoryArrayOutput() FederatedRpmRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedRpmRepositoryArrayOutput) ToFederatedRpmRepositoryArrayOutputWi
 }
 
 func (o FederatedRpmRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedRpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedRpmRepository {
-		return vs[0].([]FederatedRpmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedRpmRepository {
+		return vs[0].([]*FederatedRpmRepository)[vs[1].(int)]
 	}).(FederatedRpmRepositoryOutput)
 }
 
 type FederatedRpmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedRpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedRpmRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedRpmRepository)(nil)).Elem()
 }
 
 func (o FederatedRpmRepositoryMapOutput) ToFederatedRpmRepositoryMapOutput() FederatedRpmRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedRpmRepositoryMapOutput) ToFederatedRpmRepositoryMapOutputWithCo
 }
 
 func (o FederatedRpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedRpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedRpmRepository {
-		return vs[0].(map[string]FederatedRpmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedRpmRepository {
+		return vs[0].(map[string]*FederatedRpmRepository)[vs[1].(string)]
 	}).(FederatedRpmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryInput)(nil)).Elem(), &FederatedRpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryPtrInput)(nil)).Elem(), &FederatedRpmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryArrayInput)(nil)).Elem(), FederatedRpmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryMapInput)(nil)).Elem(), FederatedRpmRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedRpmRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedRpmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedRpmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedRpmRepositoryMapOutput{})
 }

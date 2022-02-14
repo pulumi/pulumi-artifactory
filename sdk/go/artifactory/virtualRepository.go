@@ -205,7 +205,7 @@ type VirtualRepositoryInput interface {
 }
 
 func (*VirtualRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRepository)(nil))
+	return reflect.TypeOf((**VirtualRepository)(nil)).Elem()
 }
 
 func (i *VirtualRepository) ToVirtualRepositoryOutput() VirtualRepositoryOutput {
@@ -214,35 +214,6 @@ func (i *VirtualRepository) ToVirtualRepositoryOutput() VirtualRepositoryOutput 
 
 func (i *VirtualRepository) ToVirtualRepositoryOutputWithContext(ctx context.Context) VirtualRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRepositoryOutput)
-}
-
-func (i *VirtualRepository) ToVirtualRepositoryPtrOutput() VirtualRepositoryPtrOutput {
-	return i.ToVirtualRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualRepository) ToVirtualRepositoryPtrOutputWithContext(ctx context.Context) VirtualRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRepositoryPtrOutput)
-}
-
-type VirtualRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToVirtualRepositoryPtrOutput() VirtualRepositoryPtrOutput
-	ToVirtualRepositoryPtrOutputWithContext(ctx context.Context) VirtualRepositoryPtrOutput
-}
-
-type virtualRepositoryPtrType VirtualRepositoryArgs
-
-func (*virtualRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRepository)(nil))
-}
-
-func (i *virtualRepositoryPtrType) ToVirtualRepositoryPtrOutput() VirtualRepositoryPtrOutput {
-	return i.ToVirtualRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualRepositoryPtrType) ToVirtualRepositoryPtrOutputWithContext(ctx context.Context) VirtualRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRepositoryPtrOutput)
 }
 
 // VirtualRepositoryArrayInput is an input type that accepts VirtualRepositoryArray and VirtualRepositoryArrayOutput values.
@@ -298,7 +269,7 @@ func (i VirtualRepositoryMap) ToVirtualRepositoryMapOutputWithContext(ctx contex
 type VirtualRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRepository)(nil))
+	return reflect.TypeOf((**VirtualRepository)(nil)).Elem()
 }
 
 func (o VirtualRepositoryOutput) ToVirtualRepositoryOutput() VirtualRepositoryOutput {
@@ -309,44 +280,10 @@ func (o VirtualRepositoryOutput) ToVirtualRepositoryOutputWithContext(ctx contex
 	return o
 }
 
-func (o VirtualRepositoryOutput) ToVirtualRepositoryPtrOutput() VirtualRepositoryPtrOutput {
-	return o.ToVirtualRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualRepositoryOutput) ToVirtualRepositoryPtrOutputWithContext(ctx context.Context) VirtualRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRepository) *VirtualRepository {
-		return &v
-	}).(VirtualRepositoryPtrOutput)
-}
-
-type VirtualRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRepository)(nil))
-}
-
-func (o VirtualRepositoryPtrOutput) ToVirtualRepositoryPtrOutput() VirtualRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualRepositoryPtrOutput) ToVirtualRepositoryPtrOutputWithContext(ctx context.Context) VirtualRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualRepositoryPtrOutput) Elem() VirtualRepositoryOutput {
-	return o.ApplyT(func(v *VirtualRepository) VirtualRepository {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualRepository
-		return ret
-	}).(VirtualRepositoryOutput)
-}
-
 type VirtualRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRepository)(nil))
+	return reflect.TypeOf((*[]*VirtualRepository)(nil)).Elem()
 }
 
 func (o VirtualRepositoryArrayOutput) ToVirtualRepositoryArrayOutput() VirtualRepositoryArrayOutput {
@@ -358,15 +295,15 @@ func (o VirtualRepositoryArrayOutput) ToVirtualRepositoryArrayOutputWithContext(
 }
 
 func (o VirtualRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRepository {
-		return vs[0].([]VirtualRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualRepository {
+		return vs[0].([]*VirtualRepository)[vs[1].(int)]
 	}).(VirtualRepositoryOutput)
 }
 
 type VirtualRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualRepository)(nil))
+	return reflect.TypeOf((*map[string]*VirtualRepository)(nil)).Elem()
 }
 
 func (o VirtualRepositoryMapOutput) ToVirtualRepositoryMapOutput() VirtualRepositoryMapOutput {
@@ -378,18 +315,16 @@ func (o VirtualRepositoryMapOutput) ToVirtualRepositoryMapOutputWithContext(ctx 
 }
 
 func (o VirtualRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualRepository {
-		return vs[0].(map[string]VirtualRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualRepository {
+		return vs[0].(map[string]*VirtualRepository)[vs[1].(string)]
 	}).(VirtualRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryInput)(nil)).Elem(), &VirtualRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryPtrInput)(nil)).Elem(), &VirtualRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryArrayInput)(nil)).Elem(), VirtualRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRepositoryMapInput)(nil)).Elem(), VirtualRepositoryMap{})
 	pulumi.RegisterOutputType(VirtualRepositoryOutput{})
-	pulumi.RegisterOutputType(VirtualRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualRepositoryMapOutput{})
 }

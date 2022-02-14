@@ -436,7 +436,7 @@ type RemoteNpmRepositoryInput interface {
 }
 
 func (*RemoteNpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteNpmRepository)(nil))
+	return reflect.TypeOf((**RemoteNpmRepository)(nil)).Elem()
 }
 
 func (i *RemoteNpmRepository) ToRemoteNpmRepositoryOutput() RemoteNpmRepositoryOutput {
@@ -445,35 +445,6 @@ func (i *RemoteNpmRepository) ToRemoteNpmRepositoryOutput() RemoteNpmRepositoryO
 
 func (i *RemoteNpmRepository) ToRemoteNpmRepositoryOutputWithContext(ctx context.Context) RemoteNpmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryOutput)
-}
-
-func (i *RemoteNpmRepository) ToRemoteNpmRepositoryPtrOutput() RemoteNpmRepositoryPtrOutput {
-	return i.ToRemoteNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *RemoteNpmRepository) ToRemoteNpmRepositoryPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryPtrOutput)
-}
-
-type RemoteNpmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToRemoteNpmRepositoryPtrOutput() RemoteNpmRepositoryPtrOutput
-	ToRemoteNpmRepositoryPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryPtrOutput
-}
-
-type remoteNpmRepositoryPtrType RemoteNpmRepositoryArgs
-
-func (*remoteNpmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteNpmRepository)(nil))
-}
-
-func (i *remoteNpmRepositoryPtrType) ToRemoteNpmRepositoryPtrOutput() RemoteNpmRepositoryPtrOutput {
-	return i.ToRemoteNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteNpmRepositoryPtrType) ToRemoteNpmRepositoryPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteNpmRepositoryPtrOutput)
 }
 
 // RemoteNpmRepositoryArrayInput is an input type that accepts RemoteNpmRepositoryArray and RemoteNpmRepositoryArrayOutput values.
@@ -529,7 +500,7 @@ func (i RemoteNpmRepositoryMap) ToRemoteNpmRepositoryMapOutputWithContext(ctx co
 type RemoteNpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteNpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteNpmRepository)(nil))
+	return reflect.TypeOf((**RemoteNpmRepository)(nil)).Elem()
 }
 
 func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryOutput() RemoteNpmRepositoryOutput {
@@ -540,44 +511,10 @@ func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryPtrOutput() RemoteNpmRepositoryPtrOutput {
-	return o.ToRemoteNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteNpmRepositoryOutput) ToRemoteNpmRepositoryPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteNpmRepository) *RemoteNpmRepository {
-		return &v
-	}).(RemoteNpmRepositoryPtrOutput)
-}
-
-type RemoteNpmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteNpmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteNpmRepository)(nil))
-}
-
-func (o RemoteNpmRepositoryPtrOutput) ToRemoteNpmRepositoryPtrOutput() RemoteNpmRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteNpmRepositoryPtrOutput) ToRemoteNpmRepositoryPtrOutputWithContext(ctx context.Context) RemoteNpmRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteNpmRepositoryPtrOutput) Elem() RemoteNpmRepositoryOutput {
-	return o.ApplyT(func(v *RemoteNpmRepository) RemoteNpmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteNpmRepository
-		return ret
-	}).(RemoteNpmRepositoryOutput)
-}
-
 type RemoteNpmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RemoteNpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemoteNpmRepository)(nil))
+	return reflect.TypeOf((*[]*RemoteNpmRepository)(nil)).Elem()
 }
 
 func (o RemoteNpmRepositoryArrayOutput) ToRemoteNpmRepositoryArrayOutput() RemoteNpmRepositoryArrayOutput {
@@ -589,15 +526,15 @@ func (o RemoteNpmRepositoryArrayOutput) ToRemoteNpmRepositoryArrayOutputWithCont
 }
 
 func (o RemoteNpmRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteNpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteNpmRepository {
-		return vs[0].([]RemoteNpmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteNpmRepository {
+		return vs[0].([]*RemoteNpmRepository)[vs[1].(int)]
 	}).(RemoteNpmRepositoryOutput)
 }
 
 type RemoteNpmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (RemoteNpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemoteNpmRepository)(nil))
+	return reflect.TypeOf((*map[string]*RemoteNpmRepository)(nil)).Elem()
 }
 
 func (o RemoteNpmRepositoryMapOutput) ToRemoteNpmRepositoryMapOutput() RemoteNpmRepositoryMapOutput {
@@ -609,18 +546,16 @@ func (o RemoteNpmRepositoryMapOutput) ToRemoteNpmRepositoryMapOutputWithContext(
 }
 
 func (o RemoteNpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteNpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemoteNpmRepository {
-		return vs[0].(map[string]RemoteNpmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemoteNpmRepository {
+		return vs[0].(map[string]*RemoteNpmRepository)[vs[1].(string)]
 	}).(RemoteNpmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryInput)(nil)).Elem(), &RemoteNpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryPtrInput)(nil)).Elem(), &RemoteNpmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryArrayInput)(nil)).Elem(), RemoteNpmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteNpmRepositoryMapInput)(nil)).Elem(), RemoteNpmRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryOutput{})
-	pulumi.RegisterOutputType(RemoteNpmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(RemoteNpmRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalRepository(ctx, "my_local", &artifactory.LocalRepositoryArgs{
+// 		_, err := artifactory.NewLocalRepository(ctx, "my-local", &artifactory.LocalRepositoryArgs{
 // 			Key:         pulumi.String("my-local"),
 // 			PackageType: pulumi.String("npm"),
 // 		})
@@ -236,7 +236,7 @@ type LocalRepositoryInput interface {
 }
 
 func (*LocalRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalRepository)(nil))
+	return reflect.TypeOf((**LocalRepository)(nil)).Elem()
 }
 
 func (i *LocalRepository) ToLocalRepositoryOutput() LocalRepositoryOutput {
@@ -245,35 +245,6 @@ func (i *LocalRepository) ToLocalRepositoryOutput() LocalRepositoryOutput {
 
 func (i *LocalRepository) ToLocalRepositoryOutputWithContext(ctx context.Context) LocalRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryOutput)
-}
-
-func (i *LocalRepository) ToLocalRepositoryPtrOutput() LocalRepositoryPtrOutput {
-	return i.ToLocalRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalRepository) ToLocalRepositoryPtrOutputWithContext(ctx context.Context) LocalRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryPtrOutput)
-}
-
-type LocalRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalRepositoryPtrOutput() LocalRepositoryPtrOutput
-	ToLocalRepositoryPtrOutputWithContext(ctx context.Context) LocalRepositoryPtrOutput
-}
-
-type localRepositoryPtrType LocalRepositoryArgs
-
-func (*localRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalRepository)(nil))
-}
-
-func (i *localRepositoryPtrType) ToLocalRepositoryPtrOutput() LocalRepositoryPtrOutput {
-	return i.ToLocalRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localRepositoryPtrType) ToLocalRepositoryPtrOutputWithContext(ctx context.Context) LocalRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryPtrOutput)
 }
 
 // LocalRepositoryArrayInput is an input type that accepts LocalRepositoryArray and LocalRepositoryArrayOutput values.
@@ -329,7 +300,7 @@ func (i LocalRepositoryMap) ToLocalRepositoryMapOutputWithContext(ctx context.Co
 type LocalRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalRepository)(nil))
+	return reflect.TypeOf((**LocalRepository)(nil)).Elem()
 }
 
 func (o LocalRepositoryOutput) ToLocalRepositoryOutput() LocalRepositoryOutput {
@@ -340,44 +311,10 @@ func (o LocalRepositoryOutput) ToLocalRepositoryOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LocalRepositoryOutput) ToLocalRepositoryPtrOutput() LocalRepositoryPtrOutput {
-	return o.ToLocalRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalRepositoryOutput) ToLocalRepositoryPtrOutputWithContext(ctx context.Context) LocalRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalRepository) *LocalRepository {
-		return &v
-	}).(LocalRepositoryPtrOutput)
-}
-
-type LocalRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalRepository)(nil))
-}
-
-func (o LocalRepositoryPtrOutput) ToLocalRepositoryPtrOutput() LocalRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalRepositoryPtrOutput) ToLocalRepositoryPtrOutputWithContext(ctx context.Context) LocalRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalRepositoryPtrOutput) Elem() LocalRepositoryOutput {
-	return o.ApplyT(func(v *LocalRepository) LocalRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalRepository
-		return ret
-	}).(LocalRepositoryOutput)
-}
-
 type LocalRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalRepository)(nil))
+	return reflect.TypeOf((*[]*LocalRepository)(nil)).Elem()
 }
 
 func (o LocalRepositoryArrayOutput) ToLocalRepositoryArrayOutput() LocalRepositoryArrayOutput {
@@ -389,15 +326,15 @@ func (o LocalRepositoryArrayOutput) ToLocalRepositoryArrayOutputWithContext(ctx 
 }
 
 func (o LocalRepositoryArrayOutput) Index(i pulumi.IntInput) LocalRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalRepository {
-		return vs[0].([]LocalRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRepository {
+		return vs[0].([]*LocalRepository)[vs[1].(int)]
 	}).(LocalRepositoryOutput)
 }
 
 type LocalRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalRepository)(nil)).Elem()
 }
 
 func (o LocalRepositoryMapOutput) ToLocalRepositoryMapOutput() LocalRepositoryMapOutput {
@@ -409,18 +346,16 @@ func (o LocalRepositoryMapOutput) ToLocalRepositoryMapOutputWithContext(ctx cont
 }
 
 func (o LocalRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalRepository {
-		return vs[0].(map[string]LocalRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalRepository {
+		return vs[0].(map[string]*LocalRepository)[vs[1].(string)]
 	}).(LocalRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryInput)(nil)).Elem(), &LocalRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryPtrInput)(nil)).Elem(), &LocalRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryArrayInput)(nil)).Elem(), LocalRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryMapInput)(nil)).Elem(), LocalRepositoryMap{})
 	pulumi.RegisterOutputType(LocalRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalRepositoryMapOutput{})
 }

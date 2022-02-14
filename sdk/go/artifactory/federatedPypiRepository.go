@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedPypiRepository(ctx, "terraform_federated_test_pypi_repo", &artifactory.FederatedPypiRepositoryArgs{
+// 		_, err := artifactory.NewFederatedPypiRepository(ctx, "terraform-federated-test-pypi-repo", &artifactory.FederatedPypiRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-pypi-repo"),
 // 			Members: FederatedPypiRepositoryMemberArray{
 // 				&FederatedPypiRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedPypiRepositoryInput interface {
 }
 
 func (*FederatedPypiRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedPypiRepository)(nil))
+	return reflect.TypeOf((**FederatedPypiRepository)(nil)).Elem()
 }
 
 func (i *FederatedPypiRepository) ToFederatedPypiRepositoryOutput() FederatedPypiRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedPypiRepository) ToFederatedPypiRepositoryOutput() FederatedPyp
 
 func (i *FederatedPypiRepository) ToFederatedPypiRepositoryOutputWithContext(ctx context.Context) FederatedPypiRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryOutput)
-}
-
-func (i *FederatedPypiRepository) ToFederatedPypiRepositoryPtrOutput() FederatedPypiRepositoryPtrOutput {
-	return i.ToFederatedPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedPypiRepository) ToFederatedPypiRepositoryPtrOutputWithContext(ctx context.Context) FederatedPypiRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryPtrOutput)
-}
-
-type FederatedPypiRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedPypiRepositoryPtrOutput() FederatedPypiRepositoryPtrOutput
-	ToFederatedPypiRepositoryPtrOutputWithContext(ctx context.Context) FederatedPypiRepositoryPtrOutput
-}
-
-type federatedPypiRepositoryPtrType FederatedPypiRepositoryArgs
-
-func (*federatedPypiRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedPypiRepository)(nil))
-}
-
-func (i *federatedPypiRepositoryPtrType) ToFederatedPypiRepositoryPtrOutput() FederatedPypiRepositoryPtrOutput {
-	return i.ToFederatedPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedPypiRepositoryPtrType) ToFederatedPypiRepositoryPtrOutputWithContext(ctx context.Context) FederatedPypiRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedPypiRepositoryPtrOutput)
 }
 
 // FederatedPypiRepositoryArrayInput is an input type that accepts FederatedPypiRepositoryArray and FederatedPypiRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedPypiRepositoryMap) ToFederatedPypiRepositoryMapOutputWithContex
 type FederatedPypiRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedPypiRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedPypiRepository)(nil))
+	return reflect.TypeOf((**FederatedPypiRepository)(nil)).Elem()
 }
 
 func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryOutput() FederatedPypiRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryPtrOutput() FederatedPypiRepositoryPtrOutput {
-	return o.ToFederatedPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedPypiRepositoryOutput) ToFederatedPypiRepositoryPtrOutputWithContext(ctx context.Context) FederatedPypiRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedPypiRepository) *FederatedPypiRepository {
-		return &v
-	}).(FederatedPypiRepositoryPtrOutput)
-}
-
-type FederatedPypiRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedPypiRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedPypiRepository)(nil))
-}
-
-func (o FederatedPypiRepositoryPtrOutput) ToFederatedPypiRepositoryPtrOutput() FederatedPypiRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedPypiRepositoryPtrOutput) ToFederatedPypiRepositoryPtrOutputWithContext(ctx context.Context) FederatedPypiRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedPypiRepositoryPtrOutput) Elem() FederatedPypiRepositoryOutput {
-	return o.ApplyT(func(v *FederatedPypiRepository) FederatedPypiRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedPypiRepository
-		return ret
-	}).(FederatedPypiRepositoryOutput)
-}
-
 type FederatedPypiRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedPypiRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedPypiRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedPypiRepository)(nil)).Elem()
 }
 
 func (o FederatedPypiRepositoryArrayOutput) ToFederatedPypiRepositoryArrayOutput() FederatedPypiRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedPypiRepositoryArrayOutput) ToFederatedPypiRepositoryArrayOutput
 }
 
 func (o FederatedPypiRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedPypiRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedPypiRepository {
-		return vs[0].([]FederatedPypiRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedPypiRepository {
+		return vs[0].([]*FederatedPypiRepository)[vs[1].(int)]
 	}).(FederatedPypiRepositoryOutput)
 }
 
 type FederatedPypiRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedPypiRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedPypiRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedPypiRepository)(nil)).Elem()
 }
 
 func (o FederatedPypiRepositoryMapOutput) ToFederatedPypiRepositoryMapOutput() FederatedPypiRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedPypiRepositoryMapOutput) ToFederatedPypiRepositoryMapOutputWith
 }
 
 func (o FederatedPypiRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedPypiRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedPypiRepository {
-		return vs[0].(map[string]FederatedPypiRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedPypiRepository {
+		return vs[0].(map[string]*FederatedPypiRepository)[vs[1].(string)]
 	}).(FederatedPypiRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryInput)(nil)).Elem(), &FederatedPypiRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryPtrInput)(nil)).Elem(), &FederatedPypiRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryArrayInput)(nil)).Elem(), FederatedPypiRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPypiRepositoryMapInput)(nil)).Elem(), FederatedPypiRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedPypiRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedPypiRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedPypiRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedPypiRepositoryMapOutput{})
 }

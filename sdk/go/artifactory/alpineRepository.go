@@ -37,7 +37,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some_keypairRSA", &artifactory.KeypairArgs{
+// 		_, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
 // 			PairName:   pulumi.String("some-keypair"),
 // 			PairType:   pulumi.String("RSA"),
 // 			Alias:      pulumi.String("foo-alias"),
@@ -47,7 +47,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewAlpineRepository(ctx, "terraform_local_test_alpine_repo_basic", &artifactory.AlpineRepositoryArgs{
+// 		_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
 // 			Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
 // 			PrimaryKeypairRef: some_keypairRSA.PairName,
 // 		}, pulumi.DependsOn([]pulumi.Resource{
@@ -228,7 +228,7 @@ type AlpineRepositoryInput interface {
 }
 
 func (*AlpineRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlpineRepository)(nil))
+	return reflect.TypeOf((**AlpineRepository)(nil)).Elem()
 }
 
 func (i *AlpineRepository) ToAlpineRepositoryOutput() AlpineRepositoryOutput {
@@ -237,35 +237,6 @@ func (i *AlpineRepository) ToAlpineRepositoryOutput() AlpineRepositoryOutput {
 
 func (i *AlpineRepository) ToAlpineRepositoryOutputWithContext(ctx context.Context) AlpineRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryOutput)
-}
-
-func (i *AlpineRepository) ToAlpineRepositoryPtrOutput() AlpineRepositoryPtrOutput {
-	return i.ToAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *AlpineRepository) ToAlpineRepositoryPtrOutputWithContext(ctx context.Context) AlpineRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryPtrOutput)
-}
-
-type AlpineRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToAlpineRepositoryPtrOutput() AlpineRepositoryPtrOutput
-	ToAlpineRepositoryPtrOutputWithContext(ctx context.Context) AlpineRepositoryPtrOutput
-}
-
-type alpineRepositoryPtrType AlpineRepositoryArgs
-
-func (*alpineRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlpineRepository)(nil))
-}
-
-func (i *alpineRepositoryPtrType) ToAlpineRepositoryPtrOutput() AlpineRepositoryPtrOutput {
-	return i.ToAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *alpineRepositoryPtrType) ToAlpineRepositoryPtrOutputWithContext(ctx context.Context) AlpineRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlpineRepositoryPtrOutput)
 }
 
 // AlpineRepositoryArrayInput is an input type that accepts AlpineRepositoryArray and AlpineRepositoryArrayOutput values.
@@ -321,7 +292,7 @@ func (i AlpineRepositoryMap) ToAlpineRepositoryMapOutputWithContext(ctx context.
 type AlpineRepositoryOutput struct{ *pulumi.OutputState }
 
 func (AlpineRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlpineRepository)(nil))
+	return reflect.TypeOf((**AlpineRepository)(nil)).Elem()
 }
 
 func (o AlpineRepositoryOutput) ToAlpineRepositoryOutput() AlpineRepositoryOutput {
@@ -332,44 +303,10 @@ func (o AlpineRepositoryOutput) ToAlpineRepositoryOutputWithContext(ctx context.
 	return o
 }
 
-func (o AlpineRepositoryOutput) ToAlpineRepositoryPtrOutput() AlpineRepositoryPtrOutput {
-	return o.ToAlpineRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o AlpineRepositoryOutput) ToAlpineRepositoryPtrOutputWithContext(ctx context.Context) AlpineRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlpineRepository) *AlpineRepository {
-		return &v
-	}).(AlpineRepositoryPtrOutput)
-}
-
-type AlpineRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (AlpineRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlpineRepository)(nil))
-}
-
-func (o AlpineRepositoryPtrOutput) ToAlpineRepositoryPtrOutput() AlpineRepositoryPtrOutput {
-	return o
-}
-
-func (o AlpineRepositoryPtrOutput) ToAlpineRepositoryPtrOutputWithContext(ctx context.Context) AlpineRepositoryPtrOutput {
-	return o
-}
-
-func (o AlpineRepositoryPtrOutput) Elem() AlpineRepositoryOutput {
-	return o.ApplyT(func(v *AlpineRepository) AlpineRepository {
-		if v != nil {
-			return *v
-		}
-		var ret AlpineRepository
-		return ret
-	}).(AlpineRepositoryOutput)
-}
-
 type AlpineRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (AlpineRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlpineRepository)(nil))
+	return reflect.TypeOf((*[]*AlpineRepository)(nil)).Elem()
 }
 
 func (o AlpineRepositoryArrayOutput) ToAlpineRepositoryArrayOutput() AlpineRepositoryArrayOutput {
@@ -381,15 +318,15 @@ func (o AlpineRepositoryArrayOutput) ToAlpineRepositoryArrayOutputWithContext(ct
 }
 
 func (o AlpineRepositoryArrayOutput) Index(i pulumi.IntInput) AlpineRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlpineRepository {
-		return vs[0].([]AlpineRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlpineRepository {
+		return vs[0].([]*AlpineRepository)[vs[1].(int)]
 	}).(AlpineRepositoryOutput)
 }
 
 type AlpineRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (AlpineRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlpineRepository)(nil))
+	return reflect.TypeOf((*map[string]*AlpineRepository)(nil)).Elem()
 }
 
 func (o AlpineRepositoryMapOutput) ToAlpineRepositoryMapOutput() AlpineRepositoryMapOutput {
@@ -401,18 +338,16 @@ func (o AlpineRepositoryMapOutput) ToAlpineRepositoryMapOutputWithContext(ctx co
 }
 
 func (o AlpineRepositoryMapOutput) MapIndex(k pulumi.StringInput) AlpineRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlpineRepository {
-		return vs[0].(map[string]AlpineRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlpineRepository {
+		return vs[0].(map[string]*AlpineRepository)[vs[1].(string)]
 	}).(AlpineRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryInput)(nil)).Elem(), &AlpineRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryPtrInput)(nil)).Elem(), &AlpineRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryArrayInput)(nil)).Elem(), AlpineRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlpineRepositoryMapInput)(nil)).Elem(), AlpineRepositoryMap{})
 	pulumi.RegisterOutputType(AlpineRepositoryOutput{})
-	pulumi.RegisterOutputType(AlpineRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(AlpineRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(AlpineRepositoryMapOutput{})
 }

@@ -113,7 +113,7 @@ type GeneralSecurityInput interface {
 }
 
 func (*GeneralSecurity) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeneralSecurity)(nil))
+	return reflect.TypeOf((**GeneralSecurity)(nil)).Elem()
 }
 
 func (i *GeneralSecurity) ToGeneralSecurityOutput() GeneralSecurityOutput {
@@ -122,35 +122,6 @@ func (i *GeneralSecurity) ToGeneralSecurityOutput() GeneralSecurityOutput {
 
 func (i *GeneralSecurity) ToGeneralSecurityOutputWithContext(ctx context.Context) GeneralSecurityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityOutput)
-}
-
-func (i *GeneralSecurity) ToGeneralSecurityPtrOutput() GeneralSecurityPtrOutput {
-	return i.ToGeneralSecurityPtrOutputWithContext(context.Background())
-}
-
-func (i *GeneralSecurity) ToGeneralSecurityPtrOutputWithContext(ctx context.Context) GeneralSecurityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityPtrOutput)
-}
-
-type GeneralSecurityPtrInput interface {
-	pulumi.Input
-
-	ToGeneralSecurityPtrOutput() GeneralSecurityPtrOutput
-	ToGeneralSecurityPtrOutputWithContext(ctx context.Context) GeneralSecurityPtrOutput
-}
-
-type generalSecurityPtrType GeneralSecurityArgs
-
-func (*generalSecurityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GeneralSecurity)(nil))
-}
-
-func (i *generalSecurityPtrType) ToGeneralSecurityPtrOutput() GeneralSecurityPtrOutput {
-	return i.ToGeneralSecurityPtrOutputWithContext(context.Background())
-}
-
-func (i *generalSecurityPtrType) ToGeneralSecurityPtrOutputWithContext(ctx context.Context) GeneralSecurityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeneralSecurityPtrOutput)
 }
 
 // GeneralSecurityArrayInput is an input type that accepts GeneralSecurityArray and GeneralSecurityArrayOutput values.
@@ -206,7 +177,7 @@ func (i GeneralSecurityMap) ToGeneralSecurityMapOutputWithContext(ctx context.Co
 type GeneralSecurityOutput struct{ *pulumi.OutputState }
 
 func (GeneralSecurityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeneralSecurity)(nil))
+	return reflect.TypeOf((**GeneralSecurity)(nil)).Elem()
 }
 
 func (o GeneralSecurityOutput) ToGeneralSecurityOutput() GeneralSecurityOutput {
@@ -217,44 +188,10 @@ func (o GeneralSecurityOutput) ToGeneralSecurityOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o GeneralSecurityOutput) ToGeneralSecurityPtrOutput() GeneralSecurityPtrOutput {
-	return o.ToGeneralSecurityPtrOutputWithContext(context.Background())
-}
-
-func (o GeneralSecurityOutput) ToGeneralSecurityPtrOutputWithContext(ctx context.Context) GeneralSecurityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralSecurity) *GeneralSecurity {
-		return &v
-	}).(GeneralSecurityPtrOutput)
-}
-
-type GeneralSecurityPtrOutput struct{ *pulumi.OutputState }
-
-func (GeneralSecurityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GeneralSecurity)(nil))
-}
-
-func (o GeneralSecurityPtrOutput) ToGeneralSecurityPtrOutput() GeneralSecurityPtrOutput {
-	return o
-}
-
-func (o GeneralSecurityPtrOutput) ToGeneralSecurityPtrOutputWithContext(ctx context.Context) GeneralSecurityPtrOutput {
-	return o
-}
-
-func (o GeneralSecurityPtrOutput) Elem() GeneralSecurityOutput {
-	return o.ApplyT(func(v *GeneralSecurity) GeneralSecurity {
-		if v != nil {
-			return *v
-		}
-		var ret GeneralSecurity
-		return ret
-	}).(GeneralSecurityOutput)
-}
-
 type GeneralSecurityArrayOutput struct{ *pulumi.OutputState }
 
 func (GeneralSecurityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GeneralSecurity)(nil))
+	return reflect.TypeOf((*[]*GeneralSecurity)(nil)).Elem()
 }
 
 func (o GeneralSecurityArrayOutput) ToGeneralSecurityArrayOutput() GeneralSecurityArrayOutput {
@@ -266,15 +203,15 @@ func (o GeneralSecurityArrayOutput) ToGeneralSecurityArrayOutputWithContext(ctx 
 }
 
 func (o GeneralSecurityArrayOutput) Index(i pulumi.IntInput) GeneralSecurityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeneralSecurity {
-		return vs[0].([]GeneralSecurity)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GeneralSecurity {
+		return vs[0].([]*GeneralSecurity)[vs[1].(int)]
 	}).(GeneralSecurityOutput)
 }
 
 type GeneralSecurityMapOutput struct{ *pulumi.OutputState }
 
 func (GeneralSecurityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GeneralSecurity)(nil))
+	return reflect.TypeOf((*map[string]*GeneralSecurity)(nil)).Elem()
 }
 
 func (o GeneralSecurityMapOutput) ToGeneralSecurityMapOutput() GeneralSecurityMapOutput {
@@ -286,18 +223,16 @@ func (o GeneralSecurityMapOutput) ToGeneralSecurityMapOutputWithContext(ctx cont
 }
 
 func (o GeneralSecurityMapOutput) MapIndex(k pulumi.StringInput) GeneralSecurityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GeneralSecurity {
-		return vs[0].(map[string]GeneralSecurity)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GeneralSecurity {
+		return vs[0].(map[string]*GeneralSecurity)[vs[1].(string)]
 	}).(GeneralSecurityOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneralSecurityInput)(nil)).Elem(), &GeneralSecurity{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GeneralSecurityPtrInput)(nil)).Elem(), &GeneralSecurity{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneralSecurityArrayInput)(nil)).Elem(), GeneralSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneralSecurityMapInput)(nil)).Elem(), GeneralSecurityMap{})
 	pulumi.RegisterOutputType(GeneralSecurityOutput{})
-	pulumi.RegisterOutputType(GeneralSecurityPtrOutput{})
 	pulumi.RegisterOutputType(GeneralSecurityArrayOutput{})
 	pulumi.RegisterOutputType(GeneralSecurityMapOutput{})
 }

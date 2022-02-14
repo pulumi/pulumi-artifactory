@@ -95,39 +95,37 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["adminPrivileges"] = state ? state.adminPrivileges : undefined;
-            inputs["autoJoin"] = state ? state.autoJoin : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["detachAllUsers"] = state ? state.detachAllUsers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyManager"] = state ? state.policyManager : undefined;
-            inputs["realm"] = state ? state.realm : undefined;
-            inputs["realmAttributes"] = state ? state.realmAttributes : undefined;
-            inputs["reportsManager"] = state ? state.reportsManager : undefined;
-            inputs["usersNames"] = state ? state.usersNames : undefined;
-            inputs["watchManager"] = state ? state.watchManager : undefined;
+            resourceInputs["adminPrivileges"] = state ? state.adminPrivileges : undefined;
+            resourceInputs["autoJoin"] = state ? state.autoJoin : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["detachAllUsers"] = state ? state.detachAllUsers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyManager"] = state ? state.policyManager : undefined;
+            resourceInputs["realm"] = state ? state.realm : undefined;
+            resourceInputs["realmAttributes"] = state ? state.realmAttributes : undefined;
+            resourceInputs["reportsManager"] = state ? state.reportsManager : undefined;
+            resourceInputs["usersNames"] = state ? state.usersNames : undefined;
+            resourceInputs["watchManager"] = state ? state.watchManager : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            inputs["adminPrivileges"] = args ? args.adminPrivileges : undefined;
-            inputs["autoJoin"] = args ? args.autoJoin : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detachAllUsers"] = args ? args.detachAllUsers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyManager"] = args ? args.policyManager : undefined;
-            inputs["realm"] = args ? args.realm : undefined;
-            inputs["realmAttributes"] = args ? args.realmAttributes : undefined;
-            inputs["reportsManager"] = args ? args.reportsManager : undefined;
-            inputs["usersNames"] = args ? args.usersNames : undefined;
-            inputs["watchManager"] = args ? args.watchManager : undefined;
+            resourceInputs["adminPrivileges"] = args ? args.adminPrivileges : undefined;
+            resourceInputs["autoJoin"] = args ? args.autoJoin : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detachAllUsers"] = args ? args.detachAllUsers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyManager"] = args ? args.policyManager : undefined;
+            resourceInputs["realm"] = args ? args.realm : undefined;
+            resourceInputs["realmAttributes"] = args ? args.realmAttributes : undefined;
+            resourceInputs["reportsManager"] = args ? args.reportsManager : undefined;
+            resourceInputs["usersNames"] = args ? args.usersNames : undefined;
+            resourceInputs["watchManager"] = args ? args.watchManager : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Group.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

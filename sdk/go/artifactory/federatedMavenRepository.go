@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedMavenRepository(ctx, "terraform_federated_test_maven_repo", &artifactory.FederatedMavenRepositoryArgs{
+// 		_, err := artifactory.NewFederatedMavenRepository(ctx, "terraform-federated-test-maven-repo", &artifactory.FederatedMavenRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-maven-repo"),
 // 			Members: FederatedMavenRepositoryMemberArray{
 // 				&FederatedMavenRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedMavenRepositoryInput interface {
 }
 
 func (*FederatedMavenRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedMavenRepository)(nil))
+	return reflect.TypeOf((**FederatedMavenRepository)(nil)).Elem()
 }
 
 func (i *FederatedMavenRepository) ToFederatedMavenRepositoryOutput() FederatedMavenRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedMavenRepository) ToFederatedMavenRepositoryOutput() FederatedM
 
 func (i *FederatedMavenRepository) ToFederatedMavenRepositoryOutputWithContext(ctx context.Context) FederatedMavenRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryOutput)
-}
-
-func (i *FederatedMavenRepository) ToFederatedMavenRepositoryPtrOutput() FederatedMavenRepositoryPtrOutput {
-	return i.ToFederatedMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedMavenRepository) ToFederatedMavenRepositoryPtrOutputWithContext(ctx context.Context) FederatedMavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryPtrOutput)
-}
-
-type FederatedMavenRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedMavenRepositoryPtrOutput() FederatedMavenRepositoryPtrOutput
-	ToFederatedMavenRepositoryPtrOutputWithContext(ctx context.Context) FederatedMavenRepositoryPtrOutput
-}
-
-type federatedMavenRepositoryPtrType FederatedMavenRepositoryArgs
-
-func (*federatedMavenRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedMavenRepository)(nil))
-}
-
-func (i *federatedMavenRepositoryPtrType) ToFederatedMavenRepositoryPtrOutput() FederatedMavenRepositoryPtrOutput {
-	return i.ToFederatedMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedMavenRepositoryPtrType) ToFederatedMavenRepositoryPtrOutputWithContext(ctx context.Context) FederatedMavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedMavenRepositoryPtrOutput)
 }
 
 // FederatedMavenRepositoryArrayInput is an input type that accepts FederatedMavenRepositoryArray and FederatedMavenRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedMavenRepositoryMap) ToFederatedMavenRepositoryMapOutputWithCont
 type FederatedMavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedMavenRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedMavenRepository)(nil))
+	return reflect.TypeOf((**FederatedMavenRepository)(nil)).Elem()
 }
 
 func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryOutput() FederatedMavenRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryPtrOutput() FederatedMavenRepositoryPtrOutput {
-	return o.ToFederatedMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedMavenRepositoryOutput) ToFederatedMavenRepositoryPtrOutputWithContext(ctx context.Context) FederatedMavenRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedMavenRepository) *FederatedMavenRepository {
-		return &v
-	}).(FederatedMavenRepositoryPtrOutput)
-}
-
-type FederatedMavenRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedMavenRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedMavenRepository)(nil))
-}
-
-func (o FederatedMavenRepositoryPtrOutput) ToFederatedMavenRepositoryPtrOutput() FederatedMavenRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedMavenRepositoryPtrOutput) ToFederatedMavenRepositoryPtrOutputWithContext(ctx context.Context) FederatedMavenRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedMavenRepositoryPtrOutput) Elem() FederatedMavenRepositoryOutput {
-	return o.ApplyT(func(v *FederatedMavenRepository) FederatedMavenRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedMavenRepository
-		return ret
-	}).(FederatedMavenRepositoryOutput)
-}
-
 type FederatedMavenRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedMavenRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedMavenRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedMavenRepository)(nil)).Elem()
 }
 
 func (o FederatedMavenRepositoryArrayOutput) ToFederatedMavenRepositoryArrayOutput() FederatedMavenRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedMavenRepositoryArrayOutput) ToFederatedMavenRepositoryArrayOutp
 }
 
 func (o FederatedMavenRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedMavenRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedMavenRepository {
-		return vs[0].([]FederatedMavenRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedMavenRepository {
+		return vs[0].([]*FederatedMavenRepository)[vs[1].(int)]
 	}).(FederatedMavenRepositoryOutput)
 }
 
 type FederatedMavenRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedMavenRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedMavenRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedMavenRepository)(nil)).Elem()
 }
 
 func (o FederatedMavenRepositoryMapOutput) ToFederatedMavenRepositoryMapOutput() FederatedMavenRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedMavenRepositoryMapOutput) ToFederatedMavenRepositoryMapOutputWi
 }
 
 func (o FederatedMavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedMavenRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedMavenRepository {
-		return vs[0].(map[string]FederatedMavenRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedMavenRepository {
+		return vs[0].(map[string]*FederatedMavenRepository)[vs[1].(string)]
 	}).(FederatedMavenRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryInput)(nil)).Elem(), &FederatedMavenRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryPtrInput)(nil)).Elem(), &FederatedMavenRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryArrayInput)(nil)).Elem(), FederatedMavenRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedMavenRepositoryMapInput)(nil)).Elem(), FederatedMavenRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedMavenRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedMavenRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedMavenRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedMavenRepositoryMapOutput{})
 }

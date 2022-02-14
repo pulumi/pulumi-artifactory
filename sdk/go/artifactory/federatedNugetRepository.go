@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedNugetRepository(ctx, "terraform_federated_test_nuget_repo", &artifactory.FederatedNugetRepositoryArgs{
+// 		_, err := artifactory.NewFederatedNugetRepository(ctx, "terraform-federated-test-nuget-repo", &artifactory.FederatedNugetRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-nuget-repo"),
 // 			Members: FederatedNugetRepositoryMemberArray{
 // 				&FederatedNugetRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedNugetRepositoryInput interface {
 }
 
 func (*FederatedNugetRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedNugetRepository)(nil))
+	return reflect.TypeOf((**FederatedNugetRepository)(nil)).Elem()
 }
 
 func (i *FederatedNugetRepository) ToFederatedNugetRepositoryOutput() FederatedNugetRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedNugetRepository) ToFederatedNugetRepositoryOutput() FederatedN
 
 func (i *FederatedNugetRepository) ToFederatedNugetRepositoryOutputWithContext(ctx context.Context) FederatedNugetRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryOutput)
-}
-
-func (i *FederatedNugetRepository) ToFederatedNugetRepositoryPtrOutput() FederatedNugetRepositoryPtrOutput {
-	return i.ToFederatedNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedNugetRepository) ToFederatedNugetRepositoryPtrOutputWithContext(ctx context.Context) FederatedNugetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryPtrOutput)
-}
-
-type FederatedNugetRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedNugetRepositoryPtrOutput() FederatedNugetRepositoryPtrOutput
-	ToFederatedNugetRepositoryPtrOutputWithContext(ctx context.Context) FederatedNugetRepositoryPtrOutput
-}
-
-type federatedNugetRepositoryPtrType FederatedNugetRepositoryArgs
-
-func (*federatedNugetRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedNugetRepository)(nil))
-}
-
-func (i *federatedNugetRepositoryPtrType) ToFederatedNugetRepositoryPtrOutput() FederatedNugetRepositoryPtrOutput {
-	return i.ToFederatedNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedNugetRepositoryPtrType) ToFederatedNugetRepositoryPtrOutputWithContext(ctx context.Context) FederatedNugetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedNugetRepositoryPtrOutput)
 }
 
 // FederatedNugetRepositoryArrayInput is an input type that accepts FederatedNugetRepositoryArray and FederatedNugetRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedNugetRepositoryMap) ToFederatedNugetRepositoryMapOutputWithCont
 type FederatedNugetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedNugetRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedNugetRepository)(nil))
+	return reflect.TypeOf((**FederatedNugetRepository)(nil)).Elem()
 }
 
 func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryOutput() FederatedNugetRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryPtrOutput() FederatedNugetRepositoryPtrOutput {
-	return o.ToFederatedNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedNugetRepositoryOutput) ToFederatedNugetRepositoryPtrOutputWithContext(ctx context.Context) FederatedNugetRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedNugetRepository) *FederatedNugetRepository {
-		return &v
-	}).(FederatedNugetRepositoryPtrOutput)
-}
-
-type FederatedNugetRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedNugetRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedNugetRepository)(nil))
-}
-
-func (o FederatedNugetRepositoryPtrOutput) ToFederatedNugetRepositoryPtrOutput() FederatedNugetRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedNugetRepositoryPtrOutput) ToFederatedNugetRepositoryPtrOutputWithContext(ctx context.Context) FederatedNugetRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedNugetRepositoryPtrOutput) Elem() FederatedNugetRepositoryOutput {
-	return o.ApplyT(func(v *FederatedNugetRepository) FederatedNugetRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedNugetRepository
-		return ret
-	}).(FederatedNugetRepositoryOutput)
-}
-
 type FederatedNugetRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedNugetRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedNugetRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedNugetRepository)(nil)).Elem()
 }
 
 func (o FederatedNugetRepositoryArrayOutput) ToFederatedNugetRepositoryArrayOutput() FederatedNugetRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedNugetRepositoryArrayOutput) ToFederatedNugetRepositoryArrayOutp
 }
 
 func (o FederatedNugetRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedNugetRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedNugetRepository {
-		return vs[0].([]FederatedNugetRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedNugetRepository {
+		return vs[0].([]*FederatedNugetRepository)[vs[1].(int)]
 	}).(FederatedNugetRepositoryOutput)
 }
 
 type FederatedNugetRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedNugetRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedNugetRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedNugetRepository)(nil)).Elem()
 }
 
 func (o FederatedNugetRepositoryMapOutput) ToFederatedNugetRepositoryMapOutput() FederatedNugetRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedNugetRepositoryMapOutput) ToFederatedNugetRepositoryMapOutputWi
 }
 
 func (o FederatedNugetRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedNugetRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedNugetRepository {
-		return vs[0].(map[string]FederatedNugetRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedNugetRepository {
+		return vs[0].(map[string]*FederatedNugetRepository)[vs[1].(string)]
 	}).(FederatedNugetRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryInput)(nil)).Elem(), &FederatedNugetRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryPtrInput)(nil)).Elem(), &FederatedNugetRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryArrayInput)(nil)).Elem(), FederatedNugetRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedNugetRepositoryMapInput)(nil)).Elem(), FederatedNugetRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedNugetRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedNugetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedNugetRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedNugetRepositoryMapOutput{})
 }

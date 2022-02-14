@@ -55,19 +55,17 @@ export class ApiKey extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
-            inputs["apiKey"] = undefined /*out*/;
+            resourceInputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ApiKey.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -145,7 +145,7 @@ type XrayWatchInput interface {
 }
 
 func (*XrayWatch) ElementType() reflect.Type {
-	return reflect.TypeOf((*XrayWatch)(nil))
+	return reflect.TypeOf((**XrayWatch)(nil)).Elem()
 }
 
 func (i *XrayWatch) ToXrayWatchOutput() XrayWatchOutput {
@@ -154,35 +154,6 @@ func (i *XrayWatch) ToXrayWatchOutput() XrayWatchOutput {
 
 func (i *XrayWatch) ToXrayWatchOutputWithContext(ctx context.Context) XrayWatchOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(XrayWatchOutput)
-}
-
-func (i *XrayWatch) ToXrayWatchPtrOutput() XrayWatchPtrOutput {
-	return i.ToXrayWatchPtrOutputWithContext(context.Background())
-}
-
-func (i *XrayWatch) ToXrayWatchPtrOutputWithContext(ctx context.Context) XrayWatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XrayWatchPtrOutput)
-}
-
-type XrayWatchPtrInput interface {
-	pulumi.Input
-
-	ToXrayWatchPtrOutput() XrayWatchPtrOutput
-	ToXrayWatchPtrOutputWithContext(ctx context.Context) XrayWatchPtrOutput
-}
-
-type xrayWatchPtrType XrayWatchArgs
-
-func (*xrayWatchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**XrayWatch)(nil))
-}
-
-func (i *xrayWatchPtrType) ToXrayWatchPtrOutput() XrayWatchPtrOutput {
-	return i.ToXrayWatchPtrOutputWithContext(context.Background())
-}
-
-func (i *xrayWatchPtrType) ToXrayWatchPtrOutputWithContext(ctx context.Context) XrayWatchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XrayWatchPtrOutput)
 }
 
 // XrayWatchArrayInput is an input type that accepts XrayWatchArray and XrayWatchArrayOutput values.
@@ -238,7 +209,7 @@ func (i XrayWatchMap) ToXrayWatchMapOutputWithContext(ctx context.Context) XrayW
 type XrayWatchOutput struct{ *pulumi.OutputState }
 
 func (XrayWatchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XrayWatch)(nil))
+	return reflect.TypeOf((**XrayWatch)(nil)).Elem()
 }
 
 func (o XrayWatchOutput) ToXrayWatchOutput() XrayWatchOutput {
@@ -249,44 +220,10 @@ func (o XrayWatchOutput) ToXrayWatchOutputWithContext(ctx context.Context) XrayW
 	return o
 }
 
-func (o XrayWatchOutput) ToXrayWatchPtrOutput() XrayWatchPtrOutput {
-	return o.ToXrayWatchPtrOutputWithContext(context.Background())
-}
-
-func (o XrayWatchOutput) ToXrayWatchPtrOutputWithContext(ctx context.Context) XrayWatchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v XrayWatch) *XrayWatch {
-		return &v
-	}).(XrayWatchPtrOutput)
-}
-
-type XrayWatchPtrOutput struct{ *pulumi.OutputState }
-
-func (XrayWatchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**XrayWatch)(nil))
-}
-
-func (o XrayWatchPtrOutput) ToXrayWatchPtrOutput() XrayWatchPtrOutput {
-	return o
-}
-
-func (o XrayWatchPtrOutput) ToXrayWatchPtrOutputWithContext(ctx context.Context) XrayWatchPtrOutput {
-	return o
-}
-
-func (o XrayWatchPtrOutput) Elem() XrayWatchOutput {
-	return o.ApplyT(func(v *XrayWatch) XrayWatch {
-		if v != nil {
-			return *v
-		}
-		var ret XrayWatch
-		return ret
-	}).(XrayWatchOutput)
-}
-
 type XrayWatchArrayOutput struct{ *pulumi.OutputState }
 
 func (XrayWatchArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]XrayWatch)(nil))
+	return reflect.TypeOf((*[]*XrayWatch)(nil)).Elem()
 }
 
 func (o XrayWatchArrayOutput) ToXrayWatchArrayOutput() XrayWatchArrayOutput {
@@ -298,15 +235,15 @@ func (o XrayWatchArrayOutput) ToXrayWatchArrayOutputWithContext(ctx context.Cont
 }
 
 func (o XrayWatchArrayOutput) Index(i pulumi.IntInput) XrayWatchOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) XrayWatch {
-		return vs[0].([]XrayWatch)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *XrayWatch {
+		return vs[0].([]*XrayWatch)[vs[1].(int)]
 	}).(XrayWatchOutput)
 }
 
 type XrayWatchMapOutput struct{ *pulumi.OutputState }
 
 func (XrayWatchMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]XrayWatch)(nil))
+	return reflect.TypeOf((*map[string]*XrayWatch)(nil)).Elem()
 }
 
 func (o XrayWatchMapOutput) ToXrayWatchMapOutput() XrayWatchMapOutput {
@@ -318,18 +255,16 @@ func (o XrayWatchMapOutput) ToXrayWatchMapOutputWithContext(ctx context.Context)
 }
 
 func (o XrayWatchMapOutput) MapIndex(k pulumi.StringInput) XrayWatchOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) XrayWatch {
-		return vs[0].(map[string]XrayWatch)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *XrayWatch {
+		return vs[0].(map[string]*XrayWatch)[vs[1].(string)]
 	}).(XrayWatchOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayWatchInput)(nil)).Elem(), &XrayWatch{})
-	pulumi.RegisterInputType(reflect.TypeOf((*XrayWatchPtrInput)(nil)).Elem(), &XrayWatch{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayWatchArrayInput)(nil)).Elem(), XrayWatchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayWatchMapInput)(nil)).Elem(), XrayWatchMap{})
 	pulumi.RegisterOutputType(XrayWatchOutput{})
-	pulumi.RegisterOutputType(XrayWatchPtrOutput{})
 	pulumi.RegisterOutputType(XrayWatchArrayOutput{})
 	pulumi.RegisterOutputType(XrayWatchMapOutput{})
 }

@@ -93,70 +93,68 @@ export class LocalRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocalRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocalRepositoryArgs | LocalRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalRepositoryState | undefined;
-            inputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = state ? state.blackedOut : undefined;
-            inputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
-            inputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
-            inputs["debianTrivialLayout"] = state ? state.debianTrivialLayout : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dockerApiVersion"] = state ? state.dockerApiVersion : undefined;
-            inputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
-            inputs["handleReleases"] = state ? state.handleReleases : undefined;
-            inputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
-            inputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["propertySets"] = state ? state.propertySets : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["snapshotVersionBehavior"] = state ? state.snapshotVersionBehavior : undefined;
-            inputs["suppressPomConsistencyChecks"] = state ? state.suppressPomConsistencyChecks : undefined;
-            inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
-            inputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
+            resourceInputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
+            resourceInputs["debianTrivialLayout"] = state ? state.debianTrivialLayout : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dockerApiVersion"] = state ? state.dockerApiVersion : undefined;
+            resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
+            resourceInputs["handleReleases"] = state ? state.handleReleases : undefined;
+            resourceInputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
+            resourceInputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["snapshotVersionBehavior"] = state ? state.snapshotVersionBehavior : undefined;
+            resourceInputs["suppressPomConsistencyChecks"] = state ? state.suppressPomConsistencyChecks : undefined;
+            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
         } else {
             const args = argsOrState as LocalRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = args ? args.blackedOut : undefined;
-            inputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
-            inputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
-            inputs["debianTrivialLayout"] = args ? args.debianTrivialLayout : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dockerApiVersion"] = args ? args.dockerApiVersion : undefined;
-            inputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
-            inputs["handleReleases"] = args ? args.handleReleases : undefined;
-            inputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
-            inputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["packageType"] = args ? args.packageType : undefined;
-            inputs["propertySets"] = args ? args.propertySets : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["snapshotVersionBehavior"] = args ? args.snapshotVersionBehavior : undefined;
-            inputs["suppressPomConsistencyChecks"] = args ? args.suppressPomConsistencyChecks : undefined;
-            inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            inputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
+            resourceInputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
+            resourceInputs["debianTrivialLayout"] = args ? args.debianTrivialLayout : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dockerApiVersion"] = args ? args.dockerApiVersion : undefined;
+            resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
+            resourceInputs["handleReleases"] = args ? args.handleReleases : undefined;
+            resourceInputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
+            resourceInputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["packageType"] = args ? args.packageType : undefined;
+            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["snapshotVersionBehavior"] = args ? args.snapshotVersionBehavior : undefined;
+            resourceInputs["suppressPomConsistencyChecks"] = args ? args.suppressPomConsistencyChecks : undefined;
+            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedPuppetRepository(ctx, "terraform_federated_test_puppet_repo", &artifactory.FederatedPuppetRepositoryArgs{
+// 		_, err := artifactory.NewFederatedPuppetRepository(ctx, "terraform-federated-test-puppet-repo", &artifactory.FederatedPuppetRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-puppet-repo"),
 // 			Members: FederatedPuppetRepositoryMemberArray{
 // 				&FederatedPuppetRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedPuppetRepositoryInput interface {
 }
 
 func (*FederatedPuppetRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedPuppetRepository)(nil))
+	return reflect.TypeOf((**FederatedPuppetRepository)(nil)).Elem()
 }
 
 func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryOutput() FederatedPuppetRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryOutput() Federate
 
 func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryOutputWithContext(ctx context.Context) FederatedPuppetRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedPuppetRepositoryOutput)
-}
-
-func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryPtrOutput() FederatedPuppetRepositoryPtrOutput {
-	return i.ToFederatedPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryPtrOutputWithContext(ctx context.Context) FederatedPuppetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedPuppetRepositoryPtrOutput)
-}
-
-type FederatedPuppetRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedPuppetRepositoryPtrOutput() FederatedPuppetRepositoryPtrOutput
-	ToFederatedPuppetRepositoryPtrOutputWithContext(ctx context.Context) FederatedPuppetRepositoryPtrOutput
-}
-
-type federatedPuppetRepositoryPtrType FederatedPuppetRepositoryArgs
-
-func (*federatedPuppetRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedPuppetRepository)(nil))
-}
-
-func (i *federatedPuppetRepositoryPtrType) ToFederatedPuppetRepositoryPtrOutput() FederatedPuppetRepositoryPtrOutput {
-	return i.ToFederatedPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedPuppetRepositoryPtrType) ToFederatedPuppetRepositoryPtrOutputWithContext(ctx context.Context) FederatedPuppetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedPuppetRepositoryPtrOutput)
 }
 
 // FederatedPuppetRepositoryArrayInput is an input type that accepts FederatedPuppetRepositoryArray and FederatedPuppetRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedPuppetRepositoryMap) ToFederatedPuppetRepositoryMapOutputWithCo
 type FederatedPuppetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedPuppetRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedPuppetRepository)(nil))
+	return reflect.TypeOf((**FederatedPuppetRepository)(nil)).Elem()
 }
 
 func (o FederatedPuppetRepositoryOutput) ToFederatedPuppetRepositoryOutput() FederatedPuppetRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedPuppetRepositoryOutput) ToFederatedPuppetRepositoryOutputWithCo
 	return o
 }
 
-func (o FederatedPuppetRepositoryOutput) ToFederatedPuppetRepositoryPtrOutput() FederatedPuppetRepositoryPtrOutput {
-	return o.ToFederatedPuppetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedPuppetRepositoryOutput) ToFederatedPuppetRepositoryPtrOutputWithContext(ctx context.Context) FederatedPuppetRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedPuppetRepository) *FederatedPuppetRepository {
-		return &v
-	}).(FederatedPuppetRepositoryPtrOutput)
-}
-
-type FederatedPuppetRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedPuppetRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedPuppetRepository)(nil))
-}
-
-func (o FederatedPuppetRepositoryPtrOutput) ToFederatedPuppetRepositoryPtrOutput() FederatedPuppetRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedPuppetRepositoryPtrOutput) ToFederatedPuppetRepositoryPtrOutputWithContext(ctx context.Context) FederatedPuppetRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedPuppetRepositoryPtrOutput) Elem() FederatedPuppetRepositoryOutput {
-	return o.ApplyT(func(v *FederatedPuppetRepository) FederatedPuppetRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedPuppetRepository
-		return ret
-	}).(FederatedPuppetRepositoryOutput)
-}
-
 type FederatedPuppetRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedPuppetRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedPuppetRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedPuppetRepository)(nil)).Elem()
 }
 
 func (o FederatedPuppetRepositoryArrayOutput) ToFederatedPuppetRepositoryArrayOutput() FederatedPuppetRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedPuppetRepositoryArrayOutput) ToFederatedPuppetRepositoryArrayOu
 }
 
 func (o FederatedPuppetRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedPuppetRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedPuppetRepository {
-		return vs[0].([]FederatedPuppetRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedPuppetRepository {
+		return vs[0].([]*FederatedPuppetRepository)[vs[1].(int)]
 	}).(FederatedPuppetRepositoryOutput)
 }
 
 type FederatedPuppetRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedPuppetRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedPuppetRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedPuppetRepository)(nil)).Elem()
 }
 
 func (o FederatedPuppetRepositoryMapOutput) ToFederatedPuppetRepositoryMapOutput() FederatedPuppetRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedPuppetRepositoryMapOutput) ToFederatedPuppetRepositoryMapOutput
 }
 
 func (o FederatedPuppetRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedPuppetRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedPuppetRepository {
-		return vs[0].(map[string]FederatedPuppetRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedPuppetRepository {
+		return vs[0].(map[string]*FederatedPuppetRepository)[vs[1].(string)]
 	}).(FederatedPuppetRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryInput)(nil)).Elem(), &FederatedPuppetRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryPtrInput)(nil)).Elem(), &FederatedPuppetRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryArrayInput)(nil)).Elem(), FederatedPuppetRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedPuppetRepositoryMapInput)(nil)).Elem(), FederatedPuppetRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedPuppetRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedPuppetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedPuppetRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedPuppetRepositoryMapOutput{})
 }

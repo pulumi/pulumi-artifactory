@@ -47,7 +47,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewPullReplication(ctx, "foo_rep", &artifactory.PullReplicationArgs{
+// 		_, err = artifactory.NewPullReplication(ctx, "foo-rep", &artifactory.PullReplicationArgs{
 // 			CronExp:                pulumi.String("0 0 * * * ?"),
 // 			EnableEventReplication: pulumi.Bool(true),
 // 			RepoKey:                providerTestDest.Key,
@@ -199,7 +199,7 @@ type PullReplicationInput interface {
 }
 
 func (*PullReplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*PullReplication)(nil))
+	return reflect.TypeOf((**PullReplication)(nil)).Elem()
 }
 
 func (i *PullReplication) ToPullReplicationOutput() PullReplicationOutput {
@@ -208,35 +208,6 @@ func (i *PullReplication) ToPullReplicationOutput() PullReplicationOutput {
 
 func (i *PullReplication) ToPullReplicationOutputWithContext(ctx context.Context) PullReplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationOutput)
-}
-
-func (i *PullReplication) ToPullReplicationPtrOutput() PullReplicationPtrOutput {
-	return i.ToPullReplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *PullReplication) ToPullReplicationPtrOutputWithContext(ctx context.Context) PullReplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationPtrOutput)
-}
-
-type PullReplicationPtrInput interface {
-	pulumi.Input
-
-	ToPullReplicationPtrOutput() PullReplicationPtrOutput
-	ToPullReplicationPtrOutputWithContext(ctx context.Context) PullReplicationPtrOutput
-}
-
-type pullReplicationPtrType PullReplicationArgs
-
-func (*pullReplicationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PullReplication)(nil))
-}
-
-func (i *pullReplicationPtrType) ToPullReplicationPtrOutput() PullReplicationPtrOutput {
-	return i.ToPullReplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *pullReplicationPtrType) ToPullReplicationPtrOutputWithContext(ctx context.Context) PullReplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PullReplicationPtrOutput)
 }
 
 // PullReplicationArrayInput is an input type that accepts PullReplicationArray and PullReplicationArrayOutput values.
@@ -292,7 +263,7 @@ func (i PullReplicationMap) ToPullReplicationMapOutputWithContext(ctx context.Co
 type PullReplicationOutput struct{ *pulumi.OutputState }
 
 func (PullReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PullReplication)(nil))
+	return reflect.TypeOf((**PullReplication)(nil)).Elem()
 }
 
 func (o PullReplicationOutput) ToPullReplicationOutput() PullReplicationOutput {
@@ -303,44 +274,10 @@ func (o PullReplicationOutput) ToPullReplicationOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o PullReplicationOutput) ToPullReplicationPtrOutput() PullReplicationPtrOutput {
-	return o.ToPullReplicationPtrOutputWithContext(context.Background())
-}
-
-func (o PullReplicationOutput) ToPullReplicationPtrOutputWithContext(ctx context.Context) PullReplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PullReplication) *PullReplication {
-		return &v
-	}).(PullReplicationPtrOutput)
-}
-
-type PullReplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (PullReplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PullReplication)(nil))
-}
-
-func (o PullReplicationPtrOutput) ToPullReplicationPtrOutput() PullReplicationPtrOutput {
-	return o
-}
-
-func (o PullReplicationPtrOutput) ToPullReplicationPtrOutputWithContext(ctx context.Context) PullReplicationPtrOutput {
-	return o
-}
-
-func (o PullReplicationPtrOutput) Elem() PullReplicationOutput {
-	return o.ApplyT(func(v *PullReplication) PullReplication {
-		if v != nil {
-			return *v
-		}
-		var ret PullReplication
-		return ret
-	}).(PullReplicationOutput)
-}
-
 type PullReplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (PullReplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PullReplication)(nil))
+	return reflect.TypeOf((*[]*PullReplication)(nil)).Elem()
 }
 
 func (o PullReplicationArrayOutput) ToPullReplicationArrayOutput() PullReplicationArrayOutput {
@@ -352,15 +289,15 @@ func (o PullReplicationArrayOutput) ToPullReplicationArrayOutputWithContext(ctx 
 }
 
 func (o PullReplicationArrayOutput) Index(i pulumi.IntInput) PullReplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PullReplication {
-		return vs[0].([]PullReplication)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PullReplication {
+		return vs[0].([]*PullReplication)[vs[1].(int)]
 	}).(PullReplicationOutput)
 }
 
 type PullReplicationMapOutput struct{ *pulumi.OutputState }
 
 func (PullReplicationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PullReplication)(nil))
+	return reflect.TypeOf((*map[string]*PullReplication)(nil)).Elem()
 }
 
 func (o PullReplicationMapOutput) ToPullReplicationMapOutput() PullReplicationMapOutput {
@@ -372,18 +309,16 @@ func (o PullReplicationMapOutput) ToPullReplicationMapOutputWithContext(ctx cont
 }
 
 func (o PullReplicationMapOutput) MapIndex(k pulumi.StringInput) PullReplicationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PullReplication {
-		return vs[0].(map[string]PullReplication)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PullReplication {
+		return vs[0].(map[string]*PullReplication)[vs[1].(string)]
 	}).(PullReplicationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PullReplicationInput)(nil)).Elem(), &PullReplication{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PullReplicationPtrInput)(nil)).Elem(), &PullReplication{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PullReplicationArrayInput)(nil)).Elem(), PullReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PullReplicationMapInput)(nil)).Elem(), PullReplicationMap{})
 	pulumi.RegisterOutputType(PullReplicationOutput{})
-	pulumi.RegisterOutputType(PullReplicationPtrOutput{})
 	pulumi.RegisterOutputType(PullReplicationArrayOutput{})
 	pulumi.RegisterOutputType(PullReplicationMapOutput{})
 }

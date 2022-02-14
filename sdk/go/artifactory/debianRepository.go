@@ -38,7 +38,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some_keypairGPG1", &artifactory.KeypairArgs{
+// 		_, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
 // 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias1"),
@@ -48,7 +48,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewKeypair(ctx, "some_keypairGPG2", &artifactory.KeypairArgs{
+// 		_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
 // 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair4", random_id.Randid.Id)),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias2"),
@@ -58,7 +58,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewDebianRepository(ctx, "my_debian_repo", &artifactory.DebianRepositoryArgs{
+// 		_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
 // 			Key:                 pulumi.String("my-debian-repo"),
 // 			PrimaryKeypairRef:   some_keypairGPG1.PairName,
 // 			SecondaryKeypairRef: some_keypairGPG2.PairName,
@@ -282,7 +282,7 @@ type DebianRepositoryInput interface {
 }
 
 func (*DebianRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*DebianRepository)(nil))
+	return reflect.TypeOf((**DebianRepository)(nil)).Elem()
 }
 
 func (i *DebianRepository) ToDebianRepositoryOutput() DebianRepositoryOutput {
@@ -291,35 +291,6 @@ func (i *DebianRepository) ToDebianRepositoryOutput() DebianRepositoryOutput {
 
 func (i *DebianRepository) ToDebianRepositoryOutputWithContext(ctx context.Context) DebianRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryOutput)
-}
-
-func (i *DebianRepository) ToDebianRepositoryPtrOutput() DebianRepositoryPtrOutput {
-	return i.ToDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *DebianRepository) ToDebianRepositoryPtrOutputWithContext(ctx context.Context) DebianRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryPtrOutput)
-}
-
-type DebianRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToDebianRepositoryPtrOutput() DebianRepositoryPtrOutput
-	ToDebianRepositoryPtrOutputWithContext(ctx context.Context) DebianRepositoryPtrOutput
-}
-
-type debianRepositoryPtrType DebianRepositoryArgs
-
-func (*debianRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DebianRepository)(nil))
-}
-
-func (i *debianRepositoryPtrType) ToDebianRepositoryPtrOutput() DebianRepositoryPtrOutput {
-	return i.ToDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *debianRepositoryPtrType) ToDebianRepositoryPtrOutputWithContext(ctx context.Context) DebianRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DebianRepositoryPtrOutput)
 }
 
 // DebianRepositoryArrayInput is an input type that accepts DebianRepositoryArray and DebianRepositoryArrayOutput values.
@@ -375,7 +346,7 @@ func (i DebianRepositoryMap) ToDebianRepositoryMapOutputWithContext(ctx context.
 type DebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (DebianRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DebianRepository)(nil))
+	return reflect.TypeOf((**DebianRepository)(nil)).Elem()
 }
 
 func (o DebianRepositoryOutput) ToDebianRepositoryOutput() DebianRepositoryOutput {
@@ -386,44 +357,10 @@ func (o DebianRepositoryOutput) ToDebianRepositoryOutputWithContext(ctx context.
 	return o
 }
 
-func (o DebianRepositoryOutput) ToDebianRepositoryPtrOutput() DebianRepositoryPtrOutput {
-	return o.ToDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o DebianRepositoryOutput) ToDebianRepositoryPtrOutputWithContext(ctx context.Context) DebianRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DebianRepository) *DebianRepository {
-		return &v
-	}).(DebianRepositoryPtrOutput)
-}
-
-type DebianRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (DebianRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DebianRepository)(nil))
-}
-
-func (o DebianRepositoryPtrOutput) ToDebianRepositoryPtrOutput() DebianRepositoryPtrOutput {
-	return o
-}
-
-func (o DebianRepositoryPtrOutput) ToDebianRepositoryPtrOutputWithContext(ctx context.Context) DebianRepositoryPtrOutput {
-	return o
-}
-
-func (o DebianRepositoryPtrOutput) Elem() DebianRepositoryOutput {
-	return o.ApplyT(func(v *DebianRepository) DebianRepository {
-		if v != nil {
-			return *v
-		}
-		var ret DebianRepository
-		return ret
-	}).(DebianRepositoryOutput)
-}
-
 type DebianRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (DebianRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DebianRepository)(nil))
+	return reflect.TypeOf((*[]*DebianRepository)(nil)).Elem()
 }
 
 func (o DebianRepositoryArrayOutput) ToDebianRepositoryArrayOutput() DebianRepositoryArrayOutput {
@@ -435,15 +372,15 @@ func (o DebianRepositoryArrayOutput) ToDebianRepositoryArrayOutputWithContext(ct
 }
 
 func (o DebianRepositoryArrayOutput) Index(i pulumi.IntInput) DebianRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DebianRepository {
-		return vs[0].([]DebianRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DebianRepository {
+		return vs[0].([]*DebianRepository)[vs[1].(int)]
 	}).(DebianRepositoryOutput)
 }
 
 type DebianRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (DebianRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DebianRepository)(nil))
+	return reflect.TypeOf((*map[string]*DebianRepository)(nil)).Elem()
 }
 
 func (o DebianRepositoryMapOutput) ToDebianRepositoryMapOutput() DebianRepositoryMapOutput {
@@ -455,18 +392,16 @@ func (o DebianRepositoryMapOutput) ToDebianRepositoryMapOutputWithContext(ctx co
 }
 
 func (o DebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) DebianRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DebianRepository {
-		return vs[0].(map[string]DebianRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DebianRepository {
+		return vs[0].(map[string]*DebianRepository)[vs[1].(string)]
 	}).(DebianRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryInput)(nil)).Elem(), &DebianRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryPtrInput)(nil)).Elem(), &DebianRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryArrayInput)(nil)).Elem(), DebianRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DebianRepositoryMapInput)(nil)).Elem(), DebianRepositoryMap{})
 	pulumi.RegisterOutputType(DebianRepositoryOutput{})
-	pulumi.RegisterOutputType(DebianRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(DebianRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(DebianRepositoryMapOutput{})
 }

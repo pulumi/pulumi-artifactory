@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCranRepository(ctx, "terraform_local_test_cran_repo", &artifactory.LocalCranRepositoryArgs{
+// 		_, err := artifactory.NewLocalCranRepository(ctx, "terraform-local-test-cran-repo", &artifactory.LocalCranRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-cran-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalCranRepositoryInput interface {
 }
 
 func (*LocalCranRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalCranRepository)(nil))
+	return reflect.TypeOf((**LocalCranRepository)(nil)).Elem()
 }
 
 func (i *LocalCranRepository) ToLocalCranRepositoryOutput() LocalCranRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalCranRepository) ToLocalCranRepositoryOutput() LocalCranRepositoryO
 
 func (i *LocalCranRepository) ToLocalCranRepositoryOutputWithContext(ctx context.Context) LocalCranRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryOutput)
-}
-
-func (i *LocalCranRepository) ToLocalCranRepositoryPtrOutput() LocalCranRepositoryPtrOutput {
-	return i.ToLocalCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalCranRepository) ToLocalCranRepositoryPtrOutputWithContext(ctx context.Context) LocalCranRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryPtrOutput)
-}
-
-type LocalCranRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalCranRepositoryPtrOutput() LocalCranRepositoryPtrOutput
-	ToLocalCranRepositoryPtrOutputWithContext(ctx context.Context) LocalCranRepositoryPtrOutput
-}
-
-type localCranRepositoryPtrType LocalCranRepositoryArgs
-
-func (*localCranRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalCranRepository)(nil))
-}
-
-func (i *localCranRepositoryPtrType) ToLocalCranRepositoryPtrOutput() LocalCranRepositoryPtrOutput {
-	return i.ToLocalCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localCranRepositoryPtrType) ToLocalCranRepositoryPtrOutputWithContext(ctx context.Context) LocalCranRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalCranRepositoryPtrOutput)
 }
 
 // LocalCranRepositoryArrayInput is an input type that accepts LocalCranRepositoryArray and LocalCranRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalCranRepositoryMap) ToLocalCranRepositoryMapOutputWithContext(ctx co
 type LocalCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCranRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalCranRepository)(nil))
+	return reflect.TypeOf((**LocalCranRepository)(nil)).Elem()
 }
 
 func (o LocalCranRepositoryOutput) ToLocalCranRepositoryOutput() LocalCranRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalCranRepositoryOutput) ToLocalCranRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalCranRepositoryOutput) ToLocalCranRepositoryPtrOutput() LocalCranRepositoryPtrOutput {
-	return o.ToLocalCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalCranRepositoryOutput) ToLocalCranRepositoryPtrOutputWithContext(ctx context.Context) LocalCranRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalCranRepository) *LocalCranRepository {
-		return &v
-	}).(LocalCranRepositoryPtrOutput)
-}
-
-type LocalCranRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalCranRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalCranRepository)(nil))
-}
-
-func (o LocalCranRepositoryPtrOutput) ToLocalCranRepositoryPtrOutput() LocalCranRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalCranRepositoryPtrOutput) ToLocalCranRepositoryPtrOutputWithContext(ctx context.Context) LocalCranRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalCranRepositoryPtrOutput) Elem() LocalCranRepositoryOutput {
-	return o.ApplyT(func(v *LocalCranRepository) LocalCranRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalCranRepository
-		return ret
-	}).(LocalCranRepositoryOutput)
-}
-
 type LocalCranRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalCranRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalCranRepository)(nil))
+	return reflect.TypeOf((*[]*LocalCranRepository)(nil)).Elem()
 }
 
 func (o LocalCranRepositoryArrayOutput) ToLocalCranRepositoryArrayOutput() LocalCranRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalCranRepositoryArrayOutput) ToLocalCranRepositoryArrayOutputWithCont
 }
 
 func (o LocalCranRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCranRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalCranRepository {
-		return vs[0].([]LocalCranRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCranRepository {
+		return vs[0].([]*LocalCranRepository)[vs[1].(int)]
 	}).(LocalCranRepositoryOutput)
 }
 
 type LocalCranRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalCranRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalCranRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalCranRepository)(nil)).Elem()
 }
 
 func (o LocalCranRepositoryMapOutput) ToLocalCranRepositoryMapOutput() LocalCranRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalCranRepositoryMapOutput) ToLocalCranRepositoryMapOutputWithContext(
 }
 
 func (o LocalCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCranRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalCranRepository {
-		return vs[0].(map[string]LocalCranRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalCranRepository {
+		return vs[0].(map[string]*LocalCranRepository)[vs[1].(string)]
 	}).(LocalCranRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCranRepositoryInput)(nil)).Elem(), &LocalCranRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalCranRepositoryPtrInput)(nil)).Elem(), &LocalCranRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCranRepositoryArrayInput)(nil)).Elem(), LocalCranRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCranRepositoryMapInput)(nil)).Elem(), LocalCranRepositoryMap{})
 	pulumi.RegisterOutputType(LocalCranRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalCranRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalCranRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalCranRepositoryMapOutput{})
 }

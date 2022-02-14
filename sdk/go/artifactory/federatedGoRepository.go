@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGoRepository(ctx, "terraform_federated_test_go_repo", &artifactory.FederatedGoRepositoryArgs{
+// 		_, err := artifactory.NewFederatedGoRepository(ctx, "terraform-federated-test-go-repo", &artifactory.FederatedGoRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-go-repo"),
 // 			Members: FederatedGoRepositoryMemberArray{
 // 				&FederatedGoRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedGoRepositoryInput interface {
 }
 
 func (*FederatedGoRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGoRepository)(nil))
+	return reflect.TypeOf((**FederatedGoRepository)(nil)).Elem()
 }
 
 func (i *FederatedGoRepository) ToFederatedGoRepositoryOutput() FederatedGoRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedGoRepository) ToFederatedGoRepositoryOutput() FederatedGoRepos
 
 func (i *FederatedGoRepository) ToFederatedGoRepositoryOutputWithContext(ctx context.Context) FederatedGoRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGoRepositoryOutput)
-}
-
-func (i *FederatedGoRepository) ToFederatedGoRepositoryPtrOutput() FederatedGoRepositoryPtrOutput {
-	return i.ToFederatedGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedGoRepository) ToFederatedGoRepositoryPtrOutputWithContext(ctx context.Context) FederatedGoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGoRepositoryPtrOutput)
-}
-
-type FederatedGoRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedGoRepositoryPtrOutput() FederatedGoRepositoryPtrOutput
-	ToFederatedGoRepositoryPtrOutputWithContext(ctx context.Context) FederatedGoRepositoryPtrOutput
-}
-
-type federatedGoRepositoryPtrType FederatedGoRepositoryArgs
-
-func (*federatedGoRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGoRepository)(nil))
-}
-
-func (i *federatedGoRepositoryPtrType) ToFederatedGoRepositoryPtrOutput() FederatedGoRepositoryPtrOutput {
-	return i.ToFederatedGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedGoRepositoryPtrType) ToFederatedGoRepositoryPtrOutputWithContext(ctx context.Context) FederatedGoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGoRepositoryPtrOutput)
 }
 
 // FederatedGoRepositoryArrayInput is an input type that accepts FederatedGoRepositoryArray and FederatedGoRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedGoRepositoryMap) ToFederatedGoRepositoryMapOutputWithContext(ct
 type FederatedGoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGoRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGoRepository)(nil))
+	return reflect.TypeOf((**FederatedGoRepository)(nil)).Elem()
 }
 
 func (o FederatedGoRepositoryOutput) ToFederatedGoRepositoryOutput() FederatedGoRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedGoRepositoryOutput) ToFederatedGoRepositoryOutputWithContext(ct
 	return o
 }
 
-func (o FederatedGoRepositoryOutput) ToFederatedGoRepositoryPtrOutput() FederatedGoRepositoryPtrOutput {
-	return o.ToFederatedGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedGoRepositoryOutput) ToFederatedGoRepositoryPtrOutputWithContext(ctx context.Context) FederatedGoRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedGoRepository) *FederatedGoRepository {
-		return &v
-	}).(FederatedGoRepositoryPtrOutput)
-}
-
-type FederatedGoRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedGoRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGoRepository)(nil))
-}
-
-func (o FederatedGoRepositoryPtrOutput) ToFederatedGoRepositoryPtrOutput() FederatedGoRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGoRepositoryPtrOutput) ToFederatedGoRepositoryPtrOutputWithContext(ctx context.Context) FederatedGoRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGoRepositoryPtrOutput) Elem() FederatedGoRepositoryOutput {
-	return o.ApplyT(func(v *FederatedGoRepository) FederatedGoRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedGoRepository
-		return ret
-	}).(FederatedGoRepositoryOutput)
-}
-
 type FederatedGoRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedGoRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedGoRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedGoRepository)(nil)).Elem()
 }
 
 func (o FederatedGoRepositoryArrayOutput) ToFederatedGoRepositoryArrayOutput() FederatedGoRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedGoRepositoryArrayOutput) ToFederatedGoRepositoryArrayOutputWith
 }
 
 func (o FederatedGoRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGoRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedGoRepository {
-		return vs[0].([]FederatedGoRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGoRepository {
+		return vs[0].([]*FederatedGoRepository)[vs[1].(int)]
 	}).(FederatedGoRepositoryOutput)
 }
 
 type FederatedGoRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedGoRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedGoRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedGoRepository)(nil)).Elem()
 }
 
 func (o FederatedGoRepositoryMapOutput) ToFederatedGoRepositoryMapOutput() FederatedGoRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedGoRepositoryMapOutput) ToFederatedGoRepositoryMapOutputWithCont
 }
 
 func (o FederatedGoRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGoRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedGoRepository {
-		return vs[0].(map[string]FederatedGoRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedGoRepository {
+		return vs[0].(map[string]*FederatedGoRepository)[vs[1].(string)]
 	}).(FederatedGoRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGoRepositoryInput)(nil)).Elem(), &FederatedGoRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGoRepositoryPtrInput)(nil)).Elem(), &FederatedGoRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGoRepositoryArrayInput)(nil)).Elem(), FederatedGoRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGoRepositoryMapInput)(nil)).Elem(), FederatedGoRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedGoRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedGoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedGoRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGoRepositoryMapOutput{})
 }

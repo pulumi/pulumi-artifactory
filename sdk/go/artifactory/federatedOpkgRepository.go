@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedOpkgRepository(ctx, "terraform_federated_test_opkg_repo", &artifactory.FederatedOpkgRepositoryArgs{
+// 		_, err := artifactory.NewFederatedOpkgRepository(ctx, "terraform-federated-test-opkg-repo", &artifactory.FederatedOpkgRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-opkg-repo"),
 // 			Members: FederatedOpkgRepositoryMemberArray{
 // 				&FederatedOpkgRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedOpkgRepositoryInput interface {
 }
 
 func (*FederatedOpkgRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedOpkgRepository)(nil))
+	return reflect.TypeOf((**FederatedOpkgRepository)(nil)).Elem()
 }
 
 func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryOutput() FederatedOpkgRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryOutput() FederatedOpk
 
 func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryOutputWithContext(ctx context.Context) FederatedOpkgRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedOpkgRepositoryOutput)
-}
-
-func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryPtrOutput() FederatedOpkgRepositoryPtrOutput {
-	return i.ToFederatedOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryPtrOutputWithContext(ctx context.Context) FederatedOpkgRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedOpkgRepositoryPtrOutput)
-}
-
-type FederatedOpkgRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedOpkgRepositoryPtrOutput() FederatedOpkgRepositoryPtrOutput
-	ToFederatedOpkgRepositoryPtrOutputWithContext(ctx context.Context) FederatedOpkgRepositoryPtrOutput
-}
-
-type federatedOpkgRepositoryPtrType FederatedOpkgRepositoryArgs
-
-func (*federatedOpkgRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedOpkgRepository)(nil))
-}
-
-func (i *federatedOpkgRepositoryPtrType) ToFederatedOpkgRepositoryPtrOutput() FederatedOpkgRepositoryPtrOutput {
-	return i.ToFederatedOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedOpkgRepositoryPtrType) ToFederatedOpkgRepositoryPtrOutputWithContext(ctx context.Context) FederatedOpkgRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedOpkgRepositoryPtrOutput)
 }
 
 // FederatedOpkgRepositoryArrayInput is an input type that accepts FederatedOpkgRepositoryArray and FederatedOpkgRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedOpkgRepositoryMap) ToFederatedOpkgRepositoryMapOutputWithContex
 type FederatedOpkgRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedOpkgRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedOpkgRepository)(nil))
+	return reflect.TypeOf((**FederatedOpkgRepository)(nil)).Elem()
 }
 
 func (o FederatedOpkgRepositoryOutput) ToFederatedOpkgRepositoryOutput() FederatedOpkgRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedOpkgRepositoryOutput) ToFederatedOpkgRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedOpkgRepositoryOutput) ToFederatedOpkgRepositoryPtrOutput() FederatedOpkgRepositoryPtrOutput {
-	return o.ToFederatedOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedOpkgRepositoryOutput) ToFederatedOpkgRepositoryPtrOutputWithContext(ctx context.Context) FederatedOpkgRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedOpkgRepository) *FederatedOpkgRepository {
-		return &v
-	}).(FederatedOpkgRepositoryPtrOutput)
-}
-
-type FederatedOpkgRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedOpkgRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedOpkgRepository)(nil))
-}
-
-func (o FederatedOpkgRepositoryPtrOutput) ToFederatedOpkgRepositoryPtrOutput() FederatedOpkgRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedOpkgRepositoryPtrOutput) ToFederatedOpkgRepositoryPtrOutputWithContext(ctx context.Context) FederatedOpkgRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedOpkgRepositoryPtrOutput) Elem() FederatedOpkgRepositoryOutput {
-	return o.ApplyT(func(v *FederatedOpkgRepository) FederatedOpkgRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedOpkgRepository
-		return ret
-	}).(FederatedOpkgRepositoryOutput)
-}
-
 type FederatedOpkgRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedOpkgRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedOpkgRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedOpkgRepository)(nil)).Elem()
 }
 
 func (o FederatedOpkgRepositoryArrayOutput) ToFederatedOpkgRepositoryArrayOutput() FederatedOpkgRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedOpkgRepositoryArrayOutput) ToFederatedOpkgRepositoryArrayOutput
 }
 
 func (o FederatedOpkgRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedOpkgRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedOpkgRepository {
-		return vs[0].([]FederatedOpkgRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedOpkgRepository {
+		return vs[0].([]*FederatedOpkgRepository)[vs[1].(int)]
 	}).(FederatedOpkgRepositoryOutput)
 }
 
 type FederatedOpkgRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedOpkgRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedOpkgRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedOpkgRepository)(nil)).Elem()
 }
 
 func (o FederatedOpkgRepositoryMapOutput) ToFederatedOpkgRepositoryMapOutput() FederatedOpkgRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedOpkgRepositoryMapOutput) ToFederatedOpkgRepositoryMapOutputWith
 }
 
 func (o FederatedOpkgRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedOpkgRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedOpkgRepository {
-		return vs[0].(map[string]FederatedOpkgRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedOpkgRepository {
+		return vs[0].(map[string]*FederatedOpkgRepository)[vs[1].(string)]
 	}).(FederatedOpkgRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryInput)(nil)).Elem(), &FederatedOpkgRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryPtrInput)(nil)).Elem(), &FederatedOpkgRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryArrayInput)(nil)).Elem(), FederatedOpkgRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedOpkgRepositoryMapInput)(nil)).Elem(), FederatedOpkgRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedOpkgRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedOpkgRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedOpkgRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedOpkgRepositoryMapOutput{})
 }

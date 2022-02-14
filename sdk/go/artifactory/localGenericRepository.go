@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGenericRepository(ctx, "terraform_local_test_generic_repo", &artifactory.LocalGenericRepositoryArgs{
+// 		_, err := artifactory.NewLocalGenericRepository(ctx, "terraform-local-test-generic-repo", &artifactory.LocalGenericRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-generic-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalGenericRepositoryInput interface {
 }
 
 func (*LocalGenericRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGenericRepository)(nil))
+	return reflect.TypeOf((**LocalGenericRepository)(nil)).Elem()
 }
 
 func (i *LocalGenericRepository) ToLocalGenericRepositoryOutput() LocalGenericRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalGenericRepository) ToLocalGenericRepositoryOutput() LocalGenericRe
 
 func (i *LocalGenericRepository) ToLocalGenericRepositoryOutputWithContext(ctx context.Context) LocalGenericRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryOutput)
-}
-
-func (i *LocalGenericRepository) ToLocalGenericRepositoryPtrOutput() LocalGenericRepositoryPtrOutput {
-	return i.ToLocalGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalGenericRepository) ToLocalGenericRepositoryPtrOutputWithContext(ctx context.Context) LocalGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryPtrOutput)
-}
-
-type LocalGenericRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalGenericRepositoryPtrOutput() LocalGenericRepositoryPtrOutput
-	ToLocalGenericRepositoryPtrOutputWithContext(ctx context.Context) LocalGenericRepositoryPtrOutput
-}
-
-type localGenericRepositoryPtrType LocalGenericRepositoryArgs
-
-func (*localGenericRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGenericRepository)(nil))
-}
-
-func (i *localGenericRepositoryPtrType) ToLocalGenericRepositoryPtrOutput() LocalGenericRepositoryPtrOutput {
-	return i.ToLocalGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localGenericRepositoryPtrType) ToLocalGenericRepositoryPtrOutputWithContext(ctx context.Context) LocalGenericRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGenericRepositoryPtrOutput)
 }
 
 // LocalGenericRepositoryArrayInput is an input type that accepts LocalGenericRepositoryArray and LocalGenericRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalGenericRepositoryMap) ToLocalGenericRepositoryMapOutputWithContext(
 type LocalGenericRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGenericRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGenericRepository)(nil))
+	return reflect.TypeOf((**LocalGenericRepository)(nil)).Elem()
 }
 
 func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryOutput() LocalGenericRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryOutputWithContext(
 	return o
 }
 
-func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryPtrOutput() LocalGenericRepositoryPtrOutput {
-	return o.ToLocalGenericRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGenericRepositoryOutput) ToLocalGenericRepositoryPtrOutputWithContext(ctx context.Context) LocalGenericRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGenericRepository) *LocalGenericRepository {
-		return &v
-	}).(LocalGenericRepositoryPtrOutput)
-}
-
-type LocalGenericRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGenericRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGenericRepository)(nil))
-}
-
-func (o LocalGenericRepositoryPtrOutput) ToLocalGenericRepositoryPtrOutput() LocalGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGenericRepositoryPtrOutput) ToLocalGenericRepositoryPtrOutputWithContext(ctx context.Context) LocalGenericRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGenericRepositoryPtrOutput) Elem() LocalGenericRepositoryOutput {
-	return o.ApplyT(func(v *LocalGenericRepository) LocalGenericRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGenericRepository
-		return ret
-	}).(LocalGenericRepositoryOutput)
-}
-
 type LocalGenericRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalGenericRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGenericRepository)(nil))
+	return reflect.TypeOf((*[]*LocalGenericRepository)(nil)).Elem()
 }
 
 func (o LocalGenericRepositoryArrayOutput) ToLocalGenericRepositoryArrayOutput() LocalGenericRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalGenericRepositoryArrayOutput) ToLocalGenericRepositoryArrayOutputWi
 }
 
 func (o LocalGenericRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGenericRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGenericRepository {
-		return vs[0].([]LocalGenericRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGenericRepository {
+		return vs[0].([]*LocalGenericRepository)[vs[1].(int)]
 	}).(LocalGenericRepositoryOutput)
 }
 
 type LocalGenericRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalGenericRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalGenericRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalGenericRepository)(nil)).Elem()
 }
 
 func (o LocalGenericRepositoryMapOutput) ToLocalGenericRepositoryMapOutput() LocalGenericRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalGenericRepositoryMapOutput) ToLocalGenericRepositoryMapOutputWithCo
 }
 
 func (o LocalGenericRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGenericRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalGenericRepository {
-		return vs[0].(map[string]LocalGenericRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalGenericRepository {
+		return vs[0].(map[string]*LocalGenericRepository)[vs[1].(string)]
 	}).(LocalGenericRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGenericRepositoryInput)(nil)).Elem(), &LocalGenericRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGenericRepositoryPtrInput)(nil)).Elem(), &LocalGenericRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGenericRepositoryArrayInput)(nil)).Elem(), LocalGenericRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGenericRepositoryMapInput)(nil)).Elem(), LocalGenericRepositoryMap{})
 	pulumi.RegisterOutputType(LocalGenericRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalGenericRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalGenericRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalGenericRepositoryMapOutput{})
 }

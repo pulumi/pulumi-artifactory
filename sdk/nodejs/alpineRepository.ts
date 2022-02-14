@@ -98,50 +98,48 @@ export class AlpineRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: AlpineRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AlpineRepositoryArgs | AlpineRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlpineRepositoryState | undefined;
-            inputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = state ? state.blackedOut : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
-            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            inputs["propertySets"] = state ? state.propertySets : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
+            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as AlpineRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = args ? args.blackedOut : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
-            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            inputs["propertySets"] = args ? args.propertySets : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            inputs["packageType"] = undefined /*out*/;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
+            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["packageType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AlpineRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AlpineRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

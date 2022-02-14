@@ -106,7 +106,7 @@ type ReplicationConfigInput interface {
 }
 
 func (*ReplicationConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfig)(nil))
+	return reflect.TypeOf((**ReplicationConfig)(nil)).Elem()
 }
 
 func (i *ReplicationConfig) ToReplicationConfigOutput() ReplicationConfigOutput {
@@ -115,35 +115,6 @@ func (i *ReplicationConfig) ToReplicationConfigOutput() ReplicationConfigOutput 
 
 func (i *ReplicationConfig) ToReplicationConfigOutputWithContext(ctx context.Context) ReplicationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigOutput)
-}
-
-func (i *ReplicationConfig) ToReplicationConfigPtrOutput() ReplicationConfigPtrOutput {
-	return i.ToReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicationConfig) ToReplicationConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigPtrOutput)
-}
-
-type ReplicationConfigPtrInput interface {
-	pulumi.Input
-
-	ToReplicationConfigPtrOutput() ReplicationConfigPtrOutput
-	ToReplicationConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigPtrOutput
-}
-
-type replicationConfigPtrType ReplicationConfigArgs
-
-func (*replicationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfig)(nil))
-}
-
-func (i *replicationConfigPtrType) ToReplicationConfigPtrOutput() ReplicationConfigPtrOutput {
-	return i.ToReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *replicationConfigPtrType) ToReplicationConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigPtrOutput)
 }
 
 // ReplicationConfigArrayInput is an input type that accepts ReplicationConfigArray and ReplicationConfigArrayOutput values.
@@ -199,7 +170,7 @@ func (i ReplicationConfigMap) ToReplicationConfigMapOutputWithContext(ctx contex
 type ReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfig)(nil))
+	return reflect.TypeOf((**ReplicationConfig)(nil)).Elem()
 }
 
 func (o ReplicationConfigOutput) ToReplicationConfigOutput() ReplicationConfigOutput {
@@ -210,44 +181,10 @@ func (o ReplicationConfigOutput) ToReplicationConfigOutputWithContext(ctx contex
 	return o
 }
 
-func (o ReplicationConfigOutput) ToReplicationConfigPtrOutput() ReplicationConfigPtrOutput {
-	return o.ToReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationConfigOutput) ToReplicationConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfig) *ReplicationConfig {
-		return &v
-	}).(ReplicationConfigPtrOutput)
-}
-
-type ReplicationConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfig)(nil))
-}
-
-func (o ReplicationConfigPtrOutput) ToReplicationConfigPtrOutput() ReplicationConfigPtrOutput {
-	return o
-}
-
-func (o ReplicationConfigPtrOutput) ToReplicationConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigPtrOutput {
-	return o
-}
-
-func (o ReplicationConfigPtrOutput) Elem() ReplicationConfigOutput {
-	return o.ApplyT(func(v *ReplicationConfig) ReplicationConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationConfig
-		return ret
-	}).(ReplicationConfigOutput)
-}
-
 type ReplicationConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationConfig)(nil))
+	return reflect.TypeOf((*[]*ReplicationConfig)(nil)).Elem()
 }
 
 func (o ReplicationConfigArrayOutput) ToReplicationConfigArrayOutput() ReplicationConfigArrayOutput {
@@ -259,15 +196,15 @@ func (o ReplicationConfigArrayOutput) ToReplicationConfigArrayOutputWithContext(
 }
 
 func (o ReplicationConfigArrayOutput) Index(i pulumi.IntInput) ReplicationConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfig {
-		return vs[0].([]ReplicationConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationConfig {
+		return vs[0].([]*ReplicationConfig)[vs[1].(int)]
 	}).(ReplicationConfigOutput)
 }
 
 type ReplicationConfigMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicationConfig)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationConfig)(nil)).Elem()
 }
 
 func (o ReplicationConfigMapOutput) ToReplicationConfigMapOutput() ReplicationConfigMapOutput {
@@ -279,18 +216,16 @@ func (o ReplicationConfigMapOutput) ToReplicationConfigMapOutputWithContext(ctx 
 }
 
 func (o ReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) ReplicationConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationConfig {
-		return vs[0].(map[string]ReplicationConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicationConfig {
+		return vs[0].(map[string]*ReplicationConfig)[vs[1].(string)]
 	}).(ReplicationConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigInput)(nil)).Elem(), &ReplicationConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigPtrInput)(nil)).Elem(), &ReplicationConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigArrayInput)(nil)).Elem(), ReplicationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigMapInput)(nil)).Elem(), ReplicationConfigMap{})
 	pulumi.RegisterOutputType(ReplicationConfigOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigMapOutput{})
 }

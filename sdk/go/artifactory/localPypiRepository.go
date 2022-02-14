@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalPypiRepository(ctx, "terraform_local_test_pypi_repo", &artifactory.LocalPypiRepositoryArgs{
+// 		_, err := artifactory.NewLocalPypiRepository(ctx, "terraform-local-test-pypi-repo", &artifactory.LocalPypiRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-pypi-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalPypiRepositoryInput interface {
 }
 
 func (*LocalPypiRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalPypiRepository)(nil))
+	return reflect.TypeOf((**LocalPypiRepository)(nil)).Elem()
 }
 
 func (i *LocalPypiRepository) ToLocalPypiRepositoryOutput() LocalPypiRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalPypiRepository) ToLocalPypiRepositoryOutput() LocalPypiRepositoryO
 
 func (i *LocalPypiRepository) ToLocalPypiRepositoryOutputWithContext(ctx context.Context) LocalPypiRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryOutput)
-}
-
-func (i *LocalPypiRepository) ToLocalPypiRepositoryPtrOutput() LocalPypiRepositoryPtrOutput {
-	return i.ToLocalPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalPypiRepository) ToLocalPypiRepositoryPtrOutputWithContext(ctx context.Context) LocalPypiRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryPtrOutput)
-}
-
-type LocalPypiRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalPypiRepositoryPtrOutput() LocalPypiRepositoryPtrOutput
-	ToLocalPypiRepositoryPtrOutputWithContext(ctx context.Context) LocalPypiRepositoryPtrOutput
-}
-
-type localPypiRepositoryPtrType LocalPypiRepositoryArgs
-
-func (*localPypiRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalPypiRepository)(nil))
-}
-
-func (i *localPypiRepositoryPtrType) ToLocalPypiRepositoryPtrOutput() LocalPypiRepositoryPtrOutput {
-	return i.ToLocalPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localPypiRepositoryPtrType) ToLocalPypiRepositoryPtrOutputWithContext(ctx context.Context) LocalPypiRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalPypiRepositoryPtrOutput)
 }
 
 // LocalPypiRepositoryArrayInput is an input type that accepts LocalPypiRepositoryArray and LocalPypiRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalPypiRepositoryMap) ToLocalPypiRepositoryMapOutputWithContext(ctx co
 type LocalPypiRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalPypiRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalPypiRepository)(nil))
+	return reflect.TypeOf((**LocalPypiRepository)(nil)).Elem()
 }
 
 func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryOutput() LocalPypiRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryPtrOutput() LocalPypiRepositoryPtrOutput {
-	return o.ToLocalPypiRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalPypiRepositoryOutput) ToLocalPypiRepositoryPtrOutputWithContext(ctx context.Context) LocalPypiRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalPypiRepository) *LocalPypiRepository {
-		return &v
-	}).(LocalPypiRepositoryPtrOutput)
-}
-
-type LocalPypiRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalPypiRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalPypiRepository)(nil))
-}
-
-func (o LocalPypiRepositoryPtrOutput) ToLocalPypiRepositoryPtrOutput() LocalPypiRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalPypiRepositoryPtrOutput) ToLocalPypiRepositoryPtrOutputWithContext(ctx context.Context) LocalPypiRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalPypiRepositoryPtrOutput) Elem() LocalPypiRepositoryOutput {
-	return o.ApplyT(func(v *LocalPypiRepository) LocalPypiRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalPypiRepository
-		return ret
-	}).(LocalPypiRepositoryOutput)
-}
-
 type LocalPypiRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalPypiRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalPypiRepository)(nil))
+	return reflect.TypeOf((*[]*LocalPypiRepository)(nil)).Elem()
 }
 
 func (o LocalPypiRepositoryArrayOutput) ToLocalPypiRepositoryArrayOutput() LocalPypiRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalPypiRepositoryArrayOutput) ToLocalPypiRepositoryArrayOutputWithCont
 }
 
 func (o LocalPypiRepositoryArrayOutput) Index(i pulumi.IntInput) LocalPypiRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalPypiRepository {
-		return vs[0].([]LocalPypiRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalPypiRepository {
+		return vs[0].([]*LocalPypiRepository)[vs[1].(int)]
 	}).(LocalPypiRepositoryOutput)
 }
 
 type LocalPypiRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalPypiRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalPypiRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalPypiRepository)(nil)).Elem()
 }
 
 func (o LocalPypiRepositoryMapOutput) ToLocalPypiRepositoryMapOutput() LocalPypiRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalPypiRepositoryMapOutput) ToLocalPypiRepositoryMapOutputWithContext(
 }
 
 func (o LocalPypiRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalPypiRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalPypiRepository {
-		return vs[0].(map[string]LocalPypiRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalPypiRepository {
+		return vs[0].(map[string]*LocalPypiRepository)[vs[1].(string)]
 	}).(LocalPypiRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPypiRepositoryInput)(nil)).Elem(), &LocalPypiRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalPypiRepositoryPtrInput)(nil)).Elem(), &LocalPypiRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPypiRepositoryArrayInput)(nil)).Elem(), LocalPypiRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalPypiRepositoryMapInput)(nil)).Elem(), LocalPypiRepositoryMap{})
 	pulumi.RegisterOutputType(LocalPypiRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalPypiRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalPypiRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalPypiRepositoryMapOutput{})
 }

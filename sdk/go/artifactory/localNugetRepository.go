@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalNugetRepository(ctx, "terraform_local_test_nuget_repo_basic", &artifactory.LocalNugetRepositoryArgs{
+// 		_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
 // 			ForceNugetAuthentication: pulumi.Bool(true),
 // 			Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
 // 			MaxUniqueSnapshots:       pulumi.Int(5),
@@ -222,7 +222,7 @@ type LocalNugetRepositoryInput interface {
 }
 
 func (*LocalNugetRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNugetRepository)(nil))
+	return reflect.TypeOf((**LocalNugetRepository)(nil)).Elem()
 }
 
 func (i *LocalNugetRepository) ToLocalNugetRepositoryOutput() LocalNugetRepositoryOutput {
@@ -231,35 +231,6 @@ func (i *LocalNugetRepository) ToLocalNugetRepositoryOutput() LocalNugetReposito
 
 func (i *LocalNugetRepository) ToLocalNugetRepositoryOutputWithContext(ctx context.Context) LocalNugetRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryOutput)
-}
-
-func (i *LocalNugetRepository) ToLocalNugetRepositoryPtrOutput() LocalNugetRepositoryPtrOutput {
-	return i.ToLocalNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalNugetRepository) ToLocalNugetRepositoryPtrOutputWithContext(ctx context.Context) LocalNugetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryPtrOutput)
-}
-
-type LocalNugetRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalNugetRepositoryPtrOutput() LocalNugetRepositoryPtrOutput
-	ToLocalNugetRepositoryPtrOutputWithContext(ctx context.Context) LocalNugetRepositoryPtrOutput
-}
-
-type localNugetRepositoryPtrType LocalNugetRepositoryArgs
-
-func (*localNugetRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalNugetRepository)(nil))
-}
-
-func (i *localNugetRepositoryPtrType) ToLocalNugetRepositoryPtrOutput() LocalNugetRepositoryPtrOutput {
-	return i.ToLocalNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localNugetRepositoryPtrType) ToLocalNugetRepositoryPtrOutputWithContext(ctx context.Context) LocalNugetRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalNugetRepositoryPtrOutput)
 }
 
 // LocalNugetRepositoryArrayInput is an input type that accepts LocalNugetRepositoryArray and LocalNugetRepositoryArrayOutput values.
@@ -315,7 +286,7 @@ func (i LocalNugetRepositoryMap) ToLocalNugetRepositoryMapOutputWithContext(ctx 
 type LocalNugetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalNugetRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNugetRepository)(nil))
+	return reflect.TypeOf((**LocalNugetRepository)(nil)).Elem()
 }
 
 func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryOutput() LocalNugetRepositoryOutput {
@@ -326,44 +297,10 @@ func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryPtrOutput() LocalNugetRepositoryPtrOutput {
-	return o.ToLocalNugetRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalNugetRepositoryOutput) ToLocalNugetRepositoryPtrOutputWithContext(ctx context.Context) LocalNugetRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalNugetRepository) *LocalNugetRepository {
-		return &v
-	}).(LocalNugetRepositoryPtrOutput)
-}
-
-type LocalNugetRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalNugetRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalNugetRepository)(nil))
-}
-
-func (o LocalNugetRepositoryPtrOutput) ToLocalNugetRepositoryPtrOutput() LocalNugetRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalNugetRepositoryPtrOutput) ToLocalNugetRepositoryPtrOutputWithContext(ctx context.Context) LocalNugetRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalNugetRepositoryPtrOutput) Elem() LocalNugetRepositoryOutput {
-	return o.ApplyT(func(v *LocalNugetRepository) LocalNugetRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalNugetRepository
-		return ret
-	}).(LocalNugetRepositoryOutput)
-}
-
 type LocalNugetRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalNugetRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalNugetRepository)(nil))
+	return reflect.TypeOf((*[]*LocalNugetRepository)(nil)).Elem()
 }
 
 func (o LocalNugetRepositoryArrayOutput) ToLocalNugetRepositoryArrayOutput() LocalNugetRepositoryArrayOutput {
@@ -375,15 +312,15 @@ func (o LocalNugetRepositoryArrayOutput) ToLocalNugetRepositoryArrayOutputWithCo
 }
 
 func (o LocalNugetRepositoryArrayOutput) Index(i pulumi.IntInput) LocalNugetRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalNugetRepository {
-		return vs[0].([]LocalNugetRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalNugetRepository {
+		return vs[0].([]*LocalNugetRepository)[vs[1].(int)]
 	}).(LocalNugetRepositoryOutput)
 }
 
 type LocalNugetRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalNugetRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalNugetRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalNugetRepository)(nil)).Elem()
 }
 
 func (o LocalNugetRepositoryMapOutput) ToLocalNugetRepositoryMapOutput() LocalNugetRepositoryMapOutput {
@@ -395,18 +332,16 @@ func (o LocalNugetRepositoryMapOutput) ToLocalNugetRepositoryMapOutputWithContex
 }
 
 func (o LocalNugetRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalNugetRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalNugetRepository {
-		return vs[0].(map[string]LocalNugetRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalNugetRepository {
+		return vs[0].(map[string]*LocalNugetRepository)[vs[1].(string)]
 	}).(LocalNugetRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNugetRepositoryInput)(nil)).Elem(), &LocalNugetRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalNugetRepositoryPtrInput)(nil)).Elem(), &LocalNugetRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNugetRepositoryArrayInput)(nil)).Elem(), LocalNugetRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNugetRepositoryMapInput)(nil)).Elem(), LocalNugetRepositoryMap{})
 	pulumi.RegisterOutputType(LocalNugetRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalNugetRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalNugetRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalNugetRepositoryMapOutput{})
 }

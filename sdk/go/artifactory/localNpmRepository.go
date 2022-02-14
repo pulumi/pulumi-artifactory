@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalNpmRepository(ctx, "terraform_local_test_npm_repo", &artifactory.LocalNpmRepositoryArgs{
+// 		_, err := artifactory.NewLocalNpmRepository(ctx, "terraform-local-test-npm-repo", &artifactory.LocalNpmRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-npm-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalNpmRepositoryInput interface {
 }
 
 func (*LocalNpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNpmRepository)(nil))
+	return reflect.TypeOf((**LocalNpmRepository)(nil)).Elem()
 }
 
 func (i *LocalNpmRepository) ToLocalNpmRepositoryOutput() LocalNpmRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalNpmRepository) ToLocalNpmRepositoryOutput() LocalNpmRepositoryOutp
 
 func (i *LocalNpmRepository) ToLocalNpmRepositoryOutputWithContext(ctx context.Context) LocalNpmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNpmRepositoryOutput)
-}
-
-func (i *LocalNpmRepository) ToLocalNpmRepositoryPtrOutput() LocalNpmRepositoryPtrOutput {
-	return i.ToLocalNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalNpmRepository) ToLocalNpmRepositoryPtrOutputWithContext(ctx context.Context) LocalNpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalNpmRepositoryPtrOutput)
-}
-
-type LocalNpmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalNpmRepositoryPtrOutput() LocalNpmRepositoryPtrOutput
-	ToLocalNpmRepositoryPtrOutputWithContext(ctx context.Context) LocalNpmRepositoryPtrOutput
-}
-
-type localNpmRepositoryPtrType LocalNpmRepositoryArgs
-
-func (*localNpmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalNpmRepository)(nil))
-}
-
-func (i *localNpmRepositoryPtrType) ToLocalNpmRepositoryPtrOutput() LocalNpmRepositoryPtrOutput {
-	return i.ToLocalNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localNpmRepositoryPtrType) ToLocalNpmRepositoryPtrOutputWithContext(ctx context.Context) LocalNpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalNpmRepositoryPtrOutput)
 }
 
 // LocalNpmRepositoryArrayInput is an input type that accepts LocalNpmRepositoryArray and LocalNpmRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalNpmRepositoryMap) ToLocalNpmRepositoryMapOutputWithContext(ctx cont
 type LocalNpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalNpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalNpmRepository)(nil))
+	return reflect.TypeOf((**LocalNpmRepository)(nil)).Elem()
 }
 
 func (o LocalNpmRepositoryOutput) ToLocalNpmRepositoryOutput() LocalNpmRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalNpmRepositoryOutput) ToLocalNpmRepositoryOutputWithContext(ctx cont
 	return o
 }
 
-func (o LocalNpmRepositoryOutput) ToLocalNpmRepositoryPtrOutput() LocalNpmRepositoryPtrOutput {
-	return o.ToLocalNpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalNpmRepositoryOutput) ToLocalNpmRepositoryPtrOutputWithContext(ctx context.Context) LocalNpmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalNpmRepository) *LocalNpmRepository {
-		return &v
-	}).(LocalNpmRepositoryPtrOutput)
-}
-
-type LocalNpmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalNpmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalNpmRepository)(nil))
-}
-
-func (o LocalNpmRepositoryPtrOutput) ToLocalNpmRepositoryPtrOutput() LocalNpmRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalNpmRepositoryPtrOutput) ToLocalNpmRepositoryPtrOutputWithContext(ctx context.Context) LocalNpmRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalNpmRepositoryPtrOutput) Elem() LocalNpmRepositoryOutput {
-	return o.ApplyT(func(v *LocalNpmRepository) LocalNpmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalNpmRepository
-		return ret
-	}).(LocalNpmRepositoryOutput)
-}
-
 type LocalNpmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalNpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalNpmRepository)(nil))
+	return reflect.TypeOf((*[]*LocalNpmRepository)(nil)).Elem()
 }
 
 func (o LocalNpmRepositoryArrayOutput) ToLocalNpmRepositoryArrayOutput() LocalNpmRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalNpmRepositoryArrayOutput) ToLocalNpmRepositoryArrayOutputWithContex
 }
 
 func (o LocalNpmRepositoryArrayOutput) Index(i pulumi.IntInput) LocalNpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalNpmRepository {
-		return vs[0].([]LocalNpmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalNpmRepository {
+		return vs[0].([]*LocalNpmRepository)[vs[1].(int)]
 	}).(LocalNpmRepositoryOutput)
 }
 
 type LocalNpmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalNpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalNpmRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalNpmRepository)(nil)).Elem()
 }
 
 func (o LocalNpmRepositoryMapOutput) ToLocalNpmRepositoryMapOutput() LocalNpmRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalNpmRepositoryMapOutput) ToLocalNpmRepositoryMapOutputWithContext(ct
 }
 
 func (o LocalNpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalNpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalNpmRepository {
-		return vs[0].(map[string]LocalNpmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalNpmRepository {
+		return vs[0].(map[string]*LocalNpmRepository)[vs[1].(string)]
 	}).(LocalNpmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNpmRepositoryInput)(nil)).Elem(), &LocalNpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalNpmRepositoryPtrInput)(nil)).Elem(), &LocalNpmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNpmRepositoryArrayInput)(nil)).Elem(), LocalNpmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalNpmRepositoryMapInput)(nil)).Elem(), LocalNpmRepositoryMap{})
 	pulumi.RegisterOutputType(LocalNpmRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalNpmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalNpmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalNpmRepositoryMapOutput{})
 }

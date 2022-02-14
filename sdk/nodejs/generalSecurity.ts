@@ -70,19 +70,17 @@ export class GeneralSecurity extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GeneralSecurityArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GeneralSecurityArgs | GeneralSecurityState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GeneralSecurityState | undefined;
-            inputs["enableAnonymousAccess"] = state ? state.enableAnonymousAccess : undefined;
+            resourceInputs["enableAnonymousAccess"] = state ? state.enableAnonymousAccess : undefined;
         } else {
             const args = argsOrState as GeneralSecurityArgs | undefined;
-            inputs["enableAnonymousAccess"] = args ? args.enableAnonymousAccess : undefined;
+            resourceInputs["enableAnonymousAccess"] = args ? args.enableAnonymousAccess : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GeneralSecurity.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GeneralSecurity.__pulumiType, name, resourceInputs, opts);
     }
 }
 

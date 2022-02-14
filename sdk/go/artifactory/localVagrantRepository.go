@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalVagrantRepository(ctx, "terraform_local_test_vagrant_repo", &artifactory.LocalVagrantRepositoryArgs{
+// 		_, err := artifactory.NewLocalVagrantRepository(ctx, "terraform-local-test-vagrant-repo", &artifactory.LocalVagrantRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-vagrant-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalVagrantRepositoryInput interface {
 }
 
 func (*LocalVagrantRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalVagrantRepository)(nil))
+	return reflect.TypeOf((**LocalVagrantRepository)(nil)).Elem()
 }
 
 func (i *LocalVagrantRepository) ToLocalVagrantRepositoryOutput() LocalVagrantRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalVagrantRepository) ToLocalVagrantRepositoryOutput() LocalVagrantRe
 
 func (i *LocalVagrantRepository) ToLocalVagrantRepositoryOutputWithContext(ctx context.Context) LocalVagrantRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryOutput)
-}
-
-func (i *LocalVagrantRepository) ToLocalVagrantRepositoryPtrOutput() LocalVagrantRepositoryPtrOutput {
-	return i.ToLocalVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalVagrantRepository) ToLocalVagrantRepositoryPtrOutputWithContext(ctx context.Context) LocalVagrantRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryPtrOutput)
-}
-
-type LocalVagrantRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalVagrantRepositoryPtrOutput() LocalVagrantRepositoryPtrOutput
-	ToLocalVagrantRepositoryPtrOutputWithContext(ctx context.Context) LocalVagrantRepositoryPtrOutput
-}
-
-type localVagrantRepositoryPtrType LocalVagrantRepositoryArgs
-
-func (*localVagrantRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalVagrantRepository)(nil))
-}
-
-func (i *localVagrantRepositoryPtrType) ToLocalVagrantRepositoryPtrOutput() LocalVagrantRepositoryPtrOutput {
-	return i.ToLocalVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localVagrantRepositoryPtrType) ToLocalVagrantRepositoryPtrOutputWithContext(ctx context.Context) LocalVagrantRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalVagrantRepositoryPtrOutput)
 }
 
 // LocalVagrantRepositoryArrayInput is an input type that accepts LocalVagrantRepositoryArray and LocalVagrantRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalVagrantRepositoryMap) ToLocalVagrantRepositoryMapOutputWithContext(
 type LocalVagrantRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalVagrantRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalVagrantRepository)(nil))
+	return reflect.TypeOf((**LocalVagrantRepository)(nil)).Elem()
 }
 
 func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryOutput() LocalVagrantRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryOutputWithContext(
 	return o
 }
 
-func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryPtrOutput() LocalVagrantRepositoryPtrOutput {
-	return o.ToLocalVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalVagrantRepositoryOutput) ToLocalVagrantRepositoryPtrOutputWithContext(ctx context.Context) LocalVagrantRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalVagrantRepository) *LocalVagrantRepository {
-		return &v
-	}).(LocalVagrantRepositoryPtrOutput)
-}
-
-type LocalVagrantRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalVagrantRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalVagrantRepository)(nil))
-}
-
-func (o LocalVagrantRepositoryPtrOutput) ToLocalVagrantRepositoryPtrOutput() LocalVagrantRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalVagrantRepositoryPtrOutput) ToLocalVagrantRepositoryPtrOutputWithContext(ctx context.Context) LocalVagrantRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalVagrantRepositoryPtrOutput) Elem() LocalVagrantRepositoryOutput {
-	return o.ApplyT(func(v *LocalVagrantRepository) LocalVagrantRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalVagrantRepository
-		return ret
-	}).(LocalVagrantRepositoryOutput)
-}
-
 type LocalVagrantRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalVagrantRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalVagrantRepository)(nil))
+	return reflect.TypeOf((*[]*LocalVagrantRepository)(nil)).Elem()
 }
 
 func (o LocalVagrantRepositoryArrayOutput) ToLocalVagrantRepositoryArrayOutput() LocalVagrantRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalVagrantRepositoryArrayOutput) ToLocalVagrantRepositoryArrayOutputWi
 }
 
 func (o LocalVagrantRepositoryArrayOutput) Index(i pulumi.IntInput) LocalVagrantRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalVagrantRepository {
-		return vs[0].([]LocalVagrantRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalVagrantRepository {
+		return vs[0].([]*LocalVagrantRepository)[vs[1].(int)]
 	}).(LocalVagrantRepositoryOutput)
 }
 
 type LocalVagrantRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalVagrantRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalVagrantRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalVagrantRepository)(nil)).Elem()
 }
 
 func (o LocalVagrantRepositoryMapOutput) ToLocalVagrantRepositoryMapOutput() LocalVagrantRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalVagrantRepositoryMapOutput) ToLocalVagrantRepositoryMapOutputWithCo
 }
 
 func (o LocalVagrantRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalVagrantRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalVagrantRepository {
-		return vs[0].(map[string]LocalVagrantRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalVagrantRepository {
+		return vs[0].(map[string]*LocalVagrantRepository)[vs[1].(string)]
 	}).(LocalVagrantRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalVagrantRepositoryInput)(nil)).Elem(), &LocalVagrantRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalVagrantRepositoryPtrInput)(nil)).Elem(), &LocalVagrantRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalVagrantRepositoryArrayInput)(nil)).Elem(), LocalVagrantRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalVagrantRepositoryMapInput)(nil)).Elem(), LocalVagrantRepositoryMap{})
 	pulumi.RegisterOutputType(LocalVagrantRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalVagrantRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalVagrantRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalVagrantRepositoryMapOutput{})
 }

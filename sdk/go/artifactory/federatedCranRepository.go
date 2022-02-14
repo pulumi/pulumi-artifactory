@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCranRepository(ctx, "terraform_federated_test_cran_repo", &artifactory.FederatedCranRepositoryArgs{
+// 		_, err := artifactory.NewFederatedCranRepository(ctx, "terraform-federated-test-cran-repo", &artifactory.FederatedCranRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-cran-repo"),
 // 			Members: FederatedCranRepositoryMemberArray{
 // 				&FederatedCranRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedCranRepositoryInput interface {
 }
 
 func (*FederatedCranRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCranRepository)(nil))
+	return reflect.TypeOf((**FederatedCranRepository)(nil)).Elem()
 }
 
 func (i *FederatedCranRepository) ToFederatedCranRepositoryOutput() FederatedCranRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedCranRepository) ToFederatedCranRepositoryOutput() FederatedCra
 
 func (i *FederatedCranRepository) ToFederatedCranRepositoryOutputWithContext(ctx context.Context) FederatedCranRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryOutput)
-}
-
-func (i *FederatedCranRepository) ToFederatedCranRepositoryPtrOutput() FederatedCranRepositoryPtrOutput {
-	return i.ToFederatedCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedCranRepository) ToFederatedCranRepositoryPtrOutputWithContext(ctx context.Context) FederatedCranRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryPtrOutput)
-}
-
-type FederatedCranRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedCranRepositoryPtrOutput() FederatedCranRepositoryPtrOutput
-	ToFederatedCranRepositoryPtrOutputWithContext(ctx context.Context) FederatedCranRepositoryPtrOutput
-}
-
-type federatedCranRepositoryPtrType FederatedCranRepositoryArgs
-
-func (*federatedCranRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCranRepository)(nil))
-}
-
-func (i *federatedCranRepositoryPtrType) ToFederatedCranRepositoryPtrOutput() FederatedCranRepositoryPtrOutput {
-	return i.ToFederatedCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedCranRepositoryPtrType) ToFederatedCranRepositoryPtrOutputWithContext(ctx context.Context) FederatedCranRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCranRepositoryPtrOutput)
 }
 
 // FederatedCranRepositoryArrayInput is an input type that accepts FederatedCranRepositoryArray and FederatedCranRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedCranRepositoryMap) ToFederatedCranRepositoryMapOutputWithContex
 type FederatedCranRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCranRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCranRepository)(nil))
+	return reflect.TypeOf((**FederatedCranRepository)(nil)).Elem()
 }
 
 func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryOutput() FederatedCranRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryPtrOutput() FederatedCranRepositoryPtrOutput {
-	return o.ToFederatedCranRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedCranRepositoryOutput) ToFederatedCranRepositoryPtrOutputWithContext(ctx context.Context) FederatedCranRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedCranRepository) *FederatedCranRepository {
-		return &v
-	}).(FederatedCranRepositoryPtrOutput)
-}
-
-type FederatedCranRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedCranRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCranRepository)(nil))
-}
-
-func (o FederatedCranRepositoryPtrOutput) ToFederatedCranRepositoryPtrOutput() FederatedCranRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCranRepositoryPtrOutput) ToFederatedCranRepositoryPtrOutputWithContext(ctx context.Context) FederatedCranRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCranRepositoryPtrOutput) Elem() FederatedCranRepositoryOutput {
-	return o.ApplyT(func(v *FederatedCranRepository) FederatedCranRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedCranRepository
-		return ret
-	}).(FederatedCranRepositoryOutput)
-}
-
 type FederatedCranRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedCranRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedCranRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedCranRepository)(nil)).Elem()
 }
 
 func (o FederatedCranRepositoryArrayOutput) ToFederatedCranRepositoryArrayOutput() FederatedCranRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedCranRepositoryArrayOutput) ToFederatedCranRepositoryArrayOutput
 }
 
 func (o FederatedCranRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCranRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedCranRepository {
-		return vs[0].([]FederatedCranRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCranRepository {
+		return vs[0].([]*FederatedCranRepository)[vs[1].(int)]
 	}).(FederatedCranRepositoryOutput)
 }
 
 type FederatedCranRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedCranRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedCranRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedCranRepository)(nil)).Elem()
 }
 
 func (o FederatedCranRepositoryMapOutput) ToFederatedCranRepositoryMapOutput() FederatedCranRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedCranRepositoryMapOutput) ToFederatedCranRepositoryMapOutputWith
 }
 
 func (o FederatedCranRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCranRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedCranRepository {
-		return vs[0].(map[string]FederatedCranRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedCranRepository {
+		return vs[0].(map[string]*FederatedCranRepository)[vs[1].(string)]
 	}).(FederatedCranRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCranRepositoryInput)(nil)).Elem(), &FederatedCranRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCranRepositoryPtrInput)(nil)).Elem(), &FederatedCranRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCranRepositoryArrayInput)(nil)).Elem(), FederatedCranRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCranRepositoryMapInput)(nil)).Elem(), FederatedCranRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedCranRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedCranRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedCranRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedCranRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedVagrantRepository(ctx, "terraform_federated_test_vagrant_repo", &artifactory.FederatedVagrantRepositoryArgs{
+// 		_, err := artifactory.NewFederatedVagrantRepository(ctx, "terraform-federated-test-vagrant-repo", &artifactory.FederatedVagrantRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-vagrant-repo"),
 // 			Members: FederatedVagrantRepositoryMemberArray{
 // 				&FederatedVagrantRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedVagrantRepositoryInput interface {
 }
 
 func (*FederatedVagrantRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedVagrantRepository)(nil))
+	return reflect.TypeOf((**FederatedVagrantRepository)(nil)).Elem()
 }
 
 func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryOutput() FederatedVagrantRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryOutput() Federa
 
 func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryOutputWithContext(ctx context.Context) FederatedVagrantRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryOutput)
-}
-
-func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryPtrOutput() FederatedVagrantRepositoryPtrOutput {
-	return i.ToFederatedVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryPtrOutputWithContext(ctx context.Context) FederatedVagrantRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryPtrOutput)
-}
-
-type FederatedVagrantRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedVagrantRepositoryPtrOutput() FederatedVagrantRepositoryPtrOutput
-	ToFederatedVagrantRepositoryPtrOutputWithContext(ctx context.Context) FederatedVagrantRepositoryPtrOutput
-}
-
-type federatedVagrantRepositoryPtrType FederatedVagrantRepositoryArgs
-
-func (*federatedVagrantRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedVagrantRepository)(nil))
-}
-
-func (i *federatedVagrantRepositoryPtrType) ToFederatedVagrantRepositoryPtrOutput() FederatedVagrantRepositoryPtrOutput {
-	return i.ToFederatedVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedVagrantRepositoryPtrType) ToFederatedVagrantRepositoryPtrOutputWithContext(ctx context.Context) FederatedVagrantRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedVagrantRepositoryPtrOutput)
 }
 
 // FederatedVagrantRepositoryArrayInput is an input type that accepts FederatedVagrantRepositoryArray and FederatedVagrantRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedVagrantRepositoryMap) ToFederatedVagrantRepositoryMapOutputWith
 type FederatedVagrantRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedVagrantRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedVagrantRepository)(nil))
+	return reflect.TypeOf((**FederatedVagrantRepository)(nil)).Elem()
 }
 
 func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryOutput() FederatedVagrantRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryOutputWith
 	return o
 }
 
-func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryPtrOutput() FederatedVagrantRepositoryPtrOutput {
-	return o.ToFederatedVagrantRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedVagrantRepositoryOutput) ToFederatedVagrantRepositoryPtrOutputWithContext(ctx context.Context) FederatedVagrantRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedVagrantRepository) *FederatedVagrantRepository {
-		return &v
-	}).(FederatedVagrantRepositoryPtrOutput)
-}
-
-type FederatedVagrantRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedVagrantRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedVagrantRepository)(nil))
-}
-
-func (o FederatedVagrantRepositoryPtrOutput) ToFederatedVagrantRepositoryPtrOutput() FederatedVagrantRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedVagrantRepositoryPtrOutput) ToFederatedVagrantRepositoryPtrOutputWithContext(ctx context.Context) FederatedVagrantRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedVagrantRepositoryPtrOutput) Elem() FederatedVagrantRepositoryOutput {
-	return o.ApplyT(func(v *FederatedVagrantRepository) FederatedVagrantRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedVagrantRepository
-		return ret
-	}).(FederatedVagrantRepositoryOutput)
-}
-
 type FederatedVagrantRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedVagrantRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedVagrantRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedVagrantRepository)(nil)).Elem()
 }
 
 func (o FederatedVagrantRepositoryArrayOutput) ToFederatedVagrantRepositoryArrayOutput() FederatedVagrantRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedVagrantRepositoryArrayOutput) ToFederatedVagrantRepositoryArray
 }
 
 func (o FederatedVagrantRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedVagrantRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedVagrantRepository {
-		return vs[0].([]FederatedVagrantRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedVagrantRepository {
+		return vs[0].([]*FederatedVagrantRepository)[vs[1].(int)]
 	}).(FederatedVagrantRepositoryOutput)
 }
 
 type FederatedVagrantRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedVagrantRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedVagrantRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedVagrantRepository)(nil)).Elem()
 }
 
 func (o FederatedVagrantRepositoryMapOutput) ToFederatedVagrantRepositoryMapOutput() FederatedVagrantRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedVagrantRepositoryMapOutput) ToFederatedVagrantRepositoryMapOutp
 }
 
 func (o FederatedVagrantRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedVagrantRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedVagrantRepository {
-		return vs[0].(map[string]FederatedVagrantRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedVagrantRepository {
+		return vs[0].(map[string]*FederatedVagrantRepository)[vs[1].(string)]
 	}).(FederatedVagrantRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryInput)(nil)).Elem(), &FederatedVagrantRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryPtrInput)(nil)).Elem(), &FederatedVagrantRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryArrayInput)(nil)).Elem(), FederatedVagrantRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMapInput)(nil)).Elem(), FederatedVagrantRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedVagrantRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMapOutput{})
 }

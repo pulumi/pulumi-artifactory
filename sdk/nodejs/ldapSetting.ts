@@ -141,24 +141,24 @@ export class LdapSetting extends pulumi.CustomResource {
      */
     constructor(name: string, args: LdapSettingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LdapSettingArgs | LdapSettingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LdapSettingState | undefined;
-            inputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            inputs["autoCreateUser"] = state ? state.autoCreateUser : undefined;
-            inputs["emailAttribute"] = state ? state.emailAttribute : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["ldapPoisoningProtection"] = state ? state.ldapPoisoningProtection : undefined;
-            inputs["ldapUrl"] = state ? state.ldapUrl : undefined;
-            inputs["managerDn"] = state ? state.managerDn : undefined;
-            inputs["managerPassword"] = state ? state.managerPassword : undefined;
-            inputs["pagingSupportEnabled"] = state ? state.pagingSupportEnabled : undefined;
-            inputs["searchBase"] = state ? state.searchBase : undefined;
-            inputs["searchFilter"] = state ? state.searchFilter : undefined;
-            inputs["searchSubTree"] = state ? state.searchSubTree : undefined;
-            inputs["userDnPattern"] = state ? state.userDnPattern : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
+            resourceInputs["autoCreateUser"] = state ? state.autoCreateUser : undefined;
+            resourceInputs["emailAttribute"] = state ? state.emailAttribute : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["ldapPoisoningProtection"] = state ? state.ldapPoisoningProtection : undefined;
+            resourceInputs["ldapUrl"] = state ? state.ldapUrl : undefined;
+            resourceInputs["managerDn"] = state ? state.managerDn : undefined;
+            resourceInputs["managerPassword"] = state ? state.managerPassword : undefined;
+            resourceInputs["pagingSupportEnabled"] = state ? state.pagingSupportEnabled : undefined;
+            resourceInputs["searchBase"] = state ? state.searchBase : undefined;
+            resourceInputs["searchFilter"] = state ? state.searchFilter : undefined;
+            resourceInputs["searchSubTree"] = state ? state.searchSubTree : undefined;
+            resourceInputs["userDnPattern"] = state ? state.userDnPattern : undefined;
         } else {
             const args = argsOrState as LdapSettingArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -170,25 +170,23 @@ export class LdapSetting extends pulumi.CustomResource {
             if ((!args || args.userDnPattern === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userDnPattern'");
             }
-            inputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            inputs["autoCreateUser"] = args ? args.autoCreateUser : undefined;
-            inputs["emailAttribute"] = args ? args.emailAttribute : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["ldapPoisoningProtection"] = args ? args.ldapPoisoningProtection : undefined;
-            inputs["ldapUrl"] = args ? args.ldapUrl : undefined;
-            inputs["managerDn"] = args ? args.managerDn : undefined;
-            inputs["managerPassword"] = args ? args.managerPassword : undefined;
-            inputs["pagingSupportEnabled"] = args ? args.pagingSupportEnabled : undefined;
-            inputs["searchBase"] = args ? args.searchBase : undefined;
-            inputs["searchFilter"] = args ? args.searchFilter : undefined;
-            inputs["searchSubTree"] = args ? args.searchSubTree : undefined;
-            inputs["userDnPattern"] = args ? args.userDnPattern : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
+            resourceInputs["autoCreateUser"] = args ? args.autoCreateUser : undefined;
+            resourceInputs["emailAttribute"] = args ? args.emailAttribute : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["ldapPoisoningProtection"] = args ? args.ldapPoisoningProtection : undefined;
+            resourceInputs["ldapUrl"] = args ? args.ldapUrl : undefined;
+            resourceInputs["managerDn"] = args ? args.managerDn : undefined;
+            resourceInputs["managerPassword"] = args ? args.managerPassword : undefined;
+            resourceInputs["pagingSupportEnabled"] = args ? args.pagingSupportEnabled : undefined;
+            resourceInputs["searchBase"] = args ? args.searchBase : undefined;
+            resourceInputs["searchFilter"] = args ? args.searchFilter : undefined;
+            resourceInputs["searchSubTree"] = args ? args.searchSubTree : undefined;
+            resourceInputs["userDnPattern"] = args ? args.userDnPattern : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LdapSetting.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LdapSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

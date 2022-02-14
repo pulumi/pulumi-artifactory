@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCondaRepository(ctx, "terraform_federated_test_conda_repo", &artifactory.FederatedCondaRepositoryArgs{
+// 		_, err := artifactory.NewFederatedCondaRepository(ctx, "terraform-federated-test-conda-repo", &artifactory.FederatedCondaRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-conda-repo"),
 // 			Members: FederatedCondaRepositoryMemberArray{
 // 				&FederatedCondaRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedCondaRepositoryInput interface {
 }
 
 func (*FederatedCondaRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCondaRepository)(nil))
+	return reflect.TypeOf((**FederatedCondaRepository)(nil)).Elem()
 }
 
 func (i *FederatedCondaRepository) ToFederatedCondaRepositoryOutput() FederatedCondaRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedCondaRepository) ToFederatedCondaRepositoryOutput() FederatedC
 
 func (i *FederatedCondaRepository) ToFederatedCondaRepositoryOutputWithContext(ctx context.Context) FederatedCondaRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryOutput)
-}
-
-func (i *FederatedCondaRepository) ToFederatedCondaRepositoryPtrOutput() FederatedCondaRepositoryPtrOutput {
-	return i.ToFederatedCondaRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedCondaRepository) ToFederatedCondaRepositoryPtrOutputWithContext(ctx context.Context) FederatedCondaRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryPtrOutput)
-}
-
-type FederatedCondaRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedCondaRepositoryPtrOutput() FederatedCondaRepositoryPtrOutput
-	ToFederatedCondaRepositoryPtrOutputWithContext(ctx context.Context) FederatedCondaRepositoryPtrOutput
-}
-
-type federatedCondaRepositoryPtrType FederatedCondaRepositoryArgs
-
-func (*federatedCondaRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCondaRepository)(nil))
-}
-
-func (i *federatedCondaRepositoryPtrType) ToFederatedCondaRepositoryPtrOutput() FederatedCondaRepositoryPtrOutput {
-	return i.ToFederatedCondaRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedCondaRepositoryPtrType) ToFederatedCondaRepositoryPtrOutputWithContext(ctx context.Context) FederatedCondaRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedCondaRepositoryPtrOutput)
 }
 
 // FederatedCondaRepositoryArrayInput is an input type that accepts FederatedCondaRepositoryArray and FederatedCondaRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedCondaRepositoryMap) ToFederatedCondaRepositoryMapOutputWithCont
 type FederatedCondaRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedCondaRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedCondaRepository)(nil))
+	return reflect.TypeOf((**FederatedCondaRepository)(nil)).Elem()
 }
 
 func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryOutput() FederatedCondaRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryPtrOutput() FederatedCondaRepositoryPtrOutput {
-	return o.ToFederatedCondaRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedCondaRepositoryOutput) ToFederatedCondaRepositoryPtrOutputWithContext(ctx context.Context) FederatedCondaRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedCondaRepository) *FederatedCondaRepository {
-		return &v
-	}).(FederatedCondaRepositoryPtrOutput)
-}
-
-type FederatedCondaRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedCondaRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedCondaRepository)(nil))
-}
-
-func (o FederatedCondaRepositoryPtrOutput) ToFederatedCondaRepositoryPtrOutput() FederatedCondaRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCondaRepositoryPtrOutput) ToFederatedCondaRepositoryPtrOutputWithContext(ctx context.Context) FederatedCondaRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedCondaRepositoryPtrOutput) Elem() FederatedCondaRepositoryOutput {
-	return o.ApplyT(func(v *FederatedCondaRepository) FederatedCondaRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedCondaRepository
-		return ret
-	}).(FederatedCondaRepositoryOutput)
-}
-
 type FederatedCondaRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedCondaRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedCondaRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedCondaRepository)(nil)).Elem()
 }
 
 func (o FederatedCondaRepositoryArrayOutput) ToFederatedCondaRepositoryArrayOutput() FederatedCondaRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedCondaRepositoryArrayOutput) ToFederatedCondaRepositoryArrayOutp
 }
 
 func (o FederatedCondaRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedCondaRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedCondaRepository {
-		return vs[0].([]FederatedCondaRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedCondaRepository {
+		return vs[0].([]*FederatedCondaRepository)[vs[1].(int)]
 	}).(FederatedCondaRepositoryOutput)
 }
 
 type FederatedCondaRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedCondaRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedCondaRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedCondaRepository)(nil)).Elem()
 }
 
 func (o FederatedCondaRepositoryMapOutput) ToFederatedCondaRepositoryMapOutput() FederatedCondaRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedCondaRepositoryMapOutput) ToFederatedCondaRepositoryMapOutputWi
 }
 
 func (o FederatedCondaRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedCondaRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedCondaRepository {
-		return vs[0].(map[string]FederatedCondaRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedCondaRepository {
+		return vs[0].(map[string]*FederatedCondaRepository)[vs[1].(string)]
 	}).(FederatedCondaRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCondaRepositoryInput)(nil)).Elem(), &FederatedCondaRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCondaRepositoryPtrInput)(nil)).Elem(), &FederatedCondaRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCondaRepositoryArrayInput)(nil)).Elem(), FederatedCondaRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedCondaRepositoryMapInput)(nil)).Elem(), FederatedCondaRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedCondaRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedCondaRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedCondaRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedCondaRepositoryMapOutput{})
 }

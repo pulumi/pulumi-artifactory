@@ -147,7 +147,7 @@ type SingleReplicationConfigInput interface {
 }
 
 func (*SingleReplicationConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*SingleReplicationConfig)(nil))
+	return reflect.TypeOf((**SingleReplicationConfig)(nil)).Elem()
 }
 
 func (i *SingleReplicationConfig) ToSingleReplicationConfigOutput() SingleReplicationConfigOutput {
@@ -156,35 +156,6 @@ func (i *SingleReplicationConfig) ToSingleReplicationConfigOutput() SingleReplic
 
 func (i *SingleReplicationConfig) ToSingleReplicationConfigOutputWithContext(ctx context.Context) SingleReplicationConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigOutput)
-}
-
-func (i *SingleReplicationConfig) ToSingleReplicationConfigPtrOutput() SingleReplicationConfigPtrOutput {
-	return i.ToSingleReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *SingleReplicationConfig) ToSingleReplicationConfigPtrOutputWithContext(ctx context.Context) SingleReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigPtrOutput)
-}
-
-type SingleReplicationConfigPtrInput interface {
-	pulumi.Input
-
-	ToSingleReplicationConfigPtrOutput() SingleReplicationConfigPtrOutput
-	ToSingleReplicationConfigPtrOutputWithContext(ctx context.Context) SingleReplicationConfigPtrOutput
-}
-
-type singleReplicationConfigPtrType SingleReplicationConfigArgs
-
-func (*singleReplicationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SingleReplicationConfig)(nil))
-}
-
-func (i *singleReplicationConfigPtrType) ToSingleReplicationConfigPtrOutput() SingleReplicationConfigPtrOutput {
-	return i.ToSingleReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *singleReplicationConfigPtrType) ToSingleReplicationConfigPtrOutputWithContext(ctx context.Context) SingleReplicationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SingleReplicationConfigPtrOutput)
 }
 
 // SingleReplicationConfigArrayInput is an input type that accepts SingleReplicationConfigArray and SingleReplicationConfigArrayOutput values.
@@ -240,7 +211,7 @@ func (i SingleReplicationConfigMap) ToSingleReplicationConfigMapOutputWithContex
 type SingleReplicationConfigOutput struct{ *pulumi.OutputState }
 
 func (SingleReplicationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SingleReplicationConfig)(nil))
+	return reflect.TypeOf((**SingleReplicationConfig)(nil)).Elem()
 }
 
 func (o SingleReplicationConfigOutput) ToSingleReplicationConfigOutput() SingleReplicationConfigOutput {
@@ -251,44 +222,10 @@ func (o SingleReplicationConfigOutput) ToSingleReplicationConfigOutputWithContex
 	return o
 }
 
-func (o SingleReplicationConfigOutput) ToSingleReplicationConfigPtrOutput() SingleReplicationConfigPtrOutput {
-	return o.ToSingleReplicationConfigPtrOutputWithContext(context.Background())
-}
-
-func (o SingleReplicationConfigOutput) ToSingleReplicationConfigPtrOutputWithContext(ctx context.Context) SingleReplicationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SingleReplicationConfig) *SingleReplicationConfig {
-		return &v
-	}).(SingleReplicationConfigPtrOutput)
-}
-
-type SingleReplicationConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (SingleReplicationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SingleReplicationConfig)(nil))
-}
-
-func (o SingleReplicationConfigPtrOutput) ToSingleReplicationConfigPtrOutput() SingleReplicationConfigPtrOutput {
-	return o
-}
-
-func (o SingleReplicationConfigPtrOutput) ToSingleReplicationConfigPtrOutputWithContext(ctx context.Context) SingleReplicationConfigPtrOutput {
-	return o
-}
-
-func (o SingleReplicationConfigPtrOutput) Elem() SingleReplicationConfigOutput {
-	return o.ApplyT(func(v *SingleReplicationConfig) SingleReplicationConfig {
-		if v != nil {
-			return *v
-		}
-		var ret SingleReplicationConfig
-		return ret
-	}).(SingleReplicationConfigOutput)
-}
-
 type SingleReplicationConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (SingleReplicationConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SingleReplicationConfig)(nil))
+	return reflect.TypeOf((*[]*SingleReplicationConfig)(nil)).Elem()
 }
 
 func (o SingleReplicationConfigArrayOutput) ToSingleReplicationConfigArrayOutput() SingleReplicationConfigArrayOutput {
@@ -300,15 +237,15 @@ func (o SingleReplicationConfigArrayOutput) ToSingleReplicationConfigArrayOutput
 }
 
 func (o SingleReplicationConfigArrayOutput) Index(i pulumi.IntInput) SingleReplicationConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SingleReplicationConfig {
-		return vs[0].([]SingleReplicationConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SingleReplicationConfig {
+		return vs[0].([]*SingleReplicationConfig)[vs[1].(int)]
 	}).(SingleReplicationConfigOutput)
 }
 
 type SingleReplicationConfigMapOutput struct{ *pulumi.OutputState }
 
 func (SingleReplicationConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SingleReplicationConfig)(nil))
+	return reflect.TypeOf((*map[string]*SingleReplicationConfig)(nil)).Elem()
 }
 
 func (o SingleReplicationConfigMapOutput) ToSingleReplicationConfigMapOutput() SingleReplicationConfigMapOutput {
@@ -320,18 +257,16 @@ func (o SingleReplicationConfigMapOutput) ToSingleReplicationConfigMapOutputWith
 }
 
 func (o SingleReplicationConfigMapOutput) MapIndex(k pulumi.StringInput) SingleReplicationConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SingleReplicationConfig {
-		return vs[0].(map[string]SingleReplicationConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SingleReplicationConfig {
+		return vs[0].(map[string]*SingleReplicationConfig)[vs[1].(string)]
 	}).(SingleReplicationConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigInput)(nil)).Elem(), &SingleReplicationConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigPtrInput)(nil)).Elem(), &SingleReplicationConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigArrayInput)(nil)).Elem(), SingleReplicationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SingleReplicationConfigMapInput)(nil)).Elem(), SingleReplicationConfigMap{})
 	pulumi.RegisterOutputType(SingleReplicationConfigOutput{})
-	pulumi.RegisterOutputType(SingleReplicationConfigPtrOutput{})
 	pulumi.RegisterOutputType(SingleReplicationConfigArrayOutput{})
 	pulumi.RegisterOutputType(SingleReplicationConfigMapOutput{})
 }

@@ -56,14 +56,14 @@ export class PushReplication extends pulumi.CustomResource {
      */
     constructor(name: string, args: PushReplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PushReplicationArgs | PushReplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PushReplicationState | undefined;
-            inputs["cronExp"] = state ? state.cronExp : undefined;
-            inputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
-            inputs["replications"] = state ? state.replications : undefined;
-            inputs["repoKey"] = state ? state.repoKey : undefined;
+            resourceInputs["cronExp"] = state ? state.cronExp : undefined;
+            resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
+            resourceInputs["replications"] = state ? state.replications : undefined;
+            resourceInputs["repoKey"] = state ? state.repoKey : undefined;
         } else {
             const args = argsOrState as PushReplicationArgs | undefined;
             if ((!args || args.cronExp === undefined) && !opts.urn) {
@@ -72,15 +72,13 @@ export class PushReplication extends pulumi.CustomResource {
             if ((!args || args.repoKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repoKey'");
             }
-            inputs["cronExp"] = args ? args.cronExp : undefined;
-            inputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
-            inputs["replications"] = args ? args.replications : undefined;
-            inputs["repoKey"] = args ? args.repoKey : undefined;
+            resourceInputs["cronExp"] = args ? args.cronExp : undefined;
+            resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
+            resourceInputs["replications"] = args ? args.replications : undefined;
+            resourceInputs["repoKey"] = args ? args.repoKey : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PushReplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PushReplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalConanRepository(ctx, "terraform_local_test_conan_repo", &artifactory.LocalConanRepositoryArgs{
+// 		_, err := artifactory.NewLocalConanRepository(ctx, "terraform-local-test-conan-repo", &artifactory.LocalConanRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-conan-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalConanRepositoryInput interface {
 }
 
 func (*LocalConanRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalConanRepository)(nil))
+	return reflect.TypeOf((**LocalConanRepository)(nil)).Elem()
 }
 
 func (i *LocalConanRepository) ToLocalConanRepositoryOutput() LocalConanRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalConanRepository) ToLocalConanRepositoryOutput() LocalConanReposito
 
 func (i *LocalConanRepository) ToLocalConanRepositoryOutputWithContext(ctx context.Context) LocalConanRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryOutput)
-}
-
-func (i *LocalConanRepository) ToLocalConanRepositoryPtrOutput() LocalConanRepositoryPtrOutput {
-	return i.ToLocalConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalConanRepository) ToLocalConanRepositoryPtrOutputWithContext(ctx context.Context) LocalConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryPtrOutput)
-}
-
-type LocalConanRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalConanRepositoryPtrOutput() LocalConanRepositoryPtrOutput
-	ToLocalConanRepositoryPtrOutputWithContext(ctx context.Context) LocalConanRepositoryPtrOutput
-}
-
-type localConanRepositoryPtrType LocalConanRepositoryArgs
-
-func (*localConanRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalConanRepository)(nil))
-}
-
-func (i *localConanRepositoryPtrType) ToLocalConanRepositoryPtrOutput() LocalConanRepositoryPtrOutput {
-	return i.ToLocalConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localConanRepositoryPtrType) ToLocalConanRepositoryPtrOutputWithContext(ctx context.Context) LocalConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalConanRepositoryPtrOutput)
 }
 
 // LocalConanRepositoryArrayInput is an input type that accepts LocalConanRepositoryArray and LocalConanRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalConanRepositoryMap) ToLocalConanRepositoryMapOutputWithContext(ctx 
 type LocalConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalConanRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalConanRepository)(nil))
+	return reflect.TypeOf((**LocalConanRepository)(nil)).Elem()
 }
 
 func (o LocalConanRepositoryOutput) ToLocalConanRepositoryOutput() LocalConanRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalConanRepositoryOutput) ToLocalConanRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o LocalConanRepositoryOutput) ToLocalConanRepositoryPtrOutput() LocalConanRepositoryPtrOutput {
-	return o.ToLocalConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalConanRepositoryOutput) ToLocalConanRepositoryPtrOutputWithContext(ctx context.Context) LocalConanRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalConanRepository) *LocalConanRepository {
-		return &v
-	}).(LocalConanRepositoryPtrOutput)
-}
-
-type LocalConanRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalConanRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalConanRepository)(nil))
-}
-
-func (o LocalConanRepositoryPtrOutput) ToLocalConanRepositoryPtrOutput() LocalConanRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalConanRepositoryPtrOutput) ToLocalConanRepositoryPtrOutputWithContext(ctx context.Context) LocalConanRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalConanRepositoryPtrOutput) Elem() LocalConanRepositoryOutput {
-	return o.ApplyT(func(v *LocalConanRepository) LocalConanRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalConanRepository
-		return ret
-	}).(LocalConanRepositoryOutput)
-}
-
 type LocalConanRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalConanRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalConanRepository)(nil))
+	return reflect.TypeOf((*[]*LocalConanRepository)(nil)).Elem()
 }
 
 func (o LocalConanRepositoryArrayOutput) ToLocalConanRepositoryArrayOutput() LocalConanRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalConanRepositoryArrayOutput) ToLocalConanRepositoryArrayOutputWithCo
 }
 
 func (o LocalConanRepositoryArrayOutput) Index(i pulumi.IntInput) LocalConanRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalConanRepository {
-		return vs[0].([]LocalConanRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalConanRepository {
+		return vs[0].([]*LocalConanRepository)[vs[1].(int)]
 	}).(LocalConanRepositoryOutput)
 }
 
 type LocalConanRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalConanRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalConanRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalConanRepository)(nil)).Elem()
 }
 
 func (o LocalConanRepositoryMapOutput) ToLocalConanRepositoryMapOutput() LocalConanRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalConanRepositoryMapOutput) ToLocalConanRepositoryMapOutputWithContex
 }
 
 func (o LocalConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalConanRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalConanRepository {
-		return vs[0].(map[string]LocalConanRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalConanRepository {
+		return vs[0].(map[string]*LocalConanRepository)[vs[1].(string)]
 	}).(LocalConanRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalConanRepositoryInput)(nil)).Elem(), &LocalConanRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalConanRepositoryPtrInput)(nil)).Elem(), &LocalConanRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalConanRepositoryArrayInput)(nil)).Elem(), LocalConanRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalConanRepositoryMapInput)(nil)).Elem(), LocalConanRepositoryMap{})
 	pulumi.RegisterOutputType(LocalConanRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalConanRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalConanRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalConanRepositoryMapOutput{})
 }
