@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.Artifactory
 {
@@ -42,7 +41,7 @@ namespace Pulumi.Artifactory
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileinfoResult> InvokeAsync(GetFileinfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// ## # Artifactory File Info Data Source
@@ -74,7 +73,7 @@ namespace Pulumi.Artifactory
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
     }
 
 

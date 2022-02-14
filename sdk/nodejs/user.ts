@@ -83,18 +83,18 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["admin"] = state ? state.admin : undefined;
-            inputs["disableUiAccess"] = state ? state.disableUiAccess : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["internalPasswordDisabled"] = state ? state.internalPasswordDisabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["profileUpdatable"] = state ? state.profileUpdatable : undefined;
+            resourceInputs["admin"] = state ? state.admin : undefined;
+            resourceInputs["disableUiAccess"] = state ? state.disableUiAccess : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["internalPasswordDisabled"] = state ? state.internalPasswordDisabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["profileUpdatable"] = state ? state.profileUpdatable : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
@@ -103,19 +103,17 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            inputs["admin"] = args ? args.admin : undefined;
-            inputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
+            resourceInputs["admin"] = args ? args.admin : undefined;
+            resourceInputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(User.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

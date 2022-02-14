@@ -27,9 +27,7 @@ export function getFileinfo(args: GetFileinfoArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("artifactory:index/getFileinfo:getFileinfo", {
         "path": args.path,
         "repository": args.repository,

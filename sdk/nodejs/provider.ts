@@ -54,20 +54,18 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
-            inputs["password"] = args ? args.password : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

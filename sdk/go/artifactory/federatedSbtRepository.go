@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedSbtRepository(ctx, "terraform_federated_test_sbt_repo", &artifactory.FederatedSbtRepositoryArgs{
+// 		_, err := artifactory.NewFederatedSbtRepository(ctx, "terraform-federated-test-sbt-repo", &artifactory.FederatedSbtRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-sbt-repo"),
 // 			Members: FederatedSbtRepositoryMemberArray{
 // 				&FederatedSbtRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedSbtRepositoryInput interface {
 }
 
 func (*FederatedSbtRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedSbtRepository)(nil))
+	return reflect.TypeOf((**FederatedSbtRepository)(nil)).Elem()
 }
 
 func (i *FederatedSbtRepository) ToFederatedSbtRepositoryOutput() FederatedSbtRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedSbtRepository) ToFederatedSbtRepositoryOutput() FederatedSbtRe
 
 func (i *FederatedSbtRepository) ToFederatedSbtRepositoryOutputWithContext(ctx context.Context) FederatedSbtRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedSbtRepositoryOutput)
-}
-
-func (i *FederatedSbtRepository) ToFederatedSbtRepositoryPtrOutput() FederatedSbtRepositoryPtrOutput {
-	return i.ToFederatedSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedSbtRepository) ToFederatedSbtRepositoryPtrOutputWithContext(ctx context.Context) FederatedSbtRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedSbtRepositoryPtrOutput)
-}
-
-type FederatedSbtRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedSbtRepositoryPtrOutput() FederatedSbtRepositoryPtrOutput
-	ToFederatedSbtRepositoryPtrOutputWithContext(ctx context.Context) FederatedSbtRepositoryPtrOutput
-}
-
-type federatedSbtRepositoryPtrType FederatedSbtRepositoryArgs
-
-func (*federatedSbtRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedSbtRepository)(nil))
-}
-
-func (i *federatedSbtRepositoryPtrType) ToFederatedSbtRepositoryPtrOutput() FederatedSbtRepositoryPtrOutput {
-	return i.ToFederatedSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedSbtRepositoryPtrType) ToFederatedSbtRepositoryPtrOutputWithContext(ctx context.Context) FederatedSbtRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedSbtRepositoryPtrOutput)
 }
 
 // FederatedSbtRepositoryArrayInput is an input type that accepts FederatedSbtRepositoryArray and FederatedSbtRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedSbtRepositoryMap) ToFederatedSbtRepositoryMapOutputWithContext(
 type FederatedSbtRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedSbtRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedSbtRepository)(nil))
+	return reflect.TypeOf((**FederatedSbtRepository)(nil)).Elem()
 }
 
 func (o FederatedSbtRepositoryOutput) ToFederatedSbtRepositoryOutput() FederatedSbtRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedSbtRepositoryOutput) ToFederatedSbtRepositoryOutputWithContext(
 	return o
 }
 
-func (o FederatedSbtRepositoryOutput) ToFederatedSbtRepositoryPtrOutput() FederatedSbtRepositoryPtrOutput {
-	return o.ToFederatedSbtRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedSbtRepositoryOutput) ToFederatedSbtRepositoryPtrOutputWithContext(ctx context.Context) FederatedSbtRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedSbtRepository) *FederatedSbtRepository {
-		return &v
-	}).(FederatedSbtRepositoryPtrOutput)
-}
-
-type FederatedSbtRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedSbtRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedSbtRepository)(nil))
-}
-
-func (o FederatedSbtRepositoryPtrOutput) ToFederatedSbtRepositoryPtrOutput() FederatedSbtRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedSbtRepositoryPtrOutput) ToFederatedSbtRepositoryPtrOutputWithContext(ctx context.Context) FederatedSbtRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedSbtRepositoryPtrOutput) Elem() FederatedSbtRepositoryOutput {
-	return o.ApplyT(func(v *FederatedSbtRepository) FederatedSbtRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedSbtRepository
-		return ret
-	}).(FederatedSbtRepositoryOutput)
-}
-
 type FederatedSbtRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedSbtRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedSbtRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedSbtRepository)(nil)).Elem()
 }
 
 func (o FederatedSbtRepositoryArrayOutput) ToFederatedSbtRepositoryArrayOutput() FederatedSbtRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedSbtRepositoryArrayOutput) ToFederatedSbtRepositoryArrayOutputWi
 }
 
 func (o FederatedSbtRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedSbtRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedSbtRepository {
-		return vs[0].([]FederatedSbtRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedSbtRepository {
+		return vs[0].([]*FederatedSbtRepository)[vs[1].(int)]
 	}).(FederatedSbtRepositoryOutput)
 }
 
 type FederatedSbtRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedSbtRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedSbtRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedSbtRepository)(nil)).Elem()
 }
 
 func (o FederatedSbtRepositoryMapOutput) ToFederatedSbtRepositoryMapOutput() FederatedSbtRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedSbtRepositoryMapOutput) ToFederatedSbtRepositoryMapOutputWithCo
 }
 
 func (o FederatedSbtRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedSbtRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedSbtRepository {
-		return vs[0].(map[string]FederatedSbtRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedSbtRepository {
+		return vs[0].(map[string]*FederatedSbtRepository)[vs[1].(string)]
 	}).(FederatedSbtRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryInput)(nil)).Elem(), &FederatedSbtRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryPtrInput)(nil)).Elem(), &FederatedSbtRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryArrayInput)(nil)).Elem(), FederatedSbtRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMapInput)(nil)).Elem(), FederatedSbtRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedSbtRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMapOutput{})
 }

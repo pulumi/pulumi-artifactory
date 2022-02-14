@@ -93,17 +93,17 @@ export class Keypair extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeypairArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeypairArgs | KeypairState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeypairState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["pairName"] = state ? state.pairName : undefined;
-            inputs["pairType"] = state ? state.pairType : undefined;
-            inputs["passphrase"] = state ? state.passphrase : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["unavailable"] = state ? state.unavailable : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["pairName"] = state ? state.pairName : undefined;
+            resourceInputs["pairType"] = state ? state.pairType : undefined;
+            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["unavailable"] = state ? state.unavailable : undefined;
         } else {
             const args = argsOrState as KeypairArgs | undefined;
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -121,18 +121,16 @@ export class Keypair extends pulumi.CustomResource {
             if ((!args || args.publicKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["pairName"] = args ? args.pairName : undefined;
-            inputs["pairType"] = args ? args.pairType : undefined;
-            inputs["passphrase"] = args ? args.passphrase : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["unavailable"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["pairName"] = args ? args.pairName : undefined;
+            resourceInputs["pairType"] = args ? args.pairType : undefined;
+            resourceInputs["passphrase"] = args ? args.passphrase : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["unavailable"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Keypair.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Keypair.__pulumiType, name, resourceInputs, opts);
     }
 }
 

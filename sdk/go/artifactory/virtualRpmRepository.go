@@ -37,7 +37,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "primary_keypair", &artifactory.KeypairArgs{
+// 		_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
 // 			PairName:   pulumi.String("primary-keypair"),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias-1"),
@@ -47,7 +47,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewKeypair(ctx, "secondary_keypair", &artifactory.KeypairArgs{
+// 		_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
 // 			PairName:   pulumi.String("secondary-keypair"),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias-2"),
@@ -57,7 +57,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewVirtualRpmRepository(ctx, "foo_rpm_virtual", &artifactory.VirtualRpmRepositoryArgs{
+// 		_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
 // 			Key:                 pulumi.String("foo-rpm-virtual"),
 // 			PrimaryKeypairRef:   primary_keypair.PairName,
 // 			SecondaryKeypairRef: secondary_keypair.PairName,
@@ -311,7 +311,7 @@ type VirtualRpmRepositoryInput interface {
 }
 
 func (*VirtualRpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRpmRepository)(nil))
+	return reflect.TypeOf((**VirtualRpmRepository)(nil)).Elem()
 }
 
 func (i *VirtualRpmRepository) ToVirtualRpmRepositoryOutput() VirtualRpmRepositoryOutput {
@@ -320,35 +320,6 @@ func (i *VirtualRpmRepository) ToVirtualRpmRepositoryOutput() VirtualRpmReposito
 
 func (i *VirtualRpmRepository) ToVirtualRpmRepositoryOutputWithContext(ctx context.Context) VirtualRpmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRpmRepositoryOutput)
-}
-
-func (i *VirtualRpmRepository) ToVirtualRpmRepositoryPtrOutput() VirtualRpmRepositoryPtrOutput {
-	return i.ToVirtualRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualRpmRepository) ToVirtualRpmRepositoryPtrOutputWithContext(ctx context.Context) VirtualRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRpmRepositoryPtrOutput)
-}
-
-type VirtualRpmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToVirtualRpmRepositoryPtrOutput() VirtualRpmRepositoryPtrOutput
-	ToVirtualRpmRepositoryPtrOutputWithContext(ctx context.Context) VirtualRpmRepositoryPtrOutput
-}
-
-type virtualRpmRepositoryPtrType VirtualRpmRepositoryArgs
-
-func (*virtualRpmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRpmRepository)(nil))
-}
-
-func (i *virtualRpmRepositoryPtrType) ToVirtualRpmRepositoryPtrOutput() VirtualRpmRepositoryPtrOutput {
-	return i.ToVirtualRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualRpmRepositoryPtrType) ToVirtualRpmRepositoryPtrOutputWithContext(ctx context.Context) VirtualRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualRpmRepositoryPtrOutput)
 }
 
 // VirtualRpmRepositoryArrayInput is an input type that accepts VirtualRpmRepositoryArray and VirtualRpmRepositoryArrayOutput values.
@@ -404,7 +375,7 @@ func (i VirtualRpmRepositoryMap) ToVirtualRpmRepositoryMapOutputWithContext(ctx 
 type VirtualRpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualRpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRpmRepository)(nil))
+	return reflect.TypeOf((**VirtualRpmRepository)(nil)).Elem()
 }
 
 func (o VirtualRpmRepositoryOutput) ToVirtualRpmRepositoryOutput() VirtualRpmRepositoryOutput {
@@ -415,44 +386,10 @@ func (o VirtualRpmRepositoryOutput) ToVirtualRpmRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o VirtualRpmRepositoryOutput) ToVirtualRpmRepositoryPtrOutput() VirtualRpmRepositoryPtrOutput {
-	return o.ToVirtualRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualRpmRepositoryOutput) ToVirtualRpmRepositoryPtrOutputWithContext(ctx context.Context) VirtualRpmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRpmRepository) *VirtualRpmRepository {
-		return &v
-	}).(VirtualRpmRepositoryPtrOutput)
-}
-
-type VirtualRpmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualRpmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualRpmRepository)(nil))
-}
-
-func (o VirtualRpmRepositoryPtrOutput) ToVirtualRpmRepositoryPtrOutput() VirtualRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualRpmRepositoryPtrOutput) ToVirtualRpmRepositoryPtrOutputWithContext(ctx context.Context) VirtualRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualRpmRepositoryPtrOutput) Elem() VirtualRpmRepositoryOutput {
-	return o.ApplyT(func(v *VirtualRpmRepository) VirtualRpmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualRpmRepository
-		return ret
-	}).(VirtualRpmRepositoryOutput)
-}
-
 type VirtualRpmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualRpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualRpmRepository)(nil))
+	return reflect.TypeOf((*[]*VirtualRpmRepository)(nil)).Elem()
 }
 
 func (o VirtualRpmRepositoryArrayOutput) ToVirtualRpmRepositoryArrayOutput() VirtualRpmRepositoryArrayOutput {
@@ -464,15 +401,15 @@ func (o VirtualRpmRepositoryArrayOutput) ToVirtualRpmRepositoryArrayOutputWithCo
 }
 
 func (o VirtualRpmRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualRpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualRpmRepository {
-		return vs[0].([]VirtualRpmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualRpmRepository {
+		return vs[0].([]*VirtualRpmRepository)[vs[1].(int)]
 	}).(VirtualRpmRepositoryOutput)
 }
 
 type VirtualRpmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualRpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualRpmRepository)(nil))
+	return reflect.TypeOf((*map[string]*VirtualRpmRepository)(nil)).Elem()
 }
 
 func (o VirtualRpmRepositoryMapOutput) ToVirtualRpmRepositoryMapOutput() VirtualRpmRepositoryMapOutput {
@@ -484,18 +421,16 @@ func (o VirtualRpmRepositoryMapOutput) ToVirtualRpmRepositoryMapOutputWithContex
 }
 
 func (o VirtualRpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualRpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualRpmRepository {
-		return vs[0].(map[string]VirtualRpmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualRpmRepository {
+		return vs[0].(map[string]*VirtualRpmRepository)[vs[1].(string)]
 	}).(VirtualRpmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRpmRepositoryInput)(nil)).Elem(), &VirtualRpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRpmRepositoryPtrInput)(nil)).Elem(), &VirtualRpmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRpmRepositoryArrayInput)(nil)).Elem(), VirtualRpmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRpmRepositoryMapInput)(nil)).Elem(), VirtualRpmRepositoryMap{})
 	pulumi.RegisterOutputType(VirtualRpmRepositoryOutput{})
-	pulumi.RegisterOutputType(VirtualRpmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRpmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualRpmRepositoryMapOutput{})
 }

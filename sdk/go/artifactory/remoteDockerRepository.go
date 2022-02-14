@@ -29,7 +29,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteDockerRepository(ctx, "my_remote_docker", &artifactory.RemoteDockerRepositoryArgs{
+// 		_, err := artifactory.NewRemoteDockerRepository(ctx, "my-remote-docker", &artifactory.RemoteDockerRepositoryArgs{
 // 			BlockPushingSchema1:         pulumi.Bool(true),
 // 			EnableTokenAuthentication:   pulumi.Bool(true),
 // 			ExternalDependenciesEnabled: pulumi.Bool(true),
@@ -474,7 +474,7 @@ type RemoteDockerRepositoryInput interface {
 }
 
 func (*RemoteDockerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteDockerRepository)(nil))
+	return reflect.TypeOf((**RemoteDockerRepository)(nil)).Elem()
 }
 
 func (i *RemoteDockerRepository) ToRemoteDockerRepositoryOutput() RemoteDockerRepositoryOutput {
@@ -483,35 +483,6 @@ func (i *RemoteDockerRepository) ToRemoteDockerRepositoryOutput() RemoteDockerRe
 
 func (i *RemoteDockerRepository) ToRemoteDockerRepositoryOutputWithContext(ctx context.Context) RemoteDockerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryOutput)
-}
-
-func (i *RemoteDockerRepository) ToRemoteDockerRepositoryPtrOutput() RemoteDockerRepositoryPtrOutput {
-	return i.ToRemoteDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *RemoteDockerRepository) ToRemoteDockerRepositoryPtrOutputWithContext(ctx context.Context) RemoteDockerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryPtrOutput)
-}
-
-type RemoteDockerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToRemoteDockerRepositoryPtrOutput() RemoteDockerRepositoryPtrOutput
-	ToRemoteDockerRepositoryPtrOutputWithContext(ctx context.Context) RemoteDockerRepositoryPtrOutput
-}
-
-type remoteDockerRepositoryPtrType RemoteDockerRepositoryArgs
-
-func (*remoteDockerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteDockerRepository)(nil))
-}
-
-func (i *remoteDockerRepositoryPtrType) ToRemoteDockerRepositoryPtrOutput() RemoteDockerRepositoryPtrOutput {
-	return i.ToRemoteDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteDockerRepositoryPtrType) ToRemoteDockerRepositoryPtrOutputWithContext(ctx context.Context) RemoteDockerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteDockerRepositoryPtrOutput)
 }
 
 // RemoteDockerRepositoryArrayInput is an input type that accepts RemoteDockerRepositoryArray and RemoteDockerRepositoryArrayOutput values.
@@ -567,7 +538,7 @@ func (i RemoteDockerRepositoryMap) ToRemoteDockerRepositoryMapOutputWithContext(
 type RemoteDockerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteDockerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteDockerRepository)(nil))
+	return reflect.TypeOf((**RemoteDockerRepository)(nil)).Elem()
 }
 
 func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryOutput() RemoteDockerRepositoryOutput {
@@ -578,44 +549,10 @@ func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryOutputWithContext(
 	return o
 }
 
-func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryPtrOutput() RemoteDockerRepositoryPtrOutput {
-	return o.ToRemoteDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteDockerRepositoryOutput) ToRemoteDockerRepositoryPtrOutputWithContext(ctx context.Context) RemoteDockerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteDockerRepository) *RemoteDockerRepository {
-		return &v
-	}).(RemoteDockerRepositoryPtrOutput)
-}
-
-type RemoteDockerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteDockerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteDockerRepository)(nil))
-}
-
-func (o RemoteDockerRepositoryPtrOutput) ToRemoteDockerRepositoryPtrOutput() RemoteDockerRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteDockerRepositoryPtrOutput) ToRemoteDockerRepositoryPtrOutputWithContext(ctx context.Context) RemoteDockerRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteDockerRepositoryPtrOutput) Elem() RemoteDockerRepositoryOutput {
-	return o.ApplyT(func(v *RemoteDockerRepository) RemoteDockerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteDockerRepository
-		return ret
-	}).(RemoteDockerRepositoryOutput)
-}
-
 type RemoteDockerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RemoteDockerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemoteDockerRepository)(nil))
+	return reflect.TypeOf((*[]*RemoteDockerRepository)(nil)).Elem()
 }
 
 func (o RemoteDockerRepositoryArrayOutput) ToRemoteDockerRepositoryArrayOutput() RemoteDockerRepositoryArrayOutput {
@@ -627,15 +564,15 @@ func (o RemoteDockerRepositoryArrayOutput) ToRemoteDockerRepositoryArrayOutputWi
 }
 
 func (o RemoteDockerRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteDockerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteDockerRepository {
-		return vs[0].([]RemoteDockerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteDockerRepository {
+		return vs[0].([]*RemoteDockerRepository)[vs[1].(int)]
 	}).(RemoteDockerRepositoryOutput)
 }
 
 type RemoteDockerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (RemoteDockerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemoteDockerRepository)(nil))
+	return reflect.TypeOf((*map[string]*RemoteDockerRepository)(nil)).Elem()
 }
 
 func (o RemoteDockerRepositoryMapOutput) ToRemoteDockerRepositoryMapOutput() RemoteDockerRepositoryMapOutput {
@@ -647,18 +584,16 @@ func (o RemoteDockerRepositoryMapOutput) ToRemoteDockerRepositoryMapOutputWithCo
 }
 
 func (o RemoteDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteDockerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemoteDockerRepository {
-		return vs[0].(map[string]RemoteDockerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemoteDockerRepository {
+		return vs[0].(map[string]*RemoteDockerRepository)[vs[1].(string)]
 	}).(RemoteDockerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryInput)(nil)).Elem(), &RemoteDockerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryPtrInput)(nil)).Elem(), &RemoteDockerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryArrayInput)(nil)).Elem(), RemoteDockerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryMapInput)(nil)).Elem(), RemoteDockerRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryOutput{})
-	pulumi.RegisterOutputType(RemoteDockerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryMapOutput{})
 }

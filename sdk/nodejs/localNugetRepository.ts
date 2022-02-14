@@ -94,50 +94,48 @@ export class LocalNugetRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: LocalNugetRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LocalNugetRepositoryArgs | LocalNugetRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LocalNugetRepositoryState | undefined;
-            inputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = state ? state.blackedOut : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            inputs["propertySets"] = state ? state.propertySets : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = state ? state.forceNugetAuthentication : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as LocalNugetRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = args ? args.blackedOut : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            inputs["propertySets"] = args ? args.propertySets : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            inputs["packageType"] = undefined /*out*/;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceNugetAuthentication"] = args ? args.forceNugetAuthentication : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["packageType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(LocalNugetRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(LocalNugetRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

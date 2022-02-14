@@ -84,38 +84,36 @@ export class AccessToken extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessTokenArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessTokenArgs | AccessTokenState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessTokenState | undefined;
-            inputs["accessToken"] = state ? state.accessToken : undefined;
-            inputs["adminToken"] = state ? state.adminToken : undefined;
-            inputs["audience"] = state ? state.audience : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["endDateRelative"] = state ? state.endDateRelative : undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["refreshToken"] = state ? state.refreshToken : undefined;
-            inputs["refreshable"] = state ? state.refreshable : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
+            resourceInputs["adminToken"] = state ? state.adminToken : undefined;
+            resourceInputs["audience"] = state ? state.audience : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["endDateRelative"] = state ? state.endDateRelative : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["refreshToken"] = state ? state.refreshToken : undefined;
+            resourceInputs["refreshable"] = state ? state.refreshable : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as AccessTokenArgs | undefined;
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["adminToken"] = args ? args.adminToken : undefined;
-            inputs["audience"] = args ? args.audience : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["endDateRelative"] = args ? args.endDateRelative : undefined;
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["refreshable"] = args ? args.refreshable : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["accessToken"] = undefined /*out*/;
-            inputs["refreshToken"] = undefined /*out*/;
+            resourceInputs["adminToken"] = args ? args.adminToken : undefined;
+            resourceInputs["audience"] = args ? args.audience : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["endDateRelative"] = args ? args.endDateRelative : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["refreshable"] = args ? args.refreshable : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["accessToken"] = undefined /*out*/;
+            resourceInputs["refreshToken"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AccessToken.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AccessToken.__pulumiType, name, resourceInputs, opts);
     }
 }
 

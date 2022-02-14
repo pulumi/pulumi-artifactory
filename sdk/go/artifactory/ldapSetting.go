@@ -278,7 +278,7 @@ type LdapSettingInput interface {
 }
 
 func (*LdapSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*LdapSetting)(nil))
+	return reflect.TypeOf((**LdapSetting)(nil)).Elem()
 }
 
 func (i *LdapSetting) ToLdapSettingOutput() LdapSettingOutput {
@@ -287,35 +287,6 @@ func (i *LdapSetting) ToLdapSettingOutput() LdapSettingOutput {
 
 func (i *LdapSetting) ToLdapSettingOutputWithContext(ctx context.Context) LdapSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingOutput)
-}
-
-func (i *LdapSetting) ToLdapSettingPtrOutput() LdapSettingPtrOutput {
-	return i.ToLdapSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *LdapSetting) ToLdapSettingPtrOutputWithContext(ctx context.Context) LdapSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingPtrOutput)
-}
-
-type LdapSettingPtrInput interface {
-	pulumi.Input
-
-	ToLdapSettingPtrOutput() LdapSettingPtrOutput
-	ToLdapSettingPtrOutputWithContext(ctx context.Context) LdapSettingPtrOutput
-}
-
-type ldapSettingPtrType LdapSettingArgs
-
-func (*ldapSettingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LdapSetting)(nil))
-}
-
-func (i *ldapSettingPtrType) ToLdapSettingPtrOutput() LdapSettingPtrOutput {
-	return i.ToLdapSettingPtrOutputWithContext(context.Background())
-}
-
-func (i *ldapSettingPtrType) ToLdapSettingPtrOutputWithContext(ctx context.Context) LdapSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapSettingPtrOutput)
 }
 
 // LdapSettingArrayInput is an input type that accepts LdapSettingArray and LdapSettingArrayOutput values.
@@ -371,7 +342,7 @@ func (i LdapSettingMap) ToLdapSettingMapOutputWithContext(ctx context.Context) L
 type LdapSettingOutput struct{ *pulumi.OutputState }
 
 func (LdapSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LdapSetting)(nil))
+	return reflect.TypeOf((**LdapSetting)(nil)).Elem()
 }
 
 func (o LdapSettingOutput) ToLdapSettingOutput() LdapSettingOutput {
@@ -382,44 +353,10 @@ func (o LdapSettingOutput) ToLdapSettingOutputWithContext(ctx context.Context) L
 	return o
 }
 
-func (o LdapSettingOutput) ToLdapSettingPtrOutput() LdapSettingPtrOutput {
-	return o.ToLdapSettingPtrOutputWithContext(context.Background())
-}
-
-func (o LdapSettingOutput) ToLdapSettingPtrOutputWithContext(ctx context.Context) LdapSettingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapSetting) *LdapSetting {
-		return &v
-	}).(LdapSettingPtrOutput)
-}
-
-type LdapSettingPtrOutput struct{ *pulumi.OutputState }
-
-func (LdapSettingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LdapSetting)(nil))
-}
-
-func (o LdapSettingPtrOutput) ToLdapSettingPtrOutput() LdapSettingPtrOutput {
-	return o
-}
-
-func (o LdapSettingPtrOutput) ToLdapSettingPtrOutputWithContext(ctx context.Context) LdapSettingPtrOutput {
-	return o
-}
-
-func (o LdapSettingPtrOutput) Elem() LdapSettingOutput {
-	return o.ApplyT(func(v *LdapSetting) LdapSetting {
-		if v != nil {
-			return *v
-		}
-		var ret LdapSetting
-		return ret
-	}).(LdapSettingOutput)
-}
-
 type LdapSettingArrayOutput struct{ *pulumi.OutputState }
 
 func (LdapSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LdapSetting)(nil))
+	return reflect.TypeOf((*[]*LdapSetting)(nil)).Elem()
 }
 
 func (o LdapSettingArrayOutput) ToLdapSettingArrayOutput() LdapSettingArrayOutput {
@@ -431,15 +368,15 @@ func (o LdapSettingArrayOutput) ToLdapSettingArrayOutputWithContext(ctx context.
 }
 
 func (o LdapSettingArrayOutput) Index(i pulumi.IntInput) LdapSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LdapSetting {
-		return vs[0].([]LdapSetting)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LdapSetting {
+		return vs[0].([]*LdapSetting)[vs[1].(int)]
 	}).(LdapSettingOutput)
 }
 
 type LdapSettingMapOutput struct{ *pulumi.OutputState }
 
 func (LdapSettingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LdapSetting)(nil))
+	return reflect.TypeOf((*map[string]*LdapSetting)(nil)).Elem()
 }
 
 func (o LdapSettingMapOutput) ToLdapSettingMapOutput() LdapSettingMapOutput {
@@ -451,18 +388,16 @@ func (o LdapSettingMapOutput) ToLdapSettingMapOutputWithContext(ctx context.Cont
 }
 
 func (o LdapSettingMapOutput) MapIndex(k pulumi.StringInput) LdapSettingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LdapSetting {
-		return vs[0].(map[string]LdapSetting)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LdapSetting {
+		return vs[0].(map[string]*LdapSetting)[vs[1].(string)]
 	}).(LdapSettingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapSettingInput)(nil)).Elem(), &LdapSetting{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LdapSettingPtrInput)(nil)).Elem(), &LdapSetting{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapSettingArrayInput)(nil)).Elem(), LdapSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LdapSettingMapInput)(nil)).Elem(), LdapSettingMap{})
 	pulumi.RegisterOutputType(LdapSettingOutput{})
-	pulumi.RegisterOutputType(LdapSettingPtrOutput{})
 	pulumi.RegisterOutputType(LdapSettingArrayOutput{})
 	pulumi.RegisterOutputType(LdapSettingMapOutput{})
 }

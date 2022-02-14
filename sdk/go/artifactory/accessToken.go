@@ -161,7 +161,7 @@ type AccessTokenInput interface {
 }
 
 func (*AccessToken) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessToken)(nil))
+	return reflect.TypeOf((**AccessToken)(nil)).Elem()
 }
 
 func (i *AccessToken) ToAccessTokenOutput() AccessTokenOutput {
@@ -170,35 +170,6 @@ func (i *AccessToken) ToAccessTokenOutput() AccessTokenOutput {
 
 func (i *AccessToken) ToAccessTokenOutputWithContext(ctx context.Context) AccessTokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenOutput)
-}
-
-func (i *AccessToken) ToAccessTokenPtrOutput() AccessTokenPtrOutput {
-	return i.ToAccessTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *AccessToken) ToAccessTokenPtrOutputWithContext(ctx context.Context) AccessTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenPtrOutput)
-}
-
-type AccessTokenPtrInput interface {
-	pulumi.Input
-
-	ToAccessTokenPtrOutput() AccessTokenPtrOutput
-	ToAccessTokenPtrOutputWithContext(ctx context.Context) AccessTokenPtrOutput
-}
-
-type accessTokenPtrType AccessTokenArgs
-
-func (*accessTokenPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessToken)(nil))
-}
-
-func (i *accessTokenPtrType) ToAccessTokenPtrOutput() AccessTokenPtrOutput {
-	return i.ToAccessTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *accessTokenPtrType) ToAccessTokenPtrOutputWithContext(ctx context.Context) AccessTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessTokenPtrOutput)
 }
 
 // AccessTokenArrayInput is an input type that accepts AccessTokenArray and AccessTokenArrayOutput values.
@@ -254,7 +225,7 @@ func (i AccessTokenMap) ToAccessTokenMapOutputWithContext(ctx context.Context) A
 type AccessTokenOutput struct{ *pulumi.OutputState }
 
 func (AccessTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessToken)(nil))
+	return reflect.TypeOf((**AccessToken)(nil)).Elem()
 }
 
 func (o AccessTokenOutput) ToAccessTokenOutput() AccessTokenOutput {
@@ -265,44 +236,10 @@ func (o AccessTokenOutput) ToAccessTokenOutputWithContext(ctx context.Context) A
 	return o
 }
 
-func (o AccessTokenOutput) ToAccessTokenPtrOutput() AccessTokenPtrOutput {
-	return o.ToAccessTokenPtrOutputWithContext(context.Background())
-}
-
-func (o AccessTokenOutput) ToAccessTokenPtrOutputWithContext(ctx context.Context) AccessTokenPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessToken) *AccessToken {
-		return &v
-	}).(AccessTokenPtrOutput)
-}
-
-type AccessTokenPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessTokenPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccessToken)(nil))
-}
-
-func (o AccessTokenPtrOutput) ToAccessTokenPtrOutput() AccessTokenPtrOutput {
-	return o
-}
-
-func (o AccessTokenPtrOutput) ToAccessTokenPtrOutputWithContext(ctx context.Context) AccessTokenPtrOutput {
-	return o
-}
-
-func (o AccessTokenPtrOutput) Elem() AccessTokenOutput {
-	return o.ApplyT(func(v *AccessToken) AccessToken {
-		if v != nil {
-			return *v
-		}
-		var ret AccessToken
-		return ret
-	}).(AccessTokenOutput)
-}
-
 type AccessTokenArrayOutput struct{ *pulumi.OutputState }
 
 func (AccessTokenArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessToken)(nil))
+	return reflect.TypeOf((*[]*AccessToken)(nil)).Elem()
 }
 
 func (o AccessTokenArrayOutput) ToAccessTokenArrayOutput() AccessTokenArrayOutput {
@@ -314,15 +251,15 @@ func (o AccessTokenArrayOutput) ToAccessTokenArrayOutputWithContext(ctx context.
 }
 
 func (o AccessTokenArrayOutput) Index(i pulumi.IntInput) AccessTokenOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessToken {
-		return vs[0].([]AccessToken)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessToken {
+		return vs[0].([]*AccessToken)[vs[1].(int)]
 	}).(AccessTokenOutput)
 }
 
 type AccessTokenMapOutput struct{ *pulumi.OutputState }
 
 func (AccessTokenMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AccessToken)(nil))
+	return reflect.TypeOf((*map[string]*AccessToken)(nil)).Elem()
 }
 
 func (o AccessTokenMapOutput) ToAccessTokenMapOutput() AccessTokenMapOutput {
@@ -334,18 +271,16 @@ func (o AccessTokenMapOutput) ToAccessTokenMapOutputWithContext(ctx context.Cont
 }
 
 func (o AccessTokenMapOutput) MapIndex(k pulumi.StringInput) AccessTokenOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AccessToken {
-		return vs[0].(map[string]AccessToken)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AccessToken {
+		return vs[0].(map[string]*AccessToken)[vs[1].(string)]
 	}).(AccessTokenOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenInput)(nil)).Elem(), &AccessToken{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenPtrInput)(nil)).Elem(), &AccessToken{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenArrayInput)(nil)).Elem(), AccessTokenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenMapInput)(nil)).Elem(), AccessTokenMap{})
 	pulumi.RegisterOutputType(AccessTokenOutput{})
-	pulumi.RegisterOutputType(AccessTokenPtrOutput{})
 	pulumi.RegisterOutputType(AccessTokenArrayOutput{})
 	pulumi.RegisterOutputType(AccessTokenMapOutput{})
 }

@@ -148,7 +148,7 @@ type XrayPolicyInput interface {
 }
 
 func (*XrayPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*XrayPolicy)(nil))
+	return reflect.TypeOf((**XrayPolicy)(nil)).Elem()
 }
 
 func (i *XrayPolicy) ToXrayPolicyOutput() XrayPolicyOutput {
@@ -157,35 +157,6 @@ func (i *XrayPolicy) ToXrayPolicyOutput() XrayPolicyOutput {
 
 func (i *XrayPolicy) ToXrayPolicyOutputWithContext(ctx context.Context) XrayPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(XrayPolicyOutput)
-}
-
-func (i *XrayPolicy) ToXrayPolicyPtrOutput() XrayPolicyPtrOutput {
-	return i.ToXrayPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *XrayPolicy) ToXrayPolicyPtrOutputWithContext(ctx context.Context) XrayPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XrayPolicyPtrOutput)
-}
-
-type XrayPolicyPtrInput interface {
-	pulumi.Input
-
-	ToXrayPolicyPtrOutput() XrayPolicyPtrOutput
-	ToXrayPolicyPtrOutputWithContext(ctx context.Context) XrayPolicyPtrOutput
-}
-
-type xrayPolicyPtrType XrayPolicyArgs
-
-func (*xrayPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**XrayPolicy)(nil))
-}
-
-func (i *xrayPolicyPtrType) ToXrayPolicyPtrOutput() XrayPolicyPtrOutput {
-	return i.ToXrayPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *xrayPolicyPtrType) ToXrayPolicyPtrOutputWithContext(ctx context.Context) XrayPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(XrayPolicyPtrOutput)
 }
 
 // XrayPolicyArrayInput is an input type that accepts XrayPolicyArray and XrayPolicyArrayOutput values.
@@ -241,7 +212,7 @@ func (i XrayPolicyMap) ToXrayPolicyMapOutputWithContext(ctx context.Context) Xra
 type XrayPolicyOutput struct{ *pulumi.OutputState }
 
 func (XrayPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*XrayPolicy)(nil))
+	return reflect.TypeOf((**XrayPolicy)(nil)).Elem()
 }
 
 func (o XrayPolicyOutput) ToXrayPolicyOutput() XrayPolicyOutput {
@@ -252,44 +223,10 @@ func (o XrayPolicyOutput) ToXrayPolicyOutputWithContext(ctx context.Context) Xra
 	return o
 }
 
-func (o XrayPolicyOutput) ToXrayPolicyPtrOutput() XrayPolicyPtrOutput {
-	return o.ToXrayPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o XrayPolicyOutput) ToXrayPolicyPtrOutputWithContext(ctx context.Context) XrayPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v XrayPolicy) *XrayPolicy {
-		return &v
-	}).(XrayPolicyPtrOutput)
-}
-
-type XrayPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (XrayPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**XrayPolicy)(nil))
-}
-
-func (o XrayPolicyPtrOutput) ToXrayPolicyPtrOutput() XrayPolicyPtrOutput {
-	return o
-}
-
-func (o XrayPolicyPtrOutput) ToXrayPolicyPtrOutputWithContext(ctx context.Context) XrayPolicyPtrOutput {
-	return o
-}
-
-func (o XrayPolicyPtrOutput) Elem() XrayPolicyOutput {
-	return o.ApplyT(func(v *XrayPolicy) XrayPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret XrayPolicy
-		return ret
-	}).(XrayPolicyOutput)
-}
-
 type XrayPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (XrayPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]XrayPolicy)(nil))
+	return reflect.TypeOf((*[]*XrayPolicy)(nil)).Elem()
 }
 
 func (o XrayPolicyArrayOutput) ToXrayPolicyArrayOutput() XrayPolicyArrayOutput {
@@ -301,15 +238,15 @@ func (o XrayPolicyArrayOutput) ToXrayPolicyArrayOutputWithContext(ctx context.Co
 }
 
 func (o XrayPolicyArrayOutput) Index(i pulumi.IntInput) XrayPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) XrayPolicy {
-		return vs[0].([]XrayPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *XrayPolicy {
+		return vs[0].([]*XrayPolicy)[vs[1].(int)]
 	}).(XrayPolicyOutput)
 }
 
 type XrayPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (XrayPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]XrayPolicy)(nil))
+	return reflect.TypeOf((*map[string]*XrayPolicy)(nil)).Elem()
 }
 
 func (o XrayPolicyMapOutput) ToXrayPolicyMapOutput() XrayPolicyMapOutput {
@@ -321,18 +258,16 @@ func (o XrayPolicyMapOutput) ToXrayPolicyMapOutputWithContext(ctx context.Contex
 }
 
 func (o XrayPolicyMapOutput) MapIndex(k pulumi.StringInput) XrayPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) XrayPolicy {
-		return vs[0].(map[string]XrayPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *XrayPolicy {
+		return vs[0].(map[string]*XrayPolicy)[vs[1].(string)]
 	}).(XrayPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyInput)(nil)).Elem(), &XrayPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyPtrInput)(nil)).Elem(), &XrayPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyArrayInput)(nil)).Elem(), XrayPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayPolicyMapInput)(nil)).Elem(), XrayPolicyMap{})
 	pulumi.RegisterOutputType(XrayPolicyOutput{})
-	pulumi.RegisterOutputType(XrayPolicyPtrOutput{})
 	pulumi.RegisterOutputType(XrayPolicyArrayOutput{})
 	pulumi.RegisterOutputType(XrayPolicyMapOutput{})
 }

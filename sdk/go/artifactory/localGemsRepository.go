@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGemsRepository(ctx, "terraform_local_test_gems_repo", &artifactory.LocalGemsRepositoryArgs{
+// 		_, err := artifactory.NewLocalGemsRepository(ctx, "terraform-local-test-gems-repo", &artifactory.LocalGemsRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-gems-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalGemsRepositoryInput interface {
 }
 
 func (*LocalGemsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGemsRepository)(nil))
+	return reflect.TypeOf((**LocalGemsRepository)(nil)).Elem()
 }
 
 func (i *LocalGemsRepository) ToLocalGemsRepositoryOutput() LocalGemsRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalGemsRepository) ToLocalGemsRepositoryOutput() LocalGemsRepositoryO
 
 func (i *LocalGemsRepository) ToLocalGemsRepositoryOutputWithContext(ctx context.Context) LocalGemsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryOutput)
-}
-
-func (i *LocalGemsRepository) ToLocalGemsRepositoryPtrOutput() LocalGemsRepositoryPtrOutput {
-	return i.ToLocalGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalGemsRepository) ToLocalGemsRepositoryPtrOutputWithContext(ctx context.Context) LocalGemsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryPtrOutput)
-}
-
-type LocalGemsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalGemsRepositoryPtrOutput() LocalGemsRepositoryPtrOutput
-	ToLocalGemsRepositoryPtrOutputWithContext(ctx context.Context) LocalGemsRepositoryPtrOutput
-}
-
-type localGemsRepositoryPtrType LocalGemsRepositoryArgs
-
-func (*localGemsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGemsRepository)(nil))
-}
-
-func (i *localGemsRepositoryPtrType) ToLocalGemsRepositoryPtrOutput() LocalGemsRepositoryPtrOutput {
-	return i.ToLocalGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localGemsRepositoryPtrType) ToLocalGemsRepositoryPtrOutputWithContext(ctx context.Context) LocalGemsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGemsRepositoryPtrOutput)
 }
 
 // LocalGemsRepositoryArrayInput is an input type that accepts LocalGemsRepositoryArray and LocalGemsRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalGemsRepositoryMap) ToLocalGemsRepositoryMapOutputWithContext(ctx co
 type LocalGemsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGemsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGemsRepository)(nil))
+	return reflect.TypeOf((**LocalGemsRepository)(nil)).Elem()
 }
 
 func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryOutput() LocalGemsRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryPtrOutput() LocalGemsRepositoryPtrOutput {
-	return o.ToLocalGemsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGemsRepositoryOutput) ToLocalGemsRepositoryPtrOutputWithContext(ctx context.Context) LocalGemsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGemsRepository) *LocalGemsRepository {
-		return &v
-	}).(LocalGemsRepositoryPtrOutput)
-}
-
-type LocalGemsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGemsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGemsRepository)(nil))
-}
-
-func (o LocalGemsRepositoryPtrOutput) ToLocalGemsRepositoryPtrOutput() LocalGemsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGemsRepositoryPtrOutput) ToLocalGemsRepositoryPtrOutputWithContext(ctx context.Context) LocalGemsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGemsRepositoryPtrOutput) Elem() LocalGemsRepositoryOutput {
-	return o.ApplyT(func(v *LocalGemsRepository) LocalGemsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGemsRepository
-		return ret
-	}).(LocalGemsRepositoryOutput)
-}
-
 type LocalGemsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalGemsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGemsRepository)(nil))
+	return reflect.TypeOf((*[]*LocalGemsRepository)(nil)).Elem()
 }
 
 func (o LocalGemsRepositoryArrayOutput) ToLocalGemsRepositoryArrayOutput() LocalGemsRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalGemsRepositoryArrayOutput) ToLocalGemsRepositoryArrayOutputWithCont
 }
 
 func (o LocalGemsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGemsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGemsRepository {
-		return vs[0].([]LocalGemsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGemsRepository {
+		return vs[0].([]*LocalGemsRepository)[vs[1].(int)]
 	}).(LocalGemsRepositoryOutput)
 }
 
 type LocalGemsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalGemsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalGemsRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalGemsRepository)(nil)).Elem()
 }
 
 func (o LocalGemsRepositoryMapOutput) ToLocalGemsRepositoryMapOutput() LocalGemsRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalGemsRepositoryMapOutput) ToLocalGemsRepositoryMapOutputWithContext(
 }
 
 func (o LocalGemsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGemsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalGemsRepository {
-		return vs[0].(map[string]LocalGemsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalGemsRepository {
+		return vs[0].(map[string]*LocalGemsRepository)[vs[1].(string)]
 	}).(LocalGemsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGemsRepositoryInput)(nil)).Elem(), &LocalGemsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGemsRepositoryPtrInput)(nil)).Elem(), &LocalGemsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGemsRepositoryArrayInput)(nil)).Elem(), LocalGemsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGemsRepositoryMapInput)(nil)).Elem(), LocalGemsRepositoryMap{})
 	pulumi.RegisterOutputType(LocalGemsRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalGemsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalGemsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalGemsRepositoryMapOutput{})
 }

@@ -133,23 +133,23 @@ export class SamlSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: SamlSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlSettingsArgs | SamlSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlSettingsState | undefined;
-            inputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            inputs["autoRedirect"] = state ? state.autoRedirect : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["emailAttribute"] = state ? state.emailAttribute : undefined;
-            inputs["enable"] = state ? state.enable : undefined;
-            inputs["groupAttribute"] = state ? state.groupAttribute : undefined;
-            inputs["loginUrl"] = state ? state.loginUrl : undefined;
-            inputs["logoutUrl"] = state ? state.logoutUrl : undefined;
-            inputs["noAutoUserCreation"] = state ? state.noAutoUserCreation : undefined;
-            inputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
-            inputs["syncGroups"] = state ? state.syncGroups : undefined;
-            inputs["useEncryptedAssertion"] = state ? state.useEncryptedAssertion : undefined;
-            inputs["verifyAudienceRestriction"] = state ? state.verifyAudienceRestriction : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
+            resourceInputs["autoRedirect"] = state ? state.autoRedirect : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["emailAttribute"] = state ? state.emailAttribute : undefined;
+            resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["groupAttribute"] = state ? state.groupAttribute : undefined;
+            resourceInputs["loginUrl"] = state ? state.loginUrl : undefined;
+            resourceInputs["logoutUrl"] = state ? state.logoutUrl : undefined;
+            resourceInputs["noAutoUserCreation"] = state ? state.noAutoUserCreation : undefined;
+            resourceInputs["serviceProviderName"] = state ? state.serviceProviderName : undefined;
+            resourceInputs["syncGroups"] = state ? state.syncGroups : undefined;
+            resourceInputs["useEncryptedAssertion"] = state ? state.useEncryptedAssertion : undefined;
+            resourceInputs["verifyAudienceRestriction"] = state ? state.verifyAudienceRestriction : undefined;
         } else {
             const args = argsOrState as SamlSettingsArgs | undefined;
             if ((!args || args.loginUrl === undefined) && !opts.urn) {
@@ -161,24 +161,22 @@ export class SamlSettings extends pulumi.CustomResource {
             if ((!args || args.serviceProviderName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceProviderName'");
             }
-            inputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            inputs["autoRedirect"] = args ? args.autoRedirect : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["emailAttribute"] = args ? args.emailAttribute : undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["groupAttribute"] = args ? args.groupAttribute : undefined;
-            inputs["loginUrl"] = args ? args.loginUrl : undefined;
-            inputs["logoutUrl"] = args ? args.logoutUrl : undefined;
-            inputs["noAutoUserCreation"] = args ? args.noAutoUserCreation : undefined;
-            inputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
-            inputs["syncGroups"] = args ? args.syncGroups : undefined;
-            inputs["useEncryptedAssertion"] = args ? args.useEncryptedAssertion : undefined;
-            inputs["verifyAudienceRestriction"] = args ? args.verifyAudienceRestriction : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
+            resourceInputs["autoRedirect"] = args ? args.autoRedirect : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["emailAttribute"] = args ? args.emailAttribute : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["groupAttribute"] = args ? args.groupAttribute : undefined;
+            resourceInputs["loginUrl"] = args ? args.loginUrl : undefined;
+            resourceInputs["logoutUrl"] = args ? args.logoutUrl : undefined;
+            resourceInputs["noAutoUserCreation"] = args ? args.noAutoUserCreation : undefined;
+            resourceInputs["serviceProviderName"] = args ? args.serviceProviderName : undefined;
+            resourceInputs["syncGroups"] = args ? args.syncGroups : undefined;
+            resourceInputs["useEncryptedAssertion"] = args ? args.useEncryptedAssertion : undefined;
+            resourceInputs["verifyAudienceRestriction"] = args ? args.verifyAudienceRestriction : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SamlSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SamlSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -31,7 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCargoRepository(ctx, "my_remote_cargo", &artifactory.RemoteCargoRepositoryArgs{
+// 		_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
 // 			AnonymousAccess: pulumi.Bool(true),
 // 			GitRegistryUrl:  pulumi.String("https://github.com/rust-lang/foo.index"),
 // 			Key:             pulumi.String("my-remote-cargo"),
@@ -442,7 +442,7 @@ type RemoteCargoRepositoryInput interface {
 }
 
 func (*RemoteCargoRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteCargoRepository)(nil))
+	return reflect.TypeOf((**RemoteCargoRepository)(nil)).Elem()
 }
 
 func (i *RemoteCargoRepository) ToRemoteCargoRepositoryOutput() RemoteCargoRepositoryOutput {
@@ -451,35 +451,6 @@ func (i *RemoteCargoRepository) ToRemoteCargoRepositoryOutput() RemoteCargoRepos
 
 func (i *RemoteCargoRepository) ToRemoteCargoRepositoryOutputWithContext(ctx context.Context) RemoteCargoRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryOutput)
-}
-
-func (i *RemoteCargoRepository) ToRemoteCargoRepositoryPtrOutput() RemoteCargoRepositoryPtrOutput {
-	return i.ToRemoteCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *RemoteCargoRepository) ToRemoteCargoRepositoryPtrOutputWithContext(ctx context.Context) RemoteCargoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryPtrOutput)
-}
-
-type RemoteCargoRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToRemoteCargoRepositoryPtrOutput() RemoteCargoRepositoryPtrOutput
-	ToRemoteCargoRepositoryPtrOutputWithContext(ctx context.Context) RemoteCargoRepositoryPtrOutput
-}
-
-type remoteCargoRepositoryPtrType RemoteCargoRepositoryArgs
-
-func (*remoteCargoRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteCargoRepository)(nil))
-}
-
-func (i *remoteCargoRepositoryPtrType) ToRemoteCargoRepositoryPtrOutput() RemoteCargoRepositoryPtrOutput {
-	return i.ToRemoteCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteCargoRepositoryPtrType) ToRemoteCargoRepositoryPtrOutputWithContext(ctx context.Context) RemoteCargoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteCargoRepositoryPtrOutput)
 }
 
 // RemoteCargoRepositoryArrayInput is an input type that accepts RemoteCargoRepositoryArray and RemoteCargoRepositoryArrayOutput values.
@@ -535,7 +506,7 @@ func (i RemoteCargoRepositoryMap) ToRemoteCargoRepositoryMapOutputWithContext(ct
 type RemoteCargoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteCargoRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteCargoRepository)(nil))
+	return reflect.TypeOf((**RemoteCargoRepository)(nil)).Elem()
 }
 
 func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryOutput() RemoteCargoRepositoryOutput {
@@ -546,44 +517,10 @@ func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryOutputWithContext(ct
 	return o
 }
 
-func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryPtrOutput() RemoteCargoRepositoryPtrOutput {
-	return o.ToRemoteCargoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteCargoRepositoryOutput) ToRemoteCargoRepositoryPtrOutputWithContext(ctx context.Context) RemoteCargoRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteCargoRepository) *RemoteCargoRepository {
-		return &v
-	}).(RemoteCargoRepositoryPtrOutput)
-}
-
-type RemoteCargoRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteCargoRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteCargoRepository)(nil))
-}
-
-func (o RemoteCargoRepositoryPtrOutput) ToRemoteCargoRepositoryPtrOutput() RemoteCargoRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteCargoRepositoryPtrOutput) ToRemoteCargoRepositoryPtrOutputWithContext(ctx context.Context) RemoteCargoRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteCargoRepositoryPtrOutput) Elem() RemoteCargoRepositoryOutput {
-	return o.ApplyT(func(v *RemoteCargoRepository) RemoteCargoRepository {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteCargoRepository
-		return ret
-	}).(RemoteCargoRepositoryOutput)
-}
-
 type RemoteCargoRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RemoteCargoRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemoteCargoRepository)(nil))
+	return reflect.TypeOf((*[]*RemoteCargoRepository)(nil)).Elem()
 }
 
 func (o RemoteCargoRepositoryArrayOutput) ToRemoteCargoRepositoryArrayOutput() RemoteCargoRepositoryArrayOutput {
@@ -595,15 +532,15 @@ func (o RemoteCargoRepositoryArrayOutput) ToRemoteCargoRepositoryArrayOutputWith
 }
 
 func (o RemoteCargoRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteCargoRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteCargoRepository {
-		return vs[0].([]RemoteCargoRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteCargoRepository {
+		return vs[0].([]*RemoteCargoRepository)[vs[1].(int)]
 	}).(RemoteCargoRepositoryOutput)
 }
 
 type RemoteCargoRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (RemoteCargoRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemoteCargoRepository)(nil))
+	return reflect.TypeOf((*map[string]*RemoteCargoRepository)(nil)).Elem()
 }
 
 func (o RemoteCargoRepositoryMapOutput) ToRemoteCargoRepositoryMapOutput() RemoteCargoRepositoryMapOutput {
@@ -615,18 +552,16 @@ func (o RemoteCargoRepositoryMapOutput) ToRemoteCargoRepositoryMapOutputWithCont
 }
 
 func (o RemoteCargoRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteCargoRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemoteCargoRepository {
-		return vs[0].(map[string]RemoteCargoRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemoteCargoRepository {
+		return vs[0].(map[string]*RemoteCargoRepository)[vs[1].(string)]
 	}).(RemoteCargoRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryInput)(nil)).Elem(), &RemoteCargoRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryPtrInput)(nil)).Elem(), &RemoteCargoRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryArrayInput)(nil)).Elem(), RemoteCargoRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryMapInput)(nil)).Elem(), RemoteCargoRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryOutput{})
-	pulumi.RegisterOutputType(RemoteCargoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryMapOutput{})
 }

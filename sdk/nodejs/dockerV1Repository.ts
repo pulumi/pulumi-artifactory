@@ -101,54 +101,52 @@ export class DockerV1Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args: DockerV1RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DockerV1RepositoryArgs | DockerV1RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DockerV1RepositoryState | undefined;
-            inputs["apiVersion"] = state ? state.apiVersion : undefined;
-            inputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = state ? state.blackedOut : undefined;
-            inputs["blockPushingSchema1"] = state ? state.blockPushingSchema1 : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["downloadDirect"] = state ? state.downloadDirect : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["priorityResolution"] = state ? state.priorityResolution : undefined;
-            inputs["propertySets"] = state ? state.propertySets : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["tagRetention"] = state ? state.tagRetention : undefined;
-            inputs["xrayIndex"] = state ? state.xrayIndex : undefined;
+            resourceInputs["apiVersion"] = state ? state.apiVersion : undefined;
+            resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["blockPushingSchema1"] = state ? state.blockPushingSchema1 : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["maxUniqueTags"] = state ? state.maxUniqueTags : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["propertySets"] = state ? state.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["tagRetention"] = state ? state.tagRetention : undefined;
+            resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as DockerV1RepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
-            inputs["blackedOut"] = args ? args.blackedOut : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["downloadDirect"] = args ? args.downloadDirect : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["priorityResolution"] = args ? args.priorityResolution : undefined;
-            inputs["propertySets"] = args ? args.propertySets : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["xrayIndex"] = args ? args.xrayIndex : undefined;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["blockPushingSchema1"] = undefined /*out*/;
-            inputs["packageType"] = undefined /*out*/;
-            inputs["tagRetention"] = undefined /*out*/;
+            resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
+            resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["maxUniqueTags"] = args ? args.maxUniqueTags : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["propertySets"] = args ? args.propertySets : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["blockPushingSchema1"] = undefined /*out*/;
+            resourceInputs["packageType"] = undefined /*out*/;
+            resourceInputs["tagRetention"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DockerV1Repository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DockerV1Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

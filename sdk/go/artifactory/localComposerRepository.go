@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalComposerRepository(ctx, "terraform_local_test_composer_repo", &artifactory.LocalComposerRepositoryArgs{
+// 		_, err := artifactory.NewLocalComposerRepository(ctx, "terraform-local-test-composer-repo", &artifactory.LocalComposerRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-composer-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalComposerRepositoryInput interface {
 }
 
 func (*LocalComposerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalComposerRepository)(nil))
+	return reflect.TypeOf((**LocalComposerRepository)(nil)).Elem()
 }
 
 func (i *LocalComposerRepository) ToLocalComposerRepositoryOutput() LocalComposerRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalComposerRepository) ToLocalComposerRepositoryOutput() LocalCompose
 
 func (i *LocalComposerRepository) ToLocalComposerRepositoryOutputWithContext(ctx context.Context) LocalComposerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryOutput)
-}
-
-func (i *LocalComposerRepository) ToLocalComposerRepositoryPtrOutput() LocalComposerRepositoryPtrOutput {
-	return i.ToLocalComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalComposerRepository) ToLocalComposerRepositoryPtrOutputWithContext(ctx context.Context) LocalComposerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryPtrOutput)
-}
-
-type LocalComposerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalComposerRepositoryPtrOutput() LocalComposerRepositoryPtrOutput
-	ToLocalComposerRepositoryPtrOutputWithContext(ctx context.Context) LocalComposerRepositoryPtrOutput
-}
-
-type localComposerRepositoryPtrType LocalComposerRepositoryArgs
-
-func (*localComposerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalComposerRepository)(nil))
-}
-
-func (i *localComposerRepositoryPtrType) ToLocalComposerRepositoryPtrOutput() LocalComposerRepositoryPtrOutput {
-	return i.ToLocalComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localComposerRepositoryPtrType) ToLocalComposerRepositoryPtrOutputWithContext(ctx context.Context) LocalComposerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalComposerRepositoryPtrOutput)
 }
 
 // LocalComposerRepositoryArrayInput is an input type that accepts LocalComposerRepositoryArray and LocalComposerRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalComposerRepositoryMap) ToLocalComposerRepositoryMapOutputWithContex
 type LocalComposerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalComposerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalComposerRepository)(nil))
+	return reflect.TypeOf((**LocalComposerRepository)(nil)).Elem()
 }
 
 func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryOutput() LocalComposerRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryOutputWithContex
 	return o
 }
 
-func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryPtrOutput() LocalComposerRepositoryPtrOutput {
-	return o.ToLocalComposerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalComposerRepositoryOutput) ToLocalComposerRepositoryPtrOutputWithContext(ctx context.Context) LocalComposerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalComposerRepository) *LocalComposerRepository {
-		return &v
-	}).(LocalComposerRepositoryPtrOutput)
-}
-
-type LocalComposerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalComposerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalComposerRepository)(nil))
-}
-
-func (o LocalComposerRepositoryPtrOutput) ToLocalComposerRepositoryPtrOutput() LocalComposerRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalComposerRepositoryPtrOutput) ToLocalComposerRepositoryPtrOutputWithContext(ctx context.Context) LocalComposerRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalComposerRepositoryPtrOutput) Elem() LocalComposerRepositoryOutput {
-	return o.ApplyT(func(v *LocalComposerRepository) LocalComposerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalComposerRepository
-		return ret
-	}).(LocalComposerRepositoryOutput)
-}
-
 type LocalComposerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalComposerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalComposerRepository)(nil))
+	return reflect.TypeOf((*[]*LocalComposerRepository)(nil)).Elem()
 }
 
 func (o LocalComposerRepositoryArrayOutput) ToLocalComposerRepositoryArrayOutput() LocalComposerRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalComposerRepositoryArrayOutput) ToLocalComposerRepositoryArrayOutput
 }
 
 func (o LocalComposerRepositoryArrayOutput) Index(i pulumi.IntInput) LocalComposerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalComposerRepository {
-		return vs[0].([]LocalComposerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalComposerRepository {
+		return vs[0].([]*LocalComposerRepository)[vs[1].(int)]
 	}).(LocalComposerRepositoryOutput)
 }
 
 type LocalComposerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalComposerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalComposerRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalComposerRepository)(nil)).Elem()
 }
 
 func (o LocalComposerRepositoryMapOutput) ToLocalComposerRepositoryMapOutput() LocalComposerRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalComposerRepositoryMapOutput) ToLocalComposerRepositoryMapOutputWith
 }
 
 func (o LocalComposerRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalComposerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalComposerRepository {
-		return vs[0].(map[string]LocalComposerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalComposerRepository {
+		return vs[0].(map[string]*LocalComposerRepository)[vs[1].(string)]
 	}).(LocalComposerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalComposerRepositoryInput)(nil)).Elem(), &LocalComposerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalComposerRepositoryPtrInput)(nil)).Elem(), &LocalComposerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalComposerRepositoryArrayInput)(nil)).Elem(), LocalComposerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalComposerRepositoryMapInput)(nil)).Elem(), LocalComposerRepositoryMap{})
 	pulumi.RegisterOutputType(LocalComposerRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalComposerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalComposerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalComposerRepositoryMapOutput{})
 }

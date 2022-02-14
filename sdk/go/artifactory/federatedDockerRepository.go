@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedDockerRepository(ctx, "terraform_federated_test_docker_repo", &artifactory.FederatedDockerRepositoryArgs{
+// 		_, err := artifactory.NewFederatedDockerRepository(ctx, "terraform-federated-test-docker-repo", &artifactory.FederatedDockerRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-docker-repo"),
 // 			Members: FederatedDockerRepositoryMemberArray{
 // 				&FederatedDockerRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedDockerRepositoryInput interface {
 }
 
 func (*FederatedDockerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedDockerRepository)(nil))
+	return reflect.TypeOf((**FederatedDockerRepository)(nil)).Elem()
 }
 
 func (i *FederatedDockerRepository) ToFederatedDockerRepositoryOutput() FederatedDockerRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedDockerRepository) ToFederatedDockerRepositoryOutput() Federate
 
 func (i *FederatedDockerRepository) ToFederatedDockerRepositoryOutputWithContext(ctx context.Context) FederatedDockerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryOutput)
-}
-
-func (i *FederatedDockerRepository) ToFederatedDockerRepositoryPtrOutput() FederatedDockerRepositoryPtrOutput {
-	return i.ToFederatedDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedDockerRepository) ToFederatedDockerRepositoryPtrOutputWithContext(ctx context.Context) FederatedDockerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryPtrOutput)
-}
-
-type FederatedDockerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedDockerRepositoryPtrOutput() FederatedDockerRepositoryPtrOutput
-	ToFederatedDockerRepositoryPtrOutputWithContext(ctx context.Context) FederatedDockerRepositoryPtrOutput
-}
-
-type federatedDockerRepositoryPtrType FederatedDockerRepositoryArgs
-
-func (*federatedDockerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedDockerRepository)(nil))
-}
-
-func (i *federatedDockerRepositoryPtrType) ToFederatedDockerRepositoryPtrOutput() FederatedDockerRepositoryPtrOutput {
-	return i.ToFederatedDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedDockerRepositoryPtrType) ToFederatedDockerRepositoryPtrOutputWithContext(ctx context.Context) FederatedDockerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerRepositoryPtrOutput)
 }
 
 // FederatedDockerRepositoryArrayInput is an input type that accepts FederatedDockerRepositoryArray and FederatedDockerRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedDockerRepositoryMap) ToFederatedDockerRepositoryMapOutputWithCo
 type FederatedDockerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedDockerRepository)(nil))
+	return reflect.TypeOf((**FederatedDockerRepository)(nil)).Elem()
 }
 
 func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryOutput() FederatedDockerRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryOutputWithCo
 	return o
 }
 
-func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryPtrOutput() FederatedDockerRepositoryPtrOutput {
-	return o.ToFederatedDockerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedDockerRepositoryOutput) ToFederatedDockerRepositoryPtrOutputWithContext(ctx context.Context) FederatedDockerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedDockerRepository) *FederatedDockerRepository {
-		return &v
-	}).(FederatedDockerRepositoryPtrOutput)
-}
-
-type FederatedDockerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedDockerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedDockerRepository)(nil))
-}
-
-func (o FederatedDockerRepositoryPtrOutput) ToFederatedDockerRepositoryPtrOutput() FederatedDockerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedDockerRepositoryPtrOutput) ToFederatedDockerRepositoryPtrOutputWithContext(ctx context.Context) FederatedDockerRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedDockerRepositoryPtrOutput) Elem() FederatedDockerRepositoryOutput {
-	return o.ApplyT(func(v *FederatedDockerRepository) FederatedDockerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedDockerRepository
-		return ret
-	}).(FederatedDockerRepositoryOutput)
-}
-
 type FederatedDockerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedDockerRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedDockerRepository)(nil)).Elem()
 }
 
 func (o FederatedDockerRepositoryArrayOutput) ToFederatedDockerRepositoryArrayOutput() FederatedDockerRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedDockerRepositoryArrayOutput) ToFederatedDockerRepositoryArrayOu
 }
 
 func (o FederatedDockerRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDockerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedDockerRepository {
-		return vs[0].([]FederatedDockerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDockerRepository {
+		return vs[0].([]*FederatedDockerRepository)[vs[1].(int)]
 	}).(FederatedDockerRepositoryOutput)
 }
 
 type FederatedDockerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedDockerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedDockerRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedDockerRepository)(nil)).Elem()
 }
 
 func (o FederatedDockerRepositoryMapOutput) ToFederatedDockerRepositoryMapOutput() FederatedDockerRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedDockerRepositoryMapOutput) ToFederatedDockerRepositoryMapOutput
 }
 
 func (o FederatedDockerRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDockerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedDockerRepository {
-		return vs[0].(map[string]FederatedDockerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedDockerRepository {
+		return vs[0].(map[string]*FederatedDockerRepository)[vs[1].(string)]
 	}).(FederatedDockerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryInput)(nil)).Elem(), &FederatedDockerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryPtrInput)(nil)).Elem(), &FederatedDockerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryArrayInput)(nil)).Elem(), FederatedDockerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryMapInput)(nil)).Elem(), FederatedDockerRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedDockerRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedDockerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedDockerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedDockerRepositoryMapOutput{})
 }

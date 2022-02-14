@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalMavenRepository(ctx, "terraform_local_test_maven_repo_basic", &artifactory.LocalMavenRepositoryArgs{
+// 		_, err := artifactory.NewLocalMavenRepository(ctx, "terraform-local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
 // 			ChecksumPolicyType:           pulumi.String("client-checksums"),
 // 			HandleReleases:               pulumi.Bool(true),
 // 			HandleSnapshots:              pulumi.Bool(true),
@@ -306,7 +306,7 @@ type LocalMavenRepositoryInput interface {
 }
 
 func (*LocalMavenRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalMavenRepository)(nil))
+	return reflect.TypeOf((**LocalMavenRepository)(nil)).Elem()
 }
 
 func (i *LocalMavenRepository) ToLocalMavenRepositoryOutput() LocalMavenRepositoryOutput {
@@ -315,35 +315,6 @@ func (i *LocalMavenRepository) ToLocalMavenRepositoryOutput() LocalMavenReposito
 
 func (i *LocalMavenRepository) ToLocalMavenRepositoryOutputWithContext(ctx context.Context) LocalMavenRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryOutput)
-}
-
-func (i *LocalMavenRepository) ToLocalMavenRepositoryPtrOutput() LocalMavenRepositoryPtrOutput {
-	return i.ToLocalMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalMavenRepository) ToLocalMavenRepositoryPtrOutputWithContext(ctx context.Context) LocalMavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryPtrOutput)
-}
-
-type LocalMavenRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalMavenRepositoryPtrOutput() LocalMavenRepositoryPtrOutput
-	ToLocalMavenRepositoryPtrOutputWithContext(ctx context.Context) LocalMavenRepositoryPtrOutput
-}
-
-type localMavenRepositoryPtrType LocalMavenRepositoryArgs
-
-func (*localMavenRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalMavenRepository)(nil))
-}
-
-func (i *localMavenRepositoryPtrType) ToLocalMavenRepositoryPtrOutput() LocalMavenRepositoryPtrOutput {
-	return i.ToLocalMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localMavenRepositoryPtrType) ToLocalMavenRepositoryPtrOutputWithContext(ctx context.Context) LocalMavenRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalMavenRepositoryPtrOutput)
 }
 
 // LocalMavenRepositoryArrayInput is an input type that accepts LocalMavenRepositoryArray and LocalMavenRepositoryArrayOutput values.
@@ -399,7 +370,7 @@ func (i LocalMavenRepositoryMap) ToLocalMavenRepositoryMapOutputWithContext(ctx 
 type LocalMavenRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalMavenRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalMavenRepository)(nil))
+	return reflect.TypeOf((**LocalMavenRepository)(nil)).Elem()
 }
 
 func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryOutput() LocalMavenRepositoryOutput {
@@ -410,44 +381,10 @@ func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryPtrOutput() LocalMavenRepositoryPtrOutput {
-	return o.ToLocalMavenRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalMavenRepositoryOutput) ToLocalMavenRepositoryPtrOutputWithContext(ctx context.Context) LocalMavenRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalMavenRepository) *LocalMavenRepository {
-		return &v
-	}).(LocalMavenRepositoryPtrOutput)
-}
-
-type LocalMavenRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalMavenRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalMavenRepository)(nil))
-}
-
-func (o LocalMavenRepositoryPtrOutput) ToLocalMavenRepositoryPtrOutput() LocalMavenRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalMavenRepositoryPtrOutput) ToLocalMavenRepositoryPtrOutputWithContext(ctx context.Context) LocalMavenRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalMavenRepositoryPtrOutput) Elem() LocalMavenRepositoryOutput {
-	return o.ApplyT(func(v *LocalMavenRepository) LocalMavenRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalMavenRepository
-		return ret
-	}).(LocalMavenRepositoryOutput)
-}
-
 type LocalMavenRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalMavenRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalMavenRepository)(nil))
+	return reflect.TypeOf((*[]*LocalMavenRepository)(nil)).Elem()
 }
 
 func (o LocalMavenRepositoryArrayOutput) ToLocalMavenRepositoryArrayOutput() LocalMavenRepositoryArrayOutput {
@@ -459,15 +396,15 @@ func (o LocalMavenRepositoryArrayOutput) ToLocalMavenRepositoryArrayOutputWithCo
 }
 
 func (o LocalMavenRepositoryArrayOutput) Index(i pulumi.IntInput) LocalMavenRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalMavenRepository {
-		return vs[0].([]LocalMavenRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalMavenRepository {
+		return vs[0].([]*LocalMavenRepository)[vs[1].(int)]
 	}).(LocalMavenRepositoryOutput)
 }
 
 type LocalMavenRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalMavenRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalMavenRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalMavenRepository)(nil)).Elem()
 }
 
 func (o LocalMavenRepositoryMapOutput) ToLocalMavenRepositoryMapOutput() LocalMavenRepositoryMapOutput {
@@ -479,18 +416,16 @@ func (o LocalMavenRepositoryMapOutput) ToLocalMavenRepositoryMapOutputWithContex
 }
 
 func (o LocalMavenRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalMavenRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalMavenRepository {
-		return vs[0].(map[string]LocalMavenRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalMavenRepository {
+		return vs[0].(map[string]*LocalMavenRepository)[vs[1].(string)]
 	}).(LocalMavenRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalMavenRepositoryInput)(nil)).Elem(), &LocalMavenRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalMavenRepositoryPtrInput)(nil)).Elem(), &LocalMavenRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalMavenRepositoryArrayInput)(nil)).Elem(), LocalMavenRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalMavenRepositoryMapInput)(nil)).Elem(), LocalMavenRepositoryMap{})
 	pulumi.RegisterOutputType(LocalMavenRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalMavenRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalMavenRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalMavenRepositoryMapOutput{})
 }

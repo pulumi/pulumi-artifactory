@@ -55,6 +55,7 @@ setup(name='pulumi_artifactory',
       package_data={
           'pulumi_artifactory': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

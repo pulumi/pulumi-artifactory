@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedDebianRepository(ctx, "terraform_federated_test_debian_repo", &artifactory.FederatedDebianRepositoryArgs{
+// 		_, err := artifactory.NewFederatedDebianRepository(ctx, "terraform-federated-test-debian-repo", &artifactory.FederatedDebianRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-debian-repo"),
 // 			Members: FederatedDebianRepositoryMemberArray{
 // 				&FederatedDebianRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedDebianRepositoryInput interface {
 }
 
 func (*FederatedDebianRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedDebianRepository)(nil))
+	return reflect.TypeOf((**FederatedDebianRepository)(nil)).Elem()
 }
 
 func (i *FederatedDebianRepository) ToFederatedDebianRepositoryOutput() FederatedDebianRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedDebianRepository) ToFederatedDebianRepositoryOutput() Federate
 
 func (i *FederatedDebianRepository) ToFederatedDebianRepositoryOutputWithContext(ctx context.Context) FederatedDebianRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryOutput)
-}
-
-func (i *FederatedDebianRepository) ToFederatedDebianRepositoryPtrOutput() FederatedDebianRepositoryPtrOutput {
-	return i.ToFederatedDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedDebianRepository) ToFederatedDebianRepositoryPtrOutputWithContext(ctx context.Context) FederatedDebianRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryPtrOutput)
-}
-
-type FederatedDebianRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedDebianRepositoryPtrOutput() FederatedDebianRepositoryPtrOutput
-	ToFederatedDebianRepositoryPtrOutputWithContext(ctx context.Context) FederatedDebianRepositoryPtrOutput
-}
-
-type federatedDebianRepositoryPtrType FederatedDebianRepositoryArgs
-
-func (*federatedDebianRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedDebianRepository)(nil))
-}
-
-func (i *federatedDebianRepositoryPtrType) ToFederatedDebianRepositoryPtrOutput() FederatedDebianRepositoryPtrOutput {
-	return i.ToFederatedDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedDebianRepositoryPtrType) ToFederatedDebianRepositoryPtrOutputWithContext(ctx context.Context) FederatedDebianRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedDebianRepositoryPtrOutput)
 }
 
 // FederatedDebianRepositoryArrayInput is an input type that accepts FederatedDebianRepositoryArray and FederatedDebianRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedDebianRepositoryMap) ToFederatedDebianRepositoryMapOutputWithCo
 type FederatedDebianRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedDebianRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedDebianRepository)(nil))
+	return reflect.TypeOf((**FederatedDebianRepository)(nil)).Elem()
 }
 
 func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryOutput() FederatedDebianRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryOutputWithCo
 	return o
 }
 
-func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryPtrOutput() FederatedDebianRepositoryPtrOutput {
-	return o.ToFederatedDebianRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedDebianRepositoryOutput) ToFederatedDebianRepositoryPtrOutputWithContext(ctx context.Context) FederatedDebianRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedDebianRepository) *FederatedDebianRepository {
-		return &v
-	}).(FederatedDebianRepositoryPtrOutput)
-}
-
-type FederatedDebianRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedDebianRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedDebianRepository)(nil))
-}
-
-func (o FederatedDebianRepositoryPtrOutput) ToFederatedDebianRepositoryPtrOutput() FederatedDebianRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedDebianRepositoryPtrOutput) ToFederatedDebianRepositoryPtrOutputWithContext(ctx context.Context) FederatedDebianRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedDebianRepositoryPtrOutput) Elem() FederatedDebianRepositoryOutput {
-	return o.ApplyT(func(v *FederatedDebianRepository) FederatedDebianRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedDebianRepository
-		return ret
-	}).(FederatedDebianRepositoryOutput)
-}
-
 type FederatedDebianRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedDebianRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedDebianRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedDebianRepository)(nil)).Elem()
 }
 
 func (o FederatedDebianRepositoryArrayOutput) ToFederatedDebianRepositoryArrayOutput() FederatedDebianRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedDebianRepositoryArrayOutput) ToFederatedDebianRepositoryArrayOu
 }
 
 func (o FederatedDebianRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedDebianRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedDebianRepository {
-		return vs[0].([]FederatedDebianRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedDebianRepository {
+		return vs[0].([]*FederatedDebianRepository)[vs[1].(int)]
 	}).(FederatedDebianRepositoryOutput)
 }
 
 type FederatedDebianRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedDebianRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedDebianRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedDebianRepository)(nil)).Elem()
 }
 
 func (o FederatedDebianRepositoryMapOutput) ToFederatedDebianRepositoryMapOutput() FederatedDebianRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedDebianRepositoryMapOutput) ToFederatedDebianRepositoryMapOutput
 }
 
 func (o FederatedDebianRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedDebianRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedDebianRepository {
-		return vs[0].(map[string]FederatedDebianRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedDebianRepository {
+		return vs[0].(map[string]*FederatedDebianRepository)[vs[1].(string)]
 	}).(FederatedDebianRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDebianRepositoryInput)(nil)).Elem(), &FederatedDebianRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDebianRepositoryPtrInput)(nil)).Elem(), &FederatedDebianRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDebianRepositoryArrayInput)(nil)).Elem(), FederatedDebianRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDebianRepositoryMapInput)(nil)).Elem(), FederatedDebianRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedDebianRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedDebianRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedDebianRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedDebianRepositoryMapOutput{})
 }

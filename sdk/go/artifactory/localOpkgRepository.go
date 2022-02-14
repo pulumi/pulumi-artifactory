@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalOpkgRepository(ctx, "terraform_local_test_opkg_repo", &artifactory.LocalOpkgRepositoryArgs{
+// 		_, err := artifactory.NewLocalOpkgRepository(ctx, "terraform-local-test-opkg-repo", &artifactory.LocalOpkgRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-opkg-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalOpkgRepositoryInput interface {
 }
 
 func (*LocalOpkgRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalOpkgRepository)(nil))
+	return reflect.TypeOf((**LocalOpkgRepository)(nil)).Elem()
 }
 
 func (i *LocalOpkgRepository) ToLocalOpkgRepositoryOutput() LocalOpkgRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalOpkgRepository) ToLocalOpkgRepositoryOutput() LocalOpkgRepositoryO
 
 func (i *LocalOpkgRepository) ToLocalOpkgRepositoryOutputWithContext(ctx context.Context) LocalOpkgRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryOutput)
-}
-
-func (i *LocalOpkgRepository) ToLocalOpkgRepositoryPtrOutput() LocalOpkgRepositoryPtrOutput {
-	return i.ToLocalOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalOpkgRepository) ToLocalOpkgRepositoryPtrOutputWithContext(ctx context.Context) LocalOpkgRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryPtrOutput)
-}
-
-type LocalOpkgRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalOpkgRepositoryPtrOutput() LocalOpkgRepositoryPtrOutput
-	ToLocalOpkgRepositoryPtrOutputWithContext(ctx context.Context) LocalOpkgRepositoryPtrOutput
-}
-
-type localOpkgRepositoryPtrType LocalOpkgRepositoryArgs
-
-func (*localOpkgRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalOpkgRepository)(nil))
-}
-
-func (i *localOpkgRepositoryPtrType) ToLocalOpkgRepositoryPtrOutput() LocalOpkgRepositoryPtrOutput {
-	return i.ToLocalOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localOpkgRepositoryPtrType) ToLocalOpkgRepositoryPtrOutputWithContext(ctx context.Context) LocalOpkgRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalOpkgRepositoryPtrOutput)
 }
 
 // LocalOpkgRepositoryArrayInput is an input type that accepts LocalOpkgRepositoryArray and LocalOpkgRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalOpkgRepositoryMap) ToLocalOpkgRepositoryMapOutputWithContext(ctx co
 type LocalOpkgRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalOpkgRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalOpkgRepository)(nil))
+	return reflect.TypeOf((**LocalOpkgRepository)(nil)).Elem()
 }
 
 func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryOutput() LocalOpkgRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryPtrOutput() LocalOpkgRepositoryPtrOutput {
-	return o.ToLocalOpkgRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalOpkgRepositoryOutput) ToLocalOpkgRepositoryPtrOutputWithContext(ctx context.Context) LocalOpkgRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalOpkgRepository) *LocalOpkgRepository {
-		return &v
-	}).(LocalOpkgRepositoryPtrOutput)
-}
-
-type LocalOpkgRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalOpkgRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalOpkgRepository)(nil))
-}
-
-func (o LocalOpkgRepositoryPtrOutput) ToLocalOpkgRepositoryPtrOutput() LocalOpkgRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalOpkgRepositoryPtrOutput) ToLocalOpkgRepositoryPtrOutputWithContext(ctx context.Context) LocalOpkgRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalOpkgRepositoryPtrOutput) Elem() LocalOpkgRepositoryOutput {
-	return o.ApplyT(func(v *LocalOpkgRepository) LocalOpkgRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalOpkgRepository
-		return ret
-	}).(LocalOpkgRepositoryOutput)
-}
-
 type LocalOpkgRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalOpkgRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalOpkgRepository)(nil))
+	return reflect.TypeOf((*[]*LocalOpkgRepository)(nil)).Elem()
 }
 
 func (o LocalOpkgRepositoryArrayOutput) ToLocalOpkgRepositoryArrayOutput() LocalOpkgRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalOpkgRepositoryArrayOutput) ToLocalOpkgRepositoryArrayOutputWithCont
 }
 
 func (o LocalOpkgRepositoryArrayOutput) Index(i pulumi.IntInput) LocalOpkgRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalOpkgRepository {
-		return vs[0].([]LocalOpkgRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalOpkgRepository {
+		return vs[0].([]*LocalOpkgRepository)[vs[1].(int)]
 	}).(LocalOpkgRepositoryOutput)
 }
 
 type LocalOpkgRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalOpkgRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalOpkgRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalOpkgRepository)(nil)).Elem()
 }
 
 func (o LocalOpkgRepositoryMapOutput) ToLocalOpkgRepositoryMapOutput() LocalOpkgRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalOpkgRepositoryMapOutput) ToLocalOpkgRepositoryMapOutputWithContext(
 }
 
 func (o LocalOpkgRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalOpkgRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalOpkgRepository {
-		return vs[0].(map[string]LocalOpkgRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalOpkgRepository {
+		return vs[0].(map[string]*LocalOpkgRepository)[vs[1].(string)]
 	}).(LocalOpkgRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalOpkgRepositoryInput)(nil)).Elem(), &LocalOpkgRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalOpkgRepositoryPtrInput)(nil)).Elem(), &LocalOpkgRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalOpkgRepositoryArrayInput)(nil)).Elem(), LocalOpkgRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalOpkgRepositoryMapInput)(nil)).Elem(), LocalOpkgRepositoryMap{})
 	pulumi.RegisterOutputType(LocalOpkgRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalOpkgRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalOpkgRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalOpkgRepositoryMapOutput{})
 }

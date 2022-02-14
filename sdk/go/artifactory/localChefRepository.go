@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalChefRepository(ctx, "terraform_local_test_chef_repo", &artifactory.LocalChefRepositoryArgs{
+// 		_, err := artifactory.NewLocalChefRepository(ctx, "terraform-local-test-chef-repo", &artifactory.LocalChefRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-chef-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalChefRepositoryInput interface {
 }
 
 func (*LocalChefRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalChefRepository)(nil))
+	return reflect.TypeOf((**LocalChefRepository)(nil)).Elem()
 }
 
 func (i *LocalChefRepository) ToLocalChefRepositoryOutput() LocalChefRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalChefRepository) ToLocalChefRepositoryOutput() LocalChefRepositoryO
 
 func (i *LocalChefRepository) ToLocalChefRepositoryOutputWithContext(ctx context.Context) LocalChefRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryOutput)
-}
-
-func (i *LocalChefRepository) ToLocalChefRepositoryPtrOutput() LocalChefRepositoryPtrOutput {
-	return i.ToLocalChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalChefRepository) ToLocalChefRepositoryPtrOutputWithContext(ctx context.Context) LocalChefRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryPtrOutput)
-}
-
-type LocalChefRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalChefRepositoryPtrOutput() LocalChefRepositoryPtrOutput
-	ToLocalChefRepositoryPtrOutputWithContext(ctx context.Context) LocalChefRepositoryPtrOutput
-}
-
-type localChefRepositoryPtrType LocalChefRepositoryArgs
-
-func (*localChefRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalChefRepository)(nil))
-}
-
-func (i *localChefRepositoryPtrType) ToLocalChefRepositoryPtrOutput() LocalChefRepositoryPtrOutput {
-	return i.ToLocalChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localChefRepositoryPtrType) ToLocalChefRepositoryPtrOutputWithContext(ctx context.Context) LocalChefRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalChefRepositoryPtrOutput)
 }
 
 // LocalChefRepositoryArrayInput is an input type that accepts LocalChefRepositoryArray and LocalChefRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalChefRepositoryMap) ToLocalChefRepositoryMapOutputWithContext(ctx co
 type LocalChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalChefRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalChefRepository)(nil))
+	return reflect.TypeOf((**LocalChefRepository)(nil)).Elem()
 }
 
 func (o LocalChefRepositoryOutput) ToLocalChefRepositoryOutput() LocalChefRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalChefRepositoryOutput) ToLocalChefRepositoryOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalChefRepositoryOutput) ToLocalChefRepositoryPtrOutput() LocalChefRepositoryPtrOutput {
-	return o.ToLocalChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalChefRepositoryOutput) ToLocalChefRepositoryPtrOutputWithContext(ctx context.Context) LocalChefRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalChefRepository) *LocalChefRepository {
-		return &v
-	}).(LocalChefRepositoryPtrOutput)
-}
-
-type LocalChefRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalChefRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalChefRepository)(nil))
-}
-
-func (o LocalChefRepositoryPtrOutput) ToLocalChefRepositoryPtrOutput() LocalChefRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalChefRepositoryPtrOutput) ToLocalChefRepositoryPtrOutputWithContext(ctx context.Context) LocalChefRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalChefRepositoryPtrOutput) Elem() LocalChefRepositoryOutput {
-	return o.ApplyT(func(v *LocalChefRepository) LocalChefRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalChefRepository
-		return ret
-	}).(LocalChefRepositoryOutput)
-}
-
 type LocalChefRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalChefRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalChefRepository)(nil))
+	return reflect.TypeOf((*[]*LocalChefRepository)(nil)).Elem()
 }
 
 func (o LocalChefRepositoryArrayOutput) ToLocalChefRepositoryArrayOutput() LocalChefRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalChefRepositoryArrayOutput) ToLocalChefRepositoryArrayOutputWithCont
 }
 
 func (o LocalChefRepositoryArrayOutput) Index(i pulumi.IntInput) LocalChefRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalChefRepository {
-		return vs[0].([]LocalChefRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalChefRepository {
+		return vs[0].([]*LocalChefRepository)[vs[1].(int)]
 	}).(LocalChefRepositoryOutput)
 }
 
 type LocalChefRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalChefRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalChefRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalChefRepository)(nil)).Elem()
 }
 
 func (o LocalChefRepositoryMapOutput) ToLocalChefRepositoryMapOutput() LocalChefRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalChefRepositoryMapOutput) ToLocalChefRepositoryMapOutputWithContext(
 }
 
 func (o LocalChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalChefRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalChefRepository {
-		return vs[0].(map[string]LocalChefRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalChefRepository {
+		return vs[0].(map[string]*LocalChefRepository)[vs[1].(string)]
 	}).(LocalChefRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalChefRepositoryInput)(nil)).Elem(), &LocalChefRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalChefRepositoryPtrInput)(nil)).Elem(), &LocalChefRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalChefRepositoryArrayInput)(nil)).Elem(), LocalChefRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalChefRepositoryMapInput)(nil)).Elem(), LocalChefRepositoryMap{})
 	pulumi.RegisterOutputType(LocalChefRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalChefRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalChefRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalChefRepositoryMapOutput{})
 }

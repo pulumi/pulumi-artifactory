@@ -166,7 +166,7 @@ type OauthSettingsInput interface {
 }
 
 func (*OauthSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthSettings)(nil))
+	return reflect.TypeOf((**OauthSettings)(nil)).Elem()
 }
 
 func (i *OauthSettings) ToOauthSettingsOutput() OauthSettingsOutput {
@@ -175,35 +175,6 @@ func (i *OauthSettings) ToOauthSettingsOutput() OauthSettingsOutput {
 
 func (i *OauthSettings) ToOauthSettingsOutputWithContext(ctx context.Context) OauthSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsOutput)
-}
-
-func (i *OauthSettings) ToOauthSettingsPtrOutput() OauthSettingsPtrOutput {
-	return i.ToOauthSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *OauthSettings) ToOauthSettingsPtrOutputWithContext(ctx context.Context) OauthSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsPtrOutput)
-}
-
-type OauthSettingsPtrInput interface {
-	pulumi.Input
-
-	ToOauthSettingsPtrOutput() OauthSettingsPtrOutput
-	ToOauthSettingsPtrOutputWithContext(ctx context.Context) OauthSettingsPtrOutput
-}
-
-type oauthSettingsPtrType OauthSettingsArgs
-
-func (*oauthSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OauthSettings)(nil))
-}
-
-func (i *oauthSettingsPtrType) ToOauthSettingsPtrOutput() OauthSettingsPtrOutput {
-	return i.ToOauthSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *oauthSettingsPtrType) ToOauthSettingsPtrOutputWithContext(ctx context.Context) OauthSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthSettingsPtrOutput)
 }
 
 // OauthSettingsArrayInput is an input type that accepts OauthSettingsArray and OauthSettingsArrayOutput values.
@@ -259,7 +230,7 @@ func (i OauthSettingsMap) ToOauthSettingsMapOutputWithContext(ctx context.Contex
 type OauthSettingsOutput struct{ *pulumi.OutputState }
 
 func (OauthSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthSettings)(nil))
+	return reflect.TypeOf((**OauthSettings)(nil)).Elem()
 }
 
 func (o OauthSettingsOutput) ToOauthSettingsOutput() OauthSettingsOutput {
@@ -270,44 +241,10 @@ func (o OauthSettingsOutput) ToOauthSettingsOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o OauthSettingsOutput) ToOauthSettingsPtrOutput() OauthSettingsPtrOutput {
-	return o.ToOauthSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o OauthSettingsOutput) ToOauthSettingsPtrOutputWithContext(ctx context.Context) OauthSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OauthSettings) *OauthSettings {
-		return &v
-	}).(OauthSettingsPtrOutput)
-}
-
-type OauthSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (OauthSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OauthSettings)(nil))
-}
-
-func (o OauthSettingsPtrOutput) ToOauthSettingsPtrOutput() OauthSettingsPtrOutput {
-	return o
-}
-
-func (o OauthSettingsPtrOutput) ToOauthSettingsPtrOutputWithContext(ctx context.Context) OauthSettingsPtrOutput {
-	return o
-}
-
-func (o OauthSettingsPtrOutput) Elem() OauthSettingsOutput {
-	return o.ApplyT(func(v *OauthSettings) OauthSettings {
-		if v != nil {
-			return *v
-		}
-		var ret OauthSettings
-		return ret
-	}).(OauthSettingsOutput)
-}
-
 type OauthSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (OauthSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthSettings)(nil))
+	return reflect.TypeOf((*[]*OauthSettings)(nil)).Elem()
 }
 
 func (o OauthSettingsArrayOutput) ToOauthSettingsArrayOutput() OauthSettingsArrayOutput {
@@ -319,15 +256,15 @@ func (o OauthSettingsArrayOutput) ToOauthSettingsArrayOutputWithContext(ctx cont
 }
 
 func (o OauthSettingsArrayOutput) Index(i pulumi.IntInput) OauthSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthSettings {
-		return vs[0].([]OauthSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OauthSettings {
+		return vs[0].([]*OauthSettings)[vs[1].(int)]
 	}).(OauthSettingsOutput)
 }
 
 type OauthSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (OauthSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OauthSettings)(nil))
+	return reflect.TypeOf((*map[string]*OauthSettings)(nil)).Elem()
 }
 
 func (o OauthSettingsMapOutput) ToOauthSettingsMapOutput() OauthSettingsMapOutput {
@@ -339,18 +276,16 @@ func (o OauthSettingsMapOutput) ToOauthSettingsMapOutputWithContext(ctx context.
 }
 
 func (o OauthSettingsMapOutput) MapIndex(k pulumi.StringInput) OauthSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OauthSettings {
-		return vs[0].(map[string]OauthSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OauthSettings {
+		return vs[0].(map[string]*OauthSettings)[vs[1].(string)]
 	}).(OauthSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsInput)(nil)).Elem(), &OauthSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsPtrInput)(nil)).Elem(), &OauthSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsArrayInput)(nil)).Elem(), OauthSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsMapInput)(nil)).Elem(), OauthSettingsMap{})
 	pulumi.RegisterOutputType(OauthSettingsOutput{})
-	pulumi.RegisterOutputType(OauthSettingsPtrOutput{})
 	pulumi.RegisterOutputType(OauthSettingsArrayOutput{})
 	pulumi.RegisterOutputType(OauthSettingsMapOutput{})
 }

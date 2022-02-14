@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGitltfsRepository(ctx, "terraform_local_test_gitlfs_repo", &artifactory.LocalGitltfsRepositoryArgs{
+// 		_, err := artifactory.NewLocalGitltfsRepository(ctx, "terraform-local-test-gitlfs-repo", &artifactory.LocalGitltfsRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-gitlfs-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalGitltfsRepositoryInput interface {
 }
 
 func (*LocalGitltfsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGitltfsRepository)(nil))
+	return reflect.TypeOf((**LocalGitltfsRepository)(nil)).Elem()
 }
 
 func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryOutput() LocalGitltfsRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryOutput() LocalGitltfsRe
 
 func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryOutputWithContext(ctx context.Context) LocalGitltfsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryOutput)
-}
-
-func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryPtrOutput() LocalGitltfsRepositoryPtrOutput {
-	return i.ToLocalGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryPtrOutputWithContext(ctx context.Context) LocalGitltfsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryPtrOutput)
-}
-
-type LocalGitltfsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalGitltfsRepositoryPtrOutput() LocalGitltfsRepositoryPtrOutput
-	ToLocalGitltfsRepositoryPtrOutputWithContext(ctx context.Context) LocalGitltfsRepositoryPtrOutput
-}
-
-type localGitltfsRepositoryPtrType LocalGitltfsRepositoryArgs
-
-func (*localGitltfsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGitltfsRepository)(nil))
-}
-
-func (i *localGitltfsRepositoryPtrType) ToLocalGitltfsRepositoryPtrOutput() LocalGitltfsRepositoryPtrOutput {
-	return i.ToLocalGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localGitltfsRepositoryPtrType) ToLocalGitltfsRepositoryPtrOutputWithContext(ctx context.Context) LocalGitltfsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGitltfsRepositoryPtrOutput)
 }
 
 // LocalGitltfsRepositoryArrayInput is an input type that accepts LocalGitltfsRepositoryArray and LocalGitltfsRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalGitltfsRepositoryMap) ToLocalGitltfsRepositoryMapOutputWithContext(
 type LocalGitltfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGitltfsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGitltfsRepository)(nil))
+	return reflect.TypeOf((**LocalGitltfsRepository)(nil)).Elem()
 }
 
 func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryOutput() LocalGitltfsRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryOutputWithContext(
 	return o
 }
 
-func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryPtrOutput() LocalGitltfsRepositoryPtrOutput {
-	return o.ToLocalGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGitltfsRepositoryOutput) ToLocalGitltfsRepositoryPtrOutputWithContext(ctx context.Context) LocalGitltfsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGitltfsRepository) *LocalGitltfsRepository {
-		return &v
-	}).(LocalGitltfsRepositoryPtrOutput)
-}
-
-type LocalGitltfsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGitltfsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGitltfsRepository)(nil))
-}
-
-func (o LocalGitltfsRepositoryPtrOutput) ToLocalGitltfsRepositoryPtrOutput() LocalGitltfsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGitltfsRepositoryPtrOutput) ToLocalGitltfsRepositoryPtrOutputWithContext(ctx context.Context) LocalGitltfsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGitltfsRepositoryPtrOutput) Elem() LocalGitltfsRepositoryOutput {
-	return o.ApplyT(func(v *LocalGitltfsRepository) LocalGitltfsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGitltfsRepository
-		return ret
-	}).(LocalGitltfsRepositoryOutput)
-}
-
 type LocalGitltfsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalGitltfsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGitltfsRepository)(nil))
+	return reflect.TypeOf((*[]*LocalGitltfsRepository)(nil)).Elem()
 }
 
 func (o LocalGitltfsRepositoryArrayOutput) ToLocalGitltfsRepositoryArrayOutput() LocalGitltfsRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalGitltfsRepositoryArrayOutput) ToLocalGitltfsRepositoryArrayOutputWi
 }
 
 func (o LocalGitltfsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGitltfsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGitltfsRepository {
-		return vs[0].([]LocalGitltfsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGitltfsRepository {
+		return vs[0].([]*LocalGitltfsRepository)[vs[1].(int)]
 	}).(LocalGitltfsRepositoryOutput)
 }
 
 type LocalGitltfsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalGitltfsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalGitltfsRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalGitltfsRepository)(nil)).Elem()
 }
 
 func (o LocalGitltfsRepositoryMapOutput) ToLocalGitltfsRepositoryMapOutput() LocalGitltfsRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalGitltfsRepositoryMapOutput) ToLocalGitltfsRepositoryMapOutputWithCo
 }
 
 func (o LocalGitltfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGitltfsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalGitltfsRepository {
-		return vs[0].(map[string]LocalGitltfsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalGitltfsRepository {
+		return vs[0].(map[string]*LocalGitltfsRepository)[vs[1].(string)]
 	}).(LocalGitltfsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGitltfsRepositoryInput)(nil)).Elem(), &LocalGitltfsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGitltfsRepositoryPtrInput)(nil)).Elem(), &LocalGitltfsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGitltfsRepositoryArrayInput)(nil)).Elem(), LocalGitltfsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGitltfsRepositoryMapInput)(nil)).Elem(), LocalGitltfsRepositoryMap{})
 	pulumi.RegisterOutputType(LocalGitltfsRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalGitltfsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalGitltfsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalGitltfsRepositoryMapOutput{})
 }

@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewGoRepository(ctx, "baz_go", &artifactory.GoRepositoryArgs{
+// 		_, err := artifactory.NewGoRepository(ctx, "baz-go", &artifactory.GoRepositoryArgs{
 // 			Description:                 pulumi.String("A test virtual repo"),
 // 			ExcludesPattern:             pulumi.String("com/google/**"),
 // 			ExternalDependenciesEnabled: pulumi.Bool(true),
@@ -288,7 +288,7 @@ type GoRepositoryInput interface {
 }
 
 func (*GoRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoRepository)(nil))
+	return reflect.TypeOf((**GoRepository)(nil)).Elem()
 }
 
 func (i *GoRepository) ToGoRepositoryOutput() GoRepositoryOutput {
@@ -297,35 +297,6 @@ func (i *GoRepository) ToGoRepositoryOutput() GoRepositoryOutput {
 
 func (i *GoRepository) ToGoRepositoryOutputWithContext(ctx context.Context) GoRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryOutput)
-}
-
-func (i *GoRepository) ToGoRepositoryPtrOutput() GoRepositoryPtrOutput {
-	return i.ToGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *GoRepository) ToGoRepositoryPtrOutputWithContext(ctx context.Context) GoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryPtrOutput)
-}
-
-type GoRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToGoRepositoryPtrOutput() GoRepositoryPtrOutput
-	ToGoRepositoryPtrOutputWithContext(ctx context.Context) GoRepositoryPtrOutput
-}
-
-type goRepositoryPtrType GoRepositoryArgs
-
-func (*goRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GoRepository)(nil))
-}
-
-func (i *goRepositoryPtrType) ToGoRepositoryPtrOutput() GoRepositoryPtrOutput {
-	return i.ToGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *goRepositoryPtrType) ToGoRepositoryPtrOutputWithContext(ctx context.Context) GoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GoRepositoryPtrOutput)
 }
 
 // GoRepositoryArrayInput is an input type that accepts GoRepositoryArray and GoRepositoryArrayOutput values.
@@ -381,7 +352,7 @@ func (i GoRepositoryMap) ToGoRepositoryMapOutputWithContext(ctx context.Context)
 type GoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GoRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GoRepository)(nil))
+	return reflect.TypeOf((**GoRepository)(nil)).Elem()
 }
 
 func (o GoRepositoryOutput) ToGoRepositoryOutput() GoRepositoryOutput {
@@ -392,44 +363,10 @@ func (o GoRepositoryOutput) ToGoRepositoryOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o GoRepositoryOutput) ToGoRepositoryPtrOutput() GoRepositoryPtrOutput {
-	return o.ToGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o GoRepositoryOutput) ToGoRepositoryPtrOutputWithContext(ctx context.Context) GoRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoRepository) *GoRepository {
-		return &v
-	}).(GoRepositoryPtrOutput)
-}
-
-type GoRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (GoRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GoRepository)(nil))
-}
-
-func (o GoRepositoryPtrOutput) ToGoRepositoryPtrOutput() GoRepositoryPtrOutput {
-	return o
-}
-
-func (o GoRepositoryPtrOutput) ToGoRepositoryPtrOutputWithContext(ctx context.Context) GoRepositoryPtrOutput {
-	return o
-}
-
-func (o GoRepositoryPtrOutput) Elem() GoRepositoryOutput {
-	return o.ApplyT(func(v *GoRepository) GoRepository {
-		if v != nil {
-			return *v
-		}
-		var ret GoRepository
-		return ret
-	}).(GoRepositoryOutput)
-}
-
 type GoRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (GoRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GoRepository)(nil))
+	return reflect.TypeOf((*[]*GoRepository)(nil)).Elem()
 }
 
 func (o GoRepositoryArrayOutput) ToGoRepositoryArrayOutput() GoRepositoryArrayOutput {
@@ -441,15 +378,15 @@ func (o GoRepositoryArrayOutput) ToGoRepositoryArrayOutputWithContext(ctx contex
 }
 
 func (o GoRepositoryArrayOutput) Index(i pulumi.IntInput) GoRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GoRepository {
-		return vs[0].([]GoRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GoRepository {
+		return vs[0].([]*GoRepository)[vs[1].(int)]
 	}).(GoRepositoryOutput)
 }
 
 type GoRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (GoRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GoRepository)(nil))
+	return reflect.TypeOf((*map[string]*GoRepository)(nil)).Elem()
 }
 
 func (o GoRepositoryMapOutput) ToGoRepositoryMapOutput() GoRepositoryMapOutput {
@@ -461,18 +398,16 @@ func (o GoRepositoryMapOutput) ToGoRepositoryMapOutputWithContext(ctx context.Co
 }
 
 func (o GoRepositoryMapOutput) MapIndex(k pulumi.StringInput) GoRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GoRepository {
-		return vs[0].(map[string]GoRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GoRepository {
+		return vs[0].(map[string]*GoRepository)[vs[1].(string)]
 	}).(GoRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GoRepositoryInput)(nil)).Elem(), &GoRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GoRepositoryPtrInput)(nil)).Elem(), &GoRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoRepositoryArrayInput)(nil)).Elem(), GoRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoRepositoryMapInput)(nil)).Elem(), GoRepositoryMap{})
 	pulumi.RegisterOutputType(GoRepositoryOutput{})
-	pulumi.RegisterOutputType(GoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(GoRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(GoRepositoryMapOutput{})
 }

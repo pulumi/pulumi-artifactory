@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualConanRepository(ctx, "foo_conan", &artifactory.VirtualConanRepositoryArgs{
+// 		_, err := artifactory.NewVirtualConanRepository(ctx, "foo-conan", &artifactory.VirtualConanRepositoryArgs{
 // 			Description:     pulumi.String("A test virtual repo"),
 // 			ExcludesPattern: pulumi.String("com/google/**"),
 // 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
@@ -258,7 +258,7 @@ type VirtualConanRepositoryInput interface {
 }
 
 func (*VirtualConanRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualConanRepository)(nil))
+	return reflect.TypeOf((**VirtualConanRepository)(nil)).Elem()
 }
 
 func (i *VirtualConanRepository) ToVirtualConanRepositoryOutput() VirtualConanRepositoryOutput {
@@ -267,35 +267,6 @@ func (i *VirtualConanRepository) ToVirtualConanRepositoryOutput() VirtualConanRe
 
 func (i *VirtualConanRepository) ToVirtualConanRepositoryOutputWithContext(ctx context.Context) VirtualConanRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryOutput)
-}
-
-func (i *VirtualConanRepository) ToVirtualConanRepositoryPtrOutput() VirtualConanRepositoryPtrOutput {
-	return i.ToVirtualConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualConanRepository) ToVirtualConanRepositoryPtrOutputWithContext(ctx context.Context) VirtualConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryPtrOutput)
-}
-
-type VirtualConanRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToVirtualConanRepositoryPtrOutput() VirtualConanRepositoryPtrOutput
-	ToVirtualConanRepositoryPtrOutputWithContext(ctx context.Context) VirtualConanRepositoryPtrOutput
-}
-
-type virtualConanRepositoryPtrType VirtualConanRepositoryArgs
-
-func (*virtualConanRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualConanRepository)(nil))
-}
-
-func (i *virtualConanRepositoryPtrType) ToVirtualConanRepositoryPtrOutput() VirtualConanRepositoryPtrOutput {
-	return i.ToVirtualConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualConanRepositoryPtrType) ToVirtualConanRepositoryPtrOutputWithContext(ctx context.Context) VirtualConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualConanRepositoryPtrOutput)
 }
 
 // VirtualConanRepositoryArrayInput is an input type that accepts VirtualConanRepositoryArray and VirtualConanRepositoryArrayOutput values.
@@ -351,7 +322,7 @@ func (i VirtualConanRepositoryMap) ToVirtualConanRepositoryMapOutputWithContext(
 type VirtualConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (VirtualConanRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualConanRepository)(nil))
+	return reflect.TypeOf((**VirtualConanRepository)(nil)).Elem()
 }
 
 func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryOutput() VirtualConanRepositoryOutput {
@@ -362,44 +333,10 @@ func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryOutputWithContext(
 	return o
 }
 
-func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryPtrOutput() VirtualConanRepositoryPtrOutput {
-	return o.ToVirtualConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualConanRepositoryOutput) ToVirtualConanRepositoryPtrOutputWithContext(ctx context.Context) VirtualConanRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualConanRepository) *VirtualConanRepository {
-		return &v
-	}).(VirtualConanRepositoryPtrOutput)
-}
-
-type VirtualConanRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualConanRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualConanRepository)(nil))
-}
-
-func (o VirtualConanRepositoryPtrOutput) ToVirtualConanRepositoryPtrOutput() VirtualConanRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualConanRepositoryPtrOutput) ToVirtualConanRepositoryPtrOutputWithContext(ctx context.Context) VirtualConanRepositoryPtrOutput {
-	return o
-}
-
-func (o VirtualConanRepositoryPtrOutput) Elem() VirtualConanRepositoryOutput {
-	return o.ApplyT(func(v *VirtualConanRepository) VirtualConanRepository {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualConanRepository
-		return ret
-	}).(VirtualConanRepositoryOutput)
-}
-
 type VirtualConanRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualConanRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualConanRepository)(nil))
+	return reflect.TypeOf((*[]*VirtualConanRepository)(nil)).Elem()
 }
 
 func (o VirtualConanRepositoryArrayOutput) ToVirtualConanRepositoryArrayOutput() VirtualConanRepositoryArrayOutput {
@@ -411,15 +348,15 @@ func (o VirtualConanRepositoryArrayOutput) ToVirtualConanRepositoryArrayOutputWi
 }
 
 func (o VirtualConanRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualConanRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualConanRepository {
-		return vs[0].([]VirtualConanRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualConanRepository {
+		return vs[0].([]*VirtualConanRepository)[vs[1].(int)]
 	}).(VirtualConanRepositoryOutput)
 }
 
 type VirtualConanRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualConanRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualConanRepository)(nil))
+	return reflect.TypeOf((*map[string]*VirtualConanRepository)(nil)).Elem()
 }
 
 func (o VirtualConanRepositoryMapOutput) ToVirtualConanRepositoryMapOutput() VirtualConanRepositoryMapOutput {
@@ -431,18 +368,16 @@ func (o VirtualConanRepositoryMapOutput) ToVirtualConanRepositoryMapOutputWithCo
 }
 
 func (o VirtualConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualConanRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualConanRepository {
-		return vs[0].(map[string]VirtualConanRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualConanRepository {
+		return vs[0].(map[string]*VirtualConanRepository)[vs[1].(string)]
 	}).(VirtualConanRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualConanRepositoryInput)(nil)).Elem(), &VirtualConanRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualConanRepositoryPtrInput)(nil)).Elem(), &VirtualConanRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualConanRepositoryArrayInput)(nil)).Elem(), VirtualConanRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualConanRepositoryMapInput)(nil)).Elem(), VirtualConanRepositoryMap{})
 	pulumi.RegisterOutputType(VirtualConanRepositoryOutput{})
-	pulumi.RegisterOutputType(VirtualConanRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(VirtualConanRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualConanRepositoryMapOutput{})
 }

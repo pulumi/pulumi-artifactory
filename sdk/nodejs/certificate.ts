@@ -103,36 +103,34 @@ export class Certificate extends pulumi.CustomResource {
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CertificateState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["file"] = state ? state.file : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["issuedBy"] = state ? state.issuedBy : undefined;
-            inputs["issuedOn"] = state ? state.issuedOn : undefined;
-            inputs["issuedTo"] = state ? state.issuedTo : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["file"] = state ? state.file : undefined;
+            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
+            resourceInputs["issuedBy"] = state ? state.issuedBy : undefined;
+            resourceInputs["issuedOn"] = state ? state.issuedOn : undefined;
+            resourceInputs["issuedTo"] = state ? state.issuedTo : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             if ((!args || args.alias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["file"] = args ? args.file : undefined;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["issuedBy"] = undefined /*out*/;
-            inputs["issuedOn"] = undefined /*out*/;
-            inputs["issuedTo"] = undefined /*out*/;
-            inputs["validUntil"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["file"] = args ? args.file : undefined;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["issuedBy"] = undefined /*out*/;
+            resourceInputs["issuedOn"] = undefined /*out*/;
+            resourceInputs["issuedTo"] = undefined /*out*/;
+            resourceInputs["validUntil"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Certificate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

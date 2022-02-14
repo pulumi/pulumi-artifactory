@@ -77,16 +77,16 @@ export class XrayWatch extends pulumi.CustomResource {
      */
     constructor(name: string, args: XrayWatchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: XrayWatchArgs | XrayWatchState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as XrayWatchState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["assignedPolicies"] = state ? state.assignedPolicies : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["watchRecipients"] = state ? state.watchRecipients : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["assignedPolicies"] = state ? state.assignedPolicies : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["watchRecipients"] = state ? state.watchRecipients : undefined;
         } else {
             const args = argsOrState as XrayWatchArgs | undefined;
             if ((!args || args.assignedPolicies === undefined) && !opts.urn) {
@@ -95,17 +95,15 @@ export class XrayWatch extends pulumi.CustomResource {
             if ((!args || args.resources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["assignedPolicies"] = args ? args.assignedPolicies : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
-            inputs["watchRecipients"] = args ? args.watchRecipients : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["assignedPolicies"] = args ? args.assignedPolicies : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["watchRecipients"] = args ? args.watchRecipients : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(XrayWatch.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(XrayWatch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

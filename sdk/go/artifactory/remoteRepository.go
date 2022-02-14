@@ -346,7 +346,7 @@ type RemoteRepositoryInput interface {
 }
 
 func (*RemoteRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRepository)(nil))
+	return reflect.TypeOf((**RemoteRepository)(nil)).Elem()
 }
 
 func (i *RemoteRepository) ToRemoteRepositoryOutput() RemoteRepositoryOutput {
@@ -355,35 +355,6 @@ func (i *RemoteRepository) ToRemoteRepositoryOutput() RemoteRepositoryOutput {
 
 func (i *RemoteRepository) ToRemoteRepositoryOutputWithContext(ctx context.Context) RemoteRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryOutput)
-}
-
-func (i *RemoteRepository) ToRemoteRepositoryPtrOutput() RemoteRepositoryPtrOutput {
-	return i.ToRemoteRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *RemoteRepository) ToRemoteRepositoryPtrOutputWithContext(ctx context.Context) RemoteRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryPtrOutput)
-}
-
-type RemoteRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToRemoteRepositoryPtrOutput() RemoteRepositoryPtrOutput
-	ToRemoteRepositoryPtrOutputWithContext(ctx context.Context) RemoteRepositoryPtrOutput
-}
-
-type remoteRepositoryPtrType RemoteRepositoryArgs
-
-func (*remoteRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteRepository)(nil))
-}
-
-func (i *remoteRepositoryPtrType) ToRemoteRepositoryPtrOutput() RemoteRepositoryPtrOutput {
-	return i.ToRemoteRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteRepositoryPtrType) ToRemoteRepositoryPtrOutputWithContext(ctx context.Context) RemoteRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryPtrOutput)
 }
 
 // RemoteRepositoryArrayInput is an input type that accepts RemoteRepositoryArray and RemoteRepositoryArrayOutput values.
@@ -439,7 +410,7 @@ func (i RemoteRepositoryMap) ToRemoteRepositoryMapOutputWithContext(ctx context.
 type RemoteRepositoryOutput struct{ *pulumi.OutputState }
 
 func (RemoteRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRepository)(nil))
+	return reflect.TypeOf((**RemoteRepository)(nil)).Elem()
 }
 
 func (o RemoteRepositoryOutput) ToRemoteRepositoryOutput() RemoteRepositoryOutput {
@@ -450,44 +421,10 @@ func (o RemoteRepositoryOutput) ToRemoteRepositoryOutputWithContext(ctx context.
 	return o
 }
 
-func (o RemoteRepositoryOutput) ToRemoteRepositoryPtrOutput() RemoteRepositoryPtrOutput {
-	return o.ToRemoteRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteRepositoryOutput) ToRemoteRepositoryPtrOutputWithContext(ctx context.Context) RemoteRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteRepository) *RemoteRepository {
-		return &v
-	}).(RemoteRepositoryPtrOutput)
-}
-
-type RemoteRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteRepository)(nil))
-}
-
-func (o RemoteRepositoryPtrOutput) ToRemoteRepositoryPtrOutput() RemoteRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteRepositoryPtrOutput) ToRemoteRepositoryPtrOutputWithContext(ctx context.Context) RemoteRepositoryPtrOutput {
-	return o
-}
-
-func (o RemoteRepositoryPtrOutput) Elem() RemoteRepositoryOutput {
-	return o.ApplyT(func(v *RemoteRepository) RemoteRepository {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteRepository
-		return ret
-	}).(RemoteRepositoryOutput)
-}
-
 type RemoteRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (RemoteRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemoteRepository)(nil))
+	return reflect.TypeOf((*[]*RemoteRepository)(nil)).Elem()
 }
 
 func (o RemoteRepositoryArrayOutput) ToRemoteRepositoryArrayOutput() RemoteRepositoryArrayOutput {
@@ -499,15 +436,15 @@ func (o RemoteRepositoryArrayOutput) ToRemoteRepositoryArrayOutputWithContext(ct
 }
 
 func (o RemoteRepositoryArrayOutput) Index(i pulumi.IntInput) RemoteRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemoteRepository {
-		return vs[0].([]RemoteRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemoteRepository {
+		return vs[0].([]*RemoteRepository)[vs[1].(int)]
 	}).(RemoteRepositoryOutput)
 }
 
 type RemoteRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (RemoteRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemoteRepository)(nil))
+	return reflect.TypeOf((*map[string]*RemoteRepository)(nil)).Elem()
 }
 
 func (o RemoteRepositoryMapOutput) ToRemoteRepositoryMapOutput() RemoteRepositoryMapOutput {
@@ -519,18 +456,16 @@ func (o RemoteRepositoryMapOutput) ToRemoteRepositoryMapOutputWithContext(ctx co
 }
 
 func (o RemoteRepositoryMapOutput) MapIndex(k pulumi.StringInput) RemoteRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemoteRepository {
-		return vs[0].(map[string]RemoteRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemoteRepository {
+		return vs[0].(map[string]*RemoteRepository)[vs[1].(string)]
 	}).(RemoteRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryInput)(nil)).Elem(), &RemoteRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryPtrInput)(nil)).Elem(), &RemoteRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryArrayInput)(nil)).Elem(), RemoteRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryMapInput)(nil)).Elem(), RemoteRepositoryMap{})
 	pulumi.RegisterOutputType(RemoteRepositoryOutput{})
-	pulumi.RegisterOutputType(RemoteRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(RemoteRepositoryMapOutput{})
 }

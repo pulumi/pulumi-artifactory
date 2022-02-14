@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCocoapodsRepository(ctx, "terraform_local_test_cocoapods_repo", &artifactory.LocalCocoapodsRepositoryArgs{
+// 		_, err := artifactory.NewLocalCocoapodsRepository(ctx, "terraform-local-test-cocoapods-repo", &artifactory.LocalCocoapodsRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-cocoapods-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalCocoapodsRepositoryInput interface {
 }
 
 func (*LocalCocoapodsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalCocoapodsRepository)(nil))
+	return reflect.TypeOf((**LocalCocoapodsRepository)(nil)).Elem()
 }
 
 func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryOutput() LocalCocoapodsRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryOutput() LocalCocoa
 
 func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryOutput)
-}
-
-func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryPtrOutput() LocalCocoapodsRepositoryPtrOutput {
-	return i.ToLocalCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryPtrOutput)
-}
-
-type LocalCocoapodsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalCocoapodsRepositoryPtrOutput() LocalCocoapodsRepositoryPtrOutput
-	ToLocalCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryPtrOutput
-}
-
-type localCocoapodsRepositoryPtrType LocalCocoapodsRepositoryArgs
-
-func (*localCocoapodsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalCocoapodsRepository)(nil))
-}
-
-func (i *localCocoapodsRepositoryPtrType) ToLocalCocoapodsRepositoryPtrOutput() LocalCocoapodsRepositoryPtrOutput {
-	return i.ToLocalCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localCocoapodsRepositoryPtrType) ToLocalCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalCocoapodsRepositoryPtrOutput)
 }
 
 // LocalCocoapodsRepositoryArrayInput is an input type that accepts LocalCocoapodsRepositoryArray and LocalCocoapodsRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalCocoapodsRepositoryMap) ToLocalCocoapodsRepositoryMapOutputWithCont
 type LocalCocoapodsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalCocoapodsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalCocoapodsRepository)(nil))
+	return reflect.TypeOf((**LocalCocoapodsRepository)(nil)).Elem()
 }
 
 func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryOutput() LocalCocoapodsRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryOutputWithCont
 	return o
 }
 
-func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryPtrOutput() LocalCocoapodsRepositoryPtrOutput {
-	return o.ToLocalCocoapodsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalCocoapodsRepositoryOutput) ToLocalCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalCocoapodsRepository) *LocalCocoapodsRepository {
-		return &v
-	}).(LocalCocoapodsRepositoryPtrOutput)
-}
-
-type LocalCocoapodsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalCocoapodsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalCocoapodsRepository)(nil))
-}
-
-func (o LocalCocoapodsRepositoryPtrOutput) ToLocalCocoapodsRepositoryPtrOutput() LocalCocoapodsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalCocoapodsRepositoryPtrOutput) ToLocalCocoapodsRepositoryPtrOutputWithContext(ctx context.Context) LocalCocoapodsRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalCocoapodsRepositoryPtrOutput) Elem() LocalCocoapodsRepositoryOutput {
-	return o.ApplyT(func(v *LocalCocoapodsRepository) LocalCocoapodsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalCocoapodsRepository
-		return ret
-	}).(LocalCocoapodsRepositoryOutput)
-}
-
 type LocalCocoapodsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalCocoapodsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalCocoapodsRepository)(nil))
+	return reflect.TypeOf((*[]*LocalCocoapodsRepository)(nil)).Elem()
 }
 
 func (o LocalCocoapodsRepositoryArrayOutput) ToLocalCocoapodsRepositoryArrayOutput() LocalCocoapodsRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalCocoapodsRepositoryArrayOutput) ToLocalCocoapodsRepositoryArrayOutp
 }
 
 func (o LocalCocoapodsRepositoryArrayOutput) Index(i pulumi.IntInput) LocalCocoapodsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalCocoapodsRepository {
-		return vs[0].([]LocalCocoapodsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalCocoapodsRepository {
+		return vs[0].([]*LocalCocoapodsRepository)[vs[1].(int)]
 	}).(LocalCocoapodsRepositoryOutput)
 }
 
 type LocalCocoapodsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalCocoapodsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalCocoapodsRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalCocoapodsRepository)(nil)).Elem()
 }
 
 func (o LocalCocoapodsRepositoryMapOutput) ToLocalCocoapodsRepositoryMapOutput() LocalCocoapodsRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalCocoapodsRepositoryMapOutput) ToLocalCocoapodsRepositoryMapOutputWi
 }
 
 func (o LocalCocoapodsRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalCocoapodsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalCocoapodsRepository {
-		return vs[0].(map[string]LocalCocoapodsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalCocoapodsRepository {
+		return vs[0].(map[string]*LocalCocoapodsRepository)[vs[1].(string)]
 	}).(LocalCocoapodsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCocoapodsRepositoryInput)(nil)).Elem(), &LocalCocoapodsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalCocoapodsRepositoryPtrInput)(nil)).Elem(), &LocalCocoapodsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCocoapodsRepositoryArrayInput)(nil)).Elem(), LocalCocoapodsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalCocoapodsRepositoryMapInput)(nil)).Elem(), LocalCocoapodsRepositoryMap{})
 	pulumi.RegisterOutputType(LocalCocoapodsRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalCocoapodsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalCocoapodsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalCocoapodsRepositoryMapOutput{})
 }

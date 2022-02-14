@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalBowerRepository(ctx, "terraform_local_test_bower_repo", &artifactory.LocalBowerRepositoryArgs{
+// 		_, err := artifactory.NewLocalBowerRepository(ctx, "terraform-local-test-bower-repo", &artifactory.LocalBowerRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-bower-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalBowerRepositoryInput interface {
 }
 
 func (*LocalBowerRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalBowerRepository)(nil))
+	return reflect.TypeOf((**LocalBowerRepository)(nil)).Elem()
 }
 
 func (i *LocalBowerRepository) ToLocalBowerRepositoryOutput() LocalBowerRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalBowerRepository) ToLocalBowerRepositoryOutput() LocalBowerReposito
 
 func (i *LocalBowerRepository) ToLocalBowerRepositoryOutputWithContext(ctx context.Context) LocalBowerRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryOutput)
-}
-
-func (i *LocalBowerRepository) ToLocalBowerRepositoryPtrOutput() LocalBowerRepositoryPtrOutput {
-	return i.ToLocalBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalBowerRepository) ToLocalBowerRepositoryPtrOutputWithContext(ctx context.Context) LocalBowerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryPtrOutput)
-}
-
-type LocalBowerRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalBowerRepositoryPtrOutput() LocalBowerRepositoryPtrOutput
-	ToLocalBowerRepositoryPtrOutputWithContext(ctx context.Context) LocalBowerRepositoryPtrOutput
-}
-
-type localBowerRepositoryPtrType LocalBowerRepositoryArgs
-
-func (*localBowerRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalBowerRepository)(nil))
-}
-
-func (i *localBowerRepositoryPtrType) ToLocalBowerRepositoryPtrOutput() LocalBowerRepositoryPtrOutput {
-	return i.ToLocalBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localBowerRepositoryPtrType) ToLocalBowerRepositoryPtrOutputWithContext(ctx context.Context) LocalBowerRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalBowerRepositoryPtrOutput)
 }
 
 // LocalBowerRepositoryArrayInput is an input type that accepts LocalBowerRepositoryArray and LocalBowerRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalBowerRepositoryMap) ToLocalBowerRepositoryMapOutputWithContext(ctx 
 type LocalBowerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalBowerRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalBowerRepository)(nil))
+	return reflect.TypeOf((**LocalBowerRepository)(nil)).Elem()
 }
 
 func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryOutput() LocalBowerRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryOutputWithContext(ctx 
 	return o
 }
 
-func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryPtrOutput() LocalBowerRepositoryPtrOutput {
-	return o.ToLocalBowerRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalBowerRepositoryOutput) ToLocalBowerRepositoryPtrOutputWithContext(ctx context.Context) LocalBowerRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalBowerRepository) *LocalBowerRepository {
-		return &v
-	}).(LocalBowerRepositoryPtrOutput)
-}
-
-type LocalBowerRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalBowerRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalBowerRepository)(nil))
-}
-
-func (o LocalBowerRepositoryPtrOutput) ToLocalBowerRepositoryPtrOutput() LocalBowerRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalBowerRepositoryPtrOutput) ToLocalBowerRepositoryPtrOutputWithContext(ctx context.Context) LocalBowerRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalBowerRepositoryPtrOutput) Elem() LocalBowerRepositoryOutput {
-	return o.ApplyT(func(v *LocalBowerRepository) LocalBowerRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalBowerRepository
-		return ret
-	}).(LocalBowerRepositoryOutput)
-}
-
 type LocalBowerRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalBowerRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalBowerRepository)(nil))
+	return reflect.TypeOf((*[]*LocalBowerRepository)(nil)).Elem()
 }
 
 func (o LocalBowerRepositoryArrayOutput) ToLocalBowerRepositoryArrayOutput() LocalBowerRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalBowerRepositoryArrayOutput) ToLocalBowerRepositoryArrayOutputWithCo
 }
 
 func (o LocalBowerRepositoryArrayOutput) Index(i pulumi.IntInput) LocalBowerRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalBowerRepository {
-		return vs[0].([]LocalBowerRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalBowerRepository {
+		return vs[0].([]*LocalBowerRepository)[vs[1].(int)]
 	}).(LocalBowerRepositoryOutput)
 }
 
 type LocalBowerRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalBowerRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalBowerRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalBowerRepository)(nil)).Elem()
 }
 
 func (o LocalBowerRepositoryMapOutput) ToLocalBowerRepositoryMapOutput() LocalBowerRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalBowerRepositoryMapOutput) ToLocalBowerRepositoryMapOutputWithContex
 }
 
 func (o LocalBowerRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalBowerRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalBowerRepository {
-		return vs[0].(map[string]LocalBowerRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalBowerRepository {
+		return vs[0].(map[string]*LocalBowerRepository)[vs[1].(string)]
 	}).(LocalBowerRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalBowerRepositoryInput)(nil)).Elem(), &LocalBowerRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalBowerRepositoryPtrInput)(nil)).Elem(), &LocalBowerRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalBowerRepositoryArrayInput)(nil)).Elem(), LocalBowerRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalBowerRepositoryMapInput)(nil)).Elem(), LocalBowerRepositoryMap{})
 	pulumi.RegisterOutputType(LocalBowerRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalBowerRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalBowerRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalBowerRepositoryMapOutput{})
 }

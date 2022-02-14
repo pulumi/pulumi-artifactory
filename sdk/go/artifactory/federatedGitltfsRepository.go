@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGitltfsRepository(ctx, "terraform_federated_test_gitlfs_repo", &artifactory.FederatedGitltfsRepositoryArgs{
+// 		_, err := artifactory.NewFederatedGitltfsRepository(ctx, "terraform-federated-test-gitlfs-repo", &artifactory.FederatedGitltfsRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-gitlfs-repo"),
 // 			Members: FederatedGitltfsRepositoryMemberArray{
 // 				&FederatedGitltfsRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedGitltfsRepositoryInput interface {
 }
 
 func (*FederatedGitltfsRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGitltfsRepository)(nil))
+	return reflect.TypeOf((**FederatedGitltfsRepository)(nil)).Elem()
 }
 
 func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryOutput() FederatedGitltfsRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryOutput() Federa
 
 func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryOutput)
-}
-
-func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryPtrOutput() FederatedGitltfsRepositoryPtrOutput {
-	return i.ToFederatedGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryPtrOutput)
-}
-
-type FederatedGitltfsRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedGitltfsRepositoryPtrOutput() FederatedGitltfsRepositoryPtrOutput
-	ToFederatedGitltfsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryPtrOutput
-}
-
-type federatedGitltfsRepositoryPtrType FederatedGitltfsRepositoryArgs
-
-func (*federatedGitltfsRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGitltfsRepository)(nil))
-}
-
-func (i *federatedGitltfsRepositoryPtrType) ToFederatedGitltfsRepositoryPtrOutput() FederatedGitltfsRepositoryPtrOutput {
-	return i.ToFederatedGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedGitltfsRepositoryPtrType) ToFederatedGitltfsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedGitltfsRepositoryPtrOutput)
 }
 
 // FederatedGitltfsRepositoryArrayInput is an input type that accepts FederatedGitltfsRepositoryArray and FederatedGitltfsRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedGitltfsRepositoryMap) ToFederatedGitltfsRepositoryMapOutputWith
 type FederatedGitltfsRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedGitltfsRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedGitltfsRepository)(nil))
+	return reflect.TypeOf((**FederatedGitltfsRepository)(nil)).Elem()
 }
 
 func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryOutput() FederatedGitltfsRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryOutputWith
 	return o
 }
 
-func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryPtrOutput() FederatedGitltfsRepositoryPtrOutput {
-	return o.ToFederatedGitltfsRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedGitltfsRepositoryOutput) ToFederatedGitltfsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedGitltfsRepository) *FederatedGitltfsRepository {
-		return &v
-	}).(FederatedGitltfsRepositoryPtrOutput)
-}
-
-type FederatedGitltfsRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedGitltfsRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedGitltfsRepository)(nil))
-}
-
-func (o FederatedGitltfsRepositoryPtrOutput) ToFederatedGitltfsRepositoryPtrOutput() FederatedGitltfsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGitltfsRepositoryPtrOutput) ToFederatedGitltfsRepositoryPtrOutputWithContext(ctx context.Context) FederatedGitltfsRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedGitltfsRepositoryPtrOutput) Elem() FederatedGitltfsRepositoryOutput {
-	return o.ApplyT(func(v *FederatedGitltfsRepository) FederatedGitltfsRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedGitltfsRepository
-		return ret
-	}).(FederatedGitltfsRepositoryOutput)
-}
-
 type FederatedGitltfsRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedGitltfsRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedGitltfsRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedGitltfsRepository)(nil)).Elem()
 }
 
 func (o FederatedGitltfsRepositoryArrayOutput) ToFederatedGitltfsRepositoryArrayOutput() FederatedGitltfsRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedGitltfsRepositoryArrayOutput) ToFederatedGitltfsRepositoryArray
 }
 
 func (o FederatedGitltfsRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedGitltfsRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedGitltfsRepository {
-		return vs[0].([]FederatedGitltfsRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedGitltfsRepository {
+		return vs[0].([]*FederatedGitltfsRepository)[vs[1].(int)]
 	}).(FederatedGitltfsRepositoryOutput)
 }
 
 type FederatedGitltfsRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedGitltfsRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedGitltfsRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedGitltfsRepository)(nil)).Elem()
 }
 
 func (o FederatedGitltfsRepositoryMapOutput) ToFederatedGitltfsRepositoryMapOutput() FederatedGitltfsRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedGitltfsRepositoryMapOutput) ToFederatedGitltfsRepositoryMapOutp
 }
 
 func (o FederatedGitltfsRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedGitltfsRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedGitltfsRepository {
-		return vs[0].(map[string]FederatedGitltfsRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedGitltfsRepository {
+		return vs[0].(map[string]*FederatedGitltfsRepository)[vs[1].(string)]
 	}).(FederatedGitltfsRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGitltfsRepositoryInput)(nil)).Elem(), &FederatedGitltfsRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGitltfsRepositoryPtrInput)(nil)).Elem(), &FederatedGitltfsRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGitltfsRepositoryArrayInput)(nil)).Elem(), FederatedGitltfsRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGitltfsRepositoryMapInput)(nil)).Elem(), FederatedGitltfsRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedGitltfsRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedGitltfsRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedGitltfsRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGitltfsRepositoryMapOutput{})
 }

@@ -153,48 +153,46 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     constructor(name: string, args: MavenRepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MavenRepositoryArgs | MavenRepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MavenRepositoryState | undefined;
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            inputs["forceMavenAuthentication"] = state ? state.forceMavenAuthentication : undefined;
-            inputs["includesPattern"] = state ? state.includesPattern : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["keyPair"] = state ? state.keyPair : undefined;
-            inputs["notes"] = state ? state.notes : undefined;
-            inputs["packageType"] = state ? state.packageType : undefined;
-            inputs["pomRepositoryReferencesCleanupPolicy"] = state ? state.pomRepositoryReferencesCleanupPolicy : undefined;
-            inputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
-            inputs["repositories"] = state ? state.repositories : undefined;
-            inputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["forceMavenAuthentication"] = state ? state.forceMavenAuthentication : undefined;
+            resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["keyPair"] = state ? state.keyPair : undefined;
+            resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["pomRepositoryReferencesCleanupPolicy"] = state ? state.pomRepositoryReferencesCleanupPolicy : undefined;
+            resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = state ? state.repositories : undefined;
+            resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
         } else {
             const args = argsOrState as MavenRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            inputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
-            inputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            inputs["forceMavenAuthentication"] = args ? args.forceMavenAuthentication : undefined;
-            inputs["includesPattern"] = args ? args.includesPattern : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["keyPair"] = args ? args.keyPair : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["pomRepositoryReferencesCleanupPolicy"] = args ? args.pomRepositoryReferencesCleanupPolicy : undefined;
-            inputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
-            inputs["repositories"] = args ? args.repositories : undefined;
-            inputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
-            inputs["packageType"] = undefined /*out*/;
+            resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = args ? args.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
+            resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["forceMavenAuthentication"] = args ? args.forceMavenAuthentication : undefined;
+            resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["keyPair"] = args ? args.keyPair : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["pomRepositoryReferencesCleanupPolicy"] = args ? args.pomRepositoryReferencesCleanupPolicy : undefined;
+            resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["repositories"] = args ? args.repositories : undefined;
+            resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["packageType"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(MavenRepository.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(MavenRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

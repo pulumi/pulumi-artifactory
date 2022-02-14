@@ -130,25 +130,23 @@ export class PermissionTarget extends pulumi.CustomResource {
      */
     constructor(name: string, args?: PermissionTargetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionTargetArgs | PermissionTargetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionTargetState | undefined;
-            inputs["build"] = state ? state.build : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["releaseBundle"] = state ? state.releaseBundle : undefined;
-            inputs["repo"] = state ? state.repo : undefined;
+            resourceInputs["build"] = state ? state.build : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["releaseBundle"] = state ? state.releaseBundle : undefined;
+            resourceInputs["repo"] = state ? state.repo : undefined;
         } else {
             const args = argsOrState as PermissionTargetArgs | undefined;
-            inputs["build"] = args ? args.build : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["releaseBundle"] = args ? args.releaseBundle : undefined;
-            inputs["repo"] = args ? args.repo : undefined;
+            resourceInputs["build"] = args ? args.build : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["releaseBundle"] = args ? args.releaseBundle : undefined;
+            resourceInputs["repo"] = args ? args.repo : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PermissionTarget.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PermissionTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

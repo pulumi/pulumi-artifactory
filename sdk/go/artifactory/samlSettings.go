@@ -260,7 +260,7 @@ type SamlSettingsInput interface {
 }
 
 func (*SamlSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlSettings)(nil))
+	return reflect.TypeOf((**SamlSettings)(nil)).Elem()
 }
 
 func (i *SamlSettings) ToSamlSettingsOutput() SamlSettingsOutput {
@@ -269,35 +269,6 @@ func (i *SamlSettings) ToSamlSettingsOutput() SamlSettingsOutput {
 
 func (i *SamlSettings) ToSamlSettingsOutputWithContext(ctx context.Context) SamlSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsOutput)
-}
-
-func (i *SamlSettings) ToSamlSettingsPtrOutput() SamlSettingsPtrOutput {
-	return i.ToSamlSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *SamlSettings) ToSamlSettingsPtrOutputWithContext(ctx context.Context) SamlSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsPtrOutput)
-}
-
-type SamlSettingsPtrInput interface {
-	pulumi.Input
-
-	ToSamlSettingsPtrOutput() SamlSettingsPtrOutput
-	ToSamlSettingsPtrOutputWithContext(ctx context.Context) SamlSettingsPtrOutput
-}
-
-type samlSettingsPtrType SamlSettingsArgs
-
-func (*samlSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlSettings)(nil))
-}
-
-func (i *samlSettingsPtrType) ToSamlSettingsPtrOutput() SamlSettingsPtrOutput {
-	return i.ToSamlSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *samlSettingsPtrType) ToSamlSettingsPtrOutputWithContext(ctx context.Context) SamlSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SamlSettingsPtrOutput)
 }
 
 // SamlSettingsArrayInput is an input type that accepts SamlSettingsArray and SamlSettingsArrayOutput values.
@@ -353,7 +324,7 @@ func (i SamlSettingsMap) ToSamlSettingsMapOutputWithContext(ctx context.Context)
 type SamlSettingsOutput struct{ *pulumi.OutputState }
 
 func (SamlSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SamlSettings)(nil))
+	return reflect.TypeOf((**SamlSettings)(nil)).Elem()
 }
 
 func (o SamlSettingsOutput) ToSamlSettingsOutput() SamlSettingsOutput {
@@ -364,44 +335,10 @@ func (o SamlSettingsOutput) ToSamlSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o SamlSettingsOutput) ToSamlSettingsPtrOutput() SamlSettingsPtrOutput {
-	return o.ToSamlSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o SamlSettingsOutput) ToSamlSettingsPtrOutputWithContext(ctx context.Context) SamlSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamlSettings) *SamlSettings {
-		return &v
-	}).(SamlSettingsPtrOutput)
-}
-
-type SamlSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (SamlSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SamlSettings)(nil))
-}
-
-func (o SamlSettingsPtrOutput) ToSamlSettingsPtrOutput() SamlSettingsPtrOutput {
-	return o
-}
-
-func (o SamlSettingsPtrOutput) ToSamlSettingsPtrOutputWithContext(ctx context.Context) SamlSettingsPtrOutput {
-	return o
-}
-
-func (o SamlSettingsPtrOutput) Elem() SamlSettingsOutput {
-	return o.ApplyT(func(v *SamlSettings) SamlSettings {
-		if v != nil {
-			return *v
-		}
-		var ret SamlSettings
-		return ret
-	}).(SamlSettingsOutput)
-}
-
 type SamlSettingsArrayOutput struct{ *pulumi.OutputState }
 
 func (SamlSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SamlSettings)(nil))
+	return reflect.TypeOf((*[]*SamlSettings)(nil)).Elem()
 }
 
 func (o SamlSettingsArrayOutput) ToSamlSettingsArrayOutput() SamlSettingsArrayOutput {
@@ -413,15 +350,15 @@ func (o SamlSettingsArrayOutput) ToSamlSettingsArrayOutputWithContext(ctx contex
 }
 
 func (o SamlSettingsArrayOutput) Index(i pulumi.IntInput) SamlSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SamlSettings {
-		return vs[0].([]SamlSettings)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SamlSettings {
+		return vs[0].([]*SamlSettings)[vs[1].(int)]
 	}).(SamlSettingsOutput)
 }
 
 type SamlSettingsMapOutput struct{ *pulumi.OutputState }
 
 func (SamlSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SamlSettings)(nil))
+	return reflect.TypeOf((*map[string]*SamlSettings)(nil)).Elem()
 }
 
 func (o SamlSettingsMapOutput) ToSamlSettingsMapOutput() SamlSettingsMapOutput {
@@ -433,18 +370,16 @@ func (o SamlSettingsMapOutput) ToSamlSettingsMapOutputWithContext(ctx context.Co
 }
 
 func (o SamlSettingsMapOutput) MapIndex(k pulumi.StringInput) SamlSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SamlSettings {
-		return vs[0].(map[string]SamlSettings)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SamlSettings {
+		return vs[0].(map[string]*SamlSettings)[vs[1].(string)]
 	}).(SamlSettingsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsInput)(nil)).Elem(), &SamlSettings{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsPtrInput)(nil)).Elem(), &SamlSettings{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsArrayInput)(nil)).Elem(), SamlSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SamlSettingsMapInput)(nil)).Elem(), SamlSettingsMap{})
 	pulumi.RegisterOutputType(SamlSettingsOutput{})
-	pulumi.RegisterOutputType(SamlSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SamlSettingsArrayOutput{})
 	pulumi.RegisterOutputType(SamlSettingsMapOutput{})
 }

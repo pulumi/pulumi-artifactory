@@ -98,28 +98,26 @@ export class OauthSettings extends pulumi.CustomResource {
      */
     constructor(name: string, args: OauthSettingsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OauthSettingsArgs | OauthSettingsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthSettingsState | undefined;
-            inputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
-            inputs["enable"] = state ? state.enable : undefined;
-            inputs["oauthProviders"] = state ? state.oauthProviders : undefined;
-            inputs["persistUsers"] = state ? state.persistUsers : undefined;
+            resourceInputs["allowUserToAccessProfile"] = state ? state.allowUserToAccessProfile : undefined;
+            resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["oauthProviders"] = state ? state.oauthProviders : undefined;
+            resourceInputs["persistUsers"] = state ? state.persistUsers : undefined;
         } else {
             const args = argsOrState as OauthSettingsArgs | undefined;
             if ((!args || args.oauthProviders === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'oauthProviders'");
             }
-            inputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["oauthProviders"] = args ? args.oauthProviders : undefined;
-            inputs["persistUsers"] = args ? args.persistUsers : undefined;
+            resourceInputs["allowUserToAccessProfile"] = args ? args.allowUserToAccessProfile : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["oauthProviders"] = args ? args.oauthProviders : undefined;
+            resourceInputs["persistUsers"] = args ? args.persistUsers : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(OauthSettings.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(OauthSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

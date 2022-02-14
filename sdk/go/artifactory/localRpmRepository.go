@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalRpmRepository(ctx, "terraform_local_test_rpm_repo_basic", &artifactory.LocalRpmRepositoryArgs{
+// 		_, err := artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
 // 			CalculateYumMetadata:    pulumi.Bool(true),
 // 			EnableFileListsIndexing: pulumi.Bool(true),
 // 			Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
@@ -224,7 +224,7 @@ type LocalRpmRepositoryInput interface {
 }
 
 func (*LocalRpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalRpmRepository)(nil))
+	return reflect.TypeOf((**LocalRpmRepository)(nil)).Elem()
 }
 
 func (i *LocalRpmRepository) ToLocalRpmRepositoryOutput() LocalRpmRepositoryOutput {
@@ -233,35 +233,6 @@ func (i *LocalRpmRepository) ToLocalRpmRepositoryOutput() LocalRpmRepositoryOutp
 
 func (i *LocalRpmRepository) ToLocalRpmRepositoryOutputWithContext(ctx context.Context) LocalRpmRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryOutput)
-}
-
-func (i *LocalRpmRepository) ToLocalRpmRepositoryPtrOutput() LocalRpmRepositoryPtrOutput {
-	return i.ToLocalRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalRpmRepository) ToLocalRpmRepositoryPtrOutputWithContext(ctx context.Context) LocalRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryPtrOutput)
-}
-
-type LocalRpmRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalRpmRepositoryPtrOutput() LocalRpmRepositoryPtrOutput
-	ToLocalRpmRepositoryPtrOutputWithContext(ctx context.Context) LocalRpmRepositoryPtrOutput
-}
-
-type localRpmRepositoryPtrType LocalRpmRepositoryArgs
-
-func (*localRpmRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalRpmRepository)(nil))
-}
-
-func (i *localRpmRepositoryPtrType) ToLocalRpmRepositoryPtrOutput() LocalRpmRepositoryPtrOutput {
-	return i.ToLocalRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localRpmRepositoryPtrType) ToLocalRpmRepositoryPtrOutputWithContext(ctx context.Context) LocalRpmRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalRpmRepositoryPtrOutput)
 }
 
 // LocalRpmRepositoryArrayInput is an input type that accepts LocalRpmRepositoryArray and LocalRpmRepositoryArrayOutput values.
@@ -317,7 +288,7 @@ func (i LocalRpmRepositoryMap) ToLocalRpmRepositoryMapOutputWithContext(ctx cont
 type LocalRpmRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalRpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalRpmRepository)(nil))
+	return reflect.TypeOf((**LocalRpmRepository)(nil)).Elem()
 }
 
 func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryOutput() LocalRpmRepositoryOutput {
@@ -328,44 +299,10 @@ func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryOutputWithContext(ctx cont
 	return o
 }
 
-func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryPtrOutput() LocalRpmRepositoryPtrOutput {
-	return o.ToLocalRpmRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalRpmRepositoryOutput) ToLocalRpmRepositoryPtrOutputWithContext(ctx context.Context) LocalRpmRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalRpmRepository) *LocalRpmRepository {
-		return &v
-	}).(LocalRpmRepositoryPtrOutput)
-}
-
-type LocalRpmRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalRpmRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalRpmRepository)(nil))
-}
-
-func (o LocalRpmRepositoryPtrOutput) ToLocalRpmRepositoryPtrOutput() LocalRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalRpmRepositoryPtrOutput) ToLocalRpmRepositoryPtrOutputWithContext(ctx context.Context) LocalRpmRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalRpmRepositoryPtrOutput) Elem() LocalRpmRepositoryOutput {
-	return o.ApplyT(func(v *LocalRpmRepository) LocalRpmRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalRpmRepository
-		return ret
-	}).(LocalRpmRepositoryOutput)
-}
-
 type LocalRpmRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalRpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalRpmRepository)(nil))
+	return reflect.TypeOf((*[]*LocalRpmRepository)(nil)).Elem()
 }
 
 func (o LocalRpmRepositoryArrayOutput) ToLocalRpmRepositoryArrayOutput() LocalRpmRepositoryArrayOutput {
@@ -377,15 +314,15 @@ func (o LocalRpmRepositoryArrayOutput) ToLocalRpmRepositoryArrayOutputWithContex
 }
 
 func (o LocalRpmRepositoryArrayOutput) Index(i pulumi.IntInput) LocalRpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalRpmRepository {
-		return vs[0].([]LocalRpmRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRpmRepository {
+		return vs[0].([]*LocalRpmRepository)[vs[1].(int)]
 	}).(LocalRpmRepositoryOutput)
 }
 
 type LocalRpmRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalRpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalRpmRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalRpmRepository)(nil)).Elem()
 }
 
 func (o LocalRpmRepositoryMapOutput) ToLocalRpmRepositoryMapOutput() LocalRpmRepositoryMapOutput {
@@ -397,18 +334,16 @@ func (o LocalRpmRepositoryMapOutput) ToLocalRpmRepositoryMapOutputWithContext(ct
 }
 
 func (o LocalRpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalRpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalRpmRepository {
-		return vs[0].(map[string]LocalRpmRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalRpmRepository {
+		return vs[0].(map[string]*LocalRpmRepository)[vs[1].(string)]
 	}).(LocalRpmRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRpmRepositoryInput)(nil)).Elem(), &LocalRpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalRpmRepositoryPtrInput)(nil)).Elem(), &LocalRpmRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRpmRepositoryArrayInput)(nil)).Elem(), LocalRpmRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalRpmRepositoryMapInput)(nil)).Elem(), LocalRpmRepositoryMap{})
 	pulumi.RegisterOutputType(LocalRpmRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalRpmRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalRpmRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalRpmRepositoryMapOutput{})
 }

@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedChefRepository(ctx, "terraform_federated_test_chef_repo", &artifactory.FederatedChefRepositoryArgs{
+// 		_, err := artifactory.NewFederatedChefRepository(ctx, "terraform-federated-test-chef-repo", &artifactory.FederatedChefRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-chef-repo"),
 // 			Members: FederatedChefRepositoryMemberArray{
 // 				&FederatedChefRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedChefRepositoryInput interface {
 }
 
 func (*FederatedChefRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedChefRepository)(nil))
+	return reflect.TypeOf((**FederatedChefRepository)(nil)).Elem()
 }
 
 func (i *FederatedChefRepository) ToFederatedChefRepositoryOutput() FederatedChefRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedChefRepository) ToFederatedChefRepositoryOutput() FederatedChe
 
 func (i *FederatedChefRepository) ToFederatedChefRepositoryOutputWithContext(ctx context.Context) FederatedChefRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryOutput)
-}
-
-func (i *FederatedChefRepository) ToFederatedChefRepositoryPtrOutput() FederatedChefRepositoryPtrOutput {
-	return i.ToFederatedChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedChefRepository) ToFederatedChefRepositoryPtrOutputWithContext(ctx context.Context) FederatedChefRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryPtrOutput)
-}
-
-type FederatedChefRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedChefRepositoryPtrOutput() FederatedChefRepositoryPtrOutput
-	ToFederatedChefRepositoryPtrOutputWithContext(ctx context.Context) FederatedChefRepositoryPtrOutput
-}
-
-type federatedChefRepositoryPtrType FederatedChefRepositoryArgs
-
-func (*federatedChefRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedChefRepository)(nil))
-}
-
-func (i *federatedChefRepositoryPtrType) ToFederatedChefRepositoryPtrOutput() FederatedChefRepositoryPtrOutput {
-	return i.ToFederatedChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedChefRepositoryPtrType) ToFederatedChefRepositoryPtrOutputWithContext(ctx context.Context) FederatedChefRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedChefRepositoryPtrOutput)
 }
 
 // FederatedChefRepositoryArrayInput is an input type that accepts FederatedChefRepositoryArray and FederatedChefRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedChefRepositoryMap) ToFederatedChefRepositoryMapOutputWithContex
 type FederatedChefRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedChefRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedChefRepository)(nil))
+	return reflect.TypeOf((**FederatedChefRepository)(nil)).Elem()
 }
 
 func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryOutput() FederatedChefRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryOutputWithContex
 	return o
 }
 
-func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryPtrOutput() FederatedChefRepositoryPtrOutput {
-	return o.ToFederatedChefRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedChefRepositoryOutput) ToFederatedChefRepositoryPtrOutputWithContext(ctx context.Context) FederatedChefRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedChefRepository) *FederatedChefRepository {
-		return &v
-	}).(FederatedChefRepositoryPtrOutput)
-}
-
-type FederatedChefRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedChefRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedChefRepository)(nil))
-}
-
-func (o FederatedChefRepositoryPtrOutput) ToFederatedChefRepositoryPtrOutput() FederatedChefRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedChefRepositoryPtrOutput) ToFederatedChefRepositoryPtrOutputWithContext(ctx context.Context) FederatedChefRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedChefRepositoryPtrOutput) Elem() FederatedChefRepositoryOutput {
-	return o.ApplyT(func(v *FederatedChefRepository) FederatedChefRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedChefRepository
-		return ret
-	}).(FederatedChefRepositoryOutput)
-}
-
 type FederatedChefRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedChefRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedChefRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedChefRepository)(nil)).Elem()
 }
 
 func (o FederatedChefRepositoryArrayOutput) ToFederatedChefRepositoryArrayOutput() FederatedChefRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedChefRepositoryArrayOutput) ToFederatedChefRepositoryArrayOutput
 }
 
 func (o FederatedChefRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedChefRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedChefRepository {
-		return vs[0].([]FederatedChefRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedChefRepository {
+		return vs[0].([]*FederatedChefRepository)[vs[1].(int)]
 	}).(FederatedChefRepositoryOutput)
 }
 
 type FederatedChefRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedChefRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedChefRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedChefRepository)(nil)).Elem()
 }
 
 func (o FederatedChefRepositoryMapOutput) ToFederatedChefRepositoryMapOutput() FederatedChefRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedChefRepositoryMapOutput) ToFederatedChefRepositoryMapOutputWith
 }
 
 func (o FederatedChefRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedChefRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedChefRepository {
-		return vs[0].(map[string]FederatedChefRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedChefRepository {
+		return vs[0].(map[string]*FederatedChefRepository)[vs[1].(string)]
 	}).(FederatedChefRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedChefRepositoryInput)(nil)).Elem(), &FederatedChefRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedChefRepositoryPtrInput)(nil)).Elem(), &FederatedChefRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedChefRepositoryArrayInput)(nil)).Elem(), FederatedChefRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedChefRepositoryMapInput)(nil)).Elem(), FederatedChefRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedChefRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedChefRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedChefRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedChefRepositoryMapOutput{})
 }

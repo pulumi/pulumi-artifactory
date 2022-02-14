@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGoRepository(ctx, "terraform_local_test_go_repo", &artifactory.LocalGoRepositoryArgs{
+// 		_, err := artifactory.NewLocalGoRepository(ctx, "terraform-local-test-go-repo", &artifactory.LocalGoRepositoryArgs{
 // 			Key: pulumi.String("terraform-local-test-go-repo"),
 // 		})
 // 		if err != nil {
@@ -190,7 +190,7 @@ type LocalGoRepositoryInput interface {
 }
 
 func (*LocalGoRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGoRepository)(nil))
+	return reflect.TypeOf((**LocalGoRepository)(nil)).Elem()
 }
 
 func (i *LocalGoRepository) ToLocalGoRepositoryOutput() LocalGoRepositoryOutput {
@@ -199,35 +199,6 @@ func (i *LocalGoRepository) ToLocalGoRepositoryOutput() LocalGoRepositoryOutput 
 
 func (i *LocalGoRepository) ToLocalGoRepositoryOutputWithContext(ctx context.Context) LocalGoRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryOutput)
-}
-
-func (i *LocalGoRepository) ToLocalGoRepositoryPtrOutput() LocalGoRepositoryPtrOutput {
-	return i.ToLocalGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *LocalGoRepository) ToLocalGoRepositoryPtrOutputWithContext(ctx context.Context) LocalGoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryPtrOutput)
-}
-
-type LocalGoRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToLocalGoRepositoryPtrOutput() LocalGoRepositoryPtrOutput
-	ToLocalGoRepositoryPtrOutputWithContext(ctx context.Context) LocalGoRepositoryPtrOutput
-}
-
-type localGoRepositoryPtrType LocalGoRepositoryArgs
-
-func (*localGoRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGoRepository)(nil))
-}
-
-func (i *localGoRepositoryPtrType) ToLocalGoRepositoryPtrOutput() LocalGoRepositoryPtrOutput {
-	return i.ToLocalGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *localGoRepositoryPtrType) ToLocalGoRepositoryPtrOutputWithContext(ctx context.Context) LocalGoRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalGoRepositoryPtrOutput)
 }
 
 // LocalGoRepositoryArrayInput is an input type that accepts LocalGoRepositoryArray and LocalGoRepositoryArrayOutput values.
@@ -283,7 +254,7 @@ func (i LocalGoRepositoryMap) ToLocalGoRepositoryMapOutputWithContext(ctx contex
 type LocalGoRepositoryOutput struct{ *pulumi.OutputState }
 
 func (LocalGoRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalGoRepository)(nil))
+	return reflect.TypeOf((**LocalGoRepository)(nil)).Elem()
 }
 
 func (o LocalGoRepositoryOutput) ToLocalGoRepositoryOutput() LocalGoRepositoryOutput {
@@ -294,44 +265,10 @@ func (o LocalGoRepositoryOutput) ToLocalGoRepositoryOutputWithContext(ctx contex
 	return o
 }
 
-func (o LocalGoRepositoryOutput) ToLocalGoRepositoryPtrOutput() LocalGoRepositoryPtrOutput {
-	return o.ToLocalGoRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o LocalGoRepositoryOutput) ToLocalGoRepositoryPtrOutputWithContext(ctx context.Context) LocalGoRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocalGoRepository) *LocalGoRepository {
-		return &v
-	}).(LocalGoRepositoryPtrOutput)
-}
-
-type LocalGoRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (LocalGoRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalGoRepository)(nil))
-}
-
-func (o LocalGoRepositoryPtrOutput) ToLocalGoRepositoryPtrOutput() LocalGoRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGoRepositoryPtrOutput) ToLocalGoRepositoryPtrOutputWithContext(ctx context.Context) LocalGoRepositoryPtrOutput {
-	return o
-}
-
-func (o LocalGoRepositoryPtrOutput) Elem() LocalGoRepositoryOutput {
-	return o.ApplyT(func(v *LocalGoRepository) LocalGoRepository {
-		if v != nil {
-			return *v
-		}
-		var ret LocalGoRepository
-		return ret
-	}).(LocalGoRepositoryOutput)
-}
-
 type LocalGoRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (LocalGoRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LocalGoRepository)(nil))
+	return reflect.TypeOf((*[]*LocalGoRepository)(nil)).Elem()
 }
 
 func (o LocalGoRepositoryArrayOutput) ToLocalGoRepositoryArrayOutput() LocalGoRepositoryArrayOutput {
@@ -343,15 +280,15 @@ func (o LocalGoRepositoryArrayOutput) ToLocalGoRepositoryArrayOutputWithContext(
 }
 
 func (o LocalGoRepositoryArrayOutput) Index(i pulumi.IntInput) LocalGoRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalGoRepository {
-		return vs[0].([]LocalGoRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalGoRepository {
+		return vs[0].([]*LocalGoRepository)[vs[1].(int)]
 	}).(LocalGoRepositoryOutput)
 }
 
 type LocalGoRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (LocalGoRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LocalGoRepository)(nil))
+	return reflect.TypeOf((*map[string]*LocalGoRepository)(nil)).Elem()
 }
 
 func (o LocalGoRepositoryMapOutput) ToLocalGoRepositoryMapOutput() LocalGoRepositoryMapOutput {
@@ -363,18 +300,16 @@ func (o LocalGoRepositoryMapOutput) ToLocalGoRepositoryMapOutputWithContext(ctx 
 }
 
 func (o LocalGoRepositoryMapOutput) MapIndex(k pulumi.StringInput) LocalGoRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LocalGoRepository {
-		return vs[0].(map[string]LocalGoRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LocalGoRepository {
+		return vs[0].(map[string]*LocalGoRepository)[vs[1].(string)]
 	}).(LocalGoRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGoRepositoryInput)(nil)).Elem(), &LocalGoRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LocalGoRepositoryPtrInput)(nil)).Elem(), &LocalGoRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGoRepositoryArrayInput)(nil)).Elem(), LocalGoRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocalGoRepositoryMapInput)(nil)).Elem(), LocalGoRepositoryMap{})
 	pulumi.RegisterOutputType(LocalGoRepositoryOutput{})
-	pulumi.RegisterOutputType(LocalGoRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(LocalGoRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(LocalGoRepositoryMapOutput{})
 }

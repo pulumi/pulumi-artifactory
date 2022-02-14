@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedConanRepository(ctx, "terraform_federated_test_conan_repo", &artifactory.FederatedConanRepositoryArgs{
+// 		_, err := artifactory.NewFederatedConanRepository(ctx, "terraform-federated-test-conan-repo", &artifactory.FederatedConanRepositoryArgs{
 // 			Key: pulumi.String("terraform-federated-test-conan-repo"),
 // 			Members: FederatedConanRepositoryMemberArray{
 // 				&FederatedConanRepositoryMemberArgs{
@@ -213,7 +213,7 @@ type FederatedConanRepositoryInput interface {
 }
 
 func (*FederatedConanRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedConanRepository)(nil))
+	return reflect.TypeOf((**FederatedConanRepository)(nil)).Elem()
 }
 
 func (i *FederatedConanRepository) ToFederatedConanRepositoryOutput() FederatedConanRepositoryOutput {
@@ -222,35 +222,6 @@ func (i *FederatedConanRepository) ToFederatedConanRepositoryOutput() FederatedC
 
 func (i *FederatedConanRepository) ToFederatedConanRepositoryOutputWithContext(ctx context.Context) FederatedConanRepositoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryOutput)
-}
-
-func (i *FederatedConanRepository) ToFederatedConanRepositoryPtrOutput() FederatedConanRepositoryPtrOutput {
-	return i.ToFederatedConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *FederatedConanRepository) ToFederatedConanRepositoryPtrOutputWithContext(ctx context.Context) FederatedConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryPtrOutput)
-}
-
-type FederatedConanRepositoryPtrInput interface {
-	pulumi.Input
-
-	ToFederatedConanRepositoryPtrOutput() FederatedConanRepositoryPtrOutput
-	ToFederatedConanRepositoryPtrOutputWithContext(ctx context.Context) FederatedConanRepositoryPtrOutput
-}
-
-type federatedConanRepositoryPtrType FederatedConanRepositoryArgs
-
-func (*federatedConanRepositoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedConanRepository)(nil))
-}
-
-func (i *federatedConanRepositoryPtrType) ToFederatedConanRepositoryPtrOutput() FederatedConanRepositoryPtrOutput {
-	return i.ToFederatedConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (i *federatedConanRepositoryPtrType) ToFederatedConanRepositoryPtrOutputWithContext(ctx context.Context) FederatedConanRepositoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FederatedConanRepositoryPtrOutput)
 }
 
 // FederatedConanRepositoryArrayInput is an input type that accepts FederatedConanRepositoryArray and FederatedConanRepositoryArrayOutput values.
@@ -306,7 +277,7 @@ func (i FederatedConanRepositoryMap) ToFederatedConanRepositoryMapOutputWithCont
 type FederatedConanRepositoryOutput struct{ *pulumi.OutputState }
 
 func (FederatedConanRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FederatedConanRepository)(nil))
+	return reflect.TypeOf((**FederatedConanRepository)(nil)).Elem()
 }
 
 func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryOutput() FederatedConanRepositoryOutput {
@@ -317,44 +288,10 @@ func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryOutputWithCont
 	return o
 }
 
-func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryPtrOutput() FederatedConanRepositoryPtrOutput {
-	return o.ToFederatedConanRepositoryPtrOutputWithContext(context.Background())
-}
-
-func (o FederatedConanRepositoryOutput) ToFederatedConanRepositoryPtrOutputWithContext(ctx context.Context) FederatedConanRepositoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FederatedConanRepository) *FederatedConanRepository {
-		return &v
-	}).(FederatedConanRepositoryPtrOutput)
-}
-
-type FederatedConanRepositoryPtrOutput struct{ *pulumi.OutputState }
-
-func (FederatedConanRepositoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FederatedConanRepository)(nil))
-}
-
-func (o FederatedConanRepositoryPtrOutput) ToFederatedConanRepositoryPtrOutput() FederatedConanRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedConanRepositoryPtrOutput) ToFederatedConanRepositoryPtrOutputWithContext(ctx context.Context) FederatedConanRepositoryPtrOutput {
-	return o
-}
-
-func (o FederatedConanRepositoryPtrOutput) Elem() FederatedConanRepositoryOutput {
-	return o.ApplyT(func(v *FederatedConanRepository) FederatedConanRepository {
-		if v != nil {
-			return *v
-		}
-		var ret FederatedConanRepository
-		return ret
-	}).(FederatedConanRepositoryOutput)
-}
-
 type FederatedConanRepositoryArrayOutput struct{ *pulumi.OutputState }
 
 func (FederatedConanRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FederatedConanRepository)(nil))
+	return reflect.TypeOf((*[]*FederatedConanRepository)(nil)).Elem()
 }
 
 func (o FederatedConanRepositoryArrayOutput) ToFederatedConanRepositoryArrayOutput() FederatedConanRepositoryArrayOutput {
@@ -366,15 +303,15 @@ func (o FederatedConanRepositoryArrayOutput) ToFederatedConanRepositoryArrayOutp
 }
 
 func (o FederatedConanRepositoryArrayOutput) Index(i pulumi.IntInput) FederatedConanRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedConanRepository {
-		return vs[0].([]FederatedConanRepository)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedConanRepository {
+		return vs[0].([]*FederatedConanRepository)[vs[1].(int)]
 	}).(FederatedConanRepositoryOutput)
 }
 
 type FederatedConanRepositoryMapOutput struct{ *pulumi.OutputState }
 
 func (FederatedConanRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FederatedConanRepository)(nil))
+	return reflect.TypeOf((*map[string]*FederatedConanRepository)(nil)).Elem()
 }
 
 func (o FederatedConanRepositoryMapOutput) ToFederatedConanRepositoryMapOutput() FederatedConanRepositoryMapOutput {
@@ -386,18 +323,16 @@ func (o FederatedConanRepositoryMapOutput) ToFederatedConanRepositoryMapOutputWi
 }
 
 func (o FederatedConanRepositoryMapOutput) MapIndex(k pulumi.StringInput) FederatedConanRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FederatedConanRepository {
-		return vs[0].(map[string]FederatedConanRepository)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FederatedConanRepository {
+		return vs[0].(map[string]*FederatedConanRepository)[vs[1].(string)]
 	}).(FederatedConanRepositoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedConanRepositoryInput)(nil)).Elem(), &FederatedConanRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FederatedConanRepositoryPtrInput)(nil)).Elem(), &FederatedConanRepository{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedConanRepositoryArrayInput)(nil)).Elem(), FederatedConanRepositoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedConanRepositoryMapInput)(nil)).Elem(), FederatedConanRepositoryMap{})
 	pulumi.RegisterOutputType(FederatedConanRepositoryOutput{})
-	pulumi.RegisterOutputType(FederatedConanRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(FederatedConanRepositoryArrayOutput{})
 	pulumi.RegisterOutputType(FederatedConanRepositoryMapOutput{})
 }
