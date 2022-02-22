@@ -121,6 +121,15 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    /**
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
@@ -161,6 +170,8 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
+            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
@@ -178,6 +189,8 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
             resourceInputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
+            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
@@ -235,6 +248,15 @@ export interface VirtualRpmRepositoryState {
      * - The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -297,6 +319,15 @@ export interface VirtualRpmRepositoryArgs {
      * - The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.

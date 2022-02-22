@@ -159,6 +159,18 @@ namespace Pulumi.Artifactory
         [Output("priorityResolution")]
         public Output<bool> PriorityResolution { get; private set; } = null!;
 
+        /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        [Output("projectEnvironments")]
+        public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
+
+        /// <summary>
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Output("projectKey")]
+        public Output<string?> ProjectKey { get; private set; } = null!;
+
         [Output("propagateQueryParams")]
         public Output<bool?> PropagateQueryParams { get; private set; } = null!;
 
@@ -372,6 +384,24 @@ namespace Pulumi.Artifactory
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
 
+        [Input("projectEnvironments")]
+        private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        public InputList<string> ProjectEnvironments
+        {
+            get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
+            set => _projectEnvironments = value;
+        }
+
+        /// <summary>
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
+
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }
 
@@ -556,6 +586,24 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("priorityResolution")]
         public Input<bool>? PriorityResolution { get; set; }
+
+        [Input("projectEnvironments")]
+        private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        public InputList<string> ProjectEnvironments
+        {
+            get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
+            set => _projectEnvironments = value;
+        }
+
+        /// <summary>
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
 
         [Input("propagateQueryParams")]
         public Input<bool>? PropagateQueryParams { get; set; }

@@ -8,10 +8,16 @@ import typing
 from .access_token import *
 from .alpine_repository import *
 from .api_key import *
+from .artifact_property_webhook import *
+from .artifact_webhook import *
+from .artifactory_release_bundle_webhook import *
+from .build_webhook import *
 from .certificate import *
 from .debian_repository import *
+from .distribution_webhook import *
 from .docker_v1_repository import *
 from .docker_v2_repository import *
+from .docker_webhook import *
 from .federated_alpine_repository import *
 from .federated_bower_repository import *
 from .federated_cargo_repository import *
@@ -77,6 +83,7 @@ from .permission_targets import *
 from .provider import *
 from .pull_replication import *
 from .push_replication import *
+from .release_bundle_webhook import *
 from .remote_cargo_repository import *
 from .remote_docker_repository import *
 from .remote_helm_repository import *
@@ -89,6 +96,7 @@ from .single_replication_config import *
 from .user import *
 from .virtual_conan_repository import *
 from .virtual_generic_repository import *
+from .virtual_helm_repository import *
 from .virtual_repository import *
 from .virtual_rpm_repository import *
 from .xray_policy import *
@@ -132,6 +140,38 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/artifactPropertyWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook": "ArtifactPropertyWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/artifactWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactWebhook:ArtifactWebhook": "ArtifactWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/artifactoryReleaseBundleWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook": "ArtifactoryReleaseBundleWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/buildWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/buildWebhook:BuildWebhook": "BuildWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/certificate",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -148,6 +188,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/distributionWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/distributionWebhook:DistributionWebhook": "DistributionWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/dockerV1Repository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -160,6 +208,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/dockerV2Repository:DockerV2Repository": "DockerV2Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/dockerWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/dockerWebhook:DockerWebhook": "DockerWebhook"
   }
  },
  {
@@ -660,6 +716,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/releaseBundleWebhook",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook": "ReleaseBundleWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteCargoRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -752,6 +816,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualGenericRepository:VirtualGenericRepository": "VirtualGenericRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualHelmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualHelmRepository:VirtualHelmRepository": "VirtualHelmRepository"
   }
  },
  {

@@ -143,6 +143,1227 @@ func (o AccessTokenAdminTokenPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ArtifactPropertyWebhookCriteria struct {
+	// Trigger on any local repo
+	AnyLocal bool `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote bool `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys []string `pulumi:"repoKeys"`
+}
+
+// ArtifactPropertyWebhookCriteriaInput is an input type that accepts ArtifactPropertyWebhookCriteriaArgs and ArtifactPropertyWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ArtifactPropertyWebhookCriteriaInput` via:
+//
+//          ArtifactPropertyWebhookCriteriaArgs{...}
+type ArtifactPropertyWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToArtifactPropertyWebhookCriteriaOutput() ArtifactPropertyWebhookCriteriaOutput
+	ToArtifactPropertyWebhookCriteriaOutputWithContext(context.Context) ArtifactPropertyWebhookCriteriaOutput
+}
+
+type ArtifactPropertyWebhookCriteriaArgs struct {
+	// Trigger on any local repo
+	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+}
+
+func (ArtifactPropertyWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactPropertyWebhookCriteria)(nil)).Elem()
+}
+
+func (i ArtifactPropertyWebhookCriteriaArgs) ToArtifactPropertyWebhookCriteriaOutput() ArtifactPropertyWebhookCriteriaOutput {
+	return i.ToArtifactPropertyWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ArtifactPropertyWebhookCriteriaArgs) ToArtifactPropertyWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookCriteriaOutput)
+}
+
+func (i ArtifactPropertyWebhookCriteriaArgs) ToArtifactPropertyWebhookCriteriaPtrOutput() ArtifactPropertyWebhookCriteriaPtrOutput {
+	return i.ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ArtifactPropertyWebhookCriteriaArgs) ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookCriteriaOutput).ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ArtifactPropertyWebhookCriteriaPtrInput is an input type that accepts ArtifactPropertyWebhookCriteriaArgs, ArtifactPropertyWebhookCriteriaPtr and ArtifactPropertyWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ArtifactPropertyWebhookCriteriaPtrInput` via:
+//
+//          ArtifactPropertyWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type ArtifactPropertyWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToArtifactPropertyWebhookCriteriaPtrOutput() ArtifactPropertyWebhookCriteriaPtrOutput
+	ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(context.Context) ArtifactPropertyWebhookCriteriaPtrOutput
+}
+
+type artifactPropertyWebhookCriteriaPtrType ArtifactPropertyWebhookCriteriaArgs
+
+func ArtifactPropertyWebhookCriteriaPtr(v *ArtifactPropertyWebhookCriteriaArgs) ArtifactPropertyWebhookCriteriaPtrInput {
+	return (*artifactPropertyWebhookCriteriaPtrType)(v)
+}
+
+func (*artifactPropertyWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactPropertyWebhookCriteria)(nil)).Elem()
+}
+
+func (i *artifactPropertyWebhookCriteriaPtrType) ToArtifactPropertyWebhookCriteriaPtrOutput() ArtifactPropertyWebhookCriteriaPtrOutput {
+	return i.ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *artifactPropertyWebhookCriteriaPtrType) ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactPropertyWebhookCriteriaPtrOutput)
+}
+
+type ArtifactPropertyWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ArtifactPropertyWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactPropertyWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteriaOutput() ArtifactPropertyWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteriaPtrOutput() ArtifactPropertyWebhookCriteriaPtrOutput {
+	return o.ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactPropertyWebhookCriteria) *ArtifactPropertyWebhookCriteria {
+		return &v
+	}).(ArtifactPropertyWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any local repo
+func (o ArtifactPropertyWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
+}
+
+// Trigger on any remote repo
+func (o ArtifactPropertyWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactPropertyWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactPropertyWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o ArtifactPropertyWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
+}
+
+type ArtifactPropertyWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactPropertyWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactPropertyWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) ToArtifactPropertyWebhookCriteriaPtrOutput() ArtifactPropertyWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) ToArtifactPropertyWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactPropertyWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) Elem() ArtifactPropertyWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) ArtifactPropertyWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactPropertyWebhookCriteria
+		return ret
+	}).(ArtifactPropertyWebhookCriteriaOutput)
+}
+
+// Trigger on any local repo
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyLocal
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Trigger on any remote repo
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyRemote
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o ArtifactPropertyWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type ArtifactWebhookCriteria struct {
+	// Trigger on any local repo
+	AnyLocal bool `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote bool `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys []string `pulumi:"repoKeys"`
+}
+
+// ArtifactWebhookCriteriaInput is an input type that accepts ArtifactWebhookCriteriaArgs and ArtifactWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ArtifactWebhookCriteriaInput` via:
+//
+//          ArtifactWebhookCriteriaArgs{...}
+type ArtifactWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToArtifactWebhookCriteriaOutput() ArtifactWebhookCriteriaOutput
+	ToArtifactWebhookCriteriaOutputWithContext(context.Context) ArtifactWebhookCriteriaOutput
+}
+
+type ArtifactWebhookCriteriaArgs struct {
+	// Trigger on any local repo
+	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+}
+
+func (ArtifactWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactWebhookCriteria)(nil)).Elem()
+}
+
+func (i ArtifactWebhookCriteriaArgs) ToArtifactWebhookCriteriaOutput() ArtifactWebhookCriteriaOutput {
+	return i.ToArtifactWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ArtifactWebhookCriteriaArgs) ToArtifactWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactWebhookCriteriaOutput)
+}
+
+func (i ArtifactWebhookCriteriaArgs) ToArtifactWebhookCriteriaPtrOutput() ArtifactWebhookCriteriaPtrOutput {
+	return i.ToArtifactWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ArtifactWebhookCriteriaArgs) ToArtifactWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactWebhookCriteriaOutput).ToArtifactWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ArtifactWebhookCriteriaPtrInput is an input type that accepts ArtifactWebhookCriteriaArgs, ArtifactWebhookCriteriaPtr and ArtifactWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ArtifactWebhookCriteriaPtrInput` via:
+//
+//          ArtifactWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type ArtifactWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToArtifactWebhookCriteriaPtrOutput() ArtifactWebhookCriteriaPtrOutput
+	ToArtifactWebhookCriteriaPtrOutputWithContext(context.Context) ArtifactWebhookCriteriaPtrOutput
+}
+
+type artifactWebhookCriteriaPtrType ArtifactWebhookCriteriaArgs
+
+func ArtifactWebhookCriteriaPtr(v *ArtifactWebhookCriteriaArgs) ArtifactWebhookCriteriaPtrInput {
+	return (*artifactWebhookCriteriaPtrType)(v)
+}
+
+func (*artifactWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactWebhookCriteria)(nil)).Elem()
+}
+
+func (i *artifactWebhookCriteriaPtrType) ToArtifactWebhookCriteriaPtrOutput() ArtifactWebhookCriteriaPtrOutput {
+	return i.ToArtifactWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *artifactWebhookCriteriaPtrType) ToArtifactWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactWebhookCriteriaPtrOutput)
+}
+
+type ArtifactWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ArtifactWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaOutput() ArtifactWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaPtrOutput() ArtifactWebhookCriteriaPtrOutput {
+	return o.ToArtifactWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactWebhookCriteria) *ArtifactWebhookCriteria {
+		return &v
+	}).(ArtifactWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any local repo
+func (o ArtifactWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
+}
+
+// Trigger on any remote repo
+func (o ArtifactWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o ArtifactWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
+}
+
+type ArtifactWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactWebhookCriteriaPtrOutput) ToArtifactWebhookCriteriaPtrOutput() ArtifactWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactWebhookCriteriaPtrOutput) ToArtifactWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactWebhookCriteriaPtrOutput) Elem() ArtifactWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) ArtifactWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactWebhookCriteria
+		return ret
+	}).(ArtifactWebhookCriteriaOutput)
+}
+
+// Trigger on any local repo
+func (o ArtifactWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyLocal
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Trigger on any remote repo
+func (o ArtifactWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyRemote
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o ArtifactWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+type ArtifactoryReleaseBundleWebhookCriteria struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
+}
+
+// ArtifactoryReleaseBundleWebhookCriteriaInput is an input type that accepts ArtifactoryReleaseBundleWebhookCriteriaArgs and ArtifactoryReleaseBundleWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookCriteriaInput` via:
+//
+//          ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
+type ArtifactoryReleaseBundleWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToArtifactoryReleaseBundleWebhookCriteriaOutput() ArtifactoryReleaseBundleWebhookCriteriaOutput
+	ToArtifactoryReleaseBundleWebhookCriteriaOutputWithContext(context.Context) ArtifactoryReleaseBundleWebhookCriteriaOutput
+}
+
+type ArtifactoryReleaseBundleWebhookCriteriaArgs struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
+}
+
+func (ArtifactoryReleaseBundleWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactoryReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (i ArtifactoryReleaseBundleWebhookCriteriaArgs) ToArtifactoryReleaseBundleWebhookCriteriaOutput() ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return i.ToArtifactoryReleaseBundleWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ArtifactoryReleaseBundleWebhookCriteriaArgs) ToArtifactoryReleaseBundleWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleWebhookCriteriaOutput)
+}
+
+func (i ArtifactoryReleaseBundleWebhookCriteriaArgs) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutput() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return i.ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ArtifactoryReleaseBundleWebhookCriteriaArgs) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleWebhookCriteriaOutput).ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ArtifactoryReleaseBundleWebhookCriteriaPtrInput is an input type that accepts ArtifactoryReleaseBundleWebhookCriteriaArgs, ArtifactoryReleaseBundleWebhookCriteriaPtr and ArtifactoryReleaseBundleWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookCriteriaPtrInput` via:
+//
+//          ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type ArtifactoryReleaseBundleWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToArtifactoryReleaseBundleWebhookCriteriaPtrOutput() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput
+	ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Context) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput
+}
+
+type artifactoryReleaseBundleWebhookCriteriaPtrType ArtifactoryReleaseBundleWebhookCriteriaArgs
+
+func ArtifactoryReleaseBundleWebhookCriteriaPtr(v *ArtifactoryReleaseBundleWebhookCriteriaArgs) ArtifactoryReleaseBundleWebhookCriteriaPtrInput {
+	return (*artifactoryReleaseBundleWebhookCriteriaPtrType)(v)
+}
+
+func (*artifactoryReleaseBundleWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactoryReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (i *artifactoryReleaseBundleWebhookCriteriaPtrType) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutput() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return i.ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *artifactoryReleaseBundleWebhookCriteriaPtrType) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArtifactoryReleaseBundleWebhookCriteriaPtrOutput)
+}
+
+type ArtifactoryReleaseBundleWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ArtifactoryReleaseBundleWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArtifactoryReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ToArtifactoryReleaseBundleWebhookCriteriaOutput() ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ToArtifactoryReleaseBundleWebhookCriteriaOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return o
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutput() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return o.ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArtifactoryReleaseBundleWebhookCriteria) *ArtifactoryReleaseBundleWebhookCriteria {
+		return &v
+	}).(ArtifactoryReleaseBundleWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
+}
+
+type ArtifactoryReleaseBundleWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArtifactoryReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutput() ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ToArtifactoryReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ArtifactoryReleaseBundleWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) Elem() ArtifactoryReleaseBundleWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) ArtifactoryReleaseBundleWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ArtifactoryReleaseBundleWebhookCriteria
+		return ret
+	}).(ArtifactoryReleaseBundleWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredReleaseBundleNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type BuildWebhookCriteria struct {
+	// Trigger on any build
+	AnyBuild bool `pulumi:"anyBuild"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of build names
+	SelectedBuilds []string `pulumi:"selectedBuilds"`
+}
+
+// BuildWebhookCriteriaInput is an input type that accepts BuildWebhookCriteriaArgs and BuildWebhookCriteriaOutput values.
+// You can construct a concrete instance of `BuildWebhookCriteriaInput` via:
+//
+//          BuildWebhookCriteriaArgs{...}
+type BuildWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToBuildWebhookCriteriaOutput() BuildWebhookCriteriaOutput
+	ToBuildWebhookCriteriaOutputWithContext(context.Context) BuildWebhookCriteriaOutput
+}
+
+type BuildWebhookCriteriaArgs struct {
+	// Trigger on any build
+	AnyBuild pulumi.BoolInput `pulumi:"anyBuild"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of build names
+	SelectedBuilds pulumi.StringArrayInput `pulumi:"selectedBuilds"`
+}
+
+func (BuildWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildWebhookCriteria)(nil)).Elem()
+}
+
+func (i BuildWebhookCriteriaArgs) ToBuildWebhookCriteriaOutput() BuildWebhookCriteriaOutput {
+	return i.ToBuildWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i BuildWebhookCriteriaArgs) ToBuildWebhookCriteriaOutputWithContext(ctx context.Context) BuildWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildWebhookCriteriaOutput)
+}
+
+func (i BuildWebhookCriteriaArgs) ToBuildWebhookCriteriaPtrOutput() BuildWebhookCriteriaPtrOutput {
+	return i.ToBuildWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i BuildWebhookCriteriaArgs) ToBuildWebhookCriteriaPtrOutputWithContext(ctx context.Context) BuildWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildWebhookCriteriaOutput).ToBuildWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// BuildWebhookCriteriaPtrInput is an input type that accepts BuildWebhookCriteriaArgs, BuildWebhookCriteriaPtr and BuildWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `BuildWebhookCriteriaPtrInput` via:
+//
+//          BuildWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type BuildWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToBuildWebhookCriteriaPtrOutput() BuildWebhookCriteriaPtrOutput
+	ToBuildWebhookCriteriaPtrOutputWithContext(context.Context) BuildWebhookCriteriaPtrOutput
+}
+
+type buildWebhookCriteriaPtrType BuildWebhookCriteriaArgs
+
+func BuildWebhookCriteriaPtr(v *BuildWebhookCriteriaArgs) BuildWebhookCriteriaPtrInput {
+	return (*buildWebhookCriteriaPtrType)(v)
+}
+
+func (*buildWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildWebhookCriteria)(nil)).Elem()
+}
+
+func (i *buildWebhookCriteriaPtrType) ToBuildWebhookCriteriaPtrOutput() BuildWebhookCriteriaPtrOutput {
+	return i.ToBuildWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *buildWebhookCriteriaPtrType) ToBuildWebhookCriteriaPtrOutputWithContext(ctx context.Context) BuildWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildWebhookCriteriaPtrOutput)
+}
+
+type BuildWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BuildWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildWebhookCriteria)(nil)).Elem()
+}
+
+func (o BuildWebhookCriteriaOutput) ToBuildWebhookCriteriaOutput() BuildWebhookCriteriaOutput {
+	return o
+}
+
+func (o BuildWebhookCriteriaOutput) ToBuildWebhookCriteriaOutputWithContext(ctx context.Context) BuildWebhookCriteriaOutput {
+	return o
+}
+
+func (o BuildWebhookCriteriaOutput) ToBuildWebhookCriteriaPtrOutput() BuildWebhookCriteriaPtrOutput {
+	return o.ToBuildWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o BuildWebhookCriteriaOutput) ToBuildWebhookCriteriaPtrOutputWithContext(ctx context.Context) BuildWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildWebhookCriteria) *BuildWebhookCriteria {
+		return &v
+	}).(BuildWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any build
+func (o BuildWebhookCriteriaOutput) AnyBuild() pulumi.BoolOutput {
+	return o.ApplyT(func(v BuildWebhookCriteria) bool { return v.AnyBuild }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o BuildWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o BuildWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of build names
+func (o BuildWebhookCriteriaOutput) SelectedBuilds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.SelectedBuilds }).(pulumi.StringArrayOutput)
+}
+
+type BuildWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (BuildWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildWebhookCriteria)(nil)).Elem()
+}
+
+func (o BuildWebhookCriteriaPtrOutput) ToBuildWebhookCriteriaPtrOutput() BuildWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o BuildWebhookCriteriaPtrOutput) ToBuildWebhookCriteriaPtrOutputWithContext(ctx context.Context) BuildWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o BuildWebhookCriteriaPtrOutput) Elem() BuildWebhookCriteriaOutput {
+	return o.ApplyT(func(v *BuildWebhookCriteria) BuildWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret BuildWebhookCriteria
+		return ret
+	}).(BuildWebhookCriteriaOutput)
+}
+
+// Trigger on any build
+func (o BuildWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BuildWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyBuild
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o BuildWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of build names
+func (o BuildWebhookCriteriaPtrOutput) SelectedBuilds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedBuilds
+	}).(pulumi.StringArrayOutput)
+}
+
+type DistributionWebhookCriteria struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
+}
+
+// DistributionWebhookCriteriaInput is an input type that accepts DistributionWebhookCriteriaArgs and DistributionWebhookCriteriaOutput values.
+// You can construct a concrete instance of `DistributionWebhookCriteriaInput` via:
+//
+//          DistributionWebhookCriteriaArgs{...}
+type DistributionWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToDistributionWebhookCriteriaOutput() DistributionWebhookCriteriaOutput
+	ToDistributionWebhookCriteriaOutputWithContext(context.Context) DistributionWebhookCriteriaOutput
+}
+
+type DistributionWebhookCriteriaArgs struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
+}
+
+func (DistributionWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionWebhookCriteria)(nil)).Elem()
+}
+
+func (i DistributionWebhookCriteriaArgs) ToDistributionWebhookCriteriaOutput() DistributionWebhookCriteriaOutput {
+	return i.ToDistributionWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i DistributionWebhookCriteriaArgs) ToDistributionWebhookCriteriaOutputWithContext(ctx context.Context) DistributionWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookCriteriaOutput)
+}
+
+func (i DistributionWebhookCriteriaArgs) ToDistributionWebhookCriteriaPtrOutput() DistributionWebhookCriteriaPtrOutput {
+	return i.ToDistributionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionWebhookCriteriaArgs) ToDistributionWebhookCriteriaPtrOutputWithContext(ctx context.Context) DistributionWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookCriteriaOutput).ToDistributionWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// DistributionWebhookCriteriaPtrInput is an input type that accepts DistributionWebhookCriteriaArgs, DistributionWebhookCriteriaPtr and DistributionWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `DistributionWebhookCriteriaPtrInput` via:
+//
+//          DistributionWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDistributionWebhookCriteriaPtrOutput() DistributionWebhookCriteriaPtrOutput
+	ToDistributionWebhookCriteriaPtrOutputWithContext(context.Context) DistributionWebhookCriteriaPtrOutput
+}
+
+type distributionWebhookCriteriaPtrType DistributionWebhookCriteriaArgs
+
+func DistributionWebhookCriteriaPtr(v *DistributionWebhookCriteriaArgs) DistributionWebhookCriteriaPtrInput {
+	return (*distributionWebhookCriteriaPtrType)(v)
+}
+
+func (*distributionWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionWebhookCriteria)(nil)).Elem()
+}
+
+func (i *distributionWebhookCriteriaPtrType) ToDistributionWebhookCriteriaPtrOutput() DistributionWebhookCriteriaPtrOutput {
+	return i.ToDistributionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionWebhookCriteriaPtrType) ToDistributionWebhookCriteriaPtrOutputWithContext(ctx context.Context) DistributionWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionWebhookCriteriaPtrOutput)
+}
+
+type DistributionWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DistributionWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionWebhookCriteria)(nil)).Elem()
+}
+
+func (o DistributionWebhookCriteriaOutput) ToDistributionWebhookCriteriaOutput() DistributionWebhookCriteriaOutput {
+	return o
+}
+
+func (o DistributionWebhookCriteriaOutput) ToDistributionWebhookCriteriaOutputWithContext(ctx context.Context) DistributionWebhookCriteriaOutput {
+	return o
+}
+
+func (o DistributionWebhookCriteriaOutput) ToDistributionWebhookCriteriaPtrOutput() DistributionWebhookCriteriaPtrOutput {
+	return o.ToDistributionWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionWebhookCriteriaOutput) ToDistributionWebhookCriteriaPtrOutputWithContext(ctx context.Context) DistributionWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionWebhookCriteria) *DistributionWebhookCriteria {
+		return &v
+	}).(DistributionWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle
+func (o DistributionWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DistributionWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DistributionWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DistributionWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
+}
+
+type DistributionWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionWebhookCriteria)(nil)).Elem()
+}
+
+func (o DistributionWebhookCriteriaPtrOutput) ToDistributionWebhookCriteriaPtrOutput() DistributionWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DistributionWebhookCriteriaPtrOutput) ToDistributionWebhookCriteriaPtrOutputWithContext(ctx context.Context) DistributionWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DistributionWebhookCriteriaPtrOutput) Elem() DistributionWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DistributionWebhookCriteria) DistributionWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionWebhookCriteria
+		return ret
+	}).(DistributionWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle
+func (o DistributionWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DistributionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DistributionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o DistributionWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredReleaseBundleNames
+	}).(pulumi.StringArrayOutput)
+}
+
+type DockerWebhookCriteria struct {
+	// Trigger on any local repo
+	AnyLocal bool `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote bool `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys []string `pulumi:"repoKeys"`
+}
+
+// DockerWebhookCriteriaInput is an input type that accepts DockerWebhookCriteriaArgs and DockerWebhookCriteriaOutput values.
+// You can construct a concrete instance of `DockerWebhookCriteriaInput` via:
+//
+//          DockerWebhookCriteriaArgs{...}
+type DockerWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToDockerWebhookCriteriaOutput() DockerWebhookCriteriaOutput
+	ToDockerWebhookCriteriaOutputWithContext(context.Context) DockerWebhookCriteriaOutput
+}
+
+type DockerWebhookCriteriaArgs struct {
+	// Trigger on any local repo
+	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
+	// Trigger on any remote repo
+	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of repo keys
+	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+}
+
+func (DockerWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerWebhookCriteria)(nil)).Elem()
+}
+
+func (i DockerWebhookCriteriaArgs) ToDockerWebhookCriteriaOutput() DockerWebhookCriteriaOutput {
+	return i.ToDockerWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i DockerWebhookCriteriaArgs) ToDockerWebhookCriteriaOutputWithContext(ctx context.Context) DockerWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerWebhookCriteriaOutput)
+}
+
+func (i DockerWebhookCriteriaArgs) ToDockerWebhookCriteriaPtrOutput() DockerWebhookCriteriaPtrOutput {
+	return i.ToDockerWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i DockerWebhookCriteriaArgs) ToDockerWebhookCriteriaPtrOutputWithContext(ctx context.Context) DockerWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerWebhookCriteriaOutput).ToDockerWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// DockerWebhookCriteriaPtrInput is an input type that accepts DockerWebhookCriteriaArgs, DockerWebhookCriteriaPtr and DockerWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `DockerWebhookCriteriaPtrInput` via:
+//
+//          DockerWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type DockerWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDockerWebhookCriteriaPtrOutput() DockerWebhookCriteriaPtrOutput
+	ToDockerWebhookCriteriaPtrOutputWithContext(context.Context) DockerWebhookCriteriaPtrOutput
+}
+
+type dockerWebhookCriteriaPtrType DockerWebhookCriteriaArgs
+
+func DockerWebhookCriteriaPtr(v *DockerWebhookCriteriaArgs) DockerWebhookCriteriaPtrInput {
+	return (*dockerWebhookCriteriaPtrType)(v)
+}
+
+func (*dockerWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerWebhookCriteria)(nil)).Elem()
+}
+
+func (i *dockerWebhookCriteriaPtrType) ToDockerWebhookCriteriaPtrOutput() DockerWebhookCriteriaPtrOutput {
+	return i.ToDockerWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *dockerWebhookCriteriaPtrType) ToDockerWebhookCriteriaPtrOutputWithContext(ctx context.Context) DockerWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerWebhookCriteriaPtrOutput)
+}
+
+type DockerWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DockerWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerWebhookCriteria)(nil)).Elem()
+}
+
+func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaOutput() DockerWebhookCriteriaOutput {
+	return o
+}
+
+func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaOutputWithContext(ctx context.Context) DockerWebhookCriteriaOutput {
+	return o
+}
+
+func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaPtrOutput() DockerWebhookCriteriaPtrOutput {
+	return o.ToDockerWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaPtrOutputWithContext(ctx context.Context) DockerWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DockerWebhookCriteria) *DockerWebhookCriteria {
+		return &v
+	}).(DockerWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any local repo
+func (o DockerWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
+}
+
+// Trigger on any remote repo
+func (o DockerWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DockerWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DockerWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o DockerWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
+}
+
+type DockerWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DockerWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerWebhookCriteria)(nil)).Elem()
+}
+
+func (o DockerWebhookCriteriaPtrOutput) ToDockerWebhookCriteriaPtrOutput() DockerWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DockerWebhookCriteriaPtrOutput) ToDockerWebhookCriteriaPtrOutputWithContext(ctx context.Context) DockerWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o DockerWebhookCriteriaPtrOutput) Elem() DockerWebhookCriteriaOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) DockerWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DockerWebhookCriteria
+		return ret
+	}).(DockerWebhookCriteriaOutput)
+}
+
+// Trigger on any local repo
+func (o DockerWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyLocal
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Trigger on any remote repo
+func (o DockerWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyRemote
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DockerWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o DockerWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of repo keys
+func (o DockerWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RepoKeys
+	}).(pulumi.StringArrayOutput)
+}
+
 type FederatedAlpineRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 	Enabled bool `pulumi:"enabled"`
@@ -6564,6 +7785,200 @@ func (o PushReplicationReplicationArrayOutput) Index(i pulumi.IntInput) PushRepl
 	}).(PushReplicationReplicationOutput)
 }
 
+type ReleaseBundleWebhookCriteria struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns []string `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns []string `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
+}
+
+// ReleaseBundleWebhookCriteriaInput is an input type that accepts ReleaseBundleWebhookCriteriaArgs and ReleaseBundleWebhookCriteriaOutput values.
+// You can construct a concrete instance of `ReleaseBundleWebhookCriteriaInput` via:
+//
+//          ReleaseBundleWebhookCriteriaArgs{...}
+type ReleaseBundleWebhookCriteriaInput interface {
+	pulumi.Input
+
+	ToReleaseBundleWebhookCriteriaOutput() ReleaseBundleWebhookCriteriaOutput
+	ToReleaseBundleWebhookCriteriaOutputWithContext(context.Context) ReleaseBundleWebhookCriteriaOutput
+}
+
+type ReleaseBundleWebhookCriteriaArgs struct {
+	// Trigger on any release bundle
+	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
+	// Trigger on this list of release bundle names
+	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
+}
+
+func (ReleaseBundleWebhookCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (i ReleaseBundleWebhookCriteriaArgs) ToReleaseBundleWebhookCriteriaOutput() ReleaseBundleWebhookCriteriaOutput {
+	return i.ToReleaseBundleWebhookCriteriaOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleWebhookCriteriaArgs) ToReleaseBundleWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookCriteriaOutput)
+}
+
+func (i ReleaseBundleWebhookCriteriaArgs) ToReleaseBundleWebhookCriteriaPtrOutput() ReleaseBundleWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ReleaseBundleWebhookCriteriaArgs) ToReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookCriteriaOutput).ToReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx)
+}
+
+// ReleaseBundleWebhookCriteriaPtrInput is an input type that accepts ReleaseBundleWebhookCriteriaArgs, ReleaseBundleWebhookCriteriaPtr and ReleaseBundleWebhookCriteriaPtrOutput values.
+// You can construct a concrete instance of `ReleaseBundleWebhookCriteriaPtrInput` via:
+//
+//          ReleaseBundleWebhookCriteriaArgs{...}
+//
+//  or:
+//
+//          nil
+type ReleaseBundleWebhookCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToReleaseBundleWebhookCriteriaPtrOutput() ReleaseBundleWebhookCriteriaPtrOutput
+	ToReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Context) ReleaseBundleWebhookCriteriaPtrOutput
+}
+
+type releaseBundleWebhookCriteriaPtrType ReleaseBundleWebhookCriteriaArgs
+
+func ReleaseBundleWebhookCriteriaPtr(v *ReleaseBundleWebhookCriteriaArgs) ReleaseBundleWebhookCriteriaPtrInput {
+	return (*releaseBundleWebhookCriteriaPtrType)(v)
+}
+
+func (*releaseBundleWebhookCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (i *releaseBundleWebhookCriteriaPtrType) ToReleaseBundleWebhookCriteriaPtrOutput() ReleaseBundleWebhookCriteriaPtrOutput {
+	return i.ToReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *releaseBundleWebhookCriteriaPtrType) ToReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReleaseBundleWebhookCriteriaPtrOutput)
+}
+
+type ReleaseBundleWebhookCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleWebhookCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleWebhookCriteriaOutput) ToReleaseBundleWebhookCriteriaOutput() ReleaseBundleWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleWebhookCriteriaOutput) ToReleaseBundleWebhookCriteriaOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaOutput {
+	return o
+}
+
+func (o ReleaseBundleWebhookCriteriaOutput) ToReleaseBundleWebhookCriteriaPtrOutput() ReleaseBundleWebhookCriteriaPtrOutput {
+	return o.ToReleaseBundleWebhookCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ReleaseBundleWebhookCriteriaOutput) ToReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReleaseBundleWebhookCriteria) *ReleaseBundleWebhookCriteria {
+		return &v
+	}).(ReleaseBundleWebhookCriteriaPtrOutput)
+}
+
+// Trigger on any release bundle
+func (o ReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o ReleaseBundleWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
+}
+
+type ReleaseBundleWebhookCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ReleaseBundleWebhookCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReleaseBundleWebhookCriteria)(nil)).Elem()
+}
+
+func (o ReleaseBundleWebhookCriteriaPtrOutput) ToReleaseBundleWebhookCriteriaPtrOutput() ReleaseBundleWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleWebhookCriteriaPtrOutput) ToReleaseBundleWebhookCriteriaPtrOutputWithContext(ctx context.Context) ReleaseBundleWebhookCriteriaPtrOutput {
+	return o
+}
+
+func (o ReleaseBundleWebhookCriteriaPtrOutput) Elem() ReleaseBundleWebhookCriteriaOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) ReleaseBundleWebhookCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ReleaseBundleWebhookCriteria
+		return ret
+	}).(ReleaseBundleWebhookCriteriaOutput)
+}
+
+// Trigger on any release bundle
+func (o ReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AnyReleaseBundle
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+func (o ReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Trigger on this list of release bundle names
+func (o ReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegisteredReleaseBundleNames
+	}).(pulumi.StringArrayOutput)
+}
+
 type RemoteCargoRepositoryContentSynchronisation struct {
 	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 	Enabled *bool `pulumi:"enabled"`
@@ -8901,6 +10316,18 @@ func (o XrayWatchResourceFilterArrayOutput) Index(i pulumi.IntInput) XrayWatchRe
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenPtrInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactPropertyWebhookCriteriaInput)(nil)).Elem(), ArtifactPropertyWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactPropertyWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactPropertyWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactWebhookCriteriaInput)(nil)).Elem(), ArtifactWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactoryReleaseBundleWebhookCriteriaInput)(nil)).Elem(), ArtifactoryReleaseBundleWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactoryReleaseBundleWebhookCriteriaPtrInput)(nil)).Elem(), ArtifactoryReleaseBundleWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildWebhookCriteriaInput)(nil)).Elem(), BuildWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildWebhookCriteriaPtrInput)(nil)).Elem(), BuildWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionWebhookCriteriaInput)(nil)).Elem(), DistributionWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionWebhookCriteriaPtrInput)(nil)).Elem(), DistributionWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerWebhookCriteriaInput)(nil)).Elem(), DockerWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DockerWebhookCriteriaPtrInput)(nil)).Elem(), DockerWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryMemberInput)(nil)).Elem(), FederatedAlpineRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedAlpineRepositoryMemberArrayInput)(nil)).Elem(), FederatedAlpineRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedBowerRepositoryMemberInput)(nil)).Elem(), FederatedBowerRepositoryMemberArgs{})
@@ -9007,6 +10434,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsUserArrayInput)(nil)).Elem(), PermissionTargetsRepoActionsUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationInput)(nil)).Elem(), PushReplicationReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationArrayInput)(nil)).Elem(), PushReplicationReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaPtrInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteCargoRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteCargoRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteDockerRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteDockerRepositoryContentSynchronisationArgs{})
@@ -9038,6 +10467,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*XrayWatchResourceFilterArrayInput)(nil)).Elem(), XrayWatchResourceFilterArray{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenPtrOutput{})
+	pulumi.RegisterOutputType(ArtifactPropertyWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ArtifactPropertyWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ArtifactWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ArtifactWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(ArtifactoryReleaseBundleWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ArtifactoryReleaseBundleWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(BuildWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(BuildWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DistributionWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(DistributionWebhookCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(DockerWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(DockerWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedAlpineRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedBowerRepositoryMemberOutput{})
@@ -9144,6 +10585,8 @@ func init() {
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsUserArrayOutput{})
 	pulumi.RegisterOutputType(PushReplicationReplicationOutput{})
 	pulumi.RegisterOutputType(PushReplicationReplicationArrayOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaOutput{})
+	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteCargoRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteDockerRepositoryContentSynchronisationOutput{})

@@ -62,9 +62,14 @@ type DockerV1Repository struct {
 	Notes         pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType   pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
-	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
+	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention pulumi.IntOutput  `pulumi:"tagRetention"`
@@ -125,9 +130,14 @@ type dockerV1RepositoryState struct {
 	Notes         *string `pulumi:"notes"`
 	PackageType   *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool    `pulumi:"priorityResolution"`
-	PropertySets       []string `pulumi:"propertySets"`
-	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    *string  `pulumi:"projectKey"`
+	PropertySets  []string `pulumi:"propertySets"`
+	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention *int  `pulumi:"tagRetention"`
@@ -158,8 +168,13 @@ type DockerV1RepositoryState struct {
 	PackageType   pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	PropertySets       pulumi.StringArrayInput
-	RepoLayoutRef      pulumi.StringPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrInput
+	PropertySets  pulumi.StringArrayInput
+	RepoLayoutRef pulumi.StringPtrInput
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention pulumi.IntPtrInput
@@ -188,10 +203,15 @@ type dockerV1RepositoryArgs struct {
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	Notes         *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool    `pulumi:"priorityResolution"`
-	PropertySets       []string `pulumi:"propertySets"`
-	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
-	XrayIndex          *bool    `pulumi:"xrayIndex"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    *string  `pulumi:"projectKey"`
+	PropertySets  []string `pulumi:"propertySets"`
+	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a DockerV1Repository resource.
@@ -214,9 +234,14 @@ type DockerV1RepositoryArgs struct {
 	Notes         pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	PropertySets       pulumi.StringArrayInput
-	RepoLayoutRef      pulumi.StringPtrInput
-	XrayIndex          pulumi.BoolPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrInput
+	PropertySets  pulumi.StringArrayInput
+	RepoLayoutRef pulumi.StringPtrInput
+	XrayIndex     pulumi.BoolPtrInput
 }
 
 func (DockerV1RepositoryArgs) ElementType() reflect.Type {

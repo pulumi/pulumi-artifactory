@@ -8,10 +8,16 @@ import * as utilities from "./utilities";
 export * from "./accessToken";
 export * from "./alpineRepository";
 export * from "./apiKey";
+export * from "./artifactPropertyWebhook";
+export * from "./artifactWebhook";
+export * from "./artifactoryReleaseBundleWebhook";
+export * from "./buildWebhook";
 export * from "./certificate";
 export * from "./debianRepository";
+export * from "./distributionWebhook";
 export * from "./dockerV1Repository";
 export * from "./dockerV2Repository";
+export * from "./dockerWebhook";
 export * from "./federatedAlpineRepository";
 export * from "./federatedBowerRepository";
 export * from "./federatedCargoRepository";
@@ -77,6 +83,7 @@ export * from "./permissionTargets";
 export * from "./provider";
 export * from "./pullReplication";
 export * from "./pushReplication";
+export * from "./releaseBundleWebhook";
 export * from "./remoteCargoRepository";
 export * from "./remoteDockerRepository";
 export * from "./remoteHelmRepository";
@@ -89,6 +96,7 @@ export * from "./singleReplicationConfig";
 export * from "./user";
 export * from "./virtualConanRepository";
 export * from "./virtualGenericRepository";
+export * from "./virtualHelmRepository";
 export * from "./virtualRepository";
 export * from "./virtualRpmRepository";
 export * from "./xrayPolicy";
@@ -107,10 +115,16 @@ export {
 import { AccessToken } from "./accessToken";
 import { AlpineRepository } from "./alpineRepository";
 import { ApiKey } from "./apiKey";
+import { ArtifactPropertyWebhook } from "./artifactPropertyWebhook";
+import { ArtifactWebhook } from "./artifactWebhook";
+import { ArtifactoryReleaseBundleWebhook } from "./artifactoryReleaseBundleWebhook";
+import { BuildWebhook } from "./buildWebhook";
 import { Certificate } from "./certificate";
 import { DebianRepository } from "./debianRepository";
+import { DistributionWebhook } from "./distributionWebhook";
 import { DockerV1Repository } from "./dockerV1Repository";
 import { DockerV2Repository } from "./dockerV2Repository";
+import { DockerWebhook } from "./dockerWebhook";
 import { FederatedAlpineRepository } from "./federatedAlpineRepository";
 import { FederatedBowerRepository } from "./federatedBowerRepository";
 import { FederatedCargoRepository } from "./federatedCargoRepository";
@@ -173,6 +187,7 @@ import { PermissionTarget } from "./permissionTarget";
 import { PermissionTargets } from "./permissionTargets";
 import { PullReplication } from "./pullReplication";
 import { PushReplication } from "./pushReplication";
+import { ReleaseBundleWebhook } from "./releaseBundleWebhook";
 import { RemoteCargoRepository } from "./remoteCargoRepository";
 import { RemoteDockerRepository } from "./remoteDockerRepository";
 import { RemoteHelmRepository } from "./remoteHelmRepository";
@@ -185,6 +200,7 @@ import { SingleReplicationConfig } from "./singleReplicationConfig";
 import { User } from "./user";
 import { VirtualConanRepository } from "./virtualConanRepository";
 import { VirtualGenericRepository } from "./virtualGenericRepository";
+import { VirtualHelmRepository } from "./virtualHelmRepository";
 import { VirtualRepository } from "./virtualRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { XrayPolicy } from "./xrayPolicy";
@@ -200,14 +216,26 @@ const _module = {
                 return new AlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
+            case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
+                return new ArtifactPropertyWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactWebhook:ArtifactWebhook":
+                return new ArtifactWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook":
+                return new ArtifactoryReleaseBundleWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/buildWebhook:BuildWebhook":
+                return new BuildWebhook(name, <any>undefined, { urn })
             case "artifactory:index/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "artifactory:index/debianRepository:DebianRepository":
                 return new DebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/distributionWebhook:DistributionWebhook":
+                return new DistributionWebhook(name, <any>undefined, { urn })
             case "artifactory:index/dockerV1Repository:DockerV1Repository":
                 return new DockerV1Repository(name, <any>undefined, { urn })
             case "artifactory:index/dockerV2Repository:DockerV2Repository":
                 return new DockerV2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/dockerWebhook:DockerWebhook":
+                return new DockerWebhook(name, <any>undefined, { urn })
             case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
                 return new FederatedAlpineRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
@@ -332,6 +360,8 @@ const _module = {
                 return new PullReplication(name, <any>undefined, { urn })
             case "artifactory:index/pushReplication:PushReplication":
                 return new PushReplication(name, <any>undefined, { urn })
+            case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
+                return new ReleaseBundleWebhook(name, <any>undefined, { urn })
             case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
                 return new RemoteCargoRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
@@ -356,6 +386,8 @@ const _module = {
                 return new VirtualConanRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualGenericRepository:VirtualGenericRepository":
                 return new VirtualGenericRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualHelmRepository:VirtualHelmRepository":
+                return new VirtualHelmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRepository:VirtualRepository":
                 return new VirtualRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
@@ -372,10 +404,16 @@ const _module = {
 pulumi.runtime.registerResourceModule("artifactory", "index/accessToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/artifactoryReleaseBundleWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/buildWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/distributionWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV1Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/dockerV2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/dockerWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedCargoRepository", _module)
@@ -438,6 +476,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteDockerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
@@ -450,6 +489,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationCon
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualConanRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualGenericRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/xrayPolicy", _module)

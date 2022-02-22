@@ -38,6 +38,8 @@ class RemoteHelmRepositoryArgs:
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
@@ -79,6 +81,8 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -130,6 +134,10 @@ class RemoteHelmRepositoryArgs:
             pulumi.set(__self__, "password", password)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if propagate_query_params is not None:
             pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
@@ -420,6 +428,30 @@ class RemoteHelmRepositoryArgs:
         pulumi.set(self, "priority_resolution", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "propagate_query_params")
@@ -585,6 +617,8 @@ class _RemoteHelmRepositoryState:
                  package_type: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
@@ -627,6 +661,8 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -685,6 +721,10 @@ class _RemoteHelmRepositoryState:
             pulumi.set(__self__, "password", password)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if propagate_query_params is not None:
             pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
@@ -986,6 +1026,30 @@ class _RemoteHelmRepositoryState:
         pulumi.set(self, "priority_resolution", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="propagateQueryParams")
     def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "propagate_query_params")
@@ -1160,6 +1224,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
@@ -1225,6 +1291,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1297,6 +1365,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  offline: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
@@ -1348,6 +1418,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
             __props__.__dict__["offline"] = offline
             __props__.__dict__["password"] = password
             __props__.__dict__["priority_resolution"] = priority_resolution
+            __props__.__dict__["project_environments"] = project_environments
+            __props__.__dict__["project_key"] = project_key
             __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
@@ -1401,6 +1473,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
             package_type: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
+            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            project_key: Optional[pulumi.Input[str]] = None,
             propagate_query_params: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             proxy: Optional[pulumi.Input[str]] = None,
@@ -1448,6 +1522,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[int] missed_cache_period_seconds: This is actually the missedRetrievalCachePeriodSecs in the API
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
         :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
@@ -1483,6 +1559,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["password"] = password
         __props__.__dict__["priority_resolution"] = priority_resolution
+        __props__.__dict__["project_environments"] = project_environments
+        __props__.__dict__["project_key"] = project_key
         __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
@@ -1672,6 +1750,22 @@ class RemoteHelmRepository(pulumi.CustomResource):
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
+
+    @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="propagateQueryParams")
