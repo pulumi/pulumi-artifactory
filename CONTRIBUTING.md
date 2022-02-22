@@ -26,4 +26,10 @@ You must generate and check in the SDKs on each pull request containing a code c
 1. Open a pull request containing all changes
 1. *Note:* If a large number of seemingly-unrelated diffs are produced by `make build_sdks` (for example, lots of changes to comments unrelated to the change you are making), ensure that the latest dependencies for the provider are installed by running `go mod tidy` in the `provider/` directory of this repository.
 
+## Running Integration Tests
 
+The examples and integration tests in this repository will create and destroy real AWS
+cloud resources while running. Before running these tests, make sure that you have
+[configured Pulumi with AWS](https://pulumi.io/install/aws.html) successfully once before.
+
+_TODO: Add any steps you need to take to run integration tests here_
