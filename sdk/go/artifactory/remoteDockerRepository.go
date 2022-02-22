@@ -100,7 +100,11 @@ type RemoteDockerRepository struct {
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	Password    pulumi.StringPtrOutput `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution   pulumi.BoolOutput        `pulumi:"priorityResolution"`
+	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey           pulumi.StringPtrOutput   `pulumi:"projectKey"`
 	PropagateQueryParams pulumi.BoolPtrOutput     `pulumi:"propagateQueryParams"`
 	PropertySets         pulumi.StringArrayOutput `pulumi:"propertySets"`
 	Proxy                pulumi.StringOutput      `pulumi:"proxy"`
@@ -210,7 +214,11 @@ type remoteDockerRepositoryState struct {
 	PackageType *string `pulumi:"packageType"`
 	Password    *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution   *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey           *string  `pulumi:"projectKey"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
@@ -286,7 +294,11 @@ type RemoteDockerRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	Password    pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution   pulumi.BoolPtrInput
+	PriorityResolution pulumi.BoolPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey           pulumi.StringPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput
@@ -363,7 +375,11 @@ type remoteDockerRepositoryArgs struct {
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution   *bool    `pulumi:"priorityResolution"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey           *string  `pulumi:"projectKey"`
 	PropagateQueryParams *bool    `pulumi:"propagateQueryParams"`
 	PropertySets         []string `pulumi:"propertySets"`
 	Proxy                *string  `pulumi:"proxy"`
@@ -437,7 +453,11 @@ type RemoteDockerRepositoryArgs struct {
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution   pulumi.BoolPtrInput
+	PriorityResolution pulumi.BoolPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey           pulumi.StringPtrInput
 	PropagateQueryParams pulumi.BoolPtrInput
 	PropertySets         pulumi.StringArrayInput
 	Proxy                pulumi.StringPtrInput

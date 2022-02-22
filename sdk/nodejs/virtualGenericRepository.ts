@@ -102,6 +102,14 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
      */
@@ -137,6 +145,8 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
@@ -152,6 +162,8 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
@@ -204,6 +216,14 @@ export interface VirtualGenericRepositoryState {
      * The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
      */
     packageType?: pulumi.Input<string>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -258,6 +278,14 @@ export interface VirtualGenericRepositoryArgs {
      * A free text field to add additional notes about the repository. These are only visible to the administrator.
      */
     notes?: pulumi.Input<string>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     /**
      * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
      * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.

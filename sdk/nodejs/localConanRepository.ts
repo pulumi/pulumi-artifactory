@@ -69,6 +69,15 @@ export class LocalConanRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
     public readonly xrayIndex!: pulumi.Output<boolean>;
@@ -96,6 +105,8 @@ export class LocalConanRepository extends pulumi.CustomResource {
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
@@ -113,6 +124,8 @@ export class LocalConanRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
@@ -148,6 +161,15 @@ export interface LocalConanRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;
@@ -177,6 +199,15 @@ export interface LocalConanRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
     xrayIndex?: pulumi.Input<boolean>;

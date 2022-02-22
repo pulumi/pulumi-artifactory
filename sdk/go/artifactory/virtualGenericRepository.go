@@ -77,6 +77,10 @@ type VirtualGenericRepository struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
@@ -141,6 +145,10 @@ type virtualGenericRepositoryState struct {
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -174,6 +182,10 @@ type VirtualGenericRepositoryState struct {
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrInput
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
@@ -209,6 +221,10 @@ type virtualGenericRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -241,6 +257,10 @@ type VirtualGenericRepositoryArgs struct {
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrInput
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput

@@ -105,6 +105,11 @@ type MavenRepository struct {
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
@@ -175,6 +180,11 @@ type mavenRepositoryState struct {
 	PackageType *string `pulumi:"packageType"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -214,6 +224,11 @@ type MavenRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrInput
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput
@@ -255,6 +270,11 @@ type mavenRepositoryArgs struct {
 	Notes *string `pulumi:"notes"`
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey *string `pulumi:"projectKey"`
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -293,6 +313,11 @@ type MavenRepositoryArgs struct {
 	Notes pulumi.StringPtrInput
 	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	ProjectKey pulumi.StringPtrInput
 	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
 	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
 	RepoLayoutRef pulumi.StringPtrInput

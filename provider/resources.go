@@ -189,8 +189,17 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_ldap_setting":                   {Tok: makeResource(mainMod, "LdapSetting")},
 			"artifactory_virtual_conan_repository":       {Tok: makeResource(mainMod, "VirtualConanRepository")},
 			"artifactory_virtual_generic_repository":     {Tok: makeResource(mainMod, "VirtualGenericRepository")},
+			"artifactory_virtual_helm_repository":        {Tok: makeResource(mainMod, "VirtualHelmRepository")},
 			"artifactory_virtual_rpm_repository":         {Tok: makeResource(mainMod, "VirtualRpmRepository")},
 			"artifactory_remote_pypi_repository":         {Tok: makeResource(mainMod, "RemotePypiRepository")},
+
+			"artifactory_artifact_property_webhook":          {Tok: makeResource(mainMod, "ArtifactPropertyWebhook")},
+			"artifactory_artifact_webhook":                   {Tok: makeResource(mainMod, "ArtifactWebhook")},
+			"artifactory_artifactory_release_bundle_webhook": {Tok: makeResource(mainMod, "ArtifactoryReleaseBundleWebhook")},
+			"artifactory_build_webhook":                      {Tok: makeResource(mainMod, "BuildWebhook")},
+			"artifactory_distribution_webhook":               {Tok: makeResource(mainMod, "DistributionWebhook")},
+			"artifactory_docker_webhook":                     {Tok: makeResource(mainMod, "DockerWebhook")},
+			"artifactory_release_bundle_webhook":             {Tok: makeResource(mainMod, "ReleaseBundleWebhook")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

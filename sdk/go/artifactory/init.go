@@ -26,14 +26,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlpineRepository{}
 	case "artifactory:index/apiKey:ApiKey":
 		r = &ApiKey{}
+	case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
+		r = &ArtifactPropertyWebhook{}
+	case "artifactory:index/artifactWebhook:ArtifactWebhook":
+		r = &ArtifactWebhook{}
+	case "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook":
+		r = &ArtifactoryReleaseBundleWebhook{}
+	case "artifactory:index/buildWebhook:BuildWebhook":
+		r = &BuildWebhook{}
 	case "artifactory:index/certificate:Certificate":
 		r = &Certificate{}
 	case "artifactory:index/debianRepository:DebianRepository":
 		r = &DebianRepository{}
+	case "artifactory:index/distributionWebhook:DistributionWebhook":
+		r = &DistributionWebhook{}
 	case "artifactory:index/dockerV1Repository:DockerV1Repository":
 		r = &DockerV1Repository{}
 	case "artifactory:index/dockerV2Repository:DockerV2Repository":
 		r = &DockerV2Repository{}
+	case "artifactory:index/dockerWebhook:DockerWebhook":
+		r = &DockerWebhook{}
 	case "artifactory:index/federatedAlpineRepository:FederatedAlpineRepository":
 		r = &FederatedAlpineRepository{}
 	case "artifactory:index/federatedBowerRepository:FederatedBowerRepository":
@@ -158,6 +170,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PullReplication{}
 	case "artifactory:index/pushReplication:PushReplication":
 		r = &PushReplication{}
+	case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
+		r = &ReleaseBundleWebhook{}
 	case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
 		r = &RemoteCargoRepository{}
 	case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
@@ -182,6 +196,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualConanRepository{}
 	case "artifactory:index/virtualGenericRepository:VirtualGenericRepository":
 		r = &VirtualGenericRepository{}
+	case "artifactory:index/virtualHelmRepository:VirtualHelmRepository":
+		r = &VirtualHelmRepository{}
 	case "artifactory:index/virtualRepository:VirtualRepository":
 		r = &VirtualRepository{}
 	case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
@@ -238,6 +254,26 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/artifactPropertyWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/artifactWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/artifactoryReleaseBundleWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/buildWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/certificate",
 		&module{version},
 	)
@@ -248,12 +284,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/distributionWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/dockerV1Repository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/dockerV2Repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/dockerWebhook",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -568,6 +614,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/releaseBundleWebhook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteCargoRepository",
 		&module{version},
 	)
@@ -624,6 +675,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualGenericRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualHelmRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

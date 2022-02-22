@@ -10,6 +10,12 @@ from . import _utilities
 
 __all__ = [
     'AccessTokenAdminTokenArgs',
+    'ArtifactPropertyWebhookCriteriaArgs',
+    'ArtifactWebhookCriteriaArgs',
+    'ArtifactoryReleaseBundleWebhookCriteriaArgs',
+    'BuildWebhookCriteriaArgs',
+    'DistributionWebhookCriteriaArgs',
+    'DockerWebhookCriteriaArgs',
     'FederatedAlpineRepositoryMemberArgs',
     'FederatedBowerRepositoryMemberArgs',
     'FederatedCargoRepositoryMemberArgs',
@@ -63,6 +69,7 @@ __all__ = [
     'PermissionTargetsRepoActionsGroupArgs',
     'PermissionTargetsRepoActionsUserArgs',
     'PushReplicationReplicationArgs',
+    'ReleaseBundleWebhookCriteriaArgs',
     'RemoteCargoRepositoryContentSynchronisationArgs',
     'RemoteDockerRepositoryContentSynchronisationArgs',
     'RemoteHelmRepositoryContentSynchronisationArgs',
@@ -94,6 +101,465 @@ class AccessTokenAdminTokenArgs:
     @instance_id.setter
     def instance_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_id", value)
+
+
+@pulumi.input_type
+class ArtifactPropertyWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_local: pulumi.Input[bool],
+                 any_remote: pulumi.Input[bool],
+                 repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_local: Trigger on any local repo
+        :param pulumi.Input[bool] any_remote: Trigger on any remote repo
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repo_keys: Trigger on this list of repo keys
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyLocal")
+    def any_local(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any local repo
+        """
+        return pulumi.get(self, "any_local")
+
+    @any_local.setter
+    def any_local(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_local", value)
+
+    @property
+    @pulumi.getter(name="anyRemote")
+    def any_remote(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any remote repo
+        """
+        return pulumi.get(self, "any_remote")
+
+    @any_remote.setter
+    def any_remote(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_remote", value)
+
+    @property
+    @pulumi.getter(name="repoKeys")
+    def repo_keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of repo keys
+        """
+        return pulumi.get(self, "repo_keys")
+
+    @repo_keys.setter
+    def repo_keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "repo_keys", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
+
+
+@pulumi.input_type
+class ArtifactWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_local: pulumi.Input[bool],
+                 any_remote: pulumi.Input[bool],
+                 repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_local: Trigger on any local repo
+        :param pulumi.Input[bool] any_remote: Trigger on any remote repo
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repo_keys: Trigger on this list of repo keys
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyLocal")
+    def any_local(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any local repo
+        """
+        return pulumi.get(self, "any_local")
+
+    @any_local.setter
+    def any_local(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_local", value)
+
+    @property
+    @pulumi.getter(name="anyRemote")
+    def any_remote(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any remote repo
+        """
+        return pulumi.get(self, "any_remote")
+
+    @any_remote.setter
+    def any_remote(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_remote", value)
+
+    @property
+    @pulumi.getter(name="repoKeys")
+    def repo_keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of repo keys
+        """
+        return pulumi.get(self, "repo_keys")
+
+    @repo_keys.setter
+    def repo_keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "repo_keys", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
+
+
+@pulumi.input_type
+class ArtifactoryReleaseBundleWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_release_bundle: pulumi.Input[bool],
+                 registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_release_bundle: Trigger on any release bundle
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any release bundle
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @any_release_bundle.setter
+    def any_release_bundle(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_release_bundle", value)
+
+    @property
+    @pulumi.getter(name="registeredReleaseBundleNames")
+    def registered_release_bundle_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of release bundle names
+        """
+        return pulumi.get(self, "registered_release_bundle_names")
+
+    @registered_release_bundle_names.setter
+    def registered_release_bundle_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "registered_release_bundle_names", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
+
+
+@pulumi.input_type
+class BuildWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_build: pulumi.Input[bool],
+                 selected_builds: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_build: Trigger on any build
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_builds: Trigger on this list of build names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_build", any_build)
+        pulumi.set(__self__, "selected_builds", selected_builds)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyBuild")
+    def any_build(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any build
+        """
+        return pulumi.get(self, "any_build")
+
+    @any_build.setter
+    def any_build(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_build", value)
+
+    @property
+    @pulumi.getter(name="selectedBuilds")
+    def selected_builds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of build names
+        """
+        return pulumi.get(self, "selected_builds")
+
+    @selected_builds.setter
+    def selected_builds(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "selected_builds", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
+
+
+@pulumi.input_type
+class DistributionWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_release_bundle: pulumi.Input[bool],
+                 registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_release_bundle: Trigger on any release bundle
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any release bundle
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @any_release_bundle.setter
+    def any_release_bundle(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_release_bundle", value)
+
+    @property
+    @pulumi.getter(name="registeredReleaseBundleNames")
+    def registered_release_bundle_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of release bundle names
+        """
+        return pulumi.get(self, "registered_release_bundle_names")
+
+    @registered_release_bundle_names.setter
+    def registered_release_bundle_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "registered_release_bundle_names", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
+
+
+@pulumi.input_type
+class DockerWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_local: pulumi.Input[bool],
+                 any_remote: pulumi.Input[bool],
+                 repo_keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_local: Trigger on any local repo
+        :param pulumi.Input[bool] any_remote: Trigger on any remote repo
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repo_keys: Trigger on this list of repo keys
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_local", any_local)
+        pulumi.set(__self__, "any_remote", any_remote)
+        pulumi.set(__self__, "repo_keys", repo_keys)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyLocal")
+    def any_local(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any local repo
+        """
+        return pulumi.get(self, "any_local")
+
+    @any_local.setter
+    def any_local(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_local", value)
+
+    @property
+    @pulumi.getter(name="anyRemote")
+    def any_remote(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any remote repo
+        """
+        return pulumi.get(self, "any_remote")
+
+    @any_remote.setter
+    def any_remote(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_remote", value)
+
+    @property
+    @pulumi.getter(name="repoKeys")
+    def repo_keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of repo keys
+        """
+        return pulumi.get(self, "repo_keys")
+
+    @repo_keys.setter
+    def repo_keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "repo_keys", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
 
 
 @pulumi.input_type
@@ -2270,6 +2736,75 @@ class PushReplicationReplicationArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ReleaseBundleWebhookCriteriaArgs:
+    def __init__(__self__, *,
+                 any_release_bundle: pulumi.Input[bool],
+                 registered_release_bundle_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 exclude_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] any_release_bundle: Trigger on any release bundle
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_release_bundle_names: Trigger on this list of release bundle names
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        pulumi.set(__self__, "any_release_bundle", any_release_bundle)
+        pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
+        if exclude_patterns is not None:
+            pulumi.set(__self__, "exclude_patterns", exclude_patterns)
+        if include_patterns is not None:
+            pulumi.set(__self__, "include_patterns", include_patterns)
+
+    @property
+    @pulumi.getter(name="anyReleaseBundle")
+    def any_release_bundle(self) -> pulumi.Input[bool]:
+        """
+        Trigger on any release bundle
+        """
+        return pulumi.get(self, "any_release_bundle")
+
+    @any_release_bundle.setter
+    def any_release_bundle(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "any_release_bundle", value)
+
+    @property
+    @pulumi.getter(name="registeredReleaseBundleNames")
+    def registered_release_bundle_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Trigger on this list of release bundle names
+        """
+        return pulumi.get(self, "registered_release_bundle_names")
+
+    @registered_release_bundle_names.setter
+    def registered_release_bundle_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "registered_release_bundle_names", value)
+
+    @property
+    @pulumi.getter(name="excludePatterns")
+    def exclude_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "exclude_patterns")
+
+    @exclude_patterns.setter
+    def exclude_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_patterns", value)
+
+    @property
+    @pulumi.getter(name="includePatterns")
+    def include_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        """
+        return pulumi.get(self, "include_patterns")
+
+    @include_patterns.setter
+    def include_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include_patterns", value)
 
 
 @pulumi.input_type

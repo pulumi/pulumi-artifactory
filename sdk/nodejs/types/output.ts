@@ -8,6 +8,132 @@ export interface AccessTokenAdminToken {
     instanceId: string;
 }
 
+export interface ArtifactPropertyWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: boolean;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: string[];
+}
+
+export interface ArtifactWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: boolean;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: string[];
+}
+
+export interface ArtifactoryReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: string[];
+}
+
+export interface BuildWebhookCriteria {
+    /**
+     * Trigger on any build
+     */
+    anyBuild: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of build names
+     */
+    selectedBuilds: string[];
+}
+
+export interface DistributionWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: string[];
+}
+
+export interface DockerWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: boolean;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: string[];
+}
+
 export interface FederatedAlpineRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
@@ -557,6 +683,25 @@ export interface PushReplicationReplication {
     syncStatistics: boolean;
     url?: string;
     username?: string;
+}
+
+export interface ReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: boolean;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: string[];
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: string[];
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: string[];
 }
 
 export interface RemoteCargoRepositoryContentSynchronisation {

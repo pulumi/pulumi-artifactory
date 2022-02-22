@@ -24,6 +24,8 @@ class LocalNugetRepositoryArgs:
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -38,6 +40,9 @@ class LocalNugetRepositoryArgs:
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -60,6 +65,10 @@ class LocalNugetRepositoryArgs:
             pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -186,6 +195,31 @@ class LocalNugetRepositoryArgs:
         pulumi.set(self, "priority_resolution", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -228,6 +262,8 @@ class _LocalNugetRepositoryState:
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
@@ -242,6 +278,9 @@ class _LocalNugetRepositoryState:
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -267,6 +306,10 @@ class _LocalNugetRepositoryState:
             pulumi.set(__self__, "package_type", package_type)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
@@ -402,6 +445,31 @@ class _LocalNugetRepositoryState:
         pulumi.set(self, "priority_resolution", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "property_sets")
@@ -445,6 +513,8 @@ class LocalNugetRepository(pulumi.CustomResource):
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -477,6 +547,9 @@ class LocalNugetRepository(pulumi.CustomResource):
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
         """
         ...
     @overload
@@ -527,6 +600,8 @@ class LocalNugetRepository(pulumi.CustomResource):
                  max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
@@ -555,6 +630,8 @@ class LocalNugetRepository(pulumi.CustomResource):
             __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             __props__.__dict__["notes"] = notes
             __props__.__dict__["priority_resolution"] = priority_resolution
+            __props__.__dict__["project_environments"] = project_environments
+            __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["xray_index"] = xray_index
@@ -581,6 +658,8 @@ class LocalNugetRepository(pulumi.CustomResource):
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
+            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'LocalNugetRepository':
@@ -600,6 +679,9 @@ class LocalNugetRepository(pulumi.CustomResource):
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -617,6 +699,8 @@ class LocalNugetRepository(pulumi.CustomResource):
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["priority_resolution"] = priority_resolution
+        __props__.__dict__["project_environments"] = project_environments
+        __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
@@ -700,6 +784,23 @@ class LocalNugetRepository(pulumi.CustomResource):
         Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         """
         return pulumi.get(self, "priority_resolution")
+
+    @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="propertySets")

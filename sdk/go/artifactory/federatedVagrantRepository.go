@@ -66,10 +66,15 @@ type FederatedVagrantRepository struct {
 	Notes       pulumi.StringPtrOutput                      `pulumi:"notes"`
 	PackageType pulumi.StringOutput                         `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution pulumi.BoolPtrOutput     `pulumi:"priorityResolution"`
-	PropertySets       pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef      pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex          pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
+	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
+	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
 }
 
 // NewFederatedVagrantRepository registers a new resource with the given unique name, arguments, and options.
@@ -123,10 +128,15 @@ type federatedVagrantRepositoryState struct {
 	Notes       *string                            `pulumi:"notes"`
 	PackageType *string                            `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool    `pulumi:"priorityResolution"`
-	PropertySets       []string `pulumi:"propertySets"`
-	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
-	XrayIndex          *bool    `pulumi:"xrayIndex"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    *string  `pulumi:"projectKey"`
+	PropertySets  []string `pulumi:"propertySets"`
+	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool    `pulumi:"xrayIndex"`
 }
 
 type FederatedVagrantRepositoryState struct {
@@ -147,9 +157,14 @@ type FederatedVagrantRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	PropertySets       pulumi.StringArrayInput
-	RepoLayoutRef      pulumi.StringPtrInput
-	XrayIndex          pulumi.BoolPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrInput
+	PropertySets  pulumi.StringArrayInput
+	RepoLayoutRef pulumi.StringPtrInput
+	XrayIndex     pulumi.BoolPtrInput
 }
 
 func (FederatedVagrantRepositoryState) ElementType() reflect.Type {
@@ -172,10 +187,15 @@ type federatedVagrantRepositoryArgs struct {
 	Members []FederatedVagrantRepositoryMember `pulumi:"members"`
 	Notes   *string                            `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-	PriorityResolution *bool    `pulumi:"priorityResolution"`
-	PropertySets       []string `pulumi:"propertySets"`
-	RepoLayoutRef      *string  `pulumi:"repoLayoutRef"`
-	XrayIndex          *bool    `pulumi:"xrayIndex"`
+	PriorityResolution *bool `pulumi:"priorityResolution"`
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments []string `pulumi:"projectEnvironments"`
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    *string  `pulumi:"projectKey"`
+	PropertySets  []string `pulumi:"propertySets"`
+	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	XrayIndex     *bool    `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a FederatedVagrantRepository resource.
@@ -196,9 +216,14 @@ type FederatedVagrantRepositoryArgs struct {
 	Notes   pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	PropertySets       pulumi.StringArrayInput
-	RepoLayoutRef      pulumi.StringPtrInput
-	XrayIndex          pulumi.BoolPtrInput
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	ProjectEnvironments pulumi.StringArrayInput
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
+	ProjectKey    pulumi.StringPtrInput
+	PropertySets  pulumi.StringArrayInput
+	RepoLayoutRef pulumi.StringPtrInput
+	XrayIndex     pulumi.BoolPtrInput
 }
 
 func (FederatedVagrantRepositoryArgs) ElementType() reflect.Type {

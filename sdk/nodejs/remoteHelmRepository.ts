@@ -136,6 +136,14 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     public readonly priorityResolution!: pulumi.Output<boolean>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    public readonly projectKey!: pulumi.Output<string | undefined>;
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly proxy!: pulumi.Output<string>;
@@ -201,6 +209,8 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
+            resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propagateQueryParams"] = state ? state.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["proxy"] = state ? state.proxy : undefined;
@@ -246,6 +256,8 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["offline"] = args ? args.offline : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
+            resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
+            resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propagateQueryParams"] = args ? args.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
@@ -353,6 +365,14 @@ export interface RemoteHelmRepositoryState {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
@@ -461,6 +481,14 @@ export interface RemoteHelmRepositoryArgs {
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
+    /**
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     */
+    projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     */
+    projectKey?: pulumi.Input<string>;
     propagateQueryParams?: pulumi.Input<boolean>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;

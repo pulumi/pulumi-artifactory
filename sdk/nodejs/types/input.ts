@@ -8,6 +8,132 @@ export interface AccessTokenAdminToken {
     instanceId: pulumi.Input<string>;
 }
 
+export interface ArtifactPropertyWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ArtifactWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ArtifactoryReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface BuildWebhookCriteria {
+    /**
+     * Trigger on any build
+     */
+    anyBuild: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of build names
+     */
+    selectedBuilds: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DistributionWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DockerWebhookCriteria {
+    /**
+     * Trigger on any local repo
+     */
+    anyLocal: pulumi.Input<boolean>;
+    /**
+     * Trigger on any remote repo
+     */
+    anyRemote: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of repo keys
+     */
+    repoKeys: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface FederatedAlpineRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
@@ -557,6 +683,25 @@ export interface PushReplicationReplication {
     syncStatistics?: pulumi.Input<boolean>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+}
+
+export interface ReleaseBundleWebhookCriteria {
+    /**
+     * Trigger on any release bundle
+     */
+    anyReleaseBundle: pulumi.Input<boolean>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+     */
+    includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Trigger on this list of release bundle names
+     */
+    registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface RemoteCargoRepositoryContentSynchronisation {

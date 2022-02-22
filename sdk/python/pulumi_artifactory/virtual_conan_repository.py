@@ -20,6 +20,8 @@ class VirtualConanRepositoryArgs:
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
@@ -38,6 +40,9 @@ class VirtualConanRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
                corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
@@ -56,6 +61,10 @@ class VirtualConanRepositoryArgs:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
@@ -154,6 +163,31 @@ class VirtualConanRepositoryArgs:
         pulumi.set(self, "notes", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -202,6 +236,8 @@ class _VirtualConanRepositoryState:
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
@@ -221,6 +257,9 @@ class _VirtualConanRepositoryState:
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
                corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
@@ -242,6 +281,10 @@ class _VirtualConanRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if project_environments is not None:
+            pulumi.set(__self__, "project_environments", project_environments)
+        if project_key is not None:
+            pulumi.set(__self__, "project_key", project_key)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
@@ -352,6 +395,31 @@ class _VirtualConanRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @project_environments.setter
+    def project_environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "project_environments", value)
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
+
+    @project_key.setter
+    def project_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_key", value)
+
+    @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
@@ -401,6 +469,8 @@ class VirtualConanRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -450,6 +520,9 @@ class VirtualConanRepository(pulumi.CustomResource):
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
                corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
@@ -513,6 +586,8 @@ class VirtualConanRepository(pulumi.CustomResource):
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -537,6 +612,8 @@ class VirtualConanRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["project_environments"] = project_environments
+            __props__.__dict__["project_key"] = project_key
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["repositories"] = repositories
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
@@ -559,6 +636,8 @@ class VirtualConanRepository(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            project_key: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None) -> 'VirtualConanRepository':
@@ -583,6 +662,9 @@ class VirtualConanRepository(pulumi.CustomResource):
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
                corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
@@ -600,6 +682,8 @@ class VirtualConanRepository(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["project_environments"] = project_environments
+        __props__.__dict__["project_key"] = project_key
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["repositories"] = repositories
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
@@ -674,6 +758,23 @@ class VirtualConanRepository(pulumi.CustomResource):
         The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         """
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="projectEnvironments")
+    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        """
+        return pulumi.get(self, "project_environments")
+
+    @property
+    @pulumi.getter(name="projectKey")
+    def project_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        """
+        return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="repoLayoutRef")

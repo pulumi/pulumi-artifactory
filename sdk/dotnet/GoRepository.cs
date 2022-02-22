@@ -124,6 +124,19 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        [Output("projectEnvironments")]
+        public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
+
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Output("projectKey")]
+        public Output<string?> ProjectKey { get; private set; } = null!;
+
+        /// <summary>
         /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
         /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
         /// </summary>
@@ -255,6 +268,25 @@ namespace Pulumi.Artifactory
         [Input("notes")]
         public Input<string>? Notes { get; set; }
 
+        [Input("projectEnvironments")]
+        private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        public InputList<string> ProjectEnvironments
+        {
+            get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
+            set => _projectEnvironments = value;
+        }
+
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
+
         /// <summary>
         /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
         /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
@@ -359,6 +391,25 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
+
+        [Input("projectEnvironments")]
+        private InputList<string>? _projectEnvironments;
+
+        /// <summary>
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// </summary>
+        public InputList<string> ProjectEnvironments
+        {
+            get => _projectEnvironments ?? (_projectEnvironments = new InputList<string>());
+            set => _projectEnvironments = value;
+        }
+
+        /// <summary>
+        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// </summary>
+        [Input("projectKey")]
+        public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
         /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
