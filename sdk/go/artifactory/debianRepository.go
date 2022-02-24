@@ -114,7 +114,9 @@ type DebianRepository struct {
 	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout pulumi.BoolPtrOutput `pulumi:"trivialLayout"`
-	XrayIndex     pulumi.BoolOutput    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewDebianRepository registers a new resource with the given unique name, arguments, and options.
@@ -181,7 +183,9 @@ type debianRepositoryState struct {
 	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
-	XrayIndex     *bool `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type DebianRepositoryState struct {
@@ -217,7 +221,9 @@ type DebianRepositoryState struct {
 	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout pulumi.BoolPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DebianRepositoryState) ElementType() reflect.Type {
@@ -256,7 +262,9 @@ type debianRepositoryArgs struct {
 	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout *bool `pulumi:"trivialLayout"`
-	XrayIndex     *bool `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a DebianRepository resource.
@@ -292,7 +300,9 @@ type DebianRepositoryArgs struct {
 	//
 	// Deprecated: You shouldn't be using this
 	TrivialLayout pulumi.BoolPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DebianRepositoryArgs) ElementType() reflect.Type {

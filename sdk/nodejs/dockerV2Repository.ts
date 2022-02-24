@@ -100,7 +100,11 @@ export class DockerV2Repository extends pulumi.CustomResource {
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     public readonly tagRetention!: pulumi.Output<number | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DockerV2Repository resource with the given unique name, arguments, and options.
@@ -218,6 +222,10 @@ export interface DockerV2RepositoryState {
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     tagRetention?: pulumi.Input<number>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -270,5 +278,9 @@ export interface DockerV2RepositoryArgs {
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     tagRetention?: pulumi.Input<number>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

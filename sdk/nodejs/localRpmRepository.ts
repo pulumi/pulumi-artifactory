@@ -86,7 +86,11 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     public readonly projectKey!: pulumi.Output<string | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
     /**
      * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      */
@@ -196,6 +200,10 @@ export interface LocalRpmRepositoryState {
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
     /**
      * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
@@ -244,6 +252,10 @@ export interface LocalRpmRepositoryArgs {
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
     /**
      * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.

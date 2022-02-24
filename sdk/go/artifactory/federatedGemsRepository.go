@@ -41,7 +41,9 @@ type FederatedGemsRepository struct {
 	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
 	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
 	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewFederatedGemsRepository registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +105,9 @@ type federatedGemsRepositoryState struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type FederatedGemsRepositoryState struct {
@@ -131,7 +135,9 @@ type FederatedGemsRepositoryState struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (FederatedGemsRepositoryState) ElementType() reflect.Type {
@@ -162,7 +168,9 @@ type federatedGemsRepositoryArgs struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a FederatedGemsRepository resource.
@@ -190,7 +198,9 @@ type FederatedGemsRepositoryArgs struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (FederatedGemsRepositoryArgs) ElementType() reflect.Type {

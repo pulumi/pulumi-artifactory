@@ -41,6 +41,8 @@ class DockerV1RepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -224,6 +226,10 @@ class DockerV1RepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -270,6 +276,8 @@ class _DockerV1RepositoryState:
                with project key, separated by a dash.
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if api_version is not None:
             pulumi.set(__self__, "api_version", api_version)
@@ -508,6 +516,10 @@ class _DockerV1RepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -563,6 +575,8 @@ class DockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -698,6 +712,8 @@ class DockerV1Repository(pulumi.CustomResource):
                with project key, separated by a dash.
         :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
                manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -849,6 +865,10 @@ class DockerV1Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

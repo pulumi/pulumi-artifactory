@@ -180,7 +180,10 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a RemoteDockerRepository resource with the given unique name, arguments, and options.
@@ -417,6 +420,9 @@ export interface RemoteDockerRepositoryState {
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -539,5 +545,8 @@ export interface RemoteDockerRepositoryArgs {
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

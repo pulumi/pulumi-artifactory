@@ -3097,7 +3097,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -3105,8 +3106,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -3170,7 +3170,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -3243,7 +3244,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -4059,7 +4061,8 @@
                     "deprecationMessage": "You shouldn't be using this"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -4067,8 +4070,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -4142,7 +4144,8 @@
                     "deprecationMessage": "You shouldn't be using this"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -4225,7 +4228,8 @@
                         "deprecationMessage": "You shouldn't be using this"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -4455,7 +4459,8 @@
                     "description": "If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to\nmanifest V2\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -4467,8 +4472,7 @@
                 "maxUniqueTags",
                 "packageType",
                 "repoLayoutRef",
-                "tagRetention",
-                "xrayIndex"
+                "tagRetention"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -4526,7 +4530,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -4605,7 +4610,8 @@
                         "description": "If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to\nmanifest V2\n"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -4684,7 +4690,8 @@
                     "description": "- If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -4694,8 +4701,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -4761,7 +4767,8 @@
                     "description": "- If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -4840,7 +4847,8 @@
                         "description": "- If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2\n"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -5061,7 +5069,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -5070,8 +5079,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5132,7 +5140,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -5203,7 +5212,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -5273,7 +5283,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -5282,8 +5293,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5344,7 +5354,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -5415,7 +5426,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -5485,7 +5497,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -5494,8 +5507,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5556,7 +5568,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -5627,7 +5640,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -5697,7 +5711,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -5706,8 +5721,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5768,7 +5782,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -5839,7 +5854,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -5909,7 +5925,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -5918,8 +5935,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5980,7 +5996,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -6051,7 +6068,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -6121,7 +6139,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -6130,8 +6149,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6192,7 +6210,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -6263,7 +6282,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -6333,7 +6353,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -6342,8 +6363,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6404,7 +6424,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -6475,7 +6496,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -6545,7 +6567,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -6554,8 +6577,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6616,7 +6638,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -6687,7 +6710,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -6757,7 +6781,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -6766,8 +6791,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6828,7 +6852,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -6899,7 +6924,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -6969,7 +6995,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -6978,8 +7005,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7040,7 +7066,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -7111,7 +7138,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -7181,7 +7209,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -7190,8 +7219,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7252,7 +7280,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -7323,7 +7352,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -7393,7 +7423,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -7402,8 +7433,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7464,7 +7494,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -7535,7 +7566,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -7605,7 +7637,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -7614,8 +7647,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7676,7 +7708,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -7747,7 +7780,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -7817,7 +7851,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -7826,8 +7861,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7888,7 +7922,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -7959,7 +7994,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -8029,7 +8065,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -8038,8 +8075,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8100,7 +8136,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -8171,7 +8208,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -8241,7 +8279,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -8250,8 +8289,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8312,7 +8350,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -8383,7 +8422,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -8453,7 +8493,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -8462,8 +8503,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8524,7 +8564,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -8595,7 +8636,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -8665,7 +8707,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -8674,8 +8717,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8736,7 +8778,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -8807,7 +8850,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -8877,7 +8921,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -8886,8 +8931,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8948,7 +8992,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -9019,7 +9064,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -9089,7 +9135,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -9098,8 +9145,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9160,7 +9206,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -9231,7 +9278,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -9301,7 +9349,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -9310,8 +9359,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9372,7 +9420,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -9443,7 +9492,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -9513,7 +9563,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -9522,8 +9573,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9584,7 +9634,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -9655,7 +9706,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -9725,7 +9777,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -9734,8 +9787,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9796,7 +9848,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -9867,7 +9920,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -9937,7 +9991,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -9946,8 +10001,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10008,7 +10062,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -10079,7 +10134,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -10149,7 +10205,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -10158,8 +10215,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10220,7 +10276,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -10291,7 +10348,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -10361,7 +10419,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -10370,8 +10429,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10432,7 +10490,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -10503,7 +10562,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -10573,7 +10633,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -10582,8 +10643,7 @@
                 "key",
                 "members",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10644,7 +10704,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -10715,7 +10776,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -11622,7 +11684,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -11630,8 +11693,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11685,7 +11747,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -11748,7 +11811,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -11811,7 +11875,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -11819,8 +11884,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11874,7 +11938,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -11937,7 +12002,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12000,7 +12066,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -12008,8 +12075,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12063,7 +12129,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -12126,7 +12193,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12189,7 +12257,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -12197,8 +12266,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12252,7 +12320,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -12315,7 +12384,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12378,7 +12448,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -12386,8 +12457,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12441,7 +12511,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -12504,7 +12575,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12567,7 +12639,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -12575,8 +12648,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12630,7 +12702,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -12693,7 +12766,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12756,7 +12830,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -12764,8 +12839,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12819,7 +12893,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -12882,7 +12957,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -12945,7 +13021,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -12953,8 +13030,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13008,7 +13084,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -13071,7 +13148,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -13134,7 +13212,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -13142,8 +13221,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13197,7 +13275,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -13260,7 +13339,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -13323,7 +13403,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -13331,8 +13412,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13386,7 +13466,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -13449,7 +13530,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -13536,7 +13618,8 @@
                     "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -13544,8 +13627,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13623,7 +13705,8 @@
                     "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -13710,7 +13793,8 @@
                         "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.\n"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -13773,7 +13857,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -13781,8 +13866,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13836,7 +13920,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -13899,7 +13984,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -13962,7 +14048,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -13970,8 +14057,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14025,7 +14111,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -14088,7 +14175,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -14175,7 +14263,8 @@
                     "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -14183,8 +14272,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14262,7 +14350,8 @@
                     "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository\n"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -14349,7 +14438,8 @@
                         "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).\nIf the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a \"409 Conflict\" error.\nYou can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository\n"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -14412,7 +14502,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -14420,8 +14511,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14475,7 +14565,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -14538,7 +14629,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -14609,7 +14701,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -14617,8 +14710,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14680,7 +14772,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -14751,7 +14844,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -14814,7 +14908,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -14822,8 +14917,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14877,7 +14971,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -14940,7 +15035,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -15003,7 +15099,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -15011,8 +15108,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15066,7 +15162,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -15129,7 +15226,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -15192,7 +15290,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -15200,8 +15299,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15255,7 +15353,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -15318,7 +15417,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -15665,7 +15765,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 },
                 "yumGroupFileNames": {
                     "type": "string",
@@ -15681,8 +15782,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15742,7 +15842,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 },
                 "yumGroupFileNames": {
                     "type": "string",
@@ -15819,7 +15920,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     },
                     "yumGroupFileNames": {
                         "type": "string",
@@ -15890,7 +15992,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -15898,8 +16001,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15953,7 +16055,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -16016,7 +16119,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -16079,7 +16183,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "required": [
@@ -16087,8 +16192,7 @@
                 "includesPattern",
                 "key",
                 "packageType",
-                "repoLayoutRef",
-                "xrayIndex"
+                "repoLayoutRef"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16142,7 +16246,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -16205,7 +16310,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
                     }
                 },
                 "type": "object"
@@ -17127,7 +17233,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -17159,8 +17266,7 @@
                 "synchronizeProperties",
                 "unusedArtifactsCleanupPeriodEnabled",
                 "unusedArtifactsCleanupPeriodHours",
-                "url",
-                "xrayIndex"
+                "url"
             ],
             "inputProperties": {
                 "allowAnyHostAuth": {
@@ -17299,7 +17405,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -17453,7 +17560,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -17617,7 +17725,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -17651,8 +17760,7 @@
                 "synchronizeProperties",
                 "unusedArtifactsCleanupPeriodEnabled",
                 "unusedArtifactsCleanupPeriodHours",
-                "url",
-                "xrayIndex"
+                "url"
             ],
             "inputProperties": {
                 "allowAnyHostAuth": {
@@ -17803,7 +17911,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -17968,7 +18077,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -18127,7 +18237,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -18158,8 +18269,7 @@
                 "synchronizeProperties",
                 "unusedArtifactsCleanupPeriodEnabled",
                 "unusedArtifactsCleanupPeriodHours",
-                "url",
-                "xrayIndex"
+                "url"
             ],
             "inputProperties": {
                 "allowAnyHostAuth": {
@@ -18305,7 +18415,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -18465,7 +18576,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -18617,7 +18729,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -18648,8 +18761,7 @@
                 "synchronizeProperties",
                 "unusedArtifactsCleanupPeriodEnabled",
                 "unusedArtifactsCleanupPeriodHours",
-                "url",
-                "xrayIndex"
+                "url"
             ],
             "inputProperties": {
                 "allowAnyHostAuth": {
@@ -18788,7 +18900,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -18941,7 +19054,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"
@@ -19093,7 +19207,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "required": [
@@ -19124,8 +19239,7 @@
                 "synchronizeProperties",
                 "unusedArtifactsCleanupPeriodEnabled",
                 "unusedArtifactsCleanupPeriodHours",
-                "url",
-                "xrayIndex"
+                "url"
             ],
             "inputProperties": {
                 "allowAnyHostAuth": {
@@ -19264,7 +19378,8 @@
                     "type": "string"
                 },
                 "xrayIndex": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                 }
             },
             "requiredInputs": [
@@ -19417,7 +19532,8 @@
                         "type": "string"
                     },
                     "xrayIndex": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.\n"
                     }
                 },
                 "type": "object"

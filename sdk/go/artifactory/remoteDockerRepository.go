@@ -124,9 +124,10 @@ type RemoteDockerRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntOutput  `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url       pulumi.StringOutput    `pulumi:"url"`
-	Username  pulumi.StringPtrOutput `pulumi:"username"`
-	XrayIndex pulumi.BoolOutput      `pulumi:"xrayIndex"`
+	Url      pulumi.StringOutput    `pulumi:"url"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewRemoteDockerRepository registers a new resource with the given unique name, arguments, and options.
@@ -238,9 +239,10 @@ type remoteDockerRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	UnusedArtifactsCleanupPeriodHours   *int  `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url       *string `pulumi:"url"`
-	Username  *string `pulumi:"username"`
-	XrayIndex *bool   `pulumi:"xrayIndex"`
+	Url      *string `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type RemoteDockerRepositoryState struct {
@@ -318,8 +320,9 @@ type RemoteDockerRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolPtrInput
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url       pulumi.StringPtrInput
-	Username  pulumi.StringPtrInput
+	Url      pulumi.StringPtrInput
+	Username pulumi.StringPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -399,9 +402,10 @@ type remoteDockerRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	UnusedArtifactsCleanupPeriodHours   *int  `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url       string  `pulumi:"url"`
-	Username  *string `pulumi:"username"`
-	XrayIndex *bool   `pulumi:"xrayIndex"`
+	Url      string  `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a RemoteDockerRepository resource.
@@ -477,8 +481,9 @@ type RemoteDockerRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolPtrInput
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url       pulumi.StringInput
-	Username  pulumi.StringPtrInput
+	Url      pulumi.StringInput
+	Username pulumi.StringPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
