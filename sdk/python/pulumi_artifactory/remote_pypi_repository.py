@@ -84,6 +84,7 @@ class RemotePypiRepositoryArgs:
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "url", url)
@@ -561,6 +562,9 @@ class RemotePypiRepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -642,6 +646,7 @@ class _RemotePypiRepositoryState:
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -1146,6 +1151,9 @@ class _RemotePypiRepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -1248,6 +1256,7 @@ class RemotePypiRepository(pulumi.CustomResource):
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         ...
     @overload
@@ -1470,6 +1479,7 @@ class RemotePypiRepository(pulumi.CustomResource):
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1779,6 +1789,9 @@ class RemotePypiRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

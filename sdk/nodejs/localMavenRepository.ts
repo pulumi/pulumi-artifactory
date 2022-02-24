@@ -120,7 +120,11 @@ export class LocalMavenRepository extends pulumi.CustomResource {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository
      */
     public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LocalMavenRepository resource with the given unique name, arguments, and options.
@@ -258,6 +262,10 @@ export interface LocalMavenRepositoryState {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -330,5 +338,9 @@ export interface LocalMavenRepositoryArgs {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

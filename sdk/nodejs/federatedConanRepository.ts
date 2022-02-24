@@ -95,7 +95,11 @@ export class FederatedConanRepository extends pulumi.CustomResource {
     public readonly projectKey!: pulumi.Output<string | undefined>;
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly repoLayoutRef!: pulumi.Output<string>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FederatedConanRepository resource with the given unique name, arguments, and options.
@@ -196,6 +200,10 @@ export interface FederatedConanRepositoryState {
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -238,5 +246,9 @@ export interface FederatedConanRepositoryArgs {
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
