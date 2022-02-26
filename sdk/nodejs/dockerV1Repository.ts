@@ -99,7 +99,11 @@ export class DockerV1Repository extends pulumi.CustomResource {
      * manifest V2
      */
     public /*out*/ readonly tagRetention!: pulumi.Output<number>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DockerV1Repository resource with the given unique name, arguments, and options.
@@ -218,6 +222,10 @@ export interface DockerV1RepositoryState {
      * manifest V2
      */
     tagRetention?: pulumi.Input<number>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -262,5 +270,9 @@ export interface DockerV1RepositoryArgs {
     projectKey?: pulumi.Input<string>;
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

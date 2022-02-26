@@ -74,7 +74,9 @@ type DockerV2Repository struct {
 	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
 	TagRetention pulumi.IntPtrOutput `pulumi:"tagRetention"`
-	XrayIndex    pulumi.BoolOutput   `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewDockerV2Repository registers a new resource with the given unique name, arguments, and options.
@@ -140,8 +142,10 @@ type dockerV2RepositoryState struct {
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
-	TagRetention *int  `pulumi:"tagRetention"`
-	XrayIndex    *bool `pulumi:"xrayIndex"`
+	TagRetention *int `pulumi:"tagRetention"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type DockerV2RepositoryState struct {
@@ -177,7 +181,9 @@ type DockerV2RepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
 	TagRetention pulumi.IntPtrInput
-	XrayIndex    pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DockerV2RepositoryState) ElementType() reflect.Type {
@@ -213,8 +219,10 @@ type dockerV2RepositoryArgs struct {
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
-	TagRetention *int  `pulumi:"tagRetention"`
-	XrayIndex    *bool `pulumi:"xrayIndex"`
+	TagRetention *int `pulumi:"tagRetention"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a DockerV2Repository resource.
@@ -248,7 +256,9 @@ type DockerV2RepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
 	TagRetention pulumi.IntPtrInput
-	XrayIndex    pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DockerV2RepositoryArgs) ElementType() reflect.Type {

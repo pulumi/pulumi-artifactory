@@ -72,8 +72,10 @@ type DockerV1Repository struct {
 	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
-	TagRetention pulumi.IntOutput  `pulumi:"tagRetention"`
-	XrayIndex    pulumi.BoolOutput `pulumi:"xrayIndex"`
+	TagRetention pulumi.IntOutput `pulumi:"tagRetention"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewDockerV1Repository registers a new resource with the given unique name, arguments, and options.
@@ -140,8 +142,10 @@ type dockerV1RepositoryState struct {
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
-	TagRetention *int  `pulumi:"tagRetention"`
-	XrayIndex    *bool `pulumi:"xrayIndex"`
+	TagRetention *int `pulumi:"tagRetention"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type DockerV1RepositoryState struct {
@@ -178,7 +182,9 @@ type DockerV1RepositoryState struct {
 	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
 	// manifest V2
 	TagRetention pulumi.IntPtrInput
-	XrayIndex    pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DockerV1RepositoryState) ElementType() reflect.Type {
@@ -211,7 +217,9 @@ type dockerV1RepositoryArgs struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a DockerV1Repository resource.
@@ -241,7 +249,9 @@ type DockerV1RepositoryArgs struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (DockerV1RepositoryArgs) ElementType() reflect.Type {

@@ -161,7 +161,10 @@ export class RemotePypiRepository extends pulumi.CustomResource {
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a RemotePypiRepository resource with the given unique name, arguments, and options.
@@ -381,6 +384,9 @@ export interface RemotePypiRepositoryState {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -490,5 +496,8 @@ export interface RemotePypiRepositoryArgs {
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

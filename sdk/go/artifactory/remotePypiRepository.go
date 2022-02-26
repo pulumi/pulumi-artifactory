@@ -114,7 +114,8 @@ type RemotePypiRepository struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 pulumi.StringOutput    `pulumi:"url"`
 	Username                            pulumi.StringPtrOutput `pulumi:"username"`
-	XrayIndex                           pulumi.BoolOutput      `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewRemotePypiRepository registers a new resource with the given unique name, arguments, and options.
@@ -221,7 +222,8 @@ type remotePypiRepositoryState struct {
 	UnusedArtifactsCleanupPeriodHours   *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 *string `pulumi:"url"`
 	Username                            *string `pulumi:"username"`
-	XrayIndex                           *bool   `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type RemotePypiRepositoryState struct {
@@ -294,7 +296,8 @@ type RemotePypiRepositoryState struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	Url                                 pulumi.StringPtrInput
 	Username                            pulumi.StringPtrInput
-	XrayIndex                           pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (RemotePypiRepositoryState) ElementType() reflect.Type {
@@ -368,7 +371,8 @@ type remotePypiRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodHours   *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 string  `pulumi:"url"`
 	Username                            *string `pulumi:"username"`
-	XrayIndex                           *bool   `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a RemotePypiRepository resource.
@@ -439,7 +443,8 @@ type RemotePypiRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	Url                                 pulumi.StringInput
 	Username                            pulumi.StringPtrInput
-	XrayIndex                           pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (RemotePypiRepositoryArgs) ElementType() reflect.Type {

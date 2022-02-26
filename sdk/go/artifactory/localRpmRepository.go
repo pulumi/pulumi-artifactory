@@ -68,7 +68,9 @@ type LocalRpmRepository struct {
 	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
 	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
 	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrOutput `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -131,7 +133,9 @@ type localRpmRepositoryState struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -163,7 +167,9 @@ type LocalRpmRepositoryState struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -198,7 +204,9 @@ type localRpmRepositoryArgs struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames *string `pulumi:"yumGroupFileNames"`
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -230,7 +238,9 @@ type LocalRpmRepositoryArgs struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 	// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
 	YumGroupFileNames pulumi.StringPtrInput
 	// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.

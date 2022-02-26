@@ -123,7 +123,8 @@ type RemoteHelmRepository struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 pulumi.StringOutput    `pulumi:"url"`
 	Username                            pulumi.StringPtrOutput `pulumi:"username"`
-	XrayIndex                           pulumi.BoolOutput      `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewRemoteHelmRepository registers a new resource with the given unique name, arguments, and options.
@@ -235,7 +236,8 @@ type remoteHelmRepositoryState struct {
 	UnusedArtifactsCleanupPeriodHours   *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 *string `pulumi:"url"`
 	Username                            *string `pulumi:"username"`
-	XrayIndex                           *bool   `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type RemoteHelmRepositoryState struct {
@@ -313,7 +315,8 @@ type RemoteHelmRepositoryState struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	Url                                 pulumi.StringPtrInput
 	Username                            pulumi.StringPtrInput
-	XrayIndex                           pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (RemoteHelmRepositoryState) ElementType() reflect.Type {
@@ -392,7 +395,8 @@ type remoteHelmRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodHours   *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
 	Url                                 string  `pulumi:"url"`
 	Username                            *string `pulumi:"username"`
-	XrayIndex                           *bool   `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a RemoteHelmRepository resource.
@@ -468,7 +472,8 @@ type RemoteHelmRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodHours   pulumi.IntPtrInput
 	Url                                 pulumi.StringInput
 	Username                            pulumi.StringPtrInput
-	XrayIndex                           pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (RemoteHelmRepositoryArgs) ElementType() reflect.Type {

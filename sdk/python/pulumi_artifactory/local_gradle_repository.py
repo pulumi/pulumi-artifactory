@@ -59,6 +59,8 @@ class LocalGradleRepositoryArgs:
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         if archive_browsing_enabled is not None:
@@ -320,6 +322,10 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -377,6 +383,8 @@ class _LocalGradleRepositoryState:
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -650,6 +658,10 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -730,6 +742,8 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -890,6 +904,8 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1066,6 +1082,10 @@ class LocalGradleRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

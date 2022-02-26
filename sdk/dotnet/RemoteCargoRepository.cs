@@ -228,8 +228,11 @@ namespace Pulumi.Artifactory
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         [Output("xrayIndex")]
-        public Output<bool> XrayIndex { get; private set; } = null!;
+        public Output<bool?> XrayIndex { get; private set; } = null!;
 
 
         /// <summary>
@@ -464,6 +467,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public Input<string>? Username { get; set; }
 
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
 
@@ -667,6 +673,9 @@ namespace Pulumi.Artifactory
         [Input("username")]
         public Input<string>? Username { get; set; }
 
+        /// <summary>
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
 

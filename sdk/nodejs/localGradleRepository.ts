@@ -120,7 +120,11 @@ export class LocalGradleRepository extends pulumi.CustomResource {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      */
     public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LocalGradleRepository resource with the given unique name, arguments, and options.
@@ -258,6 +262,10 @@ export interface LocalGradleRepositoryState {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -330,5 +338,9 @@ export interface LocalGradleRepositoryArgs {
      * You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
      */
     suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

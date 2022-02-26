@@ -62,7 +62,9 @@ type LocalSbtRepository struct {
 	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
 	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
 	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
-	XrayIndex     pulumi.BoolOutput        `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewLocalSbtRepository registers a new resource with the given unique name, arguments, and options.
@@ -119,7 +121,9 @@ type localSbtRepositoryState struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type LocalSbtRepositoryState struct {
@@ -145,7 +149,9 @@ type LocalSbtRepositoryState struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (LocalSbtRepositoryState) ElementType() reflect.Type {
@@ -174,7 +180,9 @@ type localSbtRepositoryArgs struct {
 	ProjectKey    *string  `pulumi:"projectKey"`
 	PropertySets  []string `pulumi:"propertySets"`
 	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
-	XrayIndex     *bool    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalSbtRepository resource.
@@ -200,7 +208,9 @@ type LocalSbtRepositoryArgs struct {
 	ProjectKey    pulumi.StringPtrInput
 	PropertySets  pulumi.StringArrayInput
 	RepoLayoutRef pulumi.StringPtrInput
-	XrayIndex     pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (LocalSbtRepositoryArgs) ElementType() reflect.Type {

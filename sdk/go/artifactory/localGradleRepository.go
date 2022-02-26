@@ -90,7 +90,9 @@ type LocalGradleRepository struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 	SuppressPomConsistencyChecks pulumi.BoolPtrOutput `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    pulumi.BoolOutput    `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
 // NewLocalGradleRepository registers a new resource with the given unique name, arguments, and options.
@@ -169,7 +171,9 @@ type localGradleRepositoryState struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type LocalGradleRepositoryState struct {
@@ -217,7 +221,9 @@ type LocalGradleRepositoryState struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
-	XrayIndex                    pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (LocalGradleRepositoryState) ElementType() reflect.Type {
@@ -268,7 +274,9 @@ type localGradleRepositoryArgs struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
-	XrayIndex                    *bool `pulumi:"xrayIndex"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a LocalGradleRepository resource.
@@ -316,7 +324,9 @@ type LocalGradleRepositoryArgs struct {
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
 	// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
-	XrayIndex                    pulumi.BoolPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+	// Xray settings.
+	XrayIndex pulumi.BoolPtrInput
 }
 
 func (LocalGradleRepositoryArgs) ElementType() reflect.Type {
