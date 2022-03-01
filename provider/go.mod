@@ -10,6 +10,6 @@ replace (
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
 	github.com/jfrog/terraform-provider-artifactory/v2 v2.20.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
-	github.com/pulumi/pulumi/sdk/v3 v3.23.2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.19.1
+	github.com/pulumi/pulumi/sdk/v3 v3.25.0
 )

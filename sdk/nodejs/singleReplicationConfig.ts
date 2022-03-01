@@ -5,6 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.LocalRepository("provider_test_source", {
+ *     key: "provider_test_source",
+ *     packageType: "maven",
+ * });
+ * const providerTestDest = new artifactory.LocalRepository("provider_test_dest", {
+ *     key: "provider_test_dest",
+ *     packageType: "maven",
+ * });
+ * const foo_rep = new artifactory.SingleReplicationConfig("foo-rep", {
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     password: var_artifactory_password,
+ *     repoKey: providerTestSource.key,
+ *     url: var_artifactory_url,
+ *     username: var_artifactory_username,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Replication configs can be imported using their repo key, e.g.

@@ -50,6 +50,16 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory API key for the configured user
+        ci = artifactory.ApiKey("ci")
+        ```
+
         ## Import
 
         A user's API key can be imported using any identifier, e.g.
@@ -68,6 +78,16 @@ class ApiKey(pulumi.CustomResource):
                  args: Optional[ApiKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory API key for the configured user
+        ci = artifactory.ApiKey("ci")
+        ```
+
         ## Import
 
         A user's API key can be imported using any identifier, e.g.

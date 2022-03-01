@@ -10,6 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Artifactory API key for the configured user
+    ///         var ci = new Artifactory.ApiKey("ci", new Artifactory.ApiKeyArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// A user's API key can be imported using any identifier, e.g.

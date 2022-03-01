@@ -5,6 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory user called terraform
+ * const test_user = new artifactory.User("test-user", {
+ *     email: "test-user@artifactory-terraform.com",
+ *     groups: [
+ *         "logged-in-users",
+ *         "readers",
+ *     ],
+ *     password: "my super secret password",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Users can be imported using their name, e.g.

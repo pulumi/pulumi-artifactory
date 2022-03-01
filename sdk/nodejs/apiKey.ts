@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory API key for the configured user
+ * const ci = new artifactory.ApiKey("ci", {});
+ * ```
+ *
  * ## Import
  *
  * A user's API key can be imported using any identifier, e.g.

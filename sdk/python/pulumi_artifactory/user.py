@@ -295,6 +295,22 @@ class User(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory user called terraform
+        test_user = artifactory.User("test-user",
+            email="test-user@artifactory-terraform.com",
+            groups=[
+                "logged-in-users",
+                "readers",
+            ],
+            password="my super secret password")
+        ```
+
         ## Import
 
         Users can be imported using their name, e.g.
@@ -321,6 +337,22 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory user called terraform
+        test_user = artifactory.User("test-user",
+            email="test-user@artifactory-terraform.com",
+            groups=[
+                "logged-in-users",
+                "readers",
+            ],
+            password="my super secret password")
+        ```
+
         ## Import
 
         Users can be imported using their name, e.g.

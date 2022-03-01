@@ -10,6 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Artifactory remote repository called my-remote
+    ///         var my_remote = new Artifactory.RemoteRepository("my-remote", new Artifactory.RemoteRepositoryArgs
+    ///         {
+    ///             Key = "my-remote",
+    ///             PackageType = "npm",
+    ///             RepoLayoutRef = "npm-default",
+    ///             Url = "https://registry.npmjs.org/",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Remote repositories can be imported using their name, e.g.

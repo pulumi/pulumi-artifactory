@@ -10,6 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a replication between two artifactory local repositories
+    ///         var providerTestSource = new Artifactory.LocalRepository("providerTestSource", new Artifactory.LocalRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_source",
+    ///             PackageType = "maven",
+    ///         });
+    ///         var providerTestDest = new Artifactory.LocalRepository("providerTestDest", new Artifactory.LocalRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_dest",
+    ///             PackageType = "maven",
+    ///         });
+    ///         var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new Artifactory.ReplicationConfigArgs
+    ///         {
+    ///             CronExp = "0 0 * * * ?",
+    ///             EnableEventReplication = true,
+    ///             Replications = 
+    ///             {
+    ///                 new Artifactory.Inputs.ReplicationConfigReplicationArgs
+    ///                 {
+    ///                     Password = "$var.artifactory_password",
+    ///                     Url = "$var.artifactory_url",
+    ///                     Username = "$var.artifactory_username",
+    ///                 },
+    ///             },
+    ///             RepoKey = providerTestSource.Key,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Replication configs can be imported using their repo key, e.g.

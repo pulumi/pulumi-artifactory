@@ -11,6 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewRemoteRepository(ctx, "my-remote", &artifactory.RemoteRepositoryArgs{
+// 			Key:           pulumi.String("my-remote"),
+// 			PackageType:   pulumi.String("npm"),
+// 			RepoLayoutRef: pulumi.String("npm-default"),
+// 			Url:           pulumi.String("https://registry.npmjs.org/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Remote repositories can be imported using their name, e.g.

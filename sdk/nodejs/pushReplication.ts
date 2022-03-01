@@ -6,6 +6,33 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.LocalRepository("provider_test_source", {
+ *     key: "provider_test_source",
+ *     packageType: "maven",
+ * });
+ * const providerTestDest = new artifactory.LocalRepository("provider_test_dest", {
+ *     key: "provider_test_dest",
+ *     packageType: "maven",
+ * });
+ * const foo_rep = new artifactory.PushReplication("foo-rep", {
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     replications: [{
+ *         password: "$var.artifactory_password",
+ *         url: "$var.artifactory_url",
+ *         username: "$var.artifactory_username",
+ *     }],
+ *     repoKey: providerTestSource.key,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Push replication configs can be imported using their repo key, e.g.

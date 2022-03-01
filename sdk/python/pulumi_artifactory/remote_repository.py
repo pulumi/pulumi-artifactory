@@ -1265,6 +1265,20 @@ class RemoteRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory remote repository called my-remote
+        my_remote = artifactory.RemoteRepository("my-remote",
+            key="my-remote",
+            package_type="npm",
+            repo_layout_ref="npm-default",
+            url="https://registry.npmjs.org/")
+        ```
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
@@ -1287,6 +1301,20 @@ class RemoteRepository(pulumi.CustomResource):
                  args: RemoteRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory remote repository called my-remote
+        my_remote = artifactory.RemoteRepository("my-remote",
+            key="my-remote",
+            package_type="npm",
+            repo_layout_ref="npm-default",
+            url="https://registry.npmjs.org/")
+        ```
+
         ## Import
 
         Remote repositories can be imported using their name, e.g.
