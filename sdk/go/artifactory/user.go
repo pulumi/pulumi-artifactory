@@ -11,6 +11,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewUser(ctx, "test-user", &artifactory.UserArgs{
+// 			Email: pulumi.String("test-user@artifactory-terraform.com"),
+// 			Groups: pulumi.StringArray{
+// 				pulumi.String("logged-in-users"),
+// 				pulumi.String("readers"),
+// 			},
+// 			Password: pulumi.String("my super secret password"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Users can be imported using their name, e.g.

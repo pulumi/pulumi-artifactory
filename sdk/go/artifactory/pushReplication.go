@@ -11,6 +11,54 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		providerTestSource, err := artifactory.NewLocalRepository(ctx, "providerTestSource", &artifactory.LocalRepositoryArgs{
+// 			Key:         pulumi.String("provider_test_source"),
+// 			PackageType: pulumi.String("maven"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewLocalRepository(ctx, "providerTestDest", &artifactory.LocalRepositoryArgs{
+// 			Key:         pulumi.String("provider_test_dest"),
+// 			PackageType: pulumi.String("maven"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
+// 			CronExp:                pulumi.String("0 0 * * * ?"),
+// 			EnableEventReplication: pulumi.Bool(true),
+// 			Replications: PushReplicationReplicationArray{
+// 				&PushReplicationReplicationArgs{
+// 					Password: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_password")),
+// 					Url:      pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_url")),
+// 					Username: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_username")),
+// 				},
+// 			},
+// 			RepoKey: providerTestSource.Key,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Push replication configs can be imported using their repo key, e.g.

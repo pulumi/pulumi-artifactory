@@ -6,6 +6,21 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory remote repository called my-remote
+ * const my_remote = new artifactory.RemoteRepository("my-remote", {
+ *     key: "my-remote",
+ *     packageType: "npm",
+ *     repoLayoutRef: "npm-default",
+ *     url: "https://registry.npmjs.org/",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Remote repositories can be imported using their name, e.g.

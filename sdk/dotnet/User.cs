@@ -10,6 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Artifactory user called terraform
+    ///         var test_user = new Artifactory.User("test-user", new Artifactory.UserArgs
+    ///         {
+    ///             Email = "test-user@artifactory-terraform.com",
+    ///             Groups = 
+    ///             {
+    ///                 "logged-in-users",
+    ///                 "readers",
+    ///             },
+    ///             Password = "my super secret password",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Users can be imported using their name, e.g.
