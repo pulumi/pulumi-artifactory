@@ -11,6 +11,7 @@ from .api_key import *
 from .artifact_property_webhook import *
 from .artifact_webhook import *
 from .artifactory_release_bundle_webhook import *
+from .backup import *
 from .build_webhook import *
 from .certificate import *
 from .debian_repository import *
@@ -86,7 +87,9 @@ from .push_replication import *
 from .release_bundle_webhook import *
 from .remote_cargo_repository import *
 from .remote_docker_repository import *
+from .remote_gradle_repository import *
 from .remote_helm_repository import *
+from .remote_maven_repository import *
 from .remote_npm_repository import *
 from .remote_pypi_repository import *
 from .remote_repository import *
@@ -160,6 +163,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook": "ArtifactoryReleaseBundleWebhook"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/backup",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/backup:Backup": "Backup"
   }
  },
  {
@@ -740,10 +751,26 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteGradleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteGradleRepository:RemoteGradleRepository": "RemoteGradleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteHelmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteHelmRepository:RemoteHelmRepository": "RemoteHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteMavenRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteMavenRepository:RemoteMavenRepository": "RemoteMavenRepository"
   }
  },
  {

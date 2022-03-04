@@ -39,11 +39,18 @@ class LocalGradleRepositoryArgs:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
                "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
                "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -51,6 +58,8 @@ class LocalGradleRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -131,6 +140,9 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -163,6 +175,10 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -172,6 +188,10 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -205,6 +225,10 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -274,6 +298,9 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -283,6 +310,9 @@ class LocalGradleRepositoryArgs:
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository layout key for the local repository
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
@@ -362,11 +392,18 @@ class _LocalGradleRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
                "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
                "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
@@ -375,6 +412,8 @@ class _LocalGradleRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -446,6 +485,9 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -478,6 +520,10 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -487,6 +533,10 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -520,6 +570,10 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -610,6 +664,9 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -619,6 +676,9 @@ class _LocalGradleRepositoryState:
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository layout key for the local repository
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @repo_layout_ref.setter
@@ -698,7 +758,7 @@ class LocalGradleRepository(pulumi.CustomResource):
         """
         ## # Artifactory Local Gradle Repository Resource
 
-        Creates a local Gradle repository and allows for the creation of a
+        Creates a local Gradle repository
 
         ## Example Usage
 
@@ -721,11 +781,18 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
                "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
                "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
@@ -734,6 +801,8 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -754,7 +823,7 @@ class LocalGradleRepository(pulumi.CustomResource):
         """
         ## # Artifactory Local Gradle Repository Resource
 
-        Creates a local Gradle repository and allows for the creation of a
+        Creates a local Gradle repository
 
         ## Example Usage
 
@@ -883,11 +952,18 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
                "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
                "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
         :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
         :param pulumi.Input[int] max_unique_snapshots: - The maximum number of unique snapshots of a single artifact to store.
                Once the number of snapshots exceeds this setting, older versions are removed.
@@ -896,6 +972,8 @@ class LocalGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
                Unique: Version number is based on a time-stamp (default)
@@ -947,6 +1025,9 @@ class LocalGradleRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
@@ -967,11 +1048,19 @@ class LocalGradleRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
@@ -993,6 +1082,10 @@ class LocalGradleRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
@@ -1051,11 +1144,17 @@ class LocalGradleRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[str]:
+        """
+        Repository layout key for the local repository
+        """
         return pulumi.get(self, "repo_layout_ref")
 
     @property

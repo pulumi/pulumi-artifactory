@@ -43,7 +43,7 @@ class MavenRepositoryArgs:
         :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -179,7 +179,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        The keypair used to sign artifacts
         """
         return pulumi.get(self, "key_pair")
 
@@ -309,7 +309,7 @@ class _MavenRepositoryState:
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
@@ -449,7 +449,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        The keypair used to sign artifacts
         """
         return pulumi.get(self, "key_pair")
 
@@ -637,7 +637,7 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -805,7 +805,7 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
@@ -906,7 +906,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
         """
-        - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        The keypair used to sign artifacts
         """
         return pulumi.get(self, "key_pair")
 

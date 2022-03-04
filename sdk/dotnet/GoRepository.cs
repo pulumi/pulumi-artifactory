@@ -85,13 +85,13 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         /// </summary>
         [Output("externalDependenciesEnabled")]
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// - 'go-import' Allow List on the UI.
+        /// 'go-import' Allow List on the UI.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -239,7 +239,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// - 'go-import' Allow List on the UI.
+        /// 'go-import' Allow List on the UI.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -348,7 +348,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// - 'go-import' Allow List on the UI.
+        /// 'go-import' Allow List on the UI.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {

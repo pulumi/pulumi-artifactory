@@ -47,14 +47,21 @@ type LocalRpmRepository struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled  pulumi.BoolPtrOutput   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
-	CalculateYumMetadata    pulumi.BoolPtrOutput   `pulumi:"calculateYumMetadata"`
-	Description             pulumi.StringPtrOutput `pulumi:"description"`
-	DownloadDirect          pulumi.BoolPtrOutput   `pulumi:"downloadDirect"`
-	EnableFileListsIndexing pulumi.BoolPtrOutput   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         pulumi.StringOutput    `pulumi:"excludesPattern"`
-	IncludesPattern         pulumi.StringOutput    `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut           pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
+	CalculateYumMetadata pulumi.BoolPtrOutput   `pulumi:"calculateYumMetadata"`
+	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect          pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// artifacts are excluded.
+	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key         pulumi.StringOutput    `pulumi:"key"`
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
@@ -65,9 +72,11 @@ type LocalRpmRepository struct {
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
 	// with project key, separated by a dash.
-	ProjectKey    pulumi.StringPtrOutput   `pulumi:"projectKey"`
-	PropertySets  pulumi.StringArrayOutput `pulumi:"propertySets"`
-	RepoLayoutRef pulumi.StringOutput      `pulumi:"repoLayoutRef"`
+	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
@@ -112,14 +121,21 @@ type localRpmRepositoryState struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	Description             *string `pulumi:"description"`
-	DownloadDirect          *bool   `pulumi:"downloadDirect"`
-	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         *string `pulumi:"excludesPattern"`
-	IncludesPattern         *string `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut           *bool   `pulumi:"blackedOut"`
+	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
+	Description          *string `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// artifacts are excluded.
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key         *string `pulumi:"key"`
 	Notes       *string `pulumi:"notes"`
@@ -130,9 +146,11 @@ type localRpmRepositoryState struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
 	// with project key, separated by a dash.
-	ProjectKey    *string  `pulumi:"projectKey"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	ProjectKey *string `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets []string `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -146,14 +164,21 @@ type LocalRpmRepositoryState struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput
-	BlackedOut              pulumi.BoolPtrInput
-	CalculateYumMetadata    pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut           pulumi.BoolPtrInput
+	CalculateYumMetadata pulumi.BoolPtrInput
+	Description          pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	ExcludesPattern         pulumi.StringPtrInput
-	IncludesPattern         pulumi.StringPtrInput
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrInput
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrInput
 	// - the identity key of the repo
 	Key         pulumi.StringPtrInput
 	Notes       pulumi.StringPtrInput
@@ -164,8 +189,10 @@ type LocalRpmRepositoryState struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
 	// with project key, separated by a dash.
-	ProjectKey    pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
+	ProjectKey pulumi.StringPtrInput
+	// List of property set name
+	PropertySets pulumi.StringArrayInput
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -184,14 +211,21 @@ type localRpmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled  *bool   `pulumi:"archiveBrowsingEnabled"`
-	BlackedOut              *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata    *bool   `pulumi:"calculateYumMetadata"`
-	Description             *string `pulumi:"description"`
-	DownloadDirect          *bool   `pulumi:"downloadDirect"`
-	EnableFileListsIndexing *bool   `pulumi:"enableFileListsIndexing"`
-	ExcludesPattern         *string `pulumi:"excludesPattern"`
-	IncludesPattern         *string `pulumi:"includesPattern"`
+	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut           *bool   `pulumi:"blackedOut"`
+	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
+	Description          *string `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only.
+	DownloadDirect          *bool `pulumi:"downloadDirect"`
+	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// artifacts are excluded.
+	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
@@ -201,9 +235,11 @@ type localRpmRepositoryArgs struct {
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
 	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
 	// with project key, separated by a dash.
-	ProjectKey    *string  `pulumi:"projectKey"`
-	PropertySets  []string `pulumi:"propertySets"`
-	RepoLayoutRef *string  `pulumi:"repoLayoutRef"`
+	ProjectKey *string `pulumi:"projectKey"`
+	// List of property set name
+	PropertySets []string `pulumi:"propertySets"`
+	// Repository layout key for the local repository
+	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -218,14 +254,21 @@ type LocalRpmRepositoryArgs struct {
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
-	ArchiveBrowsingEnabled  pulumi.BoolPtrInput
-	BlackedOut              pulumi.BoolPtrInput
-	CalculateYumMetadata    pulumi.BoolPtrInput
-	Description             pulumi.StringPtrInput
+	ArchiveBrowsingEnabled pulumi.BoolPtrInput
+	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+	BlackedOut           pulumi.BoolPtrInput
+	CalculateYumMetadata pulumi.BoolPtrInput
+	Description          pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
 	EnableFileListsIndexing pulumi.BoolPtrInput
-	ExcludesPattern         pulumi.StringPtrInput
-	IncludesPattern         pulumi.StringPtrInput
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+	// artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrInput
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	IncludesPattern pulumi.StringPtrInput
 	// - the identity key of the repo
 	Key   pulumi.StringInput
 	Notes pulumi.StringPtrInput
@@ -235,8 +278,10 @@ type LocalRpmRepositoryArgs struct {
 	ProjectEnvironments pulumi.StringArrayInput
 	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
 	// with project key, separated by a dash.
-	ProjectKey    pulumi.StringPtrInput
-	PropertySets  pulumi.StringArrayInput
+	ProjectKey pulumi.StringPtrInput
+	// List of property set name
+	PropertySets pulumi.StringArrayInput
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

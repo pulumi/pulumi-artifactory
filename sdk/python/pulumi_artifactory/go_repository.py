@@ -39,8 +39,8 @@ class GoRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: - 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
@@ -150,7 +150,7 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -162,7 +162,7 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - 'go-import' Allow List on the UI.
+        'go-import' Allow List on the UI.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -286,8 +286,8 @@ class _GoRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: - 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -390,7 +390,7 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -402,7 +402,7 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        - 'go-import' Allow List on the UI.
+        'go-import' Allow List on the UI.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -589,8 +589,8 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: - 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -744,8 +744,8 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: - 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -822,7 +822,7 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -830,7 +830,7 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        - 'go-import' Allow List on the UI.
+        'go-import' Allow List on the UI.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

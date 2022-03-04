@@ -11,6 +11,7 @@ export * from "./apiKey";
 export * from "./artifactPropertyWebhook";
 export * from "./artifactWebhook";
 export * from "./artifactoryReleaseBundleWebhook";
+export * from "./backup";
 export * from "./buildWebhook";
 export * from "./certificate";
 export * from "./debianRepository";
@@ -86,7 +87,9 @@ export * from "./pushReplication";
 export * from "./releaseBundleWebhook";
 export * from "./remoteCargoRepository";
 export * from "./remoteDockerRepository";
+export * from "./remoteGradleRepository";
 export * from "./remoteHelmRepository";
+export * from "./remoteMavenRepository";
 export * from "./remoteNpmRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRepository";
@@ -118,6 +121,7 @@ import { ApiKey } from "./apiKey";
 import { ArtifactPropertyWebhook } from "./artifactPropertyWebhook";
 import { ArtifactWebhook } from "./artifactWebhook";
 import { ArtifactoryReleaseBundleWebhook } from "./artifactoryReleaseBundleWebhook";
+import { Backup } from "./backup";
 import { BuildWebhook } from "./buildWebhook";
 import { Certificate } from "./certificate";
 import { DebianRepository } from "./debianRepository";
@@ -190,7 +194,9 @@ import { PushReplication } from "./pushReplication";
 import { ReleaseBundleWebhook } from "./releaseBundleWebhook";
 import { RemoteCargoRepository } from "./remoteCargoRepository";
 import { RemoteDockerRepository } from "./remoteDockerRepository";
+import { RemoteGradleRepository } from "./remoteGradleRepository";
 import { RemoteHelmRepository } from "./remoteHelmRepository";
+import { RemoteMavenRepository } from "./remoteMavenRepository";
 import { RemoteNpmRepository } from "./remoteNpmRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRepository } from "./remoteRepository";
@@ -222,6 +228,8 @@ const _module = {
                 return new ArtifactWebhook(name, <any>undefined, { urn })
             case "artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook":
                 return new ArtifactoryReleaseBundleWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/backup:Backup":
+                return new Backup(name, <any>undefined, { urn })
             case "artifactory:index/buildWebhook:BuildWebhook":
                 return new BuildWebhook(name, <any>undefined, { urn })
             case "artifactory:index/certificate:Certificate":
@@ -366,8 +374,12 @@ const _module = {
                 return new RemoteCargoRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
                 return new RemoteDockerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteGradleRepository:RemoteGradleRepository":
+                return new RemoteGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
+                return new RemoteMavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
                 return new RemoteNpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
@@ -407,6 +419,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactoryReleaseBundleWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/backup", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/buildWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/certificate", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/debianRepository", _module)
@@ -479,7 +492,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _m
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteDockerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)

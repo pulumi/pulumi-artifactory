@@ -42,7 +42,7 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] primary_keypair_ref: - The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -51,7 +51,7 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: - The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -175,7 +175,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -250,7 +250,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -293,7 +293,7 @@ class _VirtualRpmRepositoryState:
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: - The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -302,7 +302,7 @@ class _VirtualRpmRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: - The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -441,7 +441,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -516,7 +516,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -601,7 +601,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] primary_keypair_ref: - The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -610,7 +610,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: - The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
         """
         ...
     @overload
@@ -763,7 +763,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: - The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -772,7 +772,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: - The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -869,7 +869,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        - The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -920,7 +920,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        - The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

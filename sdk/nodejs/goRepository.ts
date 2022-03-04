@@ -88,11 +88,11 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * - 'go-import' Allow List on the UI.
+     * 'go-import' Allow List on the UI.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -216,11 +216,11 @@ export interface GoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * - 'go-import' Allow List on the UI.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -291,11 +291,11 @@ export interface GoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * - 'go-import' Allow List on the UI.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

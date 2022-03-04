@@ -117,7 +117,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * - The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -144,7 +144,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * - The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
 
@@ -245,7 +245,7 @@ export interface VirtualRpmRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * - The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface VirtualRpmRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * - The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }
@@ -316,7 +316,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * - The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -343,7 +343,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * - The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

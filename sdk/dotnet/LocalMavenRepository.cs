@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Gradle Repository Resource
+    /// ## # Artifactory Local Maven Repository Resource
     /// 
-    /// Creates a local Maven repository and allows for the creation of a
+    /// Creates a local Maven repository
     /// 
     /// ## Example Usage
     /// 
@@ -50,6 +50,9 @@ namespace Pulumi.Artifactory
         [Output("archiveBrowsingEnabled")]
         public Output<bool?> ArchiveBrowsingEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Output("blackedOut")]
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
@@ -64,9 +67,17 @@ namespace Pulumi.Artifactory
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Output("downloadDirect")]
         public Output<bool?> DownloadDirect { get; private set; } = null!;
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
@@ -82,6 +93,10 @@ namespace Pulumi.Artifactory
         [Output("handleSnapshots")]
         public Output<bool?> HandleSnapshots { get; private set; } = null!;
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
@@ -124,9 +139,15 @@ namespace Pulumi.Artifactory
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
 
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         [Output("repoLayoutRef")]
         public Output<string> RepoLayoutRef { get; private set; } = null!;
 
@@ -209,6 +230,9 @@ namespace Pulumi.Artifactory
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
@@ -223,9 +247,17 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
@@ -241,6 +273,10 @@ namespace Pulumi.Artifactory
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -288,12 +324,19 @@ namespace Pulumi.Artifactory
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public InputList<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new InputList<string>());
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
@@ -337,6 +380,9 @@ namespace Pulumi.Artifactory
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
@@ -351,9 +397,17 @@ namespace Pulumi.Artifactory
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
@@ -369,6 +423,10 @@ namespace Pulumi.Artifactory
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
@@ -419,12 +477,19 @@ namespace Pulumi.Artifactory
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public InputList<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new InputList<string>());
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Repository layout key for the local repository
+        /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 

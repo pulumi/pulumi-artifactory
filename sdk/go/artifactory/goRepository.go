@@ -71,9 +71,9 @@ type GoRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// - 'go-import' Allow List on the UI.
+	// 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -144,9 +144,9 @@ type goRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// - 'go-import' Allow List on the UI.
+	// 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -186,9 +186,9 @@ type GoRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// - 'go-import' Allow List on the UI.
+	// 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -232,9 +232,9 @@ type goRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// - 'go-import' Allow List on the UI.
+	// 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -273,9 +273,9 @@ type GoRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// . Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+	// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// - 'go-import' Allow List on the UI.
+	// 'go-import' Allow List on the UI.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).

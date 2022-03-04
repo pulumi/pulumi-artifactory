@@ -119,7 +119,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        /// The keypair used to sign artifacts
         /// </summary>
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
