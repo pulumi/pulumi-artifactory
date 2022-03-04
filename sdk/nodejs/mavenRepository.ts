@@ -114,7 +114,7 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+     * The keypair used to sign artifacts
      */
     public readonly keyPair!: pulumi.Output<string | undefined>;
     /**
@@ -248,7 +248,7 @@ export interface MavenRepositoryState {
      */
     key?: pulumi.Input<string>;
     /**
-     * - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+     * The keypair used to sign artifacts
      */
     keyPair?: pulumi.Input<string>;
     /**
@@ -327,7 +327,7 @@ export interface MavenRepositoryArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+     * The keypair used to sign artifacts
      */
     keyPair?: pulumi.Input<string>;
     /**

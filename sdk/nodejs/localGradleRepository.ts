@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Local Gradle Repository Resource
  *
- * Creates a local Gradle repository and allows for the creation of a
+ * Creates a local Gradle repository
  *
  * ## Example Usage
  *
@@ -60,6 +60,9 @@ export class LocalGradleRepository extends pulumi.CustomResource {
      * security (e.g., cross-site scripting attacks).
      */
     public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
      * - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -68,7 +71,15 @@ export class LocalGradleRepository extends pulumi.CustomResource {
      */
     public readonly checksumPolicyType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     public readonly excludesPattern!: pulumi.Output<string>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
@@ -78,6 +89,10 @@ export class LocalGradleRepository extends pulumi.CustomResource {
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
     public readonly handleSnapshots!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
      * - the identity key of the repo
@@ -104,7 +119,13 @@ export class LocalGradleRepository extends pulumi.CustomResource {
      * with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
+     * List of property set name
+     */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
+    /**
+     * Repository layout key for the local repository
+     */
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
@@ -202,6 +223,9 @@ export interface LocalGradleRepositoryState {
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     /**
      * - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -210,7 +234,15 @@ export interface LocalGradleRepositoryState {
      */
     checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
@@ -220,6 +252,10 @@ export interface LocalGradleRepositoryState {
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
     handleSnapshots?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * - the identity key of the repo
@@ -246,7 +282,13 @@ export interface LocalGradleRepositoryState {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Repository layout key for the local repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
@@ -279,6 +321,9 @@ export interface LocalGradleRepositoryArgs {
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     /**
      * - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
@@ -287,7 +332,15 @@ export interface LocalGradleRepositoryArgs {
      */
     checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
     /**
      * If set, Artifactory allows you to deploy release artifacts into this repository.
@@ -297,6 +350,10 @@ export interface LocalGradleRepositoryArgs {
      * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
      */
     handleSnapshots?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * - the identity key of the repo
@@ -322,7 +379,13 @@ export interface LocalGradleRepositoryArgs {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Repository layout key for the local repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.

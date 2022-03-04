@@ -55,31 +55,23 @@ export class RemotePypiRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
      */
     public readonly allowAnyHostAuth!: pulumi.Output<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
      */
     public readonly assumedOfflinePeriodSecs!: pulumi.Output<number | undefined>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
     public readonly blackedOut!: pulumi.Output<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     public readonly clientTlsCertificate!: pulumi.Output<string>;
@@ -92,20 +84,38 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     */
     public readonly excludesPattern!: pulumi.Output<string>;
     /**
+     * This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
+     *
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
     public /*out*/ readonly failedRetrievalCachePeriodSecs!: pulumi.Output<number>;
+    /**
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+     */
     public readonly hardFail!: pulumi.Output<boolean>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
      * The repository identifier. Must be unique system-wide
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+     */
+    public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
+    /**
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+     */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * This is actually the missedRetrievalCachePeriodSecs in the API
+     * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     public readonly missedCachePeriodSeconds!: pulumi.Output<number>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -127,7 +137,13 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of property set name
+     */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     public readonly proxy!: pulumi.Output<string>;
     /**
@@ -138,19 +154,25 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
      */
     public readonly pypiRepositorySuffix!: pulumi.Output<string | undefined>;
+    /**
+     * Repository layout key for the remote layout mapping
+     */
     public readonly remoteRepoLayoutRef!: pulumi.Output<string>;
+    /**
+     * Repository layout key for the remote repository
+     */
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number>;
     public readonly shareConfiguration!: pulumi.Output<boolean>;
+    /**
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+     */
     public readonly socketTimeoutMillis!: pulumi.Output<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
     public readonly storeArtifactsLocally!: pulumi.Output<boolean>;
     /**
@@ -158,7 +180,13 @@ export class RemotePypiRepository extends pulumi.CustomResource {
      */
     public readonly synchronizeProperties!: pulumi.Output<boolean>;
     public readonly unusedArtifactsCleanupPeriodEnabled!: pulumi.Output<boolean>;
+    /**
+     * The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
@@ -193,6 +221,7 @@ export class RemotePypiRepository extends pulumi.CustomResource {
             resourceInputs["hardFail"] = state ? state.hardFail : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = state ? state.localAddress : undefined;
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -240,6 +269,7 @@ export class RemotePypiRepository extends pulumi.CustomResource {
             resourceInputs["hardFail"] = args ? args.hardFail : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = args ? args.localAddress : undefined;
             resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -278,31 +308,23 @@ export class RemotePypiRepository extends pulumi.CustomResource {
  */
 export interface RemotePypiRepositoryState {
     /**
-     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
      */
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
@@ -315,20 +337,38 @@ export interface RemotePypiRepositoryState {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
     /**
+     * This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
+     *
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
     failedRetrievalCachePeriodSecs?: pulumi.Input<number>;
+    /**
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+     */
     hardFail?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * The repository identifier. Must be unique system-wide
      */
     key?: pulumi.Input<string>;
+    /**
+     * - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+     */
+    listRemoteFolderItems?: pulumi.Input<boolean>;
+    /**
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+     */
     localAddress?: pulumi.Input<string>;
     /**
-     * This is actually the missedRetrievalCachePeriodSecs in the API
+     * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     missedCachePeriodSeconds?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -350,7 +390,13 @@ export interface RemotePypiRepositoryState {
      * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
     propagateQueryParams?: pulumi.Input<boolean>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
     /**
@@ -361,19 +407,25 @@ export interface RemotePypiRepositoryState {
      * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
      */
     pypiRepositorySuffix?: pulumi.Input<string>;
+    /**
+     * Repository layout key for the remote layout mapping
+     */
     remoteRepoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Repository layout key for the remote repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     shareConfiguration?: pulumi.Input<boolean>;
+    /**
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+     */
     socketTimeoutMillis?: pulumi.Input<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
@@ -381,7 +433,13 @@ export interface RemotePypiRepositoryState {
      */
     synchronizeProperties?: pulumi.Input<boolean>;
     unusedArtifactsCleanupPeriodEnabled?: pulumi.Input<boolean>;
+    /**
+     * The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
@@ -395,31 +453,23 @@ export interface RemotePypiRepositoryState {
  */
 export interface RemotePypiRepositoryArgs {
     /**
-     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-     * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
      */
     assumedOfflinePeriodSecs?: pulumi.Input<number>;
     /**
-     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-     * resolution.
+     * (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
@@ -432,16 +482,32 @@ export interface RemotePypiRepositoryArgs {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+     */
     hardFail?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * The repository identifier. Must be unique system-wide
      */
     key: pulumi.Input<string>;
+    /**
+     * - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+     */
+    listRemoteFolderItems?: pulumi.Input<boolean>;
+    /**
+     * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+     */
     localAddress?: pulumi.Input<string>;
     /**
-     * This is actually the missedRetrievalCachePeriodSecs in the API
+     * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     missedCachePeriodSeconds?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -462,7 +528,13 @@ export interface RemotePypiRepositoryArgs {
      * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
+     */
     propagateQueryParams?: pulumi.Input<boolean>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     proxy?: pulumi.Input<string>;
     /**
@@ -473,19 +545,25 @@ export interface RemotePypiRepositoryArgs {
      * Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
      */
     pypiRepositorySuffix?: pulumi.Input<string>;
+    /**
+     * Repository layout key for the remote layout mapping
+     */
     remoteRepoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Repository layout key for the remote repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     shareConfiguration?: pulumi.Input<boolean>;
+    /**
+     * Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+     */
     socketTimeoutMillis?: pulumi.Input<number>;
     /**
-     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-     * direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-     * one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-     * servers.
+     * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
      */
     storeArtifactsLocally?: pulumi.Input<boolean>;
     /**
@@ -493,7 +571,13 @@ export interface RemotePypiRepositoryArgs {
      */
     synchronizeProperties?: pulumi.Input<boolean>;
     unusedArtifactsCleanupPeriodEnabled?: pulumi.Input<boolean>;
+    /**
+     * The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+     */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**

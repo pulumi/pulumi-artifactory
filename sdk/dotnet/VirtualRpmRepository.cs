@@ -125,7 +125,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - The primary GPG key to be used to sign packages
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Artifactory
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// - The secondary GPG key to be used to sign packages
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - The primary GPG key to be used to sign packages
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// - The secondary GPG key to be used to sign packages
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - The primary GPG key to be used to sign packages
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// - The secondary GPG key to be used to sign packages
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

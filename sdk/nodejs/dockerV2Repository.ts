@@ -60,23 +60,36 @@ export class DockerV2Repository extends pulumi.CustomResource {
      * security (e.g., cross-site scripting attacks).
      */
     public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
      * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     public readonly blockPushingSchema1!: pulumi.Output<boolean>;
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     public readonly excludesPattern!: pulumi.Output<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
      * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
-     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
-     * This only applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     public readonly maxUniqueTags!: pulumi.Output<number | undefined>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -94,7 +107,13 @@ export class DockerV2Repository extends pulumi.CustomResource {
      * with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
+     * List of property set name
+     */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
+    /**
+     * Repository layout key for the local repository
+     */
     public readonly repoLayoutRef!: pulumi.Output<string>;
     /**
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
@@ -182,23 +201,36 @@ export interface DockerV2RepositoryState {
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     /**
      * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     /**
-     * - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
-     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
-     * This only applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -216,7 +248,13 @@ export interface DockerV2RepositoryState {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Repository layout key for the local repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
@@ -239,23 +277,36 @@ export interface DockerV2RepositoryArgs {
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     /**
      * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
     excludesPattern?: pulumi.Input<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
     includesPattern?: pulumi.Input<string>;
     /**
      * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     /**
-     * - The maximum number of unique tags of a single Docker image to store in this repository.\n" +
-     * Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit.
-     * This only applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -272,7 +323,13 @@ export interface DockerV2RepositoryArgs {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Repository layout key for the local repository
+     */
     repoLayoutRef?: pulumi.Input<string>;
     /**
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2

@@ -105,7 +105,7 @@ type VirtualRpmRepository struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// - The primary GPG key to be used to sign packages
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -120,7 +120,7 @@ type VirtualRpmRepository struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	// - The secondary GPG key to be used to sign packages
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 }
 
@@ -178,7 +178,7 @@ type virtualRpmRepositoryState struct {
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// - The primary GPG key to be used to sign packages
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -193,7 +193,7 @@ type virtualRpmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// - The secondary GPG key to be used to sign packages
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -220,7 +220,7 @@ type VirtualRpmRepositoryState struct {
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// - The primary GPG key to be used to sign packages
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -235,7 +235,7 @@ type VirtualRpmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// - The secondary GPG key to be used to sign packages
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 
@@ -264,7 +264,7 @@ type virtualRpmRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// - The primary GPG key to be used to sign packages
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -279,7 +279,7 @@ type virtualRpmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// - The secondary GPG key to be used to sign packages
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -305,7 +305,7 @@ type VirtualRpmRepositoryArgs struct {
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// - The primary GPG key to be used to sign packages
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -320,7 +320,7 @@ type VirtualRpmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// - The secondary GPG key to be used to sign packages
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 

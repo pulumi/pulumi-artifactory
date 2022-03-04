@@ -97,7 +97,7 @@ type MavenRepository struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringOutput `pulumi:"key"`
-	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
@@ -172,7 +172,7 @@ type mavenRepositoryState struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key *string `pulumi:"key"`
-	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
@@ -216,7 +216,7 @@ type MavenRepositoryState struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringPtrInput
-	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
@@ -264,7 +264,7 @@ type mavenRepositoryArgs struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key string `pulumi:"key"`
-	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
@@ -307,7 +307,7 @@ type MavenRepositoryArgs struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringInput
-	// - Key pair to use for... well, I'm not sure. Maybe ssh auth to remote repo?
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
