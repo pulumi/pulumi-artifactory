@@ -2627,6 +2627,7 @@ class PushReplicationReplicationArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
                  sync_properties: Optional[pulumi.Input[bool]] = None,
@@ -2635,6 +2636,7 @@ class PushReplicationReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2642,6 +2644,8 @@ class PushReplicationReplicationArgs:
             pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
             pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
@@ -2684,6 +2688,18 @@ class PushReplicationReplicationArgs:
     @path_prefix.setter
     def path_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_prefix", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")
@@ -3335,6 +3351,7 @@ class ReplicationConfigReplicationArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
                  sync_properties: Optional[pulumi.Input[bool]] = None,
@@ -3343,6 +3360,7 @@ class ReplicationConfigReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3350,6 +3368,8 @@ class ReplicationConfigReplicationArgs:
             pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
             pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
@@ -3392,6 +3412,18 @@ class ReplicationConfigReplicationArgs:
     @path_prefix.setter
     def path_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_prefix", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")

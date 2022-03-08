@@ -39,6 +39,12 @@ namespace Pulumi.Artifactory
         [Output("pathPrefix")]
         public Output<string?> PathPrefix { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
+        [Output("proxy")]
+        public Output<string?> Proxy { get; private set; } = null!;
+
         [Output("repoKey")]
         public Output<string> RepoKey { get; private set; } = null!;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Artifactory
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
+
         [Input("repoKey", required: true)]
         public Input<string> RepoKey { get; set; } = null!;
 
@@ -163,6 +175,12 @@ namespace Pulumi.Artifactory
 
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
+
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
 
         [Input("repoKey")]
         public Input<string>? RepoKey { get; set; }

@@ -19,6 +19,10 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly string? Password;
         public readonly string? PathPrefix;
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
+        public readonly string? Proxy;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? SyncDeletes;
         public readonly bool? SyncProperties;
@@ -33,6 +37,8 @@ namespace Pulumi.Artifactory.Outputs
             string? password,
 
             string? pathPrefix,
+
+            string? proxy,
 
             int? socketTimeoutMillis,
 
@@ -49,6 +55,7 @@ namespace Pulumi.Artifactory.Outputs
             Enabled = enabled;
             Password = password;
             PathPrefix = pathPrefix;
+            Proxy = proxy;
             SocketTimeoutMillis = socketTimeoutMillis;
             SyncDeletes = syncDeletes;
             SyncProperties = syncProperties;

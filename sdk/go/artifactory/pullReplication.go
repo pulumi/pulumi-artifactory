@@ -75,8 +75,10 @@ type PullReplication struct {
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
 	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
 	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
-	Password            pulumi.StringOutput    `pulumi:"password"`
-	PathPrefix          pulumi.StringPtrOutput `pulumi:"pathPrefix"`
+	Password   pulumi.StringOutput    `pulumi:"password"`
+	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrOutput `pulumi:"proxy"`
 	RepoKey             pulumi.StringOutput    `pulumi:"repoKey"`
 	SocketTimeoutMillis pulumi.IntOutput       `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolOutput      `pulumi:"syncDeletes"`
@@ -126,8 +128,10 @@ type pullReplicationState struct {
 	Enabled                *bool   `pulumi:"enabled"`
 	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
 	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
-	Password            *string `pulumi:"password"`
-	PathPrefix          *string `pulumi:"pathPrefix"`
+	Password   *string `pulumi:"password"`
+	PathPrefix *string `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
 	RepoKey             *string `pulumi:"repoKey"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
@@ -143,8 +147,10 @@ type PullReplicationState struct {
 	Enabled                pulumi.BoolPtrInput
 	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
 	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
-	Password            pulumi.StringPtrInput
-	PathPrefix          pulumi.StringPtrInput
+	Password   pulumi.StringPtrInput
+	PathPrefix pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput
 	RepoKey             pulumi.StringPtrInput
 	SocketTimeoutMillis pulumi.IntPtrInput
 	SyncDeletes         pulumi.BoolPtrInput
@@ -163,13 +169,15 @@ type pullReplicationArgs struct {
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
 	PathPrefix             *string `pulumi:"pathPrefix"`
-	RepoKey                string  `pulumi:"repoKey"`
-	SocketTimeoutMillis    *int    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes            *bool   `pulumi:"syncDeletes"`
-	SyncProperties         *bool   `pulumi:"syncProperties"`
-	SyncStatistics         *bool   `pulumi:"syncStatistics"`
-	Url                    *string `pulumi:"url"`
-	Username               *string `pulumi:"username"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
+	RepoKey             string  `pulumi:"repoKey"`
+	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
+	SyncDeletes         *bool   `pulumi:"syncDeletes"`
+	SyncProperties      *bool   `pulumi:"syncProperties"`
+	SyncStatistics      *bool   `pulumi:"syncStatistics"`
+	Url                 *string `pulumi:"url"`
+	Username            *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a PullReplication resource.
@@ -178,13 +186,15 @@ type PullReplicationArgs struct {
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
 	PathPrefix             pulumi.StringPtrInput
-	RepoKey                pulumi.StringInput
-	SocketTimeoutMillis    pulumi.IntPtrInput
-	SyncDeletes            pulumi.BoolPtrInput
-	SyncProperties         pulumi.BoolPtrInput
-	SyncStatistics         pulumi.BoolPtrInput
-	Url                    pulumi.StringPtrInput
-	Username               pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput
+	RepoKey             pulumi.StringInput
+	SocketTimeoutMillis pulumi.IntPtrInput
+	SyncDeletes         pulumi.BoolPtrInput
+	SyncProperties      pulumi.BoolPtrInput
+	SyncStatistics      pulumi.BoolPtrInput
+	Url                 pulumi.StringPtrInput
+	Username            pulumi.StringPtrInput
 }
 
 func (PullReplicationArgs) ElementType() reflect.Type {

@@ -24,6 +24,12 @@ namespace Pulumi.Artifactory.Inputs
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
+        [Input("proxy")]
+        public Input<string>? Proxy { get; set; }
+
         [Input("socketTimeoutMillis")]
         public Input<int>? SocketTimeoutMillis { get; set; }
 

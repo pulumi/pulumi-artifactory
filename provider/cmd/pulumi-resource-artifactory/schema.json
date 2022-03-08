@@ -2070,6 +2070,15 @@
                         }
                     }
                 },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "socketTimeoutMillis": {
                     "type": "integer",
                     "language": {
@@ -2509,6 +2518,15 @@
                 },
                 "pathPrefix": {
                     "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -17915,6 +17933,10 @@
                 "pathPrefix": {
                     "type": "string"
                 },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n"
+                },
                 "repoKey": {
                     "type": "string"
                 },
@@ -17961,6 +17983,10 @@
                 "pathPrefix": {
                     "type": "string"
                 },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n"
+                },
                 "repoKey": {
                     "type": "string"
                 },
@@ -18005,6 +18031,10 @@
                     },
                     "pathPrefix": {
                         "type": "string"
+                    },
+                    "proxy": {
+                        "type": "string",
+                        "description": "Proxy key from Artifactory Proxies setting\n"
                     },
                     "repoKey": {
                         "type": "string"
@@ -22865,6 +22895,10 @@
                 "pathPrefix": {
                     "type": "string"
                 },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n"
+                },
                 "repoKey": {
                     "type": "string"
                 },
@@ -22911,6 +22945,10 @@
                 "pathPrefix": {
                     "type": "string"
                 },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies setting\n"
+                },
                 "repoKey": {
                     "type": "string"
                 },
@@ -22955,6 +22993,10 @@
                     },
                     "pathPrefix": {
                         "type": "string"
+                    },
+                    "proxy": {
+                        "type": "string",
+                        "description": "Proxy key from Artifactory Proxies setting\n"
                     },
                     "repoKey": {
                         "type": "string"

@@ -677,6 +677,10 @@ export interface PushReplicationReplication {
      */
     password: string;
     pathPrefix?: string;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: string;
     socketTimeoutMillis: number;
     syncDeletes: boolean;
     syncProperties: boolean;
@@ -851,6 +855,10 @@ export interface ReplicationConfigReplication {
      */
     password: string;
     pathPrefix?: string;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: string;
     socketTimeoutMillis: number;
     syncDeletes: boolean;
     syncProperties: boolean;
