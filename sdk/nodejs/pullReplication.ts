@@ -80,6 +80,10 @@ export class PullReplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly password!: pulumi.Output<string>;
     public readonly pathPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     public readonly repoKey!: pulumi.Output<string>;
     public readonly socketTimeoutMillis!: pulumi.Output<number>;
     public readonly syncDeletes!: pulumi.Output<boolean>;
@@ -106,6 +110,7 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["pathPrefix"] = state ? state.pathPrefix : undefined;
+            resourceInputs["proxy"] = state ? state.proxy : undefined;
             resourceInputs["repoKey"] = state ? state.repoKey : undefined;
             resourceInputs["socketTimeoutMillis"] = state ? state.socketTimeoutMillis : undefined;
             resourceInputs["syncDeletes"] = state ? state.syncDeletes : undefined;
@@ -125,6 +130,7 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["pathPrefix"] = args ? args.pathPrefix : undefined;
+            resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["repoKey"] = args ? args.repoKey : undefined;
             resourceInputs["socketTimeoutMillis"] = args ? args.socketTimeoutMillis : undefined;
             resourceInputs["syncDeletes"] = args ? args.syncDeletes : undefined;
@@ -152,6 +158,10 @@ export interface PullReplicationState {
      */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: pulumi.Input<string>;
     repoKey?: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     syncDeletes?: pulumi.Input<boolean>;
@@ -169,6 +179,10 @@ export interface PullReplicationArgs {
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
     pathPrefix?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: pulumi.Input<string>;
     repoKey: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     syncDeletes?: pulumi.Input<boolean>;

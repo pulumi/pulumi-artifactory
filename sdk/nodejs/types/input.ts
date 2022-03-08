@@ -677,6 +677,10 @@ export interface PushReplicationReplication {
      */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     syncDeletes?: pulumi.Input<boolean>;
     syncProperties?: pulumi.Input<boolean>;
@@ -851,6 +855,10 @@ export interface ReplicationConfigReplication {
      */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    proxy?: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     syncDeletes?: pulumi.Input<boolean>;
     syncProperties?: pulumi.Input<boolean>;

@@ -25,8 +25,10 @@ type SingleReplicationConfig struct {
 	EnableEventReplication pulumi.BoolOutput   `pulumi:"enableEventReplication"`
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            pulumi.StringOutput    `pulumi:"password"`
-	PathPrefix          pulumi.StringPtrOutput `pulumi:"pathPrefix"`
+	Password   pulumi.StringOutput    `pulumi:"password"`
+	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrOutput `pulumi:"proxy"`
 	RepoKey             pulumi.StringOutput    `pulumi:"repoKey"`
 	SocketTimeoutMillis pulumi.IntOutput       `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolOutput      `pulumi:"syncDeletes"`
@@ -75,8 +77,10 @@ type singleReplicationConfigState struct {
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            *string `pulumi:"password"`
-	PathPrefix          *string `pulumi:"pathPrefix"`
+	Password   *string `pulumi:"password"`
+	PathPrefix *string `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
 	RepoKey             *string `pulumi:"repoKey"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
@@ -91,8 +95,10 @@ type SingleReplicationConfigState struct {
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            pulumi.StringPtrInput
-	PathPrefix          pulumi.StringPtrInput
+	Password   pulumi.StringPtrInput
+	PathPrefix pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput
 	RepoKey             pulumi.StringPtrInput
 	SocketTimeoutMillis pulumi.IntPtrInput
 	SyncDeletes         pulumi.BoolPtrInput
@@ -111,13 +117,15 @@ type singleReplicationConfigArgs struct {
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
 	PathPrefix             *string `pulumi:"pathPrefix"`
-	RepoKey                string  `pulumi:"repoKey"`
-	SocketTimeoutMillis    *int    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes            *bool   `pulumi:"syncDeletes"`
-	SyncProperties         *bool   `pulumi:"syncProperties"`
-	SyncStatistics         *bool   `pulumi:"syncStatistics"`
-	Url                    *string `pulumi:"url"`
-	Username               *string `pulumi:"username"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
+	RepoKey             string  `pulumi:"repoKey"`
+	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
+	SyncDeletes         *bool   `pulumi:"syncDeletes"`
+	SyncProperties      *bool   `pulumi:"syncProperties"`
+	SyncStatistics      *bool   `pulumi:"syncStatistics"`
+	Url                 *string `pulumi:"url"`
+	Username            *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a SingleReplicationConfig resource.
@@ -126,13 +134,15 @@ type SingleReplicationConfigArgs struct {
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
 	PathPrefix             pulumi.StringPtrInput
-	RepoKey                pulumi.StringInput
-	SocketTimeoutMillis    pulumi.IntPtrInput
-	SyncDeletes            pulumi.BoolPtrInput
-	SyncProperties         pulumi.BoolPtrInput
-	SyncStatistics         pulumi.BoolPtrInput
-	Url                    pulumi.StringPtrInput
-	Username               pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput
+	RepoKey             pulumi.StringInput
+	SocketTimeoutMillis pulumi.IntPtrInput
+	SyncDeletes         pulumi.BoolPtrInput
+	SyncProperties      pulumi.BoolPtrInput
+	SyncStatistics      pulumi.BoolPtrInput
+	Url                 pulumi.StringPtrInput
+	Username            pulumi.StringPtrInput
 }
 
 func (SingleReplicationConfigArgs) ElementType() reflect.Type {

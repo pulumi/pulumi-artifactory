@@ -7643,8 +7643,10 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 type PushReplicationReplication struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            *string `pulumi:"password"`
-	PathPrefix          *string `pulumi:"pathPrefix"`
+	Password   *string `pulumi:"password"`
+	PathPrefix *string `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
 	SyncProperties      *bool   `pulumi:"syncProperties"`
@@ -7667,8 +7669,10 @@ type PushReplicationReplicationInput interface {
 type PushReplicationReplicationArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            pulumi.StringPtrInput `pulumi:"password"`
-	PathPrefix          pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	Password   pulumi.StringPtrInput `pulumi:"password"`
+	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
 	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
 	SyncProperties      pulumi.BoolPtrInput   `pulumi:"syncProperties"`
@@ -7739,6 +7743,11 @@ func (o PushReplicationReplicationOutput) Password() pulumi.StringPtrOutput {
 
 func (o PushReplicationReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory Proxies setting
+func (o PushReplicationReplicationOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o PushReplicationReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
@@ -9477,8 +9486,10 @@ func (o RemoteRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPt
 type ReplicationConfigReplication struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            *string `pulumi:"password"`
-	PathPrefix          *string `pulumi:"pathPrefix"`
+	Password   *string `pulumi:"password"`
+	PathPrefix *string `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               *string `pulumi:"proxy"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
 	SyncProperties      *bool   `pulumi:"syncProperties"`
@@ -9501,8 +9512,10 @@ type ReplicationConfigReplicationInput interface {
 type ReplicationConfigReplicationArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password            pulumi.StringPtrInput `pulumi:"password"`
-	PathPrefix          pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	Password   pulumi.StringPtrInput `pulumi:"password"`
+	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
 	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
 	SyncProperties      pulumi.BoolPtrInput   `pulumi:"syncProperties"`
@@ -9573,6 +9586,11 @@ func (o ReplicationConfigReplicationOutput) Password() pulumi.StringPtrOutput {
 
 func (o ReplicationConfigReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory Proxies setting
+func (o ReplicationConfigReplicationOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
 func (o ReplicationConfigReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {

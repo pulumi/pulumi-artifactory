@@ -18,6 +18,7 @@ class PullReplicationArgs:
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
                  sync_properties: Optional[pulumi.Input[bool]] = None,
@@ -26,6 +27,7 @@ class PullReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -35,6 +37,8 @@ class PullReplicationArgs:
             pulumi.set(__self__, "enabled", enabled)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if socket_timeout_millis is not None:
             pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
         if sync_deletes is not None:
@@ -92,6 +96,18 @@ class PullReplicationArgs:
     @path_prefix.setter
     def path_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_prefix", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
 
     @property
     @pulumi.getter(name="socketTimeoutMillis")
@@ -156,6 +172,7 @@ class _PullReplicationState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
@@ -167,6 +184,7 @@ class _PullReplicationState:
         Input properties used for looking up and filtering PullReplication resources.
         :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
                state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -178,6 +196,8 @@ class _PullReplicationState:
             pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
         if repo_key is not None:
             pulumi.set(__self__, "repo_key", repo_key)
         if socket_timeout_millis is not None:
@@ -241,6 +261,18 @@ class _PullReplicationState:
     @path_prefix.setter
     def path_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_prefix", value)
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
+        return pulumi.get(self, "proxy")
+
+    @proxy.setter
+    def proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy", value)
 
     @property
     @pulumi.getter(name="repoKey")
@@ -315,6 +347,7 @@ class PullReplication(pulumi.CustomResource):
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
@@ -361,6 +394,7 @@ class PullReplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         ...
     @overload
@@ -423,6 +457,7 @@ class PullReplication(pulumi.CustomResource):
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
+                 proxy: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
@@ -448,6 +483,7 @@ class PullReplication(pulumi.CustomResource):
             __props__.__dict__["enable_event_replication"] = enable_event_replication
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["path_prefix"] = path_prefix
+            __props__.__dict__["proxy"] = proxy
             if repo_key is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_key'")
             __props__.__dict__["repo_key"] = repo_key
@@ -473,6 +509,7 @@ class PullReplication(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             password: Optional[pulumi.Input[str]] = None,
             path_prefix: Optional[pulumi.Input[str]] = None,
+            proxy: Optional[pulumi.Input[str]] = None,
             repo_key: Optional[pulumi.Input[str]] = None,
             socket_timeout_millis: Optional[pulumi.Input[int]] = None,
             sync_deletes: Optional[pulumi.Input[bool]] = None,
@@ -489,6 +526,7 @@ class PullReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
                state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -499,6 +537,7 @@ class PullReplication(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["password"] = password
         __props__.__dict__["path_prefix"] = path_prefix
+        __props__.__dict__["proxy"] = proxy
         __props__.__dict__["repo_key"] = repo_key
         __props__.__dict__["socket_timeout_millis"] = socket_timeout_millis
         __props__.__dict__["sync_deletes"] = sync_deletes
@@ -536,6 +575,14 @@ class PullReplication(pulumi.CustomResource):
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "path_prefix")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
+        return pulumi.get(self, "proxy")
 
     @property
     @pulumi.getter(name="repoKey")
