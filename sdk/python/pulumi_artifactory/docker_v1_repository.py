@@ -41,9 +41,6 @@ class DockerV1RepositoryArgs:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-               applies to manifest v2
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -172,11 +169,6 @@ class DockerV1RepositoryArgs:
     @property
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        applies to manifest v2
-        """
         return pulumi.get(self, "max_unique_tags")
 
     @max_unique_tags.setter
@@ -291,12 +283,10 @@ class _DockerV1RepositoryState:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering DockerV1Repository resources.
-        :param pulumi.Input[str] api_version: The Docker API version to use. This cannot be set
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -304,17 +294,12 @@ class _DockerV1RepositoryState:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-               applies to manifest v2
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-               manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -360,9 +345,6 @@ class _DockerV1RepositoryState:
     @property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Docker API version to use. This cannot be set
-        """
         return pulumi.get(self, "api_version")
 
     @api_version.setter
@@ -398,9 +380,6 @@ class _DockerV1RepositoryState:
     @property
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-        """
         return pulumi.get(self, "block_pushing_schema1")
 
     @block_pushing_schema1.setter
@@ -470,11 +449,6 @@ class _DockerV1RepositoryState:
     @property
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        applies to manifest v2
-        """
         return pulumi.get(self, "max_unique_tags")
 
     @max_unique_tags.setter
@@ -563,10 +537,6 @@ class _DockerV1RepositoryState:
     @property
     @pulumi.getter(name="tagRetention")
     def tag_retention(self) -> Optional[pulumi.Input[int]]:
-        """
-        If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        manifest V2
-        """
         return pulumi.get(self, "tag_retention")
 
     @tag_retention.setter
@@ -635,9 +605,6 @@ class DockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-               applies to manifest v2
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -766,12 +733,10 @@ class DockerV1Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_version: The Docker API version to use. This cannot be set
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -779,17 +744,12 @@ class DockerV1Repository(pulumi.CustomResource):
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-               applies to manifest v2
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-               manifest V2
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -821,9 +781,6 @@ class DockerV1Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiVersion")
     def api_version(self) -> pulumi.Output[str]:
-        """
-        The Docker API version to use. This cannot be set
-        """
         return pulumi.get(self, "api_version")
 
     @property
@@ -847,9 +804,6 @@ class DockerV1Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blockPushingSchema1")
     def block_pushing_schema1(self) -> pulumi.Output[bool]:
-        """
-        When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-        """
         return pulumi.get(self, "block_pushing_schema1")
 
     @property
@@ -895,11 +849,6 @@ class DockerV1Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="maxUniqueTags")
     def max_unique_tags(self) -> pulumi.Output[int]:
-        """
-        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        applies to manifest v2
-        """
         return pulumi.get(self, "max_unique_tags")
 
     @property
@@ -947,7 +896,7 @@ class DockerV1Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[str]:
+    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
         Repository layout key for the local repository
         """
@@ -956,10 +905,6 @@ class DockerV1Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagRetention")
     def tag_retention(self) -> pulumi.Output[int]:
-        """
-        If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        manifest V2
-        """
         return pulumi.get(self, "tag_retention")
 
     @property

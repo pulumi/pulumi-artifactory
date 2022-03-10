@@ -78,7 +78,7 @@ type DockerV2Repository struct {
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
 	TagRetention pulumi.IntPtrOutput `pulumi:"tagRetention"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

@@ -126,7 +126,7 @@ export class LocalGradleRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * Specifies the naming convention for Maven SNAPSHOT versions.
      * The options are -

@@ -100,7 +100,7 @@ export class LocalIvyRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.

@@ -135,7 +135,7 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2

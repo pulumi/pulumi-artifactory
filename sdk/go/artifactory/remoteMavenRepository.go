@@ -112,7 +112,7 @@ type RemoteMavenRepository struct {
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the remote repository
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntOutput  `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration          pulumi.BoolOutput `pulumi:"shareConfiguration"`

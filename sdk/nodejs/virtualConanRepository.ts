@@ -111,10 +111,9 @@ export class VirtualConanRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * The effective list of actual repositories included in this virtual repository.
      */
@@ -227,8 +226,7 @@ export interface VirtualConanRepositoryState {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -290,8 +288,7 @@ export interface VirtualConanRepositoryArgs {
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-     * corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+     * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**

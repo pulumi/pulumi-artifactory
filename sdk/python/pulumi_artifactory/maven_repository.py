@@ -49,8 +49,7 @@ class MavenRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
@@ -240,8 +239,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -316,8 +314,7 @@ class _MavenRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
@@ -522,8 +519,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -643,8 +639,7 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
@@ -812,8 +807,7 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[str] repo_layout_ref: Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-               corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
@@ -953,10 +947,9 @@ class MavenRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[str]:
+    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 

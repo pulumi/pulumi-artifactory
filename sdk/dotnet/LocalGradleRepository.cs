@@ -149,7 +149,7 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
