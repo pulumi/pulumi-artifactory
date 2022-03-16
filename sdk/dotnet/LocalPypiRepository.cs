@@ -115,7 +115,7 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

@@ -179,7 +179,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the remote repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
      */

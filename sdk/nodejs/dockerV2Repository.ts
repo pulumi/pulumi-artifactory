@@ -114,7 +114,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */

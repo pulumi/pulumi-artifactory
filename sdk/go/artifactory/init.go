@@ -182,6 +182,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteGradleRepository{}
 	case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
 		r = &RemoteHelmRepository{}
+	case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
+		r = &RemoteIvyRepository{}
 	case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
 		r = &RemoteMavenRepository{}
 	case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
@@ -190,6 +192,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemotePypiRepository{}
 	case "artifactory:index/remoteRepository:RemoteRepository":
 		r = &RemoteRepository{}
+	case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
+		r = &RemoteSbtRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
 		r = &ReplicationConfig{}
 	case "artifactory:index/samlSettings:SamlSettings":
@@ -650,6 +654,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteIvyRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteMavenRepository",
 		&module{version},
 	)
@@ -666,6 +675,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteSbtRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

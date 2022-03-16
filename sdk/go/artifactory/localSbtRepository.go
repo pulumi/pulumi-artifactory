@@ -45,21 +45,32 @@ type LocalSbtRepository struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
+	Description        pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases pulumi.BoolPtrOutput `pulumi:"handleReleases"`
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots pulumi.BoolPtrOutput `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key         pulumi.StringOutput    `pulumi:"key"`
-	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	Key pulumi.StringOutput `pulumi:"key"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrOutput    `pulumi:"maxUniqueSnapshots"`
+	Notes              pulumi.StringPtrOutput `pulumi:"notes"`
+	PackageType        pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -70,7 +81,16 @@ type LocalSbtRepository struct {
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	SnapshotVersionBehavior pulumi.StringPtrOutput `pulumi:"snapshotVersionBehavior"`
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
+	SuppressPomConsistencyChecks pulumi.BoolPtrOutput `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
@@ -113,21 +133,32 @@ type localSbtRepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  *bool   `pulumi:"blackedOut"`
-	Description *string `pulumi:"description"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
+	Description        *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases *bool `pulumi:"handleReleases"`
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key         *string `pulumi:"key"`
-	Notes       *string `pulumi:"notes"`
-	PackageType *string `pulumi:"packageType"`
+	Key *string `pulumi:"key"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
+	Notes              *string `pulumi:"notes"`
+	PackageType        *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -139,6 +170,15 @@ type localSbtRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
+	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -150,21 +190,32 @@ type LocalSbtRepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrInput
-	Description pulumi.StringPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+	ChecksumPolicyType pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases pulumi.BoolPtrInput
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key         pulumi.StringPtrInput
-	Notes       pulumi.StringPtrInput
-	PackageType pulumi.StringPtrInput
+	Key pulumi.StringPtrInput
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrInput
+	Notes              pulumi.StringPtrInput
+	PackageType        pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -176,6 +227,15 @@ type LocalSbtRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	SnapshotVersionBehavior pulumi.StringPtrInput
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
+	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -191,20 +251,31 @@ type localSbtRepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  *bool   `pulumi:"blackedOut"`
-	Description *string `pulumi:"description"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
+	Description        *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases *bool `pulumi:"handleReleases"`
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots *bool `pulumi:"handleSnapshots"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// - the identity key of the repo
-	Key   string  `pulumi:"key"`
-	Notes *string `pulumi:"notes"`
+	Key string `pulumi:"key"`
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
+	Notes              *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -216,6 +287,15 @@ type localSbtRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
+	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -228,20 +308,31 @@ type LocalSbtRepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrInput
-	Description pulumi.StringPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+	ChecksumPolicyType pulumi.StringPtrInput
+	Description        pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// If set, Artifactory allows you to deploy release artifacts into this repository.
+	HandleReleases pulumi.BoolPtrInput
+	// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+	HandleSnapshots pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// - the identity key of the repo
-	Key   pulumi.StringInput
-	Notes pulumi.StringPtrInput
+	Key pulumi.StringInput
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	MaxUniqueSnapshots pulumi.IntPtrInput
+	Notes              pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -253,6 +344,15 @@ type LocalSbtRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	SnapshotVersionBehavior pulumi.StringPtrInput
+	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+	// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+	// checkbox.
+	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput

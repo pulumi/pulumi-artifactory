@@ -48,9 +48,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === DockerV1Repository.__pulumiType;
     }
 
-    /**
-     * The Docker API version to use. This cannot be set
-     */
     public /*out*/ readonly apiVersion!: pulumi.Output<string>;
     /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -62,9 +59,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
-    /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-     */
     public /*out*/ readonly blockPushingSchema1!: pulumi.Output<boolean>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -86,11 +80,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
      * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
-    /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
-     */
     public readonly maxUniqueTags!: pulumi.Output<number>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
@@ -114,11 +103,7 @@ export class DockerV1Repository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
-    /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
-     */
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     public /*out*/ readonly tagRetention!: pulumi.Output<number>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -192,9 +177,6 @@ export class DockerV1Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DockerV1Repository resources.
  */
 export interface DockerV1RepositoryState {
-    /**
-     * The Docker API version to use. This cannot be set
-     */
     apiVersion?: pulumi.Input<string>;
     /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -206,9 +188,6 @@ export interface DockerV1RepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
-    /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-     */
     blockPushingSchema1?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
@@ -230,11 +209,6 @@ export interface DockerV1RepositoryState {
      * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
-    /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
-     */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
@@ -259,10 +233,6 @@ export interface DockerV1RepositoryState {
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
-    /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
-     */
     tagRetention?: pulumi.Input<number>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -305,11 +275,6 @@ export interface DockerV1RepositoryArgs {
      * - the identity key of the repo
      */
     key: pulumi.Input<string>;
-    /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
-     */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     /**

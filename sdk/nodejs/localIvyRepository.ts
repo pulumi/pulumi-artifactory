@@ -58,6 +58,12 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
+    /**
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     */
+    public readonly checksumPolicyType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -70,6 +76,14 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string>;
     /**
+     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
+    public readonly handleReleases!: pulumi.Output<boolean | undefined>;
+    /**
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
+    public readonly handleSnapshots!: pulumi.Output<boolean | undefined>;
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -78,6 +92,11 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
@@ -100,7 +119,20 @@ export class LocalIvyRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     */
+    public readonly snapshotVersionBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+     * checkbox.
+     */
+    public readonly suppressPomConsistencyChecks!: pulumi.Output<boolean | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
@@ -122,11 +154,15 @@ export class LocalIvyRepository extends pulumi.CustomResource {
             const state = argsOrState as LocalIvyRepositoryState | undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["checksumPolicyType"] = state ? state.checksumPolicyType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
+            resourceInputs["handleReleases"] = state ? state.handleReleases : undefined;
+            resourceInputs["handleSnapshots"] = state ? state.handleSnapshots : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = state ? state.maxUniqueSnapshots : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
@@ -134,6 +170,8 @@ export class LocalIvyRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["snapshotVersionBehavior"] = state ? state.snapshotVersionBehavior : undefined;
+            resourceInputs["suppressPomConsistencyChecks"] = state ? state.suppressPomConsistencyChecks : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
         } else {
             const args = argsOrState as LocalIvyRepositoryArgs | undefined;
@@ -142,17 +180,23 @@ export class LocalIvyRepository extends pulumi.CustomResource {
             }
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["checksumPolicyType"] = args ? args.checksumPolicyType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
+            resourceInputs["handleReleases"] = args ? args.handleReleases : undefined;
+            resourceInputs["handleSnapshots"] = args ? args.handleSnapshots : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["maxUniqueSnapshots"] = args ? args.maxUniqueSnapshots : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["snapshotVersionBehavior"] = args ? args.snapshotVersionBehavior : undefined;
+            resourceInputs["suppressPomConsistencyChecks"] = args ? args.suppressPomConsistencyChecks : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
             resourceInputs["packageType"] = undefined /*out*/;
         }
@@ -175,6 +219,12 @@ export interface LocalIvyRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     */
+    checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -187,6 +237,14 @@ export interface LocalIvyRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
+     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
+    handleReleases?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
+    handleSnapshots?: pulumi.Input<boolean>;
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -195,6 +253,11 @@ export interface LocalIvyRepositoryState {
      * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
@@ -219,6 +282,19 @@ export interface LocalIvyRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     */
+    snapshotVersionBehavior?: pulumi.Input<string>;
+    /**
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+     * checkbox.
+     */
+    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
@@ -239,6 +315,12 @@ export interface LocalIvyRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+     */
+    checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -251,6 +333,14 @@ export interface LocalIvyRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
+     * If set, Artifactory allows you to deploy release artifacts into this repository.
+     */
+    handleReleases?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+     */
+    handleSnapshots?: pulumi.Input<boolean>;
+    /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
@@ -259,6 +349,11 @@ export interface LocalIvyRepositoryArgs {
      * - the identity key of the repo
      */
     key: pulumi.Input<string>;
+    /**
+     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     */
+    maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -281,6 +376,19 @@ export interface LocalIvyRepositoryArgs {
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     */
+    snapshotVersionBehavior?: pulumi.Input<string>;
+    /**
+     * By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+     * groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+     * deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+     * checkbox.
+     */
+    suppressPomConsistencyChecks?: pulumi.Input<boolean>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.

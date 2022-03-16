@@ -16,16 +16,22 @@ class LocalSbtRepositoryArgs:
                  key: pulumi.Input[str],
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 handle_releases: Optional[pulumi.Input[bool]] = None,
+                 handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+                 suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalSbtRepository resource.
@@ -34,18 +40,32 @@ class LocalSbtRepositoryArgs:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -54,14 +74,22 @@ class LocalSbtRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if checksum_policy_type is not None:
+            pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if handle_releases is not None:
+            pulumi.set(__self__, "handle_releases", handle_releases)
+        if handle_snapshots is not None:
+            pulumi.set(__self__, "handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
@@ -74,6 +102,10 @@ class LocalSbtRepositoryArgs:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if snapshot_version_behavior is not None:
+            pulumi.set(__self__, "snapshot_version_behavior", snapshot_version_behavior)
+        if suppress_pom_consistency_checks is not None:
+            pulumi.set(__self__, "suppress_pom_consistency_checks", suppress_pom_consistency_checks)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
 
@@ -116,6 +148,20 @@ class LocalSbtRepositoryArgs:
         pulumi.set(self, "blacked_out", value)
 
     @property
+    @pulumi.getter(name="checksumPolicyType")
+    def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        """
+        return pulumi.get(self, "checksum_policy_type")
+
+    @checksum_policy_type.setter
+    def checksum_policy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "checksum_policy_type", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -151,6 +197,30 @@ class LocalSbtRepositoryArgs:
         pulumi.set(self, "excludes_pattern", value)
 
     @property
+    @pulumi.getter(name="handleReleases")
+    def handle_releases(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory allows you to deploy release artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_releases")
+
+    @handle_releases.setter
+    def handle_releases(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "handle_releases", value)
+
+    @property
+    @pulumi.getter(name="handleSnapshots")
+    def handle_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_snapshots")
+
+    @handle_snapshots.setter
+    def handle_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "handle_snapshots", value)
+
+    @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
@@ -162,6 +232,19 @@ class LocalSbtRepositoryArgs:
     @includes_pattern.setter
     def includes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "includes_pattern", value)
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
 
     @property
     @pulumi.getter
@@ -234,6 +317,35 @@ class LocalSbtRepositoryArgs:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="snapshotVersionBehavior")
+    def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        """
+        return pulumi.get(self, "snapshot_version_behavior")
+
+    @snapshot_version_behavior.setter
+    def snapshot_version_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_version_behavior", value)
+
+    @property
+    @pulumi.getter(name="suppressPomConsistencyChecks")
+    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
+        """
+        return pulumi.get(self, "suppress_pom_consistency_checks")
+
+    @suppress_pom_consistency_checks.setter
+    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress_pom_consistency_checks", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -252,11 +364,15 @@ class _LocalSbtRepositoryState:
     def __init__(__self__, *,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 handle_releases: Optional[pulumi.Input[bool]] = None,
+                 handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -264,6 +380,8 @@ class _LocalSbtRepositoryState:
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+                 suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LocalSbtRepository resources.
@@ -271,19 +389,33 @@ class _LocalSbtRepositoryState:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -291,16 +423,24 @@ class _LocalSbtRepositoryState:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if checksum_policy_type is not None:
+            pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if handle_releases is not None:
+            pulumi.set(__self__, "handle_releases", handle_releases)
+        if handle_snapshots is not None:
+            pulumi.set(__self__, "handle_snapshots", handle_snapshots)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
@@ -315,6 +455,10 @@ class _LocalSbtRepositoryState:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if snapshot_version_behavior is not None:
+            pulumi.set(__self__, "snapshot_version_behavior", snapshot_version_behavior)
+        if suppress_pom_consistency_checks is not None:
+            pulumi.set(__self__, "suppress_pom_consistency_checks", suppress_pom_consistency_checks)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
 
@@ -343,6 +487,20 @@ class _LocalSbtRepositoryState:
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="checksumPolicyType")
+    def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        """
+        return pulumi.get(self, "checksum_policy_type")
+
+    @checksum_policy_type.setter
+    def checksum_policy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "checksum_policy_type", value)
 
     @property
     @pulumi.getter
@@ -380,6 +538,30 @@ class _LocalSbtRepositoryState:
         pulumi.set(self, "excludes_pattern", value)
 
     @property
+    @pulumi.getter(name="handleReleases")
+    def handle_releases(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory allows you to deploy release artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_releases")
+
+    @handle_releases.setter
+    def handle_releases(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "handle_releases", value)
+
+    @property
+    @pulumi.getter(name="handleSnapshots")
+    def handle_snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_snapshots")
+
+    @handle_snapshots.setter
+    def handle_snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "handle_snapshots", value)
+
+    @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
@@ -403,6 +585,19 @@ class _LocalSbtRepositoryState:
     @key.setter
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
 
     @property
     @pulumi.getter
@@ -484,6 +679,35 @@ class _LocalSbtRepositoryState:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="snapshotVersionBehavior")
+    def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        """
+        return pulumi.get(self, "snapshot_version_behavior")
+
+    @snapshot_version_behavior.setter
+    def snapshot_version_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_version_behavior", value)
+
+    @property
+    @pulumi.getter(name="suppressPomConsistencyChecks")
+    def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
+        """
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
+        """
+        return pulumi.get(self, "suppress_pom_consistency_checks")
+
+    @suppress_pom_consistency_checks.setter
+    def suppress_pom_consistency_checks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "suppress_pom_consistency_checks", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -504,17 +728,23 @@ class LocalSbtRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 handle_releases: Optional[pulumi.Input[bool]] = None,
+                 handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+                 suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -537,19 +767,33 @@ class LocalSbtRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -590,17 +834,23 @@ class LocalSbtRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 handle_releases: Optional[pulumi.Input[bool]] = None,
+                 handle_snapshots: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+                 suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -616,19 +866,25 @@ class LocalSbtRepository(pulumi.CustomResource):
 
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["checksum_policy_type"] = checksum_policy_type
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["handle_releases"] = handle_releases
+            __props__.__dict__["handle_snapshots"] = handle_snapshots
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             __props__.__dict__["notes"] = notes
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+            __props__.__dict__["snapshot_version_behavior"] = snapshot_version_behavior
+            __props__.__dict__["suppress_pom_consistency_checks"] = suppress_pom_consistency_checks
             __props__.__dict__["xray_index"] = xray_index
             __props__.__dict__["package_type"] = None
         super(LocalSbtRepository, __self__).__init__(
@@ -643,11 +899,15 @@ class LocalSbtRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            checksum_policy_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
+            handle_releases: Optional[pulumi.Input[bool]] = None,
+            handle_snapshots: Optional[pulumi.Input[bool]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
+            max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -655,6 +915,8 @@ class LocalSbtRepository(pulumi.CustomResource):
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+            snapshot_version_behavior: Optional[pulumi.Input[str]] = None,
+            suppress_pom_consistency_checks: Optional[pulumi.Input[bool]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'LocalSbtRepository':
         """
         Get an existing LocalSbtRepository resource's state with the given name, id, and optional extra
@@ -667,19 +929,33 @@ class LocalSbtRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
+        :param pulumi.Input[bool] handle_releases: If set, Artifactory allows you to deploy release artifacts into this repository.
+        :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+               groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+               deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+               checkbox.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -689,11 +965,15 @@ class LocalSbtRepository(pulumi.CustomResource):
 
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["checksum_policy_type"] = checksum_policy_type
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["handle_releases"] = handle_releases
+        __props__.__dict__["handle_snapshots"] = handle_snapshots
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
+        __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
         __props__.__dict__["priority_resolution"] = priority_resolution
@@ -701,6 +981,8 @@ class LocalSbtRepository(pulumi.CustomResource):
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+        __props__.__dict__["snapshot_version_behavior"] = snapshot_version_behavior
+        __props__.__dict__["suppress_pom_consistency_checks"] = suppress_pom_consistency_checks
         __props__.__dict__["xray_index"] = xray_index
         return LocalSbtRepository(resource_name, opts=opts, __props__=__props__)
 
@@ -721,6 +1003,16 @@ class LocalSbtRepository(pulumi.CustomResource):
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="checksumPolicyType")
+    def checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        """
+        return pulumi.get(self, "checksum_policy_type")
 
     @property
     @pulumi.getter
@@ -746,6 +1038,22 @@ class LocalSbtRepository(pulumi.CustomResource):
         return pulumi.get(self, "excludes_pattern")
 
     @property
+    @pulumi.getter(name="handleReleases")
+    def handle_releases(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set, Artifactory allows you to deploy release artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_releases")
+
+    @property
+    @pulumi.getter(name="handleSnapshots")
+    def handle_snapshots(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        """
+        return pulumi.get(self, "handle_snapshots")
+
+    @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
         """
@@ -761,6 +1069,15 @@ class LocalSbtRepository(pulumi.CustomResource):
         - the identity key of the repo
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
 
     @property
     @pulumi.getter
@@ -807,11 +1124,32 @@ class LocalSbtRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[str]:
+    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
         Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
+
+    @property
+    @pulumi.getter(name="snapshotVersionBehavior")
+    def snapshot_version_behavior(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        """
+        return pulumi.get(self, "snapshot_version_behavior")
+
+    @property
+    @pulumi.getter(name="suppressPomConsistencyChecks")
+    def suppress_pom_consistency_checks(self) -> pulumi.Output[Optional[bool]]:
+        """
+        By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        checkbox.
+        """
+        return pulumi.get(self, "suppress_pom_consistency_checks")
 
     @property
     @pulumi.getter(name="xrayIndex")
