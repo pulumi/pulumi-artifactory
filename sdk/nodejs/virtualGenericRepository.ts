@@ -109,7 +109,7 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the virtual repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * The effective list of actual repositories included in this virtual repository.
      */

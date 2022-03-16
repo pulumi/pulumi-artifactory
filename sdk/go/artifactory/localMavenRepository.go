@@ -88,7 +88,7 @@ type LocalMavenRepository struct {
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
 	// Unique: Version number is based on a time-stamp (default)

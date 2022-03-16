@@ -144,11 +144,10 @@ namespace Pulumi.Artifactory
         public Output<string?> ProjectKey { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// The effective list of actual repositories included in this virtual repository.
@@ -289,8 +288,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Repository layout key for the local repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -407,8 +405,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-        /// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+        /// Repository layout key for the local repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }

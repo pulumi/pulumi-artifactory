@@ -759,7 +759,7 @@ class LocalGenericRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="repoLayoutRef")
-    def repo_layout_ref(self) -> pulumi.Output[str]:
+    def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
         Repository layout key for the local repository
         """

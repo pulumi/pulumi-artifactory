@@ -116,7 +116,7 @@ type DebianRepository struct {
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// - Not really clear what this does
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 	// - Apparently this is a deprecated repo layout

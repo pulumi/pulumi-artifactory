@@ -136,7 +136,7 @@ export class DebianRepository extends pulumi.CustomResource {
     /**
      * Repository layout key for the local repository
      */
-    public readonly repoLayoutRef!: pulumi.Output<string>;
+    public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
      * - Not really clear what this does
      */

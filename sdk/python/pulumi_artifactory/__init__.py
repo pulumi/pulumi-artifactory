@@ -89,10 +89,12 @@ from .remote_cargo_repository import *
 from .remote_docker_repository import *
 from .remote_gradle_repository import *
 from .remote_helm_repository import *
+from .remote_ivy_repository import *
 from .remote_maven_repository import *
 from .remote_npm_repository import *
 from .remote_pypi_repository import *
 from .remote_repository import *
+from .remote_sbt_repository import *
 from .replication_config import *
 from .saml_settings import *
 from .single_replication_config import *
@@ -767,6 +769,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteIvyRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteIvyRepository:RemoteIvyRepository": "RemoteIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteMavenRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -795,6 +805,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteRepository:RemoteRepository": "RemoteRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteSbtRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteSbtRepository:RemoteSbtRepository": "RemoteSbtRepository"
   }
  },
  {

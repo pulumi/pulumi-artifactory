@@ -118,7 +118,7 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the virtual repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// The effective list of actual repositories included in this virtual repository.

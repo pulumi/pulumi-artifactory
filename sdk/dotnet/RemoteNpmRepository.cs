@@ -203,7 +203,7 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the remote repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
         /// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.

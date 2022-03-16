@@ -36,9 +36,6 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/dockerV1Repository:DockerV1Repository")]
     public partial class DockerV1Repository : Pulumi.CustomResource
     {
-        /// <summary>
-        /// The Docker API version to use. This cannot be set
-        /// </summary>
         [Output("apiVersion")]
         public Output<string> ApiVersion { get; private set; } = null!;
 
@@ -56,9 +53,6 @@ namespace Pulumi.Artifactory
         [Output("blackedOut")]
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
-        /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-        /// </summary>
         [Output("blockPushingSchema1")]
         public Output<bool> BlockPushingSchema1 { get; private set; } = null!;
 
@@ -92,11 +86,6 @@ namespace Pulumi.Artifactory
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
-        /// </summary>
         [Output("maxUniqueTags")]
         public Output<int> MaxUniqueTags { get; private set; } = null!;
 
@@ -135,12 +124,8 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
-        /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        /// manifest V2
-        /// </summary>
         [Output("tagRetention")]
         public Output<int> TagRetention { get; private set; } = null!;
 
@@ -241,11 +226,6 @@ namespace Pulumi.Artifactory
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
-        /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
-        /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
 
@@ -309,9 +289,6 @@ namespace Pulumi.Artifactory
 
     public sealed class DockerV1RepositoryState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Docker API version to use. This cannot be set
-        /// </summary>
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
 
@@ -329,9 +306,6 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
-        /// <summary>
-        /// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
-        /// </summary>
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
 
@@ -365,11 +339,6 @@ namespace Pulumi.Artifactory
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-        /// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-        /// applies to manifest v2
-        /// </summary>
         [Input("maxUniqueTags")]
         public Input<int>? MaxUniqueTags { get; set; }
 
@@ -422,10 +391,6 @@ namespace Pulumi.Artifactory
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
 
-        /// <summary>
-        /// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-        /// manifest V2
-        /// </summary>
         [Input("tagRetention")]
         public Input<int>? TagRetention { get; set; }
 

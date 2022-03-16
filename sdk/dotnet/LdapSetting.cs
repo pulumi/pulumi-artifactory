@@ -130,7 +130,8 @@ namespace Pulumi.Artifactory
         public Output<string?> SearchBase { get; private set; } = null!;
 
         /// <summary>
-        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Output("searchFilter")]
         public Output<string?> SearchFilter { get; private set; } = null!;
@@ -142,10 +143,11 @@ namespace Pulumi.Artifactory
         public Output<bool?> SearchSubTree { get; private set; } = null!;
 
         /// <summary>
-        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
         [Output("userDnPattern")]
-        public Output<string> UserDnPattern { get; private set; } = null!;
+        public Output<string?> UserDnPattern { get; private set; } = null!;
 
 
         /// <summary>
@@ -261,7 +263,8 @@ namespace Pulumi.Artifactory
         public Input<string>? SearchBase { get; set; }
 
         /// <summary>
-        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Input("searchFilter")]
         public Input<string>? SearchFilter { get; set; }
@@ -273,10 +276,11 @@ namespace Pulumi.Artifactory
         public Input<bool>? SearchSubTree { get; set; }
 
         /// <summary>
-        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
-        [Input("userDnPattern", required: true)]
-        public Input<string> UserDnPattern { get; set; } = null!;
+        [Input("userDnPattern")]
+        public Input<string>? UserDnPattern { get; set; }
 
         public LdapSettingArgs()
         {
@@ -353,7 +357,8 @@ namespace Pulumi.Artifactory
         public Input<string>? SearchBase { get; set; }
 
         /// <summary>
-        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Input("searchFilter")]
         public Input<string>? SearchFilter { get; set; }
@@ -365,7 +370,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? SearchSubTree { get; set; }
 
         /// <summary>
-        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
         [Input("userDnPattern")]
         public Input<string>? UserDnPattern { get; set; }

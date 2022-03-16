@@ -110,9 +110,8 @@ type MavenRepository struct {
 	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
-	RepoLayoutRef pulumi.StringOutput `pulumi:"repoLayoutRef"`
+	// Repository layout key for the local repository
+	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
@@ -185,8 +184,7 @@ type mavenRepositoryState struct {
 	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
@@ -229,8 +227,7 @@ type MavenRepositoryState struct {
 	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
@@ -275,8 +272,7 @@ type mavenRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
@@ -318,8 +314,7 @@ type MavenRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// Sets the layout that the repository should use for storing and identifying modules. A recommended layout that
-	// corresponds to the package type defined is suggested, and index packages uploaded and calculate metadata accordingly.
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput

@@ -89,10 +89,12 @@ export * from "./remoteCargoRepository";
 export * from "./remoteDockerRepository";
 export * from "./remoteGradleRepository";
 export * from "./remoteHelmRepository";
+export * from "./remoteIvyRepository";
 export * from "./remoteMavenRepository";
 export * from "./remoteNpmRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRepository";
+export * from "./remoteSbtRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
@@ -196,10 +198,12 @@ import { RemoteCargoRepository } from "./remoteCargoRepository";
 import { RemoteDockerRepository } from "./remoteDockerRepository";
 import { RemoteGradleRepository } from "./remoteGradleRepository";
 import { RemoteHelmRepository } from "./remoteHelmRepository";
+import { RemoteIvyRepository } from "./remoteIvyRepository";
 import { RemoteMavenRepository } from "./remoteMavenRepository";
 import { RemoteNpmRepository } from "./remoteNpmRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRepository } from "./remoteRepository";
+import { RemoteSbtRepository } from "./remoteSbtRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
@@ -378,6 +382,8 @@ const _module = {
                 return new RemoteGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
                 return new RemoteHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteIvyRepository:RemoteIvyRepository":
+                return new RemoteIvyRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteMavenRepository:RemoteMavenRepository":
                 return new RemoteMavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
@@ -386,6 +392,8 @@ const _module = {
                 return new RemotePypiRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteRepository:RemoteRepository":
                 return new RemoteRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
+                return new RemoteSbtRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
@@ -494,10 +502,12 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteDockerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)

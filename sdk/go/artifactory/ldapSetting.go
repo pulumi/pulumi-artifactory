@@ -88,12 +88,14 @@ type LdapSetting struct {
 	PagingSupportEnabled pulumi.BoolPtrOutput `pulumi:"pagingSupportEnabled"`
 	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrOutput `pulumi:"searchBase"`
-	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrOutput `pulumi:"searchFilter"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrOutput `pulumi:"searchSubTree"`
-	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
-	UserDnPattern pulumi.StringOutput `pulumi:"userDnPattern"`
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+	UserDnPattern pulumi.StringPtrOutput `pulumi:"userDnPattern"`
 }
 
 // NewLdapSetting registers a new resource with the given unique name, arguments, and options.
@@ -108,9 +110,6 @@ func NewLdapSetting(ctx *pulumi.Context,
 	}
 	if args.LdapUrl == nil {
 		return nil, errors.New("invalid value for required argument 'LdapUrl'")
-	}
-	if args.UserDnPattern == nil {
-		return nil, errors.New("invalid value for required argument 'UserDnPattern'")
 	}
 	var resource LdapSetting
 	err := ctx.RegisterResource("artifactory:index/ldapSetting:LdapSetting", name, args, &resource, opts...)
@@ -157,11 +156,13 @@ type ldapSettingState struct {
 	PagingSupportEnabled *bool `pulumi:"pagingSupportEnabled"`
 	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase *string `pulumi:"searchBase"`
-	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter *string `pulumi:"searchFilter"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree *bool `pulumi:"searchSubTree"`
-	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern *string `pulumi:"userDnPattern"`
 }
 
@@ -189,11 +190,13 @@ type LdapSettingState struct {
 	PagingSupportEnabled pulumi.BoolPtrInput
 	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrInput
-	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrInput
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrInput
-	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern pulumi.StringPtrInput
 }
 
@@ -225,12 +228,14 @@ type ldapSettingArgs struct {
 	PagingSupportEnabled *bool `pulumi:"pagingSupportEnabled"`
 	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase *string `pulumi:"searchBase"`
-	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter *string `pulumi:"searchFilter"`
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree *bool `pulumi:"searchSubTree"`
-	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
-	UserDnPattern string `pulumi:"userDnPattern"`
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+	UserDnPattern *string `pulumi:"userDnPattern"`
 }
 
 // The set of arguments for constructing a LdapSetting resource.
@@ -258,12 +263,14 @@ type LdapSettingArgs struct {
 	PagingSupportEnabled pulumi.BoolPtrInput
 	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrInput
-	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrInput
 	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrInput
-	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People
-	UserDnPattern pulumi.StringInput
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
+	UserDnPattern pulumi.StringPtrInput
 }
 
 func (LdapSettingArgs) ElementType() reflect.Type {

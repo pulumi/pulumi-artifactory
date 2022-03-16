@@ -50,6 +50,14 @@ namespace Pulumi.Artifactory
         [Output("blackedOut")]
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
+        /// <summary>
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// </summary>
+        [Output("checksumPolicyType")]
+        public Output<string?> ChecksumPolicyType { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -68,6 +76,18 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
+        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// </summary>
+        [Output("handleReleases")]
+        public Output<bool?> HandleReleases { get; private set; } = null!;
+
+        /// <summary>
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// </summary>
+        [Output("handleSnapshots")]
+        public Output<bool?> HandleSnapshots { get; private set; } = null!;
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -79,6 +99,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Output("maxUniqueSnapshots")]
+        public Output<int?> MaxUniqueSnapshots { get; private set; } = null!;
 
         [Output("notes")]
         public Output<string?> Notes { get; private set; } = null!;
@@ -115,7 +142,24 @@ namespace Pulumi.Artifactory
         /// Repository layout key for the local repository
         /// </summary>
         [Output("repoLayoutRef")]
-        public Output<string> RepoLayoutRef { get; private set; } = null!;
+        public Output<string?> RepoLayoutRef { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// </summary>
+        [Output("snapshotVersionBehavior")]
+        public Output<string?> SnapshotVersionBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        /// checkbox.
+        /// </summary>
+        [Output("suppressPomConsistencyChecks")]
+        public Output<bool?> SuppressPomConsistencyChecks { get; private set; } = null!;
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -184,6 +228,14 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        /// <summary>
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// </summary>
+        [Input("checksumPolicyType")]
+        public Input<string>? ChecksumPolicyType { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -202,6 +254,18 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
+        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// </summary>
+        [Input("handleReleases")]
+        public Input<bool>? HandleReleases { get; set; }
+
+        /// <summary>
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// </summary>
+        [Input("handleSnapshots")]
+        public Input<bool>? HandleSnapshots { get; set; }
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -213,6 +277,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
@@ -261,6 +332,23 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// </summary>
+        [Input("snapshotVersionBehavior")]
+        public Input<string>? SnapshotVersionBehavior { get; set; }
+
+        /// <summary>
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        /// checkbox.
+        /// </summary>
+        [Input("suppressPomConsistencyChecks")]
+        public Input<bool>? SuppressPomConsistencyChecks { get; set; }
+
+        /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
         /// Xray settings.
         /// </summary>
@@ -288,6 +376,14 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        /// <summary>
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
+        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// </summary>
+        [Input("checksumPolicyType")]
+        public Input<string>? ChecksumPolicyType { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -306,6 +402,18 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
+        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// </summary>
+        [Input("handleReleases")]
+        public Input<bool>? HandleReleases { get; set; }
+
+        /// <summary>
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// </summary>
+        [Input("handleSnapshots")]
+        public Input<bool>? HandleSnapshots { get; set; }
+
+        /// <summary>
         /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
         /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
@@ -317,6 +425,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// </summary>
+        [Input("maxUniqueSnapshots")]
+        public Input<int>? MaxUniqueSnapshots { get; set; }
 
         [Input("notes")]
         public Input<string>? Notes { get; set; }
@@ -366,6 +481,23 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
+
+        /// <summary>
+        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
+        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
+        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// </summary>
+        [Input("snapshotVersionBehavior")]
+        public Input<string>? SnapshotVersionBehavior { get; set; }
+
+        /// <summary>
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
+        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
+        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
+        /// checkbox.
+        /// </summary>
+        [Input("suppressPomConsistencyChecks")]
+        public Input<bool>? SuppressPomConsistencyChecks { get; set; }
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

@@ -202,6 +202,8 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_backup":                             {Tok: makeResource(mainMod, "Backup")},
 			"artifactory_remote_gradle_repository":           {Tok: makeResource(mainMod, "RemoteGradleRepository")},
 			"artifactory_remote_maven_repository":            {Tok: makeResource(mainMod, "RemoteMavenRepository")},
+			"artifactory_remote_ivy_repository":              {Tok: makeResource(mainMod, "RemoteIvyRepository")},
+			"artifactory_remote_sbt_repository":              {Tok: makeResource(mainMod, "RemoteSbtRepository")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},
