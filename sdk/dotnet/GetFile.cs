@@ -100,6 +100,13 @@ namespace Pulumi.Artifactory
         public string Path { get; set; } = null!;
 
         /// <summary>
+        /// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+        /// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+        /// </summary>
+        [Input("pathIsAliased")]
+        public bool? PathIsAliased { get; set; }
+
+        /// <summary>
         /// Name of the repository where the file is stored.
         /// </summary>
         [Input("repository", required: true)]
@@ -129,6 +136,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+        /// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+        /// </summary>
+        [Input("pathIsAliased")]
+        public Input<bool>? PathIsAliased { get; set; }
 
         /// <summary>
         /// Name of the repository where the file is stored.
@@ -184,6 +198,7 @@ namespace Pulumi.Artifactory
         public readonly string ModifiedBy;
         public readonly string OutputPath;
         public readonly string Path;
+        public readonly bool? PathIsAliased;
         public readonly string Repository;
         /// <summary>
         /// SHA1 checksum of the file.
@@ -224,6 +239,8 @@ namespace Pulumi.Artifactory
 
             string path,
 
+            bool? pathIsAliased,
+
             string repository,
 
             string sha1,
@@ -244,6 +261,7 @@ namespace Pulumi.Artifactory
             ModifiedBy = modifiedBy;
             OutputPath = outputPath;
             Path = path;
+            PathIsAliased = pathIsAliased;
             Repository = repository;
             Sha1 = sha1;
             Sha256 = sha256;

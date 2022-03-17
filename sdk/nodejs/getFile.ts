@@ -33,6 +33,7 @@ export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise
         "forceOverwrite": args.forceOverwrite,
         "outputPath": args.outputPath,
         "path": args.path,
+        "pathIsAliased": args.pathIsAliased,
         "repository": args.repository,
     }, opts);
 }
@@ -53,6 +54,11 @@ export interface GetFileArgs {
      * The path to the file within the repository.
      */
     path: string;
+    /**
+     * If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+     * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+     */
+    pathIsAliased?: boolean;
     /**
      * Name of the repository where the file is stored.
      */
@@ -102,6 +108,7 @@ export interface GetFileResult {
     readonly modifiedBy: string;
     readonly outputPath: string;
     readonly path: string;
+    readonly pathIsAliased?: boolean;
     readonly repository: string;
     /**
      * SHA1 checksum of the file.
@@ -137,6 +144,11 @@ export interface GetFileOutputArgs {
      * The path to the file within the repository.
      */
     path: pulumi.Input<string>;
+    /**
+     * If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+     * if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+     */
+    pathIsAliased?: pulumi.Input<boolean>;
     /**
      * Name of the repository where the file is stored.
      */

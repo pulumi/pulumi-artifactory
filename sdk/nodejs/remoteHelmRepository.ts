@@ -96,9 +96,8 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
-     * repositories in the UI, but incorrect for the API.
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -358,9 +357,8 @@ export interface RemoteHelmRepositoryState {
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
-     * repositories in the UI, but incorrect for the API.
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -510,9 +508,8 @@ export interface RemoteHelmRepositoryArgs {
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
      * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-     * from external sources. Note that the official documentation states the default is '**', which is correct when creating
-     * repositories in the UI, but incorrect for the API.
+     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+     * from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

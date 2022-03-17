@@ -20,7 +20,7 @@ class GetFileResult:
     """
     A collection of values returned by getFile.
     """
-    def __init__(__self__, created=None, created_by=None, download_uri=None, force_overwrite=None, id=None, last_modified=None, last_updated=None, md5=None, mimetype=None, modified_by=None, output_path=None, path=None, repository=None, sha1=None, sha256=None, size=None):
+    def __init__(__self__, created=None, created_by=None, download_uri=None, force_overwrite=None, id=None, last_modified=None, last_updated=None, md5=None, mimetype=None, modified_by=None, output_path=None, path=None, path_is_aliased=None, repository=None, sha1=None, sha256=None, size=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -57,6 +57,9 @@ class GetFileResult:
         if path and not isinstance(path, str):
             raise TypeError("Expected argument 'path' to be a str")
         pulumi.set(__self__, "path", path)
+        if path_is_aliased and not isinstance(path_is_aliased, bool):
+            raise TypeError("Expected argument 'path_is_aliased' to be a bool")
+        pulumi.set(__self__, "path_is_aliased", path_is_aliased)
         if repository and not isinstance(repository, str):
             raise TypeError("Expected argument 'repository' to be a str")
         pulumi.set(__self__, "repository", repository)
@@ -158,6 +161,11 @@ class GetFileResult:
         return pulumi.get(self, "path")
 
     @property
+    @pulumi.getter(name="pathIsAliased")
+    def path_is_aliased(self) -> Optional[bool]:
+        return pulumi.get(self, "path_is_aliased")
+
+    @property
     @pulumi.getter
     def repository(self) -> str:
         return pulumi.get(self, "repository")
@@ -205,6 +213,7 @@ class AwaitableGetFileResult(GetFileResult):
             modified_by=self.modified_by,
             output_path=self.output_path,
             path=self.path,
+            path_is_aliased=self.path_is_aliased,
             repository=self.repository,
             sha1=self.sha1,
             sha256=self.sha256,
@@ -214,6 +223,7 @@ class AwaitableGetFileResult(GetFileResult):
 def get_file(force_overwrite: Optional[bool] = None,
              output_path: Optional[str] = None,
              path: Optional[str] = None,
+             path_is_aliased: Optional[bool] = None,
              repository: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileResult:
     """
@@ -236,12 +246,15 @@ def get_file(force_overwrite: Optional[bool] = None,
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: false
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
+    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+           if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
     :param str repository: Name of the repository where the file is stored.
     """
     __args__ = dict()
     __args__['forceOverwrite'] = force_overwrite
     __args__['outputPath'] = output_path
     __args__['path'] = path
+    __args__['pathIsAliased'] = path_is_aliased
     __args__['repository'] = repository
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -262,6 +275,7 @@ def get_file(force_overwrite: Optional[bool] = None,
         modified_by=__ret__.modified_by,
         output_path=__ret__.output_path,
         path=__ret__.path,
+        path_is_aliased=__ret__.path_is_aliased,
         repository=__ret__.repository,
         sha1=__ret__.sha1,
         sha256=__ret__.sha256,
@@ -272,6 +286,7 @@ def get_file(force_overwrite: Optional[bool] = None,
 def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = None,
                     output_path: Optional[pulumi.Input[str]] = None,
                     path: Optional[pulumi.Input[str]] = None,
+                    path_is_aliased: Optional[pulumi.Input[Optional[bool]]] = None,
                     repository: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
     """
@@ -294,6 +309,8 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: false
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
+    :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+           if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
     :param str repository: Name of the repository where the file is stored.
     """
     ...

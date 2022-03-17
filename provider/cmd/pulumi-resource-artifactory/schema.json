@@ -19703,7 +19703,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded\nfrom external sources. Note that the official documentation states the default is '**', which is correct when creating\nrepositories in the UI, but incorrect for the API.\n"
+                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -19903,7 +19903,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded\nfrom external sources. Note that the official documentation states the default is '**', which is correct when creating\nrepositories in the UI, but incorrect for the API.\n"
+                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -20072,7 +20072,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded\nfrom external sources. Note that the official documentation states the default is '**', which is correct when creating\nrepositories in the UI, but incorrect for the API.\n"
+                        "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -25215,6 +25215,10 @@
                         "type": "string",
                         "description": "The path to the file within the repository.\n"
                     },
+                    "pathIsAliased": {
+                        "type": "boolean",
+                        "description": "If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory\nif the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)\n"
+                    },
                     "repository": {
                         "type": "string",
                         "description": "Name of the repository where the file is stored.\n"
@@ -25274,6 +25278,9 @@
                     },
                     "path": {
                         "type": "string"
+                    },
+                    "pathIsAliased": {
+                        "type": "boolean"
                     },
                     "repository": {
                         "type": "string"
