@@ -69,9 +69,8 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-               from external sources. Note that the official documentation states the default is '**', which is correct when creating
-               repositories in the UI, but incorrect for the API.
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -327,9 +326,8 @@ class RemoteHelmRepositoryArgs:
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        repositories in the UI, but incorrect for the API.
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -689,9 +687,8 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-               from external sources. Note that the official documentation states the default is '**', which is correct when creating
-               repositories in the UI, but incorrect for the API.
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[int] failed_retrieval_cache_period_secs: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
@@ -935,9 +932,8 @@ class _RemoteHelmRepositoryState:
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        repositories in the UI, but incorrect for the API.
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1365,9 +1361,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-               from external sources. Note that the official documentation states the default is '**', which is correct when creating
-               repositories in the UI, but incorrect for the API.
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -1601,9 +1596,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-               from external sources. Note that the official documentation states the default is '**', which is correct when creating
-               repositories in the UI, but incorrect for the API.
+               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+               from any external source.
         :param pulumi.Input[int] failed_retrieval_cache_period_secs: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: - No documentation is available. Hopefully you know what this means
@@ -1763,9 +1757,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        repositories in the UI, but incorrect for the API.
+        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

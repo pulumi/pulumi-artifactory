@@ -70,9 +70,8 @@ type RemoteHelmRepository struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-	// repositories in the UI, but incorrect for the API.
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	//
@@ -187,9 +186,8 @@ type remoteHelmRepositoryState struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-	// repositories in the UI, but incorrect for the API.
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	//
@@ -270,9 +268,8 @@ type RemoteHelmRepositoryState struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-	// repositories in the UI, but incorrect for the API.
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	//
@@ -357,9 +354,8 @@ type remoteHelmRepositoryArgs struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-	// repositories in the UI, but incorrect for the API.
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
@@ -436,9 +432,8 @@ type RemoteHelmRepositoryArgs struct {
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-	// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-	// repositories in the UI, but incorrect for the API.
+	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+	// from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
