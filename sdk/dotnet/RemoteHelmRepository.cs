@@ -108,9 +108,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        /// repositories in the UI, but incorrect for the API.
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -385,9 +384,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        /// repositories in the UI, but incorrect for the API.
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -629,9 +627,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is an empty list which means that no dependencies may be downloaded
-        /// from external sources. Note that the official documentation states the default is '**', which is correct when creating
-        /// repositories in the UI, but incorrect for the API.
+        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
+        /// from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
