@@ -55,6 +55,9 @@ type GetFileArgs struct {
 	OutputPath string `pulumi:"outputPath"`
 	// The path to the file within the repository.
 	Path string `pulumi:"path"`
+	// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+	// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+	PathIsAliased *bool `pulumi:"pathIsAliased"`
 	// Name of the repository where the file is stored.
 	Repository string `pulumi:"repository"`
 }
@@ -79,10 +82,11 @@ type GetFileResult struct {
 	// The mimetype of the file.
 	Mimetype string `pulumi:"mimetype"`
 	// The user who last modified the file.
-	ModifiedBy string `pulumi:"modifiedBy"`
-	OutputPath string `pulumi:"outputPath"`
-	Path       string `pulumi:"path"`
-	Repository string `pulumi:"repository"`
+	ModifiedBy    string `pulumi:"modifiedBy"`
+	OutputPath    string `pulumi:"outputPath"`
+	Path          string `pulumi:"path"`
+	PathIsAliased *bool  `pulumi:"pathIsAliased"`
+	Repository    string `pulumi:"repository"`
 	// SHA1 checksum of the file.
 	Sha1 string `pulumi:"sha1"`
 	// SHA256 checksum of the file.
@@ -108,6 +112,9 @@ type GetFileOutputArgs struct {
 	OutputPath pulumi.StringInput `pulumi:"outputPath"`
 	// The path to the file within the repository.
 	Path pulumi.StringInput `pulumi:"path"`
+	// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
+	// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
+	PathIsAliased pulumi.BoolPtrInput `pulumi:"pathIsAliased"`
 	// Name of the repository where the file is stored.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
@@ -186,6 +193,10 @@ func (o GetFileResultOutput) OutputPath() pulumi.StringOutput {
 
 func (o GetFileResultOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetFileResultOutput) PathIsAliased() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetFileResult) *bool { return v.PathIsAliased }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetFileResultOutput) Repository() pulumi.StringOutput {
