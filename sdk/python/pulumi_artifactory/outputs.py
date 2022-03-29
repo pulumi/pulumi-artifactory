@@ -71,25 +71,35 @@ __all__ = [
     'PermissionTargetsRepoActionsUser',
     'PushReplicationReplication',
     'ReleaseBundleWebhookCriteria',
+    'RemoteAlpineRepositoryContentSynchronisation',
+    'RemoteBowerRepositoryContentSynchronisation',
     'RemoteCargoRepositoryContentSynchronisation',
+    'RemoteChefRepositoryContentSynchronisation',
+    'RemoteCocoapodsRepositoryContentSynchronisation',
+    'RemoteComposerRepositoryContentSynchronisation',
+    'RemoteConanRepositoryContentSynchronisation',
+    'RemoteCondaRepositoryContentSynchronisation',
+    'RemoteCranRepositoryContentSynchronisation',
+    'RemoteDebianRepositoryContentSynchronisation',
     'RemoteDockerRepositoryContentSynchronisation',
+    'RemoteGemsRepositoryContentSynchronisation',
+    'RemoteGenericRepositoryContentSynchronisation',
+    'RemoteGitlfsRepositoryContentSynchronisation',
+    'RemoteGoRepositoryContentSynchronisation',
     'RemoteGradleRepositoryContentSynchronisation',
     'RemoteHelmRepositoryContentSynchronisation',
     'RemoteIvyRepositoryContentSynchronisation',
     'RemoteMavenRepositoryContentSynchronisation',
     'RemoteNpmRepositoryContentSynchronisation',
+    'RemoteNugetRepositoryContentSynchronisation',
+    'RemoteOpkgRepositoryContentSynchronisation',
+    'RemoteP2RepositoryContentSynchronisation',
+    'RemotePuppetRepositoryContentSynchronisation',
     'RemotePypiRepositoryContentSynchronisation',
     'RemoteRepositoryContentSynchronisation',
+    'RemoteRpmRepositoryContentSynchronisation',
     'RemoteSbtRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
-    'XrayPolicyRule',
-    'XrayPolicyRuleActions',
-    'XrayPolicyRuleActionsBlockDownload',
-    'XrayPolicyRuleCriteria',
-    'XrayPolicyRuleCriteriaCvssRange',
-    'XrayWatchAssignedPolicy',
-    'XrayWatchResource',
-    'XrayWatchResourceFilter',
 ]
 
 @pulumi.output_type
@@ -2521,6 +2531,122 @@ class ReleaseBundleWebhookCriteria(dict):
 
 
 @pulumi.output_type
+class RemoteAlpineRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteAlpineRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteAlpineRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteAlpineRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteBowerRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteBowerRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteBowerRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteBowerRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
 class RemoteCargoRepositoryContentSynchronisation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2597,6 +2723,412 @@ class RemoteCargoRepositoryContentSynchronisation(dict):
 
 
 @pulumi.output_type
+class RemoteChefRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteChefRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteChefRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteChefRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteCocoapodsRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteCocoapodsRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteCocoapodsRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteCocoapodsRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteComposerRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteComposerRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteComposerRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteComposerRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteConanRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteConanRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteConanRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteConanRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteCondaRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteCondaRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteCondaRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteCondaRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteCranRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteCranRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteCranRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteCranRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteDebianRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteDebianRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteDebianRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteDebianRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
 class RemoteDockerRepositoryContentSynchronisation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2669,6 +3201,256 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
         """
         If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
         """
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteGemsRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteGemsRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteGemsRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteGemsRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteGenericRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteGenericRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteGenericRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteGenericRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        """
+        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        """
+        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+        """
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        """
+        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+        """
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        """
+        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+        """
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteGitlfsRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteGitlfsRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteGitlfsRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteGitlfsRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteGoRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteGoRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteGoRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteGoRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3053,6 +3835,238 @@ class RemoteNpmRepositoryContentSynchronisation(dict):
 
 
 @pulumi.output_type
+class RemoteNugetRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteNugetRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteNugetRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteNugetRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteOpkgRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteOpkgRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteOpkgRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteOpkgRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteP2RepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteP2RepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteP2RepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteP2RepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemotePuppetRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePuppetRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePuppetRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePuppetRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
 class RemotePypiRepositoryContentSynchronisation(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3145,6 +4159,64 @@ class RemoteRepositoryContentSynchronisation(dict):
         If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RemoteRpmRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteRpmRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteRpmRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteRpmRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "statistics_enabled")
 
 
 @pulumi.output_type
@@ -3341,453 +4413,5 @@ class ReplicationConfigReplication(dict):
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
-
-
-@pulumi.output_type
-class XrayPolicyRule(dict):
-    def __init__(__self__, *,
-                 criteria: 'outputs.XrayPolicyRuleCriteria',
-                 name: str,
-                 priority: int,
-                 actions: Optional['outputs.XrayPolicyRuleActions'] = None):
-        """
-        :param 'XrayPolicyRuleCriteriaArgs' criteria: (Required) Nested block describing the criteria for the policy. Described below.
-        :param str name: (Required) Name of the rule
-        :param int priority: (Required) Integer describing the rule priority
-        :param 'XrayPolicyRuleActionsArgs' actions: (Required) Nested block describing the actions to be applied by the policy. Described below.
-        """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-
-    @property
-    @pulumi.getter
-    def criteria(self) -> 'outputs.XrayPolicyRuleCriteria':
-        """
-        (Required) Nested block describing the criteria for the policy. Described below.
-        """
-        return pulumi.get(self, "criteria")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        (Required) Name of the rule
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def priority(self) -> int:
-        """
-        (Required) Integer describing the rule priority
-        """
-        return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Optional['outputs.XrayPolicyRuleActions']:
-        """
-        (Required) Nested block describing the actions to be applied by the policy. Described below.
-        """
-        return pulumi.get(self, "actions")
-
-
-@pulumi.output_type
-class XrayPolicyRuleActions(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "blockDownload":
-            suggest = "block_download"
-        elif key == "customSeverity":
-            suggest = "custom_severity"
-        elif key == "failBuild":
-            suggest = "fail_build"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in XrayPolicyRuleActions. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        XrayPolicyRuleActions.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        XrayPolicyRuleActions.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 block_download: 'outputs.XrayPolicyRuleActionsBlockDownload',
-                 custom_severity: Optional[str] = None,
-                 fail_build: Optional[bool] = None,
-                 mails: Optional[Sequence[str]] = None,
-                 webhooks: Optional[Sequence[str]] = None):
-        """
-        :param 'XrayPolicyRuleActionsBlockDownloadArgs' block_download: (Optional) Nested block describing artifacts that should be blocked for download if a violation is triggered. Described below.
-        :param str custom_severity: (Optional) The severity of violation to be triggered if the `criteria` are met.
-        :param bool fail_build: (Optional) Whether or not the related CI build should be marked as failed if a violation is triggered. This option is only available when the policy is applied to an `xray_watch` resource with a `type` of `builds`.
-        :param Sequence[str] mails: (Optional) A list of email addressed that will get emailed when a violation is triggered.
-        :param Sequence[str] webhooks: (Optional) A list of Xray-configured webhook URLs to be invoked if a violation is triggered.
-        """
-        pulumi.set(__self__, "block_download", block_download)
-        if custom_severity is not None:
-            pulumi.set(__self__, "custom_severity", custom_severity)
-        if fail_build is not None:
-            pulumi.set(__self__, "fail_build", fail_build)
-        if mails is not None:
-            pulumi.set(__self__, "mails", mails)
-        if webhooks is not None:
-            pulumi.set(__self__, "webhooks", webhooks)
-
-    @property
-    @pulumi.getter(name="blockDownload")
-    def block_download(self) -> 'outputs.XrayPolicyRuleActionsBlockDownload':
-        """
-        (Optional) Nested block describing artifacts that should be blocked for download if a violation is triggered. Described below.
-        """
-        return pulumi.get(self, "block_download")
-
-    @property
-    @pulumi.getter(name="customSeverity")
-    def custom_severity(self) -> Optional[str]:
-        """
-        (Optional) The severity of violation to be triggered if the `criteria` are met.
-        """
-        return pulumi.get(self, "custom_severity")
-
-    @property
-    @pulumi.getter(name="failBuild")
-    def fail_build(self) -> Optional[bool]:
-        """
-        (Optional) Whether or not the related CI build should be marked as failed if a violation is triggered. This option is only available when the policy is applied to an `xray_watch` resource with a `type` of `builds`.
-        """
-        return pulumi.get(self, "fail_build")
-
-    @property
-    @pulumi.getter
-    def mails(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) A list of email addressed that will get emailed when a violation is triggered.
-        """
-        return pulumi.get(self, "mails")
-
-    @property
-    @pulumi.getter
-    def webhooks(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) A list of Xray-configured webhook URLs to be invoked if a violation is triggered.
-        """
-        return pulumi.get(self, "webhooks")
-
-
-@pulumi.output_type
-class XrayPolicyRuleActionsBlockDownload(dict):
-    def __init__(__self__, *,
-                 active: bool,
-                 unscanned: bool):
-        """
-        :param bool active: Whether or not to block download of artifacts that meet the artifact and severity `filters` for the associated `xray_watch` resource.
-        :param bool unscanned: Whether or not to block download of artifacts that meet the artifact `filters` for the associated `xray_watch` resource but have not been scanned yet.
-        """
-        pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "unscanned", unscanned)
-
-    @property
-    @pulumi.getter
-    def active(self) -> bool:
-        """
-        Whether or not to block download of artifacts that meet the artifact and severity `filters` for the associated `xray_watch` resource.
-        """
-        return pulumi.get(self, "active")
-
-    @property
-    @pulumi.getter
-    def unscanned(self) -> bool:
-        """
-        Whether or not to block download of artifacts that meet the artifact `filters` for the associated `xray_watch` resource but have not been scanned yet.
-        """
-        return pulumi.get(self, "unscanned")
-
-
-@pulumi.output_type
-class XrayPolicyRuleCriteria(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allowUnknown":
-            suggest = "allow_unknown"
-        elif key == "allowedLicenses":
-            suggest = "allowed_licenses"
-        elif key == "bannedLicenses":
-            suggest = "banned_licenses"
-        elif key == "cvssRange":
-            suggest = "cvss_range"
-        elif key == "minSeverity":
-            suggest = "min_severity"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in XrayPolicyRuleCriteria. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        XrayPolicyRuleCriteria.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        XrayPolicyRuleCriteria.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 allow_unknown: Optional[bool] = None,
-                 allowed_licenses: Optional[Sequence[str]] = None,
-                 banned_licenses: Optional[Sequence[str]] = None,
-                 cvss_range: Optional['outputs.XrayPolicyRuleCriteriaCvssRange'] = None,
-                 min_severity: Optional[str] = None):
-        """
-        :param bool allow_unknown: (Optional) Whether or not to allow components whose license cannot be determined (`true` or `false`).
-        :param Sequence[str] allowed_licenses: (Optional) A list of OSS license names that may be attached to a component.
-        :param Sequence[str] banned_licenses: (Optional) A list of OSS license names that may not be attached to a component.
-        :param 'XrayPolicyRuleCriteriaCvssRangeArgs' cvss_range: (Optional) Nested block describing a CVS score range to be impacted. Defined below.
-        :param str min_severity: (Optional) The minimum security vulnerability severity that will be impacted by the policy.
-        """
-        if allow_unknown is not None:
-            pulumi.set(__self__, "allow_unknown", allow_unknown)
-        if allowed_licenses is not None:
-            pulumi.set(__self__, "allowed_licenses", allowed_licenses)
-        if banned_licenses is not None:
-            pulumi.set(__self__, "banned_licenses", banned_licenses)
-        if cvss_range is not None:
-            pulumi.set(__self__, "cvss_range", cvss_range)
-        if min_severity is not None:
-            pulumi.set(__self__, "min_severity", min_severity)
-
-    @property
-    @pulumi.getter(name="allowUnknown")
-    def allow_unknown(self) -> Optional[bool]:
-        """
-        (Optional) Whether or not to allow components whose license cannot be determined (`true` or `false`).
-        """
-        return pulumi.get(self, "allow_unknown")
-
-    @property
-    @pulumi.getter(name="allowedLicenses")
-    def allowed_licenses(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) A list of OSS license names that may be attached to a component.
-        """
-        return pulumi.get(self, "allowed_licenses")
-
-    @property
-    @pulumi.getter(name="bannedLicenses")
-    def banned_licenses(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) A list of OSS license names that may not be attached to a component.
-        """
-        return pulumi.get(self, "banned_licenses")
-
-    @property
-    @pulumi.getter(name="cvssRange")
-    def cvss_range(self) -> Optional['outputs.XrayPolicyRuleCriteriaCvssRange']:
-        """
-        (Optional) Nested block describing a CVS score range to be impacted. Defined below.
-        """
-        return pulumi.get(self, "cvss_range")
-
-    @property
-    @pulumi.getter(name="minSeverity")
-    def min_severity(self) -> Optional[str]:
-        """
-        (Optional) The minimum security vulnerability severity that will be impacted by the policy.
-        """
-        return pulumi.get(self, "min_severity")
-
-
-@pulumi.output_type
-class XrayPolicyRuleCriteriaCvssRange(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "from":
-            suggest = "from_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in XrayPolicyRuleCriteriaCvssRange. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        XrayPolicyRuleCriteriaCvssRange.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        XrayPolicyRuleCriteriaCvssRange.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 from_: int,
-                 to: int):
-        """
-        :param int from_: (Required) The beginning of the range of CVS scores (from 1-10) to flag.
-        :param int to: (Required) The end of the range of CVS scores (from 1-10) to flag.
-        """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
-
-    @property
-    @pulumi.getter(name="from")
-    def from_(self) -> int:
-        """
-        (Required) The beginning of the range of CVS scores (from 1-10) to flag.
-        """
-        return pulumi.get(self, "from_")
-
-    @property
-    @pulumi.getter
-    def to(self) -> int:
-        """
-        (Required) The end of the range of CVS scores (from 1-10) to flag.
-        """
-        return pulumi.get(self, "to")
-
-
-@pulumi.output_type
-class XrayWatchAssignedPolicy(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 type: str):
-        """
-        :param str name: The name of the policy that will be applied
-        :param str type: The type of the policy
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the policy that will be applied
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of the policy
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class XrayWatchResource(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "binMgrId":
-            suggest = "bin_mgr_id"
-        elif key == "repoType":
-            suggest = "repo_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in XrayWatchResource. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        XrayWatchResource.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        XrayWatchResource.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 type: str,
-                 bin_mgr_id: Optional[str] = None,
-                 filters: Optional[Sequence['outputs.XrayWatchResourceFilter']] = None,
-                 repo_type: Optional[str] = None):
-        """
-        :param str name: A name describing the resource
-        :param str type: Type of resource to be watched
-        :param str bin_mgr_id: The ID number of a binary manager resource
-        :param Sequence['XrayWatchResourceFilterArgs'] filters: Nested argument describing filters to be applied. Defined below.
-        :param str repo_type: Type of repository (e.g. local or remote)
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if bin_mgr_id is not None:
-            pulumi.set(__self__, "bin_mgr_id", bin_mgr_id)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-        if repo_type is not None:
-            pulumi.set(__self__, "repo_type", repo_type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        A name describing the resource
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of resource to be watched
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="binMgrId")
-    def bin_mgr_id(self) -> Optional[str]:
-        """
-        The ID number of a binary manager resource
-        """
-        return pulumi.get(self, "bin_mgr_id")
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[Sequence['outputs.XrayWatchResourceFilter']]:
-        """
-        Nested argument describing filters to be applied. Defined below.
-        """
-        return pulumi.get(self, "filters")
-
-    @property
-    @pulumi.getter(name="repoType")
-    def repo_type(self) -> Optional[str]:
-        """
-        Type of repository (e.g. local or remote)
-        """
-        return pulumi.get(self, "repo_type")
-
-
-@pulumi.output_type
-class XrayWatchResourceFilter(dict):
-    def __init__(__self__, *,
-                 type: str,
-                 value: str):
-        """
-        :param str type: The type of filter, such as `regex` or `package-type`
-        :param str value: The value of the filter, such as the text of the regex or name of the package type
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of filter, such as `regex` or `package-type`
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        The value of the filter, such as the text of the regex or name of the package type
-        """
-        return pulumi.get(self, "value")
 
 

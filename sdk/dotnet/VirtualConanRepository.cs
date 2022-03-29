@@ -131,8 +131,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -269,8 +268,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -374,8 +372,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }

@@ -117,7 +117,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * - No documentation could be found. This field exist in the API but not in the UI
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
     /**
@@ -364,7 +364,7 @@ export interface RemoteNpmRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * - No documentation could be found. This field exist in the API but not in the UI
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**
@@ -499,7 +499,7 @@ export interface RemoteNpmRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * - No documentation could be found. This field exist in the API but not in the UI
+     * The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**

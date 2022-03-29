@@ -85,27 +85,61 @@ from .provider import *
 from .pull_replication import *
 from .push_replication import *
 from .release_bundle_webhook import *
+from .remote_alpine_repository import *
+from .remote_bower_repository import *
 from .remote_cargo_repository import *
+from .remote_chef_repository import *
+from .remote_cocoapods_repository import *
+from .remote_composer_repository import *
+from .remote_conan_repository import *
+from .remote_conda_repository import *
+from .remote_cran_repository import *
+from .remote_debian_repository import *
 from .remote_docker_repository import *
+from .remote_gems_repository import *
+from .remote_generic_repository import *
+from .remote_gitlfs_repository import *
+from .remote_go_repository import *
 from .remote_gradle_repository import *
 from .remote_helm_repository import *
 from .remote_ivy_repository import *
 from .remote_maven_repository import *
 from .remote_npm_repository import *
+from .remote_nuget_repository import *
+from .remote_opkg_repository import *
+from .remote_p2_repository import *
+from .remote_puppet_repository import *
 from .remote_pypi_repository import *
 from .remote_repository import *
+from .remote_rpm_repository import *
 from .remote_sbt_repository import *
 from .replication_config import *
 from .saml_settings import *
 from .single_replication_config import *
 from .user import *
+from .virtual_alpine_repository import *
+from .virtual_bower_repository import *
+from .virtual_chef_repository import *
+from .virtual_composer_repository import *
 from .virtual_conan_repository import *
+from .virtual_conda_repository import *
+from .virtual_cran_repository import *
+from .virtual_debian_repository import *
+from .virtual_docker_repository import *
+from .virtual_gems_repository import *
 from .virtual_generic_repository import *
+from .virtual_gitlfs_repository import *
+from .virtual_gradle_repository import *
 from .virtual_helm_repository import *
+from .virtual_ivy_repository import *
+from .virtual_npm_repository import *
+from .virtual_nuget_repository import *
+from .virtual_p2_repository import *
+from .virtual_puppet_repository import *
+from .virtual_pypi_repository import *
 from .virtual_repository import *
 from .virtual_rpm_repository import *
-from .xray_policy import *
-from .xray_watch import *
+from .virtual_sbt_repository import *
 from ._inputs import *
 from . import outputs
 
@@ -737,6 +771,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteAlpineRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository": "RemoteAlpineRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteBowerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteBowerRepository:RemoteBowerRepository": "RemoteBowerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteCargoRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -745,10 +795,98 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteChefRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteChefRepository:RemoteChefRepository": "RemoteChefRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteCocoapodsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository": "RemoteCocoapodsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteComposerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteComposerRepository:RemoteComposerRepository": "RemoteComposerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteConanRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteConanRepository:RemoteConanRepository": "RemoteConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteCondaRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteCondaRepository:RemoteCondaRepository": "RemoteCondaRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteCranRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteCranRepository:RemoteCranRepository": "RemoteCranRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteDebianRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteDebianRepository:RemoteDebianRepository": "RemoteDebianRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteDockerRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteDockerRepository:RemoteDockerRepository": "RemoteDockerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteGemsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteGemsRepository:RemoteGemsRepository": "RemoteGemsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteGenericRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteGenericRepository:RemoteGenericRepository": "RemoteGenericRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteGitlfsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository": "RemoteGitlfsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteGoRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteGoRepository:RemoteGoRepository": "RemoteGoRepository"
   }
  },
  {
@@ -793,6 +931,38 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteNugetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteNugetRepository:RemoteNugetRepository": "RemoteNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteOpkgRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository": "RemoteOpkgRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteP2Repository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteP2Repository:RemoteP2Repository": "RemoteP2Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remotePuppetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remotePuppetRepository:RemotePuppetRepository": "RemotePuppetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remotePypiRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -805,6 +975,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteRepository:RemoteRepository": "RemoteRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteRpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteRpmRepository:RemoteRpmRepository": "RemoteRpmRepository"
   }
  },
  {
@@ -849,10 +1027,82 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/virtualAlpineRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository": "VirtualAlpineRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualBowerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualBowerRepository:VirtualBowerRepository": "VirtualBowerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualChefRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualChefRepository:VirtualChefRepository": "VirtualChefRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualComposerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualComposerRepository:VirtualComposerRepository": "VirtualComposerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/virtualConanRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualConanRepository:VirtualConanRepository": "VirtualConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualCondaRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualCondaRepository:VirtualCondaRepository": "VirtualCondaRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualCranRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualCranRepository:VirtualCranRepository": "VirtualCranRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualDebianRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualDebianRepository:VirtualDebianRepository": "VirtualDebianRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualDockerRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualDockerRepository:VirtualDockerRepository": "VirtualDockerRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualGemsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualGemsRepository:VirtualGemsRepository": "VirtualGemsRepository"
   }
  },
  {
@@ -865,10 +1115,74 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/virtualGitlfsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository": "VirtualGitlfsRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualGradleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualGradleRepository:VirtualGradleRepository": "VirtualGradleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/virtualHelmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualHelmRepository:VirtualHelmRepository": "VirtualHelmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualIvyRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualIvyRepository:VirtualIvyRepository": "VirtualIvyRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualNpmRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualNpmRepository:VirtualNpmRepository": "VirtualNpmRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualNugetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualNugetRepository:VirtualNugetRepository": "VirtualNugetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualP2Repository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualP2Repository:VirtualP2Repository": "VirtualP2Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualPuppetRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository": "VirtualPuppetRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualPypiRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualPypiRepository:VirtualPypiRepository": "VirtualPypiRepository"
   }
  },
  {
@@ -889,18 +1203,10 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
-  "mod": "index/xrayPolicy",
+  "mod": "index/virtualSbtRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
-   "artifactory:index/xrayPolicy:XrayPolicy": "XrayPolicy"
-  }
- },
- {
-  "pkg": "artifactory",
-  "mod": "index/xrayWatch",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/xrayWatch:XrayWatch": "XrayWatch"
+   "artifactory:index/virtualSbtRepository:VirtualSbtRepository": "VirtualSbtRepository"
   }
  }
 ]

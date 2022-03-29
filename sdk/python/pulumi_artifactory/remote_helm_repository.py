@@ -34,6 +34,7 @@ class RemoteHelmRepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
@@ -76,6 +77,8 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -128,6 +131,8 @@ class RemoteHelmRepositoryArgs:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
+        if mismatching_mime_types_override_list is not None:
+            pulumi.set(__self__, "mismatching_mime_types_override_list", mismatching_mime_types_override_list)
         if missed_cache_period_seconds is not None:
             pulumi.set(__self__, "missed_cache_period_seconds", missed_cache_period_seconds)
         if notes is not None:
@@ -396,6 +401,19 @@ class RemoteHelmRepositoryArgs:
         pulumi.set(self, "local_address", value)
 
     @property
+    @pulumi.getter(name="mismatchingMimeTypesOverrideList")
+    def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
+        """
+        return pulumi.get(self, "mismatching_mime_types_override_list")
+
+    @mismatching_mime_types_override_list.setter
+    def mismatching_mime_types_override_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mismatching_mime_types_override_list", value)
+
+    @property
     @pulumi.getter(name="missedCachePeriodSeconds")
     def missed_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -652,6 +670,7 @@ class _RemoteHelmRepositoryState:
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
@@ -696,6 +715,8 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -754,6 +775,8 @@ class _RemoteHelmRepositoryState:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
+        if mismatching_mime_types_override_list is not None:
+            pulumi.set(__self__, "mismatching_mime_types_override_list", mismatching_mime_types_override_list)
         if missed_cache_period_seconds is not None:
             pulumi.set(__self__, "missed_cache_period_seconds", missed_cache_period_seconds)
         if notes is not None:
@@ -1024,6 +1047,19 @@ class _RemoteHelmRepositoryState:
     @local_address.setter
     def local_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "local_address", value)
+
+    @property
+    @pulumi.getter(name="mismatchingMimeTypesOverrideList")
+    def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
+        """
+        return pulumi.get(self, "mismatching_mime_types_override_list")
+
+    @mismatching_mime_types_override_list.setter
+    def mismatching_mime_types_override_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mismatching_mime_types_override_list", value)
 
     @property
     @pulumi.getter(name="missedCachePeriodSeconds")
@@ -1304,6 +1340,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
@@ -1369,6 +1406,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1447,6 +1486,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
+                 mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  offline: Optional[pulumi.Input[bool]] = None,
@@ -1501,6 +1541,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
             __props__.__dict__["local_address"] = local_address
+            __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
             __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
             __props__.__dict__["notes"] = notes
             __props__.__dict__["offline"] = offline
@@ -1556,6 +1597,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
             local_address: Optional[pulumi.Input[str]] = None,
+            mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             offline: Optional[pulumi.Input[bool]] = None,
@@ -1605,6 +1647,8 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1645,6 +1689,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
         __props__.__dict__["local_address"] = local_address
+        __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
         __props__.__dict__["notes"] = notes
         __props__.__dict__["offline"] = offline
@@ -1817,6 +1862,15 @@ class RemoteHelmRepository(pulumi.CustomResource):
         The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
+
+    @property
+    @pulumi.getter(name="mismatchingMimeTypesOverrideList")
+    def mismatching_mime_types_override_list(self) -> pulumi.Output[Optional[str]]:
+        """
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
+        """
+        return pulumi.get(self, "mismatching_mime_types_override_list")
 
     @property
     @pulumi.getter(name="missedCachePeriodSeconds")

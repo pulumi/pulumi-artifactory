@@ -79,7 +79,7 @@ type RemoteNpmRepository struct {
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
-	// - No documentation could be found. This field exist in the API but not in the UI
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
@@ -189,7 +189,7 @@ type remoteNpmRepositoryState struct {
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// - No documentation could be found. This field exist in the API but not in the UI
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
@@ -265,7 +265,7 @@ type RemoteNpmRepositoryState struct {
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// - No documentation could be found. This field exist in the API but not in the UI
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput
@@ -341,7 +341,7 @@ type remoteNpmRepositoryArgs struct {
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// - No documentation could be found. This field exist in the API but not in the UI
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
@@ -413,7 +413,7 @@ type RemoteNpmRepositoryArgs struct {
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// - No documentation could be found. This field exist in the API but not in the UI
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput

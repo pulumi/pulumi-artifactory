@@ -131,6 +131,11 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
+     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * "application/json,application/xml". Default value is empty.
+     */
+    public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
+    /**
      * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
     public readonly missedCachePeriodSeconds!: pulumi.Output<number>;
@@ -234,6 +239,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = state ? state.localAddress : undefined;
+            resourceInputs["mismatchingMimeTypesOverrideList"] = state ? state.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["offline"] = state ? state.offline : undefined;
@@ -283,6 +289,7 @@ export class RemoteHelmRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = args ? args.localAddress : undefined;
+            resourceInputs["mismatchingMimeTypesOverrideList"] = args ? args.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
             resourceInputs["offline"] = args ? args.offline : undefined;
@@ -391,6 +398,11 @@ export interface RemoteHelmRepositoryState {
      * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * "application/json,application/xml". Default value is empty.
+     */
+    mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**
      * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */
@@ -536,6 +548,11 @@ export interface RemoteHelmRepositoryArgs {
      * The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * "application/json,application/xml". Default value is empty.
+     */
+    mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
     /**
      * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
      */

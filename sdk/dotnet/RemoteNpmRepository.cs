@@ -134,7 +134,7 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// - No documentation could be found. This field exist in the API but not in the UI
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
         /// </summary>
         [Output("mismatchingMimeTypesOverrideList")]
         public Output<string?> MismatchingMimeTypesOverrideList { get; private set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// - No documentation could be found. This field exist in the API but not in the UI
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
@@ -616,7 +616,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// - No documentation could be found. This field exist in the API but not in the UI
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
         public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
