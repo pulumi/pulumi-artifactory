@@ -708,6 +708,20 @@ export interface ReleaseBundleWebhookCriteria {
     registeredReleaseBundleNames: string[];
 }
 
+export interface RemoteAlpineRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteBowerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface RemoteCargoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -727,6 +741,55 @@ export interface RemoteCargoRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
+export interface RemoteChefRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteCocoapodsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteComposerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteConanRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteCondaRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteCranRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteDebianRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -743,6 +806,46 @@ export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteGemsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteGenericRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: boolean;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: boolean;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: boolean;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteGitlfsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteGoRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
     statisticsEnabled?: boolean;
 }
 
@@ -841,6 +944,34 @@ export interface RemoteNpmRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
+export interface RemoteNugetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteOpkgRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteP2RepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemotePuppetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface RemotePypiRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -865,6 +996,13 @@ export interface RemoteRepositoryContentSynchronisation {
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
     enabled?: boolean;
+}
+
+export interface RemoteRpmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
 }
 
 export interface RemoteSbtRepositoryContentSynchronisation {
@@ -903,137 +1041,5 @@ export interface ReplicationConfigReplication {
     syncStatistics: boolean;
     url?: string;
     username?: string;
-}
-
-export interface XrayPolicyRule {
-    /**
-     * (Required) Nested block describing the actions to be applied by the policy. Described below.
-     */
-    actions?: outputs.XrayPolicyRuleActions;
-    /**
-     * (Required) Nested block describing the criteria for the policy. Described below.
-     */
-    criteria: outputs.XrayPolicyRuleCriteria;
-    /**
-     * (Required) Name of the rule
-     */
-    name: string;
-    /**
-     * (Required) Integer describing the rule priority
-     */
-    priority: number;
-}
-
-export interface XrayPolicyRuleActions {
-    /**
-     * (Optional) Nested block describing artifacts that should be blocked for download if a violation is triggered. Described below.
-     */
-    blockDownload: outputs.XrayPolicyRuleActionsBlockDownload;
-    /**
-     * (Optional) The severity of violation to be triggered if the `criteria` are met.
-     */
-    customSeverity?: string;
-    /**
-     * (Optional) Whether or not the related CI build should be marked as failed if a violation is triggered. This option is only available when the policy is applied to an `xrayWatch` resource with a `type` of `builds`.
-     */
-    failBuild?: boolean;
-    /**
-     * (Optional) A list of email addressed that will get emailed when a violation is triggered.
-     */
-    mails?: string[];
-    /**
-     * (Optional) A list of Xray-configured webhook URLs to be invoked if a violation is triggered.
-     */
-    webhooks?: string[];
-}
-
-export interface XrayPolicyRuleActionsBlockDownload {
-    /**
-     * Whether or not to block download of artifacts that meet the artifact and severity `filters` for the associated `xrayWatch` resource.
-     */
-    active: boolean;
-    /**
-     * Whether or not to block download of artifacts that meet the artifact `filters` for the associated `xrayWatch` resource but have not been scanned yet.
-     */
-    unscanned: boolean;
-}
-
-export interface XrayPolicyRuleCriteria {
-    /**
-     * (Optional) Whether or not to allow components whose license cannot be determined (`true` or `false`).
-     */
-    allowUnknown?: boolean;
-    /**
-     * (Optional) A list of OSS license names that may be attached to a component.
-     */
-    allowedLicenses?: string[];
-    /**
-     * (Optional) A list of OSS license names that may not be attached to a component.
-     */
-    bannedLicenses?: string[];
-    /**
-     * (Optional) Nested block describing a CVS score range to be impacted. Defined below.
-     */
-    cvssRange?: outputs.XrayPolicyRuleCriteriaCvssRange;
-    /**
-     * (Optional) The minimum security vulnerability severity that will be impacted by the policy.
-     */
-    minSeverity?: string;
-}
-
-export interface XrayPolicyRuleCriteriaCvssRange {
-    /**
-     * (Required) The beginning of the range of CVS scores (from 1-10) to flag.
-     */
-    from: number;
-    /**
-     * (Required) The end of the range of CVS scores (from 1-10) to flag.
-     */
-    to: number;
-}
-
-export interface XrayWatchAssignedPolicy {
-    /**
-     * The name of the policy that will be applied
-     */
-    name: string;
-    /**
-     * The type of the policy
-     */
-    type: string;
-}
-
-export interface XrayWatchResource {
-    /**
-     * The ID number of a binary manager resource
-     */
-    binMgrId?: string;
-    /**
-     * Nested argument describing filters to be applied. Defined below.
-     */
-    filters?: outputs.XrayWatchResourceFilter[];
-    /**
-     * A name describing the resource
-     */
-    name: string;
-    /**
-     * Type of repository (e.g. local or remote)
-     */
-    repoType: string;
-    /**
-     * Type of resource to be watched
-     */
-    type: string;
-}
-
-export interface XrayWatchResourceFilter {
-    /**
-     * The type of filter, such as `regex` or `package-type`
-     */
-    type: string;
-    /**
-     * The value of the filter, such as the text of the regex or name of the package type
-     */
-    value: string;
 }
 

@@ -708,6 +708,20 @@ export interface ReleaseBundleWebhookCriteria {
     registeredReleaseBundleNames: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface RemoteAlpineRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteBowerRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemoteCargoRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -727,6 +741,55 @@ export interface RemoteCargoRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface RemoteChefRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteCocoapodsRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteComposerRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteConanRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteCondaRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteCranRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteDebianRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -743,6 +806,46 @@ export interface RemoteDockerRepositoryContentSynchronisation {
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteGemsRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteGenericRepositoryContentSynchronisation {
+    /**
+     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
+     */
+    propertiesEnabled?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+     */
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
+     */
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteGitlfsRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteGoRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
@@ -841,6 +944,34 @@ export interface RemoteNpmRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface RemoteNugetRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteOpkgRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteP2RepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemotePuppetRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemotePypiRepositoryContentSynchronisation {
     /**
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
@@ -865,6 +996,13 @@ export interface RemoteRepositoryContentSynchronisation {
      * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
      */
     enabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteRpmRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
 }
 
 export interface RemoteSbtRepositoryContentSynchronisation {
@@ -903,137 +1041,5 @@ export interface ReplicationConfigReplication {
     syncStatistics?: pulumi.Input<boolean>;
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
-}
-
-export interface XrayPolicyRule {
-    /**
-     * (Required) Nested block describing the actions to be applied by the policy. Described below.
-     */
-    actions?: pulumi.Input<inputs.XrayPolicyRuleActions>;
-    /**
-     * (Required) Nested block describing the criteria for the policy. Described below.
-     */
-    criteria: pulumi.Input<inputs.XrayPolicyRuleCriteria>;
-    /**
-     * (Required) Name of the rule
-     */
-    name: pulumi.Input<string>;
-    /**
-     * (Required) Integer describing the rule priority
-     */
-    priority: pulumi.Input<number>;
-}
-
-export interface XrayPolicyRuleActions {
-    /**
-     * (Optional) Nested block describing artifacts that should be blocked for download if a violation is triggered. Described below.
-     */
-    blockDownload: pulumi.Input<inputs.XrayPolicyRuleActionsBlockDownload>;
-    /**
-     * (Optional) The severity of violation to be triggered if the `criteria` are met.
-     */
-    customSeverity?: pulumi.Input<string>;
-    /**
-     * (Optional) Whether or not the related CI build should be marked as failed if a violation is triggered. This option is only available when the policy is applied to an `xrayWatch` resource with a `type` of `builds`.
-     */
-    failBuild?: pulumi.Input<boolean>;
-    /**
-     * (Optional) A list of email addressed that will get emailed when a violation is triggered.
-     */
-    mails?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional) A list of Xray-configured webhook URLs to be invoked if a violation is triggered.
-     */
-    webhooks?: pulumi.Input<pulumi.Input<string>[]>;
-}
-
-export interface XrayPolicyRuleActionsBlockDownload {
-    /**
-     * Whether or not to block download of artifacts that meet the artifact and severity `filters` for the associated `xrayWatch` resource.
-     */
-    active: pulumi.Input<boolean>;
-    /**
-     * Whether or not to block download of artifacts that meet the artifact `filters` for the associated `xrayWatch` resource but have not been scanned yet.
-     */
-    unscanned: pulumi.Input<boolean>;
-}
-
-export interface XrayPolicyRuleCriteria {
-    /**
-     * (Optional) Whether or not to allow components whose license cannot be determined (`true` or `false`).
-     */
-    allowUnknown?: pulumi.Input<boolean>;
-    /**
-     * (Optional) A list of OSS license names that may be attached to a component.
-     */
-    allowedLicenses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional) A list of OSS license names that may not be attached to a component.
-     */
-    bannedLicenses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Optional) Nested block describing a CVS score range to be impacted. Defined below.
-     */
-    cvssRange?: pulumi.Input<inputs.XrayPolicyRuleCriteriaCvssRange>;
-    /**
-     * (Optional) The minimum security vulnerability severity that will be impacted by the policy.
-     */
-    minSeverity?: pulumi.Input<string>;
-}
-
-export interface XrayPolicyRuleCriteriaCvssRange {
-    /**
-     * (Required) The beginning of the range of CVS scores (from 1-10) to flag.
-     */
-    from: pulumi.Input<number>;
-    /**
-     * (Required) The end of the range of CVS scores (from 1-10) to flag.
-     */
-    to: pulumi.Input<number>;
-}
-
-export interface XrayWatchAssignedPolicy {
-    /**
-     * The name of the policy that will be applied
-     */
-    name: pulumi.Input<string>;
-    /**
-     * The type of the policy
-     */
-    type: pulumi.Input<string>;
-}
-
-export interface XrayWatchResource {
-    /**
-     * The ID number of a binary manager resource
-     */
-    binMgrId?: pulumi.Input<string>;
-    /**
-     * Nested argument describing filters to be applied. Defined below.
-     */
-    filters?: pulumi.Input<pulumi.Input<inputs.XrayWatchResourceFilter>[]>;
-    /**
-     * A name describing the resource
-     */
-    name: pulumi.Input<string>;
-    /**
-     * Type of repository (e.g. local or remote)
-     */
-    repoType?: pulumi.Input<string>;
-    /**
-     * Type of resource to be watched
-     */
-    type: pulumi.Input<string>;
-}
-
-export interface XrayWatchResourceFilter {
-    /**
-     * The type of filter, such as `regex` or `package-type`
-     */
-    type: pulumi.Input<string>;
-    /**
-     * The value of the filter, such as the text of the regex or name of the package type
-     */
-    value: pulumi.Input<string>;
 }
 

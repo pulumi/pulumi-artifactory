@@ -23,7 +23,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -87,6 +87,9 @@ type RemoteSbtRepository struct {
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
+	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// "application/json,application/xml". Default value is empty.
+	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
 	Notes                    pulumi.StringPtrOutput `pulumi:"notes"`
@@ -209,6 +212,9 @@ type remoteSbtRepositoryState struct {
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// "application/json,application/xml". Default value is empty.
+	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
@@ -297,6 +303,9 @@ type RemoteSbtRepositoryState struct {
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// "application/json,application/xml". Default value is empty.
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
@@ -385,6 +394,9 @@ type remoteSbtRepositoryArgs struct {
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// "application/json,application/xml". Default value is empty.
+	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
@@ -469,6 +481,9 @@ type RemoteSbtRepositoryArgs struct {
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+	// "application/json,application/xml". Default value is empty.
+	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput

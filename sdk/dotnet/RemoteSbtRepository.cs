@@ -158,6 +158,13 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// "application/json,application/xml". Default value is empty.
+        /// </summary>
+        [Output("mismatchingMimeTypesOverrideList")]
+        public Output<string?> MismatchingMimeTypesOverrideList { get; private set; } = null!;
+
+        /// <summary>
         /// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         /// </summary>
         [Output("missedCachePeriodSeconds")]
@@ -447,6 +454,13 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
+        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// "application/json,application/xml". Default value is empty.
+        /// </summary>
+        [Input("mismatchingMimeTypesOverrideList")]
+        public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
+
+        /// <summary>
         /// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         /// </summary>
         [Input("missedCachePeriodSeconds")]
@@ -710,6 +724,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
+
+        /// <summary>
+        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// "application/json,application/xml". Default value is empty.
+        /// </summary>
+        [Input("mismatchingMimeTypesOverrideList")]
+        public Input<string>? MismatchingMimeTypesOverrideList { get; set; }
 
         /// <summary>
         /// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.

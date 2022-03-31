@@ -85,27 +85,61 @@ export * from "./provider";
 export * from "./pullReplication";
 export * from "./pushReplication";
 export * from "./releaseBundleWebhook";
+export * from "./remoteAlpineRepository";
+export * from "./remoteBowerRepository";
 export * from "./remoteCargoRepository";
+export * from "./remoteChefRepository";
+export * from "./remoteCocoapodsRepository";
+export * from "./remoteComposerRepository";
+export * from "./remoteConanRepository";
+export * from "./remoteCondaRepository";
+export * from "./remoteCranRepository";
+export * from "./remoteDebianRepository";
 export * from "./remoteDockerRepository";
+export * from "./remoteGemsRepository";
+export * from "./remoteGenericRepository";
+export * from "./remoteGitlfsRepository";
+export * from "./remoteGoRepository";
 export * from "./remoteGradleRepository";
 export * from "./remoteHelmRepository";
 export * from "./remoteIvyRepository";
 export * from "./remoteMavenRepository";
 export * from "./remoteNpmRepository";
+export * from "./remoteNugetRepository";
+export * from "./remoteOpkgRepository";
+export * from "./remoteP2Repository";
+export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRepository";
+export * from "./remoteRpmRepository";
 export * from "./remoteSbtRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
 export * from "./user";
+export * from "./virtualAlpineRepository";
+export * from "./virtualBowerRepository";
+export * from "./virtualChefRepository";
+export * from "./virtualComposerRepository";
 export * from "./virtualConanRepository";
+export * from "./virtualCondaRepository";
+export * from "./virtualCranRepository";
+export * from "./virtualDebianRepository";
+export * from "./virtualDockerRepository";
+export * from "./virtualGemsRepository";
 export * from "./virtualGenericRepository";
+export * from "./virtualGitlfsRepository";
+export * from "./virtualGradleRepository";
 export * from "./virtualHelmRepository";
+export * from "./virtualIvyRepository";
+export * from "./virtualNpmRepository";
+export * from "./virtualNugetRepository";
+export * from "./virtualP2Repository";
+export * from "./virtualPuppetRepository";
+export * from "./virtualPypiRepository";
 export * from "./virtualRepository";
 export * from "./virtualRpmRepository";
-export * from "./xrayPolicy";
-export * from "./xrayWatch";
+export * from "./virtualSbtRepository";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -194,27 +228,61 @@ import { PermissionTargets } from "./permissionTargets";
 import { PullReplication } from "./pullReplication";
 import { PushReplication } from "./pushReplication";
 import { ReleaseBundleWebhook } from "./releaseBundleWebhook";
+import { RemoteAlpineRepository } from "./remoteAlpineRepository";
+import { RemoteBowerRepository } from "./remoteBowerRepository";
 import { RemoteCargoRepository } from "./remoteCargoRepository";
+import { RemoteChefRepository } from "./remoteChefRepository";
+import { RemoteCocoapodsRepository } from "./remoteCocoapodsRepository";
+import { RemoteComposerRepository } from "./remoteComposerRepository";
+import { RemoteConanRepository } from "./remoteConanRepository";
+import { RemoteCondaRepository } from "./remoteCondaRepository";
+import { RemoteCranRepository } from "./remoteCranRepository";
+import { RemoteDebianRepository } from "./remoteDebianRepository";
 import { RemoteDockerRepository } from "./remoteDockerRepository";
+import { RemoteGemsRepository } from "./remoteGemsRepository";
+import { RemoteGenericRepository } from "./remoteGenericRepository";
+import { RemoteGitlfsRepository } from "./remoteGitlfsRepository";
+import { RemoteGoRepository } from "./remoteGoRepository";
 import { RemoteGradleRepository } from "./remoteGradleRepository";
 import { RemoteHelmRepository } from "./remoteHelmRepository";
 import { RemoteIvyRepository } from "./remoteIvyRepository";
 import { RemoteMavenRepository } from "./remoteMavenRepository";
 import { RemoteNpmRepository } from "./remoteNpmRepository";
+import { RemoteNugetRepository } from "./remoteNugetRepository";
+import { RemoteOpkgRepository } from "./remoteOpkgRepository";
+import { RemoteP2Repository } from "./remoteP2Repository";
+import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRepository } from "./remoteRepository";
+import { RemoteRpmRepository } from "./remoteRpmRepository";
 import { RemoteSbtRepository } from "./remoteSbtRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
 import { User } from "./user";
+import { VirtualAlpineRepository } from "./virtualAlpineRepository";
+import { VirtualBowerRepository } from "./virtualBowerRepository";
+import { VirtualChefRepository } from "./virtualChefRepository";
+import { VirtualComposerRepository } from "./virtualComposerRepository";
 import { VirtualConanRepository } from "./virtualConanRepository";
+import { VirtualCondaRepository } from "./virtualCondaRepository";
+import { VirtualCranRepository } from "./virtualCranRepository";
+import { VirtualDebianRepository } from "./virtualDebianRepository";
+import { VirtualDockerRepository } from "./virtualDockerRepository";
+import { VirtualGemsRepository } from "./virtualGemsRepository";
 import { VirtualGenericRepository } from "./virtualGenericRepository";
+import { VirtualGitlfsRepository } from "./virtualGitlfsRepository";
+import { VirtualGradleRepository } from "./virtualGradleRepository";
 import { VirtualHelmRepository } from "./virtualHelmRepository";
+import { VirtualIvyRepository } from "./virtualIvyRepository";
+import { VirtualNpmRepository } from "./virtualNpmRepository";
+import { VirtualNugetRepository } from "./virtualNugetRepository";
+import { VirtualP2Repository } from "./virtualP2Repository";
+import { VirtualPuppetRepository } from "./virtualPuppetRepository";
+import { VirtualPypiRepository } from "./virtualPypiRepository";
 import { VirtualRepository } from "./virtualRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
-import { XrayPolicy } from "./xrayPolicy";
-import { XrayWatch } from "./xrayWatch";
+import { VirtualSbtRepository } from "./virtualSbtRepository";
 
 const _module = {
     version: utilities.getVersion(),
@@ -374,10 +442,36 @@ const _module = {
                 return new PushReplication(name, <any>undefined, { urn })
             case "artifactory:index/releaseBundleWebhook:ReleaseBundleWebhook":
                 return new ReleaseBundleWebhook(name, <any>undefined, { urn })
+            case "artifactory:index/remoteAlpineRepository:RemoteAlpineRepository":
+                return new RemoteAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteBowerRepository:RemoteBowerRepository":
+                return new RemoteBowerRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteCargoRepository:RemoteCargoRepository":
                 return new RemoteCargoRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteChefRepository:RemoteChefRepository":
+                return new RemoteChefRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository":
+                return new RemoteCocoapodsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteComposerRepository:RemoteComposerRepository":
+                return new RemoteComposerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteConanRepository:RemoteConanRepository":
+                return new RemoteConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteCondaRepository:RemoteCondaRepository":
+                return new RemoteCondaRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteCranRepository:RemoteCranRepository":
+                return new RemoteCranRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteDebianRepository:RemoteDebianRepository":
+                return new RemoteDebianRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteDockerRepository:RemoteDockerRepository":
                 return new RemoteDockerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteGemsRepository:RemoteGemsRepository":
+                return new RemoteGemsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteGenericRepository:RemoteGenericRepository":
+                return new RemoteGenericRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository":
+                return new RemoteGitlfsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteGoRepository:RemoteGoRepository":
+                return new RemoteGoRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteGradleRepository:RemoteGradleRepository":
                 return new RemoteGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteHelmRepository:RemoteHelmRepository":
@@ -388,10 +482,20 @@ const _module = {
                 return new RemoteMavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteNpmRepository:RemoteNpmRepository":
                 return new RemoteNpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteNugetRepository:RemoteNugetRepository":
+                return new RemoteNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteOpkgRepository:RemoteOpkgRepository":
+                return new RemoteOpkgRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteP2Repository:RemoteP2Repository":
+                return new RemoteP2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/remotePuppetRepository:RemotePuppetRepository":
+                return new RemotePuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
                 return new RemotePypiRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteRepository:RemoteRepository":
                 return new RemoteRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
+                return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
                 return new RemoteSbtRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -402,20 +506,52 @@ const _module = {
                 return new SingleReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
+                return new VirtualAlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualBowerRepository:VirtualBowerRepository":
+                return new VirtualBowerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualChefRepository:VirtualChefRepository":
+                return new VirtualChefRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualComposerRepository:VirtualComposerRepository":
+                return new VirtualComposerRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualConanRepository:VirtualConanRepository":
                 return new VirtualConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualCondaRepository:VirtualCondaRepository":
+                return new VirtualCondaRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualCranRepository:VirtualCranRepository":
+                return new VirtualCranRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualDebianRepository:VirtualDebianRepository":
+                return new VirtualDebianRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualDockerRepository:VirtualDockerRepository":
+                return new VirtualDockerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualGemsRepository:VirtualGemsRepository":
+                return new VirtualGemsRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualGenericRepository:VirtualGenericRepository":
                 return new VirtualGenericRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository":
+                return new VirtualGitlfsRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualGradleRepository:VirtualGradleRepository":
+                return new VirtualGradleRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualHelmRepository:VirtualHelmRepository":
                 return new VirtualHelmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualIvyRepository:VirtualIvyRepository":
+                return new VirtualIvyRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualNpmRepository:VirtualNpmRepository":
+                return new VirtualNpmRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualNugetRepository:VirtualNugetRepository":
+                return new VirtualNugetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualP2Repository:VirtualP2Repository":
+                return new VirtualP2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository":
+                return new VirtualPuppetRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualPypiRepository:VirtualPypiRepository":
+                return new VirtualPypiRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRepository:VirtualRepository":
                 return new VirtualRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
                 return new VirtualRpmRepository(name, <any>undefined, { urn })
-            case "artifactory:index/xrayPolicy:XrayPolicy":
-                return new XrayPolicy(name, <any>undefined, { urn })
-            case "artifactory:index/xrayWatch:XrayWatch":
-                return new XrayWatch(name, <any>undefined, { urn })
+            case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
+                return new VirtualSbtRepository(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -498,27 +634,61 @@ pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", 
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteBowerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteCargoRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteChefRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteCocoapodsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteComposerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteCondaRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteCranRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteDebianRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteDockerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteGemsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteGenericRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteGitlfsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteGoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteHelmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteIvyRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteMavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteOpkgRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualChefRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualComposerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualCondaRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualCranRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualDebianRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualDockerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualGemsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualGenericRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualGitlfsRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualGradleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualHelmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualIvyRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualNpmRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualP2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/xrayPolicy", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/xrayWatch", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
 
 import { Provider } from "./provider";
 
