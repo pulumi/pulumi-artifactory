@@ -9,8 +9,7 @@ replace (
 
 require (
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
-	// When this is merged, we can use a canonical module path: https://github.com/jfrog/terraform-provider-artifactory/pull/374
-	github.com/jfrog/terraform-provider-artifactory/v2 v2.25.1-0.20220329001635-7669507f1a2a
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.19.1
-	github.com/pulumi/pulumi/sdk/v3 v3.25.0
+	github.com/jfrog/terraform-provider-artifactory/v3 v3.1.2
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.20.0
+	github.com/pulumi/pulumi/sdk/v3 v3.27.0
 )

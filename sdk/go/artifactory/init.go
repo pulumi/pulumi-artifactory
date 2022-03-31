@@ -116,6 +116,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LdapSetting{}
 	case "artifactory:index/localBowerRepository:LocalBowerRepository":
 		r = &LocalBowerRepository{}
+	case "artifactory:index/localCargoRepository:LocalCargoRepository":
+		r = &LocalCargoRepository{}
 	case "artifactory:index/localChefRepository:LocalChefRepository":
 		r = &LocalChefRepository{}
 	case "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository":
@@ -124,6 +126,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalComposerRepository{}
 	case "artifactory:index/localConanRepository:LocalConanRepository":
 		r = &LocalConanRepository{}
+	case "artifactory:index/localCondaRepository:LocalCondaRepository":
+		r = &LocalCondaRepository{}
 	case "artifactory:index/localCranRepository:LocalCranRepository":
 		r = &LocalCranRepository{}
 	case "artifactory:index/localGemsRepository:LocalGemsRepository":
@@ -557,6 +561,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localCargoRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localChefRepository",
 		&module{version},
 	)
@@ -573,6 +582,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/localConanRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localCondaRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

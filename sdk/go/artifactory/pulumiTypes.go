@@ -6059,10 +6059,14 @@ func (o PermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Per
 }
 
 type PermissionTargetsBuild struct {
-	Actions          *PermissionTargetsBuildActions `pulumi:"actions"`
-	ExcludesPatterns []string                       `pulumi:"excludesPatterns"`
-	IncludesPatterns []string                       `pulumi:"includesPatterns"`
-	Repositories     []string                       `pulumi:"repositories"`
+	// -
+	Actions *PermissionTargetsBuildActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories []string `pulumi:"repositories"`
 }
 
 // PermissionTargetsBuildInput is an input type that accepts PermissionTargetsBuildArgs and PermissionTargetsBuildOutput values.
@@ -6077,10 +6081,14 @@ type PermissionTargetsBuildInput interface {
 }
 
 type PermissionTargetsBuildArgs struct {
-	Actions          PermissionTargetsBuildActionsPtrInput `pulumi:"actions"`
-	ExcludesPatterns pulumi.StringArrayInput               `pulumi:"excludesPatterns"`
-	IncludesPatterns pulumi.StringArrayInput               `pulumi:"includesPatterns"`
-	Repositories     pulumi.StringArrayInput               `pulumi:"repositories"`
+	// -
+	Actions PermissionTargetsBuildActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (PermissionTargetsBuildArgs) ElementType() reflect.Type {
@@ -6160,18 +6168,22 @@ func (o PermissionTargetsBuildOutput) ToPermissionTargetsBuildPtrOutputWithConte
 	}).(PermissionTargetsBuildPtrOutput)
 }
 
+// -
 func (o PermissionTargetsBuildOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) *PermissionTargetsBuildActions { return v.Actions }).(PermissionTargetsBuildActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsBuildOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsBuildOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6200,6 +6212,7 @@ func (o PermissionTargetsBuildPtrOutput) Elem() PermissionTargetsBuildOutput {
 	}).(PermissionTargetsBuildOutput)
 }
 
+// -
 func (o PermissionTargetsBuildPtrOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) *PermissionTargetsBuildActions {
 		if v == nil {
@@ -6209,6 +6222,7 @@ func (o PermissionTargetsBuildPtrOutput) Actions() PermissionTargetsBuildActions
 	}).(PermissionTargetsBuildActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6218,6 +6232,7 @@ func (o PermissionTargetsBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6227,6 +6242,7 @@ func (o PermissionTargetsBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6237,8 +6253,10 @@ func (o PermissionTargetsBuildPtrOutput) Repositories() pulumi.StringArrayOutput
 }
 
 type PermissionTargetsBuildActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetsBuildActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetsBuildActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetsBuildActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetsBuildActionsInput is an input type that accepts PermissionTargetsBuildActionsArgs and PermissionTargetsBuildActionsOutput values.
@@ -6253,8 +6271,10 @@ type PermissionTargetsBuildActionsInput interface {
 }
 
 type PermissionTargetsBuildActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetsBuildActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetsBuildActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetsBuildActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetsBuildActionsArgs) ElementType() reflect.Type {
@@ -6334,10 +6354,12 @@ func (o PermissionTargetsBuildActionsOutput) ToPermissionTargetsBuildActionsPtrO
 	}).(PermissionTargetsBuildActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsBuildActionsOutput) Groups() PermissionTargetsBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActions) []PermissionTargetsBuildActionsGroup { return v.Groups }).(PermissionTargetsBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsBuildActionsOutput) Users() PermissionTargetsBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActions) []PermissionTargetsBuildActionsUser { return v.Users }).(PermissionTargetsBuildActionsUserArrayOutput)
 }
@@ -6366,6 +6388,7 @@ func (o PermissionTargetsBuildActionsPtrOutput) Elem() PermissionTargetsBuildAct
 	}).(PermissionTargetsBuildActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsBuildActionsPtrOutput) Groups() PermissionTargetsBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuildActions) []PermissionTargetsBuildActionsGroup {
 		if v == nil {
@@ -6375,6 +6398,7 @@ func (o PermissionTargetsBuildActionsPtrOutput) Groups() PermissionTargetsBuildA
 	}).(PermissionTargetsBuildActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsBuildActionsPtrOutput) Users() PermissionTargetsBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuildActions) []PermissionTargetsBuildActionsUser {
 		if v == nil {
@@ -6385,6 +6409,7 @@ func (o PermissionTargetsBuildActionsPtrOutput) Users() PermissionTargetsBuildAc
 }
 
 type PermissionTargetsBuildActionsGroup struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6401,6 +6426,7 @@ type PermissionTargetsBuildActionsGroupInput interface {
 }
 
 type PermissionTargetsBuildActionsGroupArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6456,6 +6482,7 @@ func (o PermissionTargetsBuildActionsGroupOutput) ToPermissionTargetsBuildAction
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsBuildActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6485,6 +6512,7 @@ func (o PermissionTargetsBuildActionsGroupArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type PermissionTargetsBuildActionsUser struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6501,6 +6529,7 @@ type PermissionTargetsBuildActionsUserInput interface {
 }
 
 type PermissionTargetsBuildActionsUserArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6556,6 +6585,7 @@ func (o PermissionTargetsBuildActionsUserOutput) ToPermissionTargetsBuildActions
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsBuildActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6585,10 +6615,14 @@ func (o PermissionTargetsBuildActionsUserArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetsReleaseBundle struct {
-	Actions          *PermissionTargetsReleaseBundleActions `pulumi:"actions"`
-	ExcludesPatterns []string                               `pulumi:"excludesPatterns"`
-	IncludesPatterns []string                               `pulumi:"includesPatterns"`
-	Repositories     []string                               `pulumi:"repositories"`
+	// -
+	Actions *PermissionTargetsReleaseBundleActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories []string `pulumi:"repositories"`
 }
 
 // PermissionTargetsReleaseBundleInput is an input type that accepts PermissionTargetsReleaseBundleArgs and PermissionTargetsReleaseBundleOutput values.
@@ -6603,10 +6637,14 @@ type PermissionTargetsReleaseBundleInput interface {
 }
 
 type PermissionTargetsReleaseBundleArgs struct {
-	Actions          PermissionTargetsReleaseBundleActionsPtrInput `pulumi:"actions"`
-	ExcludesPatterns pulumi.StringArrayInput                       `pulumi:"excludesPatterns"`
-	IncludesPatterns pulumi.StringArrayInput                       `pulumi:"includesPatterns"`
-	Repositories     pulumi.StringArrayInput                       `pulumi:"repositories"`
+	// -
+	Actions PermissionTargetsReleaseBundleActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (PermissionTargetsReleaseBundleArgs) ElementType() reflect.Type {
@@ -6686,18 +6724,22 @@ func (o PermissionTargetsReleaseBundleOutput) ToPermissionTargetsReleaseBundlePt
 	}).(PermissionTargetsReleaseBundlePtrOutput)
 }
 
+// -
 func (o PermissionTargetsReleaseBundleOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions { return v.Actions }).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsReleaseBundleOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsReleaseBundleOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6726,6 +6768,7 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Elem() PermissionTargetsRelease
 	}).(PermissionTargetsReleaseBundleOutput)
 }
 
+// -
 func (o PermissionTargetsReleaseBundlePtrOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions {
 		if v == nil {
@@ -6735,6 +6778,7 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Actions() PermissionTargetsRele
 	}).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsReleaseBundlePtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6744,6 +6788,7 @@ func (o PermissionTargetsReleaseBundlePtrOutput) ExcludesPatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsReleaseBundlePtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6753,6 +6798,7 @@ func (o PermissionTargetsReleaseBundlePtrOutput) IncludesPatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6763,8 +6809,10 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Repositories() pulumi.StringArr
 }
 
 type PermissionTargetsReleaseBundleActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetsReleaseBundleActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetsReleaseBundleActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetsReleaseBundleActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetsReleaseBundleActionsInput is an input type that accepts PermissionTargetsReleaseBundleActionsArgs and PermissionTargetsReleaseBundleActionsOutput values.
@@ -6779,8 +6827,10 @@ type PermissionTargetsReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetsReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetsReleaseBundleActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetsReleaseBundleActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetsReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -6860,12 +6910,14 @@ func (o PermissionTargetsReleaseBundleActionsOutput) ToPermissionTargetsReleaseB
 	}).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsReleaseBundleActionsOutput) Groups() PermissionTargetsReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetsReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsReleaseBundleActionsOutput) Users() PermissionTargetsReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsUser {
 		return v.Users
@@ -6896,6 +6948,7 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Elem() PermissionTargets
 	}).(PermissionTargetsReleaseBundleActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsReleaseBundleActionsPtrOutput) Groups() PermissionTargetsReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsGroup {
 		if v == nil {
@@ -6905,6 +6958,7 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Groups() PermissionTarge
 	}).(PermissionTargetsReleaseBundleActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsReleaseBundleActionsPtrOutput) Users() PermissionTargetsReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsUser {
 		if v == nil {
@@ -6915,6 +6969,7 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Users() PermissionTarget
 }
 
 type PermissionTargetsReleaseBundleActionsGroup struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6931,6 +6986,7 @@ type PermissionTargetsReleaseBundleActionsGroupInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsGroupArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6986,6 +7042,7 @@ func (o PermissionTargetsReleaseBundleActionsGroupOutput) ToPermissionTargetsRel
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsReleaseBundleActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7015,6 +7072,7 @@ func (o PermissionTargetsReleaseBundleActionsGroupArrayOutput) Index(i pulumi.In
 }
 
 type PermissionTargetsReleaseBundleActionsUser struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7031,6 +7089,7 @@ type PermissionTargetsReleaseBundleActionsUserInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsUserArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7086,6 +7145,7 @@ func (o PermissionTargetsReleaseBundleActionsUserOutput) ToPermissionTargetsRele
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsReleaseBundleActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7115,10 +7175,14 @@ func (o PermissionTargetsReleaseBundleActionsUserArrayOutput) Index(i pulumi.Int
 }
 
 type PermissionTargetsRepo struct {
-	Actions          *PermissionTargetsRepoActions `pulumi:"actions"`
-	ExcludesPatterns []string                      `pulumi:"excludesPatterns"`
-	IncludesPatterns []string                      `pulumi:"includesPatterns"`
-	Repositories     []string                      `pulumi:"repositories"`
+	// -
+	Actions *PermissionTargetsRepoActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories []string `pulumi:"repositories"`
 }
 
 // PermissionTargetsRepoInput is an input type that accepts PermissionTargetsRepoArgs and PermissionTargetsRepoOutput values.
@@ -7133,10 +7197,14 @@ type PermissionTargetsRepoInput interface {
 }
 
 type PermissionTargetsRepoArgs struct {
-	Actions          PermissionTargetsRepoActionsPtrInput `pulumi:"actions"`
-	ExcludesPatterns pulumi.StringArrayInput              `pulumi:"excludesPatterns"`
-	IncludesPatterns pulumi.StringArrayInput              `pulumi:"includesPatterns"`
-	Repositories     pulumi.StringArrayInput              `pulumi:"repositories"`
+	// -
+	Actions PermissionTargetsRepoActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
 func (PermissionTargetsRepoArgs) ElementType() reflect.Type {
@@ -7216,18 +7284,22 @@ func (o PermissionTargetsRepoOutput) ToPermissionTargetsRepoPtrOutputWithContext
 	}).(PermissionTargetsRepoPtrOutput)
 }
 
+// -
 func (o PermissionTargetsRepoOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) *PermissionTargetsRepoActions { return v.Actions }).(PermissionTargetsRepoActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsRepoOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsRepoOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsRepoOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -7256,6 +7328,7 @@ func (o PermissionTargetsRepoPtrOutput) Elem() PermissionTargetsRepoOutput {
 	}).(PermissionTargetsRepoOutput)
 }
 
+// -
 func (o PermissionTargetsRepoPtrOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) *PermissionTargetsRepoActions {
 		if v == nil {
@@ -7265,6 +7338,7 @@ func (o PermissionTargetsRepoPtrOutput) Actions() PermissionTargetsRepoActionsPt
 	}).(PermissionTargetsRepoActionsPtrOutput)
 }
 
+// Pattern of artifacts to exclude
 func (o PermissionTargetsRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7274,6 +7348,7 @@ func (o PermissionTargetsRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// Pattern of artifacts to include
 func (o PermissionTargetsRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7283,6 +7358,7 @@ func (o PermissionTargetsRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
+// List of repositories this permission target is applicable for
 func (o PermissionTargetsRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7293,8 +7369,10 @@ func (o PermissionTargetsRepoPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetsRepoActions struct {
+	// Groups this permission applies for.
 	Groups []PermissionTargetsRepoActionsGroup `pulumi:"groups"`
-	Users  []PermissionTargetsRepoActionsUser  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users []PermissionTargetsRepoActionsUser `pulumi:"users"`
 }
 
 // PermissionTargetsRepoActionsInput is an input type that accepts PermissionTargetsRepoActionsArgs and PermissionTargetsRepoActionsOutput values.
@@ -7309,8 +7387,10 @@ type PermissionTargetsRepoActionsInput interface {
 }
 
 type PermissionTargetsRepoActionsArgs struct {
+	// Groups this permission applies for.
 	Groups PermissionTargetsRepoActionsGroupArrayInput `pulumi:"groups"`
-	Users  PermissionTargetsRepoActionsUserArrayInput  `pulumi:"users"`
+	// Users this permission target applies for.
+	Users PermissionTargetsRepoActionsUserArrayInput `pulumi:"users"`
 }
 
 func (PermissionTargetsRepoActionsArgs) ElementType() reflect.Type {
@@ -7390,10 +7470,12 @@ func (o PermissionTargetsRepoActionsOutput) ToPermissionTargetsRepoActionsPtrOut
 	}).(PermissionTargetsRepoActionsPtrOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsRepoActionsOutput) Groups() PermissionTargetsRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActions) []PermissionTargetsRepoActionsGroup { return v.Groups }).(PermissionTargetsRepoActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsRepoActionsOutput) Users() PermissionTargetsRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActions) []PermissionTargetsRepoActionsUser { return v.Users }).(PermissionTargetsRepoActionsUserArrayOutput)
 }
@@ -7422,6 +7504,7 @@ func (o PermissionTargetsRepoActionsPtrOutput) Elem() PermissionTargetsRepoActio
 	}).(PermissionTargetsRepoActionsOutput)
 }
 
+// Groups this permission applies for.
 func (o PermissionTargetsRepoActionsPtrOutput) Groups() PermissionTargetsRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepoActions) []PermissionTargetsRepoActionsGroup {
 		if v == nil {
@@ -7431,6 +7514,7 @@ func (o PermissionTargetsRepoActionsPtrOutput) Groups() PermissionTargetsRepoAct
 	}).(PermissionTargetsRepoActionsGroupArrayOutput)
 }
 
+// Users this permission target applies for.
 func (o PermissionTargetsRepoActionsPtrOutput) Users() PermissionTargetsRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepoActions) []PermissionTargetsRepoActionsUser {
 		if v == nil {
@@ -7441,6 +7525,7 @@ func (o PermissionTargetsRepoActionsPtrOutput) Users() PermissionTargetsRepoActi
 }
 
 type PermissionTargetsRepoActionsGroup struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7457,6 +7542,7 @@ type PermissionTargetsRepoActionsGroupInput interface {
 }
 
 type PermissionTargetsRepoActionsGroupArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7512,6 +7598,7 @@ func (o PermissionTargetsRepoActionsGroupOutput) ToPermissionTargetsRepoActionsG
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsRepoActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7541,6 +7628,7 @@ func (o PermissionTargetsRepoActionsGroupArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetsRepoActionsUser struct {
+	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7557,6 +7645,7 @@ type PermissionTargetsRepoActionsUserInput interface {
 }
 
 type PermissionTargetsRepoActionsUserArgs struct {
+	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7612,6 +7701,7 @@ func (o PermissionTargetsRepoActionsUserOutput) ToPermissionTargetsRepoActionsUs
 	return o
 }
 
+// Name of permission
 func (o PermissionTargetsRepoActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }

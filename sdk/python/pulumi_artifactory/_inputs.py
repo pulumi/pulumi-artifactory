@@ -2235,6 +2235,12 @@ class PermissionTargetsBuildArgs:
                  actions: Optional[pulumi.Input['PermissionTargetsBuildActionsArgs']] = None,
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for
+        :param pulumi.Input['PermissionTargetsBuildActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2246,6 +2252,9 @@ class PermissionTargetsBuildArgs:
     @property
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of repositories this permission target is applicable for
+        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
@@ -2255,6 +2264,9 @@ class PermissionTargetsBuildArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsBuildActionsArgs']]:
+        """
+        -
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2264,6 +2276,9 @@ class PermissionTargetsBuildArgs:
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to exclude
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @excludes_patterns.setter
@@ -2273,6 +2288,9 @@ class PermissionTargetsBuildArgs:
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to include
+        """
         return pulumi.get(self, "includes_patterns")
 
     @includes_patterns.setter
@@ -2285,6 +2303,10 @@ class PermissionTargetsBuildActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2293,6 +2315,9 @@ class PermissionTargetsBuildActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -2302,6 +2327,9 @@ class PermissionTargetsBuildActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsBuildActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -2314,12 +2342,18 @@ class PermissionTargetsBuildActionsGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2341,12 +2375,18 @@ class PermissionTargetsBuildActionsUserArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2370,6 +2410,12 @@ class PermissionTargetsReleaseBundleArgs:
                  actions: Optional[pulumi.Input['PermissionTargetsReleaseBundleActionsArgs']] = None,
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for
+        :param pulumi.Input['PermissionTargetsReleaseBundleActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2381,6 +2427,9 @@ class PermissionTargetsReleaseBundleArgs:
     @property
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of repositories this permission target is applicable for
+        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
@@ -2390,6 +2439,9 @@ class PermissionTargetsReleaseBundleArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsReleaseBundleActionsArgs']]:
+        """
+        -
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2399,6 +2451,9 @@ class PermissionTargetsReleaseBundleArgs:
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to exclude
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @excludes_patterns.setter
@@ -2408,6 +2463,9 @@ class PermissionTargetsReleaseBundleArgs:
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to include
+        """
         return pulumi.get(self, "includes_patterns")
 
     @includes_patterns.setter
@@ -2420,6 +2478,10 @@ class PermissionTargetsReleaseBundleActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2428,6 +2490,9 @@ class PermissionTargetsReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -2437,6 +2502,9 @@ class PermissionTargetsReleaseBundleActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsReleaseBundleActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -2449,12 +2517,18 @@ class PermissionTargetsReleaseBundleActionsGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2476,12 +2550,18 @@ class PermissionTargetsReleaseBundleActionsUserArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2505,6 +2585,12 @@ class PermissionTargetsRepoArgs:
                  actions: Optional[pulumi.Input['PermissionTargetsRepoActionsArgs']] = None,
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for
+        :param pulumi.Input['PermissionTargetsRepoActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include
+        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2516,6 +2602,9 @@ class PermissionTargetsRepoArgs:
     @property
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of repositories this permission target is applicable for
+        """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
@@ -2525,6 +2614,9 @@ class PermissionTargetsRepoArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsRepoActionsArgs']]:
+        """
+        -
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2534,6 +2626,9 @@ class PermissionTargetsRepoArgs:
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to exclude
+        """
         return pulumi.get(self, "excludes_patterns")
 
     @excludes_patterns.setter
@@ -2543,6 +2638,9 @@ class PermissionTargetsRepoArgs:
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Pattern of artifacts to include
+        """
         return pulumi.get(self, "includes_patterns")
 
     @includes_patterns.setter
@@ -2555,6 +2653,10 @@ class PermissionTargetsRepoActionsArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsGroupArgs']]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsUserArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsGroupArgs']]] groups: Groups this permission applies for.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsUserArgs']]] users: Users this permission target applies for.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2563,6 +2665,9 @@ class PermissionTargetsRepoActionsArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsGroupArgs']]]]:
+        """
+        Groups this permission applies for.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -2572,6 +2677,9 @@ class PermissionTargetsRepoActionsArgs:
     @property
     @pulumi.getter
     def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTargetsRepoActionsUserArgs']]]]:
+        """
+        Users this permission target applies for.
+        """
         return pulumi.get(self, "users")
 
     @users.setter
@@ -2584,12 +2692,18 @@ class PermissionTargetsRepoActionsGroupArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2611,12 +2725,18 @@ class PermissionTargetsRepoActionsUserArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  permissions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of permission
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        Name of permission
+        """
         return pulumi.get(self, "name")
 
     @name.setter
