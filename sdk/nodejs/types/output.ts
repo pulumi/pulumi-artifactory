@@ -605,67 +605,139 @@ export interface PermissionTargetRepoActionsUser {
 }
 
 export interface PermissionTargetsBuild {
+    /**
+     * -
+     */
     actions?: outputs.PermissionTargetsBuildActions;
+    /**
+     * Pattern of artifacts to exclude
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetsBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetsBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetsBuildActionsUser[];
 }
 
 export interface PermissionTargetsBuildActionsGroup {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetsBuildActionsUser {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetsReleaseBundle {
+    /**
+     * -
+     */
     actions?: outputs.PermissionTargetsReleaseBundleActions;
+    /**
+     * Pattern of artifacts to exclude
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetsReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetsReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetsReleaseBundleActionsUser[];
 }
 
 export interface PermissionTargetsReleaseBundleActionsGroup {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetsReleaseBundleActionsUser {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetsRepo {
+    /**
+     * -
+     */
     actions?: outputs.PermissionTargetsRepoActions;
+    /**
+     * Pattern of artifacts to exclude
+     */
     excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include
+     */
     includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for
+     */
     repositories: string[];
 }
 
 export interface PermissionTargetsRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
     groups?: outputs.PermissionTargetsRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
     users?: outputs.PermissionTargetsRepoActionsUser[];
 }
 
 export interface PermissionTargetsRepoActionsGroup {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }
 
 export interface PermissionTargetsRepoActionsUser {
+    /**
+     * Name of permission
+     */
     name: string;
     permissions: string[];
 }

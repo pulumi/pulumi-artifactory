@@ -55,10 +55,12 @@ from .keypair import *
 from .ldap_group_setting import *
 from .ldap_setting import *
 from .local_bower_repository import *
+from .local_cargo_repository import *
 from .local_chef_repository import *
 from .local_cocoapods_repository import *
 from .local_composer_repository import *
 from .local_conan_repository import *
+from .local_conda_repository import *
 from .local_cran_repository import *
 from .local_gems_repository import *
 from .local_generic_repository import *
@@ -539,6 +541,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localCargoRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localCargoRepository:LocalCargoRepository": "LocalCargoRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localChefRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -567,6 +577,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localConanRepository:LocalConanRepository": "LocalConanRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localCondaRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localCondaRepository:LocalCondaRepository": "LocalCondaRepository"
   }
  },
  {

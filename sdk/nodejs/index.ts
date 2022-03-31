@@ -55,10 +55,12 @@ export * from "./keypair";
 export * from "./ldapGroupSetting";
 export * from "./ldapSetting";
 export * from "./localBowerRepository";
+export * from "./localCargoRepository";
 export * from "./localChefRepository";
 export * from "./localCocoapodsRepository";
 export * from "./localComposerRepository";
 export * from "./localConanRepository";
+export * from "./localCondaRepository";
 export * from "./localCranRepository";
 export * from "./localGemsRepository";
 export * from "./localGenericRepository";
@@ -199,10 +201,12 @@ import { Keypair } from "./keypair";
 import { LdapGroupSetting } from "./ldapGroupSetting";
 import { LdapSetting } from "./ldapSetting";
 import { LocalBowerRepository } from "./localBowerRepository";
+import { LocalCargoRepository } from "./localCargoRepository";
 import { LocalChefRepository } from "./localChefRepository";
 import { LocalCocoapodsRepository } from "./localCocoapodsRepository";
 import { LocalComposerRepository } from "./localComposerRepository";
 import { LocalConanRepository } from "./localConanRepository";
+import { LocalCondaRepository } from "./localCondaRepository";
 import { LocalCranRepository } from "./localCranRepository";
 import { LocalGemsRepository } from "./localGemsRepository";
 import { LocalGenericRepository } from "./localGenericRepository";
@@ -384,6 +388,8 @@ const _module = {
                 return new LdapSetting(name, <any>undefined, { urn })
             case "artifactory:index/localBowerRepository:LocalBowerRepository":
                 return new LocalBowerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localCargoRepository:LocalCargoRepository":
+                return new LocalCargoRepository(name, <any>undefined, { urn })
             case "artifactory:index/localChefRepository:LocalChefRepository":
                 return new LocalChefRepository(name, <any>undefined, { urn })
             case "artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository":
@@ -392,6 +398,8 @@ const _module = {
                 return new LocalComposerRepository(name, <any>undefined, { urn })
             case "artifactory:index/localConanRepository:LocalConanRepository":
                 return new LocalConanRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localCondaRepository:LocalCondaRepository":
+                return new LocalCondaRepository(name, <any>undefined, { urn })
             case "artifactory:index/localCranRepository:LocalCranRepository":
                 return new LocalCranRepository(name, <any>undefined, { urn })
             case "artifactory:index/localGemsRepository:LocalGemsRepository":
@@ -605,10 +613,12 @@ pulumi.runtime.registerResourceModule("artifactory", "index/keypair", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapGroupSetting", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/ldapSetting", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localBowerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localCargoRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localChefRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localCocoapodsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localComposerRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localConanRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localCondaRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localCranRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localGemsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localGenericRepository", _module)
