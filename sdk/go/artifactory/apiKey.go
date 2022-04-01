@@ -33,6 +33,7 @@ import (
 //
 // ## Import
 //
+// You really should not edit files like this.
 // A user's API key can be imported using any identifier, e.g.
 //
 // ```sh
