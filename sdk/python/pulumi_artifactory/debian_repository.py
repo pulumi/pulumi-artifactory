@@ -33,7 +33,8 @@ class DebianRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DebianRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -44,16 +45,15 @@ class DebianRepositoryArgs:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
-        :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
+        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -100,7 +100,8 @@ class DebianRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 
@@ -185,9 +186,6 @@ class DebianRepositoryArgs:
     @property
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        - If you're creating this repo, then maybe you know?
-        """
         return pulumi.get(self, "index_compression_formats")
 
     @index_compression_formats.setter
@@ -207,7 +205,7 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The RSA key to be used to sign packages
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -280,7 +278,7 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - Not really clear what this does
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -292,7 +290,7 @@ class DebianRepositoryArgs:
     @pulumi.getter(name="trivialLayout")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Apparently this is a deprecated repo layout
+        When set, the repository will use the deprecated trivial layout.
         """
         return pulumi.get(self, "trivial_layout")
 
@@ -348,17 +346,17 @@ class _DebianRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
-        :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
+        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -481,9 +479,6 @@ class _DebianRepositoryState:
     @property
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        - If you're creating this repo, then maybe you know?
-        """
         return pulumi.get(self, "index_compression_formats")
 
     @index_compression_formats.setter
@@ -494,7 +489,8 @@ class _DebianRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 
@@ -524,7 +520,7 @@ class _DebianRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The RSA key to be used to sign packages
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -597,7 +593,7 @@ class _DebianRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - Not really clear what this does
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -609,7 +605,7 @@ class _DebianRepositoryState:
     @pulumi.getter(name="trivialLayout")
     def trivial_layout(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Apparently this is a deprecated repo layout
+        When set, the repository will use the deprecated trivial layout.
         """
         return pulumi.get(self, "trivial_layout")
 
@@ -656,44 +652,7 @@ class DebianRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Local Debian Repository Resource
-
-        Creates a local Debian repository and allows for the creation of a GPG key
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        my_debian_repo = artifactory.DebianRepository("my-debian-repo",
-            key="my-debian-repo",
-            primary_keypair_ref=some_keypair_gpg1.pair_name,
-            secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
-            trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg1,
-                    some_keypair_gpg2,
-                ]))
-        ```
-
+        Create a DebianRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -706,17 +665,17 @@ class DebianRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
-        :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
+        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -727,44 +686,7 @@ class DebianRepository(pulumi.CustomResource):
                  args: DebianRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Local Debian Repository Resource
-
-        Creates a local Debian repository and allows for the creation of a GPG key
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        some_keypair_gpg1 = artifactory.Keypair("some-keypairGPG1",
-            pair_name=f"some-keypair{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias1",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        some_keypair_gpg2 = artifactory.Keypair("some-keypairGPG2",
-            pair_name=f"some-keypair4{random_id['randid']['id']}",
-            pair_type="GPG",
-            alias="foo-alias2",
-            private_key=(lambda path: open(path).read())("samples/gpg.priv"),
-            public_key=(lambda path: open(path).read())("samples/gpg.pub"))
-        my_debian_repo = artifactory.DebianRepository("my-debian-repo",
-            key="my-debian-repo",
-            primary_keypair_ref=some_keypair_gpg1.pair_name,
-            secondary_keypair_ref=some_keypair_gpg2.pair_name,
-            index_compression_formats=[
-                "bz2",
-                "lzma",
-                "xz",
-            ],
-            trivial_layout=True,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    some_keypair_gpg1,
-                    some_keypair_gpg2,
-                ]))
-        ```
-
+        Create a DebianRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DebianRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -880,17 +802,17 @@ class DebianRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] index_compression_formats: - If you're creating this repo, then maybe you know?
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign packages
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Debian artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] secondary_keypair_ref: - Not really clear what this does
-        :param pulumi.Input[bool] trivial_layout: - Apparently this is a deprecated repo layout
+        :param pulumi.Input[str] secondary_keypair_ref: Used to sign index files in Debian artifacts.
+        :param pulumi.Input[bool] trivial_layout: When set, the repository will use the deprecated trivial layout.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -972,16 +894,14 @@ class DebianRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="indexCompressionFormats")
     def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        - If you're creating this repo, then maybe you know?
-        """
         return pulumi.get(self, "index_compression_formats")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 
@@ -999,7 +919,7 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        - The RSA key to be used to sign packages
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -1048,7 +968,7 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        - Not really clear what this does
+        Used to sign index files in Debian artifacts.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -1056,7 +976,7 @@ class DebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="trivialLayout")
     def trivial_layout(self) -> pulumi.Output[Optional[bool]]:
         """
-        - Apparently this is a deprecated repo layout
+        When set, the repository will use the deprecated trivial layout.
         """
         return pulumi.get(self, "trivial_layout")
 

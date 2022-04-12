@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Nuget Repository Resource
- *
- * Provides an Artifactory virtual repository resource, but with specific nuget features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_nuget = new artifactory.VirtualNugetRepository("foo-nuget", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     forceNugetAuthentication: true,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-nuget",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo foo
- * ```
- */
 export class VirtualNugetRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualNugetRepository resource's state with the given name, ID, and optional extra

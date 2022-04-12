@@ -26,25 +26,14 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * This is a bearer token that can be given to you by your admin under `Identity and Access`
+     * This is a access token that can be given to you by your admin under `Identity and Access`
      */
     public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+     * API token. Projects functionality will not work with any auth method other than access tokens
      */
     public readonly apiKey!: pulumi.Output<string | undefined>;
-    /**
-     * Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-     * bearer token
-     *
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-     */
-    public readonly password!: pulumi.Output<string | undefined>;
     public readonly url!: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-     */
-    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -60,9 +49,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["accessToken"] = args ? args.accessToken : undefined;
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
             resourceInputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
-            resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -74,27 +61,16 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * This is a bearer token that can be given to you by your admin under `Identity and Access`
+     * This is a access token that can be given to you by your admin under `Identity and Access`
      */
     accessToken?: pulumi.Input<string>;
     /**
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+     * API token. Projects functionality will not work with any auth method other than access tokens
      */
     apiKey?: pulumi.Input<string>;
     /**
      * Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
      */
     checkLicense?: pulumi.Input<boolean>;
-    /**
-     * Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-     * bearer token
-     *
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-     */
-    password?: pulumi.Input<string>;
     url?: pulumi.Input<string>;
-    /**
-     * @deprecated Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-     */
-    username?: pulumi.Input<string>;
 }

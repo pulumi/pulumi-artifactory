@@ -26,15 +26,17 @@ class DistributionWebhookArgs:
                  secret: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DistributionWebhook resource.
-        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
-        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied, on which release bundles or distributions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+               values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+               delete_completed, delete_failed
+        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
+        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
@@ -55,7 +57,7 @@ class DistributionWebhookArgs:
     @pulumi.getter
     def criteria(self) -> pulumi.Input['DistributionWebhookCriteriaArgs']:
         """
-        Specifies where the webhook will be applied on which repositories.
+        Specifies where the webhook will be applied, on which release bundles or distributions.
         """
         return pulumi.get(self, "criteria")
 
@@ -67,7 +69,9 @@ class DistributionWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+        delete_completed, delete_failed
         """
         return pulumi.get(self, "event_types")
 
@@ -79,7 +83,7 @@ class DistributionWebhookArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -115,7 +119,7 @@ class DistributionWebhookArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Webhook description. Max length 1000 characters.
+        Description of webhook. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -151,7 +155,7 @@ class DistributionWebhookArgs:
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Secret authentication token that will be sent to the configured URL
+        Secret authentication token that will be sent to the configured URL.
         """
         return pulumi.get(self, "secret")
 
@@ -174,14 +178,16 @@ class _DistributionWebhookState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DistributionWebhook resources.
-        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input['DistributionWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied, on which release bundles or distributions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
+        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
-        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+               values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+               delete_completed, delete_failed
+        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         if criteria is not None:
@@ -207,7 +213,7 @@ class _DistributionWebhookState:
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input['DistributionWebhookCriteriaArgs']]:
         """
-        Specifies where the webhook will be applied on which repositories.
+        Specifies where the webhook will be applied, on which release bundles or distributions.
         """
         return pulumi.get(self, "criteria")
 
@@ -231,7 +237,7 @@ class _DistributionWebhookState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Webhook description. Max length 1000 characters.
+        Description of webhook. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -255,7 +261,9 @@ class _DistributionWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+        delete_completed, delete_failed
         """
         return pulumi.get(self, "event_types")
 
@@ -267,7 +275,7 @@ class _DistributionWebhookState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -291,7 +299,7 @@ class _DistributionWebhookState:
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Secret authentication token that will be sent to the configured URL
+        Secret authentication token that will be sent to the configured URL.
         """
         return pulumi.get(self, "secret")
 
@@ -328,53 +336,19 @@ class DistributionWebhook(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Distribution Webhook Resource
-
-        Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-
-        ## Example Usage
-
-        .
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
-            custom_http_headers={
-                "header-1": "value-1",
-                "header-2": "value-2",
-            },
-            event_types=[
-                "distribute_started",
-                "distribute_completed",
-                "distribute_aborted",
-                "distribute_failed",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
-            ],
-            key="distribution-webhook",
-            proxy="proxy-key",
-            secret="some-secret",
-            url="http://tempurl.org/webhook")
-        ```
-
+        Create a DistributionWebhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DistributionWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[pulumi.InputType['DistributionWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied, on which release bundles or distributions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
+        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
-        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+               values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+               delete_completed, delete_failed
+        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         ...
@@ -384,43 +358,7 @@ class DistributionWebhook(pulumi.CustomResource):
                  args: DistributionWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Distribution Webhook Resource
-
-        Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-
-        ## Example Usage
-
-        .
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        distribution_webhook = artifactory.DistributionWebhook("distribution-webhook",
-            criteria=artifactory.DistributionWebhookCriteriaArgs(
-                any_release_bundle=False,
-                exclude_patterns=["bar/**"],
-                include_patterns=["foo/**"],
-                registered_release_bundle_names=["bundle-name"],
-            ),
-            custom_http_headers={
-                "header-1": "value-1",
-                "header-2": "value-2",
-            },
-            event_types=[
-                "distribute_started",
-                "distribute_completed",
-                "distribute_aborted",
-                "distribute_failed",
-                "delete_started",
-                "delete_completed",
-                "delete_failed",
-            ],
-            key="distribution-webhook",
-            proxy="proxy-key",
-            secret="some-secret",
-            url="http://tempurl.org/webhook")
-        ```
-
+        Create a DistributionWebhook resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DistributionWebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -500,14 +438,16 @@ class DistributionWebhook(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DistributionWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
+        :param pulumi.Input[pulumi.InputType['DistributionWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied, on which release bundles or distributions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
+        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
-        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+               values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+               delete_completed, delete_failed
+        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -529,7 +469,7 @@ class DistributionWebhook(pulumi.CustomResource):
     @pulumi.getter
     def criteria(self) -> pulumi.Output['outputs.DistributionWebhookCriteria']:
         """
-        Specifies where the webhook will be applied on which repositories.
+        Specifies where the webhook will be applied, on which release bundles or distributions.
         """
         return pulumi.get(self, "criteria")
 
@@ -545,7 +485,7 @@ class DistributionWebhook(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Webhook description. Max length 1000 characters.
+        Description of webhook. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -561,7 +501,9 @@ class DistributionWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+        values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+        delete_completed, delete_failed
         """
         return pulumi.get(self, "event_types")
 
@@ -569,7 +511,7 @@ class DistributionWebhook(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -585,7 +527,7 @@ class DistributionWebhook(pulumi.CustomResource):
     @pulumi.getter
     def secret(self) -> pulumi.Output[Optional[str]]:
         """
-        Secret authentication token that will be sent to the configured URL
+        Secret authentication token that will be sent to the configured URL.
         """
         return pulumi.get(self, "secret")
 

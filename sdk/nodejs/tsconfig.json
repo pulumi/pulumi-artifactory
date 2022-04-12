@@ -86,7 +86,6 @@
         "localOpkgRepository.ts",
         "localPuppetRepository.ts",
         "localPypiRepository.ts",
-        "localRepository.ts",
         "localRpmRepository.ts",
         "localSbtRepository.ts",
         "localVagrantRepository.ts",
@@ -123,9 +122,9 @@
         "remoteP2Repository.ts",
         "remotePuppetRepository.ts",
         "remotePypiRepository.ts",
-        "remoteRepository.ts",
         "remoteRpmRepository.ts",
         "remoteSbtRepository.ts",
+        "remoteVcsRepository.ts",
         "replicationConfig.ts",
         "samlSettings.ts",
         "singleReplicationConfig.ts",
@@ -154,7 +153,6 @@
         "virtualP2Repository.ts",
         "virtualPuppetRepository.ts",
         "virtualPypiRepository.ts",
-        "virtualRepository.ts",
         "virtualRpmRepository.ts",
         "virtualSbtRepository.ts"
     ]

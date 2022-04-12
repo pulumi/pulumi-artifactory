@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Pull Replication Resource
- *
- * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
- * for a remote repo.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalRepository("provider_test_source", {
- *     key: "provider_test_source",
- *     packageType: "maven",
- * });
- * const providerTestDest = new artifactory.RemoteRepository("provider_test_dest", {
- *     key: "provider_test_dest",
- *     packageType: "maven",
- *     password: "bar",
- *     url: pulumi.interpolate`https://example.com/artifactory/${artifactory_local_repository_artifactory_local_repository.key}`,
- *     username: "foo",
- * });
- * const foo_rep = new artifactory.PullReplication("foo-rep", {
- *     cronExp: "0 0 * * * ?",
- *     enableEventReplication: true,
- *     repoKey: providerTestDest.key,
- * });
- * ```
- *
- * ## Import
- *
- * Pull replication config can be imported using its repo key, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
- * ```
- */
 export class PullReplication extends pulumi.CustomResource {
     /**
      * Get an existing PullReplication resource's state with the given name, ID, and optional extra

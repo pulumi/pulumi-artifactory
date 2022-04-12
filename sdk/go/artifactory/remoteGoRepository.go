@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Remote Go Repository Resource
-//
-// Creates a remote Go repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry)
-//
-// ## Example Usage
-//
-// To create a new Artifactory remote Go repository called my-remote-go.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteGoRepository(ctx, "my-remote-go", &artifactory.RemoteGoRepositoryArgs{
-// 			Key:            pulumi.String("my-remote-go"),
-// 			Url:            pulumi.String("https://proxy.golang.org/"),
-// 			VcsGitProvider: pulumi.String("ARTIFACTORY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type RemoteGoRepository struct {
 	pulumi.CustomResourceState
 
@@ -79,8 +48,7 @@ type RemoteGoRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key             pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
@@ -108,7 +76,8 @@ type RemoteGoRepository struct {
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy        pulumi.StringOutput      `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -129,11 +98,11 @@ type RemoteGoRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringOutput    `pulumi:"url"`
-	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringOutput    `pulumi:"url"`
+	Username                          pulumi.StringPtrOutput `pulumi:"username"`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -209,8 +178,7 @@ type remoteGoRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key *string `pulumi:"key"`
+	Key             *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -238,7 +206,8 @@ type remoteGoRepositoryState struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -259,11 +228,11 @@ type remoteGoRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      *string `pulumi:"url"`
-	Username *string `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -305,8 +274,7 @@ type RemoteGoRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringPtrInput
+	Key             pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -334,7 +302,8 @@ type RemoteGoRepositoryState struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -356,10 +325,10 @@ type RemoteGoRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringPtrInput
-	Username pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	Url                               pulumi.StringPtrInput
+	Username                          pulumi.StringPtrInput
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -403,8 +372,7 @@ type remoteGoRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key string `pulumi:"key"`
+	Key             string  `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -431,7 +399,8 @@ type remoteGoRepositoryArgs struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -452,11 +421,11 @@ type remoteGoRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      string  `pulumi:"url"`
-	Username *string `pulumi:"username"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               string  `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -497,8 +466,7 @@ type RemoteGoRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringInput
+	Key             pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -525,7 +493,8 @@ type RemoteGoRepositoryArgs struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -547,10 +516,10 @@ type RemoteGoRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringInput
-	Username pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	Url                               pulumi.StringInput
+	Username                          pulumi.StringPtrInput
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

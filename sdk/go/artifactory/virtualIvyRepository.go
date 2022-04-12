@@ -11,47 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Ivy Repository Resource
-//
-// Provides an Artifactory virtual repository resource, but with specific ivy features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualIvyRepository(ctx, "foo-ivy", &artifactory.VirtualIvyRepositoryArgs{
-// 			Description:                          pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:                      pulumi.String("com/google/**"),
-// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                                  pulumi.String("foo-ivy"),
-// 			Notes:                                pulumi.String("Internal description"),
-// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-// 			Repositories:                         pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo foo
-// ```
 type VirtualIvyRepository struct {
 	pulumi.CustomResourceState
 
@@ -76,15 +35,16 @@ type VirtualIvyRepository struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringOutput `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -153,15 +113,16 @@ type virtualIvyRepositoryState struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key *string `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -199,15 +160,16 @@ type VirtualIvyRepositoryState struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringPtrInput
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -249,13 +211,14 @@ type virtualIvyRepositoryArgs struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key string `pulumi:"key"`
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair *string `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -294,13 +257,14 @@ type VirtualIvyRepositoryArgs struct {
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
 	// 'libs-release-local').
 	Key pulumi.StringInput
-	// The keypair used to sign artifacts.
+	// The keypair used to sign artifacts
 	KeyPair pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-	// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-	// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+	// Nothing - Does not remove any repository elements declared in the POM.
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput

@@ -11,43 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory LDAP Group Setting Resource
-//
-// This resource can be used to manage Artifactory's LDAP Group settings for user authentication.
-//
-// LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational structure for managing group-based permissions.
-//
-// ## Import
-//
-// LDAP Group setting can be imported using the key, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
-// ```
 type LdapGroupSetting struct {
 	pulumi.CustomResourceState
 
-	// An attribute on the group entry which denoting the group description. Used when importing groups.
+	// (Required) An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute pulumi.StringOutput `pulumi:"descriptionAttribute"`
-	// The LDAP filter used to search for group entries. Used for importing groups.
+	// (Required) The LDAP filter used to search for group entries. Used for importing groups.
 	Filter pulumi.StringOutput `pulumi:"filter"`
-	// A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+	// (Optional) A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the
+	// LDAP Setting’s “Search Base”). Used when importing groups.
 	GroupBaseDn pulumi.StringPtrOutput `pulumi:"groupBaseDn"`
-	// A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
+	// (Required) A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g.,
+	// uniqueMember,member).
 	GroupMemberAttribute pulumi.StringOutput `pulumi:"groupMemberAttribute"`
-	// Attribute on the group entry denoting the group name. Used when importing groups.
+	// (Required) Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringOutput `pulumi:"groupNameAttribute"`
 	// (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
 	// 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringOutput `pulumi:"ldapSettingKey"`
-	// Ldap group setting name.
+	// (Required) Ldap group setting name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-	// - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+	// (Required) The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group
+	// objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object
+	// such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember,
+	// which is a user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware
+	// of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names
+	// of which the user is a member. Hierarchy: The user's DN is indicative of the groups the user belongs to by using group
+	// names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group
+	// association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk
+	// and developers.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
-	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
+	// (Optional) When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
 	SubTree pulumi.BoolPtrOutput `pulumi:"subTree"`
 }
 
@@ -98,52 +92,66 @@ func GetLdapGroupSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LdapGroupSetting resources.
 type ldapGroupSettingState struct {
-	// An attribute on the group entry which denoting the group description. Used when importing groups.
+	// (Required) An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute *string `pulumi:"descriptionAttribute"`
-	// The LDAP filter used to search for group entries. Used for importing groups.
+	// (Required) The LDAP filter used to search for group entries. Used for importing groups.
 	Filter *string `pulumi:"filter"`
-	// A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+	// (Optional) A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the
+	// LDAP Setting’s “Search Base”). Used when importing groups.
 	GroupBaseDn *string `pulumi:"groupBaseDn"`
-	// A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
+	// (Required) A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g.,
+	// uniqueMember,member).
 	GroupMemberAttribute *string `pulumi:"groupMemberAttribute"`
-	// Attribute on the group entry denoting the group name. Used when importing groups.
+	// (Required) Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute *string `pulumi:"groupNameAttribute"`
 	// (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
 	// 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey *string `pulumi:"ldapSettingKey"`
-	// Ldap group setting name.
+	// (Required) Ldap group setting name.
 	Name *string `pulumi:"name"`
-	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-	// - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+	// (Required) The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group
+	// objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object
+	// such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember,
+	// which is a user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware
+	// of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names
+	// of which the user is a member. Hierarchy: The user's DN is indicative of the groups the user belongs to by using group
+	// names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group
+	// association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk
+	// and developers.
 	Strategy *string `pulumi:"strategy"`
-	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
+	// (Optional) When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
 	SubTree *bool `pulumi:"subTree"`
 }
 
 type LdapGroupSettingState struct {
-	// An attribute on the group entry which denoting the group description. Used when importing groups.
+	// (Required) An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute pulumi.StringPtrInput
-	// The LDAP filter used to search for group entries. Used for importing groups.
+	// (Required) The LDAP filter used to search for group entries. Used for importing groups.
 	Filter pulumi.StringPtrInput
-	// A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+	// (Optional) A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the
+	// LDAP Setting’s “Search Base”). Used when importing groups.
 	GroupBaseDn pulumi.StringPtrInput
-	// A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
+	// (Required) A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g.,
+	// uniqueMember,member).
 	GroupMemberAttribute pulumi.StringPtrInput
-	// Attribute on the group entry denoting the group name. Used when importing groups.
+	// (Required) Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringPtrInput
 	// (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
 	// 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringPtrInput
-	// Ldap group setting name.
+	// (Required) Ldap group setting name.
 	Name pulumi.StringPtrInput
-	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-	// - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+	// (Required) The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group
+	// objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object
+	// such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember,
+	// which is a user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware
+	// of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names
+	// of which the user is a member. Hierarchy: The user's DN is indicative of the groups the user belongs to by using group
+	// names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group
+	// association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk
+	// and developers.
 	Strategy pulumi.StringPtrInput
-	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
+	// (Optional) When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
 	SubTree pulumi.BoolPtrInput
 }
 
@@ -152,53 +160,67 @@ func (LdapGroupSettingState) ElementType() reflect.Type {
 }
 
 type ldapGroupSettingArgs struct {
-	// An attribute on the group entry which denoting the group description. Used when importing groups.
+	// (Required) An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute string `pulumi:"descriptionAttribute"`
-	// The LDAP filter used to search for group entries. Used for importing groups.
+	// (Required) The LDAP filter used to search for group entries. Used for importing groups.
 	Filter string `pulumi:"filter"`
-	// A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+	// (Optional) A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the
+	// LDAP Setting’s “Search Base”). Used when importing groups.
 	GroupBaseDn *string `pulumi:"groupBaseDn"`
-	// A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
+	// (Required) A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g.,
+	// uniqueMember,member).
 	GroupMemberAttribute string `pulumi:"groupMemberAttribute"`
-	// Attribute on the group entry denoting the group name. Used when importing groups.
+	// (Required) Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute string `pulumi:"groupNameAttribute"`
 	// (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
 	// 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey string `pulumi:"ldapSettingKey"`
-	// Ldap group setting name.
+	// (Required) Ldap group setting name.
 	Name *string `pulumi:"name"`
-	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-	// - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+	// (Required) The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group
+	// objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object
+	// such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember,
+	// which is a user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware
+	// of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names
+	// of which the user is a member. Hierarchy: The user's DN is indicative of the groups the user belongs to by using group
+	// names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group
+	// association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk
+	// and developers.
 	Strategy string `pulumi:"strategy"`
-	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
+	// (Optional) When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
 	SubTree *bool `pulumi:"subTree"`
 }
 
 // The set of arguments for constructing a LdapGroupSetting resource.
 type LdapGroupSettingArgs struct {
-	// An attribute on the group entry which denoting the group description. Used when importing groups.
+	// (Required) An attribute on the group entry which denoting the group description. Used when importing groups.
 	DescriptionAttribute pulumi.StringInput
-	// The LDAP filter used to search for group entries. Used for importing groups.
+	// (Required) The LDAP filter used to search for group entries. Used for importing groups.
 	Filter pulumi.StringInput
-	// A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the LDAP Setting’s “Search Base”). Used when importing groups.
+	// (Optional) A search base for group entry DNs, relative to the DN on the LDAP server’s URL (and not relative to the
+	// LDAP Setting’s “Search Base”). Used when importing groups.
 	GroupBaseDn pulumi.StringPtrInput
-	// A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g., uniqueMember,member).
+	// (Required) A multi-value attribute on the group entry containing user DNs or IDs of the group members (e.g.,
+	// uniqueMember,member).
 	GroupMemberAttribute pulumi.StringInput
-	// Attribute on the group entry denoting the group name. Used when importing groups.
+	// (Required) Attribute on the group entry denoting the group name. Used when importing groups.
 	GroupNameAttribute pulumi.StringInput
 	// (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
 	// 'enabledLdap' field of the ldap group setting XML block of system configuration.
 	LdapSettingKey pulumi.StringInput
-	// Ldap group setting name.
+	// (Required) Ldap group setting name.
 	Name pulumi.StringPtrInput
-	// The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas:
-	// - STATIC: Group objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember, which is a user DN.
-	// - DYNAMIC: User objects are aware of what groups they belong to, but the group objects are not aware of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names of which the user is a member.
-	// - HIERARCHICAL: The user's DN is indicative of the groups the user belongs to by using group names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk and developers.
+	// (Required) The JFrog Platform Deployment (JPD) supports three ways of mapping groups to LDAP schemas: Static: Group
+	// objects are aware of their members, however, the users are not aware of the groups they belong to. Each group object
+	// such as groupOfNames or groupOfUniqueNames holds its respective member attributes, typically member or uniqueMember,
+	// which is a user DN. Dynamic: User objects are aware of what groups they belong to, but the group objects are not aware
+	// of their members. Each user object contains a custom attribute, such as group, that holds the group DNs or group names
+	// of which the user is a member. Hierarchy: The user's DN is indicative of the groups the user belongs to by using group
+	// names as part of user DN hierarchy. Each user DN contains a list of ou's or custom attributes that make up the group
+	// association. For example, uid=user1,ou=developers,ou=uk,dc=jfrog,dc=org indicates that user1 belongs to two groups: uk
+	// and developers.
 	Strategy pulumi.StringInput
-	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
+	// (Optional) When set, enables deep search through the sub-tree of the LDAP URL + Search Base. True by default.
 	SubTree pulumi.BoolPtrInput
 }
 

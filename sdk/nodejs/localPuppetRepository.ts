@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Local Puppet Repository Resource
- *
- * Creates a local puppet repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_local_test_puppet_repo = new artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", {
- *     key: "terraform-local-test-puppet-repo",
- * });
- * ```
- */
 export class LocalPuppetRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalPuppetRepository resource's state with the given name, ID, and optional extra
@@ -75,7 +59,8 @@ export class LocalPuppetRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +177,8 @@ export interface LocalPuppetRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +242,8 @@ export interface LocalPuppetRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

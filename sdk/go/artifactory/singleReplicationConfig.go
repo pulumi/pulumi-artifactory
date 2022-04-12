@@ -11,20 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Replication configs can be imported using their repo key, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
-// ```
 type SingleReplicationConfig struct {
 	pulumi.CustomResourceState
 
 	CronExp                pulumi.StringOutput `pulumi:"cronExp"`
 	EnableEventReplication pulumi.BoolOutput   `pulumi:"enableEventReplication"`
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
+	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
 	Password   pulumi.StringOutput    `pulumi:"password"`
 	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
@@ -76,7 +70,8 @@ type singleReplicationConfigState struct {
 	CronExp                *string `pulumi:"cronExp"`
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
+	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
 	Password   *string `pulumi:"password"`
 	PathPrefix *string `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
@@ -94,7 +89,8 @@ type SingleReplicationConfigState struct {
 	CronExp                pulumi.StringPtrInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
+	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
 	Password   pulumi.StringPtrInput
 	PathPrefix pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting

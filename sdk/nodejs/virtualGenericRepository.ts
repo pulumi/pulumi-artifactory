@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Generic Repository Resource
- *
- * Provides an Artifactory virtual repository resource with generic package type. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_generic = new artifactory.VirtualGenericRepository("foo-generic", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-generic",
- *     notes: "Internal description",
- *     repoLayoutRef: "simple-default",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo foo
- * ```
- */
 export class VirtualGenericRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualGenericRepository resource's state with the given name, ID, and optional extra
@@ -64,7 +33,8 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
      */
     public readonly artifactoryRequestsCanRetrieveRemoteArtifacts!: pulumi.Output<boolean | undefined>;
     /**
@@ -77,11 +47,13 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -103,11 +75,12 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * Repository layout key for the virtual repository
+     * Repository layout key for the local repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
@@ -115,7 +88,8 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
@@ -174,7 +148,8 @@ export class VirtualGenericRepository extends pulumi.CustomResource {
  */
 export interface VirtualGenericRepositoryState {
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
@@ -187,11 +162,13 @@ export interface VirtualGenericRepositoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -213,11 +190,12 @@ export interface VirtualGenericRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the virtual repository
+     * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -225,7 +203,8 @@ export interface VirtualGenericRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
@@ -235,7 +214,8 @@ export interface VirtualGenericRepositoryState {
  */
 export interface VirtualGenericRepositoryArgs {
     /**
-     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+     * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+     * another Artifactory instance.
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
@@ -248,11 +228,13 @@ export interface VirtualGenericRepositoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*.By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -270,11 +252,12 @@ export interface VirtualGenericRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+     * repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
-     * Repository layout key for the virtual repository
+     * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
@@ -282,7 +265,8 @@ export interface VirtualGenericRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

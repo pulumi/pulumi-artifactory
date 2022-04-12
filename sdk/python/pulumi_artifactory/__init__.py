@@ -75,7 +75,6 @@ from .local_nuget_repository import *
 from .local_opkg_repository import *
 from .local_puppet_repository import *
 from .local_pypi_repository import *
-from .local_repository import *
 from .local_rpm_repository import *
 from .local_sbt_repository import *
 from .local_vagrant_repository import *
@@ -112,9 +111,9 @@ from .remote_opkg_repository import *
 from .remote_p2_repository import *
 from .remote_puppet_repository import *
 from .remote_pypi_repository import *
-from .remote_repository import *
 from .remote_rpm_repository import *
 from .remote_sbt_repository import *
+from .remote_vcs_repository import *
 from .replication_config import *
 from .saml_settings import *
 from .single_replication_config import *
@@ -139,7 +138,6 @@ from .virtual_nuget_repository import *
 from .virtual_p2_repository import *
 from .virtual_puppet_repository import *
 from .virtual_pypi_repository import *
-from .virtual_repository import *
 from .virtual_rpm_repository import *
 from .virtual_sbt_repository import *
 from ._inputs import *
@@ -701,14 +699,6 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
-  "mod": "index/localRepository",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/localRepository:LocalRepository": "LocalRepository"
-  }
- },
- {
-  "pkg": "artifactory",
   "mod": "index/localRpmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -989,14 +979,6 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
-  "mod": "index/remoteRepository",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/remoteRepository:RemoteRepository": "RemoteRepository"
-  }
- },
- {
-  "pkg": "artifactory",
   "mod": "index/remoteRpmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1009,6 +991,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remoteSbtRepository:RemoteSbtRepository": "RemoteSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteVcsRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteVcsRepository:RemoteVcsRepository": "RemoteVcsRepository"
   }
  },
  {
@@ -1201,14 +1191,6 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualPypiRepository:VirtualPypiRepository": "VirtualPypiRepository"
-  }
- },
- {
-  "pkg": "artifactory",
-  "mod": "index/virtualRepository",
-  "fqn": "pulumi_artifactory",
-  "classes": {
-   "artifactory:index/virtualRepository:VirtualRepository": "VirtualRepository"
   }
  },
  {

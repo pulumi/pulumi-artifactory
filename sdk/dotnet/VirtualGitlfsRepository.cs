@@ -9,20 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Git LFS Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific git lfs features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository")]
     public partial class VirtualGitlfsRepository : Pulumi.CustomResource
     {

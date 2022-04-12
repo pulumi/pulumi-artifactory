@@ -156,8 +156,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalPuppetRepository{}
 	case "artifactory:index/localPypiRepository:LocalPypiRepository":
 		r = &LocalPypiRepository{}
-	case "artifactory:index/localRepository:LocalRepository":
-		r = &LocalRepository{}
 	case "artifactory:index/localRpmRepository:LocalRpmRepository":
 		r = &LocalRpmRepository{}
 	case "artifactory:index/localSbtRepository:LocalSbtRepository":
@@ -228,12 +226,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemotePuppetRepository{}
 	case "artifactory:index/remotePypiRepository:RemotePypiRepository":
 		r = &RemotePypiRepository{}
-	case "artifactory:index/remoteRepository:RemoteRepository":
-		r = &RemoteRepository{}
 	case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
 		r = &RemoteRpmRepository{}
 	case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
 		r = &RemoteSbtRepository{}
+	case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
+		r = &RemoteVcsRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
 		r = &ReplicationConfig{}
 	case "artifactory:index/samlSettings:SamlSettings":
@@ -282,8 +280,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualPuppetRepository{}
 	case "artifactory:index/virtualPypiRepository:VirtualPypiRepository":
 		r = &VirtualPypiRepository{}
-	case "artifactory:index/virtualRepository:VirtualRepository":
-		r = &VirtualRepository{}
 	case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
 		r = &VirtualRpmRepository{}
 	case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
@@ -661,11 +657,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
-		"index/localRepository",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
 		"index/localRpmRepository",
 		&module{version},
 	)
@@ -841,17 +832,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
-		"index/remoteRepository",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
 		"index/remoteRpmRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remoteSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteVcsRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -972,11 +963,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualPypiRepository",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"artifactory",
-		"index/virtualRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

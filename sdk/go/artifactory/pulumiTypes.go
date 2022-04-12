@@ -144,16 +144,11 @@ func (o AccessTokenAdminTokenPtrOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 type ArtifactPropertyWebhookCriteria struct {
-	// Trigger on any local repo
-	AnyLocal bool `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        bool     `pulumi:"anyLocal"`
+	AnyRemote       bool     `pulumi:"anyRemote"`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys []string `pulumi:"repoKeys"`
+	RepoKeys        []string `pulumi:"repoKeys"`
 }
 
 // ArtifactPropertyWebhookCriteriaInput is an input type that accepts ArtifactPropertyWebhookCriteriaArgs and ArtifactPropertyWebhookCriteriaOutput values.
@@ -168,16 +163,11 @@ type ArtifactPropertyWebhookCriteriaInput interface {
 }
 
 type ArtifactPropertyWebhookCriteriaArgs struct {
-	// Trigger on any local repo
-	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        pulumi.BoolInput        `pulumi:"anyLocal"`
+	AnyRemote       pulumi.BoolInput        `pulumi:"anyRemote"`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+	RepoKeys        pulumi.StringArrayInput `pulumi:"repoKeys"`
 }
 
 func (ArtifactPropertyWebhookCriteriaArgs) ElementType() reflect.Type {
@@ -257,27 +247,22 @@ func (o ArtifactPropertyWebhookCriteriaOutput) ToArtifactPropertyWebhookCriteria
 	}).(ArtifactPropertyWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any local repo
 func (o ArtifactPropertyWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
 }
 
-// Trigger on any remote repo
 func (o ArtifactPropertyWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactPropertyWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactPropertyWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o ArtifactPropertyWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
 }
@@ -306,7 +291,6 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) Elem() ArtifactPropertyWebhook
 	}).(ArtifactPropertyWebhookCriteriaOutput)
 }
 
-// Trigger on any local repo
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) *bool {
 		if v == nil {
@@ -316,7 +300,6 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Trigger on any remote repo
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) *bool {
 		if v == nil {
@@ -326,7 +309,6 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
 		if v == nil {
@@ -336,7 +318,6 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
 		if v == nil {
@@ -346,7 +327,6 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) IncludePatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
 		if v == nil {
@@ -357,16 +337,11 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayO
 }
 
 type ArtifactWebhookCriteria struct {
-	// Trigger on any local repo
-	AnyLocal bool `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        bool     `pulumi:"anyLocal"`
+	AnyRemote       bool     `pulumi:"anyRemote"`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys []string `pulumi:"repoKeys"`
+	RepoKeys        []string `pulumi:"repoKeys"`
 }
 
 // ArtifactWebhookCriteriaInput is an input type that accepts ArtifactWebhookCriteriaArgs and ArtifactWebhookCriteriaOutput values.
@@ -381,16 +356,11 @@ type ArtifactWebhookCriteriaInput interface {
 }
 
 type ArtifactWebhookCriteriaArgs struct {
-	// Trigger on any local repo
-	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        pulumi.BoolInput        `pulumi:"anyLocal"`
+	AnyRemote       pulumi.BoolInput        `pulumi:"anyRemote"`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+	RepoKeys        pulumi.StringArrayInput `pulumi:"repoKeys"`
 }
 
 func (ArtifactWebhookCriteriaArgs) ElementType() reflect.Type {
@@ -470,27 +440,22 @@ func (o ArtifactWebhookCriteriaOutput) ToArtifactWebhookCriteriaPtrOutputWithCon
 	}).(ArtifactWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any local repo
 func (o ArtifactWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
 }
 
-// Trigger on any remote repo
 func (o ArtifactWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o ArtifactWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
 }
@@ -519,7 +484,6 @@ func (o ArtifactWebhookCriteriaPtrOutput) Elem() ArtifactWebhookCriteriaOutput {
 	}).(ArtifactWebhookCriteriaOutput)
 }
 
-// Trigger on any local repo
 func (o ArtifactWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) *bool {
 		if v == nil {
@@ -529,7 +493,6 @@ func (o ArtifactWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Trigger on any remote repo
 func (o ArtifactWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) *bool {
 		if v == nil {
@@ -539,7 +502,6 @@ func (o ArtifactWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
 		if v == nil {
@@ -549,7 +511,6 @@ func (o ArtifactWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
 		if v == nil {
@@ -559,7 +520,6 @@ func (o ArtifactWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o ArtifactWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
 		if v == nil {
@@ -570,13 +530,9 @@ func (o ArtifactWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
 }
 
 type ArtifactoryReleaseBundleWebhookCriteria struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             bool     `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              []string `pulumi:"excludePatterns"`
+	IncludePatterns              []string `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -592,13 +548,9 @@ type ArtifactoryReleaseBundleWebhookCriteriaInput interface {
 }
 
 type ArtifactoryReleaseBundleWebhookCriteriaArgs struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             pulumi.BoolInput        `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	IncludePatterns              pulumi.StringArrayInput `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -679,22 +631,18 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ToArtifactoryReleaseBundl
 	}).(ArtifactoryReleaseBundleWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any release bundle
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
 }
@@ -723,7 +671,6 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) Elem() ArtifactoryRele
 	}).(ArtifactoryReleaseBundleWebhookCriteriaOutput)
 }
 
-// Trigger on any release bundle
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) *bool {
 		if v == nil {
@@ -733,7 +680,6 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -743,7 +689,6 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -753,7 +698,6 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -764,14 +708,10 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundl
 }
 
 type BuildWebhookCriteria struct {
-	// Trigger on any build
-	AnyBuild bool `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyBuild        bool     `pulumi:"anyBuild"`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of build names
-	SelectedBuilds []string `pulumi:"selectedBuilds"`
+	SelectedBuilds  []string `pulumi:"selectedBuilds"`
 }
 
 // BuildWebhookCriteriaInput is an input type that accepts BuildWebhookCriteriaArgs and BuildWebhookCriteriaOutput values.
@@ -786,14 +726,10 @@ type BuildWebhookCriteriaInput interface {
 }
 
 type BuildWebhookCriteriaArgs struct {
-	// Trigger on any build
-	AnyBuild pulumi.BoolInput `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyBuild        pulumi.BoolInput        `pulumi:"anyBuild"`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of build names
-	SelectedBuilds pulumi.StringArrayInput `pulumi:"selectedBuilds"`
+	SelectedBuilds  pulumi.StringArrayInput `pulumi:"selectedBuilds"`
 }
 
 func (BuildWebhookCriteriaArgs) ElementType() reflect.Type {
@@ -873,22 +809,18 @@ func (o BuildWebhookCriteriaOutput) ToBuildWebhookCriteriaPtrOutputWithContext(c
 	}).(BuildWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any build
 func (o BuildWebhookCriteriaOutput) AnyBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) bool { return v.AnyBuild }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o BuildWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o BuildWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of build names
 func (o BuildWebhookCriteriaOutput) SelectedBuilds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.SelectedBuilds }).(pulumi.StringArrayOutput)
 }
@@ -917,7 +849,6 @@ func (o BuildWebhookCriteriaPtrOutput) Elem() BuildWebhookCriteriaOutput {
 	}).(BuildWebhookCriteriaOutput)
 }
 
-// Trigger on any build
 func (o BuildWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) *bool {
 		if v == nil {
@@ -927,7 +858,6 @@ func (o BuildWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -937,7 +867,6 @@ func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o BuildWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -947,7 +876,6 @@ func (o BuildWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of build names
 func (o BuildWebhookCriteriaPtrOutput) SelectedBuilds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -958,13 +886,9 @@ func (o BuildWebhookCriteriaPtrOutput) SelectedBuilds() pulumi.StringArrayOutput
 }
 
 type DistributionWebhookCriteria struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             bool     `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              []string `pulumi:"excludePatterns"`
+	IncludePatterns              []string `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -980,13 +904,9 @@ type DistributionWebhookCriteriaInput interface {
 }
 
 type DistributionWebhookCriteriaArgs struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             pulumi.BoolInput        `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	IncludePatterns              pulumi.StringArrayInput `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -1067,22 +987,18 @@ func (o DistributionWebhookCriteriaOutput) ToDistributionWebhookCriteriaPtrOutpu
 	}).(DistributionWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any release bundle
 func (o DistributionWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DistributionWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DistributionWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o DistributionWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
 }
@@ -1111,7 +1027,6 @@ func (o DistributionWebhookCriteriaPtrOutput) Elem() DistributionWebhookCriteria
 	}).(DistributionWebhookCriteriaOutput)
 }
 
-// Trigger on any release bundle
 func (o DistributionWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) *bool {
 		if v == nil {
@@ -1121,7 +1036,6 @@ func (o DistributionWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DistributionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
 		if v == nil {
@@ -1131,7 +1045,6 @@ func (o DistributionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DistributionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
 		if v == nil {
@@ -1141,7 +1054,6 @@ func (o DistributionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o DistributionWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
 		if v == nil {
@@ -1152,16 +1064,11 @@ func (o DistributionWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pul
 }
 
 type DockerWebhookCriteria struct {
-	// Trigger on any local repo
-	AnyLocal bool `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        bool     `pulumi:"anyLocal"`
+	AnyRemote       bool     `pulumi:"anyRemote"`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys []string `pulumi:"repoKeys"`
+	RepoKeys        []string `pulumi:"repoKeys"`
 }
 
 // DockerWebhookCriteriaInput is an input type that accepts DockerWebhookCriteriaArgs and DockerWebhookCriteriaOutput values.
@@ -1176,16 +1083,11 @@ type DockerWebhookCriteriaInput interface {
 }
 
 type DockerWebhookCriteriaArgs struct {
-	// Trigger on any local repo
-	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
-	// Trigger on any remote repo
-	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+	AnyLocal        pulumi.BoolInput        `pulumi:"anyLocal"`
+	AnyRemote       pulumi.BoolInput        `pulumi:"anyRemote"`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of repo keys
-	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
+	RepoKeys        pulumi.StringArrayInput `pulumi:"repoKeys"`
 }
 
 func (DockerWebhookCriteriaArgs) ElementType() reflect.Type {
@@ -1265,27 +1167,22 @@ func (o DockerWebhookCriteriaOutput) ToDockerWebhookCriteriaPtrOutputWithContext
 	}).(DockerWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any local repo
 func (o DockerWebhookCriteriaOutput) AnyLocal() pulumi.BoolOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyLocal }).(pulumi.BoolOutput)
 }
 
-// Trigger on any remote repo
 func (o DockerWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DockerWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DockerWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o DockerWebhookCriteriaOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.RepoKeys }).(pulumi.StringArrayOutput)
 }
@@ -1314,7 +1211,6 @@ func (o DockerWebhookCriteriaPtrOutput) Elem() DockerWebhookCriteriaOutput {
 	}).(DockerWebhookCriteriaOutput)
 }
 
-// Trigger on any local repo
 func (o DockerWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) *bool {
 		if v == nil {
@@ -1324,7 +1220,6 @@ func (o DockerWebhookCriteriaPtrOutput) AnyLocal() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Trigger on any remote repo
 func (o DockerWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) *bool {
 		if v == nil {
@@ -1334,7 +1229,6 @@ func (o DockerWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DockerWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
 		if v == nil {
@@ -1344,7 +1238,6 @@ func (o DockerWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o DockerWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
 		if v == nil {
@@ -1354,7 +1247,6 @@ func (o DockerWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of repo keys
 func (o DockerWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
 		if v == nil {
@@ -1365,10 +1257,8 @@ func (o DockerWebhookCriteriaPtrOutput) RepoKeys() pulumi.StringArrayOutput {
 }
 
 type FederatedAlpineRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedAlpineRepositoryMemberInput is an input type that accepts FederatedAlpineRepositoryMemberArgs and FederatedAlpineRepositoryMemberOutput values.
@@ -1383,10 +1273,8 @@ type FederatedAlpineRepositoryMemberInput interface {
 }
 
 type FederatedAlpineRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedAlpineRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1440,12 +1328,10 @@ func (o FederatedAlpineRepositoryMemberOutput) ToFederatedAlpineRepositoryMember
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedAlpineRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedAlpineRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedAlpineRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedAlpineRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1471,10 +1357,8 @@ func (o FederatedAlpineRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedBowerRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedBowerRepositoryMemberInput is an input type that accepts FederatedBowerRepositoryMemberArgs and FederatedBowerRepositoryMemberOutput values.
@@ -1489,10 +1373,8 @@ type FederatedBowerRepositoryMemberInput interface {
 }
 
 type FederatedBowerRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedBowerRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1546,12 +1428,10 @@ func (o FederatedBowerRepositoryMemberOutput) ToFederatedBowerRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedBowerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedBowerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedBowerRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedBowerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1577,10 +1457,8 @@ func (o FederatedBowerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCargoRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedCargoRepositoryMemberInput is an input type that accepts FederatedCargoRepositoryMemberArgs and FederatedCargoRepositoryMemberOutput values.
@@ -1595,10 +1473,8 @@ type FederatedCargoRepositoryMemberInput interface {
 }
 
 type FederatedCargoRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedCargoRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1652,12 +1528,10 @@ func (o FederatedCargoRepositoryMemberOutput) ToFederatedCargoRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCargoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedCargoRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedCargoRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedCargoRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1683,10 +1557,8 @@ func (o FederatedCargoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedChefRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedChefRepositoryMemberInput is an input type that accepts FederatedChefRepositoryMemberArgs and FederatedChefRepositoryMemberOutput values.
@@ -1701,10 +1573,8 @@ type FederatedChefRepositoryMemberInput interface {
 }
 
 type FederatedChefRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedChefRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1758,12 +1628,10 @@ func (o FederatedChefRepositoryMemberOutput) ToFederatedChefRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedChefRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedChefRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedChefRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedChefRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1789,10 +1657,8 @@ func (o FederatedChefRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedCocoapodsRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedCocoapodsRepositoryMemberInput is an input type that accepts FederatedCocoapodsRepositoryMemberArgs and FederatedCocoapodsRepositoryMemberOutput values.
@@ -1807,10 +1673,8 @@ type FederatedCocoapodsRepositoryMemberInput interface {
 }
 
 type FederatedCocoapodsRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedCocoapodsRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1864,12 +1728,10 @@ func (o FederatedCocoapodsRepositoryMemberOutput) ToFederatedCocoapodsRepository
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCocoapodsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedCocoapodsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedCocoapodsRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedCocoapodsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -1895,10 +1757,8 @@ func (o FederatedCocoapodsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type FederatedComposerRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedComposerRepositoryMemberInput is an input type that accepts FederatedComposerRepositoryMemberArgs and FederatedComposerRepositoryMemberOutput values.
@@ -1913,10 +1773,8 @@ type FederatedComposerRepositoryMemberInput interface {
 }
 
 type FederatedComposerRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedComposerRepositoryMemberArgs) ElementType() reflect.Type {
@@ -1970,12 +1828,10 @@ func (o FederatedComposerRepositoryMemberOutput) ToFederatedComposerRepositoryMe
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedComposerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedComposerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedComposerRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedComposerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2001,10 +1857,8 @@ func (o FederatedComposerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FederatedConanRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedConanRepositoryMemberInput is an input type that accepts FederatedConanRepositoryMemberArgs and FederatedConanRepositoryMemberOutput values.
@@ -2019,10 +1873,8 @@ type FederatedConanRepositoryMemberInput interface {
 }
 
 type FederatedConanRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedConanRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2076,12 +1928,10 @@ func (o FederatedConanRepositoryMemberOutput) ToFederatedConanRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedConanRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedConanRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedConanRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedConanRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2107,10 +1957,8 @@ func (o FederatedConanRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCondaRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedCondaRepositoryMemberInput is an input type that accepts FederatedCondaRepositoryMemberArgs and FederatedCondaRepositoryMemberOutput values.
@@ -2125,10 +1973,8 @@ type FederatedCondaRepositoryMemberInput interface {
 }
 
 type FederatedCondaRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedCondaRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2182,12 +2028,10 @@ func (o FederatedCondaRepositoryMemberOutput) ToFederatedCondaRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCondaRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedCondaRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedCondaRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedCondaRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2213,10 +2057,8 @@ func (o FederatedCondaRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedCranRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedCranRepositoryMemberInput is an input type that accepts FederatedCranRepositoryMemberArgs and FederatedCranRepositoryMemberOutput values.
@@ -2231,10 +2073,8 @@ type FederatedCranRepositoryMemberInput interface {
 }
 
 type FederatedCranRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedCranRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2288,12 +2128,10 @@ func (o FederatedCranRepositoryMemberOutput) ToFederatedCranRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedCranRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedCranRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedCranRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedCranRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2319,10 +2157,8 @@ func (o FederatedCranRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedDebianRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedDebianRepositoryMemberInput is an input type that accepts FederatedDebianRepositoryMemberArgs and FederatedDebianRepositoryMemberOutput values.
@@ -2337,10 +2173,8 @@ type FederatedDebianRepositoryMemberInput interface {
 }
 
 type FederatedDebianRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedDebianRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2394,12 +2228,10 @@ func (o FederatedDebianRepositoryMemberOutput) ToFederatedDebianRepositoryMember
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDebianRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedDebianRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedDebianRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedDebianRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2425,10 +2257,8 @@ func (o FederatedDebianRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedDockerRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedDockerRepositoryMemberInput is an input type that accepts FederatedDockerRepositoryMemberArgs and FederatedDockerRepositoryMemberOutput values.
@@ -2443,10 +2273,8 @@ type FederatedDockerRepositoryMemberInput interface {
 }
 
 type FederatedDockerRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedDockerRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2500,12 +2328,10 @@ func (o FederatedDockerRepositoryMemberOutput) ToFederatedDockerRepositoryMember
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedDockerRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedDockerRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedDockerRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedDockerRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2531,10 +2357,8 @@ func (o FederatedDockerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedGemsRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedGemsRepositoryMemberInput is an input type that accepts FederatedGemsRepositoryMemberArgs and FederatedGemsRepositoryMemberOutput values.
@@ -2549,10 +2373,8 @@ type FederatedGemsRepositoryMemberInput interface {
 }
 
 type FederatedGemsRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedGemsRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2606,12 +2428,10 @@ func (o FederatedGemsRepositoryMemberOutput) ToFederatedGemsRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGemsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedGemsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedGemsRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedGemsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2637,10 +2457,8 @@ func (o FederatedGemsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedGenericRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedGenericRepositoryMemberInput is an input type that accepts FederatedGenericRepositoryMemberArgs and FederatedGenericRepositoryMemberOutput values.
@@ -2655,10 +2473,8 @@ type FederatedGenericRepositoryMemberInput interface {
 }
 
 type FederatedGenericRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedGenericRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2712,12 +2528,10 @@ func (o FederatedGenericRepositoryMemberOutput) ToFederatedGenericRepositoryMemb
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGenericRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedGenericRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedGenericRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedGenericRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2743,10 +2557,8 @@ func (o FederatedGenericRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedGitltfsRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedGitltfsRepositoryMemberInput is an input type that accepts FederatedGitltfsRepositoryMemberArgs and FederatedGitltfsRepositoryMemberOutput values.
@@ -2761,10 +2573,8 @@ type FederatedGitltfsRepositoryMemberInput interface {
 }
 
 type FederatedGitltfsRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedGitltfsRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2818,12 +2628,10 @@ func (o FederatedGitltfsRepositoryMemberOutput) ToFederatedGitltfsRepositoryMemb
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGitltfsRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedGitltfsRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedGitltfsRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedGitltfsRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2849,10 +2657,8 @@ func (o FederatedGitltfsRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type FederatedGoRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedGoRepositoryMemberInput is an input type that accepts FederatedGoRepositoryMemberArgs and FederatedGoRepositoryMemberOutput values.
@@ -2867,10 +2673,8 @@ type FederatedGoRepositoryMemberInput interface {
 }
 
 type FederatedGoRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedGoRepositoryMemberArgs) ElementType() reflect.Type {
@@ -2924,12 +2728,10 @@ func (o FederatedGoRepositoryMemberOutput) ToFederatedGoRepositoryMemberOutputWi
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGoRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedGoRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedGoRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedGoRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2955,10 +2757,8 @@ func (o FederatedGoRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federat
 }
 
 type FederatedGradleRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedGradleRepositoryMemberInput is an input type that accepts FederatedGradleRepositoryMemberArgs and FederatedGradleRepositoryMemberOutput values.
@@ -2973,10 +2773,8 @@ type FederatedGradleRepositoryMemberInput interface {
 }
 
 type FederatedGradleRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedGradleRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3030,12 +2828,10 @@ func (o FederatedGradleRepositoryMemberOutput) ToFederatedGradleRepositoryMember
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedGradleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedGradleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedGradleRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedGradleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3061,10 +2857,8 @@ func (o FederatedGradleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedHelmRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedHelmRepositoryMemberInput is an input type that accepts FederatedHelmRepositoryMemberArgs and FederatedHelmRepositoryMemberOutput values.
@@ -3079,10 +2873,8 @@ type FederatedHelmRepositoryMemberInput interface {
 }
 
 type FederatedHelmRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedHelmRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3136,12 +2928,10 @@ func (o FederatedHelmRepositoryMemberOutput) ToFederatedHelmRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedHelmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedHelmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedHelmRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedHelmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3167,10 +2957,8 @@ func (o FederatedHelmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedIvyRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedIvyRepositoryMemberInput is an input type that accepts FederatedIvyRepositoryMemberArgs and FederatedIvyRepositoryMemberOutput values.
@@ -3185,10 +2973,8 @@ type FederatedIvyRepositoryMemberInput interface {
 }
 
 type FederatedIvyRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedIvyRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3242,12 +3028,10 @@ func (o FederatedIvyRepositoryMemberOutput) ToFederatedIvyRepositoryMemberOutput
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedIvyRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedIvyRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedIvyRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedIvyRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3273,10 +3057,8 @@ func (o FederatedIvyRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedMavenRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedMavenRepositoryMemberInput is an input type that accepts FederatedMavenRepositoryMemberArgs and FederatedMavenRepositoryMemberOutput values.
@@ -3291,10 +3073,8 @@ type FederatedMavenRepositoryMemberInput interface {
 }
 
 type FederatedMavenRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedMavenRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3348,12 +3128,10 @@ func (o FederatedMavenRepositoryMemberOutput) ToFederatedMavenRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedMavenRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedMavenRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedMavenRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedMavenRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3379,10 +3157,8 @@ func (o FederatedMavenRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedNpmRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedNpmRepositoryMemberInput is an input type that accepts FederatedNpmRepositoryMemberArgs and FederatedNpmRepositoryMemberOutput values.
@@ -3397,10 +3173,8 @@ type FederatedNpmRepositoryMemberInput interface {
 }
 
 type FederatedNpmRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedNpmRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3454,12 +3228,10 @@ func (o FederatedNpmRepositoryMemberOutput) ToFederatedNpmRepositoryMemberOutput
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedNpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedNpmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedNpmRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedNpmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3485,10 +3257,8 @@ func (o FederatedNpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedNugetRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedNugetRepositoryMemberInput is an input type that accepts FederatedNugetRepositoryMemberArgs and FederatedNugetRepositoryMemberOutput values.
@@ -3503,10 +3273,8 @@ type FederatedNugetRepositoryMemberInput interface {
 }
 
 type FederatedNugetRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedNugetRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3560,12 +3328,10 @@ func (o FederatedNugetRepositoryMemberOutput) ToFederatedNugetRepositoryMemberOu
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedNugetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedNugetRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedNugetRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedNugetRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3591,10 +3357,8 @@ func (o FederatedNugetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fede
 }
 
 type FederatedOpkgRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedOpkgRepositoryMemberInput is an input type that accepts FederatedOpkgRepositoryMemberArgs and FederatedOpkgRepositoryMemberOutput values.
@@ -3609,10 +3373,8 @@ type FederatedOpkgRepositoryMemberInput interface {
 }
 
 type FederatedOpkgRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedOpkgRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3666,12 +3428,10 @@ func (o FederatedOpkgRepositoryMemberOutput) ToFederatedOpkgRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedOpkgRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedOpkgRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedOpkgRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedOpkgRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3697,10 +3457,8 @@ func (o FederatedOpkgRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedPuppetRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedPuppetRepositoryMemberInput is an input type that accepts FederatedPuppetRepositoryMemberArgs and FederatedPuppetRepositoryMemberOutput values.
@@ -3715,10 +3473,8 @@ type FederatedPuppetRepositoryMemberInput interface {
 }
 
 type FederatedPuppetRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedPuppetRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3772,12 +3528,10 @@ func (o FederatedPuppetRepositoryMemberOutput) ToFederatedPuppetRepositoryMember
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedPuppetRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedPuppetRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedPuppetRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedPuppetRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3803,10 +3557,8 @@ func (o FederatedPuppetRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 }
 
 type FederatedPypiRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedPypiRepositoryMemberInput is an input type that accepts FederatedPypiRepositoryMemberArgs and FederatedPypiRepositoryMemberOutput values.
@@ -3821,10 +3573,8 @@ type FederatedPypiRepositoryMemberInput interface {
 }
 
 type FederatedPypiRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedPypiRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3878,12 +3628,10 @@ func (o FederatedPypiRepositoryMemberOutput) ToFederatedPypiRepositoryMemberOutp
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedPypiRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedPypiRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedPypiRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedPypiRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -3909,10 +3657,8 @@ func (o FederatedPypiRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Feder
 }
 
 type FederatedRpmRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedRpmRepositoryMemberInput is an input type that accepts FederatedRpmRepositoryMemberArgs and FederatedRpmRepositoryMemberOutput values.
@@ -3927,10 +3673,8 @@ type FederatedRpmRepositoryMemberInput interface {
 }
 
 type FederatedRpmRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedRpmRepositoryMemberArgs) ElementType() reflect.Type {
@@ -3984,12 +3728,10 @@ func (o FederatedRpmRepositoryMemberOutput) ToFederatedRpmRepositoryMemberOutput
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedRpmRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedRpmRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedRpmRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedRpmRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4015,10 +3757,8 @@ func (o FederatedRpmRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedSbtRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedSbtRepositoryMemberInput is an input type that accepts FederatedSbtRepositoryMemberArgs and FederatedSbtRepositoryMemberOutput values.
@@ -4033,10 +3773,8 @@ type FederatedSbtRepositoryMemberInput interface {
 }
 
 type FederatedSbtRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedSbtRepositoryMemberArgs) ElementType() reflect.Type {
@@ -4090,12 +3828,10 @@ func (o FederatedSbtRepositoryMemberOutput) ToFederatedSbtRepositoryMemberOutput
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedSbtRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedSbtRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedSbtRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedSbtRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4121,10 +3857,8 @@ func (o FederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 }
 
 type FederatedVagrantRepositoryMember struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled bool `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url string `pulumi:"url"`
+	Enabled bool   `pulumi:"enabled"`
+	Url     string `pulumi:"url"`
 }
 
 // FederatedVagrantRepositoryMemberInput is an input type that accepts FederatedVagrantRepositoryMemberArgs and FederatedVagrantRepositoryMemberOutput values.
@@ -4139,10 +3873,8 @@ type FederatedVagrantRepositoryMemberInput interface {
 }
 
 type FederatedVagrantRepositoryMemberArgs struct {
-	// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Full URL to ending with the repository name
-	Url pulumi.StringInput `pulumi:"url"`
+	Enabled pulumi.BoolInput   `pulumi:"enabled"`
+	Url     pulumi.StringInput `pulumi:"url"`
 }
 
 func (FederatedVagrantRepositoryMemberArgs) ElementType() reflect.Type {
@@ -4196,12 +3928,10 @@ func (o FederatedVagrantRepositoryMemberOutput) ToFederatedVagrantRepositoryMemb
 	return o
 }
 
-// Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
 func (o FederatedVagrantRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v FederatedVagrantRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Full URL to ending with the repository name
 func (o FederatedVagrantRepositoryMemberOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v FederatedVagrantRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4227,22 +3957,14 @@ func (o FederatedVagrantRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 }
 
 type OauthSettingsOauthProvider struct {
-	// OAuth user info endpoint for the IdP.
-	ApiUrl string `pulumi:"apiUrl"`
-	// OAuth authorization endpoint for the IdP.
-	AuthUrl string `pulumi:"authUrl"`
-	// OAuth client ID configured on the IdP.
-	ClientId string `pulumi:"clientId"`
-	// OAuth client secret configured on the IdP.
+	ApiUrl       string `pulumi:"apiUrl"`
+	AuthUrl      string `pulumi:"authUrl"`
+	ClientId     string `pulumi:"clientId"`
 	ClientSecret string `pulumi:"clientSecret"`
-	// Enable the Artifactory OAuth provider.  Default value is `true`.
-	Enabled *bool `pulumi:"enabled"`
-	// Name of the Artifactory OAuth provider.
-	Name string `pulumi:"name"`
-	// OAuth token endpoint for the IdP.
-	TokenUrl string `pulumi:"tokenUrl"`
-	// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-	Type string `pulumi:"type"`
+	Enabled      *bool  `pulumi:"enabled"`
+	Name         string `pulumi:"name"`
+	TokenUrl     string `pulumi:"tokenUrl"`
+	Type         string `pulumi:"type"`
 }
 
 // OauthSettingsOauthProviderInput is an input type that accepts OauthSettingsOauthProviderArgs and OauthSettingsOauthProviderOutput values.
@@ -4257,22 +3979,14 @@ type OauthSettingsOauthProviderInput interface {
 }
 
 type OauthSettingsOauthProviderArgs struct {
-	// OAuth user info endpoint for the IdP.
-	ApiUrl pulumi.StringInput `pulumi:"apiUrl"`
-	// OAuth authorization endpoint for the IdP.
-	AuthUrl pulumi.StringInput `pulumi:"authUrl"`
-	// OAuth client ID configured on the IdP.
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// OAuth client secret configured on the IdP.
-	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// Enable the Artifactory OAuth provider.  Default value is `true`.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Name of the Artifactory OAuth provider.
-	Name pulumi.StringInput `pulumi:"name"`
-	// OAuth token endpoint for the IdP.
-	TokenUrl pulumi.StringInput `pulumi:"tokenUrl"`
-	// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-	Type pulumi.StringInput `pulumi:"type"`
+	ApiUrl       pulumi.StringInput  `pulumi:"apiUrl"`
+	AuthUrl      pulumi.StringInput  `pulumi:"authUrl"`
+	ClientId     pulumi.StringInput  `pulumi:"clientId"`
+	ClientSecret pulumi.StringInput  `pulumi:"clientSecret"`
+	Enabled      pulumi.BoolPtrInput `pulumi:"enabled"`
+	Name         pulumi.StringInput  `pulumi:"name"`
+	TokenUrl     pulumi.StringInput  `pulumi:"tokenUrl"`
+	Type         pulumi.StringInput  `pulumi:"type"`
 }
 
 func (OauthSettingsOauthProviderArgs) ElementType() reflect.Type {
@@ -4326,42 +4040,34 @@ func (o OauthSettingsOauthProviderOutput) ToOauthSettingsOauthProviderOutputWith
 	return o
 }
 
-// OAuth user info endpoint for the IdP.
 func (o OauthSettingsOauthProviderOutput) ApiUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.ApiUrl }).(pulumi.StringOutput)
 }
 
-// OAuth authorization endpoint for the IdP.
 func (o OauthSettingsOauthProviderOutput) AuthUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.AuthUrl }).(pulumi.StringOutput)
 }
 
-// OAuth client ID configured on the IdP.
 func (o OauthSettingsOauthProviderOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// OAuth client secret configured on the IdP.
 func (o OauthSettingsOauthProviderOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Enable the Artifactory OAuth provider.  Default value is `true`.
 func (o OauthSettingsOauthProviderOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the Artifactory OAuth provider.
 func (o OauthSettingsOauthProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// OAuth token endpoint for the IdP.
 func (o OauthSettingsOauthProviderOutput) TokenUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.TokenUrl }).(pulumi.StringOutput)
 }
 
-// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
 func (o OauthSettingsOauthProviderOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OauthSettingsOauthProvider) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4387,14 +4093,10 @@ func (o OauthSettingsOauthProviderArrayOutput) Index(i pulumi.IntInput) OauthSet
 }
 
 type PermissionTargetBuild struct {
-	// -
-	Actions *PermissionTargetBuildActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetBuildActions `pulumi:"actions"`
+	ExcludesPatterns []string                      `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                      `pulumi:"includesPatterns"`
+	Repositories     []string                      `pulumi:"repositories"`
 }
 
 // PermissionTargetBuildInput is an input type that accepts PermissionTargetBuildArgs and PermissionTargetBuildOutput values.
@@ -4409,14 +4111,10 @@ type PermissionTargetBuildInput interface {
 }
 
 type PermissionTargetBuildArgs struct {
-	// -
-	Actions PermissionTargetBuildActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetBuildActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput              `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput              `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput              `pulumi:"repositories"`
 }
 
 func (PermissionTargetBuildArgs) ElementType() reflect.Type {
@@ -4496,22 +4194,18 @@ func (o PermissionTargetBuildOutput) ToPermissionTargetBuildPtrOutputWithContext
 	}).(PermissionTargetBuildPtrOutput)
 }
 
-// -
 func (o PermissionTargetBuildOutput) Actions() PermissionTargetBuildActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) *PermissionTargetBuildActions { return v.Actions }).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetBuildOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetBuildOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -4540,7 +4234,6 @@ func (o PermissionTargetBuildPtrOutput) Elem() PermissionTargetBuildOutput {
 	}).(PermissionTargetBuildOutput)
 }
 
-// -
 func (o PermissionTargetBuildPtrOutput) Actions() PermissionTargetBuildActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) *PermissionTargetBuildActions {
 		if v == nil {
@@ -4550,7 +4243,6 @@ func (o PermissionTargetBuildPtrOutput) Actions() PermissionTargetBuildActionsPt
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -4560,7 +4252,6 @@ func (o PermissionTargetBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -4570,7 +4261,6 @@ func (o PermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -4581,10 +4271,8 @@ func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetBuildActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetBuildActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetBuildActionsUser `pulumi:"users"`
+	Users  []PermissionTargetBuildActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetBuildActionsInput is an input type that accepts PermissionTargetBuildActionsArgs and PermissionTargetBuildActionsOutput values.
@@ -4599,10 +4287,8 @@ type PermissionTargetBuildActionsInput interface {
 }
 
 type PermissionTargetBuildActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetBuildActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetBuildActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetBuildActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetBuildActionsArgs) ElementType() reflect.Type {
@@ -4682,12 +4368,10 @@ func (o PermissionTargetBuildActionsOutput) ToPermissionTargetBuildActionsPtrOut
 	}).(PermissionTargetBuildActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetBuildActionsOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup { return v.Groups }).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetBuildActionsOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActions) []PermissionTargetBuildActionsUser { return v.Users }).(PermissionTargetBuildActionsUserArrayOutput)
 }
@@ -4716,7 +4400,6 @@ func (o PermissionTargetBuildActionsPtrOutput) Elem() PermissionTargetBuildActio
 	}).(PermissionTargetBuildActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsGroup {
 		if v == nil {
@@ -4726,7 +4409,6 @@ func (o PermissionTargetBuildActionsPtrOutput) Groups() PermissionTargetBuildAct
 	}).(PermissionTargetBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetBuildActionsPtrOutput) Users() PermissionTargetBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuildActions) []PermissionTargetBuildActionsUser {
 		if v == nil {
@@ -4737,7 +4419,6 @@ func (o PermissionTargetBuildActionsPtrOutput) Users() PermissionTargetBuildActi
 }
 
 type PermissionTargetBuildActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -4754,7 +4435,6 @@ type PermissionTargetBuildActionsGroupInput interface {
 }
 
 type PermissionTargetBuildActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -4810,7 +4490,6 @@ func (o PermissionTargetBuildActionsGroupOutput) ToPermissionTargetBuildActionsG
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetBuildActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4840,7 +4519,6 @@ func (o PermissionTargetBuildActionsGroupArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetBuildActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -4857,7 +4535,6 @@ type PermissionTargetBuildActionsUserInput interface {
 }
 
 type PermissionTargetBuildActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -4913,7 +4590,6 @@ func (o PermissionTargetBuildActionsUserOutput) ToPermissionTargetBuildActionsUs
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetBuildActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetBuildActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4943,14 +4619,10 @@ func (o PermissionTargetBuildActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PermissionTargetReleaseBundle struct {
-	// -
-	Actions *PermissionTargetReleaseBundleActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetReleaseBundleActions `pulumi:"actions"`
+	ExcludesPatterns []string                              `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                              `pulumi:"includesPatterns"`
+	Repositories     []string                              `pulumi:"repositories"`
 }
 
 // PermissionTargetReleaseBundleInput is an input type that accepts PermissionTargetReleaseBundleArgs and PermissionTargetReleaseBundleOutput values.
@@ -4965,14 +4637,10 @@ type PermissionTargetReleaseBundleInput interface {
 }
 
 type PermissionTargetReleaseBundleArgs struct {
-	// -
-	Actions PermissionTargetReleaseBundleActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetReleaseBundleActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput                      `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput                      `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput                      `pulumi:"repositories"`
 }
 
 func (PermissionTargetReleaseBundleArgs) ElementType() reflect.Type {
@@ -5052,22 +4720,18 @@ func (o PermissionTargetReleaseBundleOutput) ToPermissionTargetReleaseBundlePtrO
 	}).(PermissionTargetReleaseBundlePtrOutput)
 }
 
-// -
 func (o PermissionTargetReleaseBundleOutput) Actions() PermissionTargetReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) *PermissionTargetReleaseBundleActions { return v.Actions }).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetReleaseBundleOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetReleaseBundleOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -5096,7 +4760,6 @@ func (o PermissionTargetReleaseBundlePtrOutput) Elem() PermissionTargetReleaseBu
 	}).(PermissionTargetReleaseBundleOutput)
 }
 
-// -
 func (o PermissionTargetReleaseBundlePtrOutput) Actions() PermissionTargetReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) *PermissionTargetReleaseBundleActions {
 		if v == nil {
@@ -5106,7 +4769,6 @@ func (o PermissionTargetReleaseBundlePtrOutput) Actions() PermissionTargetReleas
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetReleaseBundlePtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -5116,7 +4778,6 @@ func (o PermissionTargetReleaseBundlePtrOutput) ExcludesPatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -5126,7 +4787,6 @@ func (o PermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -5137,10 +4797,8 @@ func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArra
 }
 
 type PermissionTargetReleaseBundleActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetReleaseBundleActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetReleaseBundleActionsUser `pulumi:"users"`
+	Users  []PermissionTargetReleaseBundleActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetReleaseBundleActionsInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs and PermissionTargetReleaseBundleActionsOutput values.
@@ -5155,10 +4813,8 @@ type PermissionTargetReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetReleaseBundleActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetReleaseBundleActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -5238,14 +4894,12 @@ func (o PermissionTargetReleaseBundleActionsOutput) ToPermissionTargetReleaseBun
 	}).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		return v.Users
@@ -5276,7 +4930,6 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Elem() PermissionTargetRe
 	}).(PermissionTargetReleaseBundleActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTargetReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsGroup {
 		if v == nil {
@@ -5286,7 +4939,6 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Groups() PermissionTarget
 	}).(PermissionTargetReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetReleaseBundleActionsPtrOutput) Users() PermissionTargetReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundleActions) []PermissionTargetReleaseBundleActionsUser {
 		if v == nil {
@@ -5297,7 +4949,6 @@ func (o PermissionTargetReleaseBundleActionsPtrOutput) Users() PermissionTargetR
 }
 
 type PermissionTargetReleaseBundleActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -5314,7 +4965,6 @@ type PermissionTargetReleaseBundleActionsGroupInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -5370,7 +5020,6 @@ func (o PermissionTargetReleaseBundleActionsGroupOutput) ToPermissionTargetRelea
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetReleaseBundleActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5400,7 +5049,6 @@ func (o PermissionTargetReleaseBundleActionsGroupArrayOutput) Index(i pulumi.Int
 }
 
 type PermissionTargetReleaseBundleActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -5417,7 +5065,6 @@ type PermissionTargetReleaseBundleActionsUserInput interface {
 }
 
 type PermissionTargetReleaseBundleActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -5473,7 +5120,6 @@ func (o PermissionTargetReleaseBundleActionsUserOutput) ToPermissionTargetReleas
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetReleaseBundleActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundleActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5503,14 +5149,10 @@ func (o PermissionTargetReleaseBundleActionsUserArrayOutput) Index(i pulumi.IntI
 }
 
 type PermissionTargetRepo struct {
-	// -
-	Actions *PermissionTargetRepoActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetRepoActions `pulumi:"actions"`
+	ExcludesPatterns []string                     `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                     `pulumi:"includesPatterns"`
+	Repositories     []string                     `pulumi:"repositories"`
 }
 
 // PermissionTargetRepoInput is an input type that accepts PermissionTargetRepoArgs and PermissionTargetRepoOutput values.
@@ -5525,14 +5167,10 @@ type PermissionTargetRepoInput interface {
 }
 
 type PermissionTargetRepoArgs struct {
-	// -
-	Actions PermissionTargetRepoActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetRepoActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput             `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput             `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput             `pulumi:"repositories"`
 }
 
 func (PermissionTargetRepoArgs) ElementType() reflect.Type {
@@ -5612,22 +5250,18 @@ func (o PermissionTargetRepoOutput) ToPermissionTargetRepoPtrOutputWithContext(c
 	}).(PermissionTargetRepoPtrOutput)
 }
 
-// -
 func (o PermissionTargetRepoOutput) Actions() PermissionTargetRepoActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) *PermissionTargetRepoActions { return v.Actions }).(PermissionTargetRepoActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetRepoOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetRepoOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetRepoOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -5656,7 +5290,6 @@ func (o PermissionTargetRepoPtrOutput) Elem() PermissionTargetRepoOutput {
 	}).(PermissionTargetRepoOutput)
 }
 
-// -
 func (o PermissionTargetRepoPtrOutput) Actions() PermissionTargetRepoActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) *PermissionTargetRepoActions {
 		if v == nil {
@@ -5666,7 +5299,6 @@ func (o PermissionTargetRepoPtrOutput) Actions() PermissionTargetRepoActionsPtrO
 	}).(PermissionTargetRepoActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) []string {
 		if v == nil {
@@ -5676,7 +5308,6 @@ func (o PermissionTargetRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) []string {
 		if v == nil {
@@ -5686,7 +5317,6 @@ func (o PermissionTargetRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) []string {
 		if v == nil {
@@ -5697,10 +5327,8 @@ func (o PermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 }
 
 type PermissionTargetRepoActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetRepoActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetRepoActionsUser `pulumi:"users"`
+	Users  []PermissionTargetRepoActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetRepoActionsInput is an input type that accepts PermissionTargetRepoActionsArgs and PermissionTargetRepoActionsOutput values.
@@ -5715,10 +5343,8 @@ type PermissionTargetRepoActionsInput interface {
 }
 
 type PermissionTargetRepoActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetRepoActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetRepoActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetRepoActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetRepoActionsArgs) ElementType() reflect.Type {
@@ -5798,12 +5424,10 @@ func (o PermissionTargetRepoActionsOutput) ToPermissionTargetRepoActionsPtrOutpu
 	}).(PermissionTargetRepoActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetRepoActionsOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup { return v.Groups }).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetRepoActionsOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActions) []PermissionTargetRepoActionsUser { return v.Users }).(PermissionTargetRepoActionsUserArrayOutput)
 }
@@ -5832,7 +5456,6 @@ func (o PermissionTargetRepoActionsPtrOutput) Elem() PermissionTargetRepoActions
 	}).(PermissionTargetRepoActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsGroup {
 		if v == nil {
@@ -5842,7 +5465,6 @@ func (o PermissionTargetRepoActionsPtrOutput) Groups() PermissionTargetRepoActio
 	}).(PermissionTargetRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetRepoActionsPtrOutput) Users() PermissionTargetRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepoActions) []PermissionTargetRepoActionsUser {
 		if v == nil {
@@ -5853,7 +5475,6 @@ func (o PermissionTargetRepoActionsPtrOutput) Users() PermissionTargetRepoAction
 }
 
 type PermissionTargetRepoActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -5870,7 +5491,6 @@ type PermissionTargetRepoActionsGroupInput interface {
 }
 
 type PermissionTargetRepoActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -5926,7 +5546,6 @@ func (o PermissionTargetRepoActionsGroupOutput) ToPermissionTargetRepoActionsGro
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetRepoActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5956,7 +5575,6 @@ func (o PermissionTargetRepoActionsGroupArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PermissionTargetRepoActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -5973,7 +5591,6 @@ type PermissionTargetRepoActionsUserInput interface {
 }
 
 type PermissionTargetRepoActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6029,7 +5646,6 @@ func (o PermissionTargetRepoActionsUserOutput) ToPermissionTargetRepoActionsUser
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetRepoActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetRepoActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6059,14 +5675,10 @@ func (o PermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Per
 }
 
 type PermissionTargetsBuild struct {
-	// -
-	Actions *PermissionTargetsBuildActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetsBuildActions `pulumi:"actions"`
+	ExcludesPatterns []string                       `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                       `pulumi:"includesPatterns"`
+	Repositories     []string                       `pulumi:"repositories"`
 }
 
 // PermissionTargetsBuildInput is an input type that accepts PermissionTargetsBuildArgs and PermissionTargetsBuildOutput values.
@@ -6081,14 +5693,10 @@ type PermissionTargetsBuildInput interface {
 }
 
 type PermissionTargetsBuildArgs struct {
-	// -
-	Actions PermissionTargetsBuildActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetsBuildActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput               `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput               `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput               `pulumi:"repositories"`
 }
 
 func (PermissionTargetsBuildArgs) ElementType() reflect.Type {
@@ -6168,22 +5776,18 @@ func (o PermissionTargetsBuildOutput) ToPermissionTargetsBuildPtrOutputWithConte
 	}).(PermissionTargetsBuildPtrOutput)
 }
 
-// -
 func (o PermissionTargetsBuildOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) *PermissionTargetsBuildActions { return v.Actions }).(PermissionTargetsBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsBuildOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsBuildOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6212,7 +5816,6 @@ func (o PermissionTargetsBuildPtrOutput) Elem() PermissionTargetsBuildOutput {
 	}).(PermissionTargetsBuildOutput)
 }
 
-// -
 func (o PermissionTargetsBuildPtrOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) *PermissionTargetsBuildActions {
 		if v == nil {
@@ -6222,7 +5825,6 @@ func (o PermissionTargetsBuildPtrOutput) Actions() PermissionTargetsBuildActions
 	}).(PermissionTargetsBuildActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6232,7 +5834,6 @@ func (o PermissionTargetsBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6242,7 +5843,6 @@ func (o PermissionTargetsBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -6253,10 +5853,8 @@ func (o PermissionTargetsBuildPtrOutput) Repositories() pulumi.StringArrayOutput
 }
 
 type PermissionTargetsBuildActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetsBuildActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetsBuildActionsUser `pulumi:"users"`
+	Users  []PermissionTargetsBuildActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetsBuildActionsInput is an input type that accepts PermissionTargetsBuildActionsArgs and PermissionTargetsBuildActionsOutput values.
@@ -6271,10 +5869,8 @@ type PermissionTargetsBuildActionsInput interface {
 }
 
 type PermissionTargetsBuildActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetsBuildActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetsBuildActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetsBuildActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetsBuildActionsArgs) ElementType() reflect.Type {
@@ -6354,12 +5950,10 @@ func (o PermissionTargetsBuildActionsOutput) ToPermissionTargetsBuildActionsPtrO
 	}).(PermissionTargetsBuildActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsBuildActionsOutput) Groups() PermissionTargetsBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActions) []PermissionTargetsBuildActionsGroup { return v.Groups }).(PermissionTargetsBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsBuildActionsOutput) Users() PermissionTargetsBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActions) []PermissionTargetsBuildActionsUser { return v.Users }).(PermissionTargetsBuildActionsUserArrayOutput)
 }
@@ -6388,7 +5982,6 @@ func (o PermissionTargetsBuildActionsPtrOutput) Elem() PermissionTargetsBuildAct
 	}).(PermissionTargetsBuildActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsBuildActionsPtrOutput) Groups() PermissionTargetsBuildActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuildActions) []PermissionTargetsBuildActionsGroup {
 		if v == nil {
@@ -6398,7 +5991,6 @@ func (o PermissionTargetsBuildActionsPtrOutput) Groups() PermissionTargetsBuildA
 	}).(PermissionTargetsBuildActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsBuildActionsPtrOutput) Users() PermissionTargetsBuildActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuildActions) []PermissionTargetsBuildActionsUser {
 		if v == nil {
@@ -6409,7 +6001,6 @@ func (o PermissionTargetsBuildActionsPtrOutput) Users() PermissionTargetsBuildAc
 }
 
 type PermissionTargetsBuildActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6426,7 +6017,6 @@ type PermissionTargetsBuildActionsGroupInput interface {
 }
 
 type PermissionTargetsBuildActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6482,7 +6072,6 @@ func (o PermissionTargetsBuildActionsGroupOutput) ToPermissionTargetsBuildAction
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsBuildActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6512,7 +6101,6 @@ func (o PermissionTargetsBuildActionsGroupArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type PermissionTargetsBuildActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6529,7 +6117,6 @@ type PermissionTargetsBuildActionsUserInput interface {
 }
 
 type PermissionTargetsBuildActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -6585,7 +6172,6 @@ func (o PermissionTargetsBuildActionsUserOutput) ToPermissionTargetsBuildActions
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsBuildActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsBuildActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6615,14 +6201,10 @@ func (o PermissionTargetsBuildActionsUserArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetsReleaseBundle struct {
-	// -
-	Actions *PermissionTargetsReleaseBundleActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetsReleaseBundleActions `pulumi:"actions"`
+	ExcludesPatterns []string                               `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                               `pulumi:"includesPatterns"`
+	Repositories     []string                               `pulumi:"repositories"`
 }
 
 // PermissionTargetsReleaseBundleInput is an input type that accepts PermissionTargetsReleaseBundleArgs and PermissionTargetsReleaseBundleOutput values.
@@ -6637,14 +6219,10 @@ type PermissionTargetsReleaseBundleInput interface {
 }
 
 type PermissionTargetsReleaseBundleArgs struct {
-	// -
-	Actions PermissionTargetsReleaseBundleActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetsReleaseBundleActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput                       `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput                       `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput                       `pulumi:"repositories"`
 }
 
 func (PermissionTargetsReleaseBundleArgs) ElementType() reflect.Type {
@@ -6724,22 +6302,18 @@ func (o PermissionTargetsReleaseBundleOutput) ToPermissionTargetsReleaseBundlePt
 	}).(PermissionTargetsReleaseBundlePtrOutput)
 }
 
-// -
 func (o PermissionTargetsReleaseBundleOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions { return v.Actions }).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsReleaseBundleOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsReleaseBundleOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6768,7 +6342,6 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Elem() PermissionTargetsRelease
 	}).(PermissionTargetsReleaseBundleOutput)
 }
 
-// -
 func (o PermissionTargetsReleaseBundlePtrOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions {
 		if v == nil {
@@ -6778,7 +6351,6 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Actions() PermissionTargetsRele
 	}).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsReleaseBundlePtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6788,7 +6360,6 @@ func (o PermissionTargetsReleaseBundlePtrOutput) ExcludesPatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsReleaseBundlePtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6798,7 +6369,6 @@ func (o PermissionTargetsReleaseBundlePtrOutput) IncludesPatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -6809,10 +6379,8 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Repositories() pulumi.StringArr
 }
 
 type PermissionTargetsReleaseBundleActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetsReleaseBundleActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetsReleaseBundleActionsUser `pulumi:"users"`
+	Users  []PermissionTargetsReleaseBundleActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetsReleaseBundleActionsInput is an input type that accepts PermissionTargetsReleaseBundleActionsArgs and PermissionTargetsReleaseBundleActionsOutput values.
@@ -6827,10 +6395,8 @@ type PermissionTargetsReleaseBundleActionsInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetsReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetsReleaseBundleActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetsReleaseBundleActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetsReleaseBundleActionsArgs) ElementType() reflect.Type {
@@ -6910,14 +6476,12 @@ func (o PermissionTargetsReleaseBundleActionsOutput) ToPermissionTargetsReleaseB
 	}).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsReleaseBundleActionsOutput) Groups() PermissionTargetsReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsGroup {
 		return v.Groups
 	}).(PermissionTargetsReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsReleaseBundleActionsOutput) Users() PermissionTargetsReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsUser {
 		return v.Users
@@ -6948,7 +6512,6 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Elem() PermissionTargets
 	}).(PermissionTargetsReleaseBundleActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsReleaseBundleActionsPtrOutput) Groups() PermissionTargetsReleaseBundleActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsGroup {
 		if v == nil {
@@ -6958,7 +6521,6 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Groups() PermissionTarge
 	}).(PermissionTargetsReleaseBundleActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsReleaseBundleActionsPtrOutput) Users() PermissionTargetsReleaseBundleActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundleActions) []PermissionTargetsReleaseBundleActionsUser {
 		if v == nil {
@@ -6969,7 +6531,6 @@ func (o PermissionTargetsReleaseBundleActionsPtrOutput) Users() PermissionTarget
 }
 
 type PermissionTargetsReleaseBundleActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -6986,7 +6547,6 @@ type PermissionTargetsReleaseBundleActionsGroupInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7042,7 +6602,6 @@ func (o PermissionTargetsReleaseBundleActionsGroupOutput) ToPermissionTargetsRel
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsReleaseBundleActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7072,7 +6631,6 @@ func (o PermissionTargetsReleaseBundleActionsGroupArrayOutput) Index(i pulumi.In
 }
 
 type PermissionTargetsReleaseBundleActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7089,7 +6647,6 @@ type PermissionTargetsReleaseBundleActionsUserInput interface {
 }
 
 type PermissionTargetsReleaseBundleActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7145,7 +6702,6 @@ func (o PermissionTargetsReleaseBundleActionsUserOutput) ToPermissionTargetsRele
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsReleaseBundleActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundleActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7175,14 +6731,10 @@ func (o PermissionTargetsReleaseBundleActionsUserArrayOutput) Index(i pulumi.Int
 }
 
 type PermissionTargetsRepo struct {
-	// -
-	Actions *PermissionTargetsRepoActions `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns []string `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories []string `pulumi:"repositories"`
+	Actions          *PermissionTargetsRepoActions `pulumi:"actions"`
+	ExcludesPatterns []string                      `pulumi:"excludesPatterns"`
+	IncludesPatterns []string                      `pulumi:"includesPatterns"`
+	Repositories     []string                      `pulumi:"repositories"`
 }
 
 // PermissionTargetsRepoInput is an input type that accepts PermissionTargetsRepoArgs and PermissionTargetsRepoOutput values.
@@ -7197,14 +6749,10 @@ type PermissionTargetsRepoInput interface {
 }
 
 type PermissionTargetsRepoArgs struct {
-	// -
-	Actions PermissionTargetsRepoActionsPtrInput `pulumi:"actions"`
-	// Pattern of artifacts to exclude
-	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
-	// Pattern of artifacts to include
-	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for
-	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+	Actions          PermissionTargetsRepoActionsPtrInput `pulumi:"actions"`
+	ExcludesPatterns pulumi.StringArrayInput              `pulumi:"excludesPatterns"`
+	IncludesPatterns pulumi.StringArrayInput              `pulumi:"includesPatterns"`
+	Repositories     pulumi.StringArrayInput              `pulumi:"repositories"`
 }
 
 func (PermissionTargetsRepoArgs) ElementType() reflect.Type {
@@ -7284,22 +6832,18 @@ func (o PermissionTargetsRepoOutput) ToPermissionTargetsRepoPtrOutputWithContext
 	}).(PermissionTargetsRepoPtrOutput)
 }
 
-// -
 func (o PermissionTargetsRepoOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) *PermissionTargetsRepoActions { return v.Actions }).(PermissionTargetsRepoActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsRepoOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsRepoOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsRepoOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -7328,7 +6872,6 @@ func (o PermissionTargetsRepoPtrOutput) Elem() PermissionTargetsRepoOutput {
 	}).(PermissionTargetsRepoOutput)
 }
 
-// -
 func (o PermissionTargetsRepoPtrOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) *PermissionTargetsRepoActions {
 		if v == nil {
@@ -7338,7 +6881,6 @@ func (o PermissionTargetsRepoPtrOutput) Actions() PermissionTargetsRepoActionsPt
 	}).(PermissionTargetsRepoActionsPtrOutput)
 }
 
-// Pattern of artifacts to exclude
 func (o PermissionTargetsRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7348,7 +6890,6 @@ func (o PermissionTargetsRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// Pattern of artifacts to include
 func (o PermissionTargetsRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7358,7 +6899,6 @@ func (o PermissionTargetsRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for
 func (o PermissionTargetsRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -7369,10 +6909,8 @@ func (o PermissionTargetsRepoPtrOutput) Repositories() pulumi.StringArrayOutput 
 }
 
 type PermissionTargetsRepoActions struct {
-	// Groups this permission applies for.
 	Groups []PermissionTargetsRepoActionsGroup `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users []PermissionTargetsRepoActionsUser `pulumi:"users"`
+	Users  []PermissionTargetsRepoActionsUser  `pulumi:"users"`
 }
 
 // PermissionTargetsRepoActionsInput is an input type that accepts PermissionTargetsRepoActionsArgs and PermissionTargetsRepoActionsOutput values.
@@ -7387,10 +6925,8 @@ type PermissionTargetsRepoActionsInput interface {
 }
 
 type PermissionTargetsRepoActionsArgs struct {
-	// Groups this permission applies for.
 	Groups PermissionTargetsRepoActionsGroupArrayInput `pulumi:"groups"`
-	// Users this permission target applies for.
-	Users PermissionTargetsRepoActionsUserArrayInput `pulumi:"users"`
+	Users  PermissionTargetsRepoActionsUserArrayInput  `pulumi:"users"`
 }
 
 func (PermissionTargetsRepoActionsArgs) ElementType() reflect.Type {
@@ -7470,12 +7006,10 @@ func (o PermissionTargetsRepoActionsOutput) ToPermissionTargetsRepoActionsPtrOut
 	}).(PermissionTargetsRepoActionsPtrOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsRepoActionsOutput) Groups() PermissionTargetsRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActions) []PermissionTargetsRepoActionsGroup { return v.Groups }).(PermissionTargetsRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsRepoActionsOutput) Users() PermissionTargetsRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActions) []PermissionTargetsRepoActionsUser { return v.Users }).(PermissionTargetsRepoActionsUserArrayOutput)
 }
@@ -7504,7 +7038,6 @@ func (o PermissionTargetsRepoActionsPtrOutput) Elem() PermissionTargetsRepoActio
 	}).(PermissionTargetsRepoActionsOutput)
 }
 
-// Groups this permission applies for.
 func (o PermissionTargetsRepoActionsPtrOutput) Groups() PermissionTargetsRepoActionsGroupArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepoActions) []PermissionTargetsRepoActionsGroup {
 		if v == nil {
@@ -7514,7 +7047,6 @@ func (o PermissionTargetsRepoActionsPtrOutput) Groups() PermissionTargetsRepoAct
 	}).(PermissionTargetsRepoActionsGroupArrayOutput)
 }
 
-// Users this permission target applies for.
 func (o PermissionTargetsRepoActionsPtrOutput) Users() PermissionTargetsRepoActionsUserArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepoActions) []PermissionTargetsRepoActionsUser {
 		if v == nil {
@@ -7525,7 +7057,6 @@ func (o PermissionTargetsRepoActionsPtrOutput) Users() PermissionTargetsRepoActi
 }
 
 type PermissionTargetsRepoActionsGroup struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7542,7 +7073,6 @@ type PermissionTargetsRepoActionsGroupInput interface {
 }
 
 type PermissionTargetsRepoActionsGroupArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7598,7 +7128,6 @@ func (o PermissionTargetsRepoActionsGroupOutput) ToPermissionTargetsRepoActionsG
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsRepoActionsGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActionsGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7628,7 +7157,6 @@ func (o PermissionTargetsRepoActionsGroupArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetsRepoActionsUser struct {
-	// Name of permission
 	Name        string   `pulumi:"name"`
 	Permissions []string `pulumi:"permissions"`
 }
@@ -7645,7 +7173,6 @@ type PermissionTargetsRepoActionsUserInput interface {
 }
 
 type PermissionTargetsRepoActionsUserArgs struct {
-	// Name of permission
 	Name        pulumi.StringInput      `pulumi:"name"`
 	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
 }
@@ -7701,7 +7228,6 @@ func (o PermissionTargetsRepoActionsUserOutput) ToPermissionTargetsRepoActionsUs
 	return o
 }
 
-// Name of permission
 func (o PermissionTargetsRepoActionsUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PermissionTargetsRepoActionsUser) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7731,11 +7257,9 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PushReplicationReplication struct {
-	Enabled *bool `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password   *string `pulumi:"password"`
-	PathPrefix *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	Enabled             *bool   `pulumi:"enabled"`
+	Password            *string `pulumi:"password"`
+	PathPrefix          *string `pulumi:"pathPrefix"`
 	Proxy               *string `pulumi:"proxy"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
@@ -7757,11 +7281,9 @@ type PushReplicationReplicationInput interface {
 }
 
 type PushReplicationReplicationArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password   pulumi.StringPtrInput `pulumi:"password"`
-	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	Enabled             pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Password            pulumi.StringPtrInput `pulumi:"password"`
+	PathPrefix          pulumi.StringPtrInput `pulumi:"pathPrefix"`
 	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
 	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
@@ -7826,7 +7348,6 @@ func (o PushReplicationReplicationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Requires password encryption to be turned off `POST /api/system/decrypt`
 func (o PushReplicationReplicationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -7835,7 +7356,6 @@ func (o PushReplicationReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Proxy key from Artifactory Proxies setting
 func (o PushReplicationReplicationOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
@@ -7885,13 +7405,9 @@ func (o PushReplicationReplicationArrayOutput) Index(i pulumi.IntInput) PushRepl
 }
 
 type ReleaseBundleWebhookCriteria struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns []string `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             bool     `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              []string `pulumi:"excludePatterns"`
+	IncludePatterns              []string `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -7907,13 +7423,9 @@ type ReleaseBundleWebhookCriteriaInput interface {
 }
 
 type ReleaseBundleWebhookCriteriaArgs struct {
-	// Trigger on any release bundle
-	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
-	// Trigger on this list of release bundle names
+	AnyReleaseBundle             pulumi.BoolInput        `pulumi:"anyReleaseBundle"`
+	ExcludePatterns              pulumi.StringArrayInput `pulumi:"excludePatterns"`
+	IncludePatterns              pulumi.StringArrayInput `pulumi:"includePatterns"`
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
 }
 
@@ -7994,22 +7506,18 @@ func (o ReleaseBundleWebhookCriteriaOutput) ToReleaseBundleWebhookCriteriaPtrOut
 	}).(ReleaseBundleWebhookCriteriaPtrOutput)
 }
 
-// Trigger on any release bundle
 func (o ReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o ReleaseBundleWebhookCriteriaOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.RegisteredReleaseBundleNames }).(pulumi.StringArrayOutput)
 }
@@ -8038,7 +7546,6 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) Elem() ReleaseBundleWebhookCriter
 	}).(ReleaseBundleWebhookCriteriaOutput)
 }
 
-// Trigger on any release bundle
 func (o ReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) *bool {
 		if v == nil {
@@ -8048,7 +7555,6 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -8058,7 +7564,6 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
 func (o ReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -8068,7 +7573,6 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Trigger on this list of release bundle names
 func (o ReleaseBundleWebhookCriteriaPtrOutput) RegisteredReleaseBundleNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -8435,14 +7939,10 @@ func (o RemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteCargoRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteCargoRepositoryContentSynchronisationInput is an input type that accepts RemoteCargoRepositoryContentSynchronisationArgs and RemoteCargoRepositoryContentSynchronisationOutput values.
@@ -8457,14 +7957,10 @@ type RemoteCargoRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteCargoRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteCargoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -8544,22 +8040,18 @@ func (o RemoteCargoRepositoryContentSynchronisationOutput) ToRemoteCargoReposito
 	}).(RemoteCargoRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCargoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteCargoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -8588,7 +8080,6 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Elem() RemoteCargo
 	}).(RemoteCargoRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -8598,7 +8089,6 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -8608,7 +8098,6 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -8618,7 +8107,6 @@ func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -9875,14 +9363,10 @@ func (o RemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteDockerRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteDockerRepositoryContentSynchronisationInput is an input type that accepts RemoteDockerRepositoryContentSynchronisationArgs and RemoteDockerRepositoryContentSynchronisationOutput values.
@@ -9897,14 +9381,10 @@ type RemoteDockerRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteDockerRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteDockerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -9984,22 +9464,18 @@ func (o RemoteDockerRepositoryContentSynchronisationOutput) ToRemoteDockerReposi
 	}).(RemoteDockerRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDockerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteDockerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -10028,7 +9504,6 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Elem() RemoteDock
 	}).(RemoteDockerRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10038,7 +9513,6 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10048,7 +9522,6 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10058,7 +9531,6 @@ func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10247,14 +9719,10 @@ func (o RemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteGenericRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGenericRepositoryContentSynchronisationInput is an input type that accepts RemoteGenericRepositoryContentSynchronisationArgs and RemoteGenericRepositoryContentSynchronisationOutput values.
@@ -10269,14 +9737,10 @@ type RemoteGenericRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGenericRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGenericRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -10356,22 +9820,18 @@ func (o RemoteGenericRepositoryContentSynchronisationOutput) ToRemoteGenericRepo
 	}).(RemoteGenericRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGenericRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGenericRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -10400,7 +9860,6 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Elem() RemoteGen
 	}).(RemoteGenericRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10410,7 +9869,6 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10420,7 +9878,6 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10430,7 +9887,6 @@ func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbse
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGenericRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10797,14 +10253,10 @@ func (o RemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() p
 }
 
 type RemoteGradleRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteGradleRepositoryContentSynchronisationInput is an input type that accepts RemoteGradleRepositoryContentSynchronisationArgs and RemoteGradleRepositoryContentSynchronisationOutput values.
@@ -10819,14 +10271,10 @@ type RemoteGradleRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteGradleRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteGradleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -10906,22 +10354,18 @@ func (o RemoteGradleRepositoryContentSynchronisationOutput) ToRemoteGradleReposi
 	}).(RemoteGradleRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGradleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteGradleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -10950,7 +10394,6 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Elem() RemoteGrad
 	}).(RemoteGradleRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10960,7 +10403,6 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10970,7 +10412,6 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10980,7 +10421,6 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsen
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteGradleRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -10991,14 +10431,10 @@ func (o RemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemoteHelmRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteHelmRepositoryContentSynchronisationInput is an input type that accepts RemoteHelmRepositoryContentSynchronisationArgs and RemoteHelmRepositoryContentSynchronisationOutput values.
@@ -11013,14 +10449,10 @@ type RemoteHelmRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteHelmRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteHelmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11100,22 +10532,18 @@ func (o RemoteHelmRepositoryContentSynchronisationOutput) ToRemoteHelmRepository
 	}).(RemoteHelmRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHelmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteHelmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11144,7 +10572,6 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Elem() RemoteHelmRe
 	}).(RemoteHelmRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11154,7 +10581,6 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11164,7 +10590,6 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11174,7 +10599,6 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11185,14 +10609,10 @@ func (o RemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled()
 }
 
 type RemoteIvyRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteIvyRepositoryContentSynchronisationInput is an input type that accepts RemoteIvyRepositoryContentSynchronisationArgs and RemoteIvyRepositoryContentSynchronisationOutput values.
@@ -11207,14 +10627,10 @@ type RemoteIvyRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteIvyRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteIvyRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11294,22 +10710,18 @@ func (o RemoteIvyRepositoryContentSynchronisationOutput) ToRemoteIvyRepositoryCo
 	}).(RemoteIvyRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteIvyRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteIvyRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11338,7 +10750,6 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Elem() RemoteIvyRepo
 	}).(RemoteIvyRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11348,7 +10759,6 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11358,7 +10768,6 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11368,7 +10777,6 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11379,14 +10787,10 @@ func (o RemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteMavenRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteMavenRepositoryContentSynchronisationInput is an input type that accepts RemoteMavenRepositoryContentSynchronisationArgs and RemoteMavenRepositoryContentSynchronisationOutput values.
@@ -11401,14 +10805,10 @@ type RemoteMavenRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteMavenRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteMavenRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11488,22 +10888,18 @@ func (o RemoteMavenRepositoryContentSynchronisationOutput) ToRemoteMavenReposito
 	}).(RemoteMavenRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteMavenRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteMavenRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11532,7 +10928,6 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Elem() RemoteMaven
 	}).(RemoteMavenRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11542,7 +10937,6 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11552,7 +10946,6 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11562,7 +10955,6 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11573,14 +10965,10 @@ func (o RemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled(
 }
 
 type RemoteNpmRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteNpmRepositoryContentSynchronisationInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs and RemoteNpmRepositoryContentSynchronisationOutput values.
@@ -11595,14 +10983,10 @@ type RemoteNpmRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteNpmRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteNpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -11682,22 +11066,18 @@ func (o RemoteNpmRepositoryContentSynchronisationOutput) ToRemoteNpmRepositoryCo
 	}).(RemoteNpmRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteNpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -11726,7 +11106,6 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Elem() RemoteNpmRepo
 	}).(RemoteNpmRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11736,7 +11115,6 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11746,7 +11124,6 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -11756,7 +11133,6 @@ func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteNpmRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12479,14 +11855,10 @@ func (o RemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled
 }
 
 type RemotePypiRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemotePypiRepositoryContentSynchronisationInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs and RemotePypiRepositoryContentSynchronisationOutput values.
@@ -12501,14 +11873,10 @@ type RemotePypiRepositoryContentSynchronisationInput interface {
 }
 
 type RemotePypiRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemotePypiRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -12588,22 +11956,18 @@ func (o RemotePypiRepositoryContentSynchronisationOutput) ToRemotePypiRepository
 	}).(RemotePypiRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePypiRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemotePypiRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12632,7 +11996,6 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Elem() RemotePypiRe
 	}).(RemotePypiRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12642,7 +12005,6 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12652,7 +12014,6 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -12662,150 +12023,12 @@ func (o RemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsence
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepositoryContentSynchronisation) *bool {
 		if v == nil {
 			return nil
 		}
 		return v.StatisticsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-type RemoteRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-}
-
-// RemoteRepositoryContentSynchronisationInput is an input type that accepts RemoteRepositoryContentSynchronisationArgs and RemoteRepositoryContentSynchronisationOutput values.
-// You can construct a concrete instance of `RemoteRepositoryContentSynchronisationInput` via:
-//
-//          RemoteRepositoryContentSynchronisationArgs{...}
-type RemoteRepositoryContentSynchronisationInput interface {
-	pulumi.Input
-
-	ToRemoteRepositoryContentSynchronisationOutput() RemoteRepositoryContentSynchronisationOutput
-	ToRemoteRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteRepositoryContentSynchronisationOutput
-}
-
-type RemoteRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-}
-
-func (RemoteRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (i RemoteRepositoryContentSynchronisationArgs) ToRemoteRepositoryContentSynchronisationOutput() RemoteRepositoryContentSynchronisationOutput {
-	return i.ToRemoteRepositoryContentSynchronisationOutputWithContext(context.Background())
-}
-
-func (i RemoteRepositoryContentSynchronisationArgs) ToRemoteRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryContentSynchronisationOutput)
-}
-
-func (i RemoteRepositoryContentSynchronisationArgs) ToRemoteRepositoryContentSynchronisationPtrOutput() RemoteRepositoryContentSynchronisationPtrOutput {
-	return i.ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (i RemoteRepositoryContentSynchronisationArgs) ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryContentSynchronisationOutput).ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(ctx)
-}
-
-// RemoteRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteRepositoryContentSynchronisationArgs, RemoteRepositoryContentSynchronisationPtr and RemoteRepositoryContentSynchronisationPtrOutput values.
-// You can construct a concrete instance of `RemoteRepositoryContentSynchronisationPtrInput` via:
-//
-//          RemoteRepositoryContentSynchronisationArgs{...}
-//
-//  or:
-//
-//          nil
-type RemoteRepositoryContentSynchronisationPtrInput interface {
-	pulumi.Input
-
-	ToRemoteRepositoryContentSynchronisationPtrOutput() RemoteRepositoryContentSynchronisationPtrOutput
-	ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteRepositoryContentSynchronisationPtrOutput
-}
-
-type remoteRepositoryContentSynchronisationPtrType RemoteRepositoryContentSynchronisationArgs
-
-func RemoteRepositoryContentSynchronisationPtr(v *RemoteRepositoryContentSynchronisationArgs) RemoteRepositoryContentSynchronisationPtrInput {
-	return (*remoteRepositoryContentSynchronisationPtrType)(v)
-}
-
-func (*remoteRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (i *remoteRepositoryContentSynchronisationPtrType) ToRemoteRepositoryContentSynchronisationPtrOutput() RemoteRepositoryContentSynchronisationPtrOutput {
-	return i.ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (i *remoteRepositoryContentSynchronisationPtrType) ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoteRepositoryContentSynchronisationPtrOutput)
-}
-
-type RemoteRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
-
-func (RemoteRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (o RemoteRepositoryContentSynchronisationOutput) ToRemoteRepositoryContentSynchronisationOutput() RemoteRepositoryContentSynchronisationOutput {
-	return o
-}
-
-func (o RemoteRepositoryContentSynchronisationOutput) ToRemoteRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationOutput {
-	return o
-}
-
-func (o RemoteRepositoryContentSynchronisationOutput) ToRemoteRepositoryContentSynchronisationPtrOutput() RemoteRepositoryContentSynchronisationPtrOutput {
-	return o.ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
-}
-
-func (o RemoteRepositoryContentSynchronisationOutput) ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteRepositoryContentSynchronisation) *RemoteRepositoryContentSynchronisation {
-		return &v
-	}).(RemoteRepositoryContentSynchronisationPtrOutput)
-}
-
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-func (o RemoteRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RemoteRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-type RemoteRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
-
-func (RemoteRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemoteRepositoryContentSynchronisation)(nil)).Elem()
-}
-
-func (o RemoteRepositoryContentSynchronisationPtrOutput) ToRemoteRepositoryContentSynchronisationPtrOutput() RemoteRepositoryContentSynchronisationPtrOutput {
-	return o
-}
-
-func (o RemoteRepositoryContentSynchronisationPtrOutput) ToRemoteRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteRepositoryContentSynchronisationPtrOutput {
-	return o
-}
-
-func (o RemoteRepositoryContentSynchronisationPtrOutput) Elem() RemoteRepositoryContentSynchronisationOutput {
-	return o.ApplyT(func(v *RemoteRepositoryContentSynchronisation) RemoteRepositoryContentSynchronisation {
-		if v != nil {
-			return *v
-		}
-		var ret RemoteRepositoryContentSynchronisation
-		return ret
-	}).(RemoteRepositoryContentSynchronisationOutput)
-}
-
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-func (o RemoteRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteRepositoryContentSynchronisation) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -12988,14 +12211,10 @@ func (o RemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 }
 
 type RemoteSbtRepositoryContentSynchronisation struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled *bool `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled *bool `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled *bool `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
 }
 
 // RemoteSbtRepositoryContentSynchronisationInput is an input type that accepts RemoteSbtRepositoryContentSynchronisationArgs and RemoteSbtRepositoryContentSynchronisationOutput values.
@@ -13010,14 +12229,10 @@ type RemoteSbtRepositoryContentSynchronisationInput interface {
 }
 
 type RemoteSbtRepositoryContentSynchronisationArgs struct {
-	// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-	PropertiesEnabled pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
-	// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
 	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
-	// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-	StatisticsEnabled pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
 }
 
 func (RemoteSbtRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
@@ -13097,22 +12312,18 @@ func (o RemoteSbtRepositoryContentSynchronisationOutput) ToRemoteSbtRepositoryCo
 	}).(RemoteSbtRepositoryContentSynchronisationPtrOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSbtRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RemoteSbtRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13141,7 +12352,6 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Elem() RemoteSbtRepo
 	}).(RemoteSbtRepositoryContentSynchronisationOutput)
 }
 
-// If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13151,7 +12361,6 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13161,7 +12370,6 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13171,7 +12379,6 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceD
 	}).(pulumi.BoolPtrOutput)
 }
 
-// If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
 func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteSbtRepositoryContentSynchronisation) *bool {
 		if v == nil {
@@ -13181,12 +12388,188 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteVcsRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteVcsRepositoryContentSynchronisationInput is an input type that accepts RemoteVcsRepositoryContentSynchronisationArgs and RemoteVcsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteVcsRepositoryContentSynchronisationInput` via:
+//
+//          RemoteVcsRepositoryContentSynchronisationArgs{...}
+type RemoteVcsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteVcsRepositoryContentSynchronisationOutput() RemoteVcsRepositoryContentSynchronisationOutput
+	ToRemoteVcsRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteVcsRepositoryContentSynchronisationOutput
+}
+
+type RemoteVcsRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteVcsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteVcsRepositoryContentSynchronisationArgs) ToRemoteVcsRepositoryContentSynchronisationOutput() RemoteVcsRepositoryContentSynchronisationOutput {
+	return i.ToRemoteVcsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteVcsRepositoryContentSynchronisationArgs) ToRemoteVcsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteVcsRepositoryContentSynchronisationArgs) ToRemoteVcsRepositoryContentSynchronisationPtrOutput() RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteVcsRepositoryContentSynchronisationArgs) ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryContentSynchronisationOutput).ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteVcsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteVcsRepositoryContentSynchronisationArgs, RemoteVcsRepositoryContentSynchronisationPtr and RemoteVcsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteVcsRepositoryContentSynchronisationPtrInput` via:
+//
+//          RemoteVcsRepositoryContentSynchronisationArgs{...}
+//
+//  or:
+//
+//          nil
+type RemoteVcsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteVcsRepositoryContentSynchronisationPtrOutput() RemoteVcsRepositoryContentSynchronisationPtrOutput
+	ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteVcsRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteVcsRepositoryContentSynchronisationPtrType RemoteVcsRepositoryContentSynchronisationArgs
+
+func RemoteVcsRepositoryContentSynchronisationPtr(v *RemoteVcsRepositoryContentSynchronisationArgs) RemoteVcsRepositoryContentSynchronisationPtrInput {
+	return (*remoteVcsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteVcsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteVcsRepositoryContentSynchronisationPtrType) ToRemoteVcsRepositoryContentSynchronisationPtrOutput() RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteVcsRepositoryContentSynchronisationPtrType) ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteVcsRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteVcsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteVcsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) ToRemoteVcsRepositoryContentSynchronisationOutput() RemoteVcsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) ToRemoteVcsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) ToRemoteVcsRepositoryContentSynchronisationPtrOutput() RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteVcsRepositoryContentSynchronisation) *RemoteVcsRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteVcsRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteVcsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteVcsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteVcsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) ToRemoteVcsRepositoryContentSynchronisationPtrOutput() RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) ToRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) Elem() RemoteVcsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) RemoteVcsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteVcsRepositoryContentSynchronisation
+		return ret
+	}).(RemoteVcsRepositoryContentSynchronisationOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ReplicationConfigReplication struct {
-	Enabled *bool `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password   *string `pulumi:"password"`
-	PathPrefix *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	Enabled             *bool   `pulumi:"enabled"`
+	Password            *string `pulumi:"password"`
+	PathPrefix          *string `pulumi:"pathPrefix"`
 	Proxy               *string `pulumi:"proxy"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
@@ -13208,11 +12591,9 @@ type ReplicationConfigReplicationInput interface {
 }
 
 type ReplicationConfigReplicationArgs struct {
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Requires password encryption to be turned off `POST /api/system/decrypt`
-	Password   pulumi.StringPtrInput `pulumi:"password"`
-	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting
+	Enabled             pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Password            pulumi.StringPtrInput `pulumi:"password"`
+	PathPrefix          pulumi.StringPtrInput `pulumi:"pathPrefix"`
 	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
 	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
 	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
@@ -13277,7 +12658,6 @@ func (o ReplicationConfigReplicationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Requires password encryption to be turned off `POST /api/system/decrypt`
 func (o ReplicationConfigReplicationOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -13286,7 +12666,6 @@ func (o ReplicationConfigReplicationOutput) PathPrefix() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Proxy key from Artifactory Proxies setting
 func (o ReplicationConfigReplicationOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationConfigReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
@@ -13508,12 +12887,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemotePuppetRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemotePuppetRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemotePypiRepositoryContentSynchronisationInput)(nil)).Elem(), RemotePypiRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemotePypiRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemotePypiRepositoryContentSynchronisationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRpmRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteRpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
@@ -13688,12 +13067,12 @@ func init() {
 	pulumi.RegisterOutputType(RemotePuppetRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemotePypiRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemotePypiRepositoryContentSynchronisationPtrOutput{})
-	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationOutput{})
-	pulumi.RegisterOutputType(RemoteRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteRpmRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteRpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
 }

@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-artifactory/provider
+module github.com/pulumi/pulumi-artifactory/provider/v2
 
 go 1.16
 
@@ -8,8 +8,7 @@ replace (
 )
 
 require (
-	github.com/hashicorp/terraform-plugin-sdk v1.9.1 // indirect
-	github.com/jfrog/terraform-provider-artifactory/v3 v3.1.2
+	github.com/jfrog/terraform-provider-artifactory/v6 v6.1.2
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.20.0
-	github.com/pulumi/pulumi/sdk/v3 v3.27.0
+	github.com/pulumi/pulumi/sdk/v3 v3.28.0
 )

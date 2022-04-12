@@ -9,56 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalRepository("providerTestSource", new Artifactory.LocalRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_source",
-    ///             PackageType = "maven",
-    ///         });
-    ///         var providerTestDest = new Artifactory.LocalRepository("providerTestDest", new Artifactory.LocalRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_dest",
-    ///             PackageType = "maven",
-    ///         });
-    ///         var foo_rep = new Artifactory.PushReplication("foo-rep", new Artifactory.PushReplicationArgs
-    ///         {
-    ///             CronExp = "0 0 * * * ?",
-    ///             EnableEventReplication = true,
-    ///             Replications = 
-    ///             {
-    ///                 new Artifactory.Inputs.PushReplicationReplicationArgs
-    ///                 {
-    ///                     Password = "$var.artifactory_password",
-    ///                     Url = "$var.artifactory_url",
-    ///                     Username = "$var.artifactory_username",
-    ///                 },
-    ///             },
-    ///             RepoKey = providerTestSource.Key,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Push replication configs can be imported using their repo key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/pushReplication:PushReplication")]
     public partial class PushReplication : Pulumi.CustomResource
     {

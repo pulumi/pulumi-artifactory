@@ -11,55 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Local Alpine Repository Resource
-//
-// Creates a local Alpine repository
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"io/ioutil"
-//
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("some-keypair"),
-// 			PairType:   pulumi.String("RSA"),
-// 			Alias:      pulumi.String("foo-alias"),
-// 			PrivateKey: readFileOrPanic("samples/rsa.priv"),
-// 			PublicKey:  readFileOrPanic("samples/rsa.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
-// 			Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
-// 			PrimaryKeypairRef: some_keypairRSA.PairName,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			some_keypairRSA,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type AlpineRepository struct {
 	pulumi.CustomResourceState
 
@@ -80,11 +31,13 @@ type AlpineRepository struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key         pulumi.StringOutput    `pulumi:"key"`
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	// - The RSA key to be used to sign alpine indecies
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
@@ -151,11 +104,13 @@ type alpineRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key         *string `pulumi:"key"`
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
-	// - The RSA key to be used to sign alpine indecies
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -191,11 +146,13 @@ type AlpineRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key         pulumi.StringPtrInput
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
-	// - The RSA key to be used to sign alpine indecies
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -235,10 +192,12 @@ type alpineRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
-	// - The RSA key to be used to sign alpine indecies
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -275,10 +234,12 @@ type AlpineRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key   pulumi.StringInput
 	Notes pulumi.StringPtrInput
-	// - The RSA key to be used to sign alpine indecies
+	// Used to sign index files in Alpine Linux repositories. See:
+	// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput

@@ -11,62 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Pull Replication Resource
-//
-// Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-// for a remote repo.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalRepository(ctx, "providerTestSource", &artifactory.LocalRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_source"),
-// 			PackageType: pulumi.String("maven"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		providerTestDest, err := artifactory.NewRemoteRepository(ctx, "providerTestDest", &artifactory.RemoteRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_dest"),
-// 			PackageType: pulumi.String("maven"),
-// 			Password:    pulumi.String("bar"),
-// 			Url:         pulumi.String(fmt.Sprintf("%v%v", "https://example.com/artifactory/", artifactory_local_repository.Artifactory_local_repository.Key)),
-// 			Username:    pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewPullReplication(ctx, "foo-rep", &artifactory.PullReplicationArgs{
-// 			CronExp:                pulumi.String("0 0 * * * ?"),
-// 			EnableEventReplication: pulumi.Bool(true),
-// 			RepoKey:                providerTestDest.Key,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Pull replication config can be imported using its repo key, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
-// ```
 type PullReplication struct {
 	pulumi.CustomResourceState
 

@@ -5,45 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Distribution Webhook Resource
- *
- * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- *
- * ## Example Usage
- *
- * .
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const distribution_webhook = new artifactory.DistributionWebhook("distribution-webhook", {
- *     criteria: {
- *         anyReleaseBundle: false,
- *         excludePatterns: ["bar/**"],
- *         includePatterns: ["foo/**"],
- *         registeredReleaseBundleNames: ["bundle-name"],
- *     },
- *     customHttpHeaders: {
- *         "header-1": "value-1",
- *         "header-2": "value-2",
- *     },
- *     eventTypes: [
- *         "distribute_started",
- *         "distribute_completed",
- *         "distribute_aborted",
- *         "distribute_failed",
- *         "delete_started",
- *         "delete_completed",
- *         "delete_failed",
- *     ],
- *     key: "distribution-webhook",
- *     proxy: "proxy-key",
- *     secret: "some-secret",
- *     url: "http://tempurl.org/webhook",
- * });
- * ```
- */
 export class DistributionWebhook extends pulumi.CustomResource {
     /**
      * Get an existing DistributionWebhook resource's state with the given name, ID, and optional extra
@@ -73,7 +34,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     public readonly criteria!: pulumi.Output<outputs.DistributionWebhookCriteria>;
     /**
@@ -81,7 +42,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
      */
     public readonly customHttpHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -89,11 +50,13 @@ export class DistributionWebhook extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+     * delete_completed, delete_failed
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -101,7 +64,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
-     * Secret authentication token that will be sent to the configured URL
+     * Secret authentication token that will be sent to the configured URL.
      */
     public readonly secret!: pulumi.Output<string | undefined>;
     /**
@@ -165,7 +128,7 @@ export class DistributionWebhook extends pulumi.CustomResource {
  */
 export interface DistributionWebhookState {
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     criteria?: pulumi.Input<inputs.DistributionWebhookCriteria>;
     /**
@@ -173,7 +136,7 @@ export interface DistributionWebhookState {
      */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -181,11 +144,13 @@ export interface DistributionWebhookState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+     * delete_completed, delete_failed
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key?: pulumi.Input<string>;
     /**
@@ -193,7 +158,7 @@ export interface DistributionWebhookState {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Secret authentication token that will be sent to the configured URL
+     * Secret authentication token that will be sent to the configured URL.
      */
     secret?: pulumi.Input<string>;
     /**
@@ -207,7 +172,7 @@ export interface DistributionWebhookState {
  */
 export interface DistributionWebhookArgs {
     /**
-     * Specifies where the webhook will be applied on which repositories.
+     * Specifies where the webhook will be applied, on which release bundles or distributions.
      */
     criteria: pulumi.Input<inputs.DistributionWebhookCriteria>;
     /**
@@ -215,7 +180,7 @@ export interface DistributionWebhookArgs {
      */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Webhook description. Max length 1000 characters.
+     * Description of webhook. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -223,11 +188,13 @@ export interface DistributionWebhookArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+     * values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
+     * delete_completed, delete_failed
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key: pulumi.Input<string>;
     /**
@@ -235,7 +202,7 @@ export interface DistributionWebhookArgs {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Secret authentication token that will be sent to the configured URL
+     * Secret authentication token that will be sent to the configured URL.
      */
     secret?: pulumi.Input<string>;
     /**

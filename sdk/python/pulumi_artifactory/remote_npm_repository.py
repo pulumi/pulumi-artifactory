@@ -55,36 +55,55 @@ class RemoteNpmRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteNpmRepository resource.
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
-        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
-        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
-        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+               any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
+        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+               resolution.
+        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
-        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
-        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+               communicate with this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+               multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
-        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
-        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+               operation is considered a retrieval failure.
+        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+               servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+               of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "url", url)
@@ -164,9 +183,6 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -176,9 +192,6 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -189,7 +202,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
+        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+        any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -201,7 +215,9 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -213,7 +229,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+        resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -225,7 +242,9 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> Optional[pulumi.Input[bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -237,7 +256,9 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -257,9 +278,6 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]:
-        """
-        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
-        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -291,7 +309,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -303,7 +322,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+        communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -315,7 +335,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -327,7 +348,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+        value of the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -339,7 +361,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="localAddress")
     def local_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+        multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -351,7 +374,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -429,7 +453,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -464,6 +489,9 @@ class RemoteNpmRepositoryArgs:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -486,7 +514,7 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote repository
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -519,7 +547,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+        operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -531,7 +560,10 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+        servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -564,7 +596,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+        of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
@@ -585,7 +618,8 @@ class RemoteNpmRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -639,37 +673,55 @@ class _RemoteNpmRepositoryState:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering RemoteNpmRepository resources.
-        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
-        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
-        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
-        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs'] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+               any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
+        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+               resolution.
+        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
-        :param pulumi.Input[int] failed_retrieval_cache_period_secs: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
-        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+               communicate with this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+               multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
-        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
-        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+               operation is considered a retrieval failure.
+        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+               servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+               of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if allow_any_host_auth is not None:
             pulumi.set(__self__, "allow_any_host_auth", allow_any_host_auth)
@@ -759,7 +811,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
+        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+        any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -771,7 +824,9 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -783,7 +838,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+        resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -795,7 +851,9 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> Optional[pulumi.Input[bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -807,7 +865,9 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> Optional[pulumi.Input[bool]]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -827,9 +887,6 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> Optional[pulumi.Input['RemoteNpmRepositoryContentSynchronisationArgs']]:
-        """
-        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
-        """
         return pulumi.get(self, "content_synchronisation")
 
     @content_synchronisation.setter
@@ -861,7 +918,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -872,9 +930,6 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter(name="failedRetrievalCachePeriodSecs")
     def failed_retrieval_cache_period_secs(self) -> Optional[pulumi.Input[int]]:
-        """
-        This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-        """
         return pulumi.get(self, "failed_retrieval_cache_period_secs")
 
     @failed_retrieval_cache_period_secs.setter
@@ -885,7 +940,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+        communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -897,7 +953,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -908,9 +965,6 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -921,7 +975,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+        value of the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -933,7 +988,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="localAddress")
     def local_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+        multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -945,7 +1001,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -1032,7 +1089,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1067,6 +1125,9 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -1089,7 +1150,7 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Repository layout key for the remote repository
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1122,7 +1183,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+        operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -1134,7 +1196,10 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+        servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -1167,7 +1232,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+        of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
@@ -1178,9 +1244,6 @@ class _RemoteNpmRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1200,7 +1263,8 @@ class _RemoteNpmRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -1254,59 +1318,58 @@ class RemoteNpmRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Remote npm Repository Resource
-
-        Provides an Artifactory remote `npm` repository resource. This provides npm specific fields and is the only way to get them
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry)
-
-        ## Example Usage
-
-        Create a new Artifactory remote npm repository called my-remote-npm
-        for brevity sake, only npm specific fields are included; for other fields see documentation for
-        generic repo.
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        thing = artifactory.RemoteNpmRepository("thing",
-            key="remote-thing-npm",
-            list_remote_folder_items=True,
-            mismatching_mime_types_override_list="application/json,application/xml",
-            url="https://registry.npmjs.org/")
-        ```
-
+        Create a RemoteNpmRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
-        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
-        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
-        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+               any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
+        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+               resolution.
+        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
-        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
-        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+               communicate with this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+               multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
-        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
-        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+               operation is considered a retrieval failure.
+        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+               servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+               of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -1315,27 +1378,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
                  args: RemoteNpmRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Remote npm Repository Resource
-
-        Provides an Artifactory remote `npm` repository resource. This provides npm specific fields and is the only way to get them
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry)
-
-        ## Example Usage
-
-        Create a new Artifactory remote npm repository called my-remote-npm
-        for brevity sake, only npm specific fields are included; for other fields see documentation for
-        generic repo.
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        thing = artifactory.RemoteNpmRepository("thing",
-            key="remote-thing-npm",
-            list_remote_folder_items=True,
-            mismatching_mime_types_override_list="application/json,application/xml",
-            url="https://registry.npmjs.org/")
-        ```
-
+        Create a RemoteNpmRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemoteNpmRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1502,37 +1545,55 @@ class RemoteNpmRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
-        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
-        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
-        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[pulumi.InputType['RemoteNpmRepositoryContentSynchronisationArgs']] content_synchronisation: Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
+        :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+               any other host.
+        :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+               an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+               offline. Default to 300.
+        :param pulumi.Input[bool] blacked_out: (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+               resolution.
+        :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+               HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+               Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
-        :param pulumi.Input[int] failed_retrieval_cache_period_secs: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
-        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+               communicate with this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+               multiple network interfaces.
+        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+               "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+               repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
-        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the remote repository
+        :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
-        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
-        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        :param pulumi.Input[int] socket_timeout_millis: Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+               operation is considered a retrieval failure.
+        :param pulumi.Input[bool] store_artifacts_locally: When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+               direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+               one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+               servers.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
-        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+               of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1584,7 +1645,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="allowAnyHostAuth")
     def allow_any_host_auth(self) -> pulumi.Output[bool]:
         """
-        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
+        Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
+        any other host.
         """
         return pulumi.get(self, "allow_any_host_auth")
 
@@ -1592,7 +1654,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="assumedOfflinePeriodSecs")
     def assumed_offline_period_secs(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
+        The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
+        an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
+        offline. Default to 300.
         """
         return pulumi.get(self, "assumed_offline_period_secs")
 
@@ -1600,7 +1664,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[bool]:
         """
-        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
+        (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
+        resolution.
         """
         return pulumi.get(self, "blacked_out")
 
@@ -1608,7 +1673,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="blockMismatchingMimeTypes")
     def block_mismatching_mime_types(self) -> pulumi.Output[bool]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "block_mismatching_mime_types")
 
@@ -1616,7 +1683,9 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="bypassHeadRequests")
     def bypass_head_requests(self) -> pulumi.Output[bool]:
         """
-        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
+        HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
+        Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
 
@@ -1628,9 +1697,6 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentSynchronisation")
     def content_synchronisation(self) -> pulumi.Output['outputs.RemoteNpmRepositoryContentSynchronisation']:
-        """
-        Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
-        """
         return pulumi.get(self, "content_synchronisation")
 
     @property
@@ -1650,23 +1716,22 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="failedRetrievalCachePeriodSecs")
     def failed_retrieval_cache_period_secs(self) -> pulumi.Output[int]:
-        """
-        This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
-        """
         return pulumi.get(self, "failed_retrieval_cache_period_secs")
 
     @property
     @pulumi.getter(name="hardFail")
     def hard_fail(self) -> pulumi.Output[bool]:
         """
-        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
+        When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
+        communicate with this repository.
         """
         return pulumi.get(self, "hard_fail")
 
@@ -1674,23 +1739,22 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> pulumi.Output[Optional[bool]]:
         """
-        - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
+        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
+        value of the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -1698,7 +1762,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="localAddress")
     def local_address(self) -> pulumi.Output[Optional[str]]:
         """
-        The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
+        The local address to be used when creating connections. Useful for specifying the interface to use on systems with
+        multiple network interfaces.
         """
         return pulumi.get(self, "local_address")
 
@@ -1706,7 +1771,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> pulumi.Output[Optional[str]]:
         """
-        The set of mime types that should override the block_mismatching_mime_types setting. Eg: "application/json,application/xml". Default value is empty.
+        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
 
@@ -1761,7 +1827,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+        repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1783,7 +1850,10 @@ class RemoteNpmRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxy(self) -> pulumi.Output[str]:
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @property
@@ -1798,7 +1868,7 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="repoLayoutRef")
     def repo_layout_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Repository layout key for the remote repository
+        Repository layout key for the local repository
         """
         return pulumi.get(self, "repo_layout_ref")
 
@@ -1819,7 +1889,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> pulumi.Output[int]:
         """
-        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
+        Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
+        operation is considered a retrieval failure.
         """
         return pulumi.get(self, "socket_timeout_millis")
 
@@ -1827,7 +1898,10 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="storeArtifactsLocally")
     def store_artifacts_locally(self) -> pulumi.Output[bool]:
         """
-        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
+        When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
+        direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
+        one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
+        servers.
         """
         return pulumi.get(self, "store_artifacts_locally")
 
@@ -1848,16 +1922,14 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="unusedArtifactsCleanupPeriodHours")
     def unused_artifacts_cleanup_period_hours(self) -> pulumi.Output[int]:
         """
-        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+        The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
+        of 0 means automatic cleanup of cached artifacts is disabled.
         """
         return pulumi.get(self, "unused_artifacts_cleanup_period_hours")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @property
@@ -1869,7 +1941,8 @@ class RemoteNpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

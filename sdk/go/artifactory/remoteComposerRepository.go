@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Remote PHP Composer Repository Resource
-//
-// Creates a remote PHP Composer repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories)
-//
-// ## Example Usage
-//
-// To create a new Artifactory remote PHP Composer repository called my-remote-composer.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteComposerRepository(ctx, "my-remote-composer", &artifactory.RemoteComposerRepositoryArgs{
-// 			Key:            pulumi.String("my-remote-composer"),
-// 			Url:            pulumi.String("https://github.com/"),
-// 			VcsGitProvider: pulumi.String("GITHUB"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type RemoteComposerRepository struct {
 	pulumi.CustomResourceState
 
@@ -64,7 +33,7 @@ type RemoteComposerRepository struct {
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests   pulumi.BoolOutput   `pulumi:"bypassHeadRequests"`
 	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is "https://packagist.org".
+	// (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrOutput                               `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                                  `pulumi:"description"`
@@ -81,8 +50,7 @@ type RemoteComposerRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key             pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
@@ -110,7 +78,8 @@ type RemoteComposerRepository struct {
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy        pulumi.StringOutput      `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -131,13 +100,13 @@ type RemoteComposerRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringOutput    `pulumi:"url"`
-	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringOutput    `pulumi:"url"`
+	Username                          pulumi.StringPtrOutput `pulumi:"username"`
+	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -198,7 +167,7 @@ type remoteComposerRepositoryState struct {
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
 	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is "https://packagist.org".
+	// (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    *string                                         `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation *RemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                         `pulumi:"description"`
@@ -215,8 +184,7 @@ type remoteComposerRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key *string `pulumi:"key"`
+	Key             *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -244,7 +212,8 @@ type remoteComposerRepositoryState struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -265,13 +234,13 @@ type remoteComposerRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      *string `pulumi:"url"`
-	Username *string `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -298,7 +267,7 @@ type RemoteComposerRepositoryState struct {
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests   pulumi.BoolPtrInput
 	ClientTlsCertificate pulumi.StringPtrInput
-	// Proxy remote Composer repository. Default value is "https://packagist.org".
+	// (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrInput
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
@@ -315,8 +284,7 @@ type RemoteComposerRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringPtrInput
+	Key             pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -344,7 +312,8 @@ type RemoteComposerRepositoryState struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -366,12 +335,12 @@ type RemoteComposerRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringPtrInput
-	Username pulumi.StringPtrInput
-	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	Url                               pulumi.StringPtrInput
+	Username                          pulumi.StringPtrInput
+	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -402,7 +371,7 @@ type remoteComposerRepositoryArgs struct {
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
 	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
-	// Proxy remote Composer repository. Default value is "https://packagist.org".
+	// (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    *string                                         `pulumi:"composerRegistryUrl"`
 	ContentSynchronisation *RemoteComposerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                         `pulumi:"description"`
@@ -417,8 +386,7 @@ type remoteComposerRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key string `pulumi:"key"`
+	Key             string  `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -445,7 +413,8 @@ type remoteComposerRepositoryArgs struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -466,13 +435,13 @@ type remoteComposerRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      string  `pulumi:"url"`
-	Username *string `pulumi:"username"`
-	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               string  `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
+	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -500,7 +469,7 @@ type RemoteComposerRepositoryArgs struct {
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests   pulumi.BoolPtrInput
 	ClientTlsCertificate pulumi.StringPtrInput
-	// Proxy remote Composer repository. Default value is "https://packagist.org".
+	// (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
 	ComposerRegistryUrl    pulumi.StringPtrInput
 	ContentSynchronisation RemoteComposerRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
@@ -515,8 +484,7 @@ type RemoteComposerRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringInput
+	Key             pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -543,7 +511,8 @@ type RemoteComposerRepositoryArgs struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -565,12 +534,12 @@ type RemoteComposerRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringInput
-	Username pulumi.StringPtrInput
-	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	Url                               pulumi.StringInput
+	Username                          pulumi.StringPtrInput
+	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+	// instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

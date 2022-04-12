@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Local Cocoapods Repository Resource
- *
- * Creates a local cocoapods repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_local_test_cocoapods_repo = new artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", {
- *     key: "terraform-local-test-cocoapods-repo",
- * });
- * ```
- */
 export class LocalCocoapodsRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalCocoapodsRepository resource's state with the given name, ID, and optional extra
@@ -75,7 +59,8 @@ export class LocalCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +177,8 @@ export interface LocalCocoapodsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +242,8 @@ export interface LocalCocoapodsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

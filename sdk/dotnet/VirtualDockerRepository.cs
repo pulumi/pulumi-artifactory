@@ -9,44 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Docker Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific docker features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_docker = new Artifactory.VirtualDockerRepository("foo-docker", new Artifactory.VirtualDockerRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-docker",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualDockerRepository:VirtualDockerRepository")]
     public partial class VirtualDockerRepository : Pulumi.CustomResource
     {

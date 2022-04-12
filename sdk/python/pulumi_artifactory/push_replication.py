@@ -133,38 +133,7 @@ class PushReplication(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.LocalRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven")
-        foo_rep = artifactory.PushReplication("foo-rep",
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                password="$var.artifactory_password",
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-            )],
-            repo_key=provider_test_source.key)
-        ```
-
-        ## Import
-
-        Push replication configs can be imported using their repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
-        ```
-
+        Create a PushReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -175,38 +144,7 @@ class PushReplication(pulumi.CustomResource):
                  args: PushReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.LocalRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven")
-        foo_rep = artifactory.PushReplication("foo-rep",
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                password="$var.artifactory_password",
-                url="$var.artifactory_url",
-                username="$var.artifactory_username",
-            )],
-            repo_key=provider_test_source.key)
-        ```
-
-        ## Import
-
-        Push replication configs can be imported using their repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
-        ```
-
+        Create a PushReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PushReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

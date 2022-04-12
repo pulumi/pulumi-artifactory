@@ -9,97 +9,56 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Backup Resource
-    /// 
-    /// This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
-    /// 
-    /// When a artifactory.Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Configure Artifactory Backup system config
-    ///         var backupConfigName = new Artifactory.Backup("backupConfigName", new Artifactory.BackupArgs
-    ///         {
-    ///             CreateArchive = false,
-    ///             CronExp = "0 0 12 * * ?",
-    ///             Enabled = true,
-    ///             ExcludeNewRepositories = true,
-    ///             ExcludedRepositories = {},
-    ///             Key = "backup_config_name",
-    ///             RetentionPeriodHours = 1000,
-    ///             SendMailOnError = true,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// Note: `Key` argument has to match to the resource name.\
-    /// Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
-    /// 
-    /// ## Import
-    /// 
-    /// Backup config can be imported using the key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/backup:Backup backup_name backup_name
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/backup:Backup")]
     public partial class Backup : Pulumi.CustomResource
     {
         /// <summary>
-        /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        /// (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
+        /// 'false'
         /// </summary>
         [Output("createArchive")]
         public Output<bool?> CreateArchive { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// (Required) Cron expression to control the backup frequency.
         /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// (Optional) Flag to enable or disable the backup config. Default value is "true".
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
         /// </summary>
         [Output("excludeNewRepositories")]
         public Output<bool?> ExcludeNewRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// A list of excluded repositories from the backup. Default is empty list.
+        /// (Optional) list of excluded repositories from the backup. Default is empty list.
         /// </summary>
         [Output("excludedRepositories")]
         public Output<ImmutableArray<string>> ExcludedRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// The unique ID of the artifactory backup config.
+        /// (Required) Backup config name.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        /// (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
+        /// only to non-incremental backups. Default value is 168 hours ie: 7 days.
         /// </summary>
         [Output("retentionPeriodHours")]
         public Output<int?> RetentionPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
+        /// backup. Default value is 'true'.
         /// </summary>
         [Output("sendMailOnError")]
         public Output<bool?> SendMailOnError { get; private set; } = null!;
@@ -151,25 +110,26 @@ namespace Pulumi.Artifactory
     public sealed class BackupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        /// (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
+        /// 'false'
         /// </summary>
         [Input("createArchive")]
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// (Required) Cron expression to control the backup frequency.
         /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// (Optional) Flag to enable or disable the backup config. Default value is "true".
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
         /// </summary>
         [Input("excludeNewRepositories")]
         public Input<bool>? ExcludeNewRepositories { get; set; }
@@ -178,7 +138,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _excludedRepositories;
 
         /// <summary>
-        /// A list of excluded repositories from the backup. Default is empty list.
+        /// (Optional) list of excluded repositories from the backup. Default is empty list.
         /// </summary>
         public InputList<string> ExcludedRepositories
         {
@@ -187,19 +147,21 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The unique ID of the artifactory backup config.
+        /// (Required) Backup config name.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        /// (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
+        /// only to non-incremental backups. Default value is 168 hours ie: 7 days.
         /// </summary>
         [Input("retentionPeriodHours")]
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
+        /// backup. Default value is 'true'.
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }
@@ -212,25 +174,26 @@ namespace Pulumi.Artifactory
     public sealed class BackupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        /// (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
+        /// 'false'
         /// </summary>
         [Input("createArchive")]
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// (Required) Cron expression to control the backup frequency.
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
         /// <summary>
-        /// Flag to enable or disable the backup config. Default value is `true`.
+        /// (Optional) Flag to enable or disable the backup config. Default value is "true".
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        /// (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
         /// </summary>
         [Input("excludeNewRepositories")]
         public Input<bool>? ExcludeNewRepositories { get; set; }
@@ -239,7 +202,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _excludedRepositories;
 
         /// <summary>
-        /// A list of excluded repositories from the backup. Default is empty list.
+        /// (Optional) list of excluded repositories from the backup. Default is empty list.
         /// </summary>
         public InputList<string> ExcludedRepositories
         {
@@ -248,19 +211,21 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The unique ID of the artifactory backup config.
+        /// (Required) Backup config name.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        /// (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
+        /// only to non-incremental backups. Default value is 168 hours ie: 7 days.
         /// </summary>
         [Input("retentionPeriodHours")]
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        /// (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
+        /// backup. Default value is 'true'.
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }

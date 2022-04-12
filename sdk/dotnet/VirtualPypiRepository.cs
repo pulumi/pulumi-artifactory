@@ -9,44 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Pypi Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific pypi features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_pypi = new Artifactory.VirtualPypiRepository("foo-pypi", new Artifactory.VirtualPypiRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-pypi",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualPypiRepository:VirtualPypiRepository")]
     public partial class VirtualPypiRepository : Pulumi.CustomResource
     {

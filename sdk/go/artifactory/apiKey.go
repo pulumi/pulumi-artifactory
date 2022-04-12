@@ -10,38 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewApiKey(ctx, "ci", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// A user's API key can be imported using any identifier, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/apiKey:ApiKey test import
-// ```
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	// The API key.
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 }
 
@@ -74,12 +45,10 @@ func GetApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
-	// The API key.
 	ApiKey *string `pulumi:"apiKey"`
 }
 
 type ApiKeyState struct {
-	// The API key.
 	ApiKey pulumi.StringPtrInput
 }
 

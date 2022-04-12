@@ -14,14 +14,8 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class ReplicationConfigReplication
     {
         public readonly bool? Enabled;
-        /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
-        /// </summary>
         public readonly string? Password;
         public readonly string? PathPrefix;
-        /// <summary>
-        /// Proxy key from Artifactory Proxies setting
-        /// </summary>
         public readonly string? Proxy;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? SyncDeletes;

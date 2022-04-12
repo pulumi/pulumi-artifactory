@@ -11,60 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Generic Repository Resource
-//
-// Provides an Artifactory virtual repository resource with generic package type. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualGenericRepository(ctx, "foo-generic", &artifactory.VirtualGenericRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-generic"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			RepoLayoutRef:   pulumi.String("simple-default"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo foo
-// ```
 type VirtualGenericRepository struct {
 	pulumi.CustomResourceState
 
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
 	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
@@ -76,13 +38,15 @@ type VirtualGenericRepository struct {
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
-	// Repository layout key for the virtual repository
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -118,16 +82,19 @@ func GetVirtualGenericRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualGenericRepository resources.
 type virtualGenericRepositoryState struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
@@ -139,27 +106,32 @@ type virtualGenericRepositoryState struct {
 	PackageType *string `pulumi:"packageType"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// Repository layout key for the virtual repository
+	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 type VirtualGenericRepositoryState struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
@@ -171,13 +143,15 @@ type VirtualGenericRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// Repository layout key for the virtual repository
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
@@ -186,16 +160,19 @@ func (VirtualGenericRepositoryState) ElementType() reflect.Type {
 }
 
 type virtualGenericRepositoryArgs struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
 	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
 	Description *string `pulumi:"description"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
@@ -205,28 +182,33 @@ type virtualGenericRepositoryArgs struct {
 	Notes *string `pulumi:"notes"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// Repository layout key for the virtual repository
+	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
 // The set of arguments for constructing a VirtualGenericRepository resource.
 type VirtualGenericRepositoryArgs struct {
-	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
+	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
+	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
 	// A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 	// field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
 	Description pulumi.StringPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
+	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
 	// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
@@ -236,13 +218,15 @@ type VirtualGenericRepositoryArgs struct {
 	Notes pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
+	// repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// Repository layout key for the virtual repository
+	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 

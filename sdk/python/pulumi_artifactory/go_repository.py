@@ -39,8 +39,11 @@ class GoRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+               modules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+               set to '**', which means that remote modules may be downloaded from any external VCS source.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
@@ -149,7 +152,8 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+        modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -161,7 +165,9 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        'go-import' Allow List on the UI.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+        set to '**', which means that remote modules may be downloaded from any external VCS source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -284,8 +290,11 @@ class _GoRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+               modules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+               set to '**', which means that remote modules may be downloaded from any external VCS source.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -387,7 +396,8 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+        modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -399,7 +409,9 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        'go-import' Allow List on the UI.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+        set to '**', which means that remote modules may be downloaded from any external VCS source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -542,40 +554,7 @@ class GoRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Go Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific go lang features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        baz_go = artifactory.GoRepository("baz-go",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            external_dependencies_enabled=True,
-            external_dependencies_patterns=[
-                "**/github.com/**",
-                "**/go.googlesource.com/**",
-            ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository foo foo
-        ```
-
+        Create a GoRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -585,8 +564,11 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+               modules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+               set to '**', which means that remote modules may be downloaded from any external VCS source.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -608,40 +590,7 @@ class GoRepository(pulumi.CustomResource):
                  args: GoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Go Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific go lang features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        baz_go = artifactory.GoRepository("baz-go",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            external_dependencies_enabled=True,
-            external_dependencies_patterns=[
-                "**/github.com/**",
-                "**/go.googlesource.com/**",
-            ],
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="baz-go",
-            notes="Internal description",
-            repo_layout_ref="go-default",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository foo foo
-        ```
-
+        Create a GoRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GoRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -739,8 +688,11 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+               modules.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+               remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+               set to '**', which means that remote modules may be downloaded from any external VCS source.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -816,7 +768,8 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
+        modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -824,7 +777,9 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        'go-import' Allow List on the UI.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
+        remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
+        set to '**', which means that remote modules may be downloaded from any external VCS source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

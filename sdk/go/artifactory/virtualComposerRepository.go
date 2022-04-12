@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual PHP Composer Repository Resource
-//
-// Provides an Artifactory virtual repository resource, but with specific php composer features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualComposerRepository(ctx, "foo-composer", &artifactory.VirtualComposerRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-composer"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualComposerRepository:VirtualComposerRepository foo foo
-// ```
 type VirtualComposerRepository struct {
 	pulumi.CustomResourceState
 

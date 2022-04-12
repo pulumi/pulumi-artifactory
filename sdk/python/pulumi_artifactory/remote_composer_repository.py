@@ -58,8 +58,6 @@ class RemoteComposerRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteComposerRepository resource.
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -73,7 +71,7 @@ class RemoteComposerRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -95,6 +93,7 @@ class RemoteComposerRepositoryArgs:
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -107,8 +106,9 @@ class RemoteComposerRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+               instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -196,9 +196,6 @@ class RemoteComposerRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -208,9 +205,6 @@ class RemoteComposerRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -298,7 +292,7 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -520,6 +514,9 @@ class RemoteComposerRepositoryArgs:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -646,7 +643,7 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -658,7 +655,8 @@ class RemoteComposerRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+        instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -741,7 +739,7 @@ class _RemoteComposerRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -749,7 +747,6 @@ class _RemoteComposerRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -764,6 +761,7 @@ class _RemoteComposerRepositoryState:
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -776,9 +774,9 @@ class _RemoteComposerRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+               instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -953,7 +951,7 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -1042,9 +1040,6 @@ class _RemoteComposerRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1205,6 +1200,9 @@ class _RemoteComposerRepositoryState:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -1321,9 +1319,6 @@ class _RemoteComposerRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1343,7 +1338,7 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -1355,7 +1350,8 @@ class _RemoteComposerRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+        instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1425,25 +1421,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Remote PHP Composer Repository Resource
-
-        Creates a remote PHP Composer repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories)
-
-        ## Example Usage
-
-        To create a new Artifactory remote PHP Composer repository called my-remote-composer.
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
-            key="my-remote-composer",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
-        ```
-
+        Create a RemoteComposerRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -1459,7 +1437,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -1467,7 +1445,6 @@ class RemoteComposerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1482,6 +1459,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -1494,9 +1472,9 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+               instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1507,25 +1485,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
                  args: RemoteComposerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Remote PHP Composer Repository Resource
-
-        Creates a remote PHP Composer repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories)
-
-        ## Example Usage
-
-        To create a new Artifactory remote PHP Composer repository called my-remote-composer.
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        my_remote_composer = artifactory.RemoteComposerRepository("my-remote-composer",
-            key="my-remote-composer",
-            url="https://github.com/",
-            vcs_git_provider="GITHUB")
-        ```
-
+        Create a RemoteComposerRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemoteComposerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1714,7 +1674,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] composer_registry_url: Proxy remote Composer repository. Default value is "https://packagist.org".
+        :param pulumi.Input[str] composer_registry_url: (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -1722,7 +1682,6 @@ class RemoteComposerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1737,6 +1696,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -1749,9 +1709,9 @@ class RemoteComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+               instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1861,7 +1821,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="composerRegistryUrl")
     def composer_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy remote Composer repository. Default value is "https://packagist.org".
+        (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
         """
         return pulumi.get(self, "composer_registry_url")
 
@@ -1918,9 +1878,6 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        The repository identifier. Must be unique system-wide
-        """
         return pulumi.get(self, "key")
 
     @property
@@ -2024,7 +1981,10 @@ class RemoteComposerRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxy(self) -> pulumi.Output[str]:
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @property
@@ -2101,9 +2061,6 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
-        """
-        - the remote repo URL. You kinda don't have a remote repo without it
-        """
         return pulumi.get(self, "url")
 
     @property
@@ -2115,7 +2072,7 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> pulumi.Output[Optional[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -2123,7 +2080,8 @@ class RemoteComposerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+        instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 

@@ -9,45 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Nuget Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific nuget features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_nuget = new Artifactory.VirtualNugetRepository("foo-nuget", new Artifactory.VirtualNugetRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ForceNugetAuthentication = true,
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-nuget",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualNugetRepository:VirtualNugetRepository")]
     public partial class VirtualNugetRepository : Pulumi.CustomResource
     {

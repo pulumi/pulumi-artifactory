@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Local Docker V2 Repository Resource
-//
-// Creates a local Docker v2 repository
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDockerV2Repository(ctx, "foo", &artifactory.DockerV2RepositoryArgs{
-// 			Key:           pulumi.String("foo"),
-// 			MaxUniqueTags: pulumi.Int(5),
-// 			TagRetention:  pulumi.Int(3),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type DockerV2Repository struct {
 	pulumi.CustomResourceState
 
@@ -50,7 +22,7 @@ type DockerV2Repository struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
-	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+	// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolOutput      `pulumi:"blockPushingSchema1"`
 	Description         pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -62,9 +34,12 @@ type DockerV2Repository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
+	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrOutput    `pulumi:"maxUniqueTags"`
 	Notes         pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType   pulumi.StringOutput    `pulumi:"packageType"`
@@ -79,7 +54,8 @@ type DockerV2Repository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
+	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+	// manifest V2
 	TagRetention pulumi.IntPtrOutput `pulumi:"tagRetention"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -126,7 +102,7 @@ type dockerV2RepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+	// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
 	BlockPushingSchema1 *bool   `pulumi:"blockPushingSchema1"`
 	Description         *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -138,9 +114,12 @@ type dockerV2RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key *string `pulumi:"key"`
-	// - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
+	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+	// applies to manifest v2
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	Notes         *string `pulumi:"notes"`
 	PackageType   *string `pulumi:"packageType"`
@@ -155,7 +134,8 @@ type dockerV2RepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
+	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+	// manifest V2
 	TagRetention *int `pulumi:"tagRetention"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -171,7 +151,7 @@ type DockerV2RepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+	// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolPtrInput
 	Description         pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -183,9 +163,12 @@ type DockerV2RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringPtrInput
-	// - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
+	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput
 	PackageType   pulumi.StringPtrInput
@@ -200,7 +183,8 @@ type DockerV2RepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
+	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+	// manifest V2
 	TagRetention pulumi.IntPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -218,7 +202,7 @@ type dockerV2RepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+	// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
 	BlockPushingSchema1 *bool   `pulumi:"blockPushingSchema1"`
 	Description         *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -230,9 +214,12 @@ type dockerV2RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key string `pulumi:"key"`
-	// - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
+	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+	// applies to manifest v2
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	Notes         *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -246,7 +233,8 @@ type dockerV2RepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
+	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+	// manifest V2
 	TagRetention *int `pulumi:"tagRetention"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -261,7 +249,7 @@ type DockerV2RepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+	// When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
 	BlockPushingSchema1 pulumi.BoolPtrInput
 	Description         pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -273,9 +261,12 @@ type DockerV2RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringInput
-	// - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
+	// The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+	// image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+	// applies to manifest v2
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -289,7 +280,8 @@ type DockerV2RepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
+	// If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+	// manifest V2
 	TagRetention pulumi.IntPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

@@ -5,29 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Remote Nuget Repository Resource
- *
- * Creates a remote Nuget repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
- *
- * ## Example Usage
- *
- * To create a new Artifactory remote Nuget repository called my-remote-nuget.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_nuget = new artifactory.RemoteNugetRepository("my-remote-nuget", {
- *     downloadContextPath: "api/v2/package",
- *     forceNugetAuthentication: true,
- *     key: "my-remote-nuget",
- *     url: "https://www.nuget.org/",
- *     v3FeedUrl: "https://api.nuget.org/v3/index.json",
- * });
- * ```
- */
 export class RemoteNugetRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteNugetRepository resource's state with the given name, ID, and optional extra
@@ -88,7 +65,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteNugetRepositoryContentSynchronisation>;
     public readonly description!: pulumi.Output<string>;
     /**
-     * The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+     * (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
      */
     public readonly downloadContextPath!: pulumi.Output<string | undefined>;
     /**
@@ -105,11 +82,12 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly failedRetrievalCachePeriodSecs!: pulumi.Output<number>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
+     * is 'api/v2'.
      */
     public readonly feedContextPath!: pulumi.Output<string | undefined>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,9 +100,6 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -173,7 +148,10 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the remote layout mapping
      */
@@ -209,13 +187,10 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
      */
     public readonly v3FeedUrl!: pulumi.Output<string | undefined>;
     /**
@@ -375,7 +350,7 @@ export interface RemoteNugetRepositoryState {
     contentSynchronisation?: pulumi.Input<inputs.RemoteNugetRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
-     * The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+     * (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
      */
     downloadContextPath?: pulumi.Input<string>;
     /**
@@ -392,11 +367,12 @@ export interface RemoteNugetRepositoryState {
      */
     failedRetrievalCachePeriodSecs?: pulumi.Input<number>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
+     * is 'api/v2'.
      */
     feedContextPath?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -409,9 +385,6 @@ export interface RemoteNugetRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -460,6 +433,9 @@ export interface RemoteNugetRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -496,13 +472,10 @@ export interface RemoteNugetRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
      */
     v3FeedUrl?: pulumi.Input<string>;
     /**
@@ -548,7 +521,7 @@ export interface RemoteNugetRepositoryArgs {
     contentSynchronisation?: pulumi.Input<inputs.RemoteNugetRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
     /**
-     * The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+     * (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
      */
     downloadContextPath?: pulumi.Input<string>;
     /**
@@ -561,11 +534,12 @@ export interface RemoteNugetRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
+     * is 'api/v2'.
      */
     feedContextPath?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -578,9 +552,6 @@ export interface RemoteNugetRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -628,6 +599,9 @@ export interface RemoteNugetRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -664,13 +638,10 @@ export interface RemoteNugetRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
      */
     v3FeedUrl?: pulumi.Input<string>;
     /**

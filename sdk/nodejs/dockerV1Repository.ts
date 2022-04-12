@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Local Docker V1 Repository Resource
- *
- * Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo = new artifactory.DockerV2Repository("foo", {
- *     key: "foo",
- * });
- * ```
- */
 export class DockerV1Repository extends pulumi.CustomResource {
     /**
      * Get an existing DockerV1Repository resource's state with the given name, ID, and optional extra
@@ -77,7 +61,8 @@ export class DockerV1Repository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly maxUniqueTags!: pulumi.Output<number>;
@@ -206,7 +191,8 @@ export interface DockerV1RepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key?: pulumi.Input<string>;
     maxUniqueTags?: pulumi.Input<number>;
@@ -272,7 +258,8 @@ export interface DockerV1RepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key: pulumi.Input<string>;
     maxUniqueTags?: pulumi.Input<number>;

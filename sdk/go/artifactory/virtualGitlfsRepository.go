@@ -11,18 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Git LFS Repository Resource
-//
-// Provides an Artifactory virtual repository resource, but with specific git lfs features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo foo
-// ```
 type VirtualGitlfsRepository struct {
 	pulumi.CustomResourceState
 

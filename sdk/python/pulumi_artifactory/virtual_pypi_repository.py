@@ -476,34 +476,7 @@ class VirtualPypiRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Pypi Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific pypi features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_pypi = artifactory.VirtualPypiRepository("foo-pypi",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-pypi",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo foo
-        ```
-
+        Create a VirtualPypiRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -534,34 +507,7 @@ class VirtualPypiRepository(pulumi.CustomResource):
                  args: VirtualPypiRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Pypi Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific pypi features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_pypi = artifactory.VirtualPypiRepository("foo-pypi",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-pypi",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo foo
-        ```
-
+        Create a VirtualPypiRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualPypiRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

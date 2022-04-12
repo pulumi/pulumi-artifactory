@@ -11,67 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Docker Webhook Resource
-//
-// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-//
-// ## Example Usage
-//
-// .
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDockerV2Repository(ctx, "my-docker-local", &artifactory.DockerV2RepositoryArgs{
-// 			Key: pulumi.String("my-docker-local"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewDockerWebhook(ctx, "docker-webhook", &artifactory.DockerWebhookArgs{
-// 			Key: pulumi.String("docker-webhook"),
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("pushed"),
-// 				pulumi.String("deleted"),
-// 				pulumi.String("promoted"),
-// 			},
-// 			Criteria: &DockerWebhookCriteriaArgs{
-// 				AnyLocal:  pulumi.Bool(true),
-// 				AnyRemote: pulumi.Bool(false),
-// 				RepoKeys: pulumi.StringArray{
-// 					my_docker_local.Key,
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 			},
-// 			Url:    pulumi.String("http://tempurl.org/webhook"),
-// 			Secret: pulumi.String("some-secret"),
-// 			Proxy:  pulumi.String("proxy-key"),
-// 			CustomHttpHeaders: pulumi.StringMap{
-// 				"header-1": pulumi.String("value-1"),
-// 				"header-2": pulumi.String("value-2"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			my_docker_local,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type DockerWebhook struct {
 	pulumi.CustomResourceState
 
@@ -79,17 +18,18 @@ type DockerWebhook struct {
 	Criteria DockerWebhookCriteriaOutput `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapOutput `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: pushed, deleted, promoted
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrOutput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -140,17 +80,18 @@ type dockerWebhookState struct {
 	Criteria *DockerWebhookCriteria `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: pushed, deleted, promoted
 	EventTypes []string `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy *string `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url *string `pulumi:"url"`
@@ -161,17 +102,18 @@ type DockerWebhookState struct {
 	Criteria DockerWebhookCriteriaPtrInput
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: pushed, deleted, promoted
 	EventTypes pulumi.StringArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrInput
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrInput
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringPtrInput
@@ -186,17 +128,18 @@ type dockerWebhookArgs struct {
 	Criteria DockerWebhookCriteria `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: pushed, deleted, promoted
 	EventTypes []string `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy *string `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -208,17 +151,18 @@ type DockerWebhookArgs struct {
 	Criteria DockerWebhookCriteriaInput
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: pushed, deleted, promoted
 	EventTypes pulumi.StringArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrInput
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrInput
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput

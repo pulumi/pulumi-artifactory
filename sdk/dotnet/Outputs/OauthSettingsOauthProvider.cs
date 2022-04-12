@@ -13,37 +13,13 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class OauthSettingsOauthProvider
     {
-        /// <summary>
-        /// OAuth user info endpoint for the IdP.
-        /// </summary>
         public readonly string ApiUrl;
-        /// <summary>
-        /// OAuth authorization endpoint for the IdP.
-        /// </summary>
         public readonly string AuthUrl;
-        /// <summary>
-        /// OAuth client ID configured on the IdP.
-        /// </summary>
         public readonly string ClientId;
-        /// <summary>
-        /// OAuth client secret configured on the IdP.
-        /// </summary>
         public readonly string ClientSecret;
-        /// <summary>
-        /// Enable the Artifactory OAuth provider.  Default value is `true`.
-        /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Name of the Artifactory OAuth provider.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// OAuth token endpoint for the IdP.
-        /// </summary>
         public readonly string TokenUrl;
-        /// <summary>
-        /// Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

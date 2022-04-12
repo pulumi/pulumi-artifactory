@@ -9,46 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Local Alpine Repository Resource
-    /// 
-    /// Creates a local Alpine repository
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "some-keypair",
-    ///             PairType = "RSA",
-    ///             Alias = "foo-alias",
-    ///             PrivateKey = File.ReadAllText("samples/rsa.priv"),
-    ///             PublicKey = File.ReadAllText("samples/rsa.pub"),
-    ///         });
-    ///         var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new Artifactory.AlpineRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-alpine-repo-basic",
-    ///             PrimaryKeypairRef = some_keypairRSA.PairName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 some_keypairRSA,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/alpineRepository:AlpineRepository")]
     public partial class AlpineRepository : Pulumi.CustomResource
     {
@@ -94,7 +54,8 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -106,7 +67,8 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -242,7 +204,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -251,7 +214,8 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -360,7 +324,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -372,7 +337,8 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// Used to sign index files in Alpine Linux repositories. See:
+        /// https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }

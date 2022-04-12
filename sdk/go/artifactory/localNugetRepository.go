@@ -11,34 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Local Nuget Repository Resource
-//
-// Creates a local Nuget repository
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
-// 			ForceNugetAuthentication: pulumi.Bool(true),
-// 			Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
-// 			MaxUniqueSnapshots:       pulumi.Int(5),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type LocalNugetRepository struct {
 	pulumi.CustomResourceState
 
@@ -55,16 +27,16 @@ type LocalNugetRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
-	// - Force basic authentication credentials in order to use this repository.
+	// Force basic authentication credentials in order to use this repository.
 	ForceNugetAuthentication pulumi.BoolPtrOutput `pulumi:"forceNugetAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// - The maximum number of unique snapshots of a single artifact to store.
-	//   Once the number of snapshots exceeds this setting, older versions are removed.
-	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrOutput    `pulumi:"maxUniqueSnapshots"`
 	Notes              pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType        pulumi.StringOutput    `pulumi:"packageType"`
@@ -129,16 +101,16 @@ type localNugetRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// - Force basic authentication credentials in order to use this repository.
+	// Force basic authentication credentials in order to use this repository.
 	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key *string `pulumi:"key"`
-	// - The maximum number of unique snapshots of a single artifact to store.
-	//   Once the number of snapshots exceeds this setting, older versions are removed.
-	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
 	Notes              *string `pulumi:"notes"`
 	PackageType        *string `pulumi:"packageType"`
@@ -172,16 +144,16 @@ type LocalNugetRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// - Force basic authentication credentials in order to use this repository.
+	// Force basic authentication credentials in order to use this repository.
 	ForceNugetAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringPtrInput
-	// - The maximum number of unique snapshots of a single artifact to store.
-	//   Once the number of snapshots exceeds this setting, older versions are removed.
-	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	Notes              pulumi.StringPtrInput
 	PackageType        pulumi.StringPtrInput
@@ -219,16 +191,16 @@ type localNugetRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// - Force basic authentication credentials in order to use this repository.
+	// Force basic authentication credentials in order to use this repository.
 	ForceNugetAuthentication *bool `pulumi:"forceNugetAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key string `pulumi:"key"`
-	// - The maximum number of unique snapshots of a single artifact to store.
-	//   Once the number of snapshots exceeds this setting, older versions are removed.
-	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int    `pulumi:"maxUniqueSnapshots"`
 	Notes              *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -262,16 +234,16 @@ type LocalNugetRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// - Force basic authentication credentials in order to use this repository.
+	// Force basic authentication credentials in order to use this repository.
 	ForceNugetAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// - the identity key of the repo
+	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+	// special characters.
 	Key pulumi.StringInput
-	// - The maximum number of unique snapshots of a single artifact to store.
-	//   Once the number of snapshots exceeds this setting, older versions are removed.
-	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	Notes              pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field

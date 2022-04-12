@@ -13,9 +13,6 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetsReleaseBundleActionsUser
     {
-        /// <summary>
-        /// Name of permission
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Permissions;
 

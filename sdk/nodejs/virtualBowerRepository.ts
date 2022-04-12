@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Bower Repository Resource
- *
- * Provides an Artifactory virtual repository resource, but with specific bower features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_bower = new artifactory.VirtualBowerRepository("foo-bower", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     externalDependenciesEnabled: false,
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-bower",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo foo
- * ```
- */
 export class VirtualBowerRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualBowerRepository resource's state with the given name, ID, and optional extra
@@ -83,15 +52,16 @@ export class VirtualBowerRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * When set, external dependencies are rewritten. Default value is false.
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+     * By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     public readonly externalDependenciesRemoteRepo!: pulumi.Output<string | undefined>;
     /**
@@ -216,15 +186,16 @@ export interface VirtualBowerRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set, external dependencies are rewritten. Default value is false.
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+     * By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     externalDependenciesRemoteRepo?: pulumi.Input<string>;
     /**
@@ -294,15 +265,16 @@ export interface VirtualBowerRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set, external dependencies are rewritten. Default value is false.
+     * (Optional) When set, external dependencies are rewritten. Default value is false.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+     * (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+     * By default, this is set to ** which means that dependencies may be downloaded from any external source.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+     * (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
      */
     externalDependenciesRemoteRepo?: pulumi.Input<string>;
     /**

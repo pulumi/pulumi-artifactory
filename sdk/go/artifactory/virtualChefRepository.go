@@ -11,46 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Chef Repository Resource
-//
-// Provides an Artifactory virtual repository resource, but with specific chef features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualChefRepository(ctx, "foo-chef", &artifactory.VirtualChefRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-chef"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualChefRepository:VirtualChefRepository foo foo
-// ```
 type VirtualChefRepository struct {
 	pulumi.CustomResourceState
 
@@ -85,7 +45,8 @@ type VirtualChefRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -152,7 +113,8 @@ type virtualChefRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -188,7 +150,8 @@ type VirtualChefRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
@@ -226,7 +189,8 @@ type virtualChefRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
@@ -261,7 +225,8 @@ type VirtualChefRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 

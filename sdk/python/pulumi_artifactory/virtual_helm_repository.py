@@ -48,7 +48,10 @@ class VirtualHelmRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        :param pulumi.Input[bool] use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+               repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+               https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+               Default to 'false'
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -232,7 +235,10 @@ class VirtualHelmRepositoryArgs:
     @pulumi.getter(name="useNamespaces")
     def use_namespaces(self) -> Optional[pulumi.Input[bool]]:
         """
-        From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+        repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+        https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+        Default to 'false'
         """
         return pulumi.get(self, "use_namespaces")
 
@@ -281,7 +287,10 @@ class _VirtualHelmRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        :param pulumi.Input[bool] use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+               repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+               https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+               Default to 'false'
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -480,7 +489,10 @@ class _VirtualHelmRepositoryState:
     @pulumi.getter(name="useNamespaces")
     def use_namespaces(self) -> Optional[pulumi.Input[bool]]:
         """
-        From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+        repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+        https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+        Default to 'false'
         """
         return pulumi.get(self, "use_namespaces")
 
@@ -509,29 +521,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
                  use_namespaces: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Helm Repository Resource
-
-        Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_helm_virtual = artifactory.VirtualHelmRepository("foo-helm-virtual",
-            key="foo-helm-virtual",
-            use_namespaces=True)
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
-        ```
-
+        Create a VirtualHelmRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -554,7 +544,10 @@ class VirtualHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        :param pulumi.Input[bool] use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+               repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+               https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+               Default to 'false'
         """
         ...
     @overload
@@ -563,29 +556,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
                  args: VirtualHelmRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Helm Repository Resource
-
-        Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_helm_virtual = artifactory.VirtualHelmRepository("foo-helm-virtual",
-            key="foo-helm-virtual",
-            use_namespaces=True)
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
-        ```
-
+        Create a VirtualHelmRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualHelmRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -694,7 +665,10 @@ class VirtualHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[bool] use_namespaces: From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        :param pulumi.Input[bool] use_namespaces: (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+               repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+               https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+               Default to 'false'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -832,7 +806,10 @@ class VirtualHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="useNamespaces")
     def use_namespaces(self) -> pulumi.Output[Optional[bool]]:
         """
-        From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+        (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+        repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+        https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+        Default to 'false'
         """
         return pulumi.get(self, "use_namespaces")
 

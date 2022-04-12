@@ -9,30 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Local Conda Repository Resource
-    /// 
-    /// Creates a local conda repository.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var terraform_local_test_conda_repo = new Artifactory.LocalCondaRepository("terraform-local-test-conda-repo", new Artifactory.LocalCondaRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-conda-repo",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCondaRepository:LocalCondaRepository")]
     public partial class LocalCondaRepository : Pulumi.CustomResource
     {
@@ -75,7 +51,8 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -209,7 +186,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -313,7 +291,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        /// special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

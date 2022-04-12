@@ -11,64 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory keypair Resource
-//
-// Creates an RSA Keypair resource - suitable for signing alpine indices.
-// - Currently, only RSA is supported.
-// - Passphrases are not currently supported, though they exist in the API
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"io/ioutil"
-//
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("some-keypair6543461672124900137"),
-// 			PairType:   pulumi.String("RSA"),
-// 			Alias:      pulumi.String("foo-alias6543461672124900137"),
-// 			PrivateKey: readFileOrPanic("samples/rsa.priv"),
-// 			PublicKey:  readFileOrPanic("samples/rsa.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type Keypair struct {
 	pulumi.CustomResourceState
 
-	// Required but for unknown reasons
+	// Will be used as a filename when retrieving the public key via REST API
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// name of the key pair and the identity of the resource.
+	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringOutput `pulumi:"pairName"`
-	// RT requires this - presumably for verification purposes.
+	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringOutput `pulumi:"pairType"`
-	// - This will be used to decrypt the private key. Validated server side.
+	// Passphrase will be used to decrypt the private key. Validated server side
 	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
-	// - duh! This will have it's pem format validated
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
-	// - duh! This will have it's pem format validated
+	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
-	// - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+	// Unknown usage. Returned in the json payload and cannot be set.
 	Unavailable pulumi.BoolOutput `pulumi:"unavailable"`
 }
 
@@ -116,36 +74,36 @@ func GetKeypair(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Keypair resources.
 type keypairState struct {
-	// Required but for unknown reasons
+	// Will be used as a filename when retrieving the public key via REST API
 	Alias *string `pulumi:"alias"`
-	// name of the key pair and the identity of the resource.
+	// A unique identifier for the Key Pair record.
 	PairName *string `pulumi:"pairName"`
-	// RT requires this - presumably for verification purposes.
+	// Key Pair type. Supported types - GPG and RSA.
 	PairType *string `pulumi:"pairType"`
-	// - This will be used to decrypt the private key. Validated server side.
+	// Passphrase will be used to decrypt the private key. Validated server side
 	Passphrase *string `pulumi:"passphrase"`
-	// - duh! This will have it's pem format validated
+	// Private key. PEM format will be validated.
 	PrivateKey *string `pulumi:"privateKey"`
-	// - duh! This will have it's pem format validated
+	// Public key. PEM format will be validated.
 	PublicKey *string `pulumi:"publicKey"`
-	// - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+	// Unknown usage. Returned in the json payload and cannot be set.
 	Unavailable *bool `pulumi:"unavailable"`
 }
 
 type KeypairState struct {
-	// Required but for unknown reasons
+	// Will be used as a filename when retrieving the public key via REST API
 	Alias pulumi.StringPtrInput
-	// name of the key pair and the identity of the resource.
+	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringPtrInput
-	// RT requires this - presumably for verification purposes.
+	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringPtrInput
-	// - This will be used to decrypt the private key. Validated server side.
+	// Passphrase will be used to decrypt the private key. Validated server side
 	Passphrase pulumi.StringPtrInput
-	// - duh! This will have it's pem format validated
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringPtrInput
-	// - duh! This will have it's pem format validated
+	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringPtrInput
-	// - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+	// Unknown usage. Returned in the json payload and cannot be set.
 	Unavailable pulumi.BoolPtrInput
 }
 
@@ -154,33 +112,33 @@ func (KeypairState) ElementType() reflect.Type {
 }
 
 type keypairArgs struct {
-	// Required but for unknown reasons
+	// Will be used as a filename when retrieving the public key via REST API
 	Alias string `pulumi:"alias"`
-	// name of the key pair and the identity of the resource.
+	// A unique identifier for the Key Pair record.
 	PairName string `pulumi:"pairName"`
-	// RT requires this - presumably for verification purposes.
+	// Key Pair type. Supported types - GPG and RSA.
 	PairType string `pulumi:"pairType"`
-	// - This will be used to decrypt the private key. Validated server side.
+	// Passphrase will be used to decrypt the private key. Validated server side
 	Passphrase *string `pulumi:"passphrase"`
-	// - duh! This will have it's pem format validated
+	// Private key. PEM format will be validated.
 	PrivateKey string `pulumi:"privateKey"`
-	// - duh! This will have it's pem format validated
+	// Public key. PEM format will be validated.
 	PublicKey string `pulumi:"publicKey"`
 }
 
 // The set of arguments for constructing a Keypair resource.
 type KeypairArgs struct {
-	// Required but for unknown reasons
+	// Will be used as a filename when retrieving the public key via REST API
 	Alias pulumi.StringInput
-	// name of the key pair and the identity of the resource.
+	// A unique identifier for the Key Pair record.
 	PairName pulumi.StringInput
-	// RT requires this - presumably for verification purposes.
+	// Key Pair type. Supported types - GPG and RSA.
 	PairType pulumi.StringInput
-	// - This will be used to decrypt the private key. Validated server side.
+	// Passphrase will be used to decrypt the private key. Validated server side
 	Passphrase pulumi.StringPtrInput
-	// - duh! This will have it's pem format validated
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringInput
-	// - duh! This will have it's pem format validated
+	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringInput
 }
 

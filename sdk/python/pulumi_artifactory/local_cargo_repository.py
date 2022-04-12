@@ -31,8 +31,11 @@ class LocalCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalCargoRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
+        :param pulumi.Input[bool] anonymous_access: (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+               anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+               value is 'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -88,7 +91,8 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 
@@ -100,7 +104,9 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+        anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+        value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -297,7 +303,9 @@ class _LocalCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LocalCargoRepository resources.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[bool] anonymous_access: (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+               anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+               value is 'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -308,7 +316,8 @@ class _LocalCargoRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -357,7 +366,9 @@ class _LocalCargoRepositoryState:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+        anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+        value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -452,7 +463,8 @@ class _LocalCargoRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 
@@ -576,24 +588,12 @@ class LocalCargoRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Local Cargo Repository Resource
-
-        Creates a local Cargo repository
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
-            anonymous_access=False,
-            key="terraform-local-test-cargo-repo-basic")
-        ```
-
+        Create a LocalCargoRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[bool] anonymous_access: (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+               anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+               value is 'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -604,7 +604,8 @@ class LocalCargoRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -621,21 +622,7 @@ class LocalCargoRepository(pulumi.CustomResource):
                  args: LocalCargoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Local Cargo Repository Resource
-
-        Creates a local Cargo repository
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
-            anonymous_access=False,
-            key="terraform-local-test-cargo-repo-basic")
-        ```
-
+        Create a LocalCargoRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LocalCargoRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -732,7 +719,9 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        :param pulumi.Input[bool] anonymous_access: (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+               anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+               value is 'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -743,7 +732,8 @@ class LocalCargoRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+               special characters.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -780,7 +770,9 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
+        anonymous access to these resources (only), note that this will override the security anonymous access option. Default
+        value is 'false'.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -843,7 +835,8 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+        special characters.
         """
         return pulumi.get(self, "key")
 

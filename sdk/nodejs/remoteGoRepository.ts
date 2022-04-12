@@ -5,27 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Remote Go Repository Resource
- *
- * Creates a remote Go repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry)
- *
- * ## Example Usage
- *
- * To create a new Artifactory remote Go repository called my-remote-go.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_go = new artifactory.RemoteGoRepository("my-remote-go", {
- *     key: "my-remote-go",
- *     url: "https://proxy.golang.org/",
- *     vcsGitProvider: "ARTIFACTORY",
- * });
- * ```
- */
 export class RemoteGoRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteGoRepository resource's state with the given name, ID, and optional extra
@@ -108,9 +87,6 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -159,7 +135,10 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the remote layout mapping
      */
@@ -195,13 +174,11 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -377,9 +354,6 @@ export interface RemoteGoRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -428,6 +402,9 @@ export interface RemoteGoRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -464,13 +441,11 @@ export interface RemoteGoRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -534,9 +509,6 @@ export interface RemoteGoRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -584,6 +556,9 @@ export interface RemoteGoRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -620,13 +595,11 @@ export interface RemoteGoRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

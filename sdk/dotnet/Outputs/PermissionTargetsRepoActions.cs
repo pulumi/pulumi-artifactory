@@ -13,13 +13,7 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetsRepoActions
     {
-        /// <summary>
-        /// Groups this permission applies for.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PermissionTargetsRepoActionsGroup> Groups;
-        /// <summary>
-        /// Users this permission target applies for.
-        /// </summary>
         public readonly ImmutableArray<Outputs.PermissionTargetsRepoActionsUser> Users;
 
         [OutputConstructor]

@@ -11,58 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Debian Repository Resource
-//
-// Provides an Artifactory virtual repository resource, but with specific debian features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
-// 			DebianDefaultArchitectures: pulumi.String("amd64,i386"),
-// 			Description:                pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:            pulumi.String("com/google/**"),
-// 			IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                        pulumi.String("foo-debian"),
-// 			Notes:                      pulumi.String("Internal description"),
-// 			OptionalIndexCompressionFormats: pulumi.StringArray{
-// 				pulumi.String("bz2"),
-// 				pulumi.String("xz"),
-// 			},
-// 			Repositories: pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo foo
-// ```
 type VirtualDebianRepository struct {
 	pulumi.CustomResourceState
 
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrOutput `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+	// architecture values are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrOutput `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrOutput `pulumi:"defaultDeploymentRepo"`
@@ -81,11 +37,12 @@ type VirtualDebianRepository struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+	// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayOutput `pulumi:"optionalIndexCompressionFormats"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts. Default is empty.
+	// (Optional) Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -99,7 +56,7 @@ type VirtualDebianRepository struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts. Default is empty.
+	// (Optional) Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 }
 
@@ -138,7 +95,8 @@ type virtualDebianRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+	// architecture values are amd64 and i386.
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
@@ -157,11 +115,12 @@ type virtualDebianRepositoryState struct {
 	Key *string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+	// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts. Default is empty.
+	// (Optional) Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -175,7 +134,7 @@ type virtualDebianRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts. Default is empty.
+	// (Optional) Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -183,7 +142,8 @@ type VirtualDebianRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+	// architecture values are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
@@ -202,11 +162,12 @@ type VirtualDebianRepositoryState struct {
 	Key pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+	// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts. Default is empty.
+	// (Optional) Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -220,7 +181,7 @@ type VirtualDebianRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// Secondary keypair used to sign artifacts. Default is empty.
+	// (Optional) Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 
@@ -232,7 +193,8 @@ type virtualDebianRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+	// architecture values are amd64 and i386.
 	DebianDefaultArchitectures *string `pulumi:"debianDefaultArchitectures"`
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo *string `pulumi:"defaultDeploymentRepo"`
@@ -251,9 +213,10 @@ type virtualDebianRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+	// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
-	// Primary keypair used to sign artifacts. Default is empty.
+	// (Optional) Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -267,7 +230,7 @@ type virtualDebianRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts. Default is empty.
+	// (Optional) Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -276,7 +239,8 @@ type VirtualDebianRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
-	// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+	// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+	// architecture values are amd64 and i386.
 	DebianDefaultArchitectures pulumi.StringPtrInput
 	// Default repository to deploy artifacts.
 	DefaultDeploymentRepo pulumi.StringPtrInput
@@ -295,9 +259,10 @@ type VirtualDebianRepositoryArgs struct {
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+	// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
-	// Primary keypair used to sign artifacts. Default is empty.
+	// (Optional) Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -311,7 +276,7 @@ type VirtualDebianRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// Secondary keypair used to sign artifacts. Default is empty.
+	// (Optional) Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 

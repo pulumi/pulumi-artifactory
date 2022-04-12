@@ -9,45 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Bower Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific bower features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new Artifactory.VirtualBowerRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ExternalDependenciesEnabled = false,
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-bower",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualBowerRepository:VirtualBowerRepository")]
     public partial class VirtualBowerRepository : Pulumi.CustomResource
     {
@@ -79,19 +40,20 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// When set, external dependencies are rewritten. Default value is false.
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
         /// </summary>
         [Output("externalDependenciesEnabled")]
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+        /// By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
 
         /// <summary>
-        /// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         /// </summary>
         [Output("externalDependenciesRemoteRepo")]
         public Output<string?> ExternalDependenciesRemoteRepo { get; private set; } = null!;
@@ -229,7 +191,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten. Default value is false.
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -238,7 +200,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+        /// By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -247,7 +210,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         /// </summary>
         [Input("externalDependenciesRemoteRepo")]
         public Input<string>? ExternalDependenciesRemoteRepo { get; set; }
@@ -352,7 +315,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten. Default value is false.
+        /// (Optional) When set, external dependencies are rewritten. Default value is false.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -361,7 +324,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        /// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
+        /// By default, this is set to ** which means that dependencies may be downloaded from any external source.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -370,7 +334,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        /// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         /// </summary>
         [Input("externalDependenciesRemoteRepo")]
         public Input<string>? ExternalDependenciesRemoteRepo { get; set; }

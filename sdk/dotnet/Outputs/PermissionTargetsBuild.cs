@@ -13,21 +13,9 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetsBuild
     {
-        /// <summary>
-        /// -
-        /// </summary>
         public readonly Outputs.PermissionTargetsBuildActions? Actions;
-        /// <summary>
-        /// Pattern of artifacts to exclude
-        /// </summary>
         public readonly ImmutableArray<string> ExcludesPatterns;
-        /// <summary>
-        /// Pattern of artifacts to include
-        /// </summary>
         public readonly ImmutableArray<string> IncludesPatterns;
-        /// <summary>
-        /// List of repositories this permission target is applicable for
-        /// </summary>
         public readonly ImmutableArray<string> Repositories;
 
         [OutputConstructor]

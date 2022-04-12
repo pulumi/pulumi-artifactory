@@ -5,27 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Remote Bower Repository Resource
- *
- * Creates a remote Bower repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories)
- *
- * ## Example Usage
- *
- * To create a new Artifactory remote Bower repository called my-remote-bower.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_bower = new artifactory.RemoteBowerRepository("my-remote-bower", {
- *     key: "my-remote-bower",
- *     url: "https://github.com/",
- *     vcsGitProvider: "GITHUB",
- * });
- * ```
- */
 export class RemoteBowerRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteBowerRepository resource's state with the given name, ID, and optional extra
@@ -77,7 +56,7 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      */
     public readonly blockMismatchingMimeTypes!: pulumi.Output<boolean>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
      */
     public readonly bowerRegistryUrl!: pulumi.Output<string | undefined>;
     /**
@@ -112,9 +91,6 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -163,7 +139,10 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the remote layout mapping
      */
@@ -199,17 +178,15 @@ export class RemoteBowerRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -358,7 +335,7 @@ export interface RemoteBowerRepositoryState {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
      */
     bowerRegistryUrl?: pulumi.Input<string>;
     /**
@@ -393,9 +370,6 @@ export interface RemoteBowerRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -444,6 +418,9 @@ export interface RemoteBowerRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -480,17 +457,15 @@ export interface RemoteBowerRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -527,7 +502,7 @@ export interface RemoteBowerRepositoryArgs {
      */
     blockMismatchingMimeTypes?: pulumi.Input<boolean>;
     /**
-     * Proxy remote Bower repository. Default value is "https://registry.bower.io".
+     * (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
      */
     bowerRegistryUrl?: pulumi.Input<string>;
     /**
@@ -558,9 +533,6 @@ export interface RemoteBowerRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -608,6 +580,9 @@ export interface RemoteBowerRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -644,17 +619,15 @@ export interface RemoteBowerRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
+     * instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

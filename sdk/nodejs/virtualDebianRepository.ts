@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Debian Repository Resource
- *
- * Provides an Artifactory virtual repository resource, but with specific debian features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_debian = new artifactory.VirtualDebianRepository("foo-debian", {
- *     debianDefaultArchitectures: "amd64,i386",
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-debian",
- *     notes: "Internal description",
- *     optionalIndexCompressionFormats: [
- *         "bz2",
- *         "xz",
- *     ],
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo foo
- * ```
- */
 export class VirtualDebianRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualDebianRepository resource's state with the given name, ID, and optional extra
@@ -73,7 +38,8 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly artifactoryRequestsCanRetrieveRemoteArtifacts!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     * (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+     * architecture values are amd64 and i386.
      */
     public readonly debianDefaultArchitectures!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +72,8 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly notes!: pulumi.Output<string | undefined>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+     * values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
      */
     public readonly optionalIndexCompressionFormats!: pulumi.Output<string[]>;
     /**
@@ -114,7 +81,7 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Primary keypair used to sign artifacts. Default is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +107,7 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Secondary keypair used to sign artifacts. Default is empty.
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
 
@@ -212,7 +179,8 @@ export interface VirtualDebianRepositoryState {
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
-     * Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     * (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+     * architecture values are amd64 and i386.
      */
     debianDefaultArchitectures?: pulumi.Input<string>;
     /**
@@ -245,7 +213,8 @@ export interface VirtualDebianRepositoryState {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+     * values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
      */
     optionalIndexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -253,7 +222,7 @@ export interface VirtualDebianRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts. Default is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -279,7 +248,7 @@ export interface VirtualDebianRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * Secondary keypair used to sign artifacts. Default is empty.
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }
@@ -294,7 +263,8 @@ export interface VirtualDebianRepositoryArgs {
      */
     artifactoryRequestsCanRetrieveRemoteArtifacts?: pulumi.Input<boolean>;
     /**
-     * Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
+     * (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
+     * architecture values are amd64 and i386.
      */
     debianDefaultArchitectures?: pulumi.Input<string>;
     /**
@@ -327,11 +297,12 @@ export interface VirtualDebianRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
+     * values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
      */
     optionalIndexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Primary keypair used to sign artifacts. Default is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -357,7 +328,7 @@ export interface VirtualDebianRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * Secondary keypair used to sign artifacts. Default is empty.
+     * (Optional) Secondary keypair used to sign artifacts. Default is empty.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

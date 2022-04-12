@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Conda Repository Resource
- *
- * Provides an Artifactory virtual repository resource, but with specific conda features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_conda = new artifactory.VirtualCondaRepository("foo-conda", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-conda",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualCondaRepository:VirtualCondaRepository foo foo
- * ```
- */
 export class VirtualCondaRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualCondaRepository resource's state with the given name, ID, and optional extra
@@ -118,7 +88,8 @@ export class VirtualCondaRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
@@ -232,7 +203,8 @@ export interface VirtualCondaRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
@@ -293,7 +265,8 @@ export interface VirtualCondaRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

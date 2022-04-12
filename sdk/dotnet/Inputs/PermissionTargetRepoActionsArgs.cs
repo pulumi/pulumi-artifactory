@@ -14,10 +14,6 @@ namespace Pulumi.Artifactory.Inputs
     {
         [Input("groups")]
         private InputList<Inputs.PermissionTargetRepoActionsGroupArgs>? _groups;
-
-        /// <summary>
-        /// Groups this permission applies for.
-        /// </summary>
         public InputList<Inputs.PermissionTargetRepoActionsGroupArgs> Groups
         {
             get => _groups ?? (_groups = new InputList<Inputs.PermissionTargetRepoActionsGroupArgs>());
@@ -26,10 +22,6 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("users")]
         private InputList<Inputs.PermissionTargetRepoActionsUserArgs>? _users;
-
-        /// <summary>
-        /// Users this permission target applies for.
-        /// </summary>
         public InputList<Inputs.PermissionTargetRepoActionsUserArgs> Users
         {
             get => _users ?? (_users = new InputList<Inputs.PermissionTargetRepoActionsUserArgs>());

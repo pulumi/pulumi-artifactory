@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory General Security Resource
- *
- * This resource can be used to manage Artifactory's general security settings.
- *
- * Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * // Configure Artifactory general security settings
- * const security = new artifactory.GeneralSecurity("security", {
- *     enableAnonymousAccess: true,
- * });
- * ```
- *
- * ## Import
- *
- * Current general security settings can be imported using `security` as the `ID`, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
- * ```
- */
 export class GeneralSecurity extends pulumi.CustomResource {
     /**
      * Get an existing GeneralSecurity resource's state with the given name, ID, and optional extra

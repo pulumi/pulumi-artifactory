@@ -11,41 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Virtual Helm Repository Resource
-//
-// Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `VirtualRepository`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualHelmRepository(ctx, "foo-helm-virtual", &artifactory.VirtualHelmRepositoryArgs{
-// 			Key:           pulumi.String("foo-helm-virtual"),
-// 			UseNamespaces: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## Import
-//
-// Virtual repositories can be imported using their name, e.g.
-//
-// ```sh
-//  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
-// ```
 type VirtualHelmRepository struct {
 	pulumi.CustomResourceState
 
@@ -83,7 +48,10 @@ type VirtualHelmRepository struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+	// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+	// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+	// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+	// Default to 'false'
 	UseNamespaces pulumi.BoolPtrOutput `pulumi:"useNamespaces"`
 }
 
@@ -153,7 +121,10 @@ type virtualHelmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+	// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+	// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+	// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+	// Default to 'false'
 	UseNamespaces *bool `pulumi:"useNamespaces"`
 }
 
@@ -192,7 +163,10 @@ type VirtualHelmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+	// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+	// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+	// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+	// Default to 'false'
 	UseNamespaces pulumi.BoolPtrInput
 }
 
@@ -233,7 +207,10 @@ type virtualHelmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+	// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+	// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+	// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+	// Default to 'false'
 	UseNamespaces *bool `pulumi:"useNamespaces"`
 }
 
@@ -271,7 +248,10 @@ type VirtualHelmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+	// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+	// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+	// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+	// Default to 'false'
 	UseNamespaces pulumi.BoolPtrInput
 }
 

@@ -11,43 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Federated Gitlfs Repository Resource
-//
-// Creates a federated Gitlfs repository
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGitltfsRepository(ctx, "terraform-federated-test-gitlfs-repo", &artifactory.FederatedGitltfsRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-gitlfs-repo"),
-// 			Members: FederatedGitltfsRepositoryMemberArray{
-// 				&FederatedGitltfsRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo"),
-// 				},
-// 				&FederatedGitltfsRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type FederatedGitltfsRepository struct {
 	pulumi.CustomResourceState
 
@@ -60,9 +23,12 @@ type FederatedGitltfsRepository struct {
 	DownloadDirect         pulumi.BoolPtrOutput   `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringOutput    `pulumi:"excludesPattern"`
 	IncludesPattern        pulumi.StringOutput    `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key pulumi.StringOutput `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringOutput    `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     FederatedGitltfsRepositoryMemberArrayOutput `pulumi:"members"`
 	Notes       pulumi.StringPtrOutput                      `pulumi:"notes"`
 	PackageType pulumi.StringOutput                         `pulumi:"packageType"`
@@ -123,9 +89,12 @@ type federatedGitltfsRepositoryState struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key *string `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    *string `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     []FederatedGitltfsRepositoryMember `pulumi:"members"`
 	Notes       *string                            `pulumi:"notes"`
 	PackageType *string                            `pulumi:"packageType"`
@@ -152,9 +121,12 @@ type FederatedGitltfsRepositoryState struct {
 	DownloadDirect         pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
-	// - the identity key of the repo
-	Key pulumi.StringPtrInput
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringPtrInput
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     FederatedGitltfsRepositoryMemberArrayInput
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
@@ -185,9 +157,12 @@ type federatedGitltfsRepositoryArgs struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key string `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    string  `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members []FederatedGitltfsRepositoryMember `pulumi:"members"`
 	Notes   *string                            `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -214,9 +189,12 @@ type FederatedGitltfsRepositoryArgs struct {
 	DownloadDirect         pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
-	// - the identity key of the repo
-	Key pulumi.StringInput
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringInput
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members FederatedGitltfsRepositoryMemberArrayInput
 	Notes   pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field

@@ -11,30 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// Artifactory **does not** retain access tokens and cannot be imported into state.
 type AccessToken struct {
 	pulumi.CustomResourceState
 
-	// Returns the access token to authenciate to Artifactory
-	AccessToken pulumi.StringOutput `pulumi:"accessToken"`
-	// (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-	AdminToken AccessTokenAdminTokenPtrOutput `pulumi:"adminToken"`
-	// (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-	Audience pulumi.StringPtrOutput `pulumi:"audience"`
-	// (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-	EndDate pulumi.StringOutput `pulumi:"endDate"`
-	// (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-	EndDateRelative pulumi.StringPtrOutput `pulumi:"endDateRelative"`
-	// (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-	Groups pulumi.StringArrayOutput `pulumi:"groups"`
-	// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
-	RefreshToken pulumi.StringOutput `pulumi:"refreshToken"`
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable pulumi.BoolPtrOutput `pulumi:"refreshable"`
-	// (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-	Username pulumi.StringOutput `pulumi:"username"`
+	AccessToken     pulumi.StringOutput            `pulumi:"accessToken"`
+	AdminToken      AccessTokenAdminTokenPtrOutput `pulumi:"adminToken"`
+	Audience        pulumi.StringPtrOutput         `pulumi:"audience"`
+	EndDate         pulumi.StringOutput            `pulumi:"endDate"`
+	EndDateRelative pulumi.StringPtrOutput         `pulumi:"endDateRelative"`
+	Groups          pulumi.StringArrayOutput       `pulumi:"groups"`
+	RefreshToken    pulumi.StringOutput            `pulumi:"refreshToken"`
+	Refreshable     pulumi.BoolPtrOutput           `pulumi:"refreshable"`
+	Username        pulumi.StringOutput            `pulumi:"username"`
 }
 
 // NewAccessToken registers a new resource with the given unique name, arguments, and options.
@@ -69,45 +57,27 @@ func GetAccessToken(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessToken resources.
 type accessTokenState struct {
-	// Returns the access token to authenciate to Artifactory
-	AccessToken *string `pulumi:"accessToken"`
-	// (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-	AdminToken *AccessTokenAdminToken `pulumi:"adminToken"`
-	// (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-	Audience *string `pulumi:"audience"`
-	// (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-	EndDate *string `pulumi:"endDate"`
-	// (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-	EndDateRelative *string `pulumi:"endDateRelative"`
-	// (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-	Groups []string `pulumi:"groups"`
-	// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
-	RefreshToken *string `pulumi:"refreshToken"`
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable *bool `pulumi:"refreshable"`
-	// (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-	Username *string `pulumi:"username"`
+	AccessToken     *string                `pulumi:"accessToken"`
+	AdminToken      *AccessTokenAdminToken `pulumi:"adminToken"`
+	Audience        *string                `pulumi:"audience"`
+	EndDate         *string                `pulumi:"endDate"`
+	EndDateRelative *string                `pulumi:"endDateRelative"`
+	Groups          []string               `pulumi:"groups"`
+	RefreshToken    *string                `pulumi:"refreshToken"`
+	Refreshable     *bool                  `pulumi:"refreshable"`
+	Username        *string                `pulumi:"username"`
 }
 
 type AccessTokenState struct {
-	// Returns the access token to authenciate to Artifactory
-	AccessToken pulumi.StringPtrInput
-	// (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-	AdminToken AccessTokenAdminTokenPtrInput
-	// (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-	Audience pulumi.StringPtrInput
-	// (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-	EndDate pulumi.StringPtrInput
-	// (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+	AccessToken     pulumi.StringPtrInput
+	AdminToken      AccessTokenAdminTokenPtrInput
+	Audience        pulumi.StringPtrInput
+	EndDate         pulumi.StringPtrInput
 	EndDateRelative pulumi.StringPtrInput
-	// (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-	Groups pulumi.StringArrayInput
-	// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
-	RefreshToken pulumi.StringPtrInput
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable pulumi.BoolPtrInput
-	// (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-	Username pulumi.StringPtrInput
+	Groups          pulumi.StringArrayInput
+	RefreshToken    pulumi.StringPtrInput
+	Refreshable     pulumi.BoolPtrInput
+	Username        pulumi.StringPtrInput
 }
 
 func (AccessTokenState) ElementType() reflect.Type {
@@ -115,38 +85,24 @@ func (AccessTokenState) ElementType() reflect.Type {
 }
 
 type accessTokenArgs struct {
-	// (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-	AdminToken *AccessTokenAdminToken `pulumi:"adminToken"`
-	// (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-	Audience *string `pulumi:"audience"`
-	// (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-	EndDate *string `pulumi:"endDate"`
-	// (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
-	EndDateRelative *string `pulumi:"endDateRelative"`
-	// (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-	Groups []string `pulumi:"groups"`
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable *bool `pulumi:"refreshable"`
-	// (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-	Username string `pulumi:"username"`
+	AdminToken      *AccessTokenAdminToken `pulumi:"adminToken"`
+	Audience        *string                `pulumi:"audience"`
+	EndDate         *string                `pulumi:"endDate"`
+	EndDateRelative *string                `pulumi:"endDateRelative"`
+	Groups          []string               `pulumi:"groups"`
+	Refreshable     *bool                  `pulumi:"refreshable"`
+	Username        string                 `pulumi:"username"`
 }
 
 // The set of arguments for constructing a AccessToken resource.
 type AccessTokenArgs struct {
-	// (Optional) Specify the `instanceId` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `adminToken` cannot be specified with `groups`.
-	AdminToken AccessTokenAdminTokenPtrInput
-	// (Optional) A space-separate list of the other Artifactory instances or services that should accept this token identified by their Artifactory Service IDs. You may set `"jfrt@*"` so the token to be accepted by all Artifactory instances.
-	Audience pulumi.StringPtrInput
-	// (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
-	EndDate pulumi.StringPtrInput
-	// (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
+	AdminToken      AccessTokenAdminTokenPtrInput
+	Audience        pulumi.StringPtrInput
+	EndDate         pulumi.StringPtrInput
 	EndDateRelative pulumi.StringPtrInput
-	// (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `adminToken`.
-	Groups pulumi.StringArrayInput
-	// (Optional) Is this token refreshable? Defaults to `false`
-	Refreshable pulumi.BoolPtrInput
-	// (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
-	Username pulumi.StringInput
+	Groups          pulumi.StringArrayInput
+	Refreshable     pulumi.BoolPtrInput
+	Username        pulumi.StringInput
 }
 
 func (AccessTokenArgs) ElementType() reflect.Type {

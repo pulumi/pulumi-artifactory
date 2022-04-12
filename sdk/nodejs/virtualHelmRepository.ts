@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Helm Repository Resource
- *
- * Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_helm_virtual = new artifactory.VirtualHelmRepository("foo-helm-virtual", {
- *     key: "foo-helm-virtual",
- *     useNamespaces: true,
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
- * ```
- */
 export class VirtualHelmRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualHelmRepository resource's state with the given name, ID, and optional extra
@@ -118,7 +93,10 @@ export class VirtualHelmRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+     * repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+     * https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+     * Default to 'false'
      */
     public readonly useNamespaces!: pulumi.Output<boolean | undefined>;
 
@@ -239,7 +217,10 @@ export interface VirtualHelmRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+     * repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+     * https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+     * Default to 'false'
      */
     useNamespaces?: pulumi.Input<boolean>;
 }
@@ -305,7 +286,10 @@ export interface VirtualHelmRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
+     * repository to fetch from a virtual by assigning namespaces to local and remote repositories See
+     * https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
+     * Default to 'false'
      */
     useNamespaces?: pulumi.Input<boolean>;
 }

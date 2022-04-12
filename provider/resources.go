@@ -19,8 +19,8 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/jfrog/terraform-provider-artifactory/v3/pkg/artifactory"
-	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
+	"github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory"
+	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -116,7 +116,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_local_debian_repository":    {Tok: makeResource(mainMod, "DebianRepository")},
 			"artifactory_local_docker_v1_repository": {Tok: makeResource(mainMod, "DockerV1Repository")},
 			"artifactory_local_docker_v2_repository": {Tok: makeResource(mainMod, "DockerV2Repository")},
-			"artifactory_local_repository":           {Tok: makeResource(mainMod, "LocalRepository")},
 			"artifactory_local_bower_repository":     {Tok: makeResource(mainMod, "LocalBowerRepository")},
 			"artifactory_local_chef_repository":      {Tok: makeResource(mainMod, "LocalChefRepository")},
 			"artifactory_local_cocoapods_repository": {Tok: makeResource(mainMod, "LocalCocoapodsRepository")},
@@ -155,7 +154,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_remote_cargo_repository":            {Tok: makeResource(mainMod, "RemoteCargoRepository")},
 			"artifactory_remote_docker_repository":           {Tok: makeResource(mainMod, "RemoteDockerRepository")},
 			"artifactory_remote_helm_repository":             {Tok: makeResource(mainMod, "RemoteHelmRepository")},
-			"artifactory_remote_repository":                  {Tok: makeResource(mainMod, "RemoteRepository")},
 			"artifactory_remote_npm_repository":              {Tok: makeResource(mainMod, "RemoteNpmRepository")},
 			"artifactory_replication_config":                 {Tok: makeResource(mainMod, "ReplicationConfig")},
 			"artifactory_saml_settings":                      {Tok: makeResource(mainMod, "SamlSettings")},
@@ -163,7 +161,6 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_user":                               {Tok: makeResource(mainMod, "User")},
 			"artifactory_virtual_go_repository":              {Tok: makeResource(mainMod, "GoRepository")},
 			"artifactory_virtual_maven_repository":           {Tok: makeResource(mainMod, "MavenRepository")},
-			"artifactory_virtual_repository":                 {Tok: makeResource(mainMod, "VirtualRepository")},
 			"artifactory_federated_alpine_repository":        {Tok: makeResource(mainMod, "FederatedAlpineRepository")},
 			"artifactory_federated_bower_repository":         {Tok: makeResource(mainMod, "FederatedBowerRepository")},
 			"artifactory_federated_cargo_repository":         {Tok: makeResource(mainMod, "FederatedCargoRepository")},
@@ -228,6 +225,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_remote_p2_repository":               {Tok: makeResource(mainMod, "RemoteP2Repository")},
 			"artifactory_remote_puppet_repository":           {Tok: makeResource(mainMod, "RemotePuppetRepository")},
 			"artifactory_remote_rpm_repository":              {Tok: makeResource(mainMod, "RemoteRpmRepository")},
+			"artifactory_remote_vcs_repository":	          {Tok: makeResource(mainMod, "RemoteVcsRepository")},
 			"artifactory_virtual_alpine_repository":          {Tok: makeResource(mainMod, "VirtualAlpineRepository")},
 			"artifactory_virtual_bower_repository":           {Tok: makeResource(mainMod, "VirtualBowerRepository")},
 			"artifactory_virtual_chef_repository":            {Tok: makeResource(mainMod, "VirtualChefRepository")},
@@ -271,7 +269,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/v2", mainPkg),
+				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,

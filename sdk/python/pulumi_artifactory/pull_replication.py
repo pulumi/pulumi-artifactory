@@ -357,41 +357,7 @@ class PullReplication(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Pull Replication Resource
-
-        Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-        for a remote repo.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.RemoteRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven",
-            password="bar",
-            url=f"https://example.com/artifactory/{artifactory_local_repository['artifactory_local_repository']['key']}",
-            username="foo")
-        foo_rep = artifactory.PullReplication("foo-rep",
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            repo_key=provider_test_dest.key)
-        ```
-
-        ## Import
-
-        Pull replication config can be imported using its repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
-        ```
-
+        Create a PullReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
@@ -403,41 +369,7 @@ class PullReplication(pulumi.CustomResource):
                  args: PullReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Pull Replication Resource
-
-        Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-        for a remote repo.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.RemoteRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven",
-            password="bar",
-            url=f"https://example.com/artifactory/{artifactory_local_repository['artifactory_local_repository']['key']}",
-            username="foo")
-        foo_rep = artifactory.PullReplication("foo-rep",
-            cron_exp="0 0 * * * ?",
-            enable_event_replication=True,
-            repo_key=provider_test_dest.key)
-        ```
-
-        ## Import
-
-        Pull replication config can be imported using its repo key, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
-        ```
-
+        Create a PullReplication resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PullReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

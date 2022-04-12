@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Local RPM Repository Resource
- *
- * Creates a local RPM repository
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
- *     calculateYumMetadata: true,
- *     enableFileListsIndexing: true,
- *     key: "terraform-local-test-rpm-repo-basic",
- *     yumGroupFileNames: "file-1.xml,file-2.xml",
- *     yumRootDepth: 5,
- * });
- * ```
- */
 export class LocalRpmRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalRpmRepository resource's state with the given name, ID, and optional extra
@@ -81,11 +61,16 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Primary keypair used to sign artifacts.
+     */
+    public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -108,16 +93,23 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
+     * Secondary keypair used to sign artifacts.
+     */
+    public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
     public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
     /**
-     * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+     * A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
+     * of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      */
     public readonly yumGroupFileNames!: pulumi.Output<string | undefined>;
     /**
-     * - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * 'fedora/linux/$releasever/$basearch', specify a depth of 4.
      */
     public readonly yumRootDepth!: pulumi.Output<number | undefined>;
 
@@ -145,11 +137,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["secondaryKeypairRef"] = state ? state.secondaryKeypairRef : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
             resourceInputs["yumGroupFileNames"] = state ? state.yumGroupFileNames : undefined;
             resourceInputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
@@ -168,11 +162,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["secondaryKeypairRef"] = args ? args.secondaryKeypairRef : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
             resourceInputs["yumGroupFileNames"] = args ? args.yumGroupFileNames : undefined;
             resourceInputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
@@ -216,11 +212,16 @@ export interface LocalRpmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
+    /**
+     * Primary keypair used to sign artifacts.
+     */
+    primaryKeypairRef?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -243,16 +244,23 @@ export interface LocalRpmRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
+     * Secondary keypair used to sign artifacts.
+     */
+    secondaryKeypairRef?: pulumi.Input<string>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
     /**
-     * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+     * A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
+     * of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      */
     yumGroupFileNames?: pulumi.Input<string>;
     /**
-     * - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * 'fedora/linux/$releasever/$basearch', specify a depth of 4.
      */
     yumRootDepth?: pulumi.Input<number>;
 }
@@ -290,10 +298,15 @@ export interface LocalRpmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
+     * special characters.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
+    /**
+     * Primary keypair used to sign artifacts.
+     */
+    primaryKeypairRef?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
@@ -316,16 +329,23 @@ export interface LocalRpmRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
+     * Secondary keypair used to sign artifacts.
+     */
+    secondaryKeypairRef?: pulumi.Input<string>;
+    /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
     /**
-     * - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+     * A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
+     * of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
      */
     yumGroupFileNames?: pulumi.Input<string>;
     /**
-     * - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+     * contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+     * 'fedora/linux/$releasever/$basearch', specify a depth of 4.
      */
     yumRootDepth?: pulumi.Input<number>;
 }

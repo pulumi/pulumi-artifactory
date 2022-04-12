@@ -75,7 +75,6 @@ export * from "./localNugetRepository";
 export * from "./localOpkgRepository";
 export * from "./localPuppetRepository";
 export * from "./localPypiRepository";
-export * from "./localRepository";
 export * from "./localRpmRepository";
 export * from "./localSbtRepository";
 export * from "./localVagrantRepository";
@@ -112,9 +111,9 @@ export * from "./remoteOpkgRepository";
 export * from "./remoteP2Repository";
 export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
-export * from "./remoteRepository";
 export * from "./remoteRpmRepository";
 export * from "./remoteSbtRepository";
+export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
@@ -139,7 +138,6 @@ export * from "./virtualNugetRepository";
 export * from "./virtualP2Repository";
 export * from "./virtualPuppetRepository";
 export * from "./virtualPypiRepository";
-export * from "./virtualRepository";
 export * from "./virtualRpmRepository";
 export * from "./virtualSbtRepository";
 
@@ -221,7 +219,6 @@ import { LocalNugetRepository } from "./localNugetRepository";
 import { LocalOpkgRepository } from "./localOpkgRepository";
 import { LocalPuppetRepository } from "./localPuppetRepository";
 import { LocalPypiRepository } from "./localPypiRepository";
-import { LocalRepository } from "./localRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
 import { LocalSbtRepository } from "./localSbtRepository";
 import { LocalVagrantRepository } from "./localVagrantRepository";
@@ -257,9 +254,9 @@ import { RemoteOpkgRepository } from "./remoteOpkgRepository";
 import { RemoteP2Repository } from "./remoteP2Repository";
 import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
-import { RemoteRepository } from "./remoteRepository";
 import { RemoteRpmRepository } from "./remoteRpmRepository";
 import { RemoteSbtRepository } from "./remoteSbtRepository";
+import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
@@ -284,7 +281,6 @@ import { VirtualNugetRepository } from "./virtualNugetRepository";
 import { VirtualP2Repository } from "./virtualP2Repository";
 import { VirtualPuppetRepository } from "./virtualPuppetRepository";
 import { VirtualPypiRepository } from "./virtualPypiRepository";
-import { VirtualRepository } from "./virtualRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { VirtualSbtRepository } from "./virtualSbtRepository";
 
@@ -428,8 +424,6 @@ const _module = {
                 return new LocalPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPypiRepository:LocalPypiRepository":
                 return new LocalPypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/localRepository:LocalRepository":
-                return new LocalRepository(name, <any>undefined, { urn })
             case "artifactory:index/localRpmRepository:LocalRpmRepository":
                 return new LocalRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localSbtRepository:LocalSbtRepository":
@@ -500,12 +494,12 @@ const _module = {
                 return new RemotePuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
                 return new RemotePypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/remoteRepository:RemoteRepository":
-                return new RemoteRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
                 return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
                 return new RemoteSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
+                return new RemoteVcsRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
@@ -554,8 +548,6 @@ const _module = {
                 return new VirtualPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualPypiRepository:VirtualPypiRepository":
                 return new VirtualPypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/virtualRepository:VirtualRepository":
-                return new VirtualRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
                 return new VirtualRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
@@ -633,7 +625,6 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/localRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
@@ -669,9 +660,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteOpkgRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
@@ -696,7 +687,6 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/virtualRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
 

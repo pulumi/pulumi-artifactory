@@ -9,81 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory OAuth SSO Settings Resource
-    /// 
-    /// This resource can be used to manage Artifactory's OAuth SSO settings.
-    /// 
-    /// Only a single `artifactory.OauthSettings` resource is meant to be defined.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Configure Artifactory OAuth SSO settings
-    ///         var oauth = new Artifactory.OauthSettings("oauth", new Artifactory.OauthSettingsArgs
-    ///         {
-    ///             AllowUserToAccessProfile = true,
-    ///             Enable = true,
-    ///             OauthProviders = 
-    ///             {
-    ///                 new Artifactory.Inputs.OauthSettingsOauthProviderArgs
-    ///                 {
-    ///                     ApiUrl = "https://organization.okta.com/oauth2/v1/userinfo",
-    ///                     AuthUrl = "https://organization.okta.com/oauth2/v1/authorize",
-    ///                     ClientId = "foo",
-    ///                     ClientSecret = "bar",
-    ///                     Enabled = false,
-    ///                     Name = "okta",
-    ///                     TokenUrl = "https://organization.okta.com/oauth2/v1/token",
-    ///                     Type = "openId",
-    ///                 },
-    ///             },
-    ///             PersistUsers = true,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/oauthSettings:OauthSettings")]
     public partial class OauthSettings : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
-        /// </summary>
         [Output("allowUserToAccessProfile")]
         public Output<bool?> AllowUserToAccessProfile { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
-        /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
 
-        /// <summary>
-        /// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
-        /// </summary>
         [Output("oauthProviders")]
         public Output<ImmutableArray<Outputs.OauthSettingsOauthProvider>> OauthProviders { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
-        /// </summary>
         [Output("persistUsers")]
         public Output<bool?> PersistUsers { get; private set; } = null!;
 
@@ -133,33 +70,20 @@ namespace Pulumi.Artifactory
 
     public sealed class OauthSettingsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
-        /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
-        /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
-        /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         [Input("oauthProviders", required: true)]
         private InputList<Inputs.OauthSettingsOauthProviderArgs>? _oauthProviders;
-
-        /// <summary>
-        /// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
-        /// </summary>
         public InputList<Inputs.OauthSettingsOauthProviderArgs> OauthProviders
         {
             get => _oauthProviders ?? (_oauthProviders = new InputList<Inputs.OauthSettingsOauthProviderArgs>());
             set => _oauthProviders = value;
         }
 
-        /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
-        /// </summary>
         [Input("persistUsers")]
         public Input<bool>? PersistUsers { get; set; }
 
@@ -170,33 +94,20 @@ namespace Pulumi.Artifactory
 
     public sealed class OauthSettingsState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Allow persisted users to access their profile.  Default value is `false`.
-        /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
-        /// <summary>
-        /// Enable OAuth SSO.  Default value is `true`.
-        /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         [Input("oauthProviders")]
         private InputList<Inputs.OauthSettingsOauthProviderGetArgs>? _oauthProviders;
-
-        /// <summary>
-        /// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
-        /// </summary>
         public InputList<Inputs.OauthSettingsOauthProviderGetArgs> OauthProviders
         {
             get => _oauthProviders ?? (_oauthProviders = new InputList<Inputs.OauthSettingsOauthProviderGetArgs>());
             set => _oauthProviders = value;
         }
 
-        /// <summary>
-        /// Enable the creation of local Artifactory users.  Default value is `false`.
-        /// </summary>
         [Input("persistUsers")]
         public Input<bool>? PersistUsers { get; set; }
 

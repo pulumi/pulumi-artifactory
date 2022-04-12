@@ -5,26 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Remote Chef Repository Resource
- *
- * Creates a remote Chef repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Chef+Cookbook+Repositories)
- *
- * ## Example Usage
- *
- * To create a new Artifactory remote Chef repository called my-remote-chef.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_remote_chef = new artifactory.RemoteChefRepository("my-remote-chef", {
- *     key: "my-remote-chef",
- *     url: "https://supermarket.chef.io",
- * });
- * ```
- */
 export class RemoteChefRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteChefRepository resource's state with the given name, ID, and optional extra
@@ -107,9 +87,6 @@ export class RemoteChefRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -158,7 +135,10 @@ export class RemoteChefRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the remote layout mapping
      */
@@ -194,9 +174,6 @@ export class RemoteChefRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
@@ -370,9 +347,6 @@ export interface RemoteChefRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -421,6 +395,9 @@ export interface RemoteChefRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -457,9 +434,6 @@ export interface RemoteChefRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
@@ -523,9 +497,6 @@ export interface RemoteChefRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
-    /**
-     * The repository identifier. Must be unique system-wide
-     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -573,6 +544,9 @@ export interface RemoteChefRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -609,9 +583,6 @@ export interface RemoteChefRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
-    /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
-     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**

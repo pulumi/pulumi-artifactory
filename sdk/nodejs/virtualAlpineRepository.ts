@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## # Artifactory Virtual Alpine Repository Resource
- *
- * Provides an Artifactory virtual repository resource, but with specific alpine features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const foo_alpine = new artifactory.VirtualAlpineRepository("foo-alpine", {
- *     description: "A test virtual repo",
- *     excludesPattern: "com/google/**",
- *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-alpine",
- *     notes: "Internal description",
- *     repositories: [],
- * });
- * ```
- *
- * ## Import
- *
- * Virtual repositories can be imported using their name, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/virtualAlpineRepository:VirtualAlpineRepository foo foo
- * ```
- */
 export class VirtualAlpineRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualAlpineRepository resource's state with the given name, ID, and optional extra
@@ -101,7 +71,7 @@ export class VirtualAlpineRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Primary keypair used to sign artifacts. Default value is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +92,8 @@ export class VirtualAlpineRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
@@ -221,7 +192,7 @@ export interface VirtualAlpineRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts. Default value is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -242,7 +213,8 @@ export interface VirtualAlpineRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
@@ -286,7 +258,7 @@ export interface VirtualAlpineRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts. Default value is empty.
+     * (Optional) Primary keypair used to sign artifacts. Default value is empty.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -307,7 +279,8 @@ export interface VirtualAlpineRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+     * repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

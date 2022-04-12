@@ -11,43 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Federated Generic Repository Resource
-//
-// Creates a federated Generic repository
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGenericRepository(ctx, "terraform-federated-test-generic-repo", &artifactory.FederatedGenericRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-generic-repo"),
-// 			Members: FederatedGenericRepositoryMemberArray{
-// 				&FederatedGenericRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-generic-repo"),
-// 				},
-// 				&FederatedGenericRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type FederatedGenericRepository struct {
 	pulumi.CustomResourceState
 
@@ -60,9 +23,12 @@ type FederatedGenericRepository struct {
 	DownloadDirect         pulumi.BoolPtrOutput   `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringOutput    `pulumi:"excludesPattern"`
 	IncludesPattern        pulumi.StringOutput    `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key pulumi.StringOutput `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringOutput    `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     FederatedGenericRepositoryMemberArrayOutput `pulumi:"members"`
 	Notes       pulumi.StringPtrOutput                      `pulumi:"notes"`
 	PackageType pulumi.StringOutput                         `pulumi:"packageType"`
@@ -70,13 +36,13 @@ type FederatedGenericRepository struct {
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
 	ProjectKey   pulumi.StringPtrOutput   `pulumi:"projectKey"`
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-	XrayIndex pulumi.BoolOutput `pulumi:"xrayIndex"`
+	XrayIndex     pulumi.BoolOutput      `pulumi:"xrayIndex"`
 }
 
 // NewFederatedGenericRepository registers a new resource with the given unique name, arguments, and options.
@@ -123,9 +89,12 @@ type federatedGenericRepositoryState struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key *string `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    *string `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     []FederatedGenericRepositoryMember `pulumi:"members"`
 	Notes       *string                            `pulumi:"notes"`
 	PackageType *string                            `pulumi:"packageType"`
@@ -133,13 +102,13 @@ type federatedGenericRepositoryState struct {
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
 	ProjectKey   *string  `pulumi:"projectKey"`
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-	XrayIndex *bool `pulumi:"xrayIndex"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 type FederatedGenericRepositoryState struct {
@@ -152,9 +121,12 @@ type FederatedGenericRepositoryState struct {
 	DownloadDirect         pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
-	// - the identity key of the repo
-	Key pulumi.StringPtrInput
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringPtrInput
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members     FederatedGenericRepositoryMemberArrayInput
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
@@ -162,13 +134,13 @@ type FederatedGenericRepositoryState struct {
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
 	ProjectKey   pulumi.StringPtrInput
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-	XrayIndex pulumi.BoolPtrInput
+	XrayIndex     pulumi.BoolPtrInput
 }
 
 func (FederatedGenericRepositoryState) ElementType() reflect.Type {
@@ -185,22 +157,25 @@ type federatedGenericRepositoryArgs struct {
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        *string `pulumi:"excludesPattern"`
 	IncludesPattern        *string `pulumi:"includesPattern"`
-	// - the identity key of the repo
-	Key string `pulumi:"key"`
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    string  `pulumi:"key"`
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members []FederatedGenericRepositoryMember `pulumi:"members"`
 	Notes   *string                            `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
 	ProjectKey   *string  `pulumi:"projectKey"`
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-	XrayIndex *bool `pulumi:"xrayIndex"`
+	XrayIndex     *bool   `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a FederatedGenericRepository resource.
@@ -214,22 +189,25 @@ type FederatedGenericRepositoryArgs struct {
 	DownloadDirect         pulumi.BoolPtrInput
 	ExcludesPattern        pulumi.StringPtrInput
 	IncludesPattern        pulumi.StringPtrInput
-	// - the identity key of the repo
-	Key pulumi.StringInput
-	// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+	Key                    pulumi.StringInput
+	// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
+	// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
+	// federated members will need to have a base URL set. Please follow the
+	// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+	// to set up Federated repositories correctly.
 	Members FederatedGenericRepositoryMemberArrayInput
 	Notes   pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+	// with project key, separated by a dash.
 	ProjectKey   pulumi.StringPtrInput
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
-	XrayIndex pulumi.BoolPtrInput
+	XrayIndex     pulumi.BoolPtrInput
 }
 
 func (FederatedGenericRepositoryArgs) ElementType() reflect.Type {

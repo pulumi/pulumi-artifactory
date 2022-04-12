@@ -10,23 +10,18 @@ from .. import _utilities
 
 accessToken: Optional[str]
 """
-This is a bearer token that can be given to you by your admin under `Identity and Access`
+This is a access token that can be given to you by your admin under `Identity and Access`
 """
 
 apiKey: Optional[str]
+"""
+API token. Projects functionality will not work with any auth method other than access tokens
+"""
 
 checkLicense: bool
 """
 Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 """
 
-password: Optional[str]
-"""
-Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-bearer token
-"""
-
 url: Optional[str]
-
-username: Optional[str]
 

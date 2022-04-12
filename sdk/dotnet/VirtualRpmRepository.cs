@@ -9,64 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual Rpm Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with Rpm package type. This should be preferred over the original one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary_keypair = new Artifactory.Keypair("primary-keypair", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "primary-keypair",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias-1",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "secondary-keypair",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias-2",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new Artifactory.VirtualRpmRepositoryArgs
-    ///         {
-    ///             Key = "foo-rpm-virtual",
-    ///             PrimaryKeypairRef = primary_keypair.PairName,
-    ///             SecondaryKeypairRef = secondary_keypair.PairName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 primary_keypair,
-    ///                 secondary_keypair,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualRpmRepository:VirtualRpmRepository")]
     public partial class VirtualRpmRepository : Pulumi.CustomResource
     {
@@ -125,7 +67,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// The primary GPG key to be used to sign packages
+        /// Primary keypair used to sign artifacts.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -163,7 +105,7 @@ namespace Pulumi.Artifactory
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -263,7 +205,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// The primary GPG key to be used to sign packages
+        /// Primary keypair used to sign artifacts.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -313,7 +255,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -380,7 +322,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// The primary GPG key to be used to sign packages
+        /// Primary keypair used to sign artifacts.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -430,7 +372,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// The secondary GPG key to be used to sign packages
+        /// Secondary keypair used to sign artifacts.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

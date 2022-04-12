@@ -9,45 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Virtual SBT Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource, but with specific sbt features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_sbt = new Artifactory.VirtualSbtRepository("foo-sbt", new Artifactory.VirtualSbtRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-sbt",
-    ///             Notes = "Internal description",
-    ///             PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///             Repositories = {},
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Virtual repositories can be imported using their name, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo foo
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualSbtRepository:VirtualSbtRepository")]
     public partial class VirtualSbtRepository : Pulumi.CustomResource
     {
@@ -101,7 +62,7 @@ namespace Pulumi.Artifactory
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
@@ -119,9 +80,10 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
@@ -254,7 +216,7 @@ namespace Pulumi.Artifactory
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
@@ -266,9 +228,10 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
@@ -374,7 +337,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The keypair used to sign artifacts.
+        /// The keypair used to sign artifacts
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
@@ -392,9 +355,10 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
-        /// - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
-        /// - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
+        /// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
+        /// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
+        /// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
+        /// Nothing - Does not remove any repository elements declared in the POM.
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }

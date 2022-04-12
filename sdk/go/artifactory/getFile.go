@@ -10,35 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory File Data Source
-//
-// Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.GetFile(ctx, &GetFileArgs{
-// 			OutputPath: "tmp/artifact.zip",
-// 			Path:       "/path/to/the/artifact.zip",
-// 			Repository: "repo-key",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 func GetFile(ctx *pulumi.Context, args *GetFileArgs, opts ...pulumi.InvokeOption) (*GetFileResult, error) {
 	var rv GetFileResult
 	err := ctx.Invoke("artifactory:index/getFile:getFile", args, &rv, opts...)
@@ -50,50 +21,33 @@ func GetFile(ctx *pulumi.Context, args *GetFileArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getFile.
 type GetFileArgs struct {
-	// If set to true, an existing file in the outputPath will be overwritten. Default: false
-	ForceOverwrite *bool `pulumi:"forceOverwrite"`
-	// The local path the file should be downloaded to.
-	OutputPath string `pulumi:"outputPath"`
-	// The path to the file within the repository.
-	Path string `pulumi:"path"`
-	// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-	// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-	PathIsAliased *bool `pulumi:"pathIsAliased"`
-	// Name of the repository where the file is stored.
-	Repository string `pulumi:"repository"`
+	ForceOverwrite *bool  `pulumi:"forceOverwrite"`
+	OutputPath     string `pulumi:"outputPath"`
+	Path           string `pulumi:"path"`
+	PathIsAliased  *bool  `pulumi:"pathIsAliased"`
+	Repository     string `pulumi:"repository"`
 }
 
 // A collection of values returned by getFile.
 type GetFileResult struct {
-	// The time & date when the file was created.
-	Created string `pulumi:"created"`
-	// The user who created the file.
-	CreatedBy string `pulumi:"createdBy"`
-	// The URI that can be used to download the file.
+	Created        string `pulumi:"created"`
+	CreatedBy      string `pulumi:"createdBy"`
 	DownloadUri    string `pulumi:"downloadUri"`
 	ForceOverwrite *bool  `pulumi:"forceOverwrite"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The time & date when the file was last modified.
-	LastModified string `pulumi:"lastModified"`
-	// The time & date when the file was last updated.
-	LastUpdated string `pulumi:"lastUpdated"`
-	// MD5 checksum of the file.
-	Md5 string `pulumi:"md5"`
-	// The mimetype of the file.
-	Mimetype string `pulumi:"mimetype"`
-	// The user who last modified the file.
+	Id            string `pulumi:"id"`
+	LastModified  string `pulumi:"lastModified"`
+	LastUpdated   string `pulumi:"lastUpdated"`
+	Md5           string `pulumi:"md5"`
+	Mimetype      string `pulumi:"mimetype"`
 	ModifiedBy    string `pulumi:"modifiedBy"`
 	OutputPath    string `pulumi:"outputPath"`
 	Path          string `pulumi:"path"`
 	PathIsAliased *bool  `pulumi:"pathIsAliased"`
 	Repository    string `pulumi:"repository"`
-	// SHA1 checksum of the file.
-	Sha1 string `pulumi:"sha1"`
-	// SHA256 checksum of the file.
-	Sha256 string `pulumi:"sha256"`
-	// The size of the file.
-	Size int `pulumi:"size"`
+	Sha1          string `pulumi:"sha1"`
+	Sha256        string `pulumi:"sha256"`
+	Size          int    `pulumi:"size"`
 }
 
 func GetFileOutput(ctx *pulumi.Context, args GetFileOutputArgs, opts ...pulumi.InvokeOption) GetFileResultOutput {
@@ -107,17 +61,11 @@ func GetFileOutput(ctx *pulumi.Context, args GetFileOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getFile.
 type GetFileOutputArgs struct {
-	// If set to true, an existing file in the outputPath will be overwritten. Default: false
 	ForceOverwrite pulumi.BoolPtrInput `pulumi:"forceOverwrite"`
-	// The local path the file should be downloaded to.
-	OutputPath pulumi.StringInput `pulumi:"outputPath"`
-	// The path to the file within the repository.
-	Path pulumi.StringInput `pulumi:"path"`
-	// If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
-	// if the file exists. More details in the [official documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveLatestArtifact)
-	PathIsAliased pulumi.BoolPtrInput `pulumi:"pathIsAliased"`
-	// Name of the repository where the file is stored.
-	Repository pulumi.StringInput `pulumi:"repository"`
+	OutputPath     pulumi.StringInput  `pulumi:"outputPath"`
+	Path           pulumi.StringInput  `pulumi:"path"`
+	PathIsAliased  pulumi.BoolPtrInput `pulumi:"pathIsAliased"`
+	Repository     pulumi.StringInput  `pulumi:"repository"`
 }
 
 func (GetFileOutputArgs) ElementType() reflect.Type {
@@ -139,17 +87,14 @@ func (o GetFileResultOutput) ToGetFileResultOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The time & date when the file was created.
 func (o GetFileResultOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Created }).(pulumi.StringOutput)
 }
 
-// The user who created the file.
 func (o GetFileResultOutput) CreatedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.CreatedBy }).(pulumi.StringOutput)
 }
 
-// The URI that can be used to download the file.
 func (o GetFileResultOutput) DownloadUri() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.DownloadUri }).(pulumi.StringOutput)
 }
@@ -163,27 +108,22 @@ func (o GetFileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The time & date when the file was last modified.
 func (o GetFileResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// The time & date when the file was last updated.
 func (o GetFileResultOutput) LastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.LastUpdated }).(pulumi.StringOutput)
 }
 
-// MD5 checksum of the file.
 func (o GetFileResultOutput) Md5() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Md5 }).(pulumi.StringOutput)
 }
 
-// The mimetype of the file.
 func (o GetFileResultOutput) Mimetype() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Mimetype }).(pulumi.StringOutput)
 }
 
-// The user who last modified the file.
 func (o GetFileResultOutput) ModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.ModifiedBy }).(pulumi.StringOutput)
 }
@@ -204,17 +144,14 @@ func (o GetFileResultOutput) Repository() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Repository }).(pulumi.StringOutput)
 }
 
-// SHA1 checksum of the file.
 func (o GetFileResultOutput) Sha1() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Sha1 }).(pulumi.StringOutput)
 }
 
-// SHA256 checksum of the file.
 func (o GetFileResultOutput) Sha256() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileResult) string { return v.Sha256 }).(pulumi.StringOutput)
 }
 
-// The size of the file.
 func (o GetFileResultOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFileResult) int { return v.Size }).(pulumi.IntOutput)
 }

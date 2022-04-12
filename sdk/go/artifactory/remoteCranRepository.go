@@ -11,36 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Remote Cran Repository Resource
-//
-// Creates a remote Cran repository.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories)
-//
-// ## Example Usage
-//
-// To create a new Artifactory remote Cran repository called my-remote-cran.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCranRepository(ctx, "my-remote-cran", &artifactory.RemoteCranRepositoryArgs{
-// 			Key: pulumi.String("my-remote-cran"),
-// 			Url: pulumi.String("https://cran.r-project.org/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type RemoteCranRepository struct {
 	pulumi.CustomResourceState
 
@@ -78,8 +48,7 @@ type RemoteCranRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key             pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
@@ -107,7 +76,8 @@ type RemoteCranRepository struct {
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy        pulumi.StringOutput      `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -128,10 +98,9 @@ type RemoteCranRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringOutput    `pulumi:"url"`
-	Username pulumi.StringPtrOutput `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               pulumi.StringOutput    `pulumi:"url"`
+	Username                          pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
@@ -206,8 +175,7 @@ type remoteCranRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key *string `pulumi:"key"`
+	Key             *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -235,7 +203,8 @@ type remoteCranRepositoryState struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -256,10 +225,9 @@ type remoteCranRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      *string `pulumi:"url"`
-	Username *string `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               *string `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -300,8 +268,7 @@ type RemoteCranRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringPtrInput
+	Key             pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -329,7 +296,8 @@ type RemoteCranRepositoryState struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -351,9 +319,8 @@ type RemoteCranRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringPtrInput
-	Username pulumi.StringPtrInput
+	Url                               pulumi.StringPtrInput
+	Username                          pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -396,8 +363,7 @@ type remoteCranRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// The repository identifier. Must be unique system-wide
-	Key string `pulumi:"key"`
+	Key             string  `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -424,7 +390,8 @@ type remoteCranRepositoryArgs struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -445,10 +412,9 @@ type remoteCranRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      string  `pulumi:"url"`
-	Username *string `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	Url                               string  `pulumi:"url"`
+	Username                          *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -488,8 +454,7 @@ type RemoteCranRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// The repository identifier. Must be unique system-wide
-	Key pulumi.StringInput
+	Key             pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -516,7 +481,8 @@ type RemoteCranRepositoryArgs struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -538,9 +504,8 @@ type RemoteCranRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	// - the remote repo URL. You kinda don't have a remote repo without it
-	Url      pulumi.StringInput
-	Username pulumi.StringPtrInput
+	Url                               pulumi.StringInput
+	Username                          pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput

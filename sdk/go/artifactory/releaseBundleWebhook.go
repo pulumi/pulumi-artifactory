@@ -11,76 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Release Bundle Webhook Resource
-//
-// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
-//
-// ## Example Usage
-//
-// .
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewReleaseBundleWebhook(ctx, "release-bundle-webhook", &artifactory.ReleaseBundleWebhookArgs{
-// 			Criteria: &ReleaseBundleWebhookCriteriaArgs{
-// 				AnyReleaseBundle: pulumi.Bool(false),
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				RegisteredReleaseBundleNames: pulumi.StringArray{
-// 					pulumi.String("bundle-name"),
-// 				},
-// 			},
-// 			CustomHttpHeaders: pulumi.StringMap{
-// 				"header-1": pulumi.String("value-1"),
-// 				"header-2": pulumi.String("value-2"),
-// 			},
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("created"),
-// 				pulumi.String("signed"),
-// 				pulumi.String("deleted"),
-// 			},
-// 			Key:    pulumi.String("release-bundle-webhook"),
-// 			Proxy:  pulumi.String("proxy-key"),
-// 			Secret: pulumi.String("some-secret"),
-// 			Url:    pulumi.String("http://tempurl.org/webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type ReleaseBundleWebhook struct {
 	pulumi.CustomResourceState
 
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaOutput `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapOutput `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrOutput `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -127,42 +76,44 @@ func GetReleaseBundleWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReleaseBundleWebhook resources.
 type releaseBundleWebhookState struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria *ReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes []string `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key *string `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy *string `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url *string `pulumi:"url"`
 }
 
 type ReleaseBundleWebhookState struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaPtrInput
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes pulumi.StringArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrInput
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrInput
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringPtrInput
@@ -173,21 +124,22 @@ func (ReleaseBundleWebhookState) ElementType() reflect.Type {
 }
 
 type releaseBundleWebhookArgs struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders map[string]string `pulumi:"customHttpHeaders"`
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description *string `pulumi:"description"`
 	// Status of webhook. Default to 'true'
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes []string `pulumi:"eventTypes"`
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key string `pulumi:"key"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy *string `pulumi:"proxy"`
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret *string `pulumi:"secret"`
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url string `pulumi:"url"`
@@ -195,21 +147,22 @@ type releaseBundleWebhookArgs struct {
 
 // The set of arguments for constructing a ReleaseBundleWebhook resource.
 type ReleaseBundleWebhookArgs struct {
-	// Specifies where the webhook will be applied on which repositories.
+	// Specifies where the webhook will be applied, on which release bundles or distributions.
 	Criteria ReleaseBundleWebhookCriteriaInput
 	// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
 	CustomHttpHeaders pulumi.StringMapInput
-	// Webhook description. Max length 1000 characters.
+	// Description of webhook. Max length 1000 characters.
 	Description pulumi.StringPtrInput
 	// Status of webhook. Default to 'true'
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
+	// values: created, signed, deleted
 	EventTypes pulumi.StringArrayInput
-	// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+	// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
 	Key pulumi.StringInput
 	// Proxy key from Artifactory Proxies setting
 	Proxy pulumi.StringPtrInput
-	// Secret authentication token that will be sent to the configured URL
+	// Secret authentication token that will be sent to the configured URL.
 	Secret pulumi.StringPtrInput
 	// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
 	Url pulumi.StringInput

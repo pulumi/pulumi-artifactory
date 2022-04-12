@@ -509,35 +509,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Nuget Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific nuget features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-nuget",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo foo
-        ```
-
+        Create a VirtualNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -569,35 +541,7 @@ class VirtualNugetRepository(pulumi.CustomResource):
                  args: VirtualNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Nuget Repository Resource
-
-        Provides an Artifactory virtual repository resource, but with specific nuget features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        foo_nuget = artifactory.VirtualNugetRepository("foo-nuget",
-            description="A test virtual repo",
-            excludes_pattern="com/google/**",
-            force_nuget_authentication=True,
-            includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-nuget",
-            notes="Internal description",
-            repositories=[])
-        ```
-
-        ## Import
-
-        Virtual repositories can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo foo
-        ```
-
+        Create a VirtualNugetRepository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VirtualNugetRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

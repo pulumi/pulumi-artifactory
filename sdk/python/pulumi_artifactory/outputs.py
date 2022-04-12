@@ -96,9 +96,9 @@ __all__ = [
     'RemoteP2RepositoryContentSynchronisation',
     'RemotePuppetRepositoryContentSynchronisation',
     'RemotePypiRepositoryContentSynchronisation',
-    'RemoteRepositoryContentSynchronisation',
     'RemoteRpmRepositoryContentSynchronisation',
     'RemoteSbtRepositoryContentSynchronisation',
+    'RemoteVcsRepositoryContentSynchronisation',
     'ReplicationConfigReplication',
 ]
 
@@ -164,13 +164,6 @@ class ArtifactPropertyWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_local: Trigger on any local repo
-        :param bool any_remote: Trigger on any remote repo
-        :param Sequence[str] repo_keys: Trigger on this list of repo keys
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -182,41 +175,26 @@ class ArtifactPropertyWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
-        """
-        Trigger on any local repo
-        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
-        """
-        Trigger on any remote repo
-        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
-        """
-        Trigger on this list of repo keys
-        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -253,13 +231,6 @@ class ArtifactWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_local: Trigger on any local repo
-        :param bool any_remote: Trigger on any remote repo
-        :param Sequence[str] repo_keys: Trigger on this list of repo keys
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -271,41 +242,26 @@ class ArtifactWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
-        """
-        Trigger on any local repo
-        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
-        """
-        Trigger on any remote repo
-        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
-        """
-        Trigger on this list of repo keys
-        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -339,12 +295,6 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_release_bundle: Trigger on any release bundle
-        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -355,33 +305,21 @@ class ArtifactoryReleaseBundleWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
-        """
-        Trigger on any release bundle
-        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
-        """
-        Trigger on this list of release bundle names
-        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -415,12 +353,6 @@ class BuildWebhookCriteria(dict):
                  selected_builds: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_build: Trigger on any build
-        :param Sequence[str] selected_builds: Trigger on this list of build names
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_build", any_build)
         pulumi.set(__self__, "selected_builds", selected_builds)
         if exclude_patterns is not None:
@@ -431,33 +363,21 @@ class BuildWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyBuild")
     def any_build(self) -> bool:
-        """
-        Trigger on any build
-        """
         return pulumi.get(self, "any_build")
 
     @property
     @pulumi.getter(name="selectedBuilds")
     def selected_builds(self) -> Sequence[str]:
-        """
-        Trigger on this list of build names
-        """
         return pulumi.get(self, "selected_builds")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -491,12 +411,6 @@ class DistributionWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_release_bundle: Trigger on any release bundle
-        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -507,33 +421,21 @@ class DistributionWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
-        """
-        Trigger on any release bundle
-        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
-        """
-        Trigger on this list of release bundle names
-        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -570,13 +472,6 @@ class DockerWebhookCriteria(dict):
                  repo_keys: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_local: Trigger on any local repo
-        :param bool any_remote: Trigger on any remote repo
-        :param Sequence[str] repo_keys: Trigger on this list of repo keys
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_local", any_local)
         pulumi.set(__self__, "any_remote", any_remote)
         pulumi.set(__self__, "repo_keys", repo_keys)
@@ -588,41 +483,26 @@ class DockerWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyLocal")
     def any_local(self) -> bool:
-        """
-        Trigger on any local repo
-        """
         return pulumi.get(self, "any_local")
 
     @property
     @pulumi.getter(name="anyRemote")
     def any_remote(self) -> bool:
-        """
-        Trigger on any remote repo
-        """
         return pulumi.get(self, "any_remote")
 
     @property
     @pulumi.getter(name="repoKeys")
     def repo_keys(self) -> Sequence[str]:
-        """
-        Trigger on this list of repo keys
-        """
         return pulumi.get(self, "repo_keys")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -631,27 +511,17 @@ class FederatedAlpineRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -660,27 +530,17 @@ class FederatedBowerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -689,27 +549,17 @@ class FederatedCargoRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -718,27 +568,17 @@ class FederatedChefRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -747,27 +587,17 @@ class FederatedCocoapodsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -776,27 +606,17 @@ class FederatedComposerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -805,27 +625,17 @@ class FederatedConanRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -834,27 +644,17 @@ class FederatedCondaRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -863,27 +663,17 @@ class FederatedCranRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -892,27 +682,17 @@ class FederatedDebianRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -921,27 +701,17 @@ class FederatedDockerRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -950,27 +720,17 @@ class FederatedGemsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -979,27 +739,17 @@ class FederatedGenericRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1008,27 +758,17 @@ class FederatedGitltfsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1037,27 +777,17 @@ class FederatedGoRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1066,27 +796,17 @@ class FederatedGradleRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1095,27 +815,17 @@ class FederatedHelmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1124,27 +834,17 @@ class FederatedIvyRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1153,27 +853,17 @@ class FederatedMavenRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1182,27 +872,17 @@ class FederatedNpmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1211,27 +891,17 @@ class FederatedNugetRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1240,27 +910,17 @@ class FederatedOpkgRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1269,27 +929,17 @@ class FederatedPuppetRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1298,27 +948,17 @@ class FederatedPypiRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1327,27 +967,17 @@ class FederatedRpmRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1356,27 +986,17 @@ class FederatedSbtRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1385,27 +1005,17 @@ class FederatedVagrantRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  url: str):
-        """
-        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        :param str url: Full URL to ending with the repository name
-        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Represents the active state of the federated member. It is supported to change the enabled status of my own member. The config will be updated on the other federated members automatically.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        Full URL to ending with the repository name
-        """
         return pulumi.get(self, "url")
 
 
@@ -1445,16 +1055,6 @@ class OauthSettingsOauthProvider(dict):
                  token_url: str,
                  type: str,
                  enabled: Optional[bool] = None):
-        """
-        :param str api_url: OAuth user info endpoint for the IdP.
-        :param str auth_url: OAuth authorization endpoint for the IdP.
-        :param str client_id: OAuth client ID configured on the IdP.
-        :param str client_secret: OAuth client secret configured on the IdP.
-        :param str name: Name of the Artifactory OAuth provider.
-        :param str token_url: OAuth token endpoint for the IdP.
-        :param str type: Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-        :param bool enabled: Enable the Artifactory OAuth provider.  Default value is `true`.
-        """
         pulumi.set(__self__, "api_url", api_url)
         pulumi.set(__self__, "auth_url", auth_url)
         pulumi.set(__self__, "client_id", client_id)
@@ -1468,65 +1068,41 @@ class OauthSettingsOauthProvider(dict):
     @property
     @pulumi.getter(name="apiUrl")
     def api_url(self) -> str:
-        """
-        OAuth user info endpoint for the IdP.
-        """
         return pulumi.get(self, "api_url")
 
     @property
     @pulumi.getter(name="authUrl")
     def auth_url(self) -> str:
-        """
-        OAuth authorization endpoint for the IdP.
-        """
         return pulumi.get(self, "auth_url")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
-        """
-        OAuth client ID configured on the IdP.
-        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> str:
-        """
-        OAuth client secret configured on the IdP.
-        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the Artifactory OAuth provider.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="tokenUrl")
     def token_url(self) -> str:
-        """
-        OAuth token endpoint for the IdP.
-        """
         return pulumi.get(self, "token_url")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        Enable the Artifactory OAuth provider.  Default value is `true`.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1556,12 +1132,6 @@ class PermissionTargetBuild(dict):
                  actions: Optional['outputs.PermissionTargetBuildActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetBuildActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -1573,33 +1143,21 @@ class PermissionTargetBuild(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetBuildActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -1608,10 +1166,6 @@ class PermissionTargetBuildActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetBuildActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -1620,17 +1174,11 @@ class PermissionTargetBuildActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetBuildActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -1639,18 +1187,12 @@ class PermissionTargetBuildActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1664,18 +1206,12 @@ class PermissionTargetBuildActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1710,12 +1246,6 @@ class PermissionTargetReleaseBundle(dict):
                  actions: Optional['outputs.PermissionTargetReleaseBundleActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetReleaseBundleActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -1727,33 +1257,21 @@ class PermissionTargetReleaseBundle(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetReleaseBundleActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -1762,10 +1280,6 @@ class PermissionTargetReleaseBundleActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -1774,17 +1288,11 @@ class PermissionTargetReleaseBundleActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetReleaseBundleActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -1793,18 +1301,12 @@ class PermissionTargetReleaseBundleActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1818,18 +1320,12 @@ class PermissionTargetReleaseBundleActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1864,12 +1360,6 @@ class PermissionTargetRepo(dict):
                  actions: Optional['outputs.PermissionTargetRepoActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetRepoActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -1881,33 +1371,21 @@ class PermissionTargetRepo(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetRepoActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -1916,10 +1394,6 @@ class PermissionTargetRepoActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetRepoActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -1928,17 +1402,11 @@ class PermissionTargetRepoActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetRepoActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -1947,18 +1415,12 @@ class PermissionTargetRepoActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1972,18 +1434,12 @@ class PermissionTargetRepoActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2018,12 +1474,6 @@ class PermissionTargetsBuild(dict):
                  actions: Optional['outputs.PermissionTargetsBuildActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetsBuildActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2035,33 +1485,21 @@ class PermissionTargetsBuild(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsBuildActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -2070,10 +1508,6 @@ class PermissionTargetsBuildActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetsBuildActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetsBuildActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetsBuildActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetsBuildActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2082,17 +1516,11 @@ class PermissionTargetsBuildActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetsBuildActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetsBuildActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -2101,18 +1529,12 @@ class PermissionTargetsBuildActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2126,18 +1548,12 @@ class PermissionTargetsBuildActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2172,12 +1588,6 @@ class PermissionTargetsReleaseBundle(dict):
                  actions: Optional['outputs.PermissionTargetsReleaseBundleActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetsReleaseBundleActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2189,33 +1599,21 @@ class PermissionTargetsReleaseBundle(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsReleaseBundleActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -2224,10 +1622,6 @@ class PermissionTargetsReleaseBundleActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetsReleaseBundleActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetsReleaseBundleActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetsReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetsReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2236,17 +1630,11 @@ class PermissionTargetsReleaseBundleActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetsReleaseBundleActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetsReleaseBundleActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -2255,18 +1643,12 @@ class PermissionTargetsReleaseBundleActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2280,18 +1662,12 @@ class PermissionTargetsReleaseBundleActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2326,12 +1702,6 @@ class PermissionTargetsRepo(dict):
                  actions: Optional['outputs.PermissionTargetsRepoActions'] = None,
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for
-        :param 'PermissionTargetsRepoActionsArgs' actions: -
-        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude
-        :param Sequence[str] includes_patterns: Pattern of artifacts to include
-        """
         pulumi.set(__self__, "repositories", repositories)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -2343,33 +1713,21 @@ class PermissionTargetsRepo(dict):
     @property
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
-        """
-        List of repositories this permission target is applicable for
-        """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsRepoActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="excludesPatterns")
     def excludes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to exclude
-        """
         return pulumi.get(self, "excludes_patterns")
 
     @property
     @pulumi.getter(name="includesPatterns")
     def includes_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Pattern of artifacts to include
-        """
         return pulumi.get(self, "includes_patterns")
 
 
@@ -2378,10 +1736,6 @@ class PermissionTargetsRepoActions(dict):
     def __init__(__self__, *,
                  groups: Optional[Sequence['outputs.PermissionTargetsRepoActionsGroup']] = None,
                  users: Optional[Sequence['outputs.PermissionTargetsRepoActionsUser']] = None):
-        """
-        :param Sequence['PermissionTargetsRepoActionsGroupArgs'] groups: Groups this permission applies for.
-        :param Sequence['PermissionTargetsRepoActionsUserArgs'] users: Users this permission target applies for.
-        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if users is not None:
@@ -2390,17 +1744,11 @@ class PermissionTargetsRepoActions(dict):
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.PermissionTargetsRepoActionsGroup']]:
-        """
-        Groups this permission applies for.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence['outputs.PermissionTargetsRepoActionsUser']]:
-        """
-        Users this permission target applies for.
-        """
         return pulumi.get(self, "users")
 
 
@@ -2409,18 +1757,12 @@ class PermissionTargetsRepoActionsGroup(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2434,18 +1776,12 @@ class PermissionTargetsRepoActionsUser(dict):
     def __init__(__self__, *,
                  name: str,
                  permissions: Sequence[str]):
-        """
-        :param str name: Name of permission
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -2492,10 +1828,6 @@ class PushReplicationReplication(dict):
                  sync_statistics: Optional[bool] = None,
                  url: Optional[str] = None,
                  username: Optional[str] = None):
-        """
-        :param str password: Requires password encryption to be turned off `POST /api/system/decrypt`
-        :param str proxy: Proxy key from Artifactory Proxies setting
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if password is not None:
@@ -2525,9 +1857,6 @@ class PushReplicationReplication(dict):
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
-        """
-        Requires password encryption to be turned off `POST /api/system/decrypt`
-        """
         return pulumi.get(self, "password")
 
     @property
@@ -2538,9 +1867,6 @@ class PushReplicationReplication(dict):
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
         return pulumi.get(self, "proxy")
 
     @property
@@ -2604,12 +1930,6 @@ class ReleaseBundleWebhookCriteria(dict):
                  registered_release_bundle_names: Sequence[str],
                  exclude_patterns: Optional[Sequence[str]] = None,
                  include_patterns: Optional[Sequence[str]] = None):
-        """
-        :param bool any_release_bundle: Trigger on any release bundle
-        :param Sequence[str] registered_release_bundle_names: Trigger on this list of release bundle names
-        :param Sequence[str] exclude_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        :param Sequence[str] include_patterns: Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         pulumi.set(__self__, "any_release_bundle", any_release_bundle)
         pulumi.set(__self__, "registered_release_bundle_names", registered_release_bundle_names)
         if exclude_patterns is not None:
@@ -2620,33 +1940,21 @@ class ReleaseBundleWebhookCriteria(dict):
     @property
     @pulumi.getter(name="anyReleaseBundle")
     def any_release_bundle(self) -> bool:
-        """
-        Trigger on any release bundle
-        """
         return pulumi.get(self, "any_release_bundle")
 
     @property
     @pulumi.getter(name="registeredReleaseBundleNames")
     def registered_release_bundle_names(self) -> Sequence[str]:
-        """
-        Trigger on this list of release bundle names
-        """
         return pulumi.get(self, "registered_release_bundle_names")
 
     @property
     @pulumi.getter(name="excludePatterns")
     def exclude_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "exclude_patterns")
 
     @property
     @pulumi.getter(name="includePatterns")
     def include_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
-        """
         return pulumi.get(self, "include_patterns")
 
 
@@ -2794,12 +2102,6 @@ class RemoteCargoRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -2812,33 +2114,21 @@ class RemoteCargoRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3276,12 +2566,6 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3294,33 +2578,21 @@ class RemoteDockerRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3410,12 +2682,6 @@ class RemoteGenericRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3428,33 +2694,21 @@ class RemoteGenericRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3602,12 +2856,6 @@ class RemoteGradleRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3620,33 +2868,21 @@ class RemoteGradleRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3678,12 +2914,6 @@ class RemoteHelmRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3696,33 +2926,21 @@ class RemoteHelmRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3754,12 +2972,6 @@ class RemoteIvyRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3772,33 +2984,21 @@ class RemoteIvyRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3830,12 +3030,6 @@ class RemoteMavenRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3848,33 +3042,21 @@ class RemoteMavenRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -3906,12 +3088,6 @@ class RemoteNpmRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -3924,33 +3100,21 @@ class RemoteNpmRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -4214,12 +3378,6 @@ class RemotePypiRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -4232,53 +3390,22 @@ class RemotePypiRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         return pulumi.get(self, "statistics_enabled")
-
-
-@pulumi.output_type
-class RemoteRepositoryContentSynchronisation(dict):
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -4367,12 +3494,6 @@ class RemoteSbtRepositoryContentSynchronisation(dict):
                  properties_enabled: Optional[bool] = None,
                  source_origin_absence_detection: Optional[bool] = None,
                  statistics_enabled: Optional[bool] = None):
-        """
-        :param bool enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        :param bool properties_enabled: If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        :param bool source_origin_absence_detection: If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        :param bool statistics_enabled: If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if properties_enabled is not None:
@@ -4385,33 +3506,79 @@ class RemoteSbtRepositoryContentSynchronisation(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="propertiesEnabled")
     def properties_enabled(self) -> Optional[bool]:
-        """
-        If set, properties for artifacts that have been cached in this repository will be updated if they are modified in the artifact hosted at the remote Artifactory instance. The trigger to synchronize the properties is download of the artifact from the remote repository cache of the local Artifactory instance. Default value is 'false'.
-        """
         return pulumi.get(self, "properties_enabled")
 
     @property
     @pulumi.getter(name="sourceOriginAbsenceDetection")
     def source_origin_absence_detection(self) -> Optional[bool]:
-        """
-        If set, Artifactory displays an indication on cached items if they have been deleted from the corresponding repository in the remote Artifactory instance. Default value is 'false'
-        """
         return pulumi.get(self, "source_origin_absence_detection")
 
     @property
     @pulumi.getter(name="statisticsEnabled")
     def statistics_enabled(self) -> Optional[bool]:
-        """
-        If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
-        """
+        return pulumi.get(self, "statistics_enabled")
+
+
+@pulumi.output_type
+class RemoteVcsRepositoryContentSynchronisation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertiesEnabled":
+            suggest = "properties_enabled"
+        elif key == "sourceOriginAbsenceDetection":
+            suggest = "source_origin_absence_detection"
+        elif key == "statisticsEnabled":
+            suggest = "statistics_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoteVcsRepositoryContentSynchronisation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoteVcsRepositoryContentSynchronisation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoteVcsRepositoryContentSynchronisation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 properties_enabled: Optional[bool] = None,
+                 source_origin_absence_detection: Optional[bool] = None,
+                 statistics_enabled: Optional[bool] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "properties_enabled")
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[bool]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[bool]:
         return pulumi.get(self, "statistics_enabled")
 
 
@@ -4453,10 +3620,6 @@ class ReplicationConfigReplication(dict):
                  sync_statistics: Optional[bool] = None,
                  url: Optional[str] = None,
                  username: Optional[str] = None):
-        """
-        :param str password: Requires password encryption to be turned off `POST /api/system/decrypt`
-        :param str proxy: Proxy key from Artifactory Proxies setting
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if password is not None:
@@ -4486,9 +3649,6 @@ class ReplicationConfigReplication(dict):
     @property
     @pulumi.getter
     def password(self) -> Optional[str]:
-        """
-        Requires password encryption to be turned off `POST /api/system/decrypt`
-        """
         return pulumi.get(self, "password")
 
     @property
@@ -4499,9 +3659,6 @@ class ReplicationConfigReplication(dict):
     @property
     @pulumi.getter
     def proxy(self) -> Optional[str]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
         return pulumi.get(self, "proxy")
 
     @property

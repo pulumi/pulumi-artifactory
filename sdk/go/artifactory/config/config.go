@@ -8,12 +8,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
 
-// This is a bearer token that can be given to you by your admin under `Identity and Access`
+// This is a access token that can be given to you by your admin under `Identity and Access`
 func GetAccessToken(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:accessToken")
 }
 
-// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+// API token. Projects functionality will not work with any auth method other than access tokens
 func GetApiKey(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:apiKey")
 }
@@ -26,19 +26,6 @@ func GetCheckLicense(ctx *pulumi.Context) bool {
 	}
 	return false
 }
-
-// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-// bearer token
-//
-// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-func GetPassword(ctx *pulumi.Context) string {
-	return config.Get(ctx, "artifactory:password")
-}
 func GetUrl(ctx *pulumi.Context) string {
 	return config.Get(ctx, "artifactory:url")
-}
-
-// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-func GetUsername(ctx *pulumi.Context) string {
-	return config.Get(ctx, "artifactory:username")
 }

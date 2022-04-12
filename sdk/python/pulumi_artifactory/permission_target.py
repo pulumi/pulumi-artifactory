@@ -21,9 +21,6 @@ class PermissionTargetArgs:
                  repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
         """
         The set of arguments for constructing a PermissionTarget resource.
-        :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration
         """
         if build is not None:
             pulumi.set(__self__, "build", build)
@@ -37,9 +34,6 @@ class PermissionTargetArgs:
     @property
     @pulumi.getter
     def build(self) -> Optional[pulumi.Input['PermissionTargetBuildArgs']]:
-        """
-        As for repo but for artifactory-build-info permssions.
-        """
         return pulumi.get(self, "build")
 
     @build.setter
@@ -49,9 +43,6 @@ class PermissionTargetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -70,9 +61,6 @@ class PermissionTargetArgs:
     @property
     @pulumi.getter
     def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
-        """
-        Repository permission configuration
-        """
         return pulumi.get(self, "repo")
 
     @repo.setter
@@ -89,9 +77,6 @@ class _PermissionTargetState:
                  repo: Optional[pulumi.Input['PermissionTargetRepoArgs']] = None):
         """
         Input properties used for looking up and filtering PermissionTarget resources.
-        :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration
         """
         if build is not None:
             pulumi.set(__self__, "build", build)
@@ -105,9 +90,6 @@ class _PermissionTargetState:
     @property
     @pulumi.getter
     def build(self) -> Optional[pulumi.Input['PermissionTargetBuildArgs']]:
-        """
-        As for repo but for artifactory-build-info permssions.
-        """
         return pulumi.get(self, "build")
 
     @build.setter
@@ -117,9 +99,6 @@ class _PermissionTargetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -138,9 +117,6 @@ class _PermissionTargetState:
     @property
     @pulumi.getter
     def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
-        """
-        Repository permission configuration
-        """
         return pulumi.get(self, "repo")
 
     @repo.setter
@@ -159,83 +135,9 @@ class PermissionTarget(pulumi.CustomResource):
                  repo: Optional[pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']]] = None,
                  __props__=None):
         """
-        ## # Artifactory Permission Target Resource
-
-        **Requires Artifactory >= 6.6.0. If using a lower version see here**
-
-        Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory permission target called testpermission
-        test_perm = artifactory.PermissionTarget("test-perm",
-            build=artifactory.PermissionTargetBuildArgs(
-                actions=artifactory.PermissionTargetBuildActionsArgs(
-                    users=[artifactory.PermissionTargetBuildActionsUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
-                ),
-                includes_patterns=["**"],
-                repositories=["artifactory-build-info"],
-            ),
-            repo=artifactory.PermissionTargetRepoArgs(
-                actions=artifactory.PermissionTargetRepoActionsArgs(
-                    groups=[artifactory.PermissionTargetRepoActionsGroupArgs(
-                        name="readers",
-                        permissions=["read"],
-                    )],
-                    users=[artifactory.PermissionTargetRepoActionsUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
-                ),
-                excludes_patterns=["bar/**"],
-                includes_patterns=["foo/**"],
-                repositories=["example-repo-local"],
-            ))
-        ```
-        ## Permissions
-
-        The provider supports the following `permission` enums:
-
-        * `read`
-        * `write`
-        * `annotate`
-        * `delete`
-        * `manage`
-
-        The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
-
-        * `read` - matches `Read` permissions.
-        * `write` - matches `  Deploy / Cache / Create ` permissions.
-        * `annotate` - matches `Annotate` permissions.
-        * `delete` - matches `Delete / Overwrite` permissions.
-        * `manage` - matches `Manage` permissions.
-
-        ## Import
-
-        Permission targets can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
-        ```
-
+        Create a PermissionTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration
         """
         ...
     @overload
@@ -244,78 +146,7 @@ class PermissionTarget(pulumi.CustomResource):
                  args: Optional[PermissionTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Permission Target Resource
-
-        **Requires Artifactory >= 6.6.0. If using a lower version see here**
-
-        Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_artifactory as artifactory
-
-        # Create a new Artifactory permission target called testpermission
-        test_perm = artifactory.PermissionTarget("test-perm",
-            build=artifactory.PermissionTargetBuildArgs(
-                actions=artifactory.PermissionTargetBuildActionsArgs(
-                    users=[artifactory.PermissionTargetBuildActionsUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
-                ),
-                includes_patterns=["**"],
-                repositories=["artifactory-build-info"],
-            ),
-            repo=artifactory.PermissionTargetRepoArgs(
-                actions=artifactory.PermissionTargetRepoActionsArgs(
-                    groups=[artifactory.PermissionTargetRepoActionsGroupArgs(
-                        name="readers",
-                        permissions=["read"],
-                    )],
-                    users=[artifactory.PermissionTargetRepoActionsUserArgs(
-                        name="anonymous",
-                        permissions=[
-                            "read",
-                            "write",
-                        ],
-                    )],
-                ),
-                excludes_patterns=["bar/**"],
-                includes_patterns=["foo/**"],
-                repositories=["example-repo-local"],
-            ))
-        ```
-        ## Permissions
-
-        The provider supports the following `permission` enums:
-
-        * `read`
-        * `write`
-        * `annotate`
-        * `delete`
-        * `manage`
-
-        The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
-
-        * `read` - matches `Read` permissions.
-        * `write` - matches `  Deploy / Cache / Create ` permissions.
-        * `annotate` - matches `Annotate` permissions.
-        * `delete` - matches `Delete / Overwrite` permissions.
-        * `manage` - matches `Manage` permissions.
-
-        ## Import
-
-        Permission targets can be imported using their name, e.g.
-
-        ```sh
-         $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
-        ```
-
+        Create a PermissionTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PermissionTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -372,9 +203,6 @@ class PermissionTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,17 +217,11 @@ class PermissionTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def build(self) -> pulumi.Output[Optional['outputs.PermissionTargetBuild']]:
-        """
-        As for repo but for artifactory-build-info permssions.
-        """
         return pulumi.get(self, "build")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of permission
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -410,8 +232,5 @@ class PermissionTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def repo(self) -> pulumi.Output[Optional['outputs.PermissionTargetRepo']]:
-        """
-        Repository permission configuration
-        """
         return pulumi.get(self, "repo")
 

@@ -9,55 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
-    /// <summary>
-    /// ## # Artifactory Pull Replication Resource
-    /// 
-    /// Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-    /// for a remote repo.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Artifactory = Pulumi.Artifactory;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalRepository("providerTestSource", new Artifactory.LocalRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_source",
-    ///             PackageType = "maven",
-    ///         });
-    ///         var providerTestDest = new Artifactory.RemoteRepository("providerTestDest", new Artifactory.RemoteRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_dest",
-    ///             PackageType = "maven",
-    ///             Password = "bar",
-    ///             Url = $"https://example.com/artifactory/{artifactory_local_repository.Artifactory_local_repository.Key}",
-    ///             Username = "foo",
-    ///         });
-    ///         var foo_rep = new Artifactory.PullReplication("foo-rep", new Artifactory.PullReplicationArgs
-    ///         {
-    ///             CronExp = "0 0 * * * ?",
-    ///             EnableEventReplication = true,
-    ///             RepoKey = providerTestDest.Key,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## Import
-    /// 
-    /// Pull replication config can be imported using its repo key, e.g.
-    /// 
-    /// ```sh
-    ///  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
-    /// ```
-    /// </summary>
     [ArtifactoryResourceType("artifactory:index/pullReplication:PullReplication")]
     public partial class PullReplication : Pulumi.CustomResource
     {

@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * // Create a new Artifactory API key for the configured user
- * const ci = new artifactory.ApiKey("ci", {});
- * ```
- *
- * ## Import
- *
- * A user's API key can be imported using any identifier, e.g.
- *
- * ```sh
- *  $ pulumi import artifactory:index/apiKey:ApiKey test import
- * ```
- */
 export class ApiKey extends pulumi.CustomResource {
     /**
      * Get an existing ApiKey resource's state with the given name, ID, and optional extra
@@ -51,9 +32,6 @@ export class ApiKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiKey.__pulumiType;
     }
 
-    /**
-     * The API key.
-     */
     public /*out*/ readonly apiKey!: pulumi.Output<string>;
 
     /**
@@ -83,9 +61,6 @@ export class ApiKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiKey resources.
  */
 export interface ApiKeyState {
-    /**
-     * The API key.
-     */
     apiKey?: pulumi.Input<string>;
 }
 
