@@ -225,7 +225,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_remote_p2_repository":               {Tok: makeResource(mainMod, "RemoteP2Repository")},
 			"artifactory_remote_puppet_repository":           {Tok: makeResource(mainMod, "RemotePuppetRepository")},
 			"artifactory_remote_rpm_repository":              {Tok: makeResource(mainMod, "RemoteRpmRepository")},
-			"artifactory_remote_vcs_repository":	          {Tok: makeResource(mainMod, "RemoteVcsRepository")},
+			"artifactory_remote_vcs_repository":              {Tok: makeResource(mainMod, "RemoteVcsRepository")},
 			"artifactory_virtual_alpine_repository":          {Tok: makeResource(mainMod, "VirtualAlpineRepository")},
 			"artifactory_virtual_bower_repository":           {Tok: makeResource(mainMod, "VirtualBowerRepository")},
 			"artifactory_virtual_chef_repository":            {Tok: makeResource(mainMod, "VirtualChefRepository")},
