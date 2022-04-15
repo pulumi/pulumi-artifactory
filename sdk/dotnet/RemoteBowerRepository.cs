@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Remote Bower Repository Resource
+    /// 
+    /// Creates a remote Bower repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// To create a new Artifactory remote Bower repository called my-remote-bower.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var my_remote_bower = new Artifactory.RemoteBowerRepository("my-remote-bower", new Artifactory.RemoteBowerRepositoryArgs
+    ///         {
+    ///             Key = "my-remote-bower",
+    ///             Url = "https://github.com/",
+    ///             VcsGitProvider = "GITHUB",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteBowerRepository:RemoteBowerRepository")]
     public partial class RemoteBowerRepository : Pulumi.CustomResource
     {
@@ -43,7 +72,7 @@ namespace Pulumi.Artifactory
         public Output<bool> BlockMismatchingMimeTypes { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
         /// </summary>
         [Output("bowerRegistryUrl")]
         public Output<string?> BowerRegistryUrl { get; private set; } = null!;
@@ -95,6 +124,9 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -230,6 +262,9 @@ namespace Pulumi.Artifactory
         [Output("unusedArtifactsCleanupPeriodHours")]
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -237,14 +272,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Output("vcsGitDownloadUrl")]
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -333,7 +367,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
         /// </summary>
         [Input("bowerRegistryUrl")]
         public Input<string>? BowerRegistryUrl { get; set; }
@@ -382,6 +416,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -526,6 +563,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -533,14 +573,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -590,7 +629,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
         /// </summary>
         [Input("bowerRegistryUrl")]
         public Input<string>? BowerRegistryUrl { get; set; }
@@ -642,6 +681,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -789,6 +831,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
@@ -796,14 +841,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

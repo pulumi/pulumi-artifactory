@@ -5,6 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Remote PHP Composer Repository Resource
+ *
+ * Creates a remote PHP Composer repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PHP+Composer+Repositories)
+ *
+ * ## Example Usage
+ *
+ * To create a new Artifactory remote PHP Composer repository called my-remote-composer.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_composer = new artifactory.RemoteComposerRepository("my-remote-composer", {
+ *     key: "my-remote-composer",
+ *     url: "https://github.com/",
+ *     vcsGitProvider: "GITHUB",
+ * });
+ * ```
+ */
 export class RemoteComposerRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteComposerRepository resource's state with the given name, ID, and optional extra
@@ -63,7 +84,7 @@ export class RemoteComposerRepository extends pulumi.CustomResource {
     public readonly bypassHeadRequests!: pulumi.Output<boolean>;
     public readonly clientTlsCertificate!: pulumi.Output<string>;
     /**
-     * (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
+     * Proxy remote Composer repository. Default value is "https://packagist.org".
      */
     public readonly composerRegistryUrl!: pulumi.Output<string | undefined>;
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteComposerRepositoryContentSynchronisation>;
@@ -91,6 +112,9 @@ export class RemoteComposerRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -178,15 +202,17 @@ export class RemoteComposerRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-     * instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -342,7 +368,7 @@ export interface RemoteComposerRepositoryState {
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     /**
-     * (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
+     * Proxy remote Composer repository. Default value is "https://packagist.org".
      */
     composerRegistryUrl?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteComposerRepositoryContentSynchronisation>;
@@ -370,6 +396,9 @@ export interface RemoteComposerRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -457,15 +486,17 @@ export interface RemoteComposerRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-     * instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -509,7 +540,7 @@ export interface RemoteComposerRepositoryArgs {
     bypassHeadRequests?: pulumi.Input<boolean>;
     clientTlsCertificate?: pulumi.Input<string>;
     /**
-     * (Optional) Proxy remote Composer repository. Default value is "https://packagist.org".
+     * Proxy remote Composer repository. Default value is "https://packagist.org".
      */
     composerRegistryUrl?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteComposerRepositoryContentSynchronisation>;
@@ -533,6 +564,9 @@ export interface RemoteComposerRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -619,15 +653,17 @@ export interface RemoteComposerRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-     * instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

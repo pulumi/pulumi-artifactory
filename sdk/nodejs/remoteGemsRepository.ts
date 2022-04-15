@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Remote Gems Repository Resource
+ *
+ * Creates a remote Gems repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RubyGems+Repositories)
+ *
+ * ## Example Usage
+ *
+ * To create a new Artifactory remote Gems repository called my-remote-gems.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my_remote_gems = new artifactory.RemoteGemsRepository("my-remote-gems", {
+ *     key: "my-remote-gems",
+ *     url: "https://rubygems.org/",
+ * });
+ * ```
+ */
 export class RemoteGemsRepository extends pulumi.CustomResource {
     /**
      * Get an existing RemoteGemsRepository resource's state with the given name, ID, and optional extra
@@ -87,6 +107,9 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     public readonly key!: pulumi.Output<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -174,6 +197,9 @@ export class RemoteGemsRepository extends pulumi.CustomResource {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
@@ -347,6 +373,9 @@ export interface RemoteGemsRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     key?: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -434,6 +463,9 @@ export interface RemoteGemsRepositoryState {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
@@ -497,6 +529,9 @@ export interface RemoteGemsRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * The repository identifier. Must be unique system-wide
+     */
     key: pulumi.Input<string>;
     /**
      * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
@@ -583,6 +618,9 @@ export interface RemoteGemsRepositoryArgs {
      * of 0 means automatic cleanup of cached artifacts is disabled.
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
+    /**
+     * - the remote repo URL. You kinda don't have a remote repo without it
+     */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**

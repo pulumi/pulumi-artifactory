@@ -11,12 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Local Cargo Repository Resource
+//
+// Creates a local Cargo repository
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
+// 			AnonymousAccess: pulumi.Bool(false),
+// 			Key:             pulumi.String("terraform-local-test-cargo-repo-basic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LocalCargoRepository struct {
 	pulumi.CustomResourceState
 
-	// (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
-	// anonymous access to these resources (only), note that this will override the security anonymous access option. Default
-	// value is 'false'.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -35,8 +60,7 @@ type LocalCargoRepository struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringOutput      `pulumi:"includesPattern"`
 	IndexCompressionFormats pulumi.StringArrayOutput `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key         pulumi.StringOutput    `pulumi:"key"`
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
@@ -88,9 +112,7 @@ func GetLocalCargoRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalCargoRepository resources.
 type localCargoRepositoryState struct {
-	// (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
-	// anonymous access to these resources (only), note that this will override the security anonymous access option. Default
-	// value is 'false'.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -109,8 +131,7 @@ type localCargoRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key         *string `pulumi:"key"`
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
@@ -131,9 +152,7 @@ type localCargoRepositoryState struct {
 }
 
 type LocalCargoRepositoryState struct {
-	// (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
-	// anonymous access to these resources (only), note that this will override the security anonymous access option. Default
-	// value is 'false'.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -152,8 +171,7 @@ type LocalCargoRepositoryState struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key         pulumi.StringPtrInput
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
@@ -178,9 +196,7 @@ func (LocalCargoRepositoryState) ElementType() reflect.Type {
 }
 
 type localCargoRepositoryArgs struct {
-	// (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
-	// anonymous access to these resources (only), note that this will override the security anonymous access option. Default
-	// value is 'false'.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -199,8 +215,7 @@ type localCargoRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         *string  `pulumi:"includesPattern"`
 	IndexCompressionFormats []string `pulumi:"indexCompressionFormats"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -221,9 +236,7 @@ type localCargoRepositoryArgs struct {
 
 // The set of arguments for constructing a LocalCargoRepository resource.
 type LocalCargoRepositoryArgs struct {
-	// (Optional) Cargo client does not send credentials when performing download and search for crates. Enable this to allow
-	// anonymous access to these resources (only), note that this will override the security anonymous access option. Default
-	// value is 'false'.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
@@ -242,8 +255,7 @@ type LocalCargoRepositoryArgs struct {
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern         pulumi.StringPtrInput
 	IndexCompressionFormats pulumi.StringArrayInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key   pulumi.StringInput
 	Notes pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field

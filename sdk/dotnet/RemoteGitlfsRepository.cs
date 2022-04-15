@@ -9,6 +9,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Remote Gitlfs Repository Resource
+    /// 
+    /// Creates a remote Gitlfs repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// To create a new Artifactory remote Gitlfs repository called my-remote-gitlfs.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var my_remote_gitlfs = new Artifactory.RemoteGitlfsRepository("my-remote-gitlfs", new Artifactory.RemoteGitlfsRepositoryArgs
+    ///         {
+    ///             Key = "my-remote-gitlfs",
+    ///             Url = "http://testartifactory.io/artifactory/example-gitlfs/",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository")]
     public partial class RemoteGitlfsRepository : Pulumi.CustomResource
     {
@@ -89,6 +117,9 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -224,6 +255,9 @@ namespace Pulumi.Artifactory
         [Output("unusedArtifactsCleanupPeriodHours")]
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -357,6 +391,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -501,6 +538,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -598,6 +638,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -745,6 +788,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

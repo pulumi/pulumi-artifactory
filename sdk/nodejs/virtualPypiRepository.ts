@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Pypi Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific pypi features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_pypi = new artifactory.VirtualPypiRepository("foo-pypi", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-pypi",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo foo
+ * ```
+ */
 export class VirtualPypiRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualPypiRepository resource's state with the given name, ID, and optional extra

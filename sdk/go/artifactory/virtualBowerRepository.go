@@ -11,6 +11,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Virtual Bower Repository Resource
+//
+// Provides an Artifactory virtual repository resource with specific bower features.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewVirtualBowerRepository(ctx, "foo-bower", &artifactory.VirtualBowerRepositoryArgs{
+// 			Description:                 pulumi.String("A test virtual repo"),
+// 			ExcludesPattern:             pulumi.String("com/google/**"),
+// 			ExternalDependenciesEnabled: pulumi.Bool(false),
+// 			IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+// 			Key:                         pulumi.String("foo-bower"),
+// 			Notes:                       pulumi.String("Internal description"),
+// 			Repositories:                pulumi.StringArray{},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo foo
+// ```
 type VirtualBowerRepository struct {
 	pulumi.CustomResourceState
 
@@ -25,12 +65,11 @@ type VirtualBowerRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
+	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-	// By default, this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrOutput `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -100,12 +139,11 @@ type virtualBowerRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
+	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-	// By default, this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -144,12 +182,11 @@ type VirtualBowerRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
+	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-	// By default, this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -192,12 +229,11 @@ type virtualBowerRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
+	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-	// By default, this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -235,12 +271,11 @@ type VirtualBowerRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// (Optional) When set, external dependencies are rewritten. Default value is false.
+	// When set, external dependencies are rewritten. Default value is false.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-	// By default, this is set to ** which means that dependencies may be downloaded from any external source.
+	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
-	// (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
 	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).

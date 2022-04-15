@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Docker Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific docker features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_docker = new artifactory.VirtualDockerRepository("foo-docker", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-docker",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo foo
+ * ```
+ */
 export class VirtualDockerRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualDockerRepository resource's state with the given name, ID, and optional extra

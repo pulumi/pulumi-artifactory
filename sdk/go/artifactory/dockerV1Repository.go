@@ -11,6 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Local Docker V1 Repository Resource
+//
+// Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewDockerV2Repository(ctx, "foo", &artifactory.DockerV2RepositoryArgs{
+// 			Key: pulumi.String("foo"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DockerV1Repository struct {
 	pulumi.CustomResourceState
 
@@ -32,8 +58,7 @@ type DockerV1Repository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key           pulumi.StringOutput    `pulumi:"key"`
 	MaxUniqueTags pulumi.IntOutput       `pulumi:"maxUniqueTags"`
 	Notes         pulumi.StringPtrOutput `pulumi:"notes"`
@@ -105,8 +130,7 @@ type dockerV1RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key           *string `pulumi:"key"`
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	Notes         *string `pulumi:"notes"`
@@ -147,8 +171,7 @@ type DockerV1RepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key           pulumi.StringPtrInput
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput
@@ -191,8 +214,7 @@ type dockerV1RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key           string  `pulumi:"key"`
 	MaxUniqueTags *int    `pulumi:"maxUniqueTags"`
 	Notes         *string `pulumi:"notes"`
@@ -230,8 +252,7 @@ type DockerV1RepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key           pulumi.StringInput
 	MaxUniqueTags pulumi.IntPtrInput
 	Notes         pulumi.StringPtrInput

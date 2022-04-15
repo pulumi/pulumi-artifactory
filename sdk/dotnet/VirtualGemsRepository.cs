@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Virtual Gems Repository Resource
+    /// 
+    /// Provides an Artifactory virtual repository resource with specific gems features.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo_gems = new Artifactory.VirtualGemsRepository("foo-gems", new Artifactory.VirtualGemsRepositoryArgs
+    ///         {
+    ///             Description = "A test virtual repo",
+    ///             ExcludesPattern = "com/google/**",
+    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///             Key = "foo-gems",
+    ///             Notes = "Internal description",
+    ///             Repositories = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGemsRepository:VirtualGemsRepository")]
     public partial class VirtualGemsRepository : Pulumi.CustomResource
     {

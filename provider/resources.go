@@ -86,7 +86,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v3",
+		TFProviderModuleVersion: "v6",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
@@ -246,6 +246,9 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_virtual_sbt_repository":             {Tok: makeResource(mainMod, "VirtualSbtRepository")},
 			"artifactory_local_cargo_repository":             {Tok: makeResource(mainMod, "LocalCargoRepository")},
 			"artifactory_local_conda_repository":             {Tok: makeResource(mainMod, "LocalCondaRepository")},
+			"artifactory_anonymous_user":                     {Tok: makeResource(mainMod, "AnonymousUser")},
+			"artifactory_managed_user":                       {Tok: makeResource(mainMod, "ManagedUser")},
+			"artifactory_unmanaged_user":                     {Tok: makeResource(mainMod, "UnmanagedUser")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

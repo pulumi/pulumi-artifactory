@@ -32,11 +32,8 @@ class FederatedComposerRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedComposerRepository resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -78,6 +75,9 @@ class FederatedComposerRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -88,11 +88,7 @@ class FederatedComposerRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -260,11 +256,8 @@ class _FederatedComposerRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -366,6 +359,9 @@ class _FederatedComposerRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -376,11 +372,7 @@ class _FederatedComposerRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedComposerRepositoryMemberArgs']]]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -496,17 +488,37 @@ class FederatedComposerRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FederatedComposerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Federated Composer Repository Resource
+
+        Creates a federated Composer repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_composer_repo = artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo",
+            key="terraform-federated-test-composer-repo",
+            members=[
+                artifactory.FederatedComposerRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
+                ),
+                artifactory.FederatedComposerRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
+                ),
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedComposerRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedComposerRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -520,7 +532,30 @@ class FederatedComposerRepository(pulumi.CustomResource):
                  args: FederatedComposerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FederatedComposerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Federated Composer Repository Resource
+
+        Creates a federated Composer repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_composer_repo = artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo",
+            key="terraform-federated-test-composer-repo",
+            members=[
+                artifactory.FederatedComposerRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
+                ),
+                artifactory.FederatedComposerRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
+                ),
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param FederatedComposerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -619,11 +654,8 @@ class FederatedComposerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedComposerRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedComposerRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -690,17 +722,16 @@ class FederatedComposerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedComposerRepositoryMember']]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 

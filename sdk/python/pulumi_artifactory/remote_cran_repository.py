@@ -55,6 +55,8 @@ class RemoteCranRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteCranRepository resource.
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -183,6 +185,9 @@ class RemoteCranRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -192,6 +197,9 @@ class RemoteCranRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -693,6 +701,7 @@ class _RemoteCranRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -720,6 +729,7 @@ class _RemoteCranRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -965,6 +975,9 @@ class _RemoteCranRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1244,6 +1257,9 @@ class _RemoteCranRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1318,7 +1334,24 @@ class RemoteCranRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteCranRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Cran Repository Resource
+
+        Creates a remote Cran repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Cran repository called my-remote-cran.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_cran = artifactory.RemoteCranRepository("my-remote-cran",
+            key="my-remote-cran",
+            url="https://cran.r-project.org/")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -1341,6 +1374,7 @@ class RemoteCranRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1368,6 +1402,7 @@ class RemoteCranRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1378,7 +1413,24 @@ class RemoteCranRepository(pulumi.CustomResource):
                  args: RemoteCranRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteCranRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Cran Repository Resource
+
+        Creates a remote Cran repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Cran repository called my-remote-cran.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_cran = artifactory.RemoteCranRepository("my-remote-cran",
+            key="my-remote-cran",
+            url="https://cran.r-project.org/")
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteCranRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1565,6 +1617,7 @@ class RemoteCranRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1592,6 +1645,7 @@ class RemoteCranRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1747,6 +1801,9 @@ class RemoteCranRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -1930,6 +1987,9 @@ class RemoteCranRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @property

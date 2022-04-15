@@ -476,7 +476,18 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a VirtualGitlfsRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Git LFS Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific git lfs features.
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -507,7 +518,18 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
                  args: VirtualGitlfsRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualGitlfsRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Git LFS Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific git lfs features.
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualGitlfsRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

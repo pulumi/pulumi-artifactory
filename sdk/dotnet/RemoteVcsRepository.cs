@@ -9,6 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Remote Go Repository Resource
+    /// 
+    /// Creates a remote VCS repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories)
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteVcsRepository:RemoteVcsRepository")]
     public partial class RemoteVcsRepository : Pulumi.CustomResource
     {
@@ -89,6 +95,9 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -107,8 +116,9 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Output("maxUniqueSnapshots")]
         public Output<int?> MaxUniqueSnapshots { get; private set; } = null!;
@@ -231,6 +241,9 @@ namespace Pulumi.Artifactory
         [Output("unusedArtifactsCleanupPeriodHours")]
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
+        /// <summary>
+        /// - the remote repo URL.
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -238,14 +251,15 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Output("vcsGitDownloadUrl")]
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, 
+        /// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+        /// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -377,6 +391,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -395,8 +412,9 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
@@ -528,6 +546,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -535,14 +556,15 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, 
+        /// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+        /// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -638,6 +660,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -656,8 +681,9 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
@@ -792,6 +818,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
@@ -799,14 +828,15 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        /// instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket, 
+        /// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+        /// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

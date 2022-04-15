@@ -9,6 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Local Docker V1 Repository Resource
+    /// 
+    /// Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Artifactory.DockerV2Repository("foo", new Artifactory.DockerV2RepositoryArgs
+    ///         {
+    ///             Key = "foo",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerV1Repository:DockerV1Repository")]
     public partial class DockerV1Repository : Pulumi.CustomResource
     {
@@ -57,8 +81,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -198,8 +221,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -312,8 +334,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

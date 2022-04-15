@@ -9,6 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a replication between two artifactory local repositories
+    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_source",
+    ///         });
+    ///         var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new Artifactory.LocalMavenRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_dest",
+    ///         });
+    ///         var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new Artifactory.ReplicationConfigArgs
+    ///         {
+    ///             CronExp = "0 0 * * * ?",
+    ///             EnableEventReplication = true,
+    ///             Replications = 
+    ///             {
+    ///                 new Artifactory.Inputs.ReplicationConfigReplicationArgs
+    ///                 {
+    ///                     Password = "$var.artifactory_password",
+    ///                     Url = "$var.artifactory_url",
+    ///                     Username = "$var.artifactory_username",
+    ///                 },
+    ///             },
+    ///             RepoKey = providerTestSource.Key,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Replication configs can be imported using their repo key, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/replicationConfig:ReplicationConfig")]
     public partial class ReplicationConfig : Pulumi.CustomResource
     {

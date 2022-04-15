@@ -36,8 +36,7 @@ class VirtualDebianRepositoryArgs:
                'libs-release-local').
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
-        :param pulumi.Input[str] debian_default_architectures: (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-               architecture values are amd64 and i386.
+        :param pulumi.Input[str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
@@ -46,9 +45,8 @@ class VirtualDebianRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-               values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
-        :param pulumi.Input[str] primary_keypair_ref: (Optional) Primary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -56,7 +54,7 @@ class VirtualDebianRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -121,8 +119,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="debianDefaultArchitectures")
     def debian_default_architectures(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        architecture values are amd64 and i386.
+        Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         """
         return pulumi.get(self, "debian_default_architectures")
 
@@ -197,8 +194,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
@@ -210,7 +206,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Primary keypair used to sign artifacts. Default is empty.
+        Primary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -284,7 +280,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        Secondary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -317,8 +313,7 @@ class _VirtualDebianRepositoryState:
         Input properties used for looking up and filtering VirtualDebianRepository resources.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
-        :param pulumi.Input[str] debian_default_architectures: (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-               architecture values are amd64 and i386.
+        :param pulumi.Input[str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
@@ -330,10 +325,9 @@ class _VirtualDebianRepositoryState:
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-               values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: (Optional) Primary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -341,7 +335,7 @@ class _VirtualDebianRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -395,8 +389,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="debianDefaultArchitectures")
     def debian_default_architectures(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        architecture values are amd64 and i386.
+        Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         """
         return pulumi.get(self, "debian_default_architectures")
 
@@ -485,8 +478,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
@@ -510,7 +502,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Primary keypair used to sign artifacts. Default is empty.
+        Primary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -584,7 +576,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        Secondary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -616,13 +608,43 @@ class VirtualDebianRepository(pulumi.CustomResource):
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VirtualDebianRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Debian Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific debian features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_debian = artifactory.VirtualDebianRepository("foo-debian",
+            debian_default_architectures="amd64,i386",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-debian",
+            notes="Internal description",
+            optional_index_compression_formats=[
+                "bz2",
+                "xz",
+            ],
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
-        :param pulumi.Input[str] debian_default_architectures: (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-               architecture values are amd64 and i386.
+        :param pulumi.Input[str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
@@ -634,9 +656,8 @@ class VirtualDebianRepository(pulumi.CustomResource):
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-               values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
-        :param pulumi.Input[str] primary_keypair_ref: (Optional) Primary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -644,7 +665,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         ...
     @overload
@@ -653,7 +674,38 @@ class VirtualDebianRepository(pulumi.CustomResource):
                  args: VirtualDebianRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualDebianRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Debian Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific debian features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_debian = artifactory.VirtualDebianRepository("foo-debian",
+            debian_default_architectures="amd64,i386",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-debian",
+            notes="Internal description",
+            optional_index_compression_formats=[
+                "bz2",
+                "xz",
+            ],
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualDebianRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -752,8 +804,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
-        :param pulumi.Input[str] debian_default_architectures: (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-               architecture values are amd64 and i386.
+        :param pulumi.Input[str] debian_default_architectures: Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
         :param pulumi.Input[str] description: A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
@@ -765,10 +816,9 @@ class VirtualDebianRepository(pulumi.CustomResource):
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-               values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: (Optional) Primary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -776,7 +826,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -814,8 +864,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="debianDefaultArchitectures")
     def debian_default_architectures(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        architecture values are amd64 and i386.
+        Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         """
         return pulumi.get(self, "debian_default_architectures")
 
@@ -876,8 +925,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> pulumi.Output[Sequence[str]]:
         """
-        (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
@@ -893,7 +941,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Primary keypair used to sign artifacts. Default is empty.
+        Primary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -943,7 +991,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        Secondary keypair used to sign artifacts. Default is empty.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

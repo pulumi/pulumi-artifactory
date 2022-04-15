@@ -11,6 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Virtual Rpm Repository Resource
+//
+// Provides an Artifactory virtual repository resource with Rpm package type.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
+// 			PairName:   pulumi.String("primary-keypair"),
+// 			PairType:   pulumi.String("GPG"),
+// 			Alias:      pulumi.String("foo-alias-1"),
+// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
+// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
+// 			PairName:   pulumi.String("secondary-keypair"),
+// 			PairType:   pulumi.String("GPG"),
+// 			Alias:      pulumi.String("foo-alias-2"),
+// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
+// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
+// 			Key:                 pulumi.String("foo-rpm-virtual"),
+// 			PrimaryKeypairRef:   primary_keypair.PairName,
+// 			SecondaryKeypairRef: secondary_keypair.PairName,
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			primary_keypair,
+// 			secondary_keypair,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
+// ```
 type VirtualRpmRepository struct {
 	pulumi.CustomResourceState
 
@@ -36,7 +105,7 @@ type VirtualRpmRepository struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -50,7 +119,7 @@ type VirtualRpmRepository struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 }
 
@@ -108,7 +177,7 @@ type virtualRpmRepositoryState struct {
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -122,7 +191,7 @@ type virtualRpmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -149,7 +218,7 @@ type VirtualRpmRepositoryState struct {
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -163,7 +232,7 @@ type VirtualRpmRepositoryState struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 
@@ -192,7 +261,7 @@ type virtualRpmRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -206,7 +275,7 @@ type virtualRpmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
 
@@ -232,7 +301,7 @@ type VirtualRpmRepositoryArgs struct {
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Primary keypair used to sign artifacts.
+	// The primary GPG key to be used to sign packages
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -246,7 +315,7 @@ type VirtualRpmRepositoryArgs struct {
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 	// repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
-	// Secondary keypair used to sign artifacts.
+	// The secondary GPG key to be used to sign packages
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
 

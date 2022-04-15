@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./accessToken";
 export * from "./alpineRepository";
+export * from "./anonymousUser";
 export * from "./apiKey";
 export * from "./artifactPropertyWebhook";
 export * from "./artifactWebhook";
@@ -78,6 +79,7 @@ export * from "./localPypiRepository";
 export * from "./localRpmRepository";
 export * from "./localSbtRepository";
 export * from "./localVagrantRepository";
+export * from "./managedUser";
 export * from "./mavenRepository";
 export * from "./oauthSettings";
 export * from "./permissionTarget";
@@ -117,6 +119,7 @@ export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
+export * from "./unmanagedUser";
 export * from "./user";
 export * from "./virtualAlpineRepository";
 export * from "./virtualBowerRepository";
@@ -153,6 +156,7 @@ export {
 // Import resources to register:
 import { AccessToken } from "./accessToken";
 import { AlpineRepository } from "./alpineRepository";
+import { AnonymousUser } from "./anonymousUser";
 import { ApiKey } from "./apiKey";
 import { ArtifactPropertyWebhook } from "./artifactPropertyWebhook";
 import { ArtifactWebhook } from "./artifactWebhook";
@@ -222,6 +226,7 @@ import { LocalPypiRepository } from "./localPypiRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
 import { LocalSbtRepository } from "./localSbtRepository";
 import { LocalVagrantRepository } from "./localVagrantRepository";
+import { ManagedUser } from "./managedUser";
 import { MavenRepository } from "./mavenRepository";
 import { OauthSettings } from "./oauthSettings";
 import { PermissionTarget } from "./permissionTarget";
@@ -260,6 +265,7 @@ import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
+import { UnmanagedUser } from "./unmanagedUser";
 import { User } from "./user";
 import { VirtualAlpineRepository } from "./virtualAlpineRepository";
 import { VirtualBowerRepository } from "./virtualBowerRepository";
@@ -292,6 +298,8 @@ const _module = {
                 return new AccessToken(name, <any>undefined, { urn })
             case "artifactory:index/alpineRepository:AlpineRepository":
                 return new AlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/anonymousUser:AnonymousUser":
+                return new AnonymousUser(name, <any>undefined, { urn })
             case "artifactory:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
@@ -430,6 +438,8 @@ const _module = {
                 return new LocalSbtRepository(name, <any>undefined, { urn })
             case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
                 return new LocalVagrantRepository(name, <any>undefined, { urn })
+            case "artifactory:index/managedUser:ManagedUser":
+                return new ManagedUser(name, <any>undefined, { urn })
             case "artifactory:index/mavenRepository:MavenRepository":
                 return new MavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/oauthSettings:OauthSettings":
@@ -506,6 +516,8 @@ const _module = {
                 return new SamlSettings(name, <any>undefined, { urn })
             case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
                 return new SingleReplicationConfig(name, <any>undefined, { urn })
+            case "artifactory:index/unmanagedUser:UnmanagedUser":
+                return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
@@ -559,6 +571,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("artifactory", "index/accessToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
@@ -628,6 +641,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
@@ -666,6 +680,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)

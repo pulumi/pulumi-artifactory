@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual PHP Composer Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific php composer features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_composer = new artifactory.VirtualComposerRepository("foo-composer", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-composer",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualComposerRepository:VirtualComposerRepository foo foo
+ * ```
+ */
 export class VirtualComposerRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualComposerRepository resource's state with the given name, ID, and optional extra

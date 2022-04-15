@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Virtual Conda Repository Resource
+    /// 
+    /// Provides an Artifactory virtual repository resource with specific conda features.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new Artifactory.VirtualCondaRepositoryArgs
+    ///         {
+    ///             Description = "A test virtual repo",
+    ///             ExcludesPattern = "com/google/**",
+    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///             Key = "foo-conda",
+    ///             Notes = "Internal description",
+    ///             Repositories = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualCondaRepository:VirtualCondaRepository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualCondaRepository:VirtualCondaRepository")]
     public partial class VirtualCondaRepository : Pulumi.CustomResource
     {
@@ -92,8 +129,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -230,8 +266,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -335,8 +370,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }

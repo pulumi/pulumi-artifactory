@@ -15,12 +15,18 @@ namespace Pulumi.Artifactory.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

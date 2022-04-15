@@ -5,6 +5,44 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Push Replication Resource
+ *
+ * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
+ *     key: "provider_test_source",
+ * });
+ * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {
+ *     key: "provider_test_dest",
+ * });
+ * const foo_rep = new artifactory.PushReplication("foo-rep", {
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     replications: [{
+ *         password: "$var.artifactory_password",
+ *         url: "$var.artifactory_url",
+ *         username: "$var.artifactory_username",
+ *     }],
+ *     repoKey: providerTestSource.key,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Push replication configs can be imported using their repo key, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+ * ```
+ */
 export class PushReplication extends pulumi.CustomResource {
     /**
      * Get an existing PushReplication resource's state with the given name, ID, and optional extra

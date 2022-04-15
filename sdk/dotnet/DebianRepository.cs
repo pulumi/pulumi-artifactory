@@ -9,6 +9,63 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Local Debian Repository Resource
+    /// 
+    /// Creates a local Debian repository and allows for the creation of a GPG key
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias1",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
+    ///         var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair4{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias2",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
+    ///         var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new Artifactory.DebianRepositoryArgs
+    ///         {
+    ///             Key = "my-debian-repo",
+    ///             PrimaryKeypairRef = some_keypairGPG1.PairName,
+    ///             SecondaryKeypairRef = some_keypairGPG2.PairName,
+    ///             IndexCompressionFormats = 
+    ///             {
+    ///                 "bz2",
+    ///                 "lzma",
+    ///                 "xz",
+    ///             },
+    ///             TrivialLayout = true,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 some_keypairGPG1,
+    ///                 some_keypairGPG2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/debianRepository:DebianRepository")]
     public partial class DebianRepository : Pulumi.CustomResource
     {
@@ -50,12 +107,14 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// - If you're creating this repo, then maybe you know?
+        /// </summary>
         [Output("indexCompressionFormats")]
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -67,7 +126,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - The RSA key to be used to sign packages
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -104,13 +163,13 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - Not really clear what this does
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
 
         /// <summary>
-        /// When set, the repository will use the deprecated trivial layout.
+        /// - Apparently this is a deprecated repo layout
         /// </summary>
         [Output("trivialLayout")]
         public Output<bool?> TrivialLayout { get; private set; } = null!;
@@ -208,6 +267,10 @@ namespace Pulumi.Artifactory
 
         [Input("indexCompressionFormats")]
         private InputList<string>? _indexCompressionFormats;
+
+        /// <summary>
+        /// - If you're creating this repo, then maybe you know?
+        /// </summary>
         public InputList<string> IndexCompressionFormats
         {
             get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
@@ -215,8 +278,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -225,7 +287,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - The RSA key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -274,13 +336,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - Not really clear what this does
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
-        /// When set, the repository will use the deprecated trivial layout.
+        /// - Apparently this is a deprecated repo layout
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }
@@ -339,6 +401,10 @@ namespace Pulumi.Artifactory
 
         [Input("indexCompressionFormats")]
         private InputList<string>? _indexCompressionFormats;
+
+        /// <summary>
+        /// - If you're creating this repo, then maybe you know?
+        /// </summary>
         public InputList<string> IndexCompressionFormats
         {
             get => _indexCompressionFormats ?? (_indexCompressionFormats = new InputList<string>());
@@ -346,8 +412,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -359,7 +424,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - The RSA key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -408,13 +473,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Used to sign index files in Debian artifacts.
+        /// - Not really clear what this does
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
-        /// When set, the repository will use the deprecated trivial layout.
+        /// - Apparently this is a deprecated repo layout
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }

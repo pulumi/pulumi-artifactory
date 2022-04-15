@@ -9,6 +9,30 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Local Helm Repository Resource
+    /// 
+    /// Creates a local helm repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraform_local_test_helm_repo = new Artifactory.LocalHelmRepository("terraform-local-test-helm-repo", new Artifactory.LocalHelmRepositoryArgs
+    ///         {
+    ///             Key = "terraform-local-test-helm-repo",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localHelmRepository:LocalHelmRepository")]
     public partial class LocalHelmRepository : Pulumi.CustomResource
     {
@@ -51,8 +75,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -186,8 +209,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -291,8 +313,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

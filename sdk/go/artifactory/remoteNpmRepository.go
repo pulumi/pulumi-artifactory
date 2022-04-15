@@ -11,52 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Remote npm Repository Resource
+//
+// Provides an Artifactory remote `npm` repository resource. This provides npm specific fields and is the only way to get them
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry)
+//
+// ## Example Usage
+//
+// Create a new Artifactory remote npm repository called my-remote-npm
+// for brevity sake, only npm specific fields are included; for other fields see documentation for
+// generic repo.
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewRemoteNpmRepository(ctx, "thing", &artifactory.RemoteNpmRepositoryArgs{
+// 			Key:                              pulumi.String("remote-thing-npm"),
+// 			ListRemoteFolderItems:            pulumi.Bool(true),
+// 			MismatchingMimeTypesOverrideList: pulumi.String("application/json,application/xml"),
+// 			Url:                              pulumi.String("https://registry.npmjs.org/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RemoteNpmRepository struct {
 	pulumi.CustomResourceState
 
-	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-	// any other host.
+	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth pulumi.BoolOutput `pulumi:"allowAnyHostAuth"`
-	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-	// offline. Default to 300.
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrOutput `pulumi:"assumedOfflinePeriodSecs"`
-	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-	// resolution.
+	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
 	BlackedOut pulumi.BoolOutput `pulumi:"blackedOut"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BlockMismatchingMimeTypes pulumi.BoolOutput `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolOutput                               `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   pulumi.StringOutput                             `pulumi:"clientTlsCertificate"`
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	BypassHeadRequests   pulumi.BoolOutput   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate pulumi.StringOutput `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                             `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
+	//
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntOutput `pulumi:"failedRetrievalCachePeriodSecs"`
-	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-	// communicate with this repository.
+	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	Key             pulumi.StringOutput `pulumi:"key"`
-	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-	// value of the 'Retrieval Cache Period'. Default value is 'false'.
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringOutput `pulumi:"key"`
+	// - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
-	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-	// multiple network interfaces.
+	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
-	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-	// "application/json,application/xml". Default value is empty.
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
@@ -69,8 +92,7 @@ type RemoteNpmRepository struct {
 	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
@@ -80,29 +102,24 @@ type RemoteNpmRepository struct {
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntOutput  `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration          pulumi.BoolOutput `pulumi:"shareConfiguration"`
-	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-	// operation is considered a retrieval failure.
+	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntOutput `pulumi:"socketTimeoutMillis"`
-	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-	// servers.
+	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
 	StoreArtifactsLocally pulumi.BoolOutput `pulumi:"storeArtifactsLocally"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties               pulumi.BoolOutput `pulumi:"synchronizeProperties"`
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
-	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
-	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringOutput    `pulumi:"url"`
-	Username                          pulumi.StringPtrOutput `pulumi:"username"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringOutput    `pulumi:"url"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
 }
 
@@ -141,49 +158,39 @@ func GetRemoteNpmRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemoteNpmRepository resources.
 type remoteNpmRepositoryState struct {
-	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-	// any other host.
+	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-	// offline. Default to 300.
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
 	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
-	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-	// resolution.
+	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                      `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteNpmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                    `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
+	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
+	//
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs *int `pulumi:"failedRetrievalCachePeriodSecs"`
-	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-	// communicate with this repository.
+	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             *string `pulumi:"key"`
-	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-	// value of the 'Retrieval Cache Period'. Default value is 'false'.
+	// The repository identifier. Must be unique system-wide
+	Key *string `pulumi:"key"`
+	// - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
-	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-	// multiple network interfaces.
+	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-	// "application/json,application/xml". Default value is empty.
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
@@ -196,8 +203,7 @@ type remoteNpmRepositoryState struct {
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
@@ -207,76 +213,61 @@ type remoteNpmRepositoryState struct {
 	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
-	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-	// operation is considered a retrieval failure.
+	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
-	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-	// servers.
+	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties               *bool `pulumi:"synchronizeProperties"`
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
-	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
-	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      *string `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 type RemoteNpmRepositoryState struct {
-	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-	// any other host.
+	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-	// offline. Default to 300.
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
-	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-	// resolution.
+	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
 	BlackedOut pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
+	// This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
+	//
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
-	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-	// communicate with this repository.
+	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringPtrInput
-	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-	// value of the 'Retrieval Cache Period'. Default value is 'false'.
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringPtrInput
+	// - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrInput
-	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-	// multiple network interfaces.
+	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-	// "application/json,application/xml". Default value is empty.
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput
@@ -289,8 +280,7 @@ type RemoteNpmRepositoryState struct {
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams pulumi.BoolPtrInput
@@ -300,29 +290,24 @@ type RemoteNpmRepositoryState struct {
 	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	ShareConfiguration          pulumi.BoolPtrInput
-	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-	// operation is considered a retrieval failure.
+	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
-	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-	// servers.
+	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties               pulumi.BoolPtrInput
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolPtrInput
-	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
-	// of 0 means automatic cleanup of cached artifacts is disabled.
+	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringPtrInput
-	Username                          pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringPtrInput
+	Username pulumi.StringPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 
@@ -331,47 +316,35 @@ func (RemoteNpmRepositoryState) ElementType() reflect.Type {
 }
 
 type remoteNpmRepositoryArgs struct {
-	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-	// any other host.
+	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-	// offline. Default to 300.
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
 	AssumedOfflinePeriodSecs *int `pulumi:"assumedOfflinePeriodSecs"`
-	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-	// resolution.
+	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BlockMismatchingMimeTypes *bool `pulumi:"blockMismatchingMimeTypes"`
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     *bool                                      `pulumi:"bypassHeadRequests"`
-	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	BypassHeadRequests   *bool   `pulumi:"bypassHeadRequests"`
+	ClientTlsCertificate *string `pulumi:"clientTlsCertificate"`
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation *RemoteNpmRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                    `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-	// communicate with this repository.
+	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
-	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-	// value of the 'Retrieval Cache Period'. Default value is 'false'.
+	// The repository identifier. Must be unique system-wide
+	Key string `pulumi:"key"`
+	// - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
-	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-	// multiple network interfaces.
+	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-	// "application/json,application/xml". Default value is empty.
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
@@ -383,8 +356,7 @@ type remoteNpmRepositoryArgs struct {
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
@@ -394,75 +366,58 @@ type remoteNpmRepositoryArgs struct {
 	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds *int  `pulumi:"retrievalCachePeriodSeconds"`
 	ShareConfiguration          *bool `pulumi:"shareConfiguration"`
-	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-	// operation is considered a retrieval failure.
+	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
 	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
-	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-	// servers.
+	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties               *bool `pulumi:"synchronizeProperties"`
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
-	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
-	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               string  `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      string  `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
 }
 
 // The set of arguments for constructing a RemoteNpmRepository resource.
 type RemoteNpmRepositoryArgs struct {
-	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
-	// any other host.
+	// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to any other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
-	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-	// offline. Default to 300.
+	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time, an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed offline. Default to 300.
 	AssumedOfflinePeriodSecs pulumi.IntPtrInput
-	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact
-	// resolution.
+	// (A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact resolution.
 	BlackedOut pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BlockMismatchingMimeTypes pulumi.BoolPtrInput
-	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-	BypassHeadRequests     pulumi.BoolPtrInput
-	ClientTlsCertificate   pulumi.StringPtrInput
+	// Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources, HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked, Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+	BypassHeadRequests   pulumi.BoolPtrInput
+	ClientTlsCertificate pulumi.StringPtrInput
+	// Reference [JFROG Smart Remote Repositories](https://www.jfrog.com/confluence/display/JFROG/Smart+Remote+Repositories)
 	ContentSynchronisation RemoteNpmRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
-	// communicate with this repository.
+	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringInput
-	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-	// value of the 'Retrieval Cache Period'. Default value is 'false'.
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringInput
+	// - Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of the 'Retrieval Cache Period'. This field exists in the API but not in the UI.
 	ListRemoteFolderItems pulumi.BoolPtrInput
-	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
-	// multiple network interfaces.
+	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-	// "application/json,application/xml". Default value is empty.
+	// The set of mime types that should override the blockMismatchingMimeTypes setting. Eg: "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
 	// The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
 	MissedCachePeriodSeconds pulumi.IntPtrInput
@@ -474,8 +429,7 @@ type RemoteNpmRepositoryArgs struct {
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
 	PropagateQueryParams pulumi.BoolPtrInput
@@ -485,29 +439,24 @@ type RemoteNpmRepositoryArgs struct {
 	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
-	// Repository layout key for the local repository
+	// Repository layout key for the remote repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	ShareConfiguration          pulumi.BoolPtrInput
-	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
-	// operation is considered a retrieval failure.
+	// Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network operation is considered a retrieval failure.
 	SocketTimeoutMillis pulumi.IntPtrInput
-	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
-	// direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
-	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
-	// servers.
+	// When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties               pulumi.BoolPtrInput
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolPtrInput
-	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
-	// of 0 means automatic cleanup of cached artifacts is disabled.
+	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringInput
-	Username                          pulumi.StringPtrInput
-	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
-	// Xray settings.
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringInput
+	Username pulumi.StringPtrInput
+	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
 	XrayIndex pulumi.BoolPtrInput
 }
 

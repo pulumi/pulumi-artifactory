@@ -4,6 +4,43 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Pull Replication Resource
+ *
+ * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
+ * for a local or remote repo.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a replication between two artifactory local repositories
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
+ *     key: "provider_test_source",
+ * });
+ * const providerTestDest = new artifactory.RemoteMavenRepository("provider_test_dest", {
+ *     key: "provider_test_dest",
+ *     password: "bar",
+ *     url: pulumi.interpolate`https://example.com/artifactory/${artifactory_local_maven_repository_artifactory_local_maven_repository.key}`,
+ *     username: "foo",
+ * });
+ * const remote_rep = new artifactory.PullReplication("remote-rep", {
+ *     cronExp: "0 0 * * * ?",
+ *     enableEventReplication: true,
+ *     repoKey: providerTestDest.key,
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Pull replication config can be imported using its repo key, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+ * ```
+ */
 export class PullReplication extends pulumi.CustomResource {
     /**
      * Get an existing PullReplication resource's state with the given name, ID, and optional extra
@@ -36,10 +73,9 @@ export class PullReplication extends pulumi.CustomResource {
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
-     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
+     * Required for local repository, but not needed for remote repository.
      */
-    public /*out*/ readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     public readonly pathPrefix!: pulumi.Output<string | undefined>;
     /**
      * Proxy key from Artifactory Proxies setting
@@ -50,7 +86,13 @@ export class PullReplication extends pulumi.CustomResource {
     public readonly syncDeletes!: pulumi.Output<boolean>;
     public readonly syncProperties!: pulumi.Output<boolean>;
     public readonly syncStatistics!: pulumi.Output<boolean>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     public readonly url!: pulumi.Output<string | undefined>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,6 +132,7 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["cronExp"] = args ? args.cronExp : undefined;
             resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["pathPrefix"] = args ? args.pathPrefix : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["repoKey"] = args ? args.repoKey : undefined;
@@ -99,7 +142,6 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["syncStatistics"] = args ? args.syncStatistics : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["password"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PullReplication.__pulumiType, name, resourceInputs, opts);
@@ -114,8 +156,7 @@ export interface PullReplicationState {
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
     /**
-     * If a password is used to create the resource, it will be returned as encrypted and this will become the new
-     * state.Practically speaking, what this means is that, the password can only be set, not gotten.
+     * Required for local repository, but not needed for remote repository.
      */
     password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
@@ -128,7 +169,13 @@ export interface PullReplicationState {
     syncDeletes?: pulumi.Input<boolean>;
     syncProperties?: pulumi.Input<boolean>;
     syncStatistics?: pulumi.Input<boolean>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     url?: pulumi.Input<string>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     username?: pulumi.Input<string>;
 }
 
@@ -139,6 +186,10 @@ export interface PullReplicationArgs {
     cronExp: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
+    password?: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
     /**
      * Proxy key from Artifactory Proxies setting
@@ -149,6 +200,12 @@ export interface PullReplicationArgs {
     syncDeletes?: pulumi.Input<boolean>;
     syncProperties?: pulumi.Input<boolean>;
     syncStatistics?: pulumi.Input<boolean>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     url?: pulumi.Input<string>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     username?: pulumi.Input<string>;
 }

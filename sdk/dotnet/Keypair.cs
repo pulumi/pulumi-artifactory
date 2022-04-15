@@ -9,11 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory keypair Resource
+    /// 
+    /// RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
+    /// used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
+    /// RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
+    /// pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
+    /// through the Keys Management UI and REST API.
+    /// Passphrases are not currently supported, though they exist in the API.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var some_keypair6543461672124900137 = new Artifactory.Keypair("some-keypair6543461672124900137", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = "some-keypair6543461672124900137",
+    ///             PairType = "RSA",
+    ///             Alias = "foo-alias6543461672124900137",
+    ///             PrivateKey = File.ReadAllText("samples/rsa.priv"),
+    ///             PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Keypair can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/keypair:Keypair")]
     public partial class Keypair : Pulumi.CustomResource
     {
         /// <summary>
-        /// Will be used as a filename when retrieving the public key via REST API
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -31,25 +73,25 @@ namespace Pulumi.Artifactory
         public Output<string> PairType { get; private set; } = null!;
 
         /// <summary>
-        /// Passphrase will be used to decrypt the private key. Validated server side
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Output("passphrase")]
         public Output<string?> Passphrase { get; private set; } = null!;
 
         /// <summary>
-        /// Private key. PEM format will be validated.
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// Public key. PEM format will be validated.
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Unknown usage. Returned in the json payload and cannot be set.
+        /// - Unknown usage. Returned in the json payload and cannot be set.
         /// </summary>
         [Output("unavailable")]
         public Output<bool> Unavailable { get; private set; } = null!;
@@ -101,7 +143,7 @@ namespace Pulumi.Artifactory
     public sealed class KeypairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Will be used as a filename when retrieving the public key via REST API
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
@@ -119,19 +161,19 @@ namespace Pulumi.Artifactory
         public Input<string> PairType { get; set; } = null!;
 
         /// <summary>
-        /// Passphrase will be used to decrypt the private key. Validated server side
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Input("passphrase")]
         public Input<string>? Passphrase { get; set; }
 
         /// <summary>
-        /// Private key. PEM format will be validated.
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
         /// <summary>
-        /// Public key. PEM format will be validated.
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -144,7 +186,7 @@ namespace Pulumi.Artifactory
     public sealed class KeypairState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Will be used as a filename when retrieving the public key via REST API
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -162,25 +204,25 @@ namespace Pulumi.Artifactory
         public Input<string>? PairType { get; set; }
 
         /// <summary>
-        /// Passphrase will be used to decrypt the private key. Validated server side
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Input("passphrase")]
         public Input<string>? Passphrase { get; set; }
 
         /// <summary>
-        /// Private key. PEM format will be validated.
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
         /// <summary>
-        /// Public key. PEM format will be validated.
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
         /// <summary>
-        /// Unknown usage. Returned in the json payload and cannot be set.
+        /// - Unknown usage. Returned in the json payload and cannot be set.
         /// </summary>
         [Input("unavailable")]
         public Input<bool>? Unavailable { get; set; }

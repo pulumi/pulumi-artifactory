@@ -5,6 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Build Webhook Resource
+ *
+ * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+ *
+ * ## Example Usage
+ *
+ * .
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const build_webhook = new artifactory.BuildWebhook("build-webhook", {
+ *     criteria: {
+ *         anyBuild: true,
+ *         excludePatterns: ["bar/**"],
+ *         includePatterns: ["foo/**"],
+ *         selectedBuilds: ["build-id"],
+ *     },
+ *     customHttpHeaders: {
+ *         "header-1": "value-1",
+ *         "header-2": "value-2",
+ *     },
+ *     eventTypes: [
+ *         "uploaded",
+ *         "deleted",
+ *         "promoted",
+ *     ],
+ *     key: "build-webhook",
+ *     proxy: "proxy-key",
+ *     secret: "some-secret",
+ *     url: "http://tempurl.org/webhook",
+ * });
+ * ```
+ */
 export class BuildWebhook extends pulumi.CustomResource {
     /**
      * Get an existing BuildWebhook resource's state with the given name, ID, and optional extra
@@ -34,7 +69,7 @@ export class BuildWebhook extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies where the webhook will be applied on which builds.
+     * Specifies where the webhook will be applied on which repositories.
      */
     public readonly criteria!: pulumi.Output<outputs.BuildWebhookCriteria>;
     /**
@@ -42,7 +77,7 @@ export class BuildWebhook extends pulumi.CustomResource {
      */
     public readonly customHttpHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -50,12 +85,11 @@ export class BuildWebhook extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: uploaded, deleted, promoted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted"
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -63,7 +97,7 @@ export class BuildWebhook extends pulumi.CustomResource {
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
-     * Secret authentication token that will be sent to the configured URL.
+     * Secret authentication token that will be sent to the configured URL
      */
     public readonly secret!: pulumi.Output<string | undefined>;
     /**
@@ -127,7 +161,7 @@ export class BuildWebhook extends pulumi.CustomResource {
  */
 export interface BuildWebhookState {
     /**
-     * Specifies where the webhook will be applied on which builds.
+     * Specifies where the webhook will be applied on which repositories.
      */
     criteria?: pulumi.Input<inputs.BuildWebhookCriteria>;
     /**
@@ -135,7 +169,7 @@ export interface BuildWebhookState {
      */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -143,12 +177,11 @@ export interface BuildWebhookState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: uploaded, deleted, promoted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted"
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key?: pulumi.Input<string>;
     /**
@@ -156,7 +189,7 @@ export interface BuildWebhookState {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Secret authentication token that will be sent to the configured URL.
+     * Secret authentication token that will be sent to the configured URL
      */
     secret?: pulumi.Input<string>;
     /**
@@ -170,7 +203,7 @@ export interface BuildWebhookState {
  */
 export interface BuildWebhookArgs {
     /**
-     * Specifies where the webhook will be applied on which builds.
+     * Specifies where the webhook will be applied on which repositories.
      */
     criteria: pulumi.Input<inputs.BuildWebhookCriteria>;
     /**
@@ -178,7 +211,7 @@ export interface BuildWebhookArgs {
      */
     customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Description of webhook. Max length 1000 characters.
+     * Webhook description. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
     /**
@@ -186,12 +219,11 @@ export interface BuildWebhookArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-     * values: uploaded, deleted, promoted
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted"
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+     * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key: pulumi.Input<string>;
     /**
@@ -199,7 +231,7 @@ export interface BuildWebhookArgs {
      */
     proxy?: pulumi.Input<string>;
     /**
-     * Secret authentication token that will be sent to the configured URL.
+     * Secret authentication token that will be sent to the configured URL
      */
     secret?: pulumi.Input<string>;
     /**

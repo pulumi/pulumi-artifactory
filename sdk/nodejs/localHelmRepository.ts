@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Local Helm Repository Resource
+ *
+ * Creates a local helm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_helm_repo = new artifactory.LocalHelmRepository("terraform-local-test-helm-repo", {
+ *     key: "terraform-local-test-helm-repo",
+ * });
+ * ```
+ */
 export class LocalHelmRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalHelmRepository resource's state with the given name, ID, and optional extra
@@ -59,8 +75,7 @@ export class LocalHelmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -177,8 +192,7 @@ export interface LocalHelmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -242,8 +256,7 @@ export interface LocalHelmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

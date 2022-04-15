@@ -9,6 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Federated Gem Repository Resource
+    /// 
+    /// Creates a federated Gem repository
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGemsRepository:FederatedGemsRepository")]
     public partial class FederatedGemsRepository : Pulumi.CustomResource
     {
@@ -35,15 +40,14 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.FederatedGemsRepositoryMember>> Members { get; private set; } = null!;
@@ -154,6 +158,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -161,11 +168,7 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedGemsRepositoryMemberArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedGemsRepositoryMemberArgs> Members
         {
@@ -248,6 +251,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -255,11 +261,7 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedGemsRepositoryMemberGetArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedGemsRepositoryMemberGetArgs> Members
         {

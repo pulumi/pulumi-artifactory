@@ -11,17 +11,75 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Certificate Resource
+//
+// Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
+// 			Alias:   pulumi.String("my-cert"),
+// 			Content: readFileOrPanic("/path/to/bundle.pem"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
+// 			ClientTlsCertificate: my_cert.Alias,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Certificates can be imported using their alias, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	Alias       pulumi.StringOutput    `pulumi:"alias"`
-	Content     pulumi.StringPtrOutput `pulumi:"content"`
-	File        pulumi.StringPtrOutput `pulumi:"file"`
-	Fingerprint pulumi.StringOutput    `pulumi:"fingerprint"`
-	IssuedBy    pulumi.StringOutput    `pulumi:"issuedBy"`
-	IssuedOn    pulumi.StringOutput    `pulumi:"issuedOn"`
-	IssuedTo    pulumi.StringOutput    `pulumi:"issuedTo"`
-	ValidUntil  pulumi.StringOutput    `pulumi:"validUntil"`
+	// Name of certificate.
+	Alias pulumi.StringOutput `pulumi:"alias"`
+	// PEM-encoded client certificate and private key.
+	Content pulumi.StringPtrOutput `pulumi:"content"`
+	File    pulumi.StringPtrOutput `pulumi:"file"`
+	// SHA256 fingerprint of the certificate.
+	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
+	// Name of the certificate authority that issued the certificate.
+	IssuedBy pulumi.StringOutput `pulumi:"issuedBy"`
+	// The time & date when the certificate is valid from.
+	IssuedOn pulumi.StringOutput `pulumi:"issuedOn"`
+	// Name of whom the certificate has been issued to.
+	IssuedTo pulumi.StringOutput `pulumi:"issuedTo"`
+	// The time & date when the certificate expires.
+	ValidUntil pulumi.StringOutput `pulumi:"validUntil"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -56,25 +114,39 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	Alias       *string `pulumi:"alias"`
-	Content     *string `pulumi:"content"`
-	File        *string `pulumi:"file"`
+	// Name of certificate.
+	Alias *string `pulumi:"alias"`
+	// PEM-encoded client certificate and private key.
+	Content *string `pulumi:"content"`
+	File    *string `pulumi:"file"`
+	// SHA256 fingerprint of the certificate.
 	Fingerprint *string `pulumi:"fingerprint"`
-	IssuedBy    *string `pulumi:"issuedBy"`
-	IssuedOn    *string `pulumi:"issuedOn"`
-	IssuedTo    *string `pulumi:"issuedTo"`
-	ValidUntil  *string `pulumi:"validUntil"`
+	// Name of the certificate authority that issued the certificate.
+	IssuedBy *string `pulumi:"issuedBy"`
+	// The time & date when the certificate is valid from.
+	IssuedOn *string `pulumi:"issuedOn"`
+	// Name of whom the certificate has been issued to.
+	IssuedTo *string `pulumi:"issuedTo"`
+	// The time & date when the certificate expires.
+	ValidUntil *string `pulumi:"validUntil"`
 }
 
 type CertificateState struct {
-	Alias       pulumi.StringPtrInput
-	Content     pulumi.StringPtrInput
-	File        pulumi.StringPtrInput
+	// Name of certificate.
+	Alias pulumi.StringPtrInput
+	// PEM-encoded client certificate and private key.
+	Content pulumi.StringPtrInput
+	File    pulumi.StringPtrInput
+	// SHA256 fingerprint of the certificate.
 	Fingerprint pulumi.StringPtrInput
-	IssuedBy    pulumi.StringPtrInput
-	IssuedOn    pulumi.StringPtrInput
-	IssuedTo    pulumi.StringPtrInput
-	ValidUntil  pulumi.StringPtrInput
+	// Name of the certificate authority that issued the certificate.
+	IssuedBy pulumi.StringPtrInput
+	// The time & date when the certificate is valid from.
+	IssuedOn pulumi.StringPtrInput
+	// Name of whom the certificate has been issued to.
+	IssuedTo pulumi.StringPtrInput
+	// The time & date when the certificate expires.
+	ValidUntil pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -82,14 +154,18 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	Alias   string  `pulumi:"alias"`
+	// Name of certificate.
+	Alias string `pulumi:"alias"`
+	// PEM-encoded client certificate and private key.
 	Content *string `pulumi:"content"`
 	File    *string `pulumi:"file"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	Alias   pulumi.StringInput
+	// Name of certificate.
+	Alias pulumi.StringInput
+	// PEM-encoded client certificate and private key.
 	Content pulumi.StringPtrInput
 	File    pulumi.StringPtrInput
 }

@@ -11,6 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Remote Conda Repository Resource
+//
+// Creates a remote Conda repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conda+Repositories)
+//
+// ## Example Usage
+//
+// To create a new Artifactory remote Conda repository called my-remote-conda.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewRemoteCondaRepository(ctx, "my-remote-conda", &artifactory.RemoteCondaRepositoryArgs{
+// 			Key: pulumi.String("my-remote-conda"),
+// 			Url: pulumi.String("https://repo.anaconda.com/pkgs/main"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RemoteCondaRepository struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +78,8 @@ type RemoteCondaRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	Key             pulumi.StringOutput `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
@@ -98,9 +129,10 @@ type RemoteCondaRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringOutput    `pulumi:"url"`
-	Username                          pulumi.StringPtrOutput `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringOutput    `pulumi:"url"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
@@ -175,7 +207,8 @@ type remoteCondaRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             *string `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -225,9 +258,10 @@ type remoteCondaRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      *string `pulumi:"url"`
+	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -268,7 +302,8 @@ type RemoteCondaRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringPtrInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -319,8 +354,9 @@ type RemoteCondaRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringPtrInput
-	Username                          pulumi.StringPtrInput
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringPtrInput
+	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -363,7 +399,8 @@ type remoteCondaRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -412,9 +449,10 @@ type remoteCondaRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               string  `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      string  `pulumi:"url"`
+	Username *string `pulumi:"username"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -454,7 +492,8 @@ type RemoteCondaRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -504,8 +543,9 @@ type RemoteCondaRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringInput
-	Username                          pulumi.StringPtrInput
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringInput
+	Username pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput

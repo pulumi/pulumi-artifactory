@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Federated Vagrant Repository Resource
+    /// 
+    /// Creates a federated Vagrant repository
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraform_federated_test_vagrant_repo = new Artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo", new Artifactory.FederatedVagrantRepositoryArgs
+    ///         {
+    ///             Key = "terraform-federated-test-vagrant-repo",
+    ///             Members = 
+    ///             {
+    ///                 new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
+    ///                 },
+    ///                 new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository")]
     public partial class FederatedVagrantRepository : Pulumi.CustomResource
     {
@@ -35,15 +72,14 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.FederatedVagrantRepositoryMember>> Members { get; private set; } = null!;
@@ -154,6 +190,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -161,11 +200,7 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedVagrantRepositoryMemberArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedVagrantRepositoryMemberArgs> Members
         {
@@ -248,6 +283,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// - the identity key of the repo
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -255,11 +293,7 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedVagrantRepositoryMemberGetArgs>? _members;
 
         /// <summary>
-        /// The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        /// will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        /// federated members will need to have a base URL set. Please follow the
-        /// [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        /// to set up Federated repositories correctly.
+        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedVagrantRepositoryMemberGetArgs> Members
         {

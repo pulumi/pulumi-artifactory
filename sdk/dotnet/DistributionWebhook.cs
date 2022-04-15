@@ -9,11 +9,70 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Distribution Webhook Resource
+    /// 
+    /// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// .
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var distribution_webhook = new Artifactory.DistributionWebhook("distribution-webhook", new Artifactory.DistributionWebhookArgs
+    ///         {
+    ///             Criteria = new Artifactory.Inputs.DistributionWebhookCriteriaArgs
+    ///             {
+    ///                 AnyReleaseBundle = false,
+    ///                 ExcludePatterns = 
+    ///                 {
+    ///                     "bar/**",
+    ///                 },
+    ///                 IncludePatterns = 
+    ///                 {
+    ///                     "foo/**",
+    ///                 },
+    ///                 RegisteredReleaseBundleNames = 
+    ///                 {
+    ///                     "bundle-name",
+    ///                 },
+    ///             },
+    ///             CustomHttpHeaders = 
+    ///             {
+    ///                 { "header-1", "value-1" },
+    ///                 { "header-2", "value-2" },
+    ///             },
+    ///             EventTypes = 
+    ///             {
+    ///                 "distribute_started",
+    ///                 "distribute_completed",
+    ///                 "distribute_aborted",
+    ///                 "distribute_failed",
+    ///                 "delete_started",
+    ///                 "delete_completed",
+    ///                 "delete_failed",
+    ///             },
+    ///             Key = "distribution-webhook",
+    ///             Proxy = "proxy-key",
+    ///             Secret = "some-secret",
+    ///             Url = "http://tempurl.org/webhook",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/distributionWebhook:DistributionWebhook")]
     public partial class DistributionWebhook : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies where the webhook will be applied, on which release bundles or distributions.
+        /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
         [Output("criteria")]
         public Output<Outputs.DistributionWebhookCriteria> Criteria { get; private set; } = null!;
@@ -25,7 +84,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableDictionary<string, string>?> CustomHttpHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -37,15 +96,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-        /// delete_completed, delete_failed
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -57,7 +114,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Output("secret")]
         public Output<string?> Secret { get; private set; } = null!;
@@ -115,7 +172,7 @@ namespace Pulumi.Artifactory
     public sealed class DistributionWebhookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies where the webhook will be applied, on which release bundles or distributions.
+        /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
         [Input("criteria", required: true)]
         public Input<Inputs.DistributionWebhookCriteriaArgs> Criteria { get; set; } = null!;
@@ -133,7 +190,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -148,9 +205,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-        /// delete_completed, delete_failed
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -159,7 +214,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -171,7 +226,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -190,7 +245,7 @@ namespace Pulumi.Artifactory
     public sealed class DistributionWebhookState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies where the webhook will be applied, on which release bundles or distributions.
+        /// Specifies where the webhook will be applied on which repositories.
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.DistributionWebhookCriteriaGetArgs>? Criteria { get; set; }
@@ -208,7 +263,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -223,9 +278,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: distribute_started, distribute_completed, distribute_aborted, distribute_failed, delete_started,
-        /// delete_completed, delete_failed
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distribute_started", "distribute_completed", "distribute_aborted", "distribute_failed", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -234,7 +287,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -246,7 +299,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }

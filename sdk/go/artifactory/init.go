@@ -24,6 +24,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccessToken{}
 	case "artifactory:index/alpineRepository:AlpineRepository":
 		r = &AlpineRepository{}
+	case "artifactory:index/anonymousUser:AnonymousUser":
+		r = &AnonymousUser{}
 	case "artifactory:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
@@ -162,6 +164,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalSbtRepository{}
 	case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
 		r = &LocalVagrantRepository{}
+	case "artifactory:index/managedUser:ManagedUser":
+		r = &ManagedUser{}
 	case "artifactory:index/mavenRepository:MavenRepository":
 		r = &MavenRepository{}
 	case "artifactory:index/oauthSettings:OauthSettings":
@@ -238,6 +242,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SamlSettings{}
 	case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
 		r = &SingleReplicationConfig{}
+	case "artifactory:index/unmanagedUser:UnmanagedUser":
+		r = &UnmanagedUser{}
 	case "artifactory:index/user:User":
 		r = &User{}
 	case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
@@ -323,6 +329,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/alpineRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/anonymousUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -672,6 +683,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/managedUser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/mavenRepository",
 		&module{version},
 	)
@@ -858,6 +874,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/singleReplicationConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/unmanagedUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

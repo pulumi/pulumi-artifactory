@@ -10,13 +10,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Permission Target Resource
+//
+// **Requires Artifactory >= 6.6.0. If using a lower version see here**
+//
+// Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
+// 			Build: &PermissionTargetBuildArgs{
+// 				Actions: &PermissionTargetBuildActionsArgs{
+// 					Users: PermissionTargetBuildActionsUserArray{
+// 						&PermissionTargetBuildActionsUserArgs{
+// 							Name: pulumi.String("anonymous"),
+// 							Permissions: pulumi.StringArray{
+// 								pulumi.String("read"),
+// 								pulumi.String("write"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 				IncludesPatterns: pulumi.StringArray{
+// 					pulumi.String("**"),
+// 				},
+// 				Repositories: pulumi.StringArray{
+// 					pulumi.String("artifactory-build-info"),
+// 				},
+// 			},
+// 			Repo: &PermissionTargetRepoArgs{
+// 				Actions: &PermissionTargetRepoActionsArgs{
+// 					Groups: PermissionTargetRepoActionsGroupArray{
+// 						&PermissionTargetRepoActionsGroupArgs{
+// 							Name: pulumi.String("readers"),
+// 							Permissions: pulumi.StringArray{
+// 								pulumi.String("read"),
+// 							},
+// 						},
+// 					},
+// 					Users: PermissionTargetRepoActionsUserArray{
+// 						&PermissionTargetRepoActionsUserArgs{
+// 							Name: pulumi.String("anonymous"),
+// 							Permissions: pulumi.StringArray{
+// 								pulumi.String("read"),
+// 								pulumi.String("write"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 				ExcludesPatterns: pulumi.StringArray{
+// 					pulumi.String("bar/**"),
+// 				},
+// 				IncludesPatterns: pulumi.StringArray{
+// 					pulumi.String("foo/**"),
+// 				},
+// 				Repositories: pulumi.StringArray{
+// 					pulumi.String("example-repo-local"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Permissions
+//
+// The provider supports the following `permission` enums:
+//
+// * `read`
+// * `write`
+// * `annotate`
+// * `delete`
+// * `manage`
+//
+// The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
+//
+// * `read` - matches `Read` permissions.
+// * `write` - matches `  Deploy / Cache / Create ` permissions.
+// * `annotate` - matches `Annotate` permissions.
+// * `delete` - matches `Delete / Overwrite` permissions.
+// * `manage` - matches `Manage` permissions.
+//
+// ## Import
+//
+// Permission targets can be imported using their name, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+// ```
 type PermissionTarget struct {
 	pulumi.CustomResourceState
 
-	Build         PermissionTargetBuildPtrOutput         `pulumi:"build"`
+	// As for repo but for artifactory-build-info permssions.
+	Build PermissionTargetBuildPtrOutput `pulumi:"build"`
+	// Name of permission
 	Name          pulumi.StringOutput                    `pulumi:"name"`
 	ReleaseBundle PermissionTargetReleaseBundlePtrOutput `pulumi:"releaseBundle"`
-	Repo          PermissionTargetRepoPtrOutput          `pulumi:"repo"`
+	// Repository permission configuration
+	Repo PermissionTargetRepoPtrOutput `pulumi:"repo"`
 }
 
 // NewPermissionTarget registers a new resource with the given unique name, arguments, and options.
@@ -48,17 +152,23 @@ func GetPermissionTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionTarget resources.
 type permissionTargetState struct {
-	Build         *PermissionTargetBuild         `pulumi:"build"`
+	// As for repo but for artifactory-build-info permssions.
+	Build *PermissionTargetBuild `pulumi:"build"`
+	// Name of permission
 	Name          *string                        `pulumi:"name"`
 	ReleaseBundle *PermissionTargetReleaseBundle `pulumi:"releaseBundle"`
-	Repo          *PermissionTargetRepo          `pulumi:"repo"`
+	// Repository permission configuration
+	Repo *PermissionTargetRepo `pulumi:"repo"`
 }
 
 type PermissionTargetState struct {
-	Build         PermissionTargetBuildPtrInput
+	// As for repo but for artifactory-build-info permssions.
+	Build PermissionTargetBuildPtrInput
+	// Name of permission
 	Name          pulumi.StringPtrInput
 	ReleaseBundle PermissionTargetReleaseBundlePtrInput
-	Repo          PermissionTargetRepoPtrInput
+	// Repository permission configuration
+	Repo PermissionTargetRepoPtrInput
 }
 
 func (PermissionTargetState) ElementType() reflect.Type {
@@ -66,18 +176,24 @@ func (PermissionTargetState) ElementType() reflect.Type {
 }
 
 type permissionTargetArgs struct {
-	Build         *PermissionTargetBuild         `pulumi:"build"`
+	// As for repo but for artifactory-build-info permssions.
+	Build *PermissionTargetBuild `pulumi:"build"`
+	// Name of permission
 	Name          *string                        `pulumi:"name"`
 	ReleaseBundle *PermissionTargetReleaseBundle `pulumi:"releaseBundle"`
-	Repo          *PermissionTargetRepo          `pulumi:"repo"`
+	// Repository permission configuration
+	Repo *PermissionTargetRepo `pulumi:"repo"`
 }
 
 // The set of arguments for constructing a PermissionTarget resource.
 type PermissionTargetArgs struct {
-	Build         PermissionTargetBuildPtrInput
+	// As for repo but for artifactory-build-info permssions.
+	Build PermissionTargetBuildPtrInput
+	// Name of permission
 	Name          pulumi.StringPtrInput
 	ReleaseBundle PermissionTargetReleaseBundlePtrInput
-	Repo          PermissionTargetRepoPtrInput
+	// Repository permission configuration
+	Repo PermissionTargetRepoPtrInput
 }
 
 func (PermissionTargetArgs) ElementType() reflect.Type {

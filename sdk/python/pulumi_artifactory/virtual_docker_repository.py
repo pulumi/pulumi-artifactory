@@ -476,7 +476,33 @@ class VirtualDockerRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a VirtualDockerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Docker Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific docker features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-docker",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -507,7 +533,33 @@ class VirtualDockerRepository(pulumi.CustomResource):
                  args: VirtualDockerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualDockerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Docker Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific docker features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_docker = artifactory.VirtualDockerRepository("foo-docker",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-docker",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualDockerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

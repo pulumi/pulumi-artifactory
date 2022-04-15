@@ -5,6 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Federated Cran Repository Resource
+ *
+ * Creates a federated Cran repository
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_federated_test_cran_repo = new artifactory.FederatedCranRepository("terraform-federated-test-cran-repo", {
+ *     key: "terraform-federated-test-cran-repo",
+ *     members: [
+ *         {
+ *             enabled: true,
+ *             url: "http://tempurl.org/artifactory/terraform-federated-test-cran-repo",
+ *         },
+ *         {
+ *             enabled: true,
+ *             url: "http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2",
+ *         },
+ *     ],
+ * });
+ * ```
+ */
 export class FederatedCranRepository extends pulumi.CustomResource {
     /**
      * Get an existing FederatedCranRepository resource's state with the given name, ID, and optional extra
@@ -44,13 +70,12 @@ export class FederatedCranRepository extends pulumi.CustomResource {
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     public readonly excludesPattern!: pulumi.Output<string>;
     public readonly includesPattern!: pulumi.Output<string>;
+    /**
+     * - the identity key of the repo
+     */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
+     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
      */
     public readonly members!: pulumi.Output<outputs.FederatedCranRepositoryMember[]>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -149,13 +174,12 @@ export interface FederatedCranRepositoryState {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * - the identity key of the repo
+     */
     key?: pulumi.Input<string>;
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
+     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
      */
     members?: pulumi.Input<pulumi.Input<inputs.FederatedCranRepositoryMember>[]>;
     notes?: pulumi.Input<string>;
@@ -196,13 +220,12 @@ export interface FederatedCranRepositoryArgs {
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;
     includesPattern?: pulumi.Input<string>;
+    /**
+     * - the identity key of the repo
+     */
     key: pulumi.Input<string>;
     /**
-     * The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-     * will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-     * federated members will need to have a base URL set. Please follow the
-     * [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-     * to set up Federated repositories correctly.
+     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
      */
     members: pulumi.Input<pulumi.Input<inputs.FederatedCranRepositoryMember>[]>;
     notes?: pulumi.Input<string>;

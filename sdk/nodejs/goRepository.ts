@@ -4,6 +4,41 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Go Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific go lang features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const baz_go = new artifactory.GoRepository("baz-go", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     externalDependenciesEnabled: true,
+ *     externalDependenciesPatterns: [
+ *         "**&#47;github.com/**",
+ *         "**&#47;go.googlesource.com/**",
+ *     ],
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "baz-go",
+ *     notes: "Internal description",
+ *     repoLayoutRef: "go-default",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/goRepository:GoRepository foo foo
+ * ```
+ */
 export class GoRepository extends pulumi.CustomResource {
     /**
      * Get an existing GoRepository resource's state with the given name, ID, and optional extra
@@ -52,14 +87,11 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**', which means that remote modules may be downloaded from any external VCS source.
+     * 'go-import' Allow List on the UI.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -182,14 +214,11 @@ export interface GoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**', which means that remote modules may be downloaded from any external VCS source.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -259,14 +288,11 @@ export interface GoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When set (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote
-     * modules.
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will follow to download
-     * remote modules from, when presented with 'go-import' meta tags in the remote repository response. By default, this is
-     * set to '**', which means that remote modules may be downloaded from any external VCS source.
+     * 'go-import' Allow List on the UI.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

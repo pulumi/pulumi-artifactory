@@ -9,12 +9,49 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Virtual Generic Repository Resource
+    /// 
+    /// Provides an Artifactory virtual repository resource with generic package type.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo_generic = new Artifactory.VirtualGenericRepository("foo-generic", new Artifactory.VirtualGenericRepositoryArgs
+    ///         {
+    ///             Description = "A test virtual repo",
+    ///             ExcludesPattern = "com/google/**",
+    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///             Key = "foo-generic",
+    ///             Notes = "Internal description",
+    ///             RepoLayoutRef = "simple-default",
+    ///             Repositories = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualGenericRepository:VirtualGenericRepository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGenericRepository:VirtualGenericRepository")]
     public partial class VirtualGenericRepository : Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Output("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Output<bool?> ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; private set; } = null!;
@@ -33,15 +70,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Output("includesPattern")]
         public Output<string?> IncludesPattern { get; private set; } = null!;
@@ -73,14 +108,13 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
@@ -92,8 +126,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -145,8 +178,7 @@ namespace Pulumi.Artifactory
     public sealed class VirtualGenericRepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
@@ -165,15 +197,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -205,14 +235,13 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -230,8 +259,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -244,8 +272,7 @@ namespace Pulumi.Artifactory
     public sealed class VirtualGenericRepositoryState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
-        /// another Artifactory instance.
+        /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by another Artifactory instance.
         /// </summary>
         [Input("artifactoryRequestsCanRetrieveRemoteArtifacts")]
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
@@ -264,15 +291,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
-        /// artifacts are excluded.
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -310,14 +335,13 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        /// repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
         /// <summary>
-        /// Repository layout key for the local repository
+        /// Repository layout key for the virtual repository
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
@@ -335,8 +359,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
+        /// - This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default: 7200 seconds.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }

@@ -32,11 +32,8 @@ class FederatedGitltfsRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedGitltfsRepository resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -78,6 +75,9 @@ class FederatedGitltfsRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -88,11 +88,7 @@ class FederatedGitltfsRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -260,11 +256,8 @@ class _FederatedGitltfsRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -366,6 +359,9 @@ class _FederatedGitltfsRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -376,11 +372,7 @@ class _FederatedGitltfsRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedGitltfsRepositoryMemberArgs']]]]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -496,17 +488,37 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a FederatedGitltfsRepository resource with the given unique name, props, and options.
+        ## # Artifactory Federated Gitlfs Repository Resource
+
+        Creates a federated Gitlfs repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_gitlfs_repo = artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
+            key="terraform-federated-test-gitlfs-repo",
+            members=[
+                artifactory.FederatedGitltfsRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
+                ),
+                artifactory.FederatedGitltfsRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+                ),
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGitltfsRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGitltfsRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -520,7 +532,30 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
                  args: FederatedGitltfsRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FederatedGitltfsRepository resource with the given unique name, props, and options.
+        ## # Artifactory Federated Gitlfs Repository Resource
+
+        Creates a federated Gitlfs repository
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        terraform_federated_test_gitlfs_repo = artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo",
+            key="terraform-federated-test-gitlfs-repo",
+            members=[
+                artifactory.FederatedGitltfsRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
+                ),
+                artifactory.FederatedGitltfsRepositoryMemberArgs(
+                    enabled=True,
+                    url="http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+                ),
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param FederatedGitltfsRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -619,11 +654,8 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGitltfsRepositoryMemberArgs']]]] members: The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-               will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-               federated members will need to have a base URL set. Please follow the
-               [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-               to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGitltfsRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -690,17 +722,16 @@ class FederatedGitltfsRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        - the identity key of the repo
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedGitltfsRepositoryMember']]:
         """
-        The list of Federated members. If a Federated member receives a request that does not include the repository URL, it
-        will automatically be added with the combination of the configured base URL and `key` field value. Note that each of the
-        federated members will need to have a base URL set. Please follow the
-        [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
-        to set up Federated repositories correctly.
+        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
