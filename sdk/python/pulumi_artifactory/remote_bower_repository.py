@@ -58,6 +58,8 @@ class RemoteBowerRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteBowerRepository resource.
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -68,7 +70,7 @@ class RemoteBowerRepositoryArgs:
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] bower_registry_url: (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -106,9 +108,8 @@ class RemoteBowerRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -196,6 +197,9 @@ class RemoteBowerRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -205,6 +209,9 @@ class RemoteBowerRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -269,7 +276,7 @@ class RemoteBowerRepositoryArgs:
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is "https://registry.bower.io".
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -643,7 +650,7 @@ class RemoteBowerRepositoryArgs:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -655,8 +662,7 @@ class RemoteBowerRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -736,7 +742,7 @@ class _RemoteBowerRepositoryState:
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] bower_registry_url: (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -747,6 +753,7 @@ class _RemoteBowerRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -774,9 +781,9 @@ class _RemoteBowerRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -928,7 +935,7 @@ class _RemoteBowerRepositoryState:
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is "https://registry.bower.io".
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -1040,6 +1047,9 @@ class _RemoteBowerRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1319,6 +1329,9 @@ class _RemoteBowerRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1338,7 +1351,7 @@ class _RemoteBowerRepositoryState:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -1350,8 +1363,7 @@ class _RemoteBowerRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1421,7 +1433,25 @@ class RemoteBowerRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteBowerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Bower Repository Resource
+
+        Creates a remote Bower repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Bower repository called my-remote-bower.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_bower = artifactory.RemoteBowerRepository("my-remote-bower",
+            key="my-remote-bower",
+            url="https://github.com/",
+            vcs_git_provider="GITHUB")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -1434,7 +1464,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] bower_registry_url: (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1445,6 +1475,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1472,9 +1503,9 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1485,7 +1516,25 @@ class RemoteBowerRepository(pulumi.CustomResource):
                  args: RemoteBowerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteBowerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Bower Repository Resource
+
+        Creates a remote Bower repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Bower repository called my-remote-bower.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_bower = artifactory.RemoteBowerRepository("my-remote-bower",
+            key="my-remote-bower",
+            url="https://github.com/",
+            vcs_git_provider="GITHUB")
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteBowerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1671,7 +1720,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] bower_registry_url: (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1682,6 +1731,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1709,9 +1759,9 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1806,7 +1856,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is "https://registry.bower.io".
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -1878,6 +1928,9 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -2061,6 +2114,9 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -2072,7 +2128,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -2080,8 +2136,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 

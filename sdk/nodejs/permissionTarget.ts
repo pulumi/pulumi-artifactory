@@ -5,6 +5,80 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Permission Target Resource
+ *
+ * **Requires Artifactory >= 6.6.0. If using a lower version see here**
+ *
+ * Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory permission target called testpermission
+ * const test_perm = new artifactory.PermissionTarget("test-perm", {
+ *     build: {
+ *         actions: {
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: [
+ *                     "read",
+ *                     "write",
+ *                 ],
+ *             }],
+ *         },
+ *         includesPatterns: ["**"],
+ *         repositories: ["artifactory-build-info"],
+ *     },
+ *     repo: {
+ *         actions: {
+ *             groups: [{
+ *                 name: "readers",
+ *                 permissions: ["read"],
+ *             }],
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: [
+ *                     "read",
+ *                     "write",
+ *                 ],
+ *             }],
+ *         },
+ *         excludesPatterns: ["bar/**"],
+ *         includesPatterns: ["foo/**"],
+ *         repositories: ["example-repo-local"],
+ *     },
+ * });
+ * ```
+ * ## Permissions
+ *
+ * The provider supports the following `permission` enums:
+ *
+ * * `read`
+ * * `write`
+ * * `annotate`
+ * * `delete`
+ * * `manage`
+ *
+ * The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
+ *
+ * * `read` - matches `Read` permissions.
+ * * `write` - matches `  Deploy / Cache / Create ` permissions.
+ * * `annotate` - matches `Annotate` permissions.
+ * * `delete` - matches `Delete / Overwrite` permissions.
+ * * `manage` - matches `Manage` permissions.
+ *
+ * ## Import
+ *
+ * Permission targets can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/permissionTarget:PermissionTarget terraform-test-permission mypermission
+ * ```
+ */
 export class PermissionTarget extends pulumi.CustomResource {
     /**
      * Get an existing PermissionTarget resource's state with the given name, ID, and optional extra
@@ -33,9 +107,18 @@ export class PermissionTarget extends pulumi.CustomResource {
         return obj['__pulumiType'] === PermissionTarget.__pulumiType;
     }
 
+    /**
+     * As for repo but for artifactory-build-info permssions.
+     */
     public readonly build!: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
+    /**
+     * Name of permission
+     */
     public readonly name!: pulumi.Output<string>;
     public readonly releaseBundle!: pulumi.Output<outputs.PermissionTargetReleaseBundle | undefined>;
+    /**
+     * Repository permission configuration
+     */
     public readonly repo!: pulumi.Output<outputs.PermissionTargetRepo | undefined>;
 
     /**
@@ -71,9 +154,18 @@ export class PermissionTarget extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PermissionTarget resources.
  */
 export interface PermissionTargetState {
+    /**
+     * As for repo but for artifactory-build-info permssions.
+     */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    /**
+     * Name of permission
+     */
     name?: pulumi.Input<string>;
     releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    /**
+     * Repository permission configuration
+     */
     repo?: pulumi.Input<inputs.PermissionTargetRepo>;
 }
 
@@ -81,8 +173,17 @@ export interface PermissionTargetState {
  * The set of arguments for constructing a PermissionTarget resource.
  */
 export interface PermissionTargetArgs {
+    /**
+     * As for repo but for artifactory-build-info permssions.
+     */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
+    /**
+     * Name of permission
+     */
     name?: pulumi.Input<string>;
     releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
+    /**
+     * Repository permission configuration
+     */
     repo?: pulumi.Input<inputs.PermissionTargetRepo>;
 }

@@ -11,10 +11,11 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  PULUMI_MISSING_DOCS_ERROR: true
+  PULUMI_MISSING_DOCS_ERROR: false
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
+  VERSION_PREFIX: "2.0.0"
 jobs:
   build_sdk:
     if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name

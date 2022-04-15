@@ -12,11 +12,18 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class BuildWebhookCriteriaArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Trigger on any build
+        /// </summary>
         [Input("anyBuild", required: true)]
         public Input<bool> AnyBuild { get; set; } = null!;
 
         [Input("excludePatterns")]
         private InputList<string>? _excludePatterns;
+
+        /// <summary>
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// </summary>
         public InputList<string> ExcludePatterns
         {
             get => _excludePatterns ?? (_excludePatterns = new InputList<string>());
@@ -25,6 +32,10 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("includePatterns")]
         private InputList<string>? _includePatterns;
+
+        /// <summary>
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// </summary>
         public InputList<string> IncludePatterns
         {
             get => _includePatterns ?? (_includePatterns = new InputList<string>());
@@ -33,6 +44,10 @@ namespace Pulumi.Artifactory.Inputs
 
         [Input("selectedBuilds", required: true)]
         private InputList<string>? _selectedBuilds;
+
+        /// <summary>
+        /// Trigger on this list of build names
+        /// </summary>
         public InputList<string> SelectedBuilds
         {
             get => _selectedBuilds ?? (_selectedBuilds = new InputList<string>());

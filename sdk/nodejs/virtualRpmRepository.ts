@@ -4,6 +4,52 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Rpm Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with Rpm package type.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * from "fs";
+ *
+ * const primary_keypair = new artifactory.Keypair("primary-keypair", {
+ *     pairName: "primary-keypair",
+ *     pairType: "GPG",
+ *     alias: "foo-alias-1",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
+ * const secondary_keypair = new artifactory.Keypair("secondary-keypair", {
+ *     pairName: "secondary-keypair",
+ *     pairType: "GPG",
+ *     alias: "foo-alias-2",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
+ * const foo_rpm_virtual = new artifactory.VirtualRpmRepository("foo-rpm-virtual", {
+ *     key: "foo-rpm-virtual",
+ *     primaryKeypairRef: primary_keypair.pairName,
+ *     secondaryKeypairRef: secondary_keypair.pairName,
+ * }, {
+ *     dependsOn: [
+ *         primary_keypair,
+ *         secondary_keypair,
+ *     ],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
+ * ```
+ */
 export class VirtualRpmRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualRpmRepository resource's state with the given name, ID, and optional extra
@@ -71,7 +117,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * The primary GPG key to be used to sign packages
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -97,7 +143,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Secondary keypair used to sign artifacts.
+     * The secondary GPG key to be used to sign packages
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
 
@@ -198,7 +244,7 @@ export interface VirtualRpmRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -224,7 +270,7 @@ export interface VirtualRpmRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * Secondary keypair used to sign artifacts.
+     * The secondary GPG key to be used to sign packages
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }
@@ -268,7 +314,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Primary keypair used to sign artifacts.
+     * The primary GPG key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -294,7 +340,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * Secondary keypair used to sign artifacts.
+     * The secondary GPG key to be used to sign packages
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

@@ -9,6 +9,72 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Docker Webhook Resource
+    /// 
+    /// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// .
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var my_docker_local = new Artifactory.DockerV2Repository("my-docker-local", new Artifactory.DockerV2RepositoryArgs
+    ///         {
+    ///             Key = "my-docker-local",
+    ///         });
+    ///         var docker_webhook = new Artifactory.DockerWebhook("docker-webhook", new Artifactory.DockerWebhookArgs
+    ///         {
+    ///             Key = "docker-webhook",
+    ///             EventTypes = 
+    ///             {
+    ///                 "pushed",
+    ///                 "deleted",
+    ///                 "promoted",
+    ///             },
+    ///             Criteria = new Artifactory.Inputs.DockerWebhookCriteriaArgs
+    ///             {
+    ///                 AnyLocal = true,
+    ///                 AnyRemote = false,
+    ///                 RepoKeys = 
+    ///                 {
+    ///                     my_docker_local.Key,
+    ///                 },
+    ///                 IncludePatterns = 
+    ///                 {
+    ///                     "foo/**",
+    ///                 },
+    ///                 ExcludePatterns = 
+    ///                 {
+    ///                     "bar/**",
+    ///                 },
+    ///             },
+    ///             Url = "http://tempurl.org/webhook",
+    ///             Secret = "some-secret",
+    ///             Proxy = "proxy-key",
+    ///             CustomHttpHeaders = 
+    ///             {
+    ///                 { "header-1", "value-1" },
+    ///                 { "header-2", "value-2" },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 my_docker_local,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerWebhook:DockerWebhook")]
     public partial class DockerWebhook : Pulumi.CustomResource
     {
@@ -25,7 +91,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableDictionary<string, string>?> CustomHttpHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -37,14 +103,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: pushed, deleted, promoted
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -56,7 +121,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Output("secret")]
         public Output<string?> Secret { get; private set; } = null!;
@@ -132,7 +197,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -147,8 +212,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: pushed, deleted, promoted
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -157,7 +221,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -169,7 +233,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
@@ -206,7 +270,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Description of webhook. Max length 1000 characters.
+        /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -221,8 +285,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        /// values: pushed, deleted, promoted
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -231,7 +294,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -243,7 +306,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Proxy { get; set; }
 
         /// <summary>
-        /// Secret authentication token that will be sent to the configured URL.
+        /// Secret authentication token that will be sent to the configured URL
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }

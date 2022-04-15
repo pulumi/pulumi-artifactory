@@ -11,6 +11,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Virtual Maven Repository Resource
+//
+// Provides an Artifactory virtual repository resource with specific maven feature.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		bar, err := artifactory.NewLocalMavenRepository(ctx, "bar", &artifactory.LocalMavenRepositoryArgs{
+// 			Key:           pulumi.String("bar"),
+// 			RepoLayoutRef: pulumi.String("maven-2-default"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
+// 			Key:           pulumi.String("baz"),
+// 			RepoLayoutRef: pulumi.String("maven-2-default"),
+// 			Url:           pulumi.String("https://search.maven.com/"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewMavenRepository(ctx, "foo", &artifactory.MavenRepositoryArgs{
+// 			Description:                          pulumi.String("A test virtual repo"),
+// 			ExcludesPattern:                      pulumi.String("com/google/**"),
+// 			ForceMavenAuthentication:             pulumi.Bool(true),
+// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+// 			Key:                                  pulumi.String("maven-virt-repo"),
+// 			Notes:                                pulumi.String("Internal description"),
+// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
+// 			RepoLayoutRef:                        pulumi.String("maven-2-default"),
+// 			Repositories: pulumi.StringArray{
+// 				bar.Key,
+// 				pulumi.Any(artifactory_local_maven_repository.Baz.Key),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Virtual repositories can be imported using their name, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/mavenRepository:MavenRepository foo foo
+// ```
 type MavenRepository struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +85,7 @@ type MavenRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-	// is also enforced when aggregated repositories support anonymous requests.
+	// - forces authentication when fetching from remote repos
 	ForceMavenAuthentication pulumi.BoolOutput `pulumi:"forceMavenAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -41,10 +100,7 @@ type MavenRepository struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-	// Nothing - Does not remove any repository elements declared in the POM.
+	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringOutput `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
@@ -103,8 +159,7 @@ type mavenRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-	// is also enforced when aggregated repositories support anonymous requests.
+	// - forces authentication when fetching from remote repos
 	ForceMavenAuthentication *bool `pulumi:"forceMavenAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -119,10 +174,7 @@ type mavenRepositoryState struct {
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-	// Nothing - Does not remove any repository elements declared in the POM.
+	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -150,8 +202,7 @@ type MavenRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-	// is also enforced when aggregated repositories support anonymous requests.
+	// - forces authentication when fetching from remote repos
 	ForceMavenAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -166,10 +217,7 @@ type MavenRepositoryState struct {
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-	// Nothing - Does not remove any repository elements declared in the POM.
+	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
@@ -201,8 +249,7 @@ type mavenRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-	// is also enforced when aggregated repositories support anonymous requests.
+	// - forces authentication when fetching from remote repos
 	ForceMavenAuthentication *bool `pulumi:"forceMavenAuthentication"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -215,10 +262,7 @@ type mavenRepositoryArgs struct {
 	KeyPair *string `pulumi:"keyPair"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-	// Nothing - Does not remove any repository elements declared in the POM.
+	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy *string `pulumi:"pomRepositoryReferencesCleanupPolicy"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
@@ -247,8 +291,7 @@ type MavenRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-	// is also enforced when aggregated repositories support anonymous requests.
+	// - forces authentication when fetching from remote repos
 	ForceMavenAuthentication pulumi.BoolPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -261,10 +304,7 @@ type MavenRepositoryArgs struct {
 	KeyPair pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-	// project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-	// Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-	// Nothing - Does not remove any repository elements declared in the POM.
+	// . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
 	PomRepositoryReferencesCleanupPolicy pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput

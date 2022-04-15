@@ -24,18 +24,14 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] email: Email for user.
-        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges.
-        :param pulumi.Input[bool] disable_ui_access: When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-               privileges.
+        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
-        :param pulumi.Input[bool] internal_password_disabled: When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-               is enabled.
+               - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
-        :param pulumi.Input[str] password: (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-               policy.
-        :param pulumi.Input[bool] profile_updatable: When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-               password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-               example, a departmental user with a single password shared between all department members.
+        :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         pulumi.set(__self__, "email", email)
         if admin is not None:
@@ -69,7 +65,7 @@ class UserArgs:
     @pulumi.getter
     def admin(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user is an administrator with all the ensuing privileges.
+        When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         """
         return pulumi.get(self, "admin")
 
@@ -81,8 +77,7 @@ class UserArgs:
     @pulumi.getter(name="disableUiAccess")
     def disable_ui_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-        privileges.
+        When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         """
         return pulumi.get(self, "disable_ui_access")
 
@@ -95,6 +90,7 @@ class UserArgs:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of groups this user is a part of.
+        - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
@@ -106,8 +102,7 @@ class UserArgs:
     @pulumi.getter(name="internalPasswordDisabled")
     def internal_password_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-        is enabled.
+        When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         """
         return pulumi.get(self, "internal_password_disabled")
 
@@ -131,8 +126,7 @@ class UserArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-        policy.
+        Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
 
@@ -144,9 +138,7 @@ class UserArgs:
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-        password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-        example, a departmental user with a single password shared between all department members.
+        When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         return pulumi.get(self, "profile_updatable")
 
@@ -168,19 +160,15 @@ class _UserState:
                  profile_updatable: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges.
-        :param pulumi.Input[bool] disable_ui_access: When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-               privileges.
+        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
-        :param pulumi.Input[bool] internal_password_disabled: When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-               is enabled.
+               - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
-        :param pulumi.Input[str] password: (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-               policy.
-        :param pulumi.Input[bool] profile_updatable: When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-               password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-               example, a departmental user with a single password shared between all department members.
+        :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         if admin is not None:
             pulumi.set(__self__, "admin", admin)
@@ -203,7 +191,7 @@ class _UserState:
     @pulumi.getter
     def admin(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user is an administrator with all the ensuing privileges.
+        When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         """
         return pulumi.get(self, "admin")
 
@@ -215,8 +203,7 @@ class _UserState:
     @pulumi.getter(name="disableUiAccess")
     def disable_ui_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-        privileges.
+        When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         """
         return pulumi.get(self, "disable_ui_access")
 
@@ -241,6 +228,7 @@ class _UserState:
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of groups this user is a part of.
+        - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
@@ -252,8 +240,7 @@ class _UserState:
     @pulumi.getter(name="internalPasswordDisabled")
     def internal_password_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-        is enabled.
+        When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         """
         return pulumi.get(self, "internal_password_disabled")
 
@@ -277,8 +264,7 @@ class _UserState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-        policy.
+        Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
 
@@ -290,9 +276,7 @@ class _UserState:
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> Optional[pulumi.Input[bool]]:
         """
-        When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-        password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-        example, a departmental user with a single password shared between all department members.
+        When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         return pulumi.get(self, "profile_updatable")
 
@@ -316,22 +300,47 @@ class User(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## # Artifactory User Resource
+
+        Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
+
+        When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory user called terraform
+        test_user = artifactory.User("test-user",
+            email="test-user@artifactory-terraform.com",
+            groups=[
+                "logged-in-users",
+                "readers",
+            ],
+            password="my super secret password")
+        ```
+
+        ## Import
+
+        Users can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/user:User test-user myusername
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges.
-        :param pulumi.Input[bool] disable_ui_access: When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-               privileges.
+        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
-        :param pulumi.Input[bool] internal_password_disabled: When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-               is enabled.
+               - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
-        :param pulumi.Input[str] password: (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-               policy.
-        :param pulumi.Input[bool] profile_updatable: When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-               password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-               example, a departmental user with a single password shared between all department members.
+        :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         ...
     @overload
@@ -340,7 +349,36 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a User resource with the given unique name, props, and options.
+        ## # Artifactory User Resource
+
+        Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
+
+        When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory user called terraform
+        test_user = artifactory.User("test-user",
+            email="test-user@artifactory-terraform.com",
+            groups=[
+                "logged-in-users",
+                "readers",
+            ],
+            password="my super secret password")
+        ```
+
+        ## Import
+
+        Users can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/user:User test-user myusername
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -411,19 +449,15 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges.
-        :param pulumi.Input[bool] disable_ui_access: When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-               privileges.
+        :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
+        :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
-        :param pulumi.Input[bool] internal_password_disabled: When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-               is enabled.
+               - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
-        :param pulumi.Input[str] password: (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-               policy.
-        :param pulumi.Input[bool] profile_updatable: When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-               password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-               example, a departmental user with a single password shared between all department members.
+        :param pulumi.Input[str] password: Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,7 +477,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def admin(self) -> pulumi.Output[Optional[bool]]:
         """
-        When enabled, this user is an administrator with all the ensuing privileges.
+        When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         """
         return pulumi.get(self, "admin")
 
@@ -451,8 +485,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="disableUiAccess")
     def disable_ui_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-        privileges.
+        When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         """
         return pulumi.get(self, "disable_ui_access")
 
@@ -469,6 +502,7 @@ class User(pulumi.CustomResource):
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of groups this user is a part of.
+        - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
@@ -476,8 +510,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="internalPasswordDisabled")
     def internal_password_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-        is enabled.
+        When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         """
         return pulumi.get(self, "internal_password_disabled")
 
@@ -493,8 +526,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-        policy.
+        Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         """
         return pulumi.get(self, "password")
 
@@ -502,9 +534,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="profileUpdatable")
     def profile_updatable(self) -> pulumi.Output[Optional[bool]]:
         """
-        When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-        password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-        example, a departmental user with a single password shared between all department members.
+        When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
         """
         return pulumi.get(self, "profile_updatable")
 

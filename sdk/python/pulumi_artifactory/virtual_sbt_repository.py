@@ -44,12 +44,11 @@ class VirtualSbtRepositoryArgs:
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -183,7 +182,7 @@ class VirtualSbtRepositoryArgs:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -207,10 +206,9 @@ class VirtualSbtRepositoryArgs:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -316,13 +314,12 @@ class _VirtualSbtRepositoryState:
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -459,7 +456,7 @@ class _VirtualSbtRepositoryState:
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> Optional[pulumi.Input[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -495,10 +492,9 @@ class _VirtualSbtRepositoryState:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -591,7 +587,34 @@ class VirtualSbtRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a VirtualSbtRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual SBT Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific sbt features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-sbt",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -608,12 +631,11 @@ class VirtualSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -629,7 +651,34 @@ class VirtualSbtRepository(pulumi.CustomResource):
                  args: VirtualSbtRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualSbtRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual SBT Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific sbt features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_sbt = artifactory.VirtualSbtRepository("foo-sbt",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-sbt",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualSbtRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -737,13 +786,12 @@ class VirtualSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
                contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
                'libs-release-local').
-        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
+        :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+               - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+               - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -841,7 +889,7 @@ class VirtualSbtRepository(pulumi.CustomResource):
     @pulumi.getter(name="keyPair")
     def key_pair(self) -> pulumi.Output[Optional[str]]:
         """
-        The keypair used to sign artifacts
+        The keypair used to sign artifacts.
         """
         return pulumi.get(self, "key_pair")
 
@@ -865,10 +913,9 @@ class VirtualSbtRepository(pulumi.CustomResource):
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> pulumi.Output[str]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
+        - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
+        - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 

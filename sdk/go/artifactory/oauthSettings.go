@@ -11,13 +11,67 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory OAuth SSO Settings Resource
+//
+// This resource can be used to manage Artifactory's OAuth SSO settings.
+//
+// Only a single `OauthSettings` resource is meant to be defined.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
+// 			AllowUserToAccessProfile: pulumi.Bool(true),
+// 			Enable:                   pulumi.Bool(true),
+// 			OauthProviders: OauthSettingsOauthProviderArray{
+// 				&OauthSettingsOauthProviderArgs{
+// 					ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
+// 					AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
+// 					ClientId:     pulumi.String("foo"),
+// 					ClientSecret: pulumi.String("bar"),
+// 					Enabled:      pulumi.Bool(false),
+// 					Name:         pulumi.String("okta"),
+// 					TokenUrl:     pulumi.String("https://organization.okta.com/oauth2/v1/token"),
+// 					Type:         pulumi.String("openId"),
+// 				},
+// 			},
+// 			PersistUsers: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+// ```
 type OauthSettings struct {
 	pulumi.CustomResourceState
 
-	AllowUserToAccessProfile pulumi.BoolPtrOutput                  `pulumi:"allowUserToAccessProfile"`
-	Enable                   pulumi.BoolPtrOutput                  `pulumi:"enable"`
-	OauthProviders           OauthSettingsOauthProviderArrayOutput `pulumi:"oauthProviders"`
-	PersistUsers             pulumi.BoolPtrOutput                  `pulumi:"persistUsers"`
+	// Allow persisted users to access their profile.  Default value is `false`.
+	AllowUserToAccessProfile pulumi.BoolPtrOutput `pulumi:"allowUserToAccessProfile"`
+	// Enable OAuth SSO.  Default value is `true`.
+	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
+	// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+	OauthProviders OauthSettingsOauthProviderArrayOutput `pulumi:"oauthProviders"`
+	// Enable the creation of local Artifactory users.  Default value is `false`.
+	PersistUsers pulumi.BoolPtrOutput `pulumi:"persistUsers"`
 }
 
 // NewOauthSettings registers a new resource with the given unique name, arguments, and options.
@@ -52,17 +106,25 @@ func GetOauthSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthSettings resources.
 type oauthSettingsState struct {
-	AllowUserToAccessProfile *bool                        `pulumi:"allowUserToAccessProfile"`
-	Enable                   *bool                        `pulumi:"enable"`
-	OauthProviders           []OauthSettingsOauthProvider `pulumi:"oauthProviders"`
-	PersistUsers             *bool                        `pulumi:"persistUsers"`
+	// Allow persisted users to access their profile.  Default value is `false`.
+	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
+	// Enable OAuth SSO.  Default value is `true`.
+	Enable *bool `pulumi:"enable"`
+	// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+	OauthProviders []OauthSettingsOauthProvider `pulumi:"oauthProviders"`
+	// Enable the creation of local Artifactory users.  Default value is `false`.
+	PersistUsers *bool `pulumi:"persistUsers"`
 }
 
 type OauthSettingsState struct {
+	// Allow persisted users to access their profile.  Default value is `false`.
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	Enable                   pulumi.BoolPtrInput
-	OauthProviders           OauthSettingsOauthProviderArrayInput
-	PersistUsers             pulumi.BoolPtrInput
+	// Enable OAuth SSO.  Default value is `true`.
+	Enable pulumi.BoolPtrInput
+	// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+	OauthProviders OauthSettingsOauthProviderArrayInput
+	// Enable the creation of local Artifactory users.  Default value is `false`.
+	PersistUsers pulumi.BoolPtrInput
 }
 
 func (OauthSettingsState) ElementType() reflect.Type {
@@ -70,18 +132,26 @@ func (OauthSettingsState) ElementType() reflect.Type {
 }
 
 type oauthSettingsArgs struct {
-	AllowUserToAccessProfile *bool                        `pulumi:"allowUserToAccessProfile"`
-	Enable                   *bool                        `pulumi:"enable"`
-	OauthProviders           []OauthSettingsOauthProvider `pulumi:"oauthProviders"`
-	PersistUsers             *bool                        `pulumi:"persistUsers"`
+	// Allow persisted users to access their profile.  Default value is `false`.
+	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
+	// Enable OAuth SSO.  Default value is `true`.
+	Enable *bool `pulumi:"enable"`
+	// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+	OauthProviders []OauthSettingsOauthProvider `pulumi:"oauthProviders"`
+	// Enable the creation of local Artifactory users.  Default value is `false`.
+	PersistUsers *bool `pulumi:"persistUsers"`
 }
 
 // The set of arguments for constructing a OauthSettings resource.
 type OauthSettingsArgs struct {
+	// Allow persisted users to access their profile.  Default value is `false`.
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	Enable                   pulumi.BoolPtrInput
-	OauthProviders           OauthSettingsOauthProviderArrayInput
-	PersistUsers             pulumi.BoolPtrInput
+	// Enable OAuth SSO.  Default value is `true`.
+	Enable pulumi.BoolPtrInput
+	// OAuth provider settings block. Multiple blocks can be defined, at least one is required.
+	OauthProviders OauthSettingsOauthProviderArrayInput
+	// Enable the creation of local Artifactory users.  Default value is `false`.
+	PersistUsers pulumi.BoolPtrInput
 }
 
 func (OauthSettingsArgs) ElementType() reflect.Type {

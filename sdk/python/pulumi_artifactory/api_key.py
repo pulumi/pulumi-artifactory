@@ -25,6 +25,7 @@ class _ApiKeyState:
                  api_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
+        :param pulumi.Input[str] api_key: The API key.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -32,6 +33,9 @@ class _ApiKeyState:
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API key.
+        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -46,7 +50,24 @@ class ApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
-        Create a ApiKey resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory API key for the configured user
+        ci = artifactory.ApiKey("ci")
+        ```
+
+        ## Import
+
+        A user's API key can be imported using any identifier, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/apiKey:ApiKey test import
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -57,7 +78,24 @@ class ApiKey(pulumi.CustomResource):
                  args: Optional[ApiKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ApiKey resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a new Artifactory API key for the configured user
+        ci = artifactory.ApiKey("ci")
+        ```
+
+        ## Import
+
+        A user's API key can be imported using any identifier, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/apiKey:ApiKey test import
+        ```
+
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,6 +142,7 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_key: The API key.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -115,5 +154,8 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[str]:
+        """
+        The API key.
+        """
         return pulumi.get(self, "api_key")
 

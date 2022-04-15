@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Local NPM Repository Resource
+ *
+ * Creates a local npm repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_npm_repo = new artifactory.LocalNpmRepository("terraform-local-test-npm-repo", {
+ *     key: "terraform-local-test-npm-repo",
+ * });
+ * ```
+ */
 export class LocalNpmRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalNpmRepository resource's state with the given name, ID, and optional extra
@@ -59,8 +75,7 @@ export class LocalNpmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -177,8 +192,7 @@ export interface LocalNpmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -242,8 +256,7 @@ export interface LocalNpmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

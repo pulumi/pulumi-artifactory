@@ -9,30 +9,91 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Certificate Resource
+    /// 
+    /// Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Artifactory certificate called my-cert
+    ///         var my_cert = new Artifactory.Certificate("my-cert", new Artifactory.CertificateArgs
+    ///         {
+    ///             Alias = "my-cert",
+    ///             Content = File.ReadAllText("/path/to/bundle.pem"),
+    ///         });
+    ///         // This can then be used by a remote repository
+    ///         var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new Artifactory.RemoteMavenRepositoryArgs
+    ///         {
+    ///             ClientTlsCertificate = my_cert.Alias,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Certificates can be imported using their alias, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/certificate:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Name of certificate.
+        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded client certificate and private key.
+        /// </summary>
         [Output("content")]
         public Output<string?> Content { get; private set; } = null!;
 
         [Output("file")]
         public Output<string?> File { get; private set; } = null!;
 
+        /// <summary>
+        /// SHA256 fingerprint of the certificate.
+        /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the certificate authority that issued the certificate.
+        /// </summary>
         [Output("issuedBy")]
         public Output<string> IssuedBy { get; private set; } = null!;
 
+        /// <summary>
+        /// The time &amp; date when the certificate is valid from.
+        /// </summary>
         [Output("issuedOn")]
         public Output<string> IssuedOn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of whom the certificate has been issued to.
+        /// </summary>
         [Output("issuedTo")]
         public Output<string> IssuedTo { get; private set; } = null!;
 
+        /// <summary>
+        /// The time &amp; date when the certificate expires.
+        /// </summary>
         [Output("validUntil")]
         public Output<string> ValidUntil { get; private set; } = null!;
 
@@ -82,9 +143,15 @@ namespace Pulumi.Artifactory
 
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of certificate.
+        /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
+        /// <summary>
+        /// PEM-encoded client certificate and private key.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
@@ -98,27 +165,48 @@ namespace Pulumi.Artifactory
 
     public sealed class CertificateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of certificate.
+        /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        /// <summary>
+        /// PEM-encoded client certificate and private key.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
         [Input("file")]
         public Input<string>? File { get; set; }
 
+        /// <summary>
+        /// SHA256 fingerprint of the certificate.
+        /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
+        /// <summary>
+        /// Name of the certificate authority that issued the certificate.
+        /// </summary>
         [Input("issuedBy")]
         public Input<string>? IssuedBy { get; set; }
 
+        /// <summary>
+        /// The time &amp; date when the certificate is valid from.
+        /// </summary>
         [Input("issuedOn")]
         public Input<string>? IssuedOn { get; set; }
 
+        /// <summary>
+        /// Name of whom the certificate has been issued to.
+        /// </summary>
         [Input("issuedTo")]
         public Input<string>? IssuedTo { get; set; }
 
+        /// <summary>
+        /// The time &amp; date when the certificate expires.
+        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 

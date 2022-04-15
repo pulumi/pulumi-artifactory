@@ -9,6 +9,49 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Virtual Debian Repository Resource
+    /// 
+    /// Provides an Artifactory virtual repository resource with specific debian features.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new Artifactory.VirtualDebianRepositoryArgs
+    ///         {
+    ///             DebianDefaultArchitectures = "amd64,i386",
+    ///             Description = "A test virtual repo",
+    ///             ExcludesPattern = "com/google/**",
+    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///             Key = "foo-debian",
+    ///             Notes = "Internal description",
+    ///             OptionalIndexCompressionFormats = 
+    ///             {
+    ///                 "bz2",
+    ///                 "xz",
+    ///             },
+    ///             Repositories = {},
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualDebianRepository:VirtualDebianRepository")]
     public partial class VirtualDebianRepository : Pulumi.CustomResource
     {
@@ -20,8 +63,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        /// architecture values are amd64 and i386.
+        /// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         /// </summary>
         [Output("debianDefaultArchitectures")]
         public Output<string?> DebianDefaultArchitectures { get; private set; } = null!;
@@ -68,8 +110,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        /// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         /// </summary>
         [Output("optionalIndexCompressionFormats")]
         public Output<ImmutableArray<string>> OptionalIndexCompressionFormats { get; private set; } = null!;
@@ -81,7 +122,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// Primary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -119,7 +160,7 @@ namespace Pulumi.Artifactory
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// Secondary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -178,8 +219,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
         /// <summary>
-        /// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        /// architecture values are amd64 and i386.
+        /// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         /// </summary>
         [Input("debianDefaultArchitectures")]
         public Input<string>? DebianDefaultArchitectures { get; set; }
@@ -229,8 +269,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _optionalIndexCompressionFormats;
 
         /// <summary>
-        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        /// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         /// </summary>
         public InputList<string> OptionalIndexCompressionFormats
         {
@@ -239,7 +278,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// Primary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -289,7 +328,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// Secondary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -309,8 +348,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? ArtifactoryRequestsCanRetrieveRemoteArtifacts { get; set; }
 
         /// <summary>
-        /// (Optional) Specifying architectures will speed up Artifactory's initial metadata indexing process. The default
-        /// architecture values are amd64 and i386.
+        /// Specifying  architectures will speed up Artifactory's initial metadata indexing process. The default architecture values are amd64 and i386.
         /// </summary>
         [Input("debianDefaultArchitectures")]
         public Input<string>? DebianDefaultArchitectures { get; set; }
@@ -360,8 +398,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _optionalIndexCompressionFormats;
 
         /// <summary>
-        /// (Optional) Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported
-        /// values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        /// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         /// </summary>
         public InputList<string> OptionalIndexCompressionFormats
         {
@@ -376,7 +413,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// (Optional) Primary keypair used to sign artifacts. Default is empty.
+        /// Primary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -426,7 +463,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) Secondary keypair used to sign artifacts. Default is empty.
+        /// Secondary keypair used to sign artifacts. Default is empty.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }

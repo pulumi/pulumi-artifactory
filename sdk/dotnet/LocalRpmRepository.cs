@@ -9,6 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Local RPM Repository Resource
+    /// 
+    /// Creates a local RPM repository
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias1",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
+    ///         var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias2",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
+    ///         var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new Artifactory.LocalRpmRepositoryArgs
+    ///         {
+    ///             Key = "terraform-local-test-rpm-repo-basic",
+    ///             YumRootDepth = 5,
+    ///             CalculateYumMetadata = true,
+    ///             EnableFileListsIndexing = true,
+    ///             YumGroupFileNames = "file-1.xml,file-2.xml",
+    ///             PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
+    ///             SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 some_keypair_gpg_1,
+    ///                 some_keypair_gpg_2,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localRpmRepository:LocalRpmRepository")]
     public partial class LocalRpmRepository : Pulumi.CustomResource
     {
@@ -57,8 +111,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -70,7 +123,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -107,7 +160,7 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Secondary keypair used to sign artifacts.
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
@@ -120,16 +173,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> XrayIndex { get; private set; } = null!;
 
         /// <summary>
-        /// A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
-        /// of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+        /// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
         /// </summary>
         [Output("yumGroupFileNames")]
         public Output<string?> YumGroupFileNames { get; private set; } = null!;
 
         /// <summary>
-        /// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-        /// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-        /// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        /// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Output("yumRootDepth")]
         public Output<int?> YumRootDepth { get; private set; } = null!;
@@ -225,8 +275,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -235,7 +284,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -284,7 +333,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Secondary keypair used to sign artifacts.
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -297,16 +346,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? XrayIndex { get; set; }
 
         /// <summary>
-        /// A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
-        /// of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+        /// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
         /// </summary>
         [Input("yumGroupFileNames")]
         public Input<string>? YumGroupFileNames { get; set; }
 
         /// <summary>
-        /// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-        /// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-        /// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        /// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("yumRootDepth")]
         public Input<int>? YumRootDepth { get; set; }
@@ -363,8 +409,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -376,7 +421,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// Primary keypair used to sign artifacts.
+        /// The primary GPG key to be used to sign packages
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -425,7 +470,7 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Secondary keypair used to sign artifacts.
+        /// The secondary GPG key to be used to sign packages
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
@@ -438,16 +483,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? XrayIndex { get; set; }
 
         /// <summary>
-        /// A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part
-        /// of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
+        /// - A list of XML file names containing RPM group component definitions. Artifactory includes the group definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group files, if required.
         /// </summary>
         [Input("yumGroupFileNames")]
         public Input<string>? YumGroupFileNames { get; set; }
 
         /// <summary>
-        /// The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
-        /// contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
-        /// 'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        /// - The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under 'fedora/linux/$releasever/$basearch', specify a depth of 4. Once the number of snapshots exceeds this setting, older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("yumRootDepth")]
         public Input<int>? YumRootDepth { get; set; }

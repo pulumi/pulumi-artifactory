@@ -4,6 +4,38 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory User Resource
+ *
+ * Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
+ *
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * // Create a new Artifactory user called terraform
+ * const test_user = new artifactory.User("test-user", {
+ *     email: "test-user@artifactory-terraform.com",
+ *     groups: [
+ *         "logged-in-users",
+ *         "readers",
+ *     ],
+ *     password: "my super secret password",
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Users can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/user:User test-user myusername
+ * ```
+ */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -33,12 +65,11 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     public readonly admin!: pulumi.Output<boolean | undefined>;
     /**
-     * When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-     * privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     public readonly disableUiAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -47,11 +78,11 @@ export class User extends pulumi.CustomResource {
     public readonly email!: pulumi.Output<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-     * is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     public readonly internalPasswordDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -59,14 +90,11 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-     * policy.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-     * password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-     * example, a departmental user with a single password shared between all department members.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     public readonly profileUpdatable!: pulumi.Output<boolean | undefined>;
 
@@ -115,12 +143,11 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     admin?: pulumi.Input<boolean>;
     /**
-     * When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-     * privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: pulumi.Input<boolean>;
     /**
@@ -129,11 +156,11 @@ export interface UserState {
     email?: pulumi.Input<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-     * is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
@@ -141,14 +168,11 @@ export interface UserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-     * policy.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**
-     * When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-     * password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-     * example, a departmental user with a single password shared between all department members.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: pulumi.Input<boolean>;
 }
@@ -158,12 +182,11 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     admin?: pulumi.Input<boolean>;
     /**
-     * When enabled, this user can only access the system through the REST API. This option cannot be set if the user has Admin
-     * privileges.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: pulumi.Input<boolean>;
     /**
@@ -172,11 +195,11 @@ export interface UserArgs {
     email: pulumi.Input<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When enabled, disables the fallback mechanism for using an internal password when external authentication (such as LDAP)
-     * is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
@@ -184,14 +207,11 @@ export interface UserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Optional) Password for the user. When omitted, a random password is generated according to default Artifactory password
-     * policy.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**
-     * When enabled, this user can update their profile details (except for the password. Only an administrator can update the
-     * password). There may be cases in which you want to leave this unset to prevent users from updating their profile. For
-     * example, a departmental user with a single password shared between all department members.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: pulumi.Input<boolean>;
 }

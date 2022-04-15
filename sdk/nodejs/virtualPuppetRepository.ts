@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Puppet Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific puppet features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_puppet = new artifactory.VirtualPuppetRepository("foo-puppet", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-puppet",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualPuppetRepository:VirtualPuppetRepository foo foo
+ * ```
+ */
 export class VirtualPuppetRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualPuppetRepository resource's state with the given name, ID, and optional extra

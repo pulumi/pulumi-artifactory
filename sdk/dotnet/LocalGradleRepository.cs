@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Local Gradle Repository Resource
+    /// 
+    /// Creates a local Gradle repository
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraform_local_test_gradle_repo_basic = new Artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new Artifactory.LocalGradleRepositoryArgs
+    ///         {
+    ///             ChecksumPolicyType = "client-checksums",
+    ///             HandleReleases = true,
+    ///             HandleSnapshots = true,
+    ///             Key = "terraform-local-test-gradle-repo-basic",
+    ///             MaxUniqueSnapshots = 10,
+    ///             SnapshotVersionBehavior = "unique",
+    ///             SuppressPomConsistencyChecks = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGradleRepository:LocalGradleRepository")]
     public partial class LocalGradleRepository : Pulumi.CustomResource
     {
@@ -27,9 +57,9 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
-        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
+        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
         /// </summary>
         [Output("checksumPolicyType")]
         public Output<string?> ChecksumPolicyType { get; private set; } = null!;
@@ -71,15 +101,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Output("maxUniqueSnapshots")]
         public Output<int?> MaxUniqueSnapshots { get; private set; } = null!;
@@ -122,18 +152,19 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions.
+        /// The options are -
+        /// Unique: Version number is based on a time-stamp (default)
+        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Output("snapshotVersionBehavior")]
         public Output<string?> SnapshotVersionBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
-        /// checkbox.
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+        /// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
+        /// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
         /// </summary>
         [Output("suppressPomConsistencyChecks")]
         public Output<bool?> SuppressPomConsistencyChecks { get; private set; } = null!;
@@ -206,9 +237,9 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
-        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
+        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -250,15 +281,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
@@ -310,18 +341,19 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions.
+        /// The options are -
+        /// Unique: Version number is based on a time-stamp (default)
+        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
 
         /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
-        /// checkbox.
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+        /// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
+        /// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }
@@ -355,9 +387,9 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        /// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
-        /// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
+        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
+        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -399,15 +431,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-        /// special characters.
+        /// - the identity key of the repo
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-        /// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
         public Input<int>? MaxUniqueSnapshots { get; set; }
@@ -462,18 +494,19 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        /// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        /// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// Specifies the naming convention for Maven SNAPSHOT versions.
+        /// The options are -
+        /// Unique: Version number is based on a time-stamp (default)
+        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
 
         /// <summary>
-        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
-        /// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
-        /// deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
-        /// checkbox.
+        /// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
+        /// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
+        /// You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. True by default for Gradle repository.
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }

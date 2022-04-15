@@ -17,6 +17,7 @@ class PullReplicationArgs:
                  repo_key: pulumi.Input[str],
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
@@ -27,7 +28,10 @@ class PullReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
+        :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -35,6 +39,8 @@ class PullReplicationArgs:
             pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
@@ -87,6 +93,18 @@ class PullReplicationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="pathPrefix")
@@ -148,6 +166,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -157,6 +178,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -182,9 +206,10 @@ class _PullReplicationState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PullReplication resources.
-        :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
-               state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -244,8 +269,7 @@ class _PullReplicationState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "password")
 
@@ -322,6 +346,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -331,6 +358,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -346,6 +376,7 @@ class PullReplication(pulumi.CustomResource):
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
@@ -357,10 +388,44 @@ class PullReplication(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PullReplication resource with the given unique name, props, and options.
+        ## # Artifactory Pull Replication Resource
+
+        Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
+        for a local or remote repo.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
+            key="provider_test_dest",
+            password="bar",
+            url=f"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
+            username="foo")
+        remote_rep = artifactory.PullReplication("remote-rep",
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            repo_key=provider_test_dest.key)
+        ```
+
+        ## Import
+
+        Pull replication config can be imported using its repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         ...
     @overload
@@ -369,7 +434,38 @@ class PullReplication(pulumi.CustomResource):
                  args: PullReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PullReplication resource with the given unique name, props, and options.
+        ## # Artifactory Pull Replication Resource
+
+        Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
+        for a local or remote repo.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Create a replication between two artifactory local repositories
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.RemoteMavenRepository("providerTestDest",
+            key="provider_test_dest",
+            password="bar",
+            url=f"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}",
+            username="foo")
+        remote_rep = artifactory.PullReplication("remote-rep",
+            cron_exp="0 0 * * * ?",
+            enable_event_replication=True,
+            repo_key=provider_test_dest.key)
+        ```
+
+        ## Import
+
+        Pull replication config can be imported using its repo key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+        ```
+
         :param str resource_name: The name of the resource.
         :param PullReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,6 +484,7 @@ class PullReplication(pulumi.CustomResource):
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
@@ -414,6 +511,7 @@ class PullReplication(pulumi.CustomResource):
             __props__.__dict__["cron_exp"] = cron_exp
             __props__.__dict__["enable_event_replication"] = enable_event_replication
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["password"] = password
             __props__.__dict__["path_prefix"] = path_prefix
             __props__.__dict__["proxy"] = proxy
             if repo_key is None and not opts.urn:
@@ -425,7 +523,6 @@ class PullReplication(pulumi.CustomResource):
             __props__.__dict__["sync_statistics"] = sync_statistics
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
-            __props__.__dict__["password"] = None
         super(PullReplication, __self__).__init__(
             'artifactory:index/pullReplication:PullReplication',
             resource_name,
@@ -456,9 +553,10 @@ class PullReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] password: If a password is used to create the resource, it will be returned as encrypted and this will become the new
-               state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,10 +594,9 @@ class PullReplication(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
-        If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "password")
 
@@ -544,10 +641,16 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "username")
 

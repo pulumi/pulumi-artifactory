@@ -9,6 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Push Replication Resource
+    /// 
+    /// Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a replication between two artifactory local repositories
+    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_source",
+    ///         });
+    ///         var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new Artifactory.LocalMavenRepositoryArgs
+    ///         {
+    ///             Key = "provider_test_dest",
+    ///         });
+    ///         var foo_rep = new Artifactory.PushReplication("foo-rep", new Artifactory.PushReplicationArgs
+    ///         {
+    ///             CronExp = "0 0 * * * ?",
+    ///             EnableEventReplication = true,
+    ///             Replications = 
+    ///             {
+    ///                 new Artifactory.Inputs.PushReplicationReplicationArgs
+    ///                 {
+    ///                     Password = "$var.artifactory_password",
+    ///                     Url = "$var.artifactory_url",
+    ///                     Username = "$var.artifactory_username",
+    ///                 },
+    ///             },
+    ///             RepoKey = providerTestSource.Key,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Push replication configs can be imported using their repo key, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/pushReplication:PushReplication")]
     public partial class PushReplication : Pulumi.CustomResource
     {

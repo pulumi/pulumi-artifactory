@@ -11,9 +11,67 @@ namespace Pulumi.Artifactory
 {
     public static class GetFileinfo
     {
+        /// <summary>
+        /// ## # Artifactory File Info Data Source
+        /// 
+        /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var my_file = Output.Create(Artifactory.GetFileinfo.InvokeAsync(new Artifactory.GetFileinfoArgs
+        ///         {
+        ///             Path = "/path/to/the/artifact.zip",
+        ///             Repository = "repo-key",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetFileinfoResult> InvokeAsync(GetFileinfoArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## # Artifactory File Info Data Source
+        /// 
+        /// Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Artifactory = Pulumi.Artifactory;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var my_file = Output.Create(Artifactory.GetFileinfo.InvokeAsync(new Artifactory.GetFileinfoArgs
+        ///         {
+        ///             Path = "/path/to/the/artifact.zip",
+        ///             Repository = "repo-key",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +79,15 @@ namespace Pulumi.Artifactory
 
     public sealed class GetFileinfoArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The path to the file within the repository.
+        /// </summary>
         [Input("path", required: true)]
         public string Path { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the repository where the file is stored.
+        /// </summary>
         [Input("repository", required: true)]
         public string Repository { get; set; } = null!;
 
@@ -34,9 +98,15 @@ namespace Pulumi.Artifactory
 
     public sealed class GetFileinfoInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The path to the file within the repository.
+        /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the repository where the file is stored.
+        /// </summary>
         [Input("repository", required: true)]
         public Input<string> Repository { get; set; } = null!;
 
@@ -49,22 +119,55 @@ namespace Pulumi.Artifactory
     [OutputType]
     public sealed class GetFileinfoResult
     {
+        /// <summary>
+        /// The time &amp; date when the file was created.
+        /// </summary>
         public readonly string Created;
+        /// <summary>
+        /// The user who created the file.
+        /// </summary>
         public readonly string CreatedBy;
+        /// <summary>
+        /// The URI that can be used to download the file.
+        /// </summary>
         public readonly string DownloadUri;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The time &amp; date when the file was last modified.
+        /// </summary>
         public readonly string LastModified;
+        /// <summary>
+        /// The time &amp; date when the file was last updated.
+        /// </summary>
         public readonly string LastUpdated;
+        /// <summary>
+        /// MD5 checksum of the file.
+        /// </summary>
         public readonly string Md5;
+        /// <summary>
+        /// The mimetype of the file.
+        /// </summary>
         public readonly string Mimetype;
+        /// <summary>
+        /// The user who last modified the file.
+        /// </summary>
         public readonly string ModifiedBy;
         public readonly string Path;
         public readonly string Repository;
+        /// <summary>
+        /// SHA1 checksum of the file.
+        /// </summary>
         public readonly string Sha1;
+        /// <summary>
+        /// SHA256 checksum of the file.
+        /// </summary>
         public readonly string Sha256;
+        /// <summary>
+        /// The size of the file.
+        /// </summary>
         public readonly int Size;
 
         [OutputConstructor]

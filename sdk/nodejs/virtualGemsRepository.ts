@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual Gems Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific gems features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_gems = new artifactory.VirtualGemsRepository("foo-gems", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-gems",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo foo
+ * ```
+ */
 export class VirtualGemsRepository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualGemsRepository resource's state with the given name, ID, and optional extra

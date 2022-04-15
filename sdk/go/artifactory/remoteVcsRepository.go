@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Remote Go Repository Resource
+//
+// Creates a remote VCS repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories)
 type RemoteVcsRepository struct {
 	pulumi.CustomResourceState
 
@@ -48,15 +52,17 @@ type RemoteVcsRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	Key             pulumi.StringOutput `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// - The maximum number of unique snapshots of a single artifact to store.
+	//   Once the number of snapshots exceeds this setting, older versions are removed.
+	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrOutput `pulumi:"maxUniqueSnapshots"`
 	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
@@ -101,13 +107,15 @@ type RemoteVcsRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringOutput    `pulumi:"url"`
-	Username                          pulumi.StringPtrOutput `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL.
+	Url      pulumi.StringOutput    `pulumi:"url"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
+	// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+	// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -183,15 +191,17 @@ type remoteVcsRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             *string `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// - The maximum number of unique snapshots of a single artifact to store.
+	//   Once the number of snapshots exceeds this setting, older versions are removed.
+	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
@@ -236,13 +246,15 @@ type remoteVcsRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL.
+	Url      *string `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
+	// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+	// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -284,15 +296,17 @@ type RemoteVcsRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringPtrInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// - The maximum number of unique snapshots of a single artifact to store.
+	//   Once the number of snapshots exceeds this setting, older versions are removed.
+	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
@@ -338,12 +352,14 @@ type RemoteVcsRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringPtrInput
-	Username                          pulumi.StringPtrInput
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// - the remote repo URL.
+	Url      pulumi.StringPtrInput
+	Username pulumi.StringPtrInput
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
+	// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+	// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -387,15 +403,17 @@ type remoteVcsRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// - The maximum number of unique snapshots of a single artifact to store.
+	//   Once the number of snapshots exceeds this setting, older versions are removed.
+	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots *int `pulumi:"maxUniqueSnapshots"`
 	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
@@ -439,13 +457,15 @@ type remoteVcsRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               string  `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL.
+	Url      string  `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
+	// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+	// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -486,15 +506,17 @@ type RemoteVcsRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
-	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+	// - The maximum number of unique snapshots of a single artifact to store.
+	//   Once the number of snapshots exceeds this setting, older versions are removed.
+	//   A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
 	MaxUniqueSnapshots pulumi.IntPtrInput
 	// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
@@ -539,12 +561,14 @@ type RemoteVcsRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringInput
-	Username                          pulumi.StringPtrInput
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// - the remote repo URL.
+	Url      pulumi.StringInput
+	Username pulumi.StringPtrInput
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
+	// Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
+	// 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

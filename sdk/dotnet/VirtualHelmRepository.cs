@@ -9,6 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Virtual Helm Repository Resource
+    /// 
+    /// Provides an Artifactory virtual repository resource with Helm package type.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo_helm_virtual = new Artifactory.VirtualHelmRepository("foo-helm-virtual", new Artifactory.VirtualHelmRepositoryArgs
+    ///         {
+    ///             Key = "foo-helm-virtual",
+    ///             UseNamespaces = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Virtual repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualHelmRepository:VirtualHelmRepository")]
     public partial class VirtualHelmRepository : Pulumi.CustomResource
     {
@@ -99,10 +132,7 @@ namespace Pulumi.Artifactory
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
-        /// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
-        /// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
-        /// Default to 'false'
+        /// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
         /// </summary>
         [Output("useNamespaces")]
         public Output<bool?> UseNamespaces { get; private set; } = null!;
@@ -246,10 +276,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
-        /// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
-        /// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
-        /// Default to 'false'
+        /// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
         /// </summary>
         [Input("useNamespaces")]
         public Input<bool>? UseNamespaces { get; set; }
@@ -360,10 +387,7 @@ namespace Pulumi.Artifactory
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         /// <summary>
-        /// (Optional) From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote
-        /// repository to fetch from a virtual by assigning namespaces to local and remote repositories See
-        /// https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories.
-        /// Default to 'false'
+        /// From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
         /// </summary>
         [Input("useNamespaces")]
         public Input<bool>? UseNamespaces { get; set; }

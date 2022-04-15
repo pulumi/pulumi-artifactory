@@ -27,15 +27,14 @@ class ArtifactWebhookArgs:
         """
         The set of arguments for constructing a ArtifactWebhook resource.
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-               values: deployed, deleted, moved, copied
-        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
+        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
@@ -68,8 +67,7 @@ class ArtifactWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        values: deployed, deleted, moved, copied
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
         """
         return pulumi.get(self, "event_types")
 
@@ -81,7 +79,7 @@ class ArtifactWebhookArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -117,7 +115,7 @@ class ArtifactWebhookArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of webhook. Max length 1000 characters.
+        Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -153,7 +151,7 @@ class ArtifactWebhookArgs:
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Secret authentication token that will be sent to the configured URL.
+        Secret authentication token that will be sent to the configured URL
         """
         return pulumi.get(self, "secret")
 
@@ -178,13 +176,12 @@ class _ArtifactWebhookState:
         Input properties used for looking up and filtering ArtifactWebhook resources.
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
+        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-               values: deployed, deleted, moved, copied
-        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         if criteria is not None:
@@ -234,7 +231,7 @@ class _ArtifactWebhookState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of webhook. Max length 1000 characters.
+        Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -258,8 +255,7 @@ class _ArtifactWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        values: deployed, deleted, moved, copied
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
         """
         return pulumi.get(self, "event_types")
 
@@ -271,7 +267,7 @@ class _ArtifactWebhookState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -295,7 +291,7 @@ class _ArtifactWebhookState:
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[str]]:
         """
-        Secret authentication token that will be sent to the configured URL.
+        Secret authentication token that will be sent to the configured URL
         """
         return pulumi.get(self, "secret")
 
@@ -332,18 +328,53 @@ class ArtifactWebhook(pulumi.CustomResource):
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ArtifactWebhook resource with the given unique name, props, and options.
+        ## # Artifactory Artifact Webhook Resource
+
+        Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+
+        ## Example Usage
+
+        .
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_generic_local = artifactory.LocalGenericRepository("my-generic-local", key="my-generic-local")
+        artifact_webhook = artifactory.ArtifactWebhook("artifact-webhook",
+            key="artifact-webhook",
+            event_types=[
+                "deployed",
+                "deleted",
+                "moved",
+                "copied",
+            ],
+            criteria=artifactory.ArtifactWebhookCriteriaArgs(
+                any_local=True,
+                any_remote=False,
+                repo_keys=[my_generic_local.key],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
+            url="http://tempurl.org/webhook",
+            secret="some-secret",
+            proxy="proxy-key",
+            custom_http_headers={
+                "header-1": "value-1",
+                "header-2": "value-2",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
+        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-               values: deployed, deleted, moved, copied
-        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         ...
@@ -353,7 +384,43 @@ class ArtifactWebhook(pulumi.CustomResource):
                  args: ArtifactWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ArtifactWebhook resource with the given unique name, props, and options.
+        ## # Artifactory Artifact Webhook Resource
+
+        Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
+
+        ## Example Usage
+
+        .
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_generic_local = artifactory.LocalGenericRepository("my-generic-local", key="my-generic-local")
+        artifact_webhook = artifactory.ArtifactWebhook("artifact-webhook",
+            key="artifact-webhook",
+            event_types=[
+                "deployed",
+                "deleted",
+                "moved",
+                "copied",
+            ],
+            criteria=artifactory.ArtifactWebhookCriteriaArgs(
+                any_local=True,
+                any_remote=False,
+                repo_keys=[my_generic_local.key],
+                include_patterns=["foo/**"],
+                exclude_patterns=["bar/**"],
+            ),
+            url="http://tempurl.org/webhook",
+            secret="some-secret",
+            proxy="proxy-key",
+            custom_http_headers={
+                "header-1": "value-1",
+                "header-2": "value-2",
+            },
+            opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
+        ```
+
         :param str resource_name: The name of the resource.
         :param ArtifactWebhookArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -435,13 +502,12 @@ class ArtifactWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        :param pulumi.Input[str] description: Description of webhook. Max length 1000 characters.
+        :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
         :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-               values: deployed, deleted, moved, copied
-        :param pulumi.Input[str] key: Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL.
+        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
         :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -479,7 +545,7 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Description of webhook. Max length 1000 characters.
+        Webhook description. Max length 1000 characters.
         """
         return pulumi.get(self, "description")
 
@@ -495,8 +561,7 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow
-        values: deployed, deleted, moved, copied
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
         """
         return pulumi.get(self, "event_types")
 
@@ -504,7 +569,7 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        Key of webhook. Must be between 2 and 200 characters. Cannot contain spaces.
+        The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
 
@@ -520,7 +585,7 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter
     def secret(self) -> pulumi.Output[Optional[str]]:
         """
-        Secret authentication token that will be sent to the configured URL.
+        Secret authentication token that will be sent to the configured URL
         """
         return pulumi.get(self, "secret")
 

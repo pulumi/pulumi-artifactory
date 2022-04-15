@@ -40,16 +40,12 @@ class MavenRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-               is also enforced when aggregated repositories support anonymous requests.
+        :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -157,8 +153,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="forceMavenAuthentication")
     def force_maven_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-        is also enforced when aggregated repositories support anonymous requests.
+        - forces authentication when fetching from remote repos
         """
         return pulumi.get(self, "force_maven_authentication")
 
@@ -207,10 +202,7 @@ class MavenRepositoryArgs:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -309,8 +301,7 @@ class _MavenRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-               is also enforced when aggregated repositories support anonymous requests.
+        :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -319,10 +310,7 @@ class _MavenRepositoryState:
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -419,8 +407,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="forceMavenAuthentication")
     def force_maven_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-        is also enforced when aggregated repositories support anonymous requests.
+        - forces authentication when fetching from remote repos
         """
         return pulumi.get(self, "force_maven_authentication")
 
@@ -495,10 +482,7 @@ class _MavenRepositoryState:
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 
@@ -591,7 +575,46 @@ class MavenRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a MavenRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Maven Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific maven feature.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        bar = artifactory.LocalMavenRepository("bar",
+            key="bar",
+            repo_layout_ref="maven-2-default")
+        baz = artifactory.RemoteMavenRepository("baz",
+            key="baz",
+            repo_layout_ref="maven-2-default",
+            url="https://search.maven.com/")
+        foo = artifactory.MavenRepository("foo",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            force_maven_authentication=True,
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="maven-virt-repo",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repo_layout_ref="maven-2-default",
+            repositories=[
+                bar.key,
+                artifactory_local_maven_repository["baz"]["key"],
+            ])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/mavenRepository:MavenRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -601,8 +624,7 @@ class MavenRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-               is also enforced when aggregated repositories support anonymous requests.
+        :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -610,10 +632,7 @@ class MavenRepository(pulumi.CustomResource):
                'libs-release-local').
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -629,7 +648,46 @@ class MavenRepository(pulumi.CustomResource):
                  args: MavenRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MavenRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Maven Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific maven feature.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        bar = artifactory.LocalMavenRepository("bar",
+            key="bar",
+            repo_layout_ref="maven-2-default")
+        baz = artifactory.RemoteMavenRepository("baz",
+            key="baz",
+            repo_layout_ref="maven-2-default",
+            url="https://search.maven.com/")
+        foo = artifactory.MavenRepository("foo",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            force_maven_authentication=True,
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="maven-virt-repo",
+            notes="Internal description",
+            pom_repository_references_cleanup_policy="discard_active_reference",
+            repo_layout_ref="maven-2-default",
+            repositories=[
+                bar.key,
+                artifactory_local_maven_repository["baz"]["key"],
+            ])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/mavenRepository:MavenRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param MavenRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -730,8 +788,7 @@ class MavenRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-               is also enforced when aggregated repositories support anonymous requests.
+        :param pulumi.Input[bool] force_maven_authentication: - forces authentication when fetching from remote repos
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -740,10 +797,7 @@ class MavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] pom_repository_references_cleanup_policy: (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-               project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-               Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-               Nothing - Does not remove any repository elements declared in the POM.
+        :param pulumi.Input[str] pom_repository_references_cleanup_policy: . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -813,8 +867,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceMavenAuthentication")
     def force_maven_authentication(self) -> pulumi.Output[bool]:
         """
-        User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
-        is also enforced when aggregated repositories support anonymous requests.
+        - forces authentication when fetching from remote repos
         """
         return pulumi.get(self, "force_maven_authentication")
 
@@ -865,10 +918,7 @@ class MavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="pomRepositoryReferencesCleanupPolicy")
     def pom_repository_references_cleanup_policy(self) -> pulumi.Output[str]:
         """
-        (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under
-        project or under a profile in the same POM that is activeByDefault. (2: discard_any_reference) Discard Any References -
-        Removes all repository elements regardless of whether they are included in an active profile or not. (3: nothing)
-        Nothing - Does not remove any repository elements declared in the POM.
+        . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         """
         return pulumi.get(self, "pom_repository_references_cleanup_policy")
 

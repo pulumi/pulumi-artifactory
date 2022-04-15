@@ -56,6 +56,8 @@ class RemoteGoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteGoRepository resource.
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -103,8 +105,7 @@ class RemoteGoRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -188,6 +189,9 @@ class RemoteGoRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -197,6 +201,9 @@ class RemoteGoRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -623,8 +630,7 @@ class RemoteGoRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -712,6 +718,7 @@ class _RemoteGoRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -739,8 +746,8 @@ class _RemoteGoRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -988,6 +995,9 @@ class _RemoteGoRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1267,6 +1277,9 @@ class _RemoteGoRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1286,8 +1299,7 @@ class _RemoteGoRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1355,7 +1367,25 @@ class RemoteGoRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteGoRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Go Repository Resource
+
+        Creates a remote Go repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Go repository called my-remote-go.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_go = artifactory.RemoteGoRepository("my-remote-go",
+            key="my-remote-go",
+            url="https://proxy.golang.org/",
+            vcs_git_provider="ARTIFACTORY")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -1378,6 +1408,7 @@ class RemoteGoRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1405,8 +1436,8 @@ class RemoteGoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1417,7 +1448,25 @@ class RemoteGoRepository(pulumi.CustomResource):
                  args: RemoteGoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteGoRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Go Repository Resource
+
+        Creates a remote Go repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Go repository called my-remote-go.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_go = artifactory.RemoteGoRepository("my-remote-go",
+            key="my-remote-go",
+            url="https://proxy.golang.org/",
+            vcs_git_provider="ARTIFACTORY")
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteGoRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1607,6 +1656,7 @@ class RemoteGoRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1634,8 +1684,8 @@ class RemoteGoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_provider: (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-               instance. Default value is "ARTIFACTORY".
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1792,6 +1842,9 @@ class RemoteGoRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -1975,6 +2028,9 @@ class RemoteGoRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -1986,8 +2042,7 @@ class RemoteGoRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-        instance. Default value is "ARTIFACTORY".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
         """
         return pulumi.get(self, "vcs_git_provider")
 

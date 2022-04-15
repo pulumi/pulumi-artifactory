@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory General Security Resource
+    /// 
+    /// This resource can be used to manage Artifactory's general security settings.
+    /// 
+    /// Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Configure Artifactory general security settings
+    ///         var security = new Artifactory.GeneralSecurity("security", new Artifactory.GeneralSecurityArgs
+    ///         {
+    ///             EnableAnonymousAccess = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Current general security settings can be imported using `security` as the `ID`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+    /// ```
+    /// 
+    ///  environments, or may change without notice.
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
     public partial class GeneralSecurity : Pulumi.CustomResource
     {

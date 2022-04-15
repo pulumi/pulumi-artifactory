@@ -9,6 +9,37 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory Remote Nuget Repository Resource
+    /// 
+    /// Creates a remote Nuget repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// To create a new Artifactory remote Nuget repository called my-remote-nuget.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var my_remote_nuget = new Artifactory.RemoteNugetRepository("my-remote-nuget", new Artifactory.RemoteNugetRepositoryArgs
+    ///         {
+    ///             DownloadContextPath = "api/v2/package",
+    ///             ForceNugetAuthentication = true,
+    ///             Key = "my-remote-nuget",
+    ///             Url = "https://www.nuget.org/",
+    ///             V3FeedUrl = "https://api.nuget.org/v3/index.json",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteNugetRepository:RemoteNugetRepository")]
     public partial class RemoteNugetRepository : Pulumi.CustomResource
     {
@@ -60,7 +91,7 @@ namespace Pulumi.Artifactory
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        /// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         /// </summary>
         [Output("downloadContextPath")]
         public Output<string?> DownloadContextPath { get; private set; } = null!;
@@ -82,14 +113,13 @@ namespace Pulumi.Artifactory
         public Output<int> FailedRetrievalCachePeriodSecs { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        /// is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         /// </summary>
         [Output("feedContextPath")]
         public Output<string?> FeedContextPath { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool?> ForceNugetAuthentication { get; private set; } = null!;
@@ -108,6 +138,9 @@ namespace Pulumi.Artifactory
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -243,6 +276,9 @@ namespace Pulumi.Artifactory
         [Output("unusedArtifactsCleanupPeriodHours")]
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
@@ -250,7 +286,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         /// </summary>
         [Output("v3FeedUrl")]
         public Output<string?> V3FeedUrl { get; private set; } = null!;
@@ -356,7 +392,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        /// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
@@ -375,14 +411,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        /// is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         /// </summary>
         [Input("feedContextPath")]
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -401,6 +436,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
@@ -545,6 +583,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 
@@ -552,7 +593,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         /// </summary>
         [Input("v3FeedUrl")]
         public Input<string>? V3FeedUrl { get; set; }
@@ -619,7 +660,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        /// The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
@@ -641,14 +682,13 @@ namespace Pulumi.Artifactory
         public Input<int>? FailedRetrievalCachePeriodSecs { get; set; }
 
         /// <summary>
-        /// (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        /// is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         /// </summary>
         [Input("feedContextPath")]
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -667,6 +707,9 @@ namespace Pulumi.Artifactory
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
+        /// <summary>
+        /// The repository identifier. Must be unique system-wide
+        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
@@ -814,6 +857,9 @@ namespace Pulumi.Artifactory
         [Input("unusedArtifactsCleanupPeriodHours")]
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
+        /// <summary>
+        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
@@ -821,7 +867,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         /// </summary>
         [Input("v3FeedUrl")]
         public Input<string>? V3FeedUrl { get; set; }

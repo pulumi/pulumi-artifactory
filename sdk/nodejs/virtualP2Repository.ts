@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Virtual P2 Repository Resource
+ *
+ * Provides an Artifactory virtual repository resource with specific P2 features.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_p2 = new artifactory.VirtualP2Repository("foo-p2", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-p2",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
+ * ## Import
+ *
+ * Virtual repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+ * ```
+ */
 export class VirtualP2Repository extends pulumi.CustomResource {
     /**
      * Get an existing VirtualP2Repository resource's state with the given name, ID, and optional extra

@@ -11,6 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Local Sbt Repository Resource
+//
+// Creates a local sbt repository.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewLocalSbtRepository(ctx, "terraform-local-test-sbt-repo", &artifactory.LocalSbtRepositoryArgs{
+// 			Key: pulumi.String("terraform-local-test-sbt-repo"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type LocalSbtRepository struct {
 	pulumi.CustomResourceState
 
@@ -38,8 +64,7 @@ type LocalSbtRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -127,8 +152,7 @@ type localSbtRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key *string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -185,8 +209,7 @@ type LocalSbtRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key pulumi.StringPtrInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -247,8 +270,7 @@ type localSbtRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key string `pulumi:"key"`
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
@@ -305,8 +327,7 @@ type LocalSbtRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-	// special characters.
+	// - the identity key of the repo
 	Key pulumi.StringInput
 	// The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
 	// older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.

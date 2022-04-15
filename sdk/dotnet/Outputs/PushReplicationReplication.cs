@@ -14,21 +14,24 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class PushReplicationReplication
     {
         public readonly bool? Enabled;
-        public readonly string? Password;
+        public readonly string Password;
         public readonly string? PathPrefix;
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         public readonly string? Proxy;
         public readonly int? SocketTimeoutMillis;
         public readonly bool? SyncDeletes;
         public readonly bool? SyncProperties;
         public readonly bool? SyncStatistics;
-        public readonly string? Url;
-        public readonly string? Username;
+        public readonly string Url;
+        public readonly string Username;
 
         [OutputConstructor]
         private PushReplicationReplication(
             bool? enabled,
 
-            string? password,
+            string password,
 
             string? pathPrefix,
 
@@ -42,9 +45,9 @@ namespace Pulumi.Artifactory.Outputs
 
             bool? syncStatistics,
 
-            string? url,
+            string url,
 
-            string? username)
+            string username)
         {
             Enabled = enabled;
             Password = password;

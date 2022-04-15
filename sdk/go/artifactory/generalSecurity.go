@@ -10,6 +10,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory General Security Resource
+//
+// This resource can be used to manage Artifactory's general security settings.
+//
+// Only a single `GeneralSecurity` resource is meant to be defined.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
+// 			EnableAnonymousAccess: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## Import
+//
+// Current general security settings can be imported using `security` as the `ID`, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+// ```
+//
+//  environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 

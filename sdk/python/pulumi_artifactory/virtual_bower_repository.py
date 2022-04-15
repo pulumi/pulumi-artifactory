@@ -40,10 +40,9 @@ class VirtualBowerRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-               By default, this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
@@ -154,7 +153,7 @@ class VirtualBowerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) When set, external dependencies are rewritten. Default value is false.
+        When set, external dependencies are rewritten. Default value is false.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -166,8 +165,7 @@ class VirtualBowerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-        By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -179,7 +177,7 @@ class VirtualBowerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesRemoteRepo")
     def external_dependencies_remote_repo(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         """
         return pulumi.get(self, "external_dependencies_remote_repo")
 
@@ -303,10 +301,9 @@ class _VirtualBowerRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-               By default, this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -410,7 +407,7 @@ class _VirtualBowerRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) When set, external dependencies are rewritten. Default value is false.
+        When set, external dependencies are rewritten. Default value is false.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -422,8 +419,7 @@ class _VirtualBowerRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-        By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -435,7 +431,7 @@ class _VirtualBowerRepositoryState:
     @pulumi.getter(name="externalDependenciesRemoteRepo")
     def external_dependencies_remote_repo(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         """
         return pulumi.get(self, "external_dependencies_remote_repo")
 
@@ -579,7 +575,34 @@ class VirtualBowerRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a VirtualBowerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Bower Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific bower features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_bower = artifactory.VirtualBowerRepository("foo-bower",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            external_dependencies_enabled=False,
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-bower",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -589,10 +612,9 @@ class VirtualBowerRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-               By default, this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -614,7 +636,34 @@ class VirtualBowerRepository(pulumi.CustomResource):
                  args: VirtualBowerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualBowerRepository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual Bower Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific bower features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_bower = artifactory.VirtualBowerRepository("foo-bower",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            external_dependencies_enabled=False,
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-bower",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualBowerRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -715,10 +764,9 @@ class VirtualBowerRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: (Optional) When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-               By default, this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
@@ -795,7 +843,7 @@ class VirtualBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) When set, external dependencies are rewritten. Default value is false.
+        When set, external dependencies are rewritten. Default value is false.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -803,8 +851,7 @@ class VirtualBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        (Optional) An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from.
-        By default, this is set to ** which means that dependencies may be downloaded from any external source.
+        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded from any external source.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -812,7 +859,7 @@ class VirtualBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesRemoteRepo")
     def external_dependencies_remote_repo(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) The remote repository aggregated by this virtual repository in which the external dependency will be cached.
+        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         """
         return pulumi.get(self, "external_dependencies_remote_repo")
 

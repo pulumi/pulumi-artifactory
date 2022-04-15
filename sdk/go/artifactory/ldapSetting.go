@@ -11,50 +11,90 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory LDAP Setting Resource
+//
+// This resource can be used to manage Artifactory's LDAP settings for user authentication.
+//
+// When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server. If LDAP authentication fails, it then tries to authenticate via its internal database.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewLdapSetting(ctx, "ldapName", &artifactory.LdapSettingArgs{
+// 			AllowUserToAccessProfile: pulumi.Bool(false),
+// 			AutoCreateUser:           pulumi.Bool(true),
+// 			EmailAttribute:           pulumi.String("mail"),
+// 			Enabled:                  pulumi.Bool(true),
+// 			Key:                      pulumi.String("ldap_name"),
+// 			LdapPoisoningProtection:  pulumi.Bool(true),
+// 			LdapUrl:                  pulumi.String("ldap://ldap_server_url"),
+// 			ManagerDn:                pulumi.String("mgr_dn"),
+// 			ManagerPassword:          pulumi.String("mgr_passwd_random"),
+// 			PagingSupportEnabled:     pulumi.Bool(false),
+// 			SearchBase:               pulumi.String("ou=users"),
+// 			SearchFilter:             pulumi.String("(uid={0})"),
+// 			SearchSubTree:            pulumi.Bool(true),
+// 			UserDnPattern:            pulumi.String("uid={0},ou=People"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// Note: `Key` argument has to match to the resource name.\
+// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+//
+// ## Import
+//
+// LDAP setting can be imported using the key, e.g.
+//
+// ```sh
+//  $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+// ```
 type LdapSetting struct {
 	pulumi.CustomResourceState
 
-	// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-	// generating an API key. Default value is "false".
+	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile pulumi.BoolPtrOutput `pulumi:"allowUserToAccessProfile"`
-	// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-	// auto-join groups defined in Artifactory. Default value is "true".
+	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrOutput `pulumi:"autoCreateUser"`
-	// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-	// Default value is "mail".
+	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrOutput `pulumi:"emailAttribute"`
-	// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// (Required) Ldap setting name.
+	// The unique ID of the LDAP setting.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+	// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
 	LdapPoisoningProtection pulumi.BoolPtrOutput `pulumi:"ldapPoisoningProtection"`
-	// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+	// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
 	LdapUrl pulumi.StringOutput `pulumi:"ldapUrl"`
-	// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-	// authentication.
+	// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
 	ManagerDn pulumi.StringPtrOutput `pulumi:"managerDn"`
-	// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-	// authentication.
+	// The password of the user binding to the LDAP server when using "search" authentication.
 	ManagerPassword pulumi.StringOutput `pulumi:"managerPassword"`
-	// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-	// PagedResultsControl configuration. Default value is "true".
+	// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
 	PagingSupportEnabled pulumi.BoolPtrOutput `pulumi:"pagingSupportEnabled"`
-	// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-	// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrOutput `pulumi:"searchBase"`
-	// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-	// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-	// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-	// performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrOutput `pulumi:"searchFilter"`
-	// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrOutput `pulumi:"searchSubTree"`
-	// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-	// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-	// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-	// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-	// value is blank/empty.
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern pulumi.StringPtrOutput `pulumi:"userDnPattern"`
 }
 
@@ -93,92 +133,70 @@ func GetLdapSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LdapSetting resources.
 type ldapSettingState struct {
-	// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-	// generating an API key. Default value is "false".
+	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
-	// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-	// auto-join groups defined in Artifactory. Default value is "true".
+	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser *bool `pulumi:"autoCreateUser"`
-	// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-	// Default value is "mail".
+	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
 	EmailAttribute *string `pulumi:"emailAttribute"`
-	// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+	// When set, these settings are enabled. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// (Required) Ldap setting name.
+	// The unique ID of the LDAP setting.
 	Key *string `pulumi:"key"`
-	// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+	// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
 	LdapPoisoningProtection *bool `pulumi:"ldapPoisoningProtection"`
-	// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+	// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
 	LdapUrl *string `pulumi:"ldapUrl"`
-	// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-	// authentication.
+	// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
 	ManagerDn *string `pulumi:"managerDn"`
-	// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-	// authentication.
+	// The password of the user binding to the LDAP server when using "search" authentication.
 	ManagerPassword *string `pulumi:"managerPassword"`
-	// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-	// PagedResultsControl configuration. Default value is "true".
+	// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
 	PagingSupportEnabled *bool `pulumi:"pagingSupportEnabled"`
-	// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-	// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase *string `pulumi:"searchBase"`
-	// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-	// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-	// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-	// performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter *string `pulumi:"searchFilter"`
-	// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree *bool `pulumi:"searchSubTree"`
-	// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-	// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-	// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-	// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-	// value is blank/empty.
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern *string `pulumi:"userDnPattern"`
 }
 
 type LdapSettingState struct {
-	// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-	// generating an API key. Default value is "false".
+	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-	// auto-join groups defined in Artifactory. Default value is "true".
+	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrInput
-	// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-	// Default value is "mail".
+	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrInput
-	// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
-	// (Required) Ldap setting name.
+	// The unique ID of the LDAP setting.
 	Key pulumi.StringPtrInput
-	// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+	// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
 	LdapPoisoningProtection pulumi.BoolPtrInput
-	// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+	// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
 	LdapUrl pulumi.StringPtrInput
-	// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-	// authentication.
+	// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
 	ManagerDn pulumi.StringPtrInput
-	// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-	// authentication.
+	// The password of the user binding to the LDAP server when using "search" authentication.
 	ManagerPassword pulumi.StringPtrInput
-	// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-	// PagedResultsControl configuration. Default value is "true".
+	// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
 	PagingSupportEnabled pulumi.BoolPtrInput
-	// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-	// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrInput
-	// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-	// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-	// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-	// performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrInput
-	// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrInput
-	// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-	// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-	// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-	// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-	// value is blank/empty.
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern pulumi.StringPtrInput
 }
 
@@ -187,93 +205,71 @@ func (LdapSettingState) ElementType() reflect.Type {
 }
 
 type ldapSettingArgs struct {
-	// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-	// generating an API key. Default value is "false".
+	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile *bool `pulumi:"allowUserToAccessProfile"`
-	// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-	// auto-join groups defined in Artifactory. Default value is "true".
+	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser *bool `pulumi:"autoCreateUser"`
-	// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-	// Default value is "mail".
+	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
 	EmailAttribute *string `pulumi:"emailAttribute"`
-	// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+	// When set, these settings are enabled. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// (Required) Ldap setting name.
+	// The unique ID of the LDAP setting.
 	Key string `pulumi:"key"`
-	// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+	// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
 	LdapPoisoningProtection *bool `pulumi:"ldapPoisoningProtection"`
-	// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+	// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
 	LdapUrl string `pulumi:"ldapUrl"`
-	// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-	// authentication.
+	// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
 	ManagerDn *string `pulumi:"managerDn"`
-	// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-	// authentication.
+	// The password of the user binding to the LDAP server when using "search" authentication.
 	ManagerPassword *string `pulumi:"managerPassword"`
-	// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-	// PagedResultsControl configuration. Default value is "true".
+	// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
 	PagingSupportEnabled *bool `pulumi:"pagingSupportEnabled"`
-	// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-	// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase *string `pulumi:"searchBase"`
-	// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-	// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-	// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-	// performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter *string `pulumi:"searchFilter"`
-	// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree *bool `pulumi:"searchSubTree"`
-	// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-	// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-	// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-	// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-	// value is blank/empty.
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern *string `pulumi:"userDnPattern"`
 }
 
 // The set of arguments for constructing a LdapSetting resource.
 type LdapSettingArgs struct {
-	// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-	// generating an API key. Default value is "false".
+	// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
 	AllowUserToAccessProfile pulumi.BoolPtrInput
-	// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-	// auto-join groups defined in Artifactory. Default value is "true".
+	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrInput
-	// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-	// Default value is "mail".
+	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrInput
-	// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
-	// (Required) Ldap setting name.
+	// The unique ID of the LDAP setting.
 	Key pulumi.StringInput
-	// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+	// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
 	LdapPoisoningProtection pulumi.BoolPtrInput
-	// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+	// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
 	LdapUrl pulumi.StringInput
-	// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-	// authentication.
+	// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
 	ManagerDn pulumi.StringPtrInput
-	// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-	// authentication.
+	// The password of the user binding to the LDAP server when using "search" authentication.
 	ManagerPassword pulumi.StringPtrInput
-	// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-	// PagedResultsControl configuration. Default value is "true".
+	// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
 	PagingSupportEnabled pulumi.BoolPtrInput
-	// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-	// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+	// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
 	SearchBase pulumi.StringPtrInput
-	// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-	// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-	// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-	// performed from the DN found if successful.
+	// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
 	SearchFilter pulumi.StringPtrInput
-	// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+	// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
 	SearchSubTree pulumi.BoolPtrInput
-	// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-	// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-	// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-	// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-	// value is blank/empty.
+	// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+	// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
 	UserDnPattern pulumi.StringPtrInput
 }
 

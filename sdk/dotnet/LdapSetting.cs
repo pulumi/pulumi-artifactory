@@ -9,103 +9,142 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## # Artifactory LDAP Setting Resource
+    /// 
+    /// This resource can be used to manage Artifactory's LDAP settings for user authentication.
+    /// 
+    /// When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server. If LDAP authentication fails, it then tries to authenticate via its internal database.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Configure Artifactory LDAP setting
+    ///         var ldapName = new Artifactory.LdapSetting("ldapName", new Artifactory.LdapSettingArgs
+    ///         {
+    ///             AllowUserToAccessProfile = false,
+    ///             AutoCreateUser = true,
+    ///             EmailAttribute = "mail",
+    ///             Enabled = true,
+    ///             Key = "ldap_name",
+    ///             LdapPoisoningProtection = true,
+    ///             LdapUrl = "ldap://ldap_server_url",
+    ///             ManagerDn = "mgr_dn",
+    ///             ManagerPassword = "mgr_passwd_random",
+    ///             PagingSupportEnabled = false,
+    ///             SearchBase = "ou=users",
+    ///             SearchFilter = "(uid={0})",
+    ///             SearchSubTree = true,
+    ///             UserDnPattern = "uid={0},ou=People",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// Note: `Key` argument has to match to the resource name.\
+    /// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+    /// 
+    /// ## Import
+    /// 
+    /// LDAP setting can be imported using the key, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/ldapSetting:LdapSetting")]
     public partial class LdapSetting : Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-        /// generating an API key. Default value is "false".
+        /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         /// </summary>
         [Output("allowUserToAccessProfile")]
         public Output<bool?> AllowUserToAccessProfile { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-        /// auto-join groups defined in Artifactory. Default value is "true".
+        /// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         /// </summary>
         [Output("autoCreateUser")]
         public Output<bool?> AutoCreateUser { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-        /// Default value is "mail".
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Output("emailAttribute")]
         public Output<string?> EmailAttribute { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+        /// When set, these settings are enabled. Default value is `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) Ldap setting name.
+        /// The unique ID of the LDAP setting.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+        /// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         /// </summary>
         [Output("ldapPoisoningProtection")]
         public Output<bool?> LdapPoisoningProtection { get; private set; } = null!;
 
         /// <summary>
-        /// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+        /// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
         /// </summary>
         [Output("ldapUrl")]
         public Output<string> LdapUrl { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-        /// authentication.
+        /// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
         /// </summary>
         [Output("managerDn")]
         public Output<string?> ManagerDn { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-        /// authentication.
+        /// The password of the user binding to the LDAP server when using "search" authentication.
         /// </summary>
         [Output("managerPassword")]
         public Output<string> ManagerPassword { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-        /// PagedResultsControl configuration. Default value is "true".
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
         /// </summary>
         [Output("pagingSupportEnabled")]
         public Output<bool?> PagingSupportEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-        /// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+        /// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
         /// </summary>
         [Output("searchBase")]
         public Output<string?> SearchBase { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-        /// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-        /// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-        /// performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Output("searchFilter")]
         public Output<string?> SearchFilter { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+        /// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
         /// </summary>
         [Output("searchSubTree")]
         public Output<bool?> SearchSubTree { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-        /// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-        /// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-        /// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-        /// value is blank/empty.
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
         [Output("userDnPattern")]
         public Output<string?> UserDnPattern { get; private set; } = null!;
@@ -157,99 +196,88 @@ namespace Pulumi.Artifactory
     public sealed class LdapSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-        /// generating an API key. Default value is "false".
+        /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-        /// auto-join groups defined in Artifactory. Default value is "true".
+        /// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         /// </summary>
         [Input("autoCreateUser")]
         public Input<bool>? AutoCreateUser { get; set; }
 
         /// <summary>
-        /// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-        /// Default value is "mail".
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }
 
         /// <summary>
-        /// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+        /// When set, these settings are enabled. Default value is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// (Required) Ldap setting name.
+        /// The unique ID of the LDAP setting.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+        /// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         /// </summary>
         [Input("ldapPoisoningProtection")]
         public Input<bool>? LdapPoisoningProtection { get; set; }
 
         /// <summary>
-        /// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+        /// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
         /// </summary>
         [Input("ldapUrl", required: true)]
         public Input<string> LdapUrl { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-        /// authentication.
+        /// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
         /// </summary>
         [Input("managerDn")]
         public Input<string>? ManagerDn { get; set; }
 
         /// <summary>
-        /// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-        /// authentication.
+        /// The password of the user binding to the LDAP server when using "search" authentication.
         /// </summary>
         [Input("managerPassword")]
         public Input<string>? ManagerPassword { get; set; }
 
         /// <summary>
-        /// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-        /// PagedResultsControl configuration. Default value is "true".
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
         /// </summary>
         [Input("pagingSupportEnabled")]
         public Input<bool>? PagingSupportEnabled { get; set; }
 
         /// <summary>
-        /// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-        /// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+        /// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
         /// </summary>
         [Input("searchBase")]
         public Input<string>? SearchBase { get; set; }
 
         /// <summary>
-        /// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-        /// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-        /// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-        /// performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Input("searchFilter")]
         public Input<string>? SearchFilter { get; set; }
 
         /// <summary>
-        /// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+        /// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
         /// </summary>
         [Input("searchSubTree")]
         public Input<bool>? SearchSubTree { get; set; }
 
         /// <summary>
-        /// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-        /// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-        /// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-        /// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-        /// value is blank/empty.
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
         [Input("userDnPattern")]
         public Input<string>? UserDnPattern { get; set; }
@@ -262,99 +290,88 @@ namespace Pulumi.Artifactory
     public sealed class LdapSettingState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Auto created users will have access to their profile page and will be able to perform actions such as
-        /// generating an API key. Default value is "false".
+        /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         /// </summary>
         [Input("allowUserToAccessProfile")]
         public Input<bool>? AllowUserToAccessProfile { get; set; }
 
         /// <summary>
-        /// (Optional) When set, users are automatically created when using LDAP. Otherwise, users are transient and associated with
-        /// auto-join groups defined in Artifactory. Default value is "true".
+        /// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         /// </summary>
         [Input("autoCreateUser")]
         public Input<bool>? AutoCreateUser { get; set; }
 
         /// <summary>
-        /// (Optional) An attribute that can be used to map a user's email address to a user created automatically in Artifactory.
-        /// Default value is "mail".
+        /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }
 
         /// <summary>
-        /// (Optional) Flag to enable or disable the ldap setting. Default value is "true".
+        /// When set, these settings are enabled. Default value is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// (Required) Ldap setting name.
+        /// The unique ID of the LDAP setting.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// (Optional) Protects against LDAP poisoning by filtering out users exposed to vulnerabilities. Default value is "true".
+        /// Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         /// </summary>
         [Input("ldapPoisoningProtection")]
         public Input<bool>? LdapPoisoningProtection { get; set; }
 
         /// <summary>
-        /// (Required) Location of the LDAP server in the following format: ldap://myldapserver/dc=sampledomain,dc=com
+        /// Location of the LDAP server in the following format: ldap://myserver:myport/dc=sampledomain,dc=com. The URL should include the base DN used to search for and/or authenticate users.
         /// </summary>
         [Input("ldapUrl")]
         public Input<string>? LdapUrl { get; set; }
 
         /// <summary>
-        /// (Optional) The full DN of the user that binds to the LDAP server to perform user searches. Only used with "search"
-        /// authentication.
+        /// The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
         /// </summary>
         [Input("managerDn")]
         public Input<string>? ManagerDn { get; set; }
 
         /// <summary>
-        /// (Optional) The password of the user that binds to the LDAP server to perform the search. Only used with "search"
-        /// authentication.
+        /// The password of the user binding to the LDAP server when using "search" authentication.
         /// </summary>
         [Input("managerPassword")]
         public Input<string>? ManagerPassword { get; set; }
 
         /// <summary>
-        /// (Optional) When set, supports paging results for the LDAP server. This feature requires that the LDAP server supports a
-        /// PagedResultsControl configuration. Default value is "true".
+        /// When set, supports paging results for the LDAP server. This feature requires that the LDAP Server supports a PagedResultsControl configuration.  Default value is `true`.
         /// </summary>
         [Input("pagingSupportEnabled")]
         public Input<bool>? PagingSupportEnabled { get; set; }
 
         /// <summary>
-        /// (Optional) A context name to search in relative to the base DN of the LDAP URL. For example, 'ou=users' With the LDAP
-        /// Group Add-on enabled, it is possible to enter multiple search base entries separated by a pipe ('|') character.
+        /// The Context name in which to search relative to the base DN in the LDAP URL. Multiple search bases may be specified separated by a pipe ( | ).
         /// </summary>
         [Input("searchBase")]
         public Input<string>? SearchBase { get; set; }
 
         /// <summary>
-        /// (Optional) A filter expression used to search for the user DN used in LDAP authentication. This is an LDAP search filter
-        /// (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, and is denoted by
-        /// '{0}'. Possible examples are: (uid={0}) - This searches for a username match on the attribute. Authentication to LDAP is
-        /// performed from the DN found if successful.
+        /// A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
         /// </summary>
         [Input("searchFilter")]
         public Input<string>? SearchFilter { get; set; }
 
         /// <summary>
-        /// (Optional) When set, enables deep search through the sub tree of the LDAP URL + search base. Default value is "true".
+        /// When set, enables deep search through the sub-tree of the LDAP URL + Search Base.  Default value is `true`.
         /// </summary>
         [Input("searchSubTree")]
         public Input<bool>? SearchSubTree { get; set; }
 
         /// <summary>
-        /// (Optional) A DN pattern that can be used to log users directly in to LDAP. This pattern is used to create a DN string
-        /// for 'direct' user authentication where the pattern is relative to the base DN in the LDAP URL. The pattern argument {0}
-        /// is replaced with the username. This only works if anonymous binding is allowed and a direct user DN can be used, which
-        /// is not the default case for Active Directory (use User DN search filter instead). Example: uid={0},ou=People. Default
-        /// value is blank/empty.
+        /// A DN pattern used to log users directly in to the LDAP database. This pattern is used to create a DN string for "direct" user authentication, and is relative to the base DN in the LDAP URL. The pattern argument {0} is replaced with the username at runtime. This only works if anonymous binding is allowed and a direct user DN can be used (which is not the default case for Active Directory). For example: uid={0},ou=People. Default value is blank/empty.
+        /// - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both).
         /// </summary>
         [Input("userDnPattern")]
         public Input<string>? UserDnPattern { get; set; }

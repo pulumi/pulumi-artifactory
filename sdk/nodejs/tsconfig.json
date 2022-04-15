@@ -15,6 +15,7 @@
     "files": [
         "accessToken.ts",
         "alpineRepository.ts",
+        "anonymousUser.ts",
         "apiKey.ts",
         "artifactPropertyWebhook.ts",
         "artifactWebhook.ts",
@@ -89,6 +90,7 @@
         "localRpmRepository.ts",
         "localSbtRepository.ts",
         "localVagrantRepository.ts",
+        "managedUser.ts",
         "mavenRepository.ts",
         "oauthSettings.ts",
         "permissionTarget.ts",
@@ -131,6 +133,7 @@
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
+        "unmanagedUser.ts",
         "user.ts",
         "utilities.ts",
         "virtualAlpineRepository.ts",

@@ -9,9 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Create a new Artifactory API key for the configured user
+    ///         var ci = new Artifactory.ApiKey("ci", new Artifactory.ApiKeyArgs
+    ///         {
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// A user's API key can be imported using any identifier, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/apiKey:ApiKey test import
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/apiKey:ApiKey")]
     public partial class ApiKey : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The API key.
+        /// </summary>
         [Output("apiKey")]
         public Output<string> Key { get; private set; } = null!;
 
@@ -68,6 +99,9 @@ namespace Pulumi.Artifactory
 
     public sealed class ApiKeyState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The API key.
+        /// </summary>
         [Input("apiKey")]
         public Input<string>? Key { get; set; }
 

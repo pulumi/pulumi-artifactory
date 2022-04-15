@@ -23,17 +23,14 @@ class BackupArgs:
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
-        :param pulumi.Input[str] cron_exp: (Required) Cron expression to control the backup frequency.
-        :param pulumi.Input[str] key: (Required) Backup config name.
-        :param pulumi.Input[bool] create_archive: (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-               'false'
-        :param pulumi.Input[bool] enabled: (Optional) Flag to enable or disable the backup config. Default value is "true".
-        :param pulumi.Input[bool] exclude_new_repositories: (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: (Optional) list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[int] retention_period_hours: (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-               only to non-incremental backups. Default value is 168 hours ie: 7 days.
-        :param pulumi.Input[bool] send_mail_on_error: (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-               backup. Default value is 'true'.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
+        :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
+        :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "key", key)
@@ -54,7 +51,7 @@ class BackupArgs:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
         """
-        (Required) Cron expression to control the backup frequency.
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
         """
         return pulumi.get(self, "cron_exp")
 
@@ -66,7 +63,7 @@ class BackupArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        (Required) Backup config name.
+        The unique ID of the artifactory backup config.
         """
         return pulumi.get(self, "key")
 
@@ -78,8 +75,7 @@ class BackupArgs:
     @pulumi.getter(name="createArchive")
     def create_archive(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-        'false'
+        If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
         """
         return pulumi.get(self, "create_archive")
 
@@ -91,7 +87,7 @@ class BackupArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Flag to enable or disable the backup config. Default value is "true".
+        Flag to enable or disable the backup config. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -103,7 +99,7 @@ class BackupArgs:
     @pulumi.getter(name="excludeNewRepositories")
     def exclude_new_repositories(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
+        When set, new repositories will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "exclude_new_repositories")
 
@@ -115,7 +111,7 @@ class BackupArgs:
     @pulumi.getter(name="excludedRepositories")
     def excluded_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) list of excluded repositories from the backup. Default is empty list.
+        A list of excluded repositories from the backup. Default is empty list.
         """
         return pulumi.get(self, "excluded_repositories")
 
@@ -127,8 +123,7 @@ class BackupArgs:
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-        only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         """
         return pulumi.get(self, "retention_period_hours")
 
@@ -140,8 +135,7 @@ class BackupArgs:
     @pulumi.getter(name="sendMailOnError")
     def send_mail_on_error(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-        backup. Default value is 'true'.
+        If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
 
@@ -163,17 +157,14 @@ class _BackupState:
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
-        :param pulumi.Input[bool] create_archive: (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-               'false'
-        :param pulumi.Input[str] cron_exp: (Required) Cron expression to control the backup frequency.
-        :param pulumi.Input[bool] enabled: (Optional) Flag to enable or disable the backup config. Default value is "true".
-        :param pulumi.Input[bool] exclude_new_repositories: (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: (Optional) list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[str] key: (Required) Backup config name.
-        :param pulumi.Input[int] retention_period_hours: (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-               only to non-incremental backups. Default value is 168 hours ie: 7 days.
-        :param pulumi.Input[bool] send_mail_on_error: (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-               backup. Default value is 'true'.
+        :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
+        :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
+        :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         if create_archive is not None:
             pulumi.set(__self__, "create_archive", create_archive)
@@ -196,8 +187,7 @@ class _BackupState:
     @pulumi.getter(name="createArchive")
     def create_archive(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-        'false'
+        If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
         """
         return pulumi.get(self, "create_archive")
 
@@ -209,7 +199,7 @@ class _BackupState:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Cron expression to control the backup frequency.
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
         """
         return pulumi.get(self, "cron_exp")
 
@@ -221,7 +211,7 @@ class _BackupState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Flag to enable or disable the backup config. Default value is "true".
+        Flag to enable or disable the backup config. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -233,7 +223,7 @@ class _BackupState:
     @pulumi.getter(name="excludeNewRepositories")
     def exclude_new_repositories(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
+        When set, new repositories will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "exclude_new_repositories")
 
@@ -245,7 +235,7 @@ class _BackupState:
     @pulumi.getter(name="excludedRepositories")
     def excluded_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        (Optional) list of excluded repositories from the backup. Default is empty list.
+        A list of excluded repositories from the backup. Default is empty list.
         """
         return pulumi.get(self, "excluded_repositories")
 
@@ -257,7 +247,7 @@ class _BackupState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        (Required) Backup config name.
+        The unique ID of the artifactory backup config.
         """
         return pulumi.get(self, "key")
 
@@ -269,8 +259,7 @@ class _BackupState:
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-        only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         """
         return pulumi.get(self, "retention_period_hours")
 
@@ -282,8 +271,7 @@ class _BackupState:
     @pulumi.getter(name="sendMailOnError")
     def send_mail_on_error(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-        backup. Default value is 'true'.
+        If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
 
@@ -307,20 +295,50 @@ class Backup(pulumi.CustomResource):
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a Backup resource with the given unique name, props, and options.
+        ## # Artifactory Backup Resource
+
+        This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
+
+        When a Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory Backup system config
+        backup_config_name = artifactory.Backup("backupConfigName",
+            create_archive=False,
+            cron_exp="0 0 12 * * ?",
+            enabled=True,
+            exclude_new_repositories=True,
+            excluded_repositories=[],
+            key="backup_config_name",
+            retention_period_hours=1000,
+            send_mail_on_error=True)
+        ```
+        Note: `Key` argument has to match to the resource name.\
+        Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
+
+        ## Import
+
+        Backup config can be imported using the key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_archive: (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-               'false'
-        :param pulumi.Input[str] cron_exp: (Required) Cron expression to control the backup frequency.
-        :param pulumi.Input[bool] enabled: (Optional) Flag to enable or disable the backup config. Default value is "true".
-        :param pulumi.Input[bool] exclude_new_repositories: (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: (Optional) list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[str] key: (Required) Backup config name.
-        :param pulumi.Input[int] retention_period_hours: (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-               only to non-incremental backups. Default value is 168 hours ie: 7 days.
-        :param pulumi.Input[bool] send_mail_on_error: (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-               backup. Default value is 'true'.
+        :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
+        :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
+        :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         ...
     @overload
@@ -329,7 +347,40 @@ class Backup(pulumi.CustomResource):
                  args: BackupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Backup resource with the given unique name, props, and options.
+        ## # Artifactory Backup Resource
+
+        This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
+
+        When a Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        # Configure Artifactory Backup system config
+        backup_config_name = artifactory.Backup("backupConfigName",
+            create_archive=False,
+            cron_exp="0 0 12 * * ?",
+            enabled=True,
+            exclude_new_repositories=True,
+            excluded_repositories=[],
+            key="backup_config_name",
+            retention_period_hours=1000,
+            send_mail_on_error=True)
+        ```
+        Note: `Key` argument has to match to the resource name.\
+        Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
+
+        ## Import
+
+        Backup config can be imported using the key, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+        ```
+
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,17 +453,14 @@ class Backup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] create_archive: (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-               'false'
-        :param pulumi.Input[str] cron_exp: (Required) Cron expression to control the backup frequency.
-        :param pulumi.Input[bool] enabled: (Optional) Flag to enable or disable the backup config. Default value is "true".
-        :param pulumi.Input[bool] exclude_new_repositories: (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: (Optional) list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[str] key: (Required) Backup config name.
-        :param pulumi.Input[int] retention_period_hours: (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-               only to non-incremental backups. Default value is 168 hours ie: 7 days.
-        :param pulumi.Input[bool] send_mail_on_error: (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-               backup. Default value is 'true'.
+        :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
+        :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
+        :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,8 +480,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="createArchive")
     def create_archive(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) If set to true, backups will be created within a Zip archive (Slow and CPU intensive). Default value is
-        'false'
+        If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
         """
         return pulumi.get(self, "create_archive")
 
@@ -441,7 +488,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
         """
-        (Required) Cron expression to control the backup frequency.
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
         """
         return pulumi.get(self, "cron_exp")
 
@@ -449,7 +496,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) Flag to enable or disable the backup config. Default value is "true".
+        Flag to enable or disable the backup config. Default value is `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -457,7 +504,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="excludeNewRepositories")
     def exclude_new_repositories(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) When set to true, new repositories will not be automatically added to the backup. Default value is 'false'.
+        When set, new repositories will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "exclude_new_repositories")
 
@@ -465,7 +512,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="excludedRepositories")
     def excluded_repositories(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        (Optional) list of excluded repositories from the backup. Default is empty list.
+        A list of excluded repositories from the backup. Default is empty list.
         """
         return pulumi.get(self, "excluded_repositories")
 
@@ -473,7 +520,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        (Required) Backup config name.
+        The unique ID of the artifactory backup config.
         """
         return pulumi.get(self, "key")
 
@@ -481,8 +528,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> pulumi.Output[Optional[int]]:
         """
-        (Optional) The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable
-        only to non-incremental backups. Default value is 168 hours ie: 7 days.
+        The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         """
         return pulumi.get(self, "retention_period_hours")
 
@@ -490,8 +536,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="sendMailOnError")
     def send_mail_on_error(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) If set to true, all Artifactory administrators will be notified by email if any problem is encountered during
-        backup. Default value is 'true'.
+        If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
 

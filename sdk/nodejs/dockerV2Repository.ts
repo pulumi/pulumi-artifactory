@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Local Docker V2 Repository Resource
+ *
+ * Creates a local Docker v2 repository
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo = new artifactory.DockerV2Repository("foo", {
+ *     key: "foo",
+ *     maxUniqueTags: 5,
+ *     tagRetention: 3,
+ * });
+ * ```
+ */
 export class DockerV2Repository extends pulumi.CustomResource {
     /**
      * Get an existing DockerV2Repository resource's state with the given name, ID, and optional extra
@@ -47,7 +65,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+     * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     public readonly blockPushingSchema1!: pulumi.Output<boolean>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -67,14 +85,11 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     public readonly maxUniqueTags!: pulumi.Output<number | undefined>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -101,8 +116,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     public readonly tagRetention!: pulumi.Output<number | undefined>;
     /**
@@ -192,7 +206,7 @@ export interface DockerV2RepositoryState {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+     * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
@@ -212,14 +226,11 @@ export interface DockerV2RepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -246,8 +257,7 @@ export interface DockerV2RepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     tagRetention?: pulumi.Input<number>;
     /**
@@ -272,7 +282,7 @@ export interface DockerV2RepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+     * - When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
@@ -292,14 +302,11 @@ export interface DockerV2RepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     /**
-     * The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
-     * image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
-     * applies to manifest v2
+     * - The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only applies to manifest v2
      */
     maxUniqueTags?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -325,8 +332,7 @@ export interface DockerV2RepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
-     * manifest V2
+     * - If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to manifest V2
      */
     tagRetention?: pulumi.Input<number>;
     /**

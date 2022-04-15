@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Local Nuget Repository Resource
+ *
+ * Creates a local Nuget repository
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const terraform_local_test_nuget_repo_basic = new artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", {
+ *     forceNugetAuthentication: true,
+ *     key: "terraform-local-test-nuget-repo-basic",
+ *     maxUniqueSnapshots: 5,
+ * });
+ * ```
+ */
 export class LocalNugetRepository extends pulumi.CustomResource {
     /**
      * Get an existing LocalNugetRepository resource's state with the given name, ID, and optional extra
@@ -54,7 +72,7 @@ export class LocalNugetRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string>;
     /**
-     * Force basic authentication credentials in order to use this repository.
+     * - Force basic authentication credentials in order to use this repository.
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -63,13 +81,13 @@ export class LocalNugetRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * - The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -185,7 +203,7 @@ export interface LocalNugetRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository.
+     * - Force basic authentication credentials in order to use this repository.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -194,13 +212,13 @@ export interface LocalNugetRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * - The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;
@@ -259,7 +277,7 @@ export interface LocalNugetRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository.
+     * - Force basic authentication credentials in order to use this repository.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -268,13 +286,13 @@ export interface LocalNugetRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     /**
-     * The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
-     * older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+     * - The maximum number of unique snapshots of a single artifact to store.
+     * Once the number of snapshots exceeds this setting, older versions are removed.
+     * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     notes?: pulumi.Input<string>;

@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Artifactory
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// Replication configs can be imported using their repo key, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+    /// ```
+    /// </summary>
     [ArtifactoryResourceType("artifactory:index/singleReplicationConfig:SingleReplicationConfig")]
     public partial class SingleReplicationConfig : Pulumi.CustomResource
     {
@@ -22,8 +31,7 @@ namespace Pulumi.Artifactory
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -160,8 +168,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

@@ -11,6 +11,37 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## # Artifactory Remote CocoaPods Repository Resource
+//
+// Creates a remote CocoaPods repository.
+// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CocoaPods+Repositories)
+//
+// ## Example Usage
+//
+// To create a new Artifactory remote CocoaPods repository called my-remote-cocoapods.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := artifactory.NewRemoteCocoapodsRepository(ctx, "my-remote-cocoapods", &artifactory.RemoteCocoapodsRepositoryArgs{
+// 			Key:            pulumi.String("my-remote-cocoapods"),
+// 			Url:            pulumi.String("https://github.com/"),
+// 			VcsGitProvider: pulumi.String("GITHUB"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type RemoteCocoapodsRepository struct {
 	pulumi.CustomResourceState
 
@@ -48,7 +79,8 @@ type RemoteCocoapodsRepository struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
-	Key             pulumi.StringOutput `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringOutput `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrOutput `pulumi:"listRemoteFolderItems"`
@@ -65,7 +97,7 @@ type RemoteCocoapodsRepository struct {
 	Offline     pulumi.BoolOutput      `pulumi:"offline"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
 	Password    pulumi.StringPtrOutput `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
 	PodsSpecsRepoUrl pulumi.StringPtrOutput `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
@@ -100,13 +132,13 @@ type RemoteCocoapodsRepository struct {
 	UnusedArtifactsCleanupPeriodEnabled pulumi.BoolOutput `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput       `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               pulumi.StringOutput    `pulumi:"url"`
-	Username                          pulumi.StringPtrOutput `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours pulumi.IntOutput `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringOutput    `pulumi:"url"`
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrOutput `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrOutput `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -182,7 +214,8 @@ type remoteCocoapodsRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             *string `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key *string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -199,7 +232,7 @@ type remoteCocoapodsRepositoryState struct {
 	Offline     *bool   `pulumi:"offline"`
 	PackageType *string `pulumi:"packageType"`
 	Password    *string `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -234,13 +267,13 @@ type remoteCocoapodsRepositoryState struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               *string `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      *string `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -282,7 +315,8 @@ type RemoteCocoapodsRepositoryState struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringPtrInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringPtrInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -299,7 +333,7 @@ type RemoteCocoapodsRepositoryState struct {
 	Offline     pulumi.BoolPtrInput
 	PackageType pulumi.StringPtrInput
 	Password    pulumi.StringPtrInput
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -335,12 +369,12 @@ type RemoteCocoapodsRepositoryState struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringPtrInput
-	Username                          pulumi.StringPtrInput
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringPtrInput
+	Username pulumi.StringPtrInput
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -384,7 +418,8 @@ type remoteCocoapodsRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
-	Key             string  `pulumi:"key"`
+	// The repository identifier. Must be unique system-wide
+	Key string `pulumi:"key"`
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems *bool `pulumi:"listRemoteFolderItems"`
@@ -400,7 +435,7 @@ type remoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  *bool   `pulumi:"offline"`
 	Password *string `pulumi:"password"`
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
 	PodsSpecsRepoUrl *string `pulumi:"podsSpecsRepoUrl"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -435,13 +470,13 @@ type remoteCocoapodsRepositoryArgs struct {
 	UnusedArtifactsCleanupPeriodEnabled *bool `pulumi:"unusedArtifactsCleanupPeriodEnabled"`
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
-	UnusedArtifactsCleanupPeriodHours *int    `pulumi:"unusedArtifactsCleanupPeriodHours"`
-	Url                               string  `pulumi:"url"`
-	Username                          *string `pulumi:"username"`
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	UnusedArtifactsCleanupPeriodHours *int `pulumi:"unusedArtifactsCleanupPeriodHours"`
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      string  `pulumi:"url"`
+	Username *string `pulumi:"username"`
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl *string `pulumi:"vcsGitDownloadUrl"`
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
 	VcsGitProvider *string `pulumi:"vcsGitProvider"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
@@ -482,7 +517,8 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
-	Key             pulumi.StringInput
+	// The repository identifier. Must be unique system-wide
+	Key pulumi.StringInput
 	// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
 	// value of the 'Retrieval Cache Period'. Default value is 'false'.
 	ListRemoteFolderItems pulumi.BoolPtrInput
@@ -498,7 +534,7 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline  pulumi.BoolPtrInput
 	Password pulumi.StringPtrInput
-	// (Optional) Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+	// Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
 	PodsSpecsRepoUrl pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -534,12 +570,12 @@ type RemoteCocoapodsRepositoryArgs struct {
 	// The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
 	// of 0 means automatic cleanup of cached artifacts is disabled.
 	UnusedArtifactsCleanupPeriodHours pulumi.IntPtrInput
-	Url                               pulumi.StringInput
-	Username                          pulumi.StringPtrInput
-	// (Optional) This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+	// - the remote repo URL. You kinda don't have a remote repo without it
+	Url      pulumi.StringInput
+	Username pulumi.StringPtrInput
+	// This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
 	VcsGitDownloadUrl pulumi.StringPtrInput
-	// (Optional) Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory
-	// instance. Default value is "ARTIFACTORY".
+	// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
 	VcsGitProvider pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.

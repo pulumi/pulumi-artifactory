@@ -4,6 +4,50 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## # Artifactory Local Debian Repository Resource
+ *
+ * Creates a local Debian repository and allows for the creation of a GPG key
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ * import * from "fs";
+ *
+ * const some_keypairGPG1 = new artifactory.Keypair("some-keypairGPG1", {
+ *     pairName: `some-keypair${random_id.randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias1",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
+ * const some_keypairGPG2 = new artifactory.Keypair("some-keypairGPG2", {
+ *     pairName: `some-keypair4${random_id.randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias2",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
+ * const my_debian_repo = new artifactory.DebianRepository("my-debian-repo", {
+ *     key: "my-debian-repo",
+ *     primaryKeypairRef: some_keypairGPG1.pairName,
+ *     secondaryKeypairRef: some_keypairGPG2.pairName,
+ *     indexCompressionFormats: [
+ *         "bz2",
+ *         "lzma",
+ *         "xz",
+ *     ],
+ *     trivialLayout: true,
+ * }, {
+ *     dependsOn: [
+ *         some_keypairGPG1,
+ *         some_keypairGPG2,
+ *     ],
+ * });
+ * ```
+ */
 export class DebianRepository extends pulumi.CustomResource {
     /**
      * Get an existing DebianRepository resource's state with the given name, ID, and optional extra
@@ -58,16 +102,18 @@ export class DebianRepository extends pulumi.CustomResource {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
+    /**
+     * - If you're creating this repo, then maybe you know?
+     */
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - The RSA key to be used to sign packages
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -92,11 +138,11 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - Not really clear what this does
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
-     * When set, the repository will use the deprecated trivial layout.
+     * - Apparently this is a deprecated repo layout
      *
      * @deprecated You shouldn't be using this
      */
@@ -199,16 +245,18 @@ export interface DebianRepositoryState {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * - If you're creating this repo, then maybe you know?
+     */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - The RSA key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -233,11 +281,11 @@ export interface DebianRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - Not really clear what this does
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
-     * When set, the repository will use the deprecated trivial layout.
+     * - Apparently this is a deprecated repo layout
      *
      * @deprecated You shouldn't be using this
      */
@@ -279,15 +327,17 @@ export interface DebianRepositoryArgs {
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
+    /**
+     * - If you're creating this repo, then maybe you know?
+     */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or
-     * special characters.
+     * - the identity key of the repo
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - The RSA key to be used to sign packages
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -312,11 +362,11 @@ export interface DebianRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Used to sign index files in Debian artifacts.
+     * - Not really clear what this does
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
-     * When set, the repository will use the deprecated trivial layout.
+     * - Apparently this is a deprecated repo layout
      *
      * @deprecated You shouldn't be using this
      */

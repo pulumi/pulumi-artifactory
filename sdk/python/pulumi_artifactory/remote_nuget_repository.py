@@ -59,6 +59,8 @@ class RemoteNugetRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteNugetRepository resource.
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -72,13 +74,12 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-               is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -110,7 +111,7 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -200,6 +201,9 @@ class RemoteNugetRepositoryArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -209,6 +213,9 @@ class RemoteNugetRepositoryArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -314,7 +321,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -351,8 +358,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -364,7 +370,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -672,7 +678,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         """
         return pulumi.get(self, "v3_feed_url")
 
@@ -756,17 +762,17 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-               is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -794,7 +800,8 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -989,7 +996,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -1035,8 +1042,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -1048,7 +1054,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -1085,6 +1091,9 @@ class _RemoteNugetRepositoryState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1364,6 +1373,9 @@ class _RemoteNugetRepositoryState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -1383,7 +1395,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         """
         return pulumi.get(self, "v3_feed_url")
 
@@ -1454,7 +1466,27 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Create a RemoteNugetRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Nuget Repository Resource
+
+        Creates a remote Nuget repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Nuget repository called my-remote-nuget.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
+            download_context_path="api/v2/package",
+            force_nuget_authentication=True,
+            key="my-remote-nuget",
+            url="https://www.nuget.org/",
+            v3_feed_url="https://api.nuget.org/v3/index.json")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -1470,17 +1502,17 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-               is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1508,7 +1540,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1519,7 +1552,27 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  args: RemoteNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a RemoteNugetRepository resource with the given unique name, props, and options.
+        ## # Artifactory Remote Nuget Repository Resource
+
+        Creates a remote Nuget repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
+
+        ## Example Usage
+
+        To create a new Artifactory remote Nuget repository called my-remote-nuget.
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        my_remote_nuget = artifactory.RemoteNugetRepository("my-remote-nuget",
+            download_context_path="api/v2/package",
+            force_nuget_authentication=True,
+            key="my-remote-nuget",
+            url="https://www.nuget.org/",
+            v3_feed_url="https://api.nuget.org/v3/index.json")
+        ```
+
         :param str resource_name: The name of the resource.
         :param RemoteNugetRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1711,17 +1764,17 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-               is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
         :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
                value of the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -1749,7 +1802,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] v3_feed_url: (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1870,7 +1924,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -1900,8 +1954,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value
-        is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -1909,7 +1962,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is 'false'.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -1934,6 +1987,9 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
+        """
+        The repository identifier. Must be unique system-wide
+        """
         return pulumi.get(self, "key")
 
     @property
@@ -2117,6 +2173,9 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
+        """
+        - the remote repo URL. You kinda don't have a remote repo without it
+        """
         return pulumi.get(self, "url")
 
     @property
@@ -2128,7 +2187,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         """
         return pulumi.get(self, "v3_feed_url")
 

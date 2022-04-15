@@ -476,7 +476,33 @@ class VirtualP2Repository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Create a VirtualP2Repository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual P2 Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific P2 features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_p2 = artifactory.VirtualP2Repository("foo-p2",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-p2",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -507,7 +533,33 @@ class VirtualP2Repository(pulumi.CustomResource):
                  args: VirtualP2RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VirtualP2Repository resource with the given unique name, props, and options.
+        ## # Artifactory Virtual P2 Repository Resource
+
+        Provides an Artifactory virtual repository resource with specific P2 features.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_p2 = artifactory.VirtualP2Repository("foo-p2",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-p2",
+            notes="Internal description",
+            repositories=[])
+        ```
+
+        ## Import
+
+        Virtual repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+        ```
+
         :param str resource_name: The name of the resource.
         :param VirtualP2RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
