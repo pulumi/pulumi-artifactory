@@ -31,12 +31,12 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 new Artifactory.Inputs.FederatedBowerRepositoryMemberArgs
     ///                 {
-    ///                     Enable = true,
+    ///                     Enabled = true,
     ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-bower-repo",
     ///                 },
     ///                 new Artifactory.Inputs.FederatedBowerRepositoryMemberArgs
     ///                 {
-    ///                     Enable = true,
+    ///                     Enabled = true,
     ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2",
     ///                 },
     ///             },

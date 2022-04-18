@@ -133,6 +133,10 @@ class PushReplication(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## # Artifactory Push Replication Resource
+
+        Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+
         ## Example Usage
 
         ```python
@@ -140,12 +144,8 @@ class PushReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.LocalRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven")
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
         foo_rep = artifactory.PushReplication("foo-rep",
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
@@ -175,6 +175,10 @@ class PushReplication(pulumi.CustomResource):
                  args: PushReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## # Artifactory Push Replication Resource
+
+        Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+
         ## Example Usage
 
         ```python
@@ -182,12 +186,8 @@ class PushReplication(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         # Create a replication between two artifactory local repositories
-        provider_test_source = artifactory.LocalRepository("providerTestSource",
-            key="provider_test_source",
-            package_type="maven")
-        provider_test_dest = artifactory.LocalRepository("providerTestDest",
-            key="provider_test_dest",
-            package_type="maven")
+        provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
+        provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
         foo_rep = artifactory.PushReplication("foo-rep",
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,

@@ -31,12 +31,12 @@ namespace Pulumi.Artifactory
     ///             {
     ///                 new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
     ///                 {
-    ///                     Enable = true,
+    ///                     Enabled = true,
     ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
     ///                 },
     ///                 new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
     ///                 {
-    ///                     Enable = true,
+    ///                     Enabled = true,
     ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
     ///                 },
     ///             },

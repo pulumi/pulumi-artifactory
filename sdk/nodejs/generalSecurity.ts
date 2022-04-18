@@ -30,6 +30,8 @@ import * as utilities from "./utilities";
  * ```sh
  *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
+ *
+ *  environments, or may change without notice.
  */
 export class GeneralSecurity extends pulumi.CustomResource {
     /**

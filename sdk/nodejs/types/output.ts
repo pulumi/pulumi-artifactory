@@ -744,9 +744,6 @@ export interface PermissionTargetsRepoActionsUser {
 
 export interface PushReplicationReplication {
     enabled: boolean;
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`
-     */
     password: string;
     pathPrefix?: string;
     /**
@@ -757,8 +754,8 @@ export interface PushReplicationReplication {
     syncDeletes: boolean;
     syncProperties: boolean;
     syncStatistics: boolean;
-    url?: string;
-    username?: string;
+    url: string;
+    username: string;
 }
 
 export interface ReleaseBundleWebhookCriteria {
@@ -1063,13 +1060,6 @@ export interface RemotePypiRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
-export interface RemoteRepositoryContentSynchronisation {
-    /**
-     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-     */
-    enabled?: boolean;
-}
-
 export interface RemoteRpmRepositoryContentSynchronisation {
     enabled?: boolean;
     propertiesEnabled?: boolean;
@@ -1093,6 +1083,13 @@ export interface RemoteSbtRepositoryContentSynchronisation {
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteVcsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
     statisticsEnabled?: boolean;
 }
 

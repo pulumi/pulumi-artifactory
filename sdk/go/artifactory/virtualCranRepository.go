@@ -13,8 +13,7 @@ import (
 
 // ## # Artifactory Virtual Cran Repository Resource
 //
-// Provides an Artifactory virtual repository resource, but with specific cran features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
+// Provides an Artifactory virtual repository resource with specific cran features.
 //
 // ## Example Usage
 //

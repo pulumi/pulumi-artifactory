@@ -5,6 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
+ * ## # Artifactory User Resource
+ *
+ * Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
+ *
+ * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -72,6 +78,7 @@ export class User extends pulumi.CustomResource {
     public readonly email!: pulumi.Output<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -83,9 +90,9 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
@@ -116,9 +123,6 @@ export class User extends pulumi.CustomResource {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
-            }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
             }
             resourceInputs["admin"] = args ? args.admin : undefined;
             resourceInputs["disableUiAccess"] = args ? args.disableUiAccess : undefined;
@@ -152,6 +156,7 @@ export interface UserState {
     email?: pulumi.Input<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -163,7 +168,7 @@ export interface UserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**
@@ -190,6 +195,7 @@ export interface UserArgs {
     email: pulumi.Input<string>;
     /**
      * List of groups this user is a part of.
+     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -201,9 +207,9 @@ export interface UserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */

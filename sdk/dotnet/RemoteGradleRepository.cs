@@ -215,8 +215,11 @@ namespace Pulumi.Artifactory
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Output("proxy")]
-        public Output<string> Proxy { get; private set; } = null!;
+        public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
@@ -520,6 +523,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
@@ -795,6 +801,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

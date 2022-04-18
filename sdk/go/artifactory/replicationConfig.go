@@ -19,23 +19,20 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
 // 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		providerTestSource, err := artifactory.NewLocalRepository(ctx, "providerTestSource", &artifactory.LocalRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_source"),
-// 			PackageType: pulumi.String("maven"),
+// 		providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+// 			Key: pulumi.String("provider_test_source"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewLocalRepository(ctx, "providerTestDest", &artifactory.LocalRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_dest"),
-// 			PackageType: pulumi.String("maven"),
+// 		_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+// 			Key: pulumi.String("provider_test_dest"),
 // 		})
 // 		if err != nil {
 // 			return err

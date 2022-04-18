@@ -19,26 +19,19 @@ namespace Pulumi.Artifactory
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
-        /// This is a bearer token that can be given to you by your admin under `Identity and Access`
+        /// This is a access token that can be given to you by your admin under `Identity and Access`
         /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
 
+        /// <summary>
+        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
-        /// <summary>
-        /// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-        /// bearer token
-        /// </summary>
-        [Output("password")]
-        public Output<string?> Password { get; private set; } = null!;
-
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
-
-        [Output("username")]
-        public Output<string?> Username { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,11 +62,14 @@ namespace Pulumi.Artifactory
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This is a bearer token that can be given to you by your admin under `Identity and Access`
+        /// This is a access token that can be given to you by your admin under `Identity and Access`
         /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
+        /// <summary>
+        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// </summary>
         [Input("apiKey")]
         public Input<string>? ApiKey { get; set; }
 
@@ -83,18 +79,8 @@ namespace Pulumi.Artifactory
         [Input("checkLicense", json: true)]
         public Input<bool>? CheckLicense { get; set; }
 
-        /// <summary>
-        /// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-        /// bearer token
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
-
         [Input("url")]
         public Input<string>? Url { get; set; }
-
-        [Input("username")]
-        public Input<string>? Username { get; set; }
 
         public ProviderArgs()
         {

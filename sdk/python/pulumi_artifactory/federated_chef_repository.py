@@ -502,11 +502,11 @@ class FederatedChefRepository(pulumi.CustomResource):
             key="terraform-federated-test-chef-repo",
             members=[
                 artifactory.FederatedChefRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
                 ),
                 artifactory.FederatedChefRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedChefRepository(pulumi.CustomResource):
             key="terraform-federated-test-chef-repo",
             members=[
                 artifactory.FederatedChefRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
                 ),
                 artifactory.FederatedChefRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
                 ),
             ])

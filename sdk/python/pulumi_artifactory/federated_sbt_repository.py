@@ -502,11 +502,11 @@ class FederatedSbtRepository(pulumi.CustomResource):
             key="terraform-federated-test-sbt-repo",
             members=[
                 artifactory.FederatedSbtRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-sbt-repo",
                 ),
                 artifactory.FederatedSbtRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedSbtRepository(pulumi.CustomResource):
             key="terraform-federated-test-sbt-repo",
             members=[
                 artifactory.FederatedSbtRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-sbt-repo",
                 ),
                 artifactory.FederatedSbtRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2",
                 ),
             ])

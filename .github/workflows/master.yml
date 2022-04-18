@@ -14,6 +14,7 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
+  VERSION_PREFIX: "2.0.0"
 jobs:
   build_sdk:
     name: build_sdk
@@ -90,7 +91,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         language:
         - nodejs
         - python
@@ -153,82 +154,7 @@ jobs:
       fail-fast: true
       matrix:
         goversion:
-        - 1.17.x
-  lint:
-    container: golangci/golangci-lint:latest
-    name: lint
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v2
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{matrix.goversion}}
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - run: make lint_provider
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting provider
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.17.x
-  lint_sdk:
-    container: golangci/golangci-lint:latest
-    name: lint-sdk
-    needs: build_sdk
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v2
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v2
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: ${{matrix.goversion}}
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.2.0
-      with:
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
-    - run: cd sdk/go/artifactory && golangci-lint run -c ../../../.golangci.yml
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting go sdk
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.17.x
+        - 1.18.x
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
@@ -296,7 +222,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         nodeversion:
         - 14.x
         pythonversion:
@@ -352,7 +278,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         nodeversion:
         - 14.x
         pythonversion:
@@ -433,7 +359,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         nodeversion:
         - 14.x
         pythonversion:
@@ -521,7 +447,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         language:
         - nodejs
         - python

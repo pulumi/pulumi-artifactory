@@ -502,11 +502,11 @@ class FederatedVagrantRepository(pulumi.CustomResource):
             key="terraform-federated-test-vagrant-repo",
             members=[
                 artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
                 ),
                 artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedVagrantRepository(pulumi.CustomResource):
             key="terraform-federated-test-vagrant-repo",
             members=[
                 artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
                 ),
                 artifactory.FederatedVagrantRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
                 ),
             ])

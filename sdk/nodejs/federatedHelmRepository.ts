@@ -20,11 +20,11 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-helm-repo",
  *     members: [
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-helm-repo",
  *         },
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2",
  *         },
  *     ],

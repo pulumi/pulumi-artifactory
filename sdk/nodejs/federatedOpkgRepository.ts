@@ -20,11 +20,11 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-opkg-repo",
  *     members: [
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
  *         },
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
  *         },
  *     ],

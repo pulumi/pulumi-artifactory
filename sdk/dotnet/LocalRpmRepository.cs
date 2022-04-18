@@ -17,6 +17,7 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
@@ -24,13 +25,38 @@ namespace Pulumi.Artifactory
     /// {
     ///     public MyStack()
     ///     {
+    ///         var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias1",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
+    ///         var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new Artifactory.KeypairArgs
+    ///         {
+    ///             PairName = $"some-keypair{random_id.Randid.Id}",
+    ///             PairType = "GPG",
+    ///             Alias = "foo-alias2",
+    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///         });
     ///         var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new Artifactory.LocalRpmRepositoryArgs
     ///         {
+    ///             Key = "terraform-local-test-rpm-repo-basic",
+    ///             YumRootDepth = 5,
     ///             CalculateYumMetadata = true,
     ///             EnableFileListsIndexing = true,
-    ///             Key = "terraform-local-test-rpm-repo-basic",
     ///             YumGroupFileNames = "file-1.xml,file-2.xml",
-    ///             YumRootDepth = 5,
+    ///             PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
+    ///             SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 some_keypair_gpg_1,
+    ///                 some_keypair_gpg_2,
+    ///             },
     ///         });
     ///     }
     /// 
@@ -97,6 +123,12 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
+        /// The primary GPG key to be used to sign packages
+        /// </summary>
+        [Output("primaryKeypairRef")]
+        public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
+
+        /// <summary>
         /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         /// </summary>
         [Output("priorityResolution")]
@@ -126,6 +158,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("repoLayoutRef")]
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages
+        /// </summary>
+        [Output("secondaryKeypairRef")]
+        public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -246,6 +284,12 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
+        /// The primary GPG key to be used to sign packages
+        /// </summary>
+        [Input("primaryKeypairRef")]
+        public Input<string>? PrimaryKeypairRef { get; set; }
+
+        /// <summary>
         /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         /// </summary>
         [Input("priorityResolution")]
@@ -287,6 +331,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages
+        /// </summary>
+        [Input("secondaryKeypairRef")]
+        public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
@@ -371,6 +421,12 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
+        /// The primary GPG key to be used to sign packages
+        /// </summary>
+        [Input("primaryKeypairRef")]
+        public Input<string>? PrimaryKeypairRef { get; set; }
+
+        /// <summary>
         /// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         /// </summary>
         [Input("priorityResolution")]
@@ -412,6 +468,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("repoLayoutRef")]
         public Input<string>? RepoLayoutRef { get; set; }
+
+        /// <summary>
+        /// The secondary GPG key to be used to sign packages
+        /// </summary>
+        [Input("secondaryKeypairRef")]
+        public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
         /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via

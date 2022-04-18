@@ -116,7 +116,8 @@ type RemoteNugetRepository struct {
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy        pulumi.StringOutput      `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringOutput `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -252,7 +253,8 @@ type remoteNugetRepositoryState struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -354,7 +356,8 @@ type RemoteNugetRepositoryState struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -457,7 +460,8 @@ type remoteNugetRepositoryArgs struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
 	// Repository layout key for the local repository
@@ -557,7 +561,8 @@ type RemoteNugetRepositoryArgs struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping
 	RemoteRepoLayoutRef pulumi.StringPtrInput
 	// Repository layout key for the local repository

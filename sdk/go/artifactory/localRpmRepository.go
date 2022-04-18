@@ -21,19 +21,55 @@ import (
 // package main
 //
 // import (
+// 	"fmt"
+// 	"io/ioutil"
+//
 // 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
+// 		_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
+// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
+// 			PairType:   pulumi.String("GPG"),
+// 			Alias:      pulumi.String("foo-alias1"),
+// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
+// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
+// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
+// 			PairType:   pulumi.String("GPG"),
+// 			Alias:      pulumi.String("foo-alias2"),
+// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
+// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
+// 			Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
+// 			YumRootDepth:            pulumi.Int(5),
 // 			CalculateYumMetadata:    pulumi.Bool(true),
 // 			EnableFileListsIndexing: pulumi.Bool(true),
-// 			Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
 // 			YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
-// 			YumRootDepth:            pulumi.Int(5),
-// 		})
+// 			PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.Some - keypairGPG1.Pair_name),
+// 			SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.Some - keypairGPG2.Pair_name),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			some_keypair_gpg_1,
+// 			some_keypair_gpg_2,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -66,6 +102,8 @@ type LocalRpmRepository struct {
 	Key         pulumi.StringOutput    `pulumi:"key"`
 	Notes       pulumi.StringPtrOutput `pulumi:"notes"`
 	PackageType pulumi.StringOutput    `pulumi:"packageType"`
+	// The primary GPG key to be used to sign packages
+	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -77,6 +115,8 @@ type LocalRpmRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
+	// The secondary GPG key to be used to sign packages
+	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrOutput `pulumi:"xrayIndex"`
@@ -140,6 +180,8 @@ type localRpmRepositoryState struct {
 	Key         *string `pulumi:"key"`
 	Notes       *string `pulumi:"notes"`
 	PackageType *string `pulumi:"packageType"`
+	// The primary GPG key to be used to sign packages
+	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -151,6 +193,8 @@ type localRpmRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// The secondary GPG key to be used to sign packages
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -183,6 +227,8 @@ type LocalRpmRepositoryState struct {
 	Key         pulumi.StringPtrInput
 	Notes       pulumi.StringPtrInput
 	PackageType pulumi.StringPtrInput
+	// The primary GPG key to be used to sign packages
+	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -194,6 +240,8 @@ type LocalRpmRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
+	// The secondary GPG key to be used to sign packages
+	SecondaryKeypairRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput
@@ -229,6 +277,8 @@ type localRpmRepositoryArgs struct {
 	// - the identity key of the repo
 	Key   string  `pulumi:"key"`
 	Notes *string `pulumi:"notes"`
+	// The primary GPG key to be used to sign packages
+	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -240,6 +290,8 @@ type localRpmRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
+	// The secondary GPG key to be used to sign packages
+	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex *bool `pulumi:"xrayIndex"`
@@ -272,6 +324,8 @@ type LocalRpmRepositoryArgs struct {
 	// - the identity key of the repo
 	Key   pulumi.StringInput
 	Notes pulumi.StringPtrInput
+	// The primary GPG key to be used to sign packages
+	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -283,6 +337,8 @@ type LocalRpmRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
+	// The secondary GPG key to be used to sign packages
+	SecondaryKeypairRef pulumi.StringPtrInput
 	// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
 	// Xray settings.
 	XrayIndex pulumi.BoolPtrInput

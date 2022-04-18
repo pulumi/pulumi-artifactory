@@ -13,8 +13,7 @@ import (
 
 // ## # Artifactory Virtual Nuget Repository Resource
 //
-// Provides an Artifactory virtual repository resource, but with specific nuget features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
+// Provides an Artifactory virtual repository resource with specific nuget features.
 //
 // ## Example Usage
 //

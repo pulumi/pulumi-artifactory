@@ -8,7 +8,7 @@ declare var exports: any;
 const __config = new pulumi.Config("artifactory");
 
 /**
- * This is a bearer token that can be given to you by your admin under `Identity and Access`
+ * This is a access token that can be given to you by your admin under `Identity and Access`
  */
 export declare const accessToken: string | undefined;
 Object.defineProperty(exports, "accessToken", {
@@ -18,6 +18,9 @@ Object.defineProperty(exports, "accessToken", {
     enumerable: true,
 });
 
+/**
+ * API token. Projects functionality will not work with any auth method other than access tokens
+ */
 export declare const apiKey: string | undefined;
 Object.defineProperty(exports, "apiKey", {
     get() {
@@ -37,30 +40,10 @@ Object.defineProperty(exports, "checkLicense", {
     enumerable: true,
 });
 
-/**
- * Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
- * bearer token
- */
-export declare const password: string | undefined;
-Object.defineProperty(exports, "password", {
-    get() {
-        return __config.get("password");
-    },
-    enumerable: true,
-});
-
 export declare const url: string | undefined;
 Object.defineProperty(exports, "url", {
     get() {
         return __config.get("url");
-    },
-    enumerable: true,
-});
-
-export declare const username: string | undefined;
-Object.defineProperty(exports, "username", {
-    get() {
-        return __config.get("username");
     },
     enumerable: true,
 });

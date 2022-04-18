@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     content: fs.readFileSync("/path/to/bundle.pem", "utf-8"),
  * });
  * // This can then be used by a remote repository
- * const my_remote = new artifactory.RemoteRepository("my-remote", {
+ * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {
  *     // more code
  *     clientTlsCertificate: my_cert.alias,
  * });

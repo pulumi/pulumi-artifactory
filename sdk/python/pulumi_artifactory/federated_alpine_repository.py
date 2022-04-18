@@ -502,11 +502,11 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             key="terraform-federated-test-alpine-repo",
             members=[
                 artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-alpine-repo",
                 ),
                 artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             key="terraform-federated-test-alpine-repo",
             members=[
                 artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-alpine-repo",
                 ),
                 artifactory.FederatedAlpineRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2",
                 ),
             ])

@@ -13,8 +13,7 @@ import (
 
 // ## # Artifactory Virtual Gradle Repository Resource
 //
-// Provides an Artifactory virtual repository resource, but with specific gradle features. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
+// Provides an Artifactory virtual repository resource with specific gradle features.
 //
 // ## Example Usage
 //

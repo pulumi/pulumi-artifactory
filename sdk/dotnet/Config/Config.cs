@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory
 
         private static readonly __Value<string?> _accessToken = new __Value<string?>(() => __config.Get("accessToken"));
         /// <summary>
-        /// This is a bearer token that can be given to you by your admin under `Identity and Access`
+        /// This is a access token that can be given to you by your admin under `Identity and Access`
         /// </summary>
         public static string? AccessToken
         {
@@ -43,6 +43,9 @@ namespace Pulumi.Artifactory
         }
 
         private static readonly __Value<string?> _apiKey = new __Value<string?>(() => __config.Get("apiKey"));
+        /// <summary>
+        /// API token. Projects functionality will not work with any auth method other than access tokens
+        /// </summary>
         public static string? ApiKey
         {
             get => _apiKey.Get();
@@ -59,29 +62,11 @@ namespace Pulumi.Artifactory
             set => _checkLicense.Set(value);
         }
 
-        private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password"));
-        /// <summary>
-        /// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-        /// bearer token
-        /// </summary>
-        public static string? Password
-        {
-            get => _password.Get();
-            set => _password.Set(value);
-        }
-
         private static readonly __Value<string?> _url = new __Value<string?>(() => __config.Get("url"));
         public static string? Url
         {
             get => _url.Get();
             set => _url.Set(value);
-        }
-
-        private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username"));
-        public static string? Username
-        {
-            get => _username.Get();
-            set => _username.Set(value);
         }
 
     }

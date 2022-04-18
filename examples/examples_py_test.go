@@ -21,10 +21,10 @@ func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	return basePython
 }
 
-func TestAccLocalRepositoryPy(t *testing.T) {
+func TestAccLocalGenericRepositoryPy(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "local-repository", "py"),
+			Dir: filepath.Join(getCwd(t), "local-generic-repository", "py"),
 		})
 
 	integration.ProgramTest(t, &test)

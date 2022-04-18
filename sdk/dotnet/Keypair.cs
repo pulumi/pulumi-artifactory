@@ -12,9 +12,12 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## # Artifactory keypair Resource
     /// 
-    /// Creates an RSA Keypair resource - suitable for signing alpine indices.
-    /// - Currently, only RSA is supported.
-    /// - Passphrases are not currently supported, though they exist in the API
+    /// RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
+    /// used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
+    /// RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
+    /// pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
+    /// through the Keys Management UI and REST API.
+    /// Passphrases are not currently supported, though they exist in the API.
     /// 
     /// ## Example Usage
     /// 
@@ -39,48 +42,56 @@ namespace Pulumi.Artifactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Keypair can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/keypair:Keypair")]
     public partial class Keypair : Pulumi.CustomResource
     {
         /// <summary>
-        /// Required but for unknown reasons
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// name of the key pair and the identity of the resource.
+        /// A unique identifier for the Key Pair record.
         /// </summary>
         [Output("pairName")]
         public Output<string> PairName { get; private set; } = null!;
 
         /// <summary>
-        /// RT requires this - presumably for verification purposes.
+        /// Key Pair type. Supported types - GPG and RSA.
         /// </summary>
         [Output("pairType")]
         public Output<string> PairType { get; private set; } = null!;
 
         /// <summary>
-        /// - This will be used to decrypt the private key. Validated server side.
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Output("passphrase")]
         public Output<string?> Passphrase { get; private set; } = null!;
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+        /// - Unknown usage. Returned in the json payload and cannot be set.
         /// </summary>
         [Output("unavailable")]
         public Output<bool> Unavailable { get; private set; } = null!;
@@ -132,37 +143,37 @@ namespace Pulumi.Artifactory
     public sealed class KeypairArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required but for unknown reasons
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// name of the key pair and the identity of the resource.
+        /// A unique identifier for the Key Pair record.
         /// </summary>
         [Input("pairName", required: true)]
         public Input<string> PairName { get; set; } = null!;
 
         /// <summary>
-        /// RT requires this - presumably for verification purposes.
+        /// Key Pair type. Supported types - GPG and RSA.
         /// </summary>
         [Input("pairType", required: true)]
         public Input<string> PairType { get; set; } = null!;
 
         /// <summary>
-        /// - This will be used to decrypt the private key. Validated server side.
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Input("passphrase")]
         public Input<string>? Passphrase { get; set; }
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Input("privateKey", required: true)]
         public Input<string> PrivateKey { get; set; } = null!;
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -175,43 +186,43 @@ namespace Pulumi.Artifactory
     public sealed class KeypairState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required but for unknown reasons
+        /// Will be used as a filename when retrieving the public key via REST API.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// name of the key pair and the identity of the resource.
+        /// A unique identifier for the Key Pair record.
         /// </summary>
         [Input("pairName")]
         public Input<string>? PairName { get; set; }
 
         /// <summary>
-        /// RT requires this - presumably for verification purposes.
+        /// Key Pair type. Supported types - GPG and RSA.
         /// </summary>
         [Input("pairType")]
         public Input<string>? PairType { get; set; }
 
         /// <summary>
-        /// - This will be used to decrypt the private key. Validated server side.
+        /// - Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
         [Input("passphrase")]
         public Input<string>? Passphrase { get; set; }
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Private key. PEM format will be validated.
         /// </summary>
         [Input("privateKey")]
         public Input<string>? PrivateKey { get; set; }
 
         /// <summary>
-        /// - duh! This will have it's pem format validated
+        /// - Public key. PEM format will be validated.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
 
         /// <summary>
-        /// - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+        /// - Unknown usage. Returned in the json payload and cannot be set.
         /// </summary>
         [Input("unavailable")]
         public Input<bool>? Unavailable { get; set; }

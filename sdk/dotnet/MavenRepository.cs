@@ -12,8 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## # Artifactory Virtual Maven Repository Resource
     /// 
-    /// Provides an Artifactory virtual repository resource, but with specific maven feature. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
+    /// Provides an Artifactory virtual repository resource with specific maven feature.
     /// 
     /// ## Example Usage
     /// 
@@ -25,16 +24,14 @@ namespace Pulumi.Artifactory
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bar = new Artifactory.LocalRepository("bar", new Artifactory.LocalRepositoryArgs
+    ///         var bar = new Artifactory.LocalMavenRepository("bar", new Artifactory.LocalMavenRepositoryArgs
     ///         {
     ///             Key = "bar",
-    ///             PackageType = "maven",
     ///             RepoLayoutRef = "maven-2-default",
     ///         });
-    ///         var baz = new Artifactory.RemoteRepository("baz", new Artifactory.RemoteRepositoryArgs
+    ///         var baz = new Artifactory.RemoteMavenRepository("baz", new Artifactory.RemoteMavenRepositoryArgs
     ///         {
     ///             Key = "baz",
-    ///             PackageType = "maven",
     ///             RepoLayoutRef = "maven-2-default",
     ///             Url = "https://search.maven.com/",
     ///         });
@@ -51,7 +48,7 @@ namespace Pulumi.Artifactory
     ///             Repositories = 
     ///             {
     ///                 bar.Key,
-    ///                 artifactory_local_repository.Baz.Key,
+    ///                 artifactory_local_maven_repository.Baz.Key,
     ///             },
     ///         });
     ///     }

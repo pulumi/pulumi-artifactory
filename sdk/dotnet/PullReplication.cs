@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory
     /// ## # Artifactory Pull Replication Resource
     /// 
     /// Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-    /// for a remote repo.
+    /// for a local or remote repo.
     /// 
     /// ## Example Usage
     /// 
@@ -26,20 +26,18 @@ namespace Pulumi.Artifactory
     ///     public MyStack()
     ///     {
     ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalRepository("providerTestSource", new Artifactory.LocalRepositoryArgs
+    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
     ///         {
     ///             Key = "provider_test_source",
-    ///             PackageType = "maven",
     ///         });
-    ///         var providerTestDest = new Artifactory.RemoteRepository("providerTestDest", new Artifactory.RemoteRepositoryArgs
+    ///         var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new Artifactory.RemoteMavenRepositoryArgs
     ///         {
     ///             Key = "provider_test_dest",
-    ///             PackageType = "maven",
     ///             Password = "bar",
-    ///             Url = $"https://example.com/artifactory/{artifactory_local_repository.Artifactory_local_repository.Key}",
+    ///             Url = $"https://example.com/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}",
     ///             Username = "foo",
     ///         });
-    ///         var foo_rep = new Artifactory.PullReplication("foo-rep", new Artifactory.PullReplicationArgs
+    ///         var remote_rep = new Artifactory.PullReplication("remote-rep", new Artifactory.PullReplicationArgs
     ///         {
     ///             CronExp = "0 0 * * * ?",
     ///             EnableEventReplication = true,
@@ -71,11 +69,10 @@ namespace Pulumi.Artifactory
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        /// Required for local repository, but not needed for remote repository.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         [Output("pathPrefix")]
         public Output<string?> PathPrefix { get; private set; } = null!;
@@ -101,9 +98,15 @@ namespace Pulumi.Artifactory
         [Output("syncStatistics")]
         public Output<bool> SyncStatistics { get; private set; } = null!;
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
 
@@ -162,6 +165,12 @@ namespace Pulumi.Artifactory
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
 
@@ -186,9 +195,15 @@ namespace Pulumi.Artifactory
         [Input("syncStatistics")]
         public Input<bool>? SyncStatistics { get; set; }
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 
@@ -209,8 +224,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-        /// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+        /// Required for local repository, but not needed for remote repository.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -239,9 +253,15 @@ namespace Pulumi.Artifactory
         [Input("syncStatistics")]
         public Input<bool>? SyncStatistics { get; set; }
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Required for local repository, but not needed for remote repository.
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

@@ -474,8 +474,7 @@ class VirtualCondaRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Conda Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific conda features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific conda features.
 
         ## Example Usage
 
@@ -531,8 +530,7 @@ class VirtualCondaRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Conda Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific conda features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific conda features.
 
         ## Example Usage
 

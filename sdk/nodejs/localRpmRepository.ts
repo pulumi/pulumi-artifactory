@@ -14,13 +14,35 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
+ * import * from "fs";
  *
+ * const some_keypair_gpg_1 = new artifactory.Keypair("some-keypair-gpg-1", {
+ *     pairName: `some-keypair${random_id.randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias1",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
+ * const some_keypair_gpg_2 = new artifactory.Keypair("some-keypair-gpg-2", {
+ *     pairName: `some-keypair${random_id.randid.id}`,
+ *     pairType: "GPG",
+ *     alias: "foo-alias2",
+ *     privateKey: fs.readFileSync("samples/gpg.priv"),
+ *     publicKey: fs.readFileSync("samples/gpg.pub"),
+ * });
  * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
+ *     key: "terraform-local-test-rpm-repo-basic",
+ *     yumRootDepth: 5,
  *     calculateYumMetadata: true,
  *     enableFileListsIndexing: true,
- *     key: "terraform-local-test-rpm-repo-basic",
  *     yumGroupFileNames: "file-1.xml,file-2.xml",
- *     yumRootDepth: 5,
+ *     primaryKeypairRef: artifactory_keypair["some-keypairGPG1"].pair_name,
+ *     secondaryKeypairRef: artifactory_keypair["some-keypairGPG2"].pair_name,
+ * }, {
+ *     dependsOn: [
+ *         some_keypair_gpg_1,
+ *         some_keypair_gpg_2,
+ *     ],
  * });
  * ```
  */
@@ -87,6 +109,10 @@ export class LocalRpmRepository extends pulumi.CustomResource {
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
+     * The primary GPG key to be used to sign packages
+     */
+    public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
+    /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
@@ -107,6 +133,10 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * Repository layout key for the local repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
+    /**
+     * The secondary GPG key to be used to sign packages
+     */
+    public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
@@ -145,11 +175,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
             resourceInputs["packageType"] = state ? state.packageType : undefined;
+            resourceInputs["primaryKeypairRef"] = state ? state.primaryKeypairRef : undefined;
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
+            resourceInputs["secondaryKeypairRef"] = state ? state.secondaryKeypairRef : undefined;
             resourceInputs["xrayIndex"] = state ? state.xrayIndex : undefined;
             resourceInputs["yumGroupFileNames"] = state ? state.yumGroupFileNames : undefined;
             resourceInputs["yumRootDepth"] = state ? state.yumRootDepth : undefined;
@@ -168,11 +200,13 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["primaryKeypairRef"] = args ? args.primaryKeypairRef : undefined;
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
+            resourceInputs["secondaryKeypairRef"] = args ? args.secondaryKeypairRef : undefined;
             resourceInputs["xrayIndex"] = args ? args.xrayIndex : undefined;
             resourceInputs["yumGroupFileNames"] = args ? args.yumGroupFileNames : undefined;
             resourceInputs["yumRootDepth"] = args ? args.yumRootDepth : undefined;
@@ -222,6 +256,10 @@ export interface LocalRpmRepositoryState {
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
+     * The primary GPG key to be used to sign packages
+     */
+    primaryKeypairRef?: pulumi.Input<string>;
+    /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
@@ -242,6 +280,10 @@ export interface LocalRpmRepositoryState {
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * The secondary GPG key to be used to sign packages
+     */
+    secondaryKeypairRef?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.
@@ -295,6 +337,10 @@ export interface LocalRpmRepositoryArgs {
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     /**
+     * The primary GPG key to be used to sign packages
+     */
+    primaryKeypairRef?: pulumi.Input<string>;
+    /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
      */
     priorityResolution?: pulumi.Input<boolean>;
@@ -315,6 +361,10 @@ export interface LocalRpmRepositoryArgs {
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * The secondary GPG key to be used to sign packages
+     */
+    secondaryKeypairRef?: pulumi.Input<string>;
     /**
      * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
      * Xray settings.

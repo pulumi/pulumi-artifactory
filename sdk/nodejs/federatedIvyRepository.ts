@@ -20,11 +20,11 @@ import * as utilities from "./utilities";
  *     key: "terraform-federated-test-ivy-repo",
  *     members: [
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
  *         },
  *         {
- *             enable: true,
+ *             enabled: true,
  *             url: "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
  *         },
  *     ],

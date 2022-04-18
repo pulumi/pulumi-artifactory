@@ -7,8 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Virtual Maven Repository Resource
  *
- * Provides an Artifactory virtual repository resource, but with specific maven feature. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
+ * Provides an Artifactory virtual repository resource with specific maven feature.
  *
  * ## Example Usage
  *
@@ -16,14 +15,12 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const bar = new artifactory.LocalRepository("bar", {
+ * const bar = new artifactory.LocalMavenRepository("bar", {
  *     key: "bar",
- *     packageType: "maven",
  *     repoLayoutRef: "maven-2-default",
  * });
- * const baz = new artifactory.RemoteRepository("baz", {
+ * const baz = new artifactory.RemoteMavenRepository("baz", {
  *     key: "baz",
- *     packageType: "maven",
  *     repoLayoutRef: "maven-2-default",
  *     url: "https://search.maven.com/",
  * });
@@ -38,7 +35,7 @@ import * as utilities from "./utilities";
  *     repoLayoutRef: "maven-2-default",
  *     repositories: [
  *         bar.key,
- *         artifactory_local_repository_baz.key,
+ *         artifactory_local_maven_repository_baz.key,
  *     ],
  * });
  * ```

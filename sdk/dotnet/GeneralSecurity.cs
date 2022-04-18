@@ -43,6 +43,8 @@ namespace Pulumi.Artifactory
     /// ```sh
     ///  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
     /// ```
+    /// 
+    ///  environments, or may change without notice.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
     public partial class GeneralSecurity : Pulumi.CustomResource

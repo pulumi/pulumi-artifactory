@@ -7,9 +7,12 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory keypair Resource
  *
- * Creates an RSA Keypair resource - suitable for signing alpine indices.
- * - Currently, only RSA is supported.
- * - Passphrases are not currently supported, though they exist in the API
+ * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
+ * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
+ * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
+ * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
+ * through the Keys Management UI and REST API.
+ * Passphrases are not currently supported, though they exist in the API.
  *
  * ## Example Usage
  *
@@ -25,6 +28,14 @@ import * as utilities from "./utilities";
  *     privateKey: fs.readFileSync("samples/rsa.priv"),
  *     publicKey: fs.readFileSync("samples/rsa.pub"),
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Keypair can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
  * ```
  */
 export class Keypair extends pulumi.CustomResource {
@@ -56,31 +67,31 @@ export class Keypair extends pulumi.CustomResource {
     }
 
     /**
-     * Required but for unknown reasons
+     * Will be used as a filename when retrieving the public key via REST API.
      */
     public readonly alias!: pulumi.Output<string>;
     /**
-     * name of the key pair and the identity of the resource.
+     * A unique identifier for the Key Pair record.
      */
     public readonly pairName!: pulumi.Output<string>;
     /**
-     * RT requires this - presumably for verification purposes.
+     * Key Pair type. Supported types - GPG and RSA.
      */
     public readonly pairType!: pulumi.Output<string>;
     /**
-     * - This will be used to decrypt the private key. Validated server side.
+     * - Passphrase will be used to decrypt the private key. Validated server side.
      */
     public readonly passphrase!: pulumi.Output<string | undefined>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Private key. PEM format will be validated.
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Public key. PEM format will be validated.
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
-     * - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+     * - Unknown usage. Returned in the json payload and cannot be set.
      */
     public /*out*/ readonly unavailable!: pulumi.Output<boolean>;
 
@@ -139,31 +150,31 @@ export class Keypair extends pulumi.CustomResource {
  */
 export interface KeypairState {
     /**
-     * Required but for unknown reasons
+     * Will be used as a filename when retrieving the public key via REST API.
      */
     alias?: pulumi.Input<string>;
     /**
-     * name of the key pair and the identity of the resource.
+     * A unique identifier for the Key Pair record.
      */
     pairName?: pulumi.Input<string>;
     /**
-     * RT requires this - presumably for verification purposes.
+     * Key Pair type. Supported types - GPG and RSA.
      */
     pairType?: pulumi.Input<string>;
     /**
-     * - This will be used to decrypt the private key. Validated server side.
+     * - Passphrase will be used to decrypt the private key. Validated server side.
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Private key. PEM format will be validated.
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Public key. PEM format will be validated.
      */
     publicKey?: pulumi.Input<string>;
     /**
-     * - it's unknown what this does, but, it's returned in the payload and there is no known place to set it in the UI
+     * - Unknown usage. Returned in the json payload and cannot be set.
      */
     unavailable?: pulumi.Input<boolean>;
 }
@@ -173,27 +184,27 @@ export interface KeypairState {
  */
 export interface KeypairArgs {
     /**
-     * Required but for unknown reasons
+     * Will be used as a filename when retrieving the public key via REST API.
      */
     alias: pulumi.Input<string>;
     /**
-     * name of the key pair and the identity of the resource.
+     * A unique identifier for the Key Pair record.
      */
     pairName: pulumi.Input<string>;
     /**
-     * RT requires this - presumably for verification purposes.
+     * Key Pair type. Supported types - GPG and RSA.
      */
     pairType: pulumi.Input<string>;
     /**
-     * - This will be used to decrypt the private key. Validated server side.
+     * - Passphrase will be used to decrypt the private key. Validated server side.
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Private key. PEM format will be validated.
      */
     privateKey: pulumi.Input<string>;
     /**
-     * - duh! This will have it's pem format validated
+     * - Public key. PEM format will be validated.
      */
     publicKey: pulumi.Input<string>;
 }

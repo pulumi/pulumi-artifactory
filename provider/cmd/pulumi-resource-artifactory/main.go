@@ -17,8 +17,8 @@
 package main
 
 import (
-	artifactory "github.com/pulumi/pulumi-artifactory/provider"
-	"github.com/pulumi/pulumi-artifactory/provider/pkg/version"
+	artifactory "github.com/pulumi/pulumi-artifactory/provider/v2"
+	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 )
 

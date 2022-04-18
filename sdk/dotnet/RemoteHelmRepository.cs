@@ -214,8 +214,11 @@ namespace Pulumi.Artifactory
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Output("proxy")]
-        public Output<string> Proxy { get; private set; } = null!;
+        public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// Repository layout key for the remote layout mapping
@@ -503,6 +506,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
@@ -762,6 +768,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

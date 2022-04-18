@@ -24,6 +24,7 @@ import * as utilities from "./utilities";
  *     anonymousAccess: true,
  *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
  *     key: "my-remote-cargo",
+ *     url: "https://github.com/",
  * });
  * ```
  * ## Note
@@ -163,7 +164,10 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * Repository layout key for the remote layout mapping
      */
@@ -426,6 +430,9 @@ export interface RemoteCargoRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping
@@ -569,6 +576,9 @@ export interface RemoteCargoRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * Repository layout key for the remote layout mapping

@@ -478,8 +478,7 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Git LFS Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific git lfs features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific git lfs features.
 
         ## Import
 
@@ -521,8 +520,7 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Git LFS Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific git lfs features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific git lfs features.
 
         ## Import
 

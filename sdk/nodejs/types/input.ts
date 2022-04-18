@@ -744,10 +744,7 @@ export interface PermissionTargetsRepoActionsUser {
 
 export interface PushReplicationReplication {
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Requires password encryption to be turned off `POST /api/system/decrypt`
-     */
-    password?: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     pathPrefix?: pulumi.Input<string>;
     /**
      * Proxy key from Artifactory Proxies setting
@@ -757,8 +754,8 @@ export interface PushReplicationReplication {
     syncDeletes?: pulumi.Input<boolean>;
     syncProperties?: pulumi.Input<boolean>;
     syncStatistics?: pulumi.Input<boolean>;
-    url?: pulumi.Input<string>;
-    username?: pulumi.Input<string>;
+    url: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }
 
 export interface ReleaseBundleWebhookCriteria {
@@ -1063,13 +1060,6 @@ export interface RemotePypiRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
-export interface RemoteRepositoryContentSynchronisation {
-    /**
-     * If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-     */
-    enabled?: pulumi.Input<boolean>;
-}
-
 export interface RemoteRpmRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
     propertiesEnabled?: pulumi.Input<boolean>;
@@ -1093,6 +1083,13 @@ export interface RemoteSbtRepositoryContentSynchronisation {
     /**
      * If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
      */
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface RemoteVcsRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 

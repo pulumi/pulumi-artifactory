@@ -14,7 +14,7 @@ import (
 // ## # Artifactory Pull Replication Resource
 //
 // Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-// for a remote repo.
+// for a local or remote repo.
 //
 // ## Example Usage
 //
@@ -30,24 +30,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalRepository(ctx, "providerTestSource", &artifactory.LocalRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_source"),
-// 			PackageType: pulumi.String("maven"),
+// 		_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+// 			Key: pulumi.String("provider_test_source"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		providerTestDest, err := artifactory.NewRemoteRepository(ctx, "providerTestDest", &artifactory.RemoteRepositoryArgs{
-// 			Key:         pulumi.String("provider_test_dest"),
-// 			PackageType: pulumi.String("maven"),
-// 			Password:    pulumi.String("bar"),
-// 			Url:         pulumi.String(fmt.Sprintf("%v%v", "https://example.com/artifactory/", artifactory_local_repository.Artifactory_local_repository.Key)),
-// 			Username:    pulumi.String("foo"),
+// 		providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
+// 			Key:      pulumi.String("provider_test_dest"),
+// 			Password: pulumi.String("bar"),
+// 			Url:      pulumi.String(fmt.Sprintf("%v%v", "https://example.com/artifactory/", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
+// 			Username: pulumi.String("foo"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewPullReplication(ctx, "foo-rep", &artifactory.PullReplicationArgs{
+// 		_, err = artifactory.NewPullReplication(ctx, "remote-rep", &artifactory.PullReplicationArgs{
 // 			CronExp:                pulumi.String("0 0 * * * ?"),
 // 			EnableEventReplication: pulumi.Bool(true),
 // 			RepoKey:                providerTestDest.Key,
@@ -73,9 +71,8 @@ type PullReplication struct {
 	CronExp                pulumi.StringOutput `pulumi:"cronExp"`
 	EnableEventReplication pulumi.BoolOutput   `pulumi:"enableEventReplication"`
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
-	Password   pulumi.StringOutput    `pulumi:"password"`
+	// Required for local repository, but not needed for remote repository.
+	Password   pulumi.StringPtrOutput `pulumi:"password"`
 	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy               pulumi.StringPtrOutput `pulumi:"proxy"`
@@ -84,8 +81,10 @@ type PullReplication struct {
 	SyncDeletes         pulumi.BoolOutput      `pulumi:"syncDeletes"`
 	SyncProperties      pulumi.BoolOutput      `pulumi:"syncProperties"`
 	SyncStatistics      pulumi.BoolOutput      `pulumi:"syncStatistics"`
-	Url                 pulumi.StringPtrOutput `pulumi:"url"`
-	Username            pulumi.StringPtrOutput `pulumi:"username"`
+	// Required for local repository, but not needed for remote repository.
+	Url pulumi.StringPtrOutput `pulumi:"url"`
+	// Required for local repository, but not needed for remote repository.
+	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
 // NewPullReplication registers a new resource with the given unique name, arguments, and options.
@@ -126,8 +125,7 @@ type pullReplicationState struct {
 	CronExp                *string `pulumi:"cronExp"`
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+	// Required for local repository, but not needed for remote repository.
 	Password   *string `pulumi:"password"`
 	PathPrefix *string `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
@@ -137,16 +135,17 @@ type pullReplicationState struct {
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
 	SyncProperties      *bool   `pulumi:"syncProperties"`
 	SyncStatistics      *bool   `pulumi:"syncStatistics"`
-	Url                 *string `pulumi:"url"`
-	Username            *string `pulumi:"username"`
+	// Required for local repository, but not needed for remote repository.
+	Url *string `pulumi:"url"`
+	// Required for local repository, but not needed for remote repository.
+	Username *string `pulumi:"username"`
 }
 
 type PullReplicationState struct {
 	CronExp                pulumi.StringPtrInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
-	// If a password is used to create the resource, it will be returned as encrypted and this will become the new
-	// state.Practically speaking, what this means is that, the password can only be set, not gotten.
+	// Required for local repository, but not needed for remote repository.
 	Password   pulumi.StringPtrInput
 	PathPrefix pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
@@ -156,8 +155,10 @@ type PullReplicationState struct {
 	SyncDeletes         pulumi.BoolPtrInput
 	SyncProperties      pulumi.BoolPtrInput
 	SyncStatistics      pulumi.BoolPtrInput
-	Url                 pulumi.StringPtrInput
-	Username            pulumi.StringPtrInput
+	// Required for local repository, but not needed for remote repository.
+	Url pulumi.StringPtrInput
+	// Required for local repository, but not needed for remote repository.
+	Username pulumi.StringPtrInput
 }
 
 func (PullReplicationState) ElementType() reflect.Type {
@@ -165,10 +166,12 @@ func (PullReplicationState) ElementType() reflect.Type {
 }
 
 type pullReplicationArgs struct {
-	CronExp                string  `pulumi:"cronExp"`
-	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
-	Enabled                *bool   `pulumi:"enabled"`
-	PathPrefix             *string `pulumi:"pathPrefix"`
+	CronExp                string `pulumi:"cronExp"`
+	EnableEventReplication *bool  `pulumi:"enableEventReplication"`
+	Enabled                *bool  `pulumi:"enabled"`
+	// Required for local repository, but not needed for remote repository.
+	Password   *string `pulumi:"password"`
+	PathPrefix *string `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
 	Proxy               *string `pulumi:"proxy"`
 	RepoKey             string  `pulumi:"repoKey"`
@@ -176,8 +179,10 @@ type pullReplicationArgs struct {
 	SyncDeletes         *bool   `pulumi:"syncDeletes"`
 	SyncProperties      *bool   `pulumi:"syncProperties"`
 	SyncStatistics      *bool   `pulumi:"syncStatistics"`
-	Url                 *string `pulumi:"url"`
-	Username            *string `pulumi:"username"`
+	// Required for local repository, but not needed for remote repository.
+	Url *string `pulumi:"url"`
+	// Required for local repository, but not needed for remote repository.
+	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a PullReplication resource.
@@ -185,7 +190,9 @@ type PullReplicationArgs struct {
 	CronExp                pulumi.StringInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
-	PathPrefix             pulumi.StringPtrInput
+	// Required for local repository, but not needed for remote repository.
+	Password   pulumi.StringPtrInput
+	PathPrefix pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
 	Proxy               pulumi.StringPtrInput
 	RepoKey             pulumi.StringInput
@@ -193,8 +200,10 @@ type PullReplicationArgs struct {
 	SyncDeletes         pulumi.BoolPtrInput
 	SyncProperties      pulumi.BoolPtrInput
 	SyncStatistics      pulumi.BoolPtrInput
-	Url                 pulumi.StringPtrInput
-	Username            pulumi.StringPtrInput
+	// Required for local repository, but not needed for remote repository.
+	Url pulumi.StringPtrInput
+	// Required for local repository, but not needed for remote repository.
+	Username pulumi.StringPtrInput
 }
 
 func (PullReplicationArgs) ElementType() reflect.Type {

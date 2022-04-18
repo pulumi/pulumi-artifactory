@@ -478,8 +478,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual P2 Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific P2 features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific P2 features.
 
         ## Example Usage
 
@@ -536,8 +535,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual P2 Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific P2 features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific P2 features.
 
         ## Example Usage
 

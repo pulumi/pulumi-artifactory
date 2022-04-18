@@ -14,10 +14,7 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class PushReplicationReplication
     {
         public readonly bool? Enabled;
-        /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
-        /// </summary>
-        public readonly string? Password;
+        public readonly string Password;
         public readonly string? PathPrefix;
         /// <summary>
         /// Proxy key from Artifactory Proxies setting
@@ -27,14 +24,14 @@ namespace Pulumi.Artifactory.Outputs
         public readonly bool? SyncDeletes;
         public readonly bool? SyncProperties;
         public readonly bool? SyncStatistics;
-        public readonly string? Url;
-        public readonly string? Username;
+        public readonly string Url;
+        public readonly string Username;
 
         [OutputConstructor]
         private PushReplicationReplication(
             bool? enabled,
 
-            string? password,
+            string password,
 
             string? pathPrefix,
 
@@ -48,9 +45,9 @@ namespace Pulumi.Artifactory.Outputs
 
             bool? syncStatistics,
 
-            string? url,
+            string url,
 
-            string? username)
+            string username)
         {
             Enabled = enabled;
             Password = password;

@@ -12,8 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## # Artifactory Virtual Chef Repository Resource
     /// 
-    /// Provides an Artifactory virtual repository resource, but with specific chef features. This should be preferred over the original
-    /// one-size-fits-all `artifactory.VirtualRepository`.
+    /// Provides an Artifactory virtual repository resource with specific chef features.
     /// 
     /// ## Example Usage
     /// 

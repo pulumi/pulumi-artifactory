@@ -46,6 +46,8 @@ import (
 // ```sh
 //  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
 // ```
+//
+//  environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 

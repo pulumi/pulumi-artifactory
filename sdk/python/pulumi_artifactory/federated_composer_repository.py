@@ -502,11 +502,11 @@ class FederatedComposerRepository(pulumi.CustomResource):
             key="terraform-federated-test-composer-repo",
             members=[
                 artifactory.FederatedComposerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
                 ),
                 artifactory.FederatedComposerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedComposerRepository(pulumi.CustomResource):
             key="terraform-federated-test-composer-repo",
             members=[
                 artifactory.FederatedComposerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
                 ),
                 artifactory.FederatedComposerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
                 ),
             ])

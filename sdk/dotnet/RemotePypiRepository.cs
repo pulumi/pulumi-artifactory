@@ -32,6 +32,7 @@ namespace Pulumi.Artifactory
     ///             Key = "pypi-remote-foo",
     ///             PypiRegistryUrl = "https://pypi.org",
     ///             PypiRepositorySuffix = "simple",
+    ///             Url = "https://files.pythonhosted.org",
     ///         });
     ///     }
     /// 
@@ -189,8 +190,11 @@ namespace Pulumi.Artifactory
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Output("proxy")]
-        public Output<string> Proxy { get; private set; } = null!;
+        public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
@@ -464,6 +468,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
@@ -709,6 +716,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

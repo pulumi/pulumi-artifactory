@@ -13,13 +13,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalRepository("provider_test_source", {
+ * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
  *     key: "provider_test_source",
- *     packageType: "maven",
  * });
- * const providerTestDest = new artifactory.LocalRepository("provider_test_dest", {
+ * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {
  *     key: "provider_test_dest",
- *     packageType: "maven",
  * });
  * const foo_rep = new artifactory.ReplicationConfig("foo-rep", {
  *     cronExp: "0 0 * * * ?",

@@ -577,8 +577,7 @@ class MavenRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Maven Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific maven feature. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific maven feature.
 
         ## Example Usage
 
@@ -586,13 +585,11 @@ class MavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        bar = artifactory.LocalRepository("bar",
+        bar = artifactory.LocalMavenRepository("bar",
             key="bar",
-            package_type="maven",
             repo_layout_ref="maven-2-default")
-        baz = artifactory.RemoteRepository("baz",
+        baz = artifactory.RemoteMavenRepository("baz",
             key="baz",
-            package_type="maven",
             repo_layout_ref="maven-2-default",
             url="https://search.maven.com/")
         foo = artifactory.MavenRepository("foo",
@@ -606,7 +603,7 @@ class MavenRepository(pulumi.CustomResource):
             repo_layout_ref="maven-2-default",
             repositories=[
                 bar.key,
-                artifactory_local_repository["baz"]["key"],
+                artifactory_local_maven_repository["baz"]["key"],
             ])
         ```
 
@@ -653,8 +650,7 @@ class MavenRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Maven Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific maven feature. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific maven feature.
 
         ## Example Usage
 
@@ -662,13 +658,11 @@ class MavenRepository(pulumi.CustomResource):
         import pulumi
         import pulumi_artifactory as artifactory
 
-        bar = artifactory.LocalRepository("bar",
+        bar = artifactory.LocalMavenRepository("bar",
             key="bar",
-            package_type="maven",
             repo_layout_ref="maven-2-default")
-        baz = artifactory.RemoteRepository("baz",
+        baz = artifactory.RemoteMavenRepository("baz",
             key="baz",
-            package_type="maven",
             repo_layout_ref="maven-2-default",
             url="https://search.maven.com/")
         foo = artifactory.MavenRepository("foo",
@@ -682,7 +676,7 @@ class MavenRepository(pulumi.CustomResource):
             repo_layout_ref="maven-2-default",
             repositories=[
                 bar.key,
-                artifactory_local_repository["baz"]["key"],
+                artifactory_local_maven_repository["baz"]["key"],
             ])
         ```
 

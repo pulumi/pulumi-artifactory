@@ -21,7 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
 // 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -32,12 +31,12 @@ import (
 // 			Key: pulumi.String("terraform-federated-test-docker-repo"),
 // 			Members: FederatedDockerRepositoryMemberArray{
 // 				&FederatedDockerRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
+// 					Enabled: pulumi.Bool(true),
+// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
 // 				},
 // 				&FederatedDockerRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
+// 					Enabled: pulumi.Bool(true),
+// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
 // 				},
 // 			},
 // 		})

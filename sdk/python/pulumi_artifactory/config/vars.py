@@ -17,12 +17,15 @@ class _ExportableConfig(types.ModuleType):
     @property
     def access_token(self) -> Optional[str]:
         """
-        This is a bearer token that can be given to you by your admin under `Identity and Access`
+        This is a access token that can be given to you by your admin under `Identity and Access`
         """
         return __config__.get('accessToken')
 
     @property
     def api_key(self) -> Optional[str]:
+        """
+        API token. Projects functionality will not work with any auth method other than access tokens
+        """
         return __config__.get('apiKey')
 
     @property
@@ -33,18 +36,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('checkLicense') or False
 
     @property
-    def password(self) -> Optional[str]:
-        """
-        Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-        bearer token
-        """
-        return __config__.get('password')
-
-    @property
     def url(self) -> Optional[str]:
         return __config__.get('url')
-
-    @property
-    def username(self) -> Optional[str]:
-        return __config__.get('username')
 

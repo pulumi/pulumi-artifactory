@@ -474,8 +474,7 @@ class VirtualConanRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Conan Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific conan features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific conan features.
 
         ## Example Usage
 
@@ -532,8 +531,7 @@ class VirtualConanRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Conan Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific conan features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific conan features.
 
         ## Example Usage
 

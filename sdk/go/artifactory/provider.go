@@ -17,18 +17,11 @@ import (
 type Provider struct {
 	pulumi.ProviderResourceState
 
-	// This is a bearer token that can be given to you by your admin under `Identity and Access`
+	// This is a access token that can be given to you by your admin under `Identity and Access`
 	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+	// API token. Projects functionality will not work with any auth method other than access tokens
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-	// bearer token
-	//
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Password pulumi.StringPtrOutput `pulumi:"password"`
-	Url      pulumi.StringPtrOutput `pulumi:"url"`
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Username pulumi.StringPtrOutput `pulumi:"username"`
+	Url    pulumi.StringPtrOutput `pulumi:"url"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
@@ -50,38 +43,24 @@ func NewProvider(ctx *pulumi.Context,
 }
 
 type providerArgs struct {
-	// This is a bearer token that can be given to you by your admin under `Identity and Access`
+	// This is a access token that can be given to you by your admin under `Identity and Access`
 	AccessToken *string `pulumi:"accessToken"`
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+	// API token. Projects functionality will not work with any auth method other than access tokens
 	ApiKey *string `pulumi:"apiKey"`
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
-	CheckLicense *bool `pulumi:"checkLicense"`
-	// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-	// bearer token
-	//
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Password *string `pulumi:"password"`
-	Url      *string `pulumi:"url"`
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Username *string `pulumi:"username"`
+	CheckLicense *bool   `pulumi:"checkLicense"`
+	Url          *string `pulumi:"url"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
-	// This is a bearer token that can be given to you by your admin under `Identity and Access`
+	// This is a access token that can be given to you by your admin under `Identity and Access`
 	AccessToken pulumi.StringPtrInput
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
+	// API token. Projects functionality will not work with any auth method other than access tokens
 	ApiKey pulumi.StringPtrInput
 	// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
 	CheckLicense pulumi.BoolPtrInput
-	// Insider note: You may actually use an api_key as the password. This will get your around xray limitations instead of a
-	// bearer token
-	//
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Password pulumi.StringPtrInput
-	Url      pulumi.StringPtrInput
-	// Deprecated: Xray and projects functionality will not work with any auth method other than access tokens (Bearer)
-	Username pulumi.StringPtrInput
+	Url          pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

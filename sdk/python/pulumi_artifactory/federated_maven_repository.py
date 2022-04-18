@@ -502,11 +502,11 @@ class FederatedMavenRepository(pulumi.CustomResource):
             key="terraform-federated-test-maven-repo",
             members=[
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
                 ),
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedMavenRepository(pulumi.CustomResource):
             key="terraform-federated-test-maven-repo",
             members=[
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
                 ),
                 artifactory.FederatedMavenRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
                 ),
             ])

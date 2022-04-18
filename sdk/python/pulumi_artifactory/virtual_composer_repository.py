@@ -478,8 +478,7 @@ class VirtualComposerRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual PHP Composer Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific php composer features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific php composer features.
 
         ## Example Usage
 
@@ -536,8 +535,7 @@ class VirtualComposerRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual PHP Composer Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific php composer features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific php composer features.
 
         ## Example Usage
 

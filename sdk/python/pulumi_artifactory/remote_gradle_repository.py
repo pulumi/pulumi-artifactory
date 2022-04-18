@@ -89,6 +89,7 @@ class RemoteGradleRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[bool] reject_invalid_jars: - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
@@ -542,6 +543,9 @@ class RemoteGradleRepositoryArgs:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -787,6 +791,7 @@ class _RemoteGradleRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[bool] reject_invalid_jars: - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
@@ -1259,6 +1264,9 @@ class _RemoteGradleRepositoryState:
     @property
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @proxy.setter
@@ -1538,6 +1546,7 @@ class RemoteGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[bool] reject_invalid_jars: - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
@@ -1793,6 +1802,7 @@ class RemoteGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         :param pulumi.Input[bool] reject_invalid_jars: - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
         :param pulumi.Input[str] remote_repo_checksum_policy_type: - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
@@ -2095,7 +2105,10 @@ class RemoteGradleRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def proxy(self) -> pulumi.Output[str]:
+    def proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Proxy key from Artifactory Proxies setting
+        """
         return pulumi.get(self, "proxy")
 
     @property

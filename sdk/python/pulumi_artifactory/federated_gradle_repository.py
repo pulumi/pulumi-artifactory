@@ -502,11 +502,11 @@ class FederatedGradleRepository(pulumi.CustomResource):
             key="terraform-federated-test-gradle-repo",
             members=[
                 artifactory.FederatedGradleRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
                 ),
                 artifactory.FederatedGradleRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedGradleRepository(pulumi.CustomResource):
             key="terraform-federated-test-gradle-repo",
             members=[
                 artifactory.FederatedGradleRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
                 ),
                 artifactory.FederatedGradleRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
                 ),
             ])

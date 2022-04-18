@@ -44,7 +44,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewRemoteRepository(ctx, "my-remote", &artifactory.RemoteRepositoryArgs{
+// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
 // 			ClientTlsCertificate: my_cert.Alias,
 // 		})
 // 		if err != nil {

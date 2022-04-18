@@ -12,7 +12,7 @@ namespace Pulumi.Artifactory
     /// <summary>
     /// ## # Artifactory Virtual Helm Repository Resource
     /// 
-    /// Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `artifactory.VirtualRepository`.
+    /// Provides an Artifactory virtual repository resource with Helm package type.
     /// 
     /// ## Example Usage
     /// 

@@ -6,11 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Remote SBT Repository Resource
- *
- * Provides an Artifactory remote `sbt` repository resource.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories).
- *
  * ## Example Usage
  *
  * Includes only new and relevant fields, for anything else, see: generic repo.
@@ -147,6 +142,9 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      */
     public readonly offline!: pulumi.Output<boolean>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`
+     */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -168,7 +166,10 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
      */
@@ -437,6 +438,9 @@ export interface RemoteSbtRepositoryState {
      */
     offline?: pulumi.Input<boolean>;
     packageType?: pulumi.Input<string>;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`
+     */
     password?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -458,6 +462,9 @@ export interface RemoteSbtRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
@@ -600,6 +607,9 @@ export interface RemoteSbtRepositoryArgs {
      * If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      */
     offline?: pulumi.Input<boolean>;
+    /**
+     * Requires password encryption to be turned off `POST /api/system/decrypt`
+     */
     password?: pulumi.Input<string>;
     /**
      * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -621,6 +631,9 @@ export interface RemoteSbtRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".

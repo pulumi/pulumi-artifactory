@@ -11,11 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## # Artifactory Remote SBT Repository Resource
-//
-// Provides an Artifactory remote `sbt` repository resource.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories).
-//
 // ## Example Usage
 //
 // Includes only new and relevant fields, for anything else, see: generic repo.
@@ -94,9 +89,10 @@ type RemoteSbtRepository struct {
 	MissedCachePeriodSeconds pulumi.IntOutput       `pulumi:"missedCachePeriodSeconds"`
 	Notes                    pulumi.StringPtrOutput `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline     pulumi.BoolOutput      `pulumi:"offline"`
-	PackageType pulumi.StringOutput    `pulumi:"packageType"`
-	Password    pulumi.StringPtrOutput `pulumi:"password"`
+	Offline     pulumi.BoolOutput   `pulumi:"offline"`
+	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolOutput `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -107,7 +103,8 @@ type RemoteSbtRepository struct {
 	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
-	Proxy        pulumi.StringOutput      `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
 	// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrOutput `pulumi:"rejectInvalidJars"`
 	// - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
@@ -221,7 +218,8 @@ type remoteSbtRepositoryState struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline     *bool   `pulumi:"offline"`
 	PackageType *string `pulumi:"packageType"`
-	Password    *string `pulumi:"password"`
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	Password *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -232,7 +230,8 @@ type remoteSbtRepositoryState struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
@@ -312,7 +311,8 @@ type RemoteSbtRepositoryState struct {
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
 	Offline     pulumi.BoolPtrInput
 	PackageType pulumi.StringPtrInput
-	Password    pulumi.StringPtrInput
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
+	Password pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -323,7 +323,8 @@ type RemoteSbtRepositoryState struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
@@ -401,7 +402,8 @@ type remoteSbtRepositoryArgs struct {
 	MissedCachePeriodSeconds *int    `pulumi:"missedCachePeriodSeconds"`
 	Notes                    *string `pulumi:"notes"`
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  *bool   `pulumi:"offline"`
+	Offline *bool `pulumi:"offline"`
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
 	Password *string `pulumi:"password"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
@@ -413,7 +415,8 @@ type remoteSbtRepositoryArgs struct {
 	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
-	Proxy        *string  `pulumi:"proxy"`
+	// Proxy key from Artifactory Proxies setting
+	Proxy *string `pulumi:"proxy"`
 	// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
 	// - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
@@ -488,7 +491,8 @@ type RemoteSbtRepositoryArgs struct {
 	MissedCachePeriodSeconds pulumi.IntPtrInput
 	Notes                    pulumi.StringPtrInput
 	// If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-	Offline  pulumi.BoolPtrInput
+	Offline pulumi.BoolPtrInput
+	// Requires password encryption to be turned off `POST /api/system/decrypt`
 	Password pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
@@ -500,7 +504,8 @@ type RemoteSbtRepositoryArgs struct {
 	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
-	Proxy        pulumi.StringPtrInput
+	// Proxy key from Artifactory Proxies setting
+	Proxy pulumi.StringPtrInput
 	// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
 	// - Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.

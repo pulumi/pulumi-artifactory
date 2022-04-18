@@ -95,9 +95,9 @@ __all__ = [
     'RemoteP2RepositoryContentSynchronisationArgs',
     'RemotePuppetRepositoryContentSynchronisationArgs',
     'RemotePypiRepositoryContentSynchronisationArgs',
-    'RemoteRepositoryContentSynchronisationArgs',
     'RemoteRpmRepositoryContentSynchronisationArgs',
     'RemoteSbtRepositoryContentSynchronisationArgs',
+    'RemoteVcsRepositoryContentSynchronisationArgs',
     'ReplicationConfigReplicationArgs',
 ]
 
@@ -2756,24 +2756,24 @@ class PermissionTargetsRepoActionsUserArgs:
 @pulumi.input_type
 class PushReplicationReplicationArgs:
     def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 username: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 password: Optional[pulumi.Input[str]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  socket_timeout_millis: Optional[pulumi.Input[int]] = None,
                  sync_deletes: Optional[pulumi.Input[bool]] = None,
                  sync_properties: Optional[pulumi.Input[bool]] = None,
-                 sync_statistics: Optional[pulumi.Input[bool]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
+                 sync_statistics: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] password: Requires password encryption to be turned off `POST /api/system/decrypt`
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
         """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
         if path_prefix is not None:
             pulumi.set(__self__, "path_prefix", path_prefix)
         if proxy is not None:
@@ -2786,10 +2786,33 @@ class PushReplicationReplicationArgs:
             pulumi.set(__self__, "sync_properties", sync_properties)
         if sync_statistics is not None:
             pulumi.set(__self__, "sync_statistics", sync_statistics)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
@@ -2799,18 +2822,6 @@ class PushReplicationReplicationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Requires password encryption to be turned off `POST /api/system/decrypt`
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
 
     @property
     @pulumi.getter(name="pathPrefix")
@@ -2868,24 +2879,6 @@ class PushReplicationReplicationArgs:
     @sync_statistics.setter
     def sync_statistics(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sync_statistics", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -4445,29 +4438,6 @@ class RemotePypiRepositoryContentSynchronisationArgs:
 
 
 @pulumi.input_type
-class RemoteRepositoryContentSynchronisationArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] enabled: If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If set, Remote repository proxies a local or remote repository from another instance of Artifactory. Default value is 'false'.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-@pulumi.input_type
 class RemoteRpmRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -4584,6 +4554,59 @@ class RemoteSbtRepositoryContentSynchronisationArgs:
         """
         If set, Artifactory will notify the remote instance whenever an artifact in the Smart Remote Repository is downloaded locally so that it can update its download counter. Note that if this option is not set, there may be a discrepancy between the number of artifacts reported to have been downloaded in the different Artifactory instances of the proxy chain. Default value is 'false'.
         """
+        return pulumi.get(self, "statistics_enabled")
+
+    @statistics_enabled.setter
+    def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "statistics_enabled", value)
+
+
+@pulumi.input_type
+class RemoteVcsRepositoryContentSynchronisationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 properties_enabled: Optional[pulumi.Input[bool]] = None,
+                 source_origin_absence_detection: Optional[pulumi.Input[bool]] = None,
+                 statistics_enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "properties_enabled")
+
+    @properties_enabled.setter
+    def properties_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "properties_enabled", value)
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @source_origin_absence_detection.setter
+    def source_origin_absence_detection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "source_origin_absence_detection", value)
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "statistics_enabled")
 
     @statistics_enabled.setter

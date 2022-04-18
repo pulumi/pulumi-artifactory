@@ -511,7 +511,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Helm Repository Resource
 
-        Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with Helm package type.
 
         ## Example Usage
 
@@ -565,7 +565,7 @@ class VirtualHelmRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Helm Repository Resource
 
-        Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with Helm package type.
 
         ## Example Usage
 

@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Virtual Helm Repository Resource
  *
- * Provides an Artifactory virtual repository resource with Helm package type. This should be preferred over the original one-size-fits-all `artifactory.VirtualRepository`.
+ * Provides an Artifactory virtual repository resource with Helm package type.
  *
  * ## Example Usage
  *

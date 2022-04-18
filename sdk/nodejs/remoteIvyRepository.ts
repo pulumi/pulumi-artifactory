@@ -168,7 +168,10 @@ export class RemoteIvyRepository extends pulumi.CustomResource {
      * List of property set name
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
-    public readonly proxy!: pulumi.Output<string>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
+    public readonly proxy!: pulumi.Output<string | undefined>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
      */
@@ -458,6 +461,9 @@ export interface RemoteIvyRepositoryState {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
@@ -621,6 +627,9 @@ export interface RemoteIvyRepositoryArgs {
      * List of property set name
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Proxy key from Artifactory Proxies setting
+     */
     proxy?: pulumi.Input<string>;
     /**
      * - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".

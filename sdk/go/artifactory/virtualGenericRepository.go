@@ -13,8 +13,7 @@ import (
 
 // ## # Artifactory Virtual Generic Repository Resource
 //
-// Provides an Artifactory virtual repository resource with generic package type. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
+// Provides an Artifactory virtual repository resource with generic package type.
 //
 // ## Example Usage
 //

@@ -502,11 +502,11 @@ class FederatedCondaRepository(pulumi.CustomResource):
             key="terraform-federated-test-conda-repo",
             members=[
                 artifactory.FederatedCondaRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
                 ),
                 artifactory.FederatedCondaRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedCondaRepository(pulumi.CustomResource):
             key="terraform-federated-test-conda-repo",
             members=[
                 artifactory.FederatedCondaRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
                 ),
                 artifactory.FederatedCondaRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
                 ),
             ])

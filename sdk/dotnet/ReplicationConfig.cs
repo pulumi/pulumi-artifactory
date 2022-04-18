@@ -21,15 +21,13 @@ namespace Pulumi.Artifactory
     ///     public MyStack()
     ///     {
     ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalRepository("providerTestSource", new Artifactory.LocalRepositoryArgs
+    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
     ///         {
     ///             Key = "provider_test_source",
-    ///             PackageType = "maven",
     ///         });
-    ///         var providerTestDest = new Artifactory.LocalRepository("providerTestDest", new Artifactory.LocalRepositoryArgs
+    ///         var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new Artifactory.LocalMavenRepositoryArgs
     ///         {
     ///             Key = "provider_test_dest",
-    ///             PackageType = "maven",
     ///         });
     ///         var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new Artifactory.ReplicationConfigArgs
     ///         {

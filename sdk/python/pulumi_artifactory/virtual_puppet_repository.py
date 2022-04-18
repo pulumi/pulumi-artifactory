@@ -478,8 +478,7 @@ class VirtualPuppetRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Puppet Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific puppet features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific puppet features.
 
         ## Example Usage
 
@@ -536,8 +535,7 @@ class VirtualPuppetRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Puppet Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific puppet features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific puppet features.
 
         ## Example Usage
 

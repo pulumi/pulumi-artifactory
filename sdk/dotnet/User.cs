@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// ## # Artifactory User Resource
+    /// 
+    /// Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
+    /// 
+    /// When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -67,6 +73,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// List of groups this user is a part of.
+        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -84,10 +91,10 @@ namespace Pulumi.Artifactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -164,6 +171,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// List of groups this user is a part of.
+        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {
@@ -184,10 +192,10 @@ namespace Pulumi.Artifactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -225,6 +233,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// List of groups this user is a part of.
+        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {
@@ -245,7 +254,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Password for the user. Password validation is not done by the provider and is offloaded onto the Artifactory. There may be cases in which you want to leave this unset to prevent users from updating their profile. For example, a departmental user with a single password shared between all department members.
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

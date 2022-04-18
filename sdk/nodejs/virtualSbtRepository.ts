@@ -7,8 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Virtual SBT Repository Resource
  *
- * Provides an Artifactory virtual repository resource, but with specific sbt features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
+ * Provides an Artifactory virtual repository resource with specific sbt features.
  *
  * ## Example Usage
  *

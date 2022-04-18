@@ -589,8 +589,7 @@ class VirtualSbtRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual SBT Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific sbt features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific sbt features.
 
         ## Example Usage
 
@@ -654,8 +653,7 @@ class VirtualSbtRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual SBT Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific sbt features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific sbt features.
 
         ## Example Usage
 

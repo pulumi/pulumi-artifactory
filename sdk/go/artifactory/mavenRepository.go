@@ -13,8 +13,7 @@ import (
 
 // ## # Artifactory Virtual Maven Repository Resource
 //
-// Provides an Artifactory virtual repository resource, but with specific maven feature. This should be preferred over the original
-// one-size-fits-all `VirtualRepository`.
+// Provides an Artifactory virtual repository resource with specific maven feature.
 //
 // ## Example Usage
 //
@@ -28,17 +27,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bar, err := artifactory.NewLocalRepository(ctx, "bar", &artifactory.LocalRepositoryArgs{
+// 		bar, err := artifactory.NewLocalMavenRepository(ctx, "bar", &artifactory.LocalMavenRepositoryArgs{
 // 			Key:           pulumi.String("bar"),
-// 			PackageType:   pulumi.String("maven"),
 // 			RepoLayoutRef: pulumi.String("maven-2-default"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewRemoteRepository(ctx, "baz", &artifactory.RemoteRepositoryArgs{
+// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
 // 			Key:           pulumi.String("baz"),
-// 			PackageType:   pulumi.String("maven"),
 // 			RepoLayoutRef: pulumi.String("maven-2-default"),
 // 			Url:           pulumi.String("https://search.maven.com/"),
 // 		})
@@ -56,7 +53,7 @@ import (
 // 			RepoLayoutRef:                        pulumi.String("maven-2-default"),
 // 			Repositories: pulumi.StringArray{
 // 				bar.Key,
-// 				pulumi.Any(artifactory_local_repository.Baz.Key),
+// 				pulumi.Any(artifactory_local_maven_repository.Baz.Key),
 // 			},
 // 		})
 // 		if err != nil {

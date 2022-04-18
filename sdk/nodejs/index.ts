@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 // Export members:
 export * from "./accessToken";
 export * from "./alpineRepository";
+export * from "./anonymousUser";
 export * from "./apiKey";
 export * from "./artifactPropertyWebhook";
 export * from "./artifactWebhook";
@@ -75,10 +76,10 @@ export * from "./localNugetRepository";
 export * from "./localOpkgRepository";
 export * from "./localPuppetRepository";
 export * from "./localPypiRepository";
-export * from "./localRepository";
 export * from "./localRpmRepository";
 export * from "./localSbtRepository";
 export * from "./localVagrantRepository";
+export * from "./managedUser";
 export * from "./mavenRepository";
 export * from "./oauthSettings";
 export * from "./permissionTarget";
@@ -112,12 +113,13 @@ export * from "./remoteOpkgRepository";
 export * from "./remoteP2Repository";
 export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
-export * from "./remoteRepository";
 export * from "./remoteRpmRepository";
 export * from "./remoteSbtRepository";
+export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
 export * from "./singleReplicationConfig";
+export * from "./unmanagedUser";
 export * from "./user";
 export * from "./virtualAlpineRepository";
 export * from "./virtualBowerRepository";
@@ -139,7 +141,6 @@ export * from "./virtualNugetRepository";
 export * from "./virtualP2Repository";
 export * from "./virtualPuppetRepository";
 export * from "./virtualPypiRepository";
-export * from "./virtualRepository";
 export * from "./virtualRpmRepository";
 export * from "./virtualSbtRepository";
 
@@ -155,6 +156,7 @@ export {
 // Import resources to register:
 import { AccessToken } from "./accessToken";
 import { AlpineRepository } from "./alpineRepository";
+import { AnonymousUser } from "./anonymousUser";
 import { ApiKey } from "./apiKey";
 import { ArtifactPropertyWebhook } from "./artifactPropertyWebhook";
 import { ArtifactWebhook } from "./artifactWebhook";
@@ -221,10 +223,10 @@ import { LocalNugetRepository } from "./localNugetRepository";
 import { LocalOpkgRepository } from "./localOpkgRepository";
 import { LocalPuppetRepository } from "./localPuppetRepository";
 import { LocalPypiRepository } from "./localPypiRepository";
-import { LocalRepository } from "./localRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
 import { LocalSbtRepository } from "./localSbtRepository";
 import { LocalVagrantRepository } from "./localVagrantRepository";
+import { ManagedUser } from "./managedUser";
 import { MavenRepository } from "./mavenRepository";
 import { OauthSettings } from "./oauthSettings";
 import { PermissionTarget } from "./permissionTarget";
@@ -257,12 +259,13 @@ import { RemoteOpkgRepository } from "./remoteOpkgRepository";
 import { RemoteP2Repository } from "./remoteP2Repository";
 import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
-import { RemoteRepository } from "./remoteRepository";
 import { RemoteRpmRepository } from "./remoteRpmRepository";
 import { RemoteSbtRepository } from "./remoteSbtRepository";
+import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
+import { UnmanagedUser } from "./unmanagedUser";
 import { User } from "./user";
 import { VirtualAlpineRepository } from "./virtualAlpineRepository";
 import { VirtualBowerRepository } from "./virtualBowerRepository";
@@ -284,7 +287,6 @@ import { VirtualNugetRepository } from "./virtualNugetRepository";
 import { VirtualP2Repository } from "./virtualP2Repository";
 import { VirtualPuppetRepository } from "./virtualPuppetRepository";
 import { VirtualPypiRepository } from "./virtualPypiRepository";
-import { VirtualRepository } from "./virtualRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { VirtualSbtRepository } from "./virtualSbtRepository";
 
@@ -296,6 +298,8 @@ const _module = {
                 return new AccessToken(name, <any>undefined, { urn })
             case "artifactory:index/alpineRepository:AlpineRepository":
                 return new AlpineRepository(name, <any>undefined, { urn })
+            case "artifactory:index/anonymousUser:AnonymousUser":
+                return new AnonymousUser(name, <any>undefined, { urn })
             case "artifactory:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "artifactory:index/artifactPropertyWebhook:ArtifactPropertyWebhook":
@@ -428,14 +432,14 @@ const _module = {
                 return new LocalPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPypiRepository:LocalPypiRepository":
                 return new LocalPypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/localRepository:LocalRepository":
-                return new LocalRepository(name, <any>undefined, { urn })
             case "artifactory:index/localRpmRepository:LocalRpmRepository":
                 return new LocalRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localSbtRepository:LocalSbtRepository":
                 return new LocalSbtRepository(name, <any>undefined, { urn })
             case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
                 return new LocalVagrantRepository(name, <any>undefined, { urn })
+            case "artifactory:index/managedUser:ManagedUser":
+                return new ManagedUser(name, <any>undefined, { urn })
             case "artifactory:index/mavenRepository:MavenRepository":
                 return new MavenRepository(name, <any>undefined, { urn })
             case "artifactory:index/oauthSettings:OauthSettings":
@@ -500,18 +504,20 @@ const _module = {
                 return new RemotePuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
                 return new RemotePypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/remoteRepository:RemoteRepository":
-                return new RemoteRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
                 return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
                 return new RemoteSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
+                return new RemoteVcsRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
                 return new SamlSettings(name, <any>undefined, { urn })
             case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
                 return new SingleReplicationConfig(name, <any>undefined, { urn })
+            case "artifactory:index/unmanagedUser:UnmanagedUser":
+                return new UnmanagedUser(name, <any>undefined, { urn })
             case "artifactory:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "artifactory:index/virtualAlpineRepository:VirtualAlpineRepository":
@@ -554,8 +560,6 @@ const _module = {
                 return new VirtualPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualPypiRepository:VirtualPypiRepository":
                 return new VirtualPypiRepository(name, <any>undefined, { urn })
-            case "artifactory:index/virtualRepository:VirtualRepository":
-                return new VirtualRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualRpmRepository:VirtualRpmRepository":
                 return new VirtualRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
@@ -567,6 +571,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("artifactory", "index/accessToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/alpineRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/anonymousUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactPropertyWebhook", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/artifactWebhook", _module)
@@ -633,10 +638,10 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/localRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
@@ -669,12 +674,13 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteOpkgRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualAlpineRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualBowerRepository", _module)
@@ -696,7 +702,6 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualP2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
-pulumi.runtime.registerResourceModule("artifactory", "index/virtualRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
 

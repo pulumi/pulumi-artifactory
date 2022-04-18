@@ -21,7 +21,6 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/go/artifactory"
 // 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -32,12 +31,12 @@ import (
 // 			Key: pulumi.String("terraform-federated-test-vagrant-repo"),
 // 			Members: FederatedVagrantRepositoryMemberArray{
 // 				&FederatedVagrantRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
+// 					Enabled: pulumi.Bool(true),
+// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
 // 				},
 // 				&FederatedVagrantRepositoryMemberArgs{
-// 					Enable: true,
-// 					Url:    pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
+// 					Enabled: pulumi.Bool(true),
+// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
 // 				},
 // 			},
 // 		})

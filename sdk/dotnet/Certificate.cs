@@ -32,7 +32,7 @@ namespace Pulumi.Artifactory
     ///             Content = File.ReadAllText("/path/to/bundle.pem"),
     ///         });
     ///         // This can then be used by a remote repository
-    ///         var my_remote = new Artifactory.RemoteRepository("my-remote", new Artifactory.RemoteRepositoryArgs
+    ///         var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new Artifactory.RemoteMavenRepositoryArgs
     ///         {
     ///             ClientTlsCertificate = my_cert.Alias,
     ///         });

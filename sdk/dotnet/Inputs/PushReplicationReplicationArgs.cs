@@ -15,11 +15,8 @@ namespace Pulumi.Artifactory.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
-        /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
-        /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
 
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }
@@ -42,11 +39,11 @@ namespace Pulumi.Artifactory.Inputs
         [Input("syncStatistics")]
         public Input<bool>? SyncStatistics { get; set; }
 
-        [Input("url")]
-        public Input<string>? Url { get; set; }
+        [Input("url", required: true)]
+        public Input<string> Url { get; set; } = null!;
 
-        [Input("username")]
-        public Input<string>? Username { get; set; }
+        [Input("username", required: true)]
+        public Input<string> Username { get; set; } = null!;
 
         public PushReplicationReplicationArgs()
         {

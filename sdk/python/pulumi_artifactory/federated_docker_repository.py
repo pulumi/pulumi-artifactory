@@ -502,11 +502,11 @@ class FederatedDockerRepository(pulumi.CustomResource):
             key="terraform-federated-test-docker-repo",
             members=[
                 artifactory.FederatedDockerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
                 ),
                 artifactory.FederatedDockerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedDockerRepository(pulumi.CustomResource):
             key="terraform-federated-test-docker-repo",
             members=[
                 artifactory.FederatedDockerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
                 ),
                 artifactory.FederatedDockerRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
                 ),
             ])

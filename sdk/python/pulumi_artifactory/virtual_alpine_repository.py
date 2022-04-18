@@ -507,8 +507,7 @@ class VirtualAlpineRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Alpine Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific alpine features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific alpine features.
 
         ## Example Usage
 
@@ -565,8 +564,7 @@ class VirtualAlpineRepository(pulumi.CustomResource):
         """
         ## # Artifactory Virtual Alpine Repository Resource
 
-        Provides an Artifactory virtual repository resource, but with specific alpine features. This should be preferred over the original
-        one-size-fits-all `VirtualRepository`.
+        Provides an Artifactory virtual repository resource with specific alpine features.
 
         ## Example Usage
 

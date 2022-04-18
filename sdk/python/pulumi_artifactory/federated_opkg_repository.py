@@ -502,11 +502,11 @@ class FederatedOpkgRepository(pulumi.CustomResource):
             key="terraform-federated-test-opkg-repo",
             members=[
                 artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
                 ),
                 artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
                 ),
             ])
@@ -546,11 +546,11 @@ class FederatedOpkgRepository(pulumi.CustomResource):
             key="terraform-federated-test-opkg-repo",
             members=[
                 artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl.org/artifactory/terraform-federated-test-opkg-repo",
                 ),
                 artifactory.FederatedOpkgRepositoryMemberArgs(
-                    enable=True,
+                    enabled=True,
                     url="http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2",
                 ),
             ])

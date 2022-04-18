@@ -10,11 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Remote SBT Repository Resource
-    /// 
-    /// Provides an Artifactory remote `sbt` repository resource.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories).
-    /// 
     /// ## Example Usage
     /// 
     /// Includes only new and relevant fields, for anything else, see: generic repo.
@@ -182,6 +177,9 @@ namespace Pulumi.Artifactory
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
 
+        /// <summary>
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
@@ -215,8 +213,11 @@ namespace Pulumi.Artifactory
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Output("proxy")]
-        public Output<string> Proxy { get; private set; } = null!;
+        public Output<string?> Proxy { get; private set; } = null!;
 
         /// <summary>
         /// - Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
@@ -475,6 +476,9 @@ namespace Pulumi.Artifactory
         [Input("offline")]
         public Input<bool>? Offline { get; set; }
 
+        /// <summary>
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -520,6 +524,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
@@ -750,6 +757,9 @@ namespace Pulumi.Artifactory
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
+        /// <summary>
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
@@ -795,6 +805,9 @@ namespace Pulumi.Artifactory
             set => _propertySets = value;
         }
 
+        /// <summary>
+        /// Proxy key from Artifactory Proxies setting
+        /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 

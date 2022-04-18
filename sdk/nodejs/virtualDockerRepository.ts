@@ -7,8 +7,7 @@ import * as utilities from "./utilities";
 /**
  * ## # Artifactory Virtual Docker Repository Resource
  *
- * Provides an Artifactory virtual repository resource, but with specific docker features. This should be preferred over the original
- * one-size-fits-all `artifactory.VirtualRepository`.
+ * Provides an Artifactory virtual repository resource with specific docker features.
  *
  * ## Example Usage
  *
