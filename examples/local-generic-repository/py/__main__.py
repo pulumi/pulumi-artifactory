@@ -4,5 +4,5 @@ import pulumi
 
 import pulumi_artifactory as artifactory
 
-my_local = artifactory.LocalRepository("pylumipus",
+my_local = artifactory.LocalGenericRepository("pylumipus",
             key="pylumipus")
