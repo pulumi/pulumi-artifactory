@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-artifactory/sdk
+module github.com/pulumi/pulumi-artifactory/sdk/v2
 
 go 1.16
 

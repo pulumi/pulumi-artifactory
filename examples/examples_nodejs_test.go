@@ -4,8 +4,8 @@
 package examples
 
 import (
-	"testing"
 	"path/filepath"
+	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
@@ -20,12 +20,11 @@ func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 
 	return baseJS
 }
-func TestAccLocalRepositoryTs(t *testing.T) {
+func TestAccLocalGenericRepositoryTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "local-repository", "ts"),
+			Dir: filepath.Join(getCwd(t), "local-generic-repository", "ts"),
 		})
 
 	integration.ProgramTest(t, &test)
 }
-
