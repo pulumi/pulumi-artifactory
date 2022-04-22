@@ -11,7 +11,7 @@ import * as utilities from "./utilities";
  * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
  *
  * ## Example Usage
- *
+ *// this is editing a file I should not edit!
  * .
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
