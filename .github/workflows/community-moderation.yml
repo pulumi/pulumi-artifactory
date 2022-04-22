@@ -17,7 +17,7 @@ jobs:
       name: Check for diff in sdk/*
       uses: dorny/paths-filter@v2
       with:
-        filters: "changed: 'sdk/*'"
+        filters: "changed: 'sdk/**'"
     - if: steps.sdk_changed.outputs.changed == 'true'
       name: Send codegen warning as comment on PR
       uses: thollander/actions-comment-pull-request@v1
