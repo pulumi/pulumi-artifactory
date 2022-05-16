@@ -13,13 +13,13 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class ArtifactWebhookCriteriaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Trigger on any local repo
+        /// Trigger on any local repo.
         /// </summary>
         [Input("anyLocal", required: true)]
         public Input<bool> AnyLocal { get; set; } = null!;
 
         /// <summary>
-        /// Trigger on any remote repo
+        /// Trigger on any remote repo.
         /// </summary>
         [Input("anyRemote", required: true)]
         public Input<bool> AnyRemote { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public InputList<string> ExcludePatterns
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public InputList<string> IncludePatterns
         {
@@ -52,7 +52,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _repoKeys;
 
         /// <summary>
-        /// Trigger on this list of repo keys
+        /// Trigger on this list of repo keys.
         /// </summary>
         public InputList<string> RepoKeys
         {

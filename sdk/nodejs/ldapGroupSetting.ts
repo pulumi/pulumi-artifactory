@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory LDAP Group Setting Resource
- *
  * This resource can be used to manage Artifactory's LDAP Group settings for user authentication.
  *
- * LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational structure for managing group-based permissions.
+ * LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational
+ * structure for managing group-based permissions.
  *
  * ## Example Usage
  *
@@ -89,8 +88,8 @@ export class LdapGroupSetting extends pulumi.CustomResource {
      */
     public readonly groupNameAttribute!: pulumi.Output<string>;
     /**
-     * (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
-     * 'enabledLdap' field of the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
+     * the ldap group setting XML block of system configuration.
      */
     public readonly ldapSettingKey!: pulumi.Output<string>;
     /**
@@ -191,8 +190,8 @@ export interface LdapGroupSettingState {
      */
     groupNameAttribute?: pulumi.Input<string>;
     /**
-     * (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
-     * 'enabledLdap' field of the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
+     * the ldap group setting XML block of system configuration.
      */
     ldapSettingKey?: pulumi.Input<string>;
     /**
@@ -237,8 +236,8 @@ export interface LdapGroupSettingArgs {
      */
     groupNameAttribute: pulumi.Input<string>;
     /**
-     * (Required) The LDAP setting key you want to use for group retrieval. The value for this field corresponds to
-     * 'enabledLdap' field of the ldap group setting XML block of system configuration.
+     * The LDAP setting key you want to use for group retrieval. The value for this field corresponds to 'enabledLdap' field of
+     * the ldap group setting XML block of system configuration.
      */
     ldapSettingKey: pulumi.Input<string>;
     /**

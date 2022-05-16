@@ -54,7 +54,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        /// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         /// </summary>
         [Output("refreshToken")]
         public Output<string> RefreshToken { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        /// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }

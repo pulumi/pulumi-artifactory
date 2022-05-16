@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Gradle Repository Resource
-    /// 
-    /// Creates a local Gradle repository
+    /// Creates a local Gradle repository.
     /// 
     /// ## Example Usage
     /// 
@@ -38,6 +36,14 @@ namespace Pulumi.Artifactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGradleRepository:LocalGradleRepository")]
     public partial class LocalGradleRepository : Pulumi.CustomResource
@@ -57,9 +63,10 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         /// <summary>
-        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
-        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        /// `client-checksums` and `generated-checksums`. For more details,
+        /// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Output("checksumPolicyType")]
         public Output<string?> ChecksumPolicyType { get; private set; } = null!;
@@ -82,13 +89,13 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
         /// </summary>
         [Output("handleReleases")]
         public Output<bool?> HandleReleases { get; private set; } = null!;
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
         /// </summary>
         [Output("handleSnapshots")]
         public Output<bool?> HandleSnapshots { get; private set; } = null!;
@@ -101,13 +108,13 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// The maximum number of unique snapshots of a single artifact to store.
         /// Once the number of snapshots exceeds this setting, older versions are removed.
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
@@ -154,9 +161,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// Unique: Version number is based on a time-stamp (default)
-        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `unique`: Version number is based on a time-stamp (default)
+        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Output("snapshotVersionBehavior")]
         public Output<string?> SnapshotVersionBehavior { get; private set; } = null!;
@@ -237,9 +244,10 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
-        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        /// `client-checksums` and `generated-checksums`. For more details,
+        /// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -262,13 +270,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
         /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
         /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
@@ -281,13 +289,13 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// The maximum number of unique snapshots of a single artifact to store.
         /// Once the number of snapshots exceeds this setting, older versions are removed.
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
@@ -343,9 +351,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// Unique: Version number is based on a time-stamp (default)
-        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `unique`: Version number is based on a time-stamp (default)
+        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
@@ -387,9 +395,10 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
-        /// - Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-        /// "resource is missing or conflicts with the locally calculated checksum (bad checksum). For more details,
-        /// "please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy)
+        /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed
+        /// resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
+        /// `client-checksums` and `generated-checksums`. For more details,
+        /// please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
         /// </summary>
         [Input("checksumPolicyType")]
         public Input<string>? ChecksumPolicyType { get; set; }
@@ -412,13 +421,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy release artifacts into this repository.
+        /// If set, Artifactory allows you to deploy release artifacts into this repository. Default is `true`.
         /// </summary>
         [Input("handleReleases")]
         public Input<bool>? HandleReleases { get; set; }
 
         /// <summary>
-        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository.
+        /// If set, Artifactory allows you to deploy snapshot artifacts into this repository. Default is `true`.
         /// </summary>
         [Input("handleSnapshots")]
         public Input<bool>? HandleSnapshots { get; set; }
@@ -431,13 +440,13 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
+        /// The maximum number of unique snapshots of a single artifact to store.
         /// Once the number of snapshots exceeds this setting, older versions are removed.
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
@@ -496,9 +505,9 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// Unique: Version number is based on a time-stamp (default)
-        /// Non-unique: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        /// * `unique`: Version number is based on a time-stamp (default)
+        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
+        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }

@@ -63,7 +63,7 @@ export class AccessToken extends pulumi.CustomResource {
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
-     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
      */
     public /*out*/ readonly refreshToken!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface AccessTokenState {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+     * Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
      */
     refreshToken?: pulumi.Input<string>;
     /**

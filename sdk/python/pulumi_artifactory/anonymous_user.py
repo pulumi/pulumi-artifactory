@@ -16,8 +16,7 @@ class AnonymousUserArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AnonymousUser resource.
-        :param pulumi.Input[str] name: (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-               state.
+        :param pulumi.Input[str] name: Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -26,8 +25,7 @@ class AnonymousUserArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        state.
+        Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         return pulumi.get(self, "name")
 
@@ -42,8 +40,7 @@ class _AnonymousUserState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AnonymousUser resources.
-        :param pulumi.Input[str] name: (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-               state.
+        :param pulumi.Input[str] name: Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -52,8 +49,7 @@ class _AnonymousUserState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        state.
+        Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         return pulumi.get(self, "name")
 
@@ -90,8 +86,7 @@ class AnonymousUser(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-               state.
+        :param pulumi.Input[str] name: Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         ...
     @overload
@@ -165,8 +160,7 @@ class AnonymousUser(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-               state.
+        :param pulumi.Input[str] name: Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -179,8 +173,7 @@ class AnonymousUser(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        state.
+        Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         """
         return pulumi.get(self, "name")
 

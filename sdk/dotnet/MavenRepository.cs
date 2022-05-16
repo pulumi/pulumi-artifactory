@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Virtual Maven Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with specific maven feature.
+    /// Creates a virtual Maven repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).
     /// 
     /// ## Example Usage
     /// 
@@ -35,7 +34,7 @@ namespace Pulumi.Artifactory
     ///             RepoLayoutRef = "maven-2-default",
     ///             Url = "https://search.maven.com/",
     ///         });
-    ///         var foo = new Artifactory.MavenRepository("foo", new Artifactory.MavenRepositoryArgs
+    ///         var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new Artifactory.MavenRepositoryArgs
     ///         {
     ///             Description = "A test virtual repo",
     ///             ExcludesPattern = "com/google/**",
@@ -61,7 +60,7 @@ namespace Pulumi.Artifactory
     /// Virtual repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/mavenRepository:MavenRepository foo foo
+    ///  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/mavenRepository:MavenRepository")]
@@ -95,7 +94,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - forces authentication when fetching from remote repos
+        /// Forces authentication when fetching from remote repos.
         /// </summary>
         [Output("forceMavenAuthentication")]
         public Output<bool> ForceMavenAuthentication { get; private set; } = null!;
@@ -108,9 +107,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -134,7 +132,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         /// </summary>
         [Output("pomRepositoryReferencesCleanupPolicy")]
         public Output<string> PomRepositoryReferencesCleanupPolicy { get; private set; } = null!;
@@ -245,7 +243,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// - forces authentication when fetching from remote repos
+        /// Forces authentication when fetching from remote repos.
         /// </summary>
         [Input("forceMavenAuthentication")]
         public Input<bool>? ForceMavenAuthentication { get; set; }
@@ -258,9 +256,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -278,7 +275,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }
@@ -362,7 +359,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// - forces authentication when fetching from remote repos
+        /// Forces authentication when fetching from remote repos.
         /// </summary>
         [Input("forceMavenAuthentication")]
         public Input<bool>? ForceMavenAuthentication { get; set; }
@@ -375,9 +372,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -401,7 +397,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// . One of: `"discard_active_reference", "discard_any_reference", "nothing"`
+        /// One of: `"discard_active_reference", "discard_any_reference", "nothing"`
         /// </summary>
         [Input("pomRepositoryReferencesCleanupPolicy")]
         public Input<string>? PomRepositoryReferencesCleanupPolicy { get; set; }

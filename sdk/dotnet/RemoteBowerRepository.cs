@@ -10,14 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Remote Bower Repository Resource
-    /// 
     /// Creates a remote Bower repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories)
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Bower+Repositories).
     /// 
     /// ## Example Usage
-    /// 
-    /// To create a new Artifactory remote Bower repository called my-remote-bower.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -36,6 +32,14 @@ namespace Pulumi.Artifactory
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Remote repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteBowerRepository:RemoteBowerRepository")]
@@ -125,14 +129,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Output("listRemoteFolderItems")]
         public Output<bool?> ListRemoteFolderItems { get; private set; } = null!;
@@ -145,7 +150,7 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Output("mismatchingMimeTypesOverrideList")]
@@ -198,13 +203,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> PropagateQueryParams { get; private set; } = null!;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
@@ -263,7 +268,7 @@ namespace Pulumi.Artifactory
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -278,7 +283,8 @@ namespace Pulumi.Artifactory
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -417,14 +423,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
@@ -437,7 +444,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
@@ -496,7 +503,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _propertySets;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         public InputList<string> PropertySets
         {
@@ -505,7 +512,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -564,7 +571,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -579,7 +586,8 @@ namespace Pulumi.Artifactory
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -682,14 +690,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
@@ -702,7 +711,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
@@ -764,7 +773,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _propertySets;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         public InputList<string> PropertySets
         {
@@ -773,7 +782,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -832,7 +841,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
@@ -847,7 +856,8 @@ namespace Pulumi.Artifactory
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Federated Generic Repository Resource
-    /// 
-    /// Creates a federated Generic repository
+    /// Creates a federated Generic repository.
     /// 
     /// ## Example Usage
     /// 
@@ -45,6 +43,14 @@ namespace Pulumi.Artifactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Federated repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/federatedGenericRepository:FederatedGenericRepository terraform-federated-test-generic-repo terraform-federated-test-generic-repo
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGenericRepository:FederatedGenericRepository")]
     public partial class FederatedGenericRepository : Pulumi.CustomResource
@@ -57,29 +63,47 @@ namespace Pulumi.Artifactory
         [Output("archiveBrowsingEnabled")]
         public Output<bool?> ArchiveBrowsingEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Output("blackedOut")]
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Output("downloadDirect")]
         public Output<bool?> DownloadDirect { get; private set; } = null!;
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Output("excludesPattern")]
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.FederatedGenericRepositoryMember>> Members { get; private set; } = null!;
@@ -103,11 +127,15 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        /// with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
 
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
@@ -118,10 +146,11 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        /// Xray settings.
         /// </summary>
         [Output("xrayIndex")]
-        public Output<bool> XrayIndex { get; private set; } = null!;
+        public Output<bool?> XrayIndex { get; private set; } = null!;
 
 
         /// <summary>
@@ -177,23 +206,38 @@ namespace Pulumi.Artifactory
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -202,7 +246,10 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedGenericRepositoryMemberArgs>? _members;
 
         /// <summary>
-        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedGenericRepositoryMemberArgs> Members
         {
@@ -232,13 +279,18 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        /// with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public InputList<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new InputList<string>());
@@ -252,7 +304,8 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        /// Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }
@@ -272,23 +325,38 @@ namespace Pulumi.Artifactory
         [Input("archiveBrowsingEnabled")]
         public Input<bool>? ArchiveBrowsingEnabled { get; set; }
 
+        /// <summary>
+        /// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only.
+        /// </summary>
         [Input("downloadDirect")]
         public Input<bool>? DownloadDirect { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        /// artifacts are excluded.
+        /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
 
+        /// <summary>
+        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -297,7 +365,10 @@ namespace Pulumi.Artifactory
         private InputList<Inputs.FederatedGenericRepositoryMemberGetArgs>? _members;
 
         /// <summary>
-        /// - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        /// The list of Federated members and must contain this repository URL (configured base URL
+        /// `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        /// Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        /// to set up Federated repositories correctly.
         /// </summary>
         public InputList<Inputs.FederatedGenericRepositoryMemberGetArgs> Members
         {
@@ -330,13 +401,18 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        /// with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;
+
+        /// <summary>
+        /// List of property set name
+        /// </summary>
         public InputList<string> PropertySets
         {
             get => _propertySets ?? (_propertySets = new InputList<string>());
@@ -350,7 +426,8 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        /// Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        /// Xray settings.
         /// </summary>
         [Input("xrayIndex")]
         public Input<bool>? XrayIndex { get; set; }

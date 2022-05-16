@@ -388,8 +388,6 @@ class PullReplication(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Pull Replication Resource
-
         Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
         for a local or remote repo.
 
@@ -434,8 +432,6 @@ class PullReplication(pulumi.CustomResource):
                  args: PullReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Pull Replication Resource
-
         Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
         for a local or remote repo.
 

@@ -46,6 +46,12 @@ namespace Pulumi.Artifactory
         public Output<bool?> DetachAllUsers { get; private set; } = null!;
 
         /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
+        [Output("externalId")]
+        public Output<string?> ExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the group
         /// </summary>
         [Output("name")]
@@ -158,6 +164,12 @@ namespace Pulumi.Artifactory
         public Input<bool>? DetachAllUsers { get; set; }
 
         /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
         /// Name of the group
         /// </summary>
         [Input("name")]
@@ -235,6 +247,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("detachAllUsers")]
         public Input<bool>? DetachAllUsers { get; set; }
+
+        /// <summary>
+        /// New external group ID used to configure the corresponding group in Azure AD.
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
 
         /// <summary>
         /// Name of the group

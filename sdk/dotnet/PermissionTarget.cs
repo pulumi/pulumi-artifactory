@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Permission Target Resource
-    /// 
-    /// **Requires Artifactory &gt;= 6.6.0. If using a lower version see here**
-    /// 
     /// Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
     /// 
     /// ## Example Usage
@@ -53,6 +49,31 @@ namespace Pulumi.Artifactory
     ///                 Repositories = 
     ///                 {
     ///                     "artifactory-build-info",
+    ///                 },
+    ///             },
+    ///             ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///             {
+    ///                 Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
+    ///                 {
+    ///                     Users = 
+    ///                     {
+    ///                         new Artifactory.Inputs.PermissionTargetReleaseBundleActionsUserArgs
+    ///                         {
+    ///                             Name = "anonymous",
+    ///                             Permissions = 
+    ///                             {
+    ///                                 "read",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 IncludesPatterns = 
+    ///                 {
+    ///                     "**",
+    ///                 },
+    ///                 Repositories = 
+    ///                 {
+    ///                     "release-bundles",
     ///                 },
     ///             },
     ///             Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
@@ -137,16 +158,19 @@ namespace Pulumi.Artifactory
         public Output<Outputs.PermissionTargetBuild?> Build { get; private set; } = null!;
 
         /// <summary>
-        /// Name of permission
+        /// Name of permission.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// As for repo for for release-bundles permissions.
+        /// </summary>
         [Output("releaseBundle")]
         public Output<Outputs.PermissionTargetReleaseBundle?> ReleaseBundle { get; private set; } = null!;
 
         /// <summary>
-        /// Repository permission configuration
+        /// Repository permission configuration.
         /// </summary>
         [Output("repo")]
         public Output<Outputs.PermissionTargetRepo?> Repo { get; private set; } = null!;
@@ -204,16 +228,19 @@ namespace Pulumi.Artifactory
         public Input<Inputs.PermissionTargetBuildArgs>? Build { get; set; }
 
         /// <summary>
-        /// Name of permission
+        /// Name of permission.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// As for repo for for release-bundles permissions.
+        /// </summary>
         [Input("releaseBundle")]
         public Input<Inputs.PermissionTargetReleaseBundleArgs>? ReleaseBundle { get; set; }
 
         /// <summary>
-        /// Repository permission configuration
+        /// Repository permission configuration.
         /// </summary>
         [Input("repo")]
         public Input<Inputs.PermissionTargetRepoArgs>? Repo { get; set; }
@@ -232,16 +259,19 @@ namespace Pulumi.Artifactory
         public Input<Inputs.PermissionTargetBuildGetArgs>? Build { get; set; }
 
         /// <summary>
-        /// Name of permission
+        /// Name of permission.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// As for repo for for release-bundles permissions.
+        /// </summary>
         [Input("releaseBundle")]
         public Input<Inputs.PermissionTargetReleaseBundleGetArgs>? ReleaseBundle { get; set; }
 
         /// <summary>
-        /// Repository permission configuration
+        /// Repository permission configuration.
         /// </summary>
         [Input("repo")]
         public Input<Inputs.PermissionTargetRepoGetArgs>? Repo { get; set; }

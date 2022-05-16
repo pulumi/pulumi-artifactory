@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual P2 Repository Resource
- *
- * Provides an Artifactory virtual repository resource with specific P2 features.
+ * Creates a virtual P2 repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/P2+Repositories#P2Repositories-DefiningaVirtualRepository)
  *
  * ## Example Usage
  *
@@ -30,7 +29,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+ *  $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
  * ```
  */
 export class VirtualP2Repository extends pulumi.CustomResource {
@@ -86,9 +85,8 @@ export class VirtualP2Repository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -201,9 +199,8 @@ export interface VirtualP2RepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -267,9 +264,8 @@ export interface VirtualP2RepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

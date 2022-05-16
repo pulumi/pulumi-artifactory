@@ -8,7 +8,8 @@ declare var exports: any;
 const __config = new pulumi.Config("artifactory");
 
 /**
- * This is a access token that can be given to you by your admin under `Identity and Access`
+ * This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+ * attribute value will be used.
  */
 export declare const accessToken: string | undefined;
 Object.defineProperty(exports, "accessToken", {

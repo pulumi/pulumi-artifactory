@@ -19,29 +19,56 @@ class FederatedRpmRepositoryArgs:
                  members: pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]],
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
-                 xray_index: Optional[pulumi.Input[bool]] = None):
+                 secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 xray_index: Optional[pulumi.Input[bool]] = None,
+                 yum_group_file_names: Optional[pulumi.Input[str]] = None,
+                 yum_root_depth: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FederatedRpmRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
+        :param pulumi.Input[str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+               definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+               files, if required.
+        :param pulumi.Input[int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+               contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+               'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -49,16 +76,22 @@ class FederatedRpmRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if calculate_yum_metadata is not None:
+            pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
+        if enable_file_lists_indexing is not None:
+            pulumi.set(__self__, "enable_file_lists_indexing", enable_file_lists_indexing)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if primary_keypair_ref is not None:
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
@@ -69,14 +102,20 @@ class FederatedRpmRepositoryArgs:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if secondary_keypair_ref is not None:
+            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
+        if yum_group_file_names is not None:
+            pulumi.set(__self__, "yum_group_file_names", yum_group_file_names)
+        if yum_root_depth is not None:
+            pulumi.set(__self__, "yum_root_depth", yum_root_depth)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,7 +127,10 @@ class FederatedRpmRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -113,11 +155,23 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="calculateYumMetadata")
+    def calculate_yum_metadata(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "calculate_yum_metadata")
+
+    @calculate_yum_metadata.setter
+    def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "calculate_yum_metadata", value)
 
     @property
     @pulumi.getter
@@ -131,6 +185,10 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -138,8 +196,21 @@ class FederatedRpmRepositoryArgs:
         pulumi.set(self, "download_direct", value)
 
     @property
+    @pulumi.getter(name="enableFileListsIndexing")
+    def enable_file_lists_indexing(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_file_lists_indexing")
+
+    @enable_file_lists_indexing.setter
+    def enable_file_lists_indexing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_file_lists_indexing", value)
+
+    @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -149,6 +220,10 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -163,6 +238,18 @@ class FederatedRpmRepositoryArgs:
     @notes.setter
     def notes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "primary_keypair_ref")
+
+    @primary_keypair_ref.setter
+    def primary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_keypair_ref", value)
 
     @property
     @pulumi.getter(name="priorityResolution")
@@ -204,6 +291,9 @@ class FederatedRpmRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -223,13 +313,57 @@ class FederatedRpmRepositoryArgs:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "secondary_keypair_ref")
+
+    @secondary_keypair_ref.setter
+    def secondary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_keypair_ref", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
     def xray_index(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "xray_index", value)
+
+    @property
+    @pulumi.getter(name="yumGroupFileNames")
+    def yum_group_file_names(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+        definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+        files, if required.
+        """
+        return pulumi.get(self, "yum_group_file_names")
+
+    @yum_group_file_names.setter
+    def yum_group_file_names(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yum_group_file_names", value)
+
+    @property
+    @pulumi.getter(name="yumRootDepth")
+    def yum_root_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+        contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+        'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        """
+        return pulumi.get(self, "yum_root_depth")
+
+    @yum_root_depth.setter
+    def yum_root_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "yum_root_depth", value)
 
 
 @pulumi.input_type
@@ -237,41 +371,72 @@ class _FederatedRpmRepositoryState:
     def __init__(__self__, *,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
-                 xray_index: Optional[pulumi.Input[bool]] = None):
+                 secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
+                 xray_index: Optional[pulumi.Input[bool]] = None,
+                 yum_group_file_names: Optional[pulumi.Input[str]] = None,
+                 yum_root_depth: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering FederatedRpmRepository resources.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
+        :param pulumi.Input[str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+               definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+               files, if required.
+        :param pulumi.Input[int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+               contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+               'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if calculate_yum_metadata is not None:
+            pulumi.set(__self__, "calculate_yum_metadata", calculate_yum_metadata)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
+        if enable_file_lists_indexing is not None:
+            pulumi.set(__self__, "enable_file_lists_indexing", enable_file_lists_indexing)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
@@ -284,6 +449,8 @@ class _FederatedRpmRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if primary_keypair_ref is not None:
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
@@ -294,8 +461,14 @@ class _FederatedRpmRepositoryState:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if secondary_keypair_ref is not None:
+            pulumi.set(__self__, "secondary_keypair_ref", secondary_keypair_ref)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
+        if yum_group_file_names is not None:
+            pulumi.set(__self__, "yum_group_file_names", yum_group_file_names)
+        if yum_root_depth is not None:
+            pulumi.set(__self__, "yum_root_depth", yum_root_depth)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -314,11 +487,23 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="calculateYumMetadata")
+    def calculate_yum_metadata(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "calculate_yum_metadata")
+
+    @calculate_yum_metadata.setter
+    def calculate_yum_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "calculate_yum_metadata", value)
 
     @property
     @pulumi.getter
@@ -332,6 +517,10 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -339,8 +528,21 @@ class _FederatedRpmRepositoryState:
         pulumi.set(self, "download_direct", value)
 
     @property
+    @pulumi.getter(name="enableFileListsIndexing")
+    def enable_file_lists_indexing(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_file_lists_indexing")
+
+    @enable_file_lists_indexing.setter
+    def enable_file_lists_indexing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_file_lists_indexing", value)
+
+    @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -350,6 +552,10 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -360,7 +566,7 @@ class _FederatedRpmRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -372,7 +578,10 @@ class _FederatedRpmRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedRpmRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -399,6 +608,18 @@ class _FederatedRpmRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "primary_keypair_ref")
+
+    @primary_keypair_ref.setter
+    def primary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_keypair_ref", value)
+
+    @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -438,6 +659,9 @@ class _FederatedRpmRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -457,13 +681,57 @@ class _FederatedRpmRepositoryState:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "secondary_keypair_ref")
+
+    @secondary_keypair_ref.setter
+    def secondary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_keypair_ref", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
     def xray_index(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "xray_index", value)
+
+    @property
+    @pulumi.getter(name="yumGroupFileNames")
+    def yum_group_file_names(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+        definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+        files, if required.
+        """
+        return pulumi.get(self, "yum_group_file_names")
+
+    @yum_group_file_names.setter
+    def yum_group_file_names(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "yum_group_file_names", value)
+
+    @property
+    @pulumi.getter(name="yumRootDepth")
+    def yum_root_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+        contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+        'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        """
+        return pulumi.get(self, "yum_root_depth")
+
+    @yum_root_depth.setter
+    def yum_root_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "yum_root_depth", value)
 
 
 class FederatedRpmRepository(pulumi.CustomResource):
@@ -473,24 +741,28 @@ class FederatedRpmRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
+                 yum_group_file_names: Optional[pulumi.Input[str]] = None,
+                 yum_root_depth: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Rpm Repository Resource
-
-        Creates a federated Rpm repository
+        Creates a federated Rpm repository.
 
         ## Example Usage
 
@@ -512,18 +784,47 @@ class FederatedRpmRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
+        :param pulumi.Input[str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+               definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+               files, if required.
+        :param pulumi.Input[int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+               contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+               'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         ...
     @overload
@@ -532,9 +833,7 @@ class FederatedRpmRepository(pulumi.CustomResource):
                  args: FederatedRpmRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Rpm Repository Resource
-
-        Creates a federated Rpm repository
+        Creates a federated Rpm repository.
 
         ## Example Usage
 
@@ -554,6 +853,14 @@ class FederatedRpmRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -573,19 +880,25 @@ class FederatedRpmRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
+                 yum_group_file_names: Optional[pulumi.Input[str]] = None,
+                 yum_root_depth: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -600,8 +913,10 @@ class FederatedRpmRepository(pulumi.CustomResource):
 
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
+            __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
@@ -611,12 +926,16 @@ class FederatedRpmRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+            __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
             __props__.__dict__["xray_index"] = xray_index
+            __props__.__dict__["yum_group_file_names"] = yum_group_file_names
+            __props__.__dict__["yum_root_depth"] = yum_root_depth
             __props__.__dict__["package_type"] = None
         super(FederatedRpmRepository, __self__).__init__(
             'artifactory:index/federatedRpmRepository:FederatedRpmRepository',
@@ -630,20 +949,26 @@ class FederatedRpmRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            calculate_yum_metadata: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
+            enable_file_lists_indexing: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            primary_keypair_ref: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-            xray_index: Optional[pulumi.Input[bool]] = None) -> 'FederatedRpmRepository':
+            secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
+            xray_index: Optional[pulumi.Input[bool]] = None,
+            yum_group_file_names: Optional[pulumi.Input[str]] = None,
+            yum_root_depth: Optional[pulumi.Input[int]] = None) -> 'FederatedRpmRepository':
         """
         Get an existing FederatedRpmRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -654,13 +979,34 @@ class FederatedRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedRpmRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
+        :param pulumi.Input[str] yum_group_file_names: A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+               definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+               files, if required.
+        :param pulumi.Input[int] yum_root_depth: The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+               contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+               'fedora/linux/$releasever/$basearch', specify a depth of 4.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -668,20 +1014,26 @@ class FederatedRpmRepository(pulumi.CustomResource):
 
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["calculate_yum_metadata"] = calculate_yum_metadata
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
+        __props__.__dict__["enable_file_lists_indexing"] = enable_file_lists_indexing
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["members"] = members
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+        __props__.__dict__["secondary_keypair_ref"] = secondary_keypair_ref
         __props__.__dict__["xray_index"] = xray_index
+        __props__.__dict__["yum_group_file_names"] = yum_group_file_names
+        __props__.__dict__["yum_root_depth"] = yum_root_depth
         return FederatedRpmRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -697,7 +1049,15 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="calculateYumMetadata")
+    def calculate_yum_metadata(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "calculate_yum_metadata")
 
     @property
     @pulumi.getter
@@ -707,23 +1067,40 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
+
+    @property
+    @pulumi.getter(name="enableFileListsIndexing")
+    def enable_file_lists_indexing(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_file_lists_indexing")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -731,7 +1108,10 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedRpmRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -744,6 +1124,14 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+        """
+        Primary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "primary_keypair_ref")
 
     @property
     @pulumi.getter(name="priorityResolution")
@@ -773,6 +1161,9 @@ class FederatedRpmRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -784,7 +1175,39 @@ class FederatedRpmRepository(pulumi.CustomResource):
         return pulumi.get(self, "repo_layout_ref")
 
     @property
+    @pulumi.getter(name="secondaryKeypairRef")
+    def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+        """
+        Secondary keypair used to sign artifacts.
+        """
+        return pulumi.get(self, "secondary_keypair_ref")
+
+    @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
+
+    @property
+    @pulumi.getter(name="yumGroupFileNames")
+    def yum_group_file_names(self) -> pulumi.Output[Optional[str]]:
+        """
+        A comma separated list of XML file names containing RPM group component definitions. Artifactory includes the group
+        definitions as part of the calculated RPM metadata, as well as automatically generating a gzipped version of the group
+        files, if required.
+        """
+        return pulumi.get(self, "yum_group_file_names")
+
+    @property
+    @pulumi.getter(name="yumRootDepth")
+    def yum_root_depth(self) -> pulumi.Output[Optional[int]]:
+        """
+        The depth, relative to the repository's root folder, where RPM metadata is created. This is useful when your repository
+        contains multiple RPM repositories under parallel hierarchies. For example, if your RPMs are stored under
+        'fedora/linux/$releasever/$basearch', specify a depth of 4.
+        """
+        return pulumi.get(self, "yum_root_depth")
 

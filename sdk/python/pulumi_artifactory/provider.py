@@ -19,7 +19,8 @@ class ProviderArgs:
                  url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+               attribute value will be used.
         :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         """
@@ -38,7 +39,8 @@ class ProviderArgs:
     @pulumi.getter(name="accessToken")
     def access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        This is a access token that can be given to you by your admin under `Identity and Access`
+        This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+        attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 
@@ -98,7 +100,8 @@ class Provider(pulumi.ProviderResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`
+        :param pulumi.Input[str] access_token: This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+               attribute value will be used.
         :param pulumi.Input[str] api_key: API token. Projects functionality will not work with any auth method other than access tokens
         :param pulumi.Input[bool] check_license: Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.
         """
@@ -161,7 +164,8 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="accessToken")
     def access_token(self) -> pulumi.Output[Optional[str]]:
         """
-        This is a access token that can be given to you by your admin under `Identity and Access`
+        This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+        attribute value will be used.
         """
         return pulumi.get(self, "access_token")
 

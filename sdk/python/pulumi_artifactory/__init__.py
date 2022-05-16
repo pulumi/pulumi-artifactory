@@ -74,6 +74,7 @@ from .local_maven_repository import *
 from .local_npm_repository import *
 from .local_nuget_repository import *
 from .local_opkg_repository import *
+from .local_pub_repository import *
 from .local_puppet_repository import *
 from .local_pypi_repository import *
 from .local_rpm_repository import *
@@ -111,6 +112,7 @@ from .remote_npm_repository import *
 from .remote_nuget_repository import *
 from .remote_opkg_repository import *
 from .remote_p2_repository import *
+from .remote_pub_repository import *
 from .remote_puppet_repository import *
 from .remote_pypi_repository import *
 from .remote_rpm_repository import *
@@ -139,6 +141,7 @@ from .virtual_ivy_repository import *
 from .virtual_npm_repository import *
 from .virtual_nuget_repository import *
 from .virtual_p2_repository import *
+from .virtual_pub_repository import *
 from .virtual_puppet_repository import *
 from .virtual_pypi_repository import *
 from .virtual_rpm_repository import *
@@ -694,6 +697,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localPubRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localPubRepository:LocalPubRepository": "LocalPubRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localPuppetRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -982,6 +993,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remotePubRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remotePubRepository:RemotePubRepository": "RemotePubRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remotePuppetRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1202,6 +1221,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualP2Repository:VirtualP2Repository": "VirtualP2Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualPubRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualPubRepository:VirtualPubRepository": "VirtualPubRepository"
   }
  },
  {

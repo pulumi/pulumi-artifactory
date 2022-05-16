@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory SAML SSO Settings Resource
-    /// 
     /// This resource can be used to manage Artifactory's SAML SSO settings.
     /// 
     /// Only a single `artifactory.SamlSettings` resource is meant to be defined.

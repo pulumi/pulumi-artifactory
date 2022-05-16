@@ -41,8 +41,7 @@ namespace Pulumi.Artifactory
     public partial class AnonymousUser : Pulumi.CustomResource
     {
         /// <summary>
-        /// (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        /// state.
+        /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -94,8 +93,7 @@ namespace Pulumi.Artifactory
     public sealed class AnonymousUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        /// state.
+        /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -108,8 +106,7 @@ namespace Pulumi.Artifactory
     public sealed class AnonymousUserState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-        /// state.
+        /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

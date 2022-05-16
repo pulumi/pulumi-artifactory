@@ -23,7 +23,7 @@ class BackupArgs:
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
@@ -51,7 +51,7 @@ class BackupArgs:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         """
         return pulumi.get(self, "cron_exp")
 
@@ -158,7 +158,7 @@ class _BackupState:
         """
         Input properties used for looking up and filtering Backup resources.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -199,7 +199,7 @@ class _BackupState:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         """
         return pulumi.get(self, "cron_exp")
 
@@ -295,11 +295,10 @@ class Backup(pulumi.CustomResource):
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Backup Resource
-
         This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
 
-        When a Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+        When an `Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
+        The backup process creates a time-stamped directory in the target backup directory.
 
         ## Example Usage
 
@@ -332,7 +331,7 @@ class Backup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -347,11 +346,10 @@ class Backup(pulumi.CustomResource):
                  args: BackupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Backup Resource
-
         This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
 
-        When a Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+        When an `Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
+        The backup process creates a time-stamped directory in the target backup directory.
 
         ## Example Usage
 
@@ -454,7 +452,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -488,7 +486,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         """
         return pulumi.get(self, "cron_exp")
 

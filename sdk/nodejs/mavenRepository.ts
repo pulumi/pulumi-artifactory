@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual Maven Repository Resource
- *
- * Provides an Artifactory virtual repository resource with specific maven feature.
+ * Creates a virtual Maven repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).
  *
  * ## Example Usage
  *
@@ -24,7 +23,7 @@ import * as utilities from "./utilities";
  *     repoLayoutRef: "maven-2-default",
  *     url: "https://search.maven.com/",
  * });
- * const foo = new artifactory.MavenRepository("foo", {
+ * const maven_virt_repo = new artifactory.MavenRepository("maven-virt-repo", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     forceMavenAuthentication: true,
@@ -45,7 +44,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/mavenRepository:MavenRepository foo foo
+ *  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
  * ```
  */
 export class MavenRepository extends pulumi.CustomResource {
@@ -96,7 +95,7 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * - forces authentication when fetching from remote repos
+     * Forces authentication when fetching from remote repos.
      */
     public readonly forceMavenAuthentication!: pulumi.Output<boolean>;
     /**
@@ -105,9 +104,8 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -123,7 +121,7 @@ export class MavenRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     public readonly pomRepositoryReferencesCleanupPolicy!: pulumi.Output<string>;
     /**
@@ -229,7 +227,7 @@ export interface MavenRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * - forces authentication when fetching from remote repos
+     * Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: pulumi.Input<boolean>;
     /**
@@ -238,9 +236,8 @@ export interface MavenRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -256,7 +253,7 @@ export interface MavenRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**
@@ -307,7 +304,7 @@ export interface MavenRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * - forces authentication when fetching from remote repos
+     * Forces authentication when fetching from remote repos.
      */
     forceMavenAuthentication?: pulumi.Input<boolean>;
     /**
@@ -316,9 +313,8 @@ export interface MavenRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -330,7 +326,7 @@ export interface MavenRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * . One of: `"discardActiveReference", "discardAnyReference", "nothing"`
+     * One of: `"discardActiveReference", "discardAnyReference", "nothing"`
      */
     pomRepositoryReferencesCleanupPolicy?: pulumi.Input<string>;
     /**

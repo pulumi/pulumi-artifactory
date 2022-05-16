@@ -22,8 +22,9 @@ class PermissionTargetArgs:
         """
         The set of arguments for constructing a PermissionTarget resource.
         :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration
+        :param pulumi.Input[str] name: Name of permission.
+        :param pulumi.Input['PermissionTargetReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration.
         """
         if build is not None:
             pulumi.set(__self__, "build", build)
@@ -50,7 +51,7 @@ class PermissionTargetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of permission
+        Name of permission.
         """
         return pulumi.get(self, "name")
 
@@ -61,6 +62,9 @@ class PermissionTargetArgs:
     @property
     @pulumi.getter(name="releaseBundle")
     def release_bundle(self) -> Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]:
+        """
+        As for repo for for release-bundles permissions.
+        """
         return pulumi.get(self, "release_bundle")
 
     @release_bundle.setter
@@ -71,7 +75,7 @@ class PermissionTargetArgs:
     @pulumi.getter
     def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
         """
-        Repository permission configuration
+        Repository permission configuration.
         """
         return pulumi.get(self, "repo")
 
@@ -90,8 +94,9 @@ class _PermissionTargetState:
         """
         Input properties used for looking up and filtering PermissionTarget resources.
         :param pulumi.Input['PermissionTargetBuildArgs'] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration
+        :param pulumi.Input[str] name: Name of permission.
+        :param pulumi.Input['PermissionTargetReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input['PermissionTargetRepoArgs'] repo: Repository permission configuration.
         """
         if build is not None:
             pulumi.set(__self__, "build", build)
@@ -118,7 +123,7 @@ class _PermissionTargetState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of permission
+        Name of permission.
         """
         return pulumi.get(self, "name")
 
@@ -129,6 +134,9 @@ class _PermissionTargetState:
     @property
     @pulumi.getter(name="releaseBundle")
     def release_bundle(self) -> Optional[pulumi.Input['PermissionTargetReleaseBundleArgs']]:
+        """
+        As for repo for for release-bundles permissions.
+        """
         return pulumi.get(self, "release_bundle")
 
     @release_bundle.setter
@@ -139,7 +147,7 @@ class _PermissionTargetState:
     @pulumi.getter
     def repo(self) -> Optional[pulumi.Input['PermissionTargetRepoArgs']]:
         """
-        Repository permission configuration
+        Repository permission configuration.
         """
         return pulumi.get(self, "repo")
 
@@ -159,10 +167,6 @@ class PermissionTarget(pulumi.CustomResource):
                  repo: Optional[pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']]] = None,
                  __props__=None):
         """
-        ## # Artifactory Permission Target Resource
-
-        **Requires Artifactory >= 6.6.0. If using a lower version see here**
-
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
 
         ## Example Usage
@@ -185,6 +189,16 @@ class PermissionTarget(pulumi.CustomResource):
                 ),
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
+            ),
+            release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
+                actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
+                    users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
+                        name="anonymous",
+                        permissions=["read"],
+                    )],
+                ),
+                includes_patterns=["**"],
+                repositories=["release-bundles"],
             ),
             repo=artifactory.PermissionTargetRepoArgs(
                 actions=artifactory.PermissionTargetRepoActionsArgs(
@@ -234,8 +248,9 @@ class PermissionTarget(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration
+        :param pulumi.Input[str] name: Name of permission.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration.
         """
         ...
     @overload
@@ -244,10 +259,6 @@ class PermissionTarget(pulumi.CustomResource):
                  args: Optional[PermissionTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Permission Target Resource
-
-        **Requires Artifactory >= 6.6.0. If using a lower version see here**
-
         Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
 
         ## Example Usage
@@ -270,6 +281,16 @@ class PermissionTarget(pulumi.CustomResource):
                 ),
                 includes_patterns=["**"],
                 repositories=["artifactory-build-info"],
+            ),
+            release_bundle=artifactory.PermissionTargetReleaseBundleArgs(
+                actions=artifactory.PermissionTargetReleaseBundleActionsArgs(
+                    users=[artifactory.PermissionTargetReleaseBundleActionsUserArgs(
+                        name="anonymous",
+                        permissions=["read"],
+                    )],
+                ),
+                includes_patterns=["**"],
+                repositories=["release-bundles"],
             ),
             repo=artifactory.PermissionTargetRepoArgs(
                 actions=artifactory.PermissionTargetRepoActionsArgs(
@@ -373,8 +394,9 @@ class PermissionTarget(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PermissionTargetBuildArgs']] build: As for repo but for artifactory-build-info permssions.
-        :param pulumi.Input[str] name: Name of permission
-        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration
+        :param pulumi.Input[str] name: Name of permission.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetRepoArgs']] repo: Repository permission configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -398,20 +420,23 @@ class PermissionTarget(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of permission
+        Name of permission.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="releaseBundle")
     def release_bundle(self) -> pulumi.Output[Optional['outputs.PermissionTargetReleaseBundle']]:
+        """
+        As for repo for for release-bundles permissions.
+        """
         return pulumi.get(self, "release_bundle")
 
     @property
     @pulumi.getter
     def repo(self) -> pulumi.Output[Optional['outputs.PermissionTargetRepo']]:
         """
-        Repository permission configuration
+        Repository permission configuration.
         """
         return pulumi.get(self, "repo")
 

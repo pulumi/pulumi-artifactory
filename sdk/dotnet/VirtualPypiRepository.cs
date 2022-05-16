@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Virtual Pypi Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with specific pypi features.
+    /// Creates a virtual Pypi repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories#PyPIRepositories-VirtualRepositories).
     /// 
     /// ## Example Usage
     /// 
@@ -43,7 +42,7 @@ namespace Pulumi.Artifactory
     /// Virtual repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo foo
+    ///  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo-pypi foo-pypi
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualPypiRepository:VirtualPypiRepository")]
@@ -84,9 +83,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -216,9 +214,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -315,9 +312,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

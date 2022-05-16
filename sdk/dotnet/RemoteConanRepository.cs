@@ -10,14 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Remote Conan Repository Resource
-    /// 
     /// Creates a remote Conan repository.
-    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories)
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).
     /// 
     /// ## Example Usage
-    /// 
-    /// To create a new Artifactory remote Conan repository called my-remote-conan.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -30,11 +26,19 @@ namespace Pulumi.Artifactory
     ///         var my_remote_conan = new Artifactory.RemoteConanRepository("my-remote-conan", new Artifactory.RemoteConanRepositoryArgs
     ///         {
     ///             Key = "my-remote-conan",
-    ///             Url = "https://conan.bintray.com",
+    ///             Url = "https://conan.io/center/",
     ///         });
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Remote repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteConanRepository:RemoteConanRepository")]
@@ -118,14 +122,15 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Output("listRemoteFolderItems")]
         public Output<bool?> ListRemoteFolderItems { get; private set; } = null!;
@@ -138,7 +143,7 @@ namespace Pulumi.Artifactory
         public Output<string?> LocalAddress { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Output("mismatchingMimeTypesOverrideList")]
@@ -191,13 +196,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> PropagateQueryParams { get; private set; } = null!;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         [Output("propertySets")]
         public Output<ImmutableArray<string>> PropertySets { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
@@ -256,7 +261,7 @@ namespace Pulumi.Artifactory
         public Output<int> UnusedArtifactsCleanupPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -392,14 +397,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
@@ -412,7 +418,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
@@ -471,7 +477,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _propertySets;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         public InputList<string> PropertySets
         {
@@ -480,7 +486,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -539,7 +545,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -639,14 +645,15 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The repository identifier. Must be unique system-wide
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        /// value of the 'Retrieval Cache Period'. Default value is 'false'.
+        /// Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        /// the 'Retrieval Cache Period'. Default value is 'false'.
         /// </summary>
         [Input("listRemoteFolderItems")]
         public Input<bool>? ListRemoteFolderItems { get; set; }
@@ -659,7 +666,7 @@ namespace Pulumi.Artifactory
         public Input<string>? LocalAddress { get; set; }
 
         /// <summary>
-        /// (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         /// "application/json,application/xml". Default value is empty.
         /// </summary>
         [Input("mismatchingMimeTypesOverrideList")]
@@ -721,7 +728,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _propertySets;
 
         /// <summary>
-        /// List of property set name
+        /// List of property set names
         /// </summary>
         public InputList<string> PropertySets
         {
@@ -730,7 +737,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies settings
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -789,7 +796,7 @@ namespace Pulumi.Artifactory
         public Input<int>? UnusedArtifactsCleanupPeriodHours { get; set; }
 
         /// <summary>
-        /// - the remote repo URL. You kinda don't have a remote repo without it
+        /// The remote repo URL.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

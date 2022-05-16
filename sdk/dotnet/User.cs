@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory User Resource
-    /// 
     /// Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
     /// 
     /// When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.

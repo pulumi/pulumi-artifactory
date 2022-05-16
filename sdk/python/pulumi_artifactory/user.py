@@ -300,8 +300,6 @@ class User(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory User Resource
-
         Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
 
         When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
@@ -349,8 +347,6 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory User Resource
-
         Provides an Artifactory user resource. This can be used to create and manage Artifactory users.
 
         When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.

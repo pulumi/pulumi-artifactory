@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory General Security Resource
-    /// 
     /// This resource can be used to manage Artifactory's general security settings.
     /// 
     /// Only a single `artifactory.GeneralSecurity` resource is meant to be defined.

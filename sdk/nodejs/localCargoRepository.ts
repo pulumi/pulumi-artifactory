@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Cargo Repository Resource
- *
- * Creates a local Cargo repository
+ * Creates a local Cargo repository.
  *
  * ## Example Usage
  *
@@ -19,6 +17,14 @@ import * as utilities from "./utilities";
  *     anonymousAccess: false,
  *     key: "terraform-local-test-cargo-repo-basic",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
  * ```
  */
 export class LocalCargoRepository extends pulumi.CustomResource {
@@ -50,7 +56,9 @@ export class LocalCargoRepository extends pulumi.CustomResource {
     }
 
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+     * Cargo client does not send credentials when performing download and search for crates. 
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Default value is `false`.
      */
     public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -81,7 +89,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
     public readonly includesPattern!: pulumi.Output<string>;
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -176,7 +184,9 @@ export class LocalCargoRepository extends pulumi.CustomResource {
  */
 export interface LocalCargoRepositoryState {
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+     * Cargo client does not send credentials when performing download and search for crates. 
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -207,7 +217,7 @@ export interface LocalCargoRepositoryState {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -245,7 +255,9 @@ export interface LocalCargoRepositoryState {
  */
 export interface LocalCargoRepositoryArgs {
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+     * Cargo client does not send credentials when performing download and search for crates. 
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -276,7 +288,7 @@ export interface LocalCargoRepositoryArgs {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

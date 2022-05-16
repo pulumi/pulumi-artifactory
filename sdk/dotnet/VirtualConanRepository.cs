@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Virtual Conan Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with specific conan features.
+    /// Creates a virtual Conan repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories#ConanRepositories-VirtualRepositories).
     /// 
     /// ## Example Usage
     /// 
@@ -44,7 +43,7 @@ namespace Pulumi.Artifactory
     /// Virtual repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/virtualConanRepository:VirtualConanRepository foo foo
+    ///  $ pulumi import artifactory:index/virtualConanRepository:VirtualConanRepository foo-conan foo-conan
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualConanRepository:VirtualConanRepository")]
@@ -85,9 +84,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -130,7 +128,8 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
         /// </summary>
         [Output("retrievalCachePeriodSeconds")]
         public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
@@ -216,9 +215,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -267,7 +265,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }
@@ -314,9 +313,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -371,7 +369,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        /// repositories. A value of 0 indicates no caching.
         /// </summary>
         [Input("retrievalCachePeriodSeconds")]
         public Input<int>? RetrievalCachePeriodSeconds { get; set; }

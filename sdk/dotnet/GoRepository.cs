@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Virtual Go Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with specific go lang features.
+    /// Creates a virtual Go repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
     /// 
     /// ## Example Usage
     /// 
@@ -50,7 +49,7 @@ namespace Pulumi.Artifactory
     /// Virtual repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/goRepository:GoRepository foo foo
+    ///  $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/goRepository:GoRepository")]
@@ -84,7 +83,8 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         [Output("externalDependenciesEnabled")]
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
@@ -103,9 +103,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -228,7 +227,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -253,9 +253,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -345,7 +344,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        /// Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        /// When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -370,9 +370,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

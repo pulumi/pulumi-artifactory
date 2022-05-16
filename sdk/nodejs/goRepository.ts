@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual Go Repository Resource
- *
- * Provides an Artifactory virtual repository resource with specific go lang features.
+ * Creates a virtual Go repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
  *
  * ## Example Usage
  *
@@ -36,7 +35,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/goRepository:GoRepository foo foo
+ *  $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
  * ```
  */
 export class GoRepository extends pulumi.CustomResource {
@@ -87,7 +86,8 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,9 +100,8 @@ export class GoRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -214,7 +213,8 @@ export interface GoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
@@ -227,9 +227,8 @@ export interface GoRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -288,7 +287,8 @@ export interface GoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+     * Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+     * When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
@@ -301,9 +301,8 @@ export interface GoRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

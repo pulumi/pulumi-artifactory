@@ -14,7 +14,7 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class PermissionTargetRepoActionsGroup
     {
         /// <summary>
-        /// Name of permission
+        /// Name of permission.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<string> Permissions;

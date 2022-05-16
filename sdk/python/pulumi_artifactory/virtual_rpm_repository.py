@@ -29,9 +29,8 @@ class VirtualRpmRepositoryArgs:
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VirtualRpmRepository resource.
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -42,7 +41,7 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -50,7 +49,7 @@ class VirtualRpmRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -84,9 +83,8 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -174,7 +172,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -248,7 +246,7 @@ class VirtualRpmRepositoryArgs:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -286,12 +284,11 @@ class _VirtualRpmRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -299,7 +296,7 @@ class _VirtualRpmRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -400,9 +397,8 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -438,7 +434,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -512,7 +508,7 @@ class _VirtualRpmRepositoryState:
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 
@@ -542,9 +538,8 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  secondary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Rpm Repository Resource
-
-        Provides an Artifactory virtual repository resource with Rpm package type.
+        Creates a virtual Rpm repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
 
         ## Example Usage
 
@@ -579,7 +574,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
+         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
         ```
 
         :param str resource_name: The name of the resource.
@@ -593,11 +588,10 @@ class VirtualRpmRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -605,7 +599,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         ...
     @overload
@@ -614,9 +608,8 @@ class VirtualRpmRepository(pulumi.CustomResource):
                  args: VirtualRpmRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Rpm Repository Resource
-
-        Provides an Artifactory virtual repository resource with Rpm package type.
+        Creates a virtual Rpm repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
 
         ## Example Usage
 
@@ -651,7 +644,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
+         $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
         ```
 
         :param str resource_name: The name of the resource.
@@ -753,12 +746,11 @@ class VirtualRpmRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages
+        :param pulumi.Input[str] primary_keypair_ref: The primary GPG key to be used to sign packages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -766,7 +758,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
         :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
                repositories. A value of 0 indicates no caching.
-        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages
+        :param pulumi.Input[str] secondary_keypair_ref: The secondary GPG key to be used to sign packages.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -837,9 +829,8 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -863,7 +854,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        The primary GPG key to be used to sign packages
+        The primary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -913,7 +904,7 @@ class VirtualRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="secondaryKeypairRef")
     def secondary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        The secondary GPG key to be used to sign packages
+        The secondary GPG key to be used to sign packages.
         """
         return pulumi.get(self, "secondary_keypair_ref")
 

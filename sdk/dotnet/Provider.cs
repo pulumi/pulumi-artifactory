@@ -19,7 +19,8 @@ namespace Pulumi.Artifactory
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `Identity and Access`
+        /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+        /// attribute value will be used.
         /// </summary>
         [Output("accessToken")]
         public Output<string?> AccessToken { get; private set; } = null!;
@@ -62,7 +63,8 @@ namespace Pulumi.Artifactory
     public sealed class ProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This is a access token that can be given to you by your admin under `Identity and Access`
+        /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+        /// attribute value will be used.
         /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }

@@ -505,11 +505,10 @@ class LdapSetting(pulumi.CustomResource):
                  user_dn_pattern: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory LDAP Setting Resource
-
         This resource can be used to manage Artifactory's LDAP settings for user authentication.
 
-        When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server. If LDAP authentication fails, it then tries to authenticate via its internal database.
+        When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server.
+        If LDAP authentication fails, it then tries to authenticate via its internal database.
 
         ## Example Usage
 
@@ -572,11 +571,10 @@ class LdapSetting(pulumi.CustomResource):
                  args: LdapSettingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory LDAP Setting Resource
-
         This resource can be used to manage Artifactory's LDAP settings for user authentication.
 
-        When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server. If LDAP authentication fails, it then tries to authenticate via its internal database.
+        When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server.
+        If LDAP authentication fails, it then tries to authenticate via its internal database.
 
         ## Example Usage
 

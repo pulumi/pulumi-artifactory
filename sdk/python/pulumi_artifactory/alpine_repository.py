@@ -31,7 +31,7 @@ class AlpineRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AlpineRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -42,7 +42,7 @@ class AlpineRepositoryArgs:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -88,7 +88,7 @@ class AlpineRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -192,7 +192,7 @@ class AlpineRepositoryArgs:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The RSA key to be used to sign alpine indecies
+        The RSA key to be used to sign alpine indices.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -307,8 +307,8 @@ class _AlpineRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -440,7 +440,7 @@ class _AlpineRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -470,7 +470,7 @@ class _AlpineRepositoryState:
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        - The RSA key to be used to sign alpine indecies
+        The RSA key to be used to sign alpine indices.
         """
         return pulumi.get(self, "primary_keypair_ref")
 
@@ -576,9 +576,7 @@ class AlpineRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Local Alpine Repository Resource
-
-        Creates a local Alpine repository
+        Creates a local Alpine repository.
 
         ## Example Usage
 
@@ -598,6 +596,14 @@ class AlpineRepository(pulumi.CustomResource):
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
         ```
 
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -610,8 +616,8 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -628,9 +634,7 @@ class AlpineRepository(pulumi.CustomResource):
                  args: AlpineRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Local Alpine Repository Resource
-
-        Creates a local Alpine repository
+        Creates a local Alpine repository.
 
         ## Example Usage
 
@@ -648,6 +652,14 @@ class AlpineRepository(pulumi.CustomResource):
             key="terraform-local-test-alpine-repo-basic",
             primary_keypair_ref=some_keypair_rsa.pair_name,
             opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
         ```
 
         :param str resource_name: The name of the resource.
@@ -756,8 +768,8 @@ class AlpineRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[str] primary_keypair_ref: - The RSA key to be used to sign alpine indecies
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[str] primary_keypair_ref: The RSA key to be used to sign alpine indices.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
@@ -849,7 +861,7 @@ class AlpineRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -867,7 +879,7 @@ class AlpineRepository(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeypairRef")
     def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        - The RSA key to be used to sign alpine indecies
+        The RSA key to be used to sign alpine indices.
         """
         return pulumi.get(self, "primary_keypair_ref")
 

@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Generic Repository Resource
- *
- * Creates a local generic repository.
+ * Creates a local Generic repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_generic_repo = new artifactory.LocalGenericRepository("terraform-local-test-generic-repo", {
  *     key: "terraform-local-test-generic-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
  * ```
  */
 export class LocalGenericRepository extends pulumi.CustomResource {
@@ -49,7 +55,9 @@ export class LocalGenericRepository extends pulumi.CustomResource {
     }
 
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
      */
     public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -58,19 +66,23 @@ export class LocalGenericRepository extends pulumi.CustomResource {
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. 
+     * It cannot begin with a number or contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -84,7 +96,8 @@ export class LocalGenericRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
@@ -96,7 +109,8 @@ export class LocalGenericRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
      */
     public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
@@ -159,7 +173,9 @@ export class LocalGenericRepository extends pulumi.CustomResource {
  */
 export interface LocalGenericRepositoryState {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -168,19 +184,23 @@ export interface LocalGenericRepositoryState {
     blackedOut?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. 
+     * It cannot begin with a number or contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -194,7 +214,8 @@ export interface LocalGenericRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -206,7 +227,8 @@ export interface LocalGenericRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }
@@ -216,7 +238,9 @@ export interface LocalGenericRepositoryState {
  */
 export interface LocalGenericRepositoryArgs {
     /**
-     * When set, you may view content such as HTML or Javadoc files directly from Artifactory.\nThis may not be safe and therefore requires strict content moderation to prevent malicious users from uploading content that may compromise security (e.g., cross-site scripting attacks).
+     * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
+     * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
+     * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     /**
@@ -225,19 +249,23 @@ export interface LocalGenericRepositoryArgs {
     blackedOut?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
-     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud storage provider. Available in Enterprise+ and Edge licenses only.
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no artifacts are excluded.
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - A mandatory identifier for the repository that must be unique. It cannot begin with a number or contain spaces or special characters.
+     * A mandatory identifier for the repository that must be unique. 
+     * It cannot begin with a number or contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -250,7 +278,8 @@ export interface LocalGenericRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+     * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -262,7 +291,8 @@ export interface LocalGenericRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
      */
     xrayIndex?: pulumi.Input<boolean>;
 }

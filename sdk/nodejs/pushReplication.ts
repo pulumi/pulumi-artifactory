@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Push Replication Resource
- *
  * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
  *
  * ## Example Usage

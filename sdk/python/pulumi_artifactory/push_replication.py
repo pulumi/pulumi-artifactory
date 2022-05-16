@@ -133,8 +133,6 @@ class PushReplication(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Push Replication Resource
-
         Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
 
         ## Example Usage
@@ -175,8 +173,6 @@ class PushReplication(pulumi.CustomResource):
                  args: PushReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Push Replication Resource
-
         Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
 
         ## Example Usage

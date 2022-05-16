@@ -14,19 +14,19 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class BuildWebhookCriteria
     {
         /// <summary>
-        /// Trigger on any build
+        /// Trigger on any build.
         /// </summary>
         public readonly bool AnyBuild;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>
-        /// Trigger on this list of build names
+        /// Trigger on this list of build names.
         /// </summary>
         public readonly ImmutableArray<string> SelectedBuilds;
 

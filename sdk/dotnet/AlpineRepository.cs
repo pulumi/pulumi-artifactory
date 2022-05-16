@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Alpine Repository Resource
-    /// 
-    /// Creates a local Alpine repository
+    /// Creates a local Alpine repository.
     /// 
     /// ## Example Usage
     /// 
@@ -47,6 +45,14 @@ namespace Pulumi.Artifactory
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/alpineRepository:AlpineRepository")]
@@ -94,7 +100,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -106,7 +112,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// The RSA key to be used to sign alpine indices.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -242,7 +248,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -251,7 +257,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// The RSA key to be used to sign alpine indices.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -360,7 +366,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -372,7 +378,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign alpine indecies
+        /// The RSA key to be used to sign alpine indices.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }

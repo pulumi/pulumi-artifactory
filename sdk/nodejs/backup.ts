@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Backup Resource
- *
  * This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
  *
- * When a artifactory.Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+ * When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
+ * The backup process creates a time-stamped directory in the target backup directory.
  *
  * ## Example Usage
  *
@@ -73,7 +72,7 @@ export class Backup extends pulumi.CustomResource {
      */
     public readonly createArchive!: pulumi.Output<boolean | undefined>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
      */
     public readonly cronExp!: pulumi.Output<string>;
     /**
@@ -153,7 +152,7 @@ export interface BackupState {
      */
     createArchive?: pulumi.Input<boolean>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
      */
     cronExp?: pulumi.Input<string>;
     /**
@@ -191,7 +190,7 @@ export interface BackupArgs {
      */
     createArchive?: pulumi.Input<boolean>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
      */
     cronExp: pulumi.Input<string>;
     /**

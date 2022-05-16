@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"unicode"
 
-	"github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory/provider"
 	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -74,7 +74,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(artifactory.Provider())
+	p := shimv2.NewProvider(artifactoryProvider.Provider())
 
 	// Create a Pulumi provider mapping
 	prov := tfbridge.ProviderInfo{
@@ -137,6 +137,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_local_pypi_repository":      {Tok: makeResource(mainMod, "LocalPypiRepository")},
 			"artifactory_local_rpm_repository":       {Tok: makeResource(mainMod, "LocalRpmRepository")},
 			"artifactory_local_sbt_repository":       {Tok: makeResource(mainMod, "LocalSbtRepository")},
+			"artifactory_local_pub_repository":       {Tok: makeResource(mainMod, "LocalPubRepository")},
 			"artifactory_local_vagrant_repository":   {Tok: makeResource(mainMod, "LocalVagrantRepository")},
 			"artifactory_oauth_settings":             {Tok: makeResource(mainMod, "OauthSettings")},
 			"artifactory_permission_target":          {Tok: makeResource(mainMod, "PermissionTarget")},
@@ -146,7 +147,7 @@ func Provider() tfbridge.ProviderInfo {
 				// in the TF registry or repo. Ideally, we would probably want to omit this from the provider since it
 				// appears to have been implicitly deprecated, but doing so will fail the build for a missing mapping.
 				Docs: &tfbridge.DocInfo{
-					Source: "artifactory_permission_target.md",
+					Source: "permission_target.md",
 				},
 			},
 			"artifactory_pull_replication":                   {Tok: makeResource(mainMod, "PullReplication")},
@@ -155,6 +156,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_remote_docker_repository":           {Tok: makeResource(mainMod, "RemoteDockerRepository")},
 			"artifactory_remote_helm_repository":             {Tok: makeResource(mainMod, "RemoteHelmRepository")},
 			"artifactory_remote_npm_repository":              {Tok: makeResource(mainMod, "RemoteNpmRepository")},
+			"artifactory_remote_pub_repository":              {Tok: makeResource(mainMod, "RemotePubRepository")},
 			"artifactory_replication_config":                 {Tok: makeResource(mainMod, "ReplicationConfig")},
 			"artifactory_saml_settings":                      {Tok: makeResource(mainMod, "SamlSettings")},
 			"artifactory_single_replication_config":          {Tok: makeResource(mainMod, "SingleReplicationConfig")},
@@ -249,6 +251,7 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_anonymous_user":                     {Tok: makeResource(mainMod, "AnonymousUser")},
 			"artifactory_managed_user":                       {Tok: makeResource(mainMod, "ManagedUser")},
 			"artifactory_unmanaged_user":                     {Tok: makeResource(mainMod, "UnmanagedUser")},
+			"artifactory_virtual_pub_repository":             {Tok: makeResource(mainMod, "VirtualPubRepository")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

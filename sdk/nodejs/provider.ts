@@ -26,7 +26,8 @@ export class Provider extends pulumi.ProviderResource {
     }
 
     /**
-     * This is a access token that can be given to you by your admin under `Identity and Access`
+     * This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+     * attribute value will be used.
      */
     public readonly accessToken!: pulumi.Output<string | undefined>;
     /**
@@ -61,7 +62,8 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * This is a access token that can be given to you by your admin under `Identity and Access`
+     * This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+     * attribute value will be used.
      */
     accessToken?: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<string>? PathPrefix { get; set; }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies setting.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }

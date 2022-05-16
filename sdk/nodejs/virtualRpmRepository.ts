@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual Rpm Repository Resource
- *
- * Provides an Artifactory virtual repository resource with Rpm package type.
+ * Creates a virtual Rpm repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).
  *
  * ## Example Usage
  *
@@ -47,7 +46,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo foo
+ *  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
  * ```
  */
 export class VirtualRpmRepository extends pulumi.CustomResource {
@@ -103,9 +102,8 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -117,7 +115,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -143,7 +141,7 @@ export class VirtualRpmRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
 
@@ -230,9 +228,8 @@ export interface VirtualRpmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -244,7 +241,7 @@ export interface VirtualRpmRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -270,7 +267,7 @@ export interface VirtualRpmRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }
@@ -304,9 +301,8 @@ export interface VirtualRpmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -314,7 +310,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * The primary GPG key to be used to sign packages
+     * The primary GPG key to be used to sign packages.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -340,7 +336,7 @@ export interface VirtualRpmRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * The secondary GPG key to be used to sign packages
+     * The secondary GPG key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
 }

@@ -6,14 +6,10 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Remote Go Repository Resource
- *
  * Creates a remote VCS repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories)
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/VCS+Repositories).
  *
  * ## Example Usage
- *
- * To create a new Artifactory remote VCS repository called my-remote-vcs.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -25,6 +21,14 @@ import * as utilities from "./utilities";
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
  * ```
  */
 export class RemoteVcsRepository extends pulumi.CustomResource {
@@ -110,12 +114,13 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
     /**
@@ -124,13 +129,13 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * - The maximum number of unique snapshots of a single artifact to store.
+     * The maximum number of unique snapshots of a single artifact to store.
      * Once the number of snapshots exceeds this setting, older versions are removed.
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     public readonly maxUniqueSnapshots!: pulumi.Output<number | undefined>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -163,11 +168,11 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     /**
-     * List of property set name
+     * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -206,7 +211,7 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     /**
-     * - the remote repo URL.
+     * The remote repo URL.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -398,12 +403,13 @@ export interface RemoteVcsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -412,13 +418,13 @@ export interface RemoteVcsRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * - The maximum number of unique snapshots of a single artifact to store.
+     * The maximum number of unique snapshots of a single artifact to store.
      * Once the number of snapshots exceeds this setting, older versions are removed.
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -451,11 +457,11 @@ export interface RemoteVcsRepositoryState {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -494,7 +500,7 @@ export interface RemoteVcsRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL.
+     * The remote repo URL.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -570,12 +576,13 @@ export interface RemoteVcsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -584,13 +591,13 @@ export interface RemoteVcsRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * - The maximum number of unique snapshots of a single artifact to store.
+     * The maximum number of unique snapshots of a single artifact to store.
      * Once the number of snapshots exceeds this setting, older versions are removed.
      * A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
      */
     maxUniqueSnapshots?: pulumi.Input<number>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -622,11 +629,11 @@ export interface RemoteVcsRepositoryArgs {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -665,7 +672,7 @@ export interface RemoteVcsRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL.
+     * The remote repo URL.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

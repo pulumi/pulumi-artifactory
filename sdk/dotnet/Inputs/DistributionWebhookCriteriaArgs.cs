@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class DistributionWebhookCriteriaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Trigger on any release bundle
+        /// Trigger on any release bundle.
         /// </summary>
         [Input("anyReleaseBundle", required: true)]
         public Input<bool> AnyReleaseBundle { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public InputList<string> ExcludePatterns
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includePatterns;
 
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public InputList<string> IncludePatterns
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _registeredReleaseBundleNames;
 
         /// <summary>
-        /// Trigger on this list of release bundle names
+        /// Trigger on this list of release bundle names.
         /// </summary>
         public InputList<string> RegisteredReleaseBundleNames
         {

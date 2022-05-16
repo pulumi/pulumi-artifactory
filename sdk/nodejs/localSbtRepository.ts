@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Sbt Repository Resource
- *
- * Creates a local sbt repository.
+ * Creates a local Sbt repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_sbt_repo = new artifactory.LocalSbtRepository("terraform-local-test-sbt-repo", {
  *     key: "terraform-local-test-sbt-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
  * ```
  */
 export class LocalSbtRepository extends pulumi.CustomResource {
@@ -89,7 +95,7 @@ export class LocalSbtRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -250,7 +256,7 @@ export interface LocalSbtRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     /**
@@ -346,7 +352,7 @@ export interface LocalSbtRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     /**

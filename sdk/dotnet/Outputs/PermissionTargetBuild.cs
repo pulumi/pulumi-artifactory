@@ -18,15 +18,15 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly Outputs.PermissionTargetBuildActions? Actions;
         /// <summary>
-        /// Pattern of artifacts to exclude
+        /// Pattern of artifacts to exclude.
         /// </summary>
         public readonly ImmutableArray<string> ExcludesPatterns;
         /// <summary>
-        /// Pattern of artifacts to include
+        /// Pattern of artifacts to include.
         /// </summary>
         public readonly ImmutableArray<string> IncludesPatterns;
         /// <summary>
-        /// List of repositories this permission target is applicable for
+        /// List of repositories this permission target is applicable for.
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
 

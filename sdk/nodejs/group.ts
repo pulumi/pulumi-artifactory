@@ -58,6 +58,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly detachAllUsers!: pulumi.Output<boolean | undefined>;
     /**
+     * New external group ID used to configure the corresponding group in Azure AD.
+     */
+    public readonly externalId!: pulumi.Output<string | undefined>;
+    /**
      * Name of the group
      */
     public readonly name!: pulumi.Output<string>;
@@ -103,6 +107,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["autoJoin"] = state ? state.autoJoin : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["detachAllUsers"] = state ? state.detachAllUsers : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyManager"] = state ? state.policyManager : undefined;
             resourceInputs["realm"] = state ? state.realm : undefined;
@@ -116,6 +121,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["autoJoin"] = args ? args.autoJoin : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["detachAllUsers"] = args ? args.detachAllUsers : undefined;
+            resourceInputs["externalId"] = args ? args.externalId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyManager"] = args ? args.policyManager : undefined;
             resourceInputs["realm"] = args ? args.realm : undefined;
@@ -149,6 +155,10 @@ export interface GroupState {
      * When this override is set, an empty or missing usernames array will detach all users from the group
      */
     detachAllUsers?: pulumi.Input<boolean>;
+    /**
+     * New external group ID used to configure the corresponding group in Azure AD.
+     */
+    externalId?: pulumi.Input<string>;
     /**
      * Name of the group
      */
@@ -199,6 +209,10 @@ export interface GroupArgs {
      * When this override is set, an empty or missing usernames array will detach all users from the group
      */
     detachAllUsers?: pulumi.Input<boolean>;
+    /**
+     * New external group ID used to configure the corresponding group in Azure AD.
+     */
+    externalId?: pulumi.Input<string>;
     /**
      * Name of the group
      */
