@@ -133,6 +133,8 @@ class ReplicationConfig(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+
         ## Example Usage
 
         ```python
@@ -171,6 +173,8 @@ class ReplicationConfig(pulumi.CustomResource):
                  args: ReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+
         ## Example Usage
 
         ```python

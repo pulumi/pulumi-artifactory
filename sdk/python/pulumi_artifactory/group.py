@@ -17,6 +17,7 @@ class GroupArgs:
                  auto_join: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class GroupArgs:
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
@@ -46,6 +48,8 @@ class GroupArgs:
             pulumi.set(__self__, "description", description)
         if detach_all_users is not None:
             pulumi.set(__self__, "detach_all_users", detach_all_users)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_manager is not None:
@@ -108,6 +112,18 @@ class GroupArgs:
     @detach_all_users.setter
     def detach_all_users(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "detach_all_users", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        New external group ID used to configure the corresponding group in Azure AD.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
 
     @property
     @pulumi.getter
@@ -201,6 +217,7 @@ class _GroupState:
                  auto_join: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
@@ -214,6 +231,7 @@ class _GroupState:
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
@@ -230,6 +248,8 @@ class _GroupState:
             pulumi.set(__self__, "description", description)
         if detach_all_users is not None:
             pulumi.set(__self__, "detach_all_users", detach_all_users)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_manager is not None:
@@ -292,6 +312,18 @@ class _GroupState:
     @detach_all_users.setter
     def detach_all_users(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "detach_all_users", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        New external group ID used to configure the corresponding group in Azure AD.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
 
     @property
     @pulumi.getter
@@ -387,6 +419,7 @@ class Group(pulumi.CustomResource):
                  auto_join: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
@@ -410,6 +443,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
@@ -452,6 +486,7 @@ class Group(pulumi.CustomResource):
                  auto_join: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  detach_all_users: Optional[pulumi.Input[bool]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_manager: Optional[pulumi.Input[bool]] = None,
                  realm: Optional[pulumi.Input[str]] = None,
@@ -475,6 +510,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["auto_join"] = auto_join
             __props__.__dict__["description"] = description
             __props__.__dict__["detach_all_users"] = detach_all_users
+            __props__.__dict__["external_id"] = external_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_manager"] = policy_manager
             __props__.__dict__["realm"] = realm
@@ -496,6 +532,7 @@ class Group(pulumi.CustomResource):
             auto_join: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             detach_all_users: Optional[pulumi.Input[bool]] = None,
+            external_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_manager: Optional[pulumi.Input[bool]] = None,
             realm: Optional[pulumi.Input[str]] = None,
@@ -514,6 +551,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
         :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
         :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
         :param pulumi.Input[str] realm: The realm for the group.
@@ -530,6 +568,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["auto_join"] = auto_join
         __props__.__dict__["description"] = description
         __props__.__dict__["detach_all_users"] = detach_all_users
+        __props__.__dict__["external_id"] = external_id
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_manager"] = policy_manager
         __props__.__dict__["realm"] = realm
@@ -570,6 +609,14 @@ class Group(pulumi.CustomResource):
         When this override is set, an empty or missing usernames array will detach all users from the group
         """
         return pulumi.get(self, "detach_all_users")
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        New external group ID used to configure the corresponding group in Azure AD.
+        """
+        return pulumi.get(self, "external_id")
 
     @property
     @pulumi.getter

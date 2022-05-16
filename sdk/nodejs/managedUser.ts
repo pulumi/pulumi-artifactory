@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Managed User Resource
- *
  * Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
  *
  * Unlike `artifactory.UnmanagedUser` and `artifactory.User`, the `password` attribute is required and cannot be empty.

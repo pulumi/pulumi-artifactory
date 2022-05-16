@@ -166,8 +166,6 @@ class OauthSettings(pulumi.CustomResource):
                  persist_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory OAuth SSO Settings Resource
-
         This resource can be used to manage Artifactory's OAuth SSO settings.
 
         Only a single `OauthSettings` resource is meant to be defined.
@@ -217,8 +215,6 @@ class OauthSettings(pulumi.CustomResource):
                  args: OauthSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory OAuth SSO Settings Resource
-
         This resource can be used to manage Artifactory's OAuth SSO settings.
 
         Only a single `OauthSettings` resource is meant to be defined.

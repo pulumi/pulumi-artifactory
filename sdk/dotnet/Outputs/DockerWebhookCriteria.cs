@@ -14,23 +14,23 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class DockerWebhookCriteria
     {
         /// <summary>
-        /// Trigger on any local repo
+        /// Trigger on any local repo.
         /// </summary>
         public readonly bool AnyLocal;
         /// <summary>
-        /// Trigger on any remote repo
+        /// Trigger on any remote repo.
         /// </summary>
         public readonly bool AnyRemote;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>
-        /// Trigger on this list of repo keys
+        /// Trigger on this list of repo keys.
         /// </summary>
         public readonly ImmutableArray<string> RepoKeys;
 

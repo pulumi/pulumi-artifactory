@@ -19,29 +19,51 @@ class FederatedDockerRepositoryArgs:
                  members: pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]],
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 block_pushing_schema1: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 max_unique_tags: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 tag_retention: Optional[pulumi.Input[int]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedDockerRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+               applies to manifest v2
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+               manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -49,6 +71,8 @@ class FederatedDockerRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if block_pushing_schema1 is not None:
+            pulumi.set(__self__, "block_pushing_schema1", block_pushing_schema1)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -57,6 +81,8 @@ class FederatedDockerRepositoryArgs:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if max_unique_tags is not None:
+            pulumi.set(__self__, "max_unique_tags", max_unique_tags)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
@@ -69,6 +95,8 @@ class FederatedDockerRepositoryArgs:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if tag_retention is not None:
+            pulumi.set(__self__, "tag_retention", tag_retention)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
 
@@ -76,7 +104,7 @@ class FederatedDockerRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,7 +116,10 @@ class FederatedDockerRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -113,11 +144,26 @@ class FederatedDockerRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="blockPushingSchema1")
+    def block_pushing_schema1(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        """
+        return pulumi.get(self, "block_pushing_schema1")
+
+    @block_pushing_schema1.setter
+    def block_pushing_schema1(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_pushing_schema1", value)
 
     @property
     @pulumi.getter
@@ -131,6 +177,10 @@ class FederatedDockerRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -140,6 +190,10 @@ class FederatedDockerRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -149,11 +203,29 @@ class FederatedDockerRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
     def includes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "includes_pattern", value)
+
+    @property
+    @pulumi.getter(name="maxUniqueTags")
+    def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+        applies to manifest v2
+        """
+        return pulumi.get(self, "max_unique_tags")
+
+    @max_unique_tags.setter
+    def max_unique_tags(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_tags", value)
 
     @property
     @pulumi.getter
@@ -204,6 +276,9 @@ class FederatedDockerRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -223,8 +298,25 @@ class FederatedDockerRepositoryArgs:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="tagRetention")
+    def tag_retention(self) -> Optional[pulumi.Input[int]]:
+        """
+        If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+        manifest V2
+        """
+        return pulumi.get(self, "tag_retention")
+
+    @tag_retention.setter
+    def tag_retention(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tag_retention", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -235,13 +327,16 @@ class FederatedDockerRepositoryArgs:
 @pulumi.input_type
 class _FederatedDockerRepositoryState:
     def __init__(__self__, *,
+                 api_version: Optional[pulumi.Input[str]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 block_pushing_schema1: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_tags: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -250,24 +345,49 @@ class _FederatedDockerRepositoryState:
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 tag_retention: Optional[pulumi.Input[int]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering FederatedDockerRepository resources.
+        :param pulumi.Input[str] api_version: The Docker API version to use. This cannot be set
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+               applies to manifest v2
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+               manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if block_pushing_schema1 is not None:
+            pulumi.set(__self__, "block_pushing_schema1", block_pushing_schema1)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
@@ -278,6 +398,8 @@ class _FederatedDockerRepositoryState:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if max_unique_tags is not None:
+            pulumi.set(__self__, "max_unique_tags", max_unique_tags)
         if members is not None:
             pulumi.set(__self__, "members", members)
         if notes is not None:
@@ -294,8 +416,22 @@ class _FederatedDockerRepositoryState:
             pulumi.set(__self__, "property_sets", property_sets)
         if repo_layout_ref is not None:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
+        if tag_retention is not None:
+            pulumi.set(__self__, "tag_retention", tag_retention)
         if xray_index is not None:
             pulumi.set(__self__, "xray_index", xray_index)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Docker API version to use. This cannot be set
+        """
+        return pulumi.get(self, "api_version")
+
+    @api_version.setter
+    def api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_version", value)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -314,11 +450,26 @@ class _FederatedDockerRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="blockPushingSchema1")
+    def block_pushing_schema1(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        """
+        return pulumi.get(self, "block_pushing_schema1")
+
+    @block_pushing_schema1.setter
+    def block_pushing_schema1(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_pushing_schema1", value)
 
     @property
     @pulumi.getter
@@ -332,6 +483,10 @@ class _FederatedDockerRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -341,6 +496,10 @@ class _FederatedDockerRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -350,6 +509,10 @@ class _FederatedDockerRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -360,7 +523,7 @@ class _FederatedDockerRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -369,10 +532,27 @@ class _FederatedDockerRepositoryState:
         pulumi.set(self, "key", value)
 
     @property
+    @pulumi.getter(name="maxUniqueTags")
+    def max_unique_tags(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+        applies to manifest v2
+        """
+        return pulumi.get(self, "max_unique_tags")
+
+    @max_unique_tags.setter
+    def max_unique_tags(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_tags", value)
+
+    @property
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedDockerRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -438,6 +618,9 @@ class _FederatedDockerRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -457,8 +640,25 @@ class _FederatedDockerRepositoryState:
         pulumi.set(self, "repo_layout_ref", value)
 
     @property
+    @pulumi.getter(name="tagRetention")
+    def tag_retention(self) -> Optional[pulumi.Input[int]]:
+        """
+        If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+        manifest V2
+        """
+        return pulumi.get(self, "tag_retention")
+
+    @tag_retention.setter
+    def tag_retention(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tag_retention", value)
+
+    @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -473,11 +673,13 @@ class FederatedDockerRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 block_pushing_schema1: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_tags: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -485,12 +687,11 @@ class FederatedDockerRepository(pulumi.CustomResource):
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 tag_retention: Optional[pulumi.Input[int]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Docker Repository Resource
-
-        Creates a federated Docker repository
+        Creates a federated Docker repository.
 
         ## Example Usage
 
@@ -512,18 +713,45 @@ class FederatedDockerRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+               applies to manifest v2
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+               manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -532,9 +760,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
                  args: FederatedDockerRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Docker Repository Resource
-
-        Creates a federated Docker repository
+        Creates a federated Docker repository.
 
         ## Example Usage
 
@@ -554,6 +780,14 @@ class FederatedDockerRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -573,11 +807,13 @@ class FederatedDockerRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 block_pushing_schema1: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_tags: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -585,6 +821,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
                  project_key: Optional[pulumi.Input[str]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
+                 tag_retention: Optional[pulumi.Input[int]] = None,
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -600,6 +837,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
 
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["block_pushing_schema1"] = block_pushing_schema1
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
@@ -607,6 +845,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["max_unique_tags"] = max_unique_tags
             if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
@@ -616,7 +855,9 @@ class FederatedDockerRepository(pulumi.CustomResource):
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+            __props__.__dict__["tag_retention"] = tag_retention
             __props__.__dict__["xray_index"] = xray_index
+            __props__.__dict__["api_version"] = None
             __props__.__dict__["package_type"] = None
         super(FederatedDockerRepository, __self__).__init__(
             'artifactory:index/federatedDockerRepository:FederatedDockerRepository',
@@ -628,13 +869,16 @@ class FederatedDockerRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_version: Optional[pulumi.Input[str]] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            block_pushing_schema1: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
+            max_unique_tags: Optional[pulumi.Input[int]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
@@ -643,6 +887,7 @@ class FederatedDockerRepository(pulumi.CustomResource):
             project_key: Optional[pulumi.Input[str]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
+            tag_retention: Optional[pulumi.Input[int]] = None,
             xray_index: Optional[pulumi.Input[bool]] = None) -> 'FederatedDockerRepository':
         """
         Get an existing FederatedDockerRepository resource's state with the given name, id, and optional extra
@@ -651,28 +896,51 @@ class FederatedDockerRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_version: The Docker API version to use. This cannot be set
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] block_pushing_schema1: When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_tags: The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+               image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+               applies to manifest v2
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedDockerRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[int] tag_retention: If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+               manifest V2
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _FederatedDockerRepositoryState.__new__(_FederatedDockerRepositoryState)
 
+        __props__.__dict__["api_version"] = api_version
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["block_pushing_schema1"] = block_pushing_schema1
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
+        __props__.__dict__["max_unique_tags"] = max_unique_tags
         __props__.__dict__["members"] = members
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
@@ -681,8 +949,17 @@ class FederatedDockerRepository(pulumi.CustomResource):
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
+        __props__.__dict__["tag_retention"] = tag_retention
         __props__.__dict__["xray_index"] = xray_index
         return FederatedDockerRepository(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> pulumi.Output[str]:
+        """
+        The Docker API version to use. This cannot be set
+        """
+        return pulumi.get(self, "api_version")
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -697,7 +974,18 @@ class FederatedDockerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="blockPushingSchema1")
+    def block_pushing_schema1(self) -> pulumi.Output[bool]:
+        """
+        When set, Artifactory will block the pushing of Docker images with manifest v2 schema 1 to this repository.
+        """
+        return pulumi.get(self, "block_pushing_schema1")
 
     @property
     @pulumi.getter
@@ -707,31 +995,56 @@ class FederatedDockerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="maxUniqueTags")
+    def max_unique_tags(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of unique tags of a single Docker image to store in this repository. Once the number tags for an
+        image exceeds this setting, older tags are removed. A value of 0 (default) indicates there is no limit. This only
+        applies to manifest v2
+        """
+        return pulumi.get(self, "max_unique_tags")
 
     @property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedDockerRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -773,6 +1086,9 @@ class FederatedDockerRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -784,7 +1100,20 @@ class FederatedDockerRepository(pulumi.CustomResource):
         return pulumi.get(self, "repo_layout_ref")
 
     @property
+    @pulumi.getter(name="tagRetention")
+    def tag_retention(self) -> pulumi.Output[Optional[int]]:
+        """
+        If greater than 1, overwritten tags will be saved by their digest, up to the set up number. This only applies to
+        manifest V2
+        """
+        return pulumi.get(self, "tag_retention")
+
+    @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

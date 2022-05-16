@@ -22,7 +22,9 @@ class FederatedNugetRepositoryArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_nuget_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,16 +34,32 @@ class FederatedNugetRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedNugetRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -55,8 +73,12 @@ class FederatedNugetRepositoryArgs:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_nuget_authentication is not None:
+            pulumi.set(__self__, "force_nuget_authentication", force_nuget_authentication)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
@@ -76,7 +98,7 @@ class FederatedNugetRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,7 +110,10 @@ class FederatedNugetRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -113,6 +138,9 @@ class FederatedNugetRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -131,6 +159,10 @@ class FederatedNugetRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -140,6 +172,10 @@ class FederatedNugetRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -147,13 +183,42 @@ class FederatedNugetRepositoryArgs:
         pulumi.set(self, "excludes_pattern", value)
 
     @property
+    @pulumi.getter(name="forceNugetAuthentication")
+    def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        """
+        return pulumi.get(self, "force_nuget_authentication")
+
+    @force_nuget_authentication.setter
+    def force_nuget_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_nuget_authentication", value)
+
+    @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
     def includes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "includes_pattern", value)
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
 
     @property
     @pulumi.getter
@@ -204,6 +269,9 @@ class FederatedNugetRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -225,6 +293,10 @@ class FederatedNugetRepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -240,8 +312,10 @@ class _FederatedNugetRepositoryState:
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_nuget_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
@@ -256,13 +330,29 @@ class _FederatedNugetRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -274,10 +364,14 @@ class _FederatedNugetRepositoryState:
             pulumi.set(__self__, "download_direct", download_direct)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
+        if force_nuget_authentication is not None:
+            pulumi.set(__self__, "force_nuget_authentication", force_nuget_authentication)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if max_unique_snapshots is not None:
+            pulumi.set(__self__, "max_unique_snapshots", max_unique_snapshots)
         if members is not None:
             pulumi.set(__self__, "members", members)
         if notes is not None:
@@ -314,6 +408,9 @@ class _FederatedNugetRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -332,6 +429,10 @@ class _FederatedNugetRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -341,6 +442,10 @@ class _FederatedNugetRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -348,8 +453,24 @@ class _FederatedNugetRepositoryState:
         pulumi.set(self, "excludes_pattern", value)
 
     @property
+    @pulumi.getter(name="forceNugetAuthentication")
+    def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        """
+        return pulumi.get(self, "force_nuget_authentication")
+
+    @force_nuget_authentication.setter
+    def force_nuget_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_nuget_authentication", value)
+
+    @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -360,7 +481,7 @@ class _FederatedNugetRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -369,10 +490,26 @@ class _FederatedNugetRepositoryState:
         pulumi.set(self, "key", value)
 
     @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
+
+    @max_unique_snapshots.setter
+    def max_unique_snapshots(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unique_snapshots", value)
+
+    @property
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedNugetRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -438,6 +575,9 @@ class _FederatedNugetRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -459,6 +599,10 @@ class _FederatedNugetRepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -476,8 +620,10 @@ class FederatedNugetRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_nuget_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -488,9 +634,7 @@ class FederatedNugetRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Nuget Repository Resource
-
-        Creates a federated Nuget repository
+        Creates a federated Nuget repository.
 
         ## Example Usage
 
@@ -512,18 +656,42 @@ class FederatedNugetRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedNugetRepository:FederatedNugetRepository terraform-federated-test-nuget-repo terraform-federated-test-nuget-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -532,9 +700,7 @@ class FederatedNugetRepository(pulumi.CustomResource):
                  args: FederatedNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Nuget Repository Resource
-
-        Creates a federated Nuget repository
+        Creates a federated Nuget repository.
 
         ## Example Usage
 
@@ -554,6 +720,14 @@ class FederatedNugetRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedNugetRepository:FederatedNugetRepository terraform-federated-test-nuget-repo terraform-federated-test-nuget-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -576,8 +750,10 @@ class FederatedNugetRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
+                 force_nuget_authentication: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
+                 max_unique_snapshots: Optional[pulumi.Input[int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
@@ -603,10 +779,12 @@ class FederatedNugetRepository(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
+            __props__.__dict__["force_nuget_authentication"] = force_nuget_authentication
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
             if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
@@ -633,8 +811,10 @@ class FederatedNugetRepository(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
+            force_nuget_authentication: Optional[pulumi.Input[bool]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
+            max_unique_snapshots: Optional[pulumi.Input[int]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
@@ -654,13 +834,29 @@ class FederatedNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+               older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedNugetRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -671,8 +867,10 @@ class FederatedNugetRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
+        __props__.__dict__["force_nuget_authentication"] = force_nuget_authentication
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
+        __props__.__dict__["max_unique_snapshots"] = max_unique_snapshots
         __props__.__dict__["members"] = members
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
@@ -697,6 +895,9 @@ class FederatedNugetRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
@@ -707,31 +908,63 @@ class FederatedNugetRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
+
+    @property
+    @pulumi.getter(name="forceNugetAuthentication")
+    def force_nuget_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Force basic authentication credentials in order to use this repository.
+        """
+        return pulumi.get(self, "force_nuget_authentication")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="maxUniqueSnapshots")
+    def max_unique_snapshots(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
+        older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
+        """
+        return pulumi.get(self, "max_unique_snapshots")
 
     @property
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedNugetRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -773,6 +1006,9 @@ class FederatedNugetRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -785,6 +1021,10 @@ class FederatedNugetRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

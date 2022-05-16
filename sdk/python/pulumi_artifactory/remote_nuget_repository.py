@@ -59,8 +59,9 @@ class RemoteNugetRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RemoteNugetRepository resource.
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
                any other host.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
@@ -74,7 +75,9 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
+               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -84,11 +87,11 @@ class RemoteNugetRepositoryArgs:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+               the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
@@ -97,8 +100,8 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -202,7 +205,8 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The repository identifier. Must be unique system-wide
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -214,7 +218,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        - the remote repo URL. You kinda don't have a remote repo without it
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 
@@ -321,7 +325,9 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served.
+        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -408,8 +414,8 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        value of the 'Retrieval Cache Period'. Default value is 'false'.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -434,7 +440,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
@@ -538,7 +544,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of property set name
+        List of property set names
         """
         return pulumi.get(self, "property_sets")
 
@@ -550,7 +556,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies settings
         """
         return pulumi.get(self, "proxy")
 
@@ -762,7 +768,9 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
+               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -772,12 +780,13 @@ class _RemoteNugetRepositoryState:
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+               the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
@@ -786,8 +795,8 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -800,7 +809,7 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -996,7 +1005,9 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served.
+        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -1092,7 +1103,8 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The repository identifier. Must be unique system-wide
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1104,8 +1116,8 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> Optional[pulumi.Input[bool]]:
         """
-        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        value of the 'Retrieval Cache Period'. Default value is 'false'.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -1130,7 +1142,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
@@ -1243,7 +1255,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of property set name
+        List of property set names
         """
         return pulumi.get(self, "property_sets")
 
@@ -1255,7 +1267,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies settings
         """
         return pulumi.get(self, "proxy")
 
@@ -1374,7 +1386,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        - the remote repo URL. You kinda don't have a remote repo without it
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 
@@ -1466,14 +1478,10 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Remote Nuget Repository Resource
-
         Creates a remote Nuget repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories).
 
         ## Example Usage
-
-        To create a new Artifactory remote Nuget repository called my-remote-nuget.
 
         ```python
         import pulumi
@@ -1485,6 +1493,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
             key="my-remote-nuget",
             url="https://www.nuget.org/",
             v3_feed_url="https://api.nuget.org/v3/index.json")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
         ```
 
         :param str resource_name: The name of the resource.
@@ -1502,7 +1518,9 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
+               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -1512,12 +1530,13 @@ class RemoteNugetRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+               the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
@@ -1526,8 +1545,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -1540,7 +1559,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1552,14 +1571,10 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  args: RemoteNugetRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Remote Nuget Repository Resource
-
         Creates a remote Nuget repository.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories)
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories).
 
         ## Example Usage
-
-        To create a new Artifactory remote Nuget repository called my-remote-nuget.
 
         ```python
         import pulumi
@@ -1571,6 +1586,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
             key="my-remote-nuget",
             url="https://www.nuget.org/",
             v3_feed_url="https://api.nuget.org/v3/index.json")
+        ```
+
+        ## Import
+
+        Remote repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
         ```
 
         :param str resource_name: The name of the resource.
@@ -1764,7 +1787,9 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
-        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
+               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
@@ -1774,12 +1799,13 @@ class RemoteNugetRepository(pulumi.CustomResource):
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The repository identifier. Must be unique system-wide
-        :param pulumi.Input[bool] list_remote_folder_items: (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-               value of the 'Retrieval Cache Period'. Default value is 'false'.
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
+        :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+               the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[str] mismatching_mime_types_override_list: (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                "application/json,application/xml". Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
@@ -1788,8 +1814,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
@@ -1802,7 +1828,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: The number of hours to wait before an artifact is deemed "unused" and eligible for cleanup from the repository. A value
                of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] url: - the remote repo URL. You kinda don't have a remote repo without it
+        :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
@@ -1924,7 +1950,9 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="downloadContextPath")
     def download_context_path(self) -> pulumi.Output[Optional[str]]:
         """
-        The context path prefix through which NuGet downloads are served. Default value is 'api/v2/package'.
+        The context path prefix through which NuGet downloads are served.
+        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
+        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -1988,7 +2016,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The repository identifier. Must be unique system-wide
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -1996,8 +2025,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="listRemoteFolderItems")
     def list_remote_folder_items(self) -> pulumi.Output[Optional[bool]]:
         """
-        (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-        value of the 'Retrieval Cache Period'. Default value is 'false'.
+        Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+        the 'Retrieval Cache Period'. Default value is 'false'.
         """
         return pulumi.get(self, "list_remote_folder_items")
 
@@ -2014,7 +2043,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="mismatchingMimeTypesOverrideList")
     def mismatching_mime_types_override_list(self) -> pulumi.Output[Optional[str]]:
         """
-        (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+        The set of mime types that should override the block_mismatching_mime_types setting. Eg:
         "application/json,application/xml". Default value is empty.
         """
         return pulumi.get(self, "mismatching_mime_types_override_list")
@@ -2087,7 +2116,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of property set name
+        List of property set names
         """
         return pulumi.get(self, "property_sets")
 
@@ -2095,7 +2124,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def proxy(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy key from Artifactory Proxies setting
+        Proxy key from Artifactory Proxies settings
         """
         return pulumi.get(self, "proxy")
 
@@ -2174,7 +2203,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        - the remote repo URL. You kinda don't have a remote repo without it
+        The remote repo URL.
         """
         return pulumi.get(self, "url")
 

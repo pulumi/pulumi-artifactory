@@ -29,9 +29,8 @@ class GoRepositoryArgs:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a GoRepository resource.
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -39,7 +38,8 @@ class GoRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+               When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
@@ -84,9 +84,8 @@ class GoRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -149,7 +148,8 @@ class GoRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -284,13 +284,13 @@ class _GoRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+               When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -387,7 +387,8 @@ class _GoRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -424,9 +425,8 @@ class _GoRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -542,9 +542,8 @@ class GoRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Go Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific go lang features.
+        Creates a virtual Go repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
 
         ## Example Usage
 
@@ -572,7 +571,7 @@ class GoRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository foo foo
+         $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
         ```
 
         :param str resource_name: The name of the resource.
@@ -584,13 +583,13 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+               When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
@@ -607,9 +606,8 @@ class GoRepository(pulumi.CustomResource):
                  args: GoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Go Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific go lang features.
+        Creates a virtual Go repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Go+Registry#GoRegistry-VirtualRepositories).
 
         ## Example Usage
 
@@ -637,7 +635,7 @@ class GoRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/goRepository:GoRepository foo foo
+         $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
         ```
 
         :param str resource_name: The name of the resource.
@@ -737,13 +735,13 @@ class GoRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        :param pulumi.Input[bool] external_dependencies_enabled: Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+               When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: 'go-import' Allow List on the UI.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -814,7 +812,8 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list
+        Shorthand for "Enable 'go-import' Meta Tags" on the UI. This must be set to true in order to use the allow list. 
+        When checked (default), Artifactory will automatically follow remote VCS roots in 'go-import' meta tags to download remote modules.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -839,9 +838,8 @@ class GoRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

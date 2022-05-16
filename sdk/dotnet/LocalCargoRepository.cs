@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Cargo Repository Resource
-    /// 
-    /// Creates a local Cargo repository
+    /// Creates a local Cargo repository.
     /// 
     /// ## Example Usage
     /// 
@@ -33,12 +31,22 @@ namespace Pulumi.Artifactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCargoRepository:LocalCargoRepository")]
     public partial class LocalCargoRepository : Pulumi.CustomResource
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Default value is `false`.
         /// </summary>
         [Output("anonymousAccess")]
         public Output<bool?> AnonymousAccess { get; private set; } = null!;
@@ -85,7 +93,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -181,7 +189,9 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -233,7 +243,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -299,7 +309,9 @@ namespace Pulumi.Artifactory
     public sealed class LocalCargoRepositoryState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is 'false'.
+        /// Cargo client does not send credentials when performing download and search for crates. 
+        /// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -351,7 +363,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

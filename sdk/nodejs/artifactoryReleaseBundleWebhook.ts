@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Release Bundle Webhook Resource
- *
  * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
  *
  * ## Example Usage
@@ -17,26 +15,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const release_bundle_webhook = new artifactory.ReleaseBundleWebhook("release-bundle-webhook", {
+ * const artifactory_release_bundle_webhook = new artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", {
  *     criteria: {
  *         anyReleaseBundle: false,
  *         excludePatterns: ["bar/**"],
  *         includePatterns: ["foo/**"],
  *         registeredReleaseBundleNames: ["bundle-name"],
  *     },
- *     customHttpHeaders: {
- *         "header-1": "value-1",
- *         "header-2": "value-2",
- *     },
  *     eventTypes: [
- *         "created",
- *         "signed",
- *         "deleted",
+ *         "received",
+ *         "delete_started",
+ *         "delete_completed",
+ *         "delete_failed",
  *     ],
- *     key: "release-bundle-webhook",
- *     proxy: "proxy-key",
- *     secret: "some-secret",
- *     url: "http://tempurl.org/webhook",
+ *     handlers: [{
+ *         customHttpHeaders: {
+ *             "header-1": "value-1",
+ *             "header-2": "value-2",
+ *         },
+ *         proxy: "proxy-key",
+ *         secret: "some-secret",
+ *         url: "http://tempurl.org/webhook",
+ *     }],
+ *     key: "artifactory-release-bundle-webhook",
  * });
  * ```
  */
@@ -73,10 +74,6 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
      */
     public readonly criteria!: pulumi.Output<outputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
-    public readonly customHttpHeaders!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * Webhook description. Max length 1000 characters.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -85,25 +82,17 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
+    /**
+     * At least one is required.
+     */
+    public readonly handlers!: pulumi.Output<outputs.ArtifactoryReleaseBundleWebhookHandler[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     public readonly key!: pulumi.Output<string>;
-    /**
-     * Proxy key from Artifactory Proxies setting
-     */
-    public readonly proxy!: pulumi.Output<string | undefined>;
-    /**
-     * Secret authentication token that will be sent to the configured URL
-     */
-    public readonly secret!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
-    public readonly url!: pulumi.Output<string>;
 
     /**
      * Create a ArtifactoryReleaseBundleWebhook resource with the given unique name, arguments, and options.
@@ -119,14 +108,11 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ArtifactoryReleaseBundleWebhookState | undefined;
             resourceInputs["criteria"] = state ? state.criteria : undefined;
-            resourceInputs["customHttpHeaders"] = state ? state.customHttpHeaders : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["eventTypes"] = state ? state.eventTypes : undefined;
+            resourceInputs["handlers"] = state ? state.handlers : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
-            resourceInputs["proxy"] = state ? state.proxy : undefined;
-            resourceInputs["secret"] = state ? state.secret : undefined;
-            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ArtifactoryReleaseBundleWebhookArgs | undefined;
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -135,21 +121,18 @@ export class ArtifactoryReleaseBundleWebhook extends pulumi.CustomResource {
             if ((!args || args.eventTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'eventTypes'");
             }
+            if ((!args || args.handlers === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'handlers'");
+            }
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'url'");
-            }
             resourceInputs["criteria"] = args ? args.criteria : undefined;
-            resourceInputs["customHttpHeaders"] = args ? args.customHttpHeaders : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["eventTypes"] = args ? args.eventTypes : undefined;
+            resourceInputs["handlers"] = args ? args.handlers : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["secret"] = args ? args.secret : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ArtifactoryReleaseBundleWebhook.__pulumiType, name, resourceInputs, opts);
@@ -165,10 +148,6 @@ export interface ArtifactoryReleaseBundleWebhookState {
      */
     criteria?: pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * Webhook description. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
@@ -177,25 +156,17 @@ export interface ArtifactoryReleaseBundleWebhookState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * At least one is required.
+     */
+    handlers?: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key?: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies setting
-     */
-    proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL
-     */
-    secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
-    url?: pulumi.Input<string>;
 }
 
 /**
@@ -207,10 +178,6 @@ export interface ArtifactoryReleaseBundleWebhookArgs {
      */
     criteria: pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookCriteria>;
     /**
-     * Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-     */
-    customHttpHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
      * Webhook description. Max length 1000 characters.
      */
     description?: pulumi.Input<string>;
@@ -219,23 +186,15 @@ export interface ArtifactoryReleaseBundleWebhookArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * At least one is required.
+     */
+    handlers: pulumi.Input<pulumi.Input<inputs.ArtifactoryReleaseBundleWebhookHandler>[]>;
     /**
      * The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
      */
     key: pulumi.Input<string>;
-    /**
-     * Proxy key from Artifactory Proxies setting
-     */
-    proxy?: pulumi.Input<string>;
-    /**
-     * Secret authentication token that will be sent to the configured URL
-     */
-    secret?: pulumi.Input<string>;
-    /**
-     * Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-     */
-    url: pulumi.Input<string>;
 }

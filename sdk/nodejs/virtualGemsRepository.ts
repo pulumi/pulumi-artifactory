@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual Gems Repository Resource
- *
- * Provides an Artifactory virtual repository resource with specific gems features.
+ * Creates a virtual Gems repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RubyGems+Repositories#RubyGemsRepositories-VirtualRepositories).
  *
  * ## Example Usage
  *
@@ -30,7 +29,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo foo
+ *  $ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo-gems foo-gems
  * ```
  */
 export class VirtualGemsRepository extends pulumi.CustomResource {
@@ -86,9 +85,8 @@ export class VirtualGemsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -201,9 +199,8 @@ export interface VirtualGemsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -267,9 +264,8 @@ export interface VirtualGemsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**

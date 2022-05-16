@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _excludesPatterns;
 
         /// <summary>
-        /// Pattern of artifacts to exclude
+        /// Pattern of artifacts to exclude.
         /// </summary>
         public InputList<string> ExcludesPatterns
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _includesPatterns;
 
         /// <summary>
-        /// Pattern of artifacts to include
+        /// Pattern of artifacts to include.
         /// </summary>
         public InputList<string> IncludesPatterns
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _repositories;
 
         /// <summary>
-        /// List of repositories this permission target is applicable for
+        /// List of repositories this permission target is applicable for.
         /// </summary>
         public InputList<string> Repositories
         {

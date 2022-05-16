@@ -74,6 +74,7 @@ export * from "./localMavenRepository";
 export * from "./localNpmRepository";
 export * from "./localNugetRepository";
 export * from "./localOpkgRepository";
+export * from "./localPubRepository";
 export * from "./localPuppetRepository";
 export * from "./localPypiRepository";
 export * from "./localRpmRepository";
@@ -111,6 +112,7 @@ export * from "./remoteNpmRepository";
 export * from "./remoteNugetRepository";
 export * from "./remoteOpkgRepository";
 export * from "./remoteP2Repository";
+export * from "./remotePubRepository";
 export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRpmRepository";
@@ -139,6 +141,7 @@ export * from "./virtualIvyRepository";
 export * from "./virtualNpmRepository";
 export * from "./virtualNugetRepository";
 export * from "./virtualP2Repository";
+export * from "./virtualPubRepository";
 export * from "./virtualPuppetRepository";
 export * from "./virtualPypiRepository";
 export * from "./virtualRpmRepository";
@@ -221,6 +224,7 @@ import { LocalMavenRepository } from "./localMavenRepository";
 import { LocalNpmRepository } from "./localNpmRepository";
 import { LocalNugetRepository } from "./localNugetRepository";
 import { LocalOpkgRepository } from "./localOpkgRepository";
+import { LocalPubRepository } from "./localPubRepository";
 import { LocalPuppetRepository } from "./localPuppetRepository";
 import { LocalPypiRepository } from "./localPypiRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
@@ -257,6 +261,7 @@ import { RemoteNpmRepository } from "./remoteNpmRepository";
 import { RemoteNugetRepository } from "./remoteNugetRepository";
 import { RemoteOpkgRepository } from "./remoteOpkgRepository";
 import { RemoteP2Repository } from "./remoteP2Repository";
+import { RemotePubRepository } from "./remotePubRepository";
 import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRpmRepository } from "./remoteRpmRepository";
@@ -285,6 +290,7 @@ import { VirtualIvyRepository } from "./virtualIvyRepository";
 import { VirtualNpmRepository } from "./virtualNpmRepository";
 import { VirtualNugetRepository } from "./virtualNugetRepository";
 import { VirtualP2Repository } from "./virtualP2Repository";
+import { VirtualPubRepository } from "./virtualPubRepository";
 import { VirtualPuppetRepository } from "./virtualPuppetRepository";
 import { VirtualPypiRepository } from "./virtualPypiRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
@@ -428,6 +434,8 @@ const _module = {
                 return new LocalNugetRepository(name, <any>undefined, { urn })
             case "artifactory:index/localOpkgRepository:LocalOpkgRepository":
                 return new LocalOpkgRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localPubRepository:LocalPubRepository":
+                return new LocalPubRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPuppetRepository:LocalPuppetRepository":
                 return new LocalPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPypiRepository:LocalPypiRepository":
@@ -500,6 +508,8 @@ const _module = {
                 return new RemoteOpkgRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteP2Repository:RemoteP2Repository":
                 return new RemoteP2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/remotePubRepository:RemotePubRepository":
+                return new RemotePubRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePuppetRepository:RemotePuppetRepository":
                 return new RemotePuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
@@ -556,6 +566,8 @@ const _module = {
                 return new VirtualNugetRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualP2Repository:VirtualP2Repository":
                 return new VirtualP2Repository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualPubRepository:VirtualPubRepository":
+                return new VirtualPubRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualPuppetRepository:VirtualPuppetRepository":
                 return new VirtualPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualPypiRepository:VirtualPypiRepository":
@@ -636,6 +648,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localMavenRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/localNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localPubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
@@ -672,6 +685,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteNpmRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteOpkgRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remotePubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
@@ -700,6 +714,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualIvyRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualNugetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualP2Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualPubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)

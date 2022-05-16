@@ -30,9 +30,8 @@ class VirtualSbtRepositoryArgs:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a VirtualSbtRepository resource.
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -91,9 +90,8 @@ class VirtualSbtRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -311,9 +309,8 @@ class _VirtualSbtRepositoryState:
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
@@ -442,9 +439,8 @@ class _VirtualSbtRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -587,9 +583,8 @@ class VirtualSbtRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual SBT Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific sbt features.
+        Creates a virtual SBT repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories#SBTRepositories-VirtualRepositories).
 
         ## Example Usage
 
@@ -612,7 +607,7 @@ class VirtualSbtRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo foo
+         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
         ```
 
         :param str resource_name: The name of the resource.
@@ -628,9 +623,8 @@ class VirtualSbtRepository(pulumi.CustomResource):
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
@@ -651,9 +645,8 @@ class VirtualSbtRepository(pulumi.CustomResource):
                  args: VirtualSbtRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual SBT Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific sbt features.
+        Creates a virtual SBT repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/SBT+Repositories#SBTRepositories-VirtualRepositories).
 
         ## Example Usage
 
@@ -676,7 +669,7 @@ class VirtualSbtRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo foo
+         $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
         ```
 
         :param str resource_name: The name of the resource.
@@ -783,9 +776,8 @@ class VirtualSbtRepository(pulumi.CustomResource):
                is also enforced when aggregated repositories support anonymous requests.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
@@ -879,9 +871,8 @@ class VirtualSbtRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

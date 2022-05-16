@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Virtual Nuget Repository Resource
-    /// 
-    /// Provides an Artifactory virtual repository resource with specific nuget features.
+    /// Creates a virtual Nuget repository.
+    /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/NuGet+Repositories#NuGetRepositories-VirtualRepositories).
     /// 
     /// ## Example Usage
     /// 
@@ -44,7 +43,7 @@ namespace Pulumi.Artifactory
     /// Virtual repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo foo
+    ///  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualNugetRepository:VirtualNugetRepository")]
@@ -78,7 +77,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository.
+        /// If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool?> ForceNugetAuthentication { get; private set; } = null!;
@@ -91,9 +90,8 @@ namespace Pulumi.Artifactory
         public Output<string?> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -216,7 +214,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository.
+        /// If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -229,9 +227,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -321,7 +318,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository.
+        /// If set, user authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This is also enforced when aggregated repositories support anonymous requests. Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -334,9 +331,8 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        /// contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        /// 'libs-release-local').
+        /// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        /// contain spaces or special characters.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

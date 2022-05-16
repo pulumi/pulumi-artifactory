@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory LDAP Setting Resource
- *
  * This resource can be used to manage Artifactory's LDAP settings for user authentication.
  *
- * When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server. If LDAP authentication fails, it then tries to authenticate via its internal database.
+ * When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server.
+ * If LDAP authentication fails, it then tries to authenticate via its internal database.
  *
  * ## Example Usage
  *

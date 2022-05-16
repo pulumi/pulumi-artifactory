@@ -295,8 +295,6 @@ class ManagedUser(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Managed User Resource
-
         Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
 
         Unlike `UnmanagedUser` and `User`, the `password` attribute is required and cannot be empty.
@@ -343,8 +341,6 @@ class ManagedUser(pulumi.CustomResource):
                  args: ManagedUserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Managed User Resource
-
         Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
 
         Unlike `UnmanagedUser` and `User`, the `password` attribute is required and cannot be empty.

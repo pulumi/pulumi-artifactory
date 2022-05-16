@@ -13,7 +13,7 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PermissionTargetRepoActionsGroupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of permission
+        /// Name of permission.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

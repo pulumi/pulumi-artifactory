@@ -17,7 +17,7 @@ namespace Pulumi.Artifactory.Outputs
         public readonly string Password;
         public readonly string? PathPrefix;
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies setting.
         /// </summary>
         public readonly string? Proxy;
         public readonly int? SocketTimeoutMillis;

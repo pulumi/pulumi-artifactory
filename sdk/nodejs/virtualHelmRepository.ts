@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Virtual Helm Repository Resource
- *
- * Provides an Artifactory virtual repository resource with Helm package type.
+ * Creates a virtual Helm repository.
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-VirtualRepositories).
  *
  * ## Example Usage
  *
@@ -26,7 +25,7 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo foo
+ *  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
  * ```
  */
 export class VirtualHelmRepository extends pulumi.CustomResource {
@@ -82,9 +81,8 @@ export class VirtualHelmRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -118,7 +116,7 @@ export class VirtualHelmRepository extends pulumi.CustomResource {
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is 'false'.
      */
     public readonly useNamespaces!: pulumi.Output<boolean | undefined>;
 
@@ -203,9 +201,8 @@ export interface VirtualHelmRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
@@ -239,7 +236,7 @@ export interface VirtualHelmRepositoryState {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is 'false'.
      */
     useNamespaces?: pulumi.Input<boolean>;
 }
@@ -273,9 +270,8 @@ export interface VirtualHelmRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-     * contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-     * 'libs-release-local').
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
@@ -305,7 +301,7 @@ export interface VirtualHelmRepositoryArgs {
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
-     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories. Default to 'false'.
+     * From Artifactory 7.24.1 (SaaS Version), you can explicitly state a specific aggregated local or remote repository to fetch from a virtual by assigning namespaces to local and remote repositories. See the documentation [here](https://www.jfrog.com/confluence/display/JFROG/Kubernetes+Helm+Chart+Repositories#KubernetesHelmChartRepositories-NamespaceSupportforHelmVirtualRepositories). Default is 'false'.
      */
     useNamespaces?: pulumi.Input<boolean>;
 }

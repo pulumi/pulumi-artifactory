@@ -6,14 +6,10 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Remote Conan Repository Resource
- *
  * Creates a remote Conan repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories)
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).
  *
  * ## Example Usage
- *
- * To create a new Artifactory remote Conan repository called my-remote-conan.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,8 +17,16 @@ import * as utilities from "./utilities";
  *
  * const my_remote_conan = new artifactory.RemoteConanRepository("my-remote-conan", {
  *     key: "my-remote-conan",
- *     url: "https://conan.bintray.com",
+ *     url: "https://conan.io/center/",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
  * ```
  */
 export class RemoteConanRepository extends pulumi.CustomResource {
@@ -108,12 +112,13 @@ export class RemoteConanRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,7 +127,7 @@ export class RemoteConanRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -155,11 +160,11 @@ export class RemoteConanRepository extends pulumi.CustomResource {
      */
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     /**
-     * List of property set name
+     * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -198,7 +203,7 @@ export class RemoteConanRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -374,12 +379,13 @@ export interface RemoteConanRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -388,7 +394,7 @@ export interface RemoteConanRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -421,11 +427,11 @@ export interface RemoteConanRepositoryState {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -464,7 +470,7 @@ export interface RemoteConanRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -530,12 +536,13 @@ export interface RemoteConanRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -544,7 +551,7 @@ export interface RemoteConanRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -576,11 +583,11 @@ export interface RemoteConanRepositoryArgs {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -619,7 +626,7 @@ export interface RemoteConanRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

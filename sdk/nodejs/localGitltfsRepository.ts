@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Gitlfs Repository Resource
- *
- * Creates a local gitlfs repository.
+ * Creates a local Gitlfs repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_gitlfs_repo = new artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", {
  *     key: "terraform-local-test-gitlfs-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
  * ```
  */
 export class LocalGitltfsRepository extends pulumi.CustomResource {
@@ -75,7 +81,7 @@ export class LocalGitltfsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +198,7 @@ export interface LocalGitltfsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +262,7 @@ export interface LocalGitltfsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

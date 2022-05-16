@@ -17,39 +17,27 @@ class ArtifactWebhookArgs:
     def __init__(__self__, *,
                  criteria: pulumi.Input['ArtifactWebhookCriteriaArgs'],
                  event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 handlers: pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]],
                  key: pulumi.Input[str],
-                 url: pulumi.Input[str],
-                 custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ArtifactWebhook resource.
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
-        :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
+        pulumi.set(__self__, "handlers", handlers)
         pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "url", url)
-        if custom_http_headers is not None:
-            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -67,13 +55,25 @@ class ArtifactWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
     def event_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "event_types", value)
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]]):
+        pulumi.set(self, "handlers", value)
 
     @property
     @pulumi.getter
@@ -89,30 +89,6 @@ class ArtifactWebhookArgs:
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter(name="customHttpHeaders")
-    def custom_http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        """
-        return pulumi.get(self, "custom_http_headers")
-
-    @custom_http_headers.setter
-    def custom_http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "custom_http_headers", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
         Webhook description. Max length 1000 characters.
@@ -127,7 +103,7 @@ class ArtifactWebhookArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to 'true'.
         """
         return pulumi.get(self, "enabled")
 
@@ -135,73 +111,37 @@ class ArtifactWebhookArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
-    @property
-    @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
-        return pulumi.get(self, "proxy")
-
-    @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "proxy", value)
-
-    @property
-    @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret authentication token that will be sent to the configured URL
-        """
-        return pulumi.get(self, "secret")
-
-    @secret.setter
-    def secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret", value)
-
 
 @pulumi.input_type
 class _ArtifactWebhookState:
     def __init__(__self__, *,
                  criteria: Optional[pulumi.Input['ArtifactWebhookCriteriaArgs']] = None,
-                 custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 key: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]]] = None,
+                 key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ArtifactWebhook resources.
         :param pulumi.Input['ArtifactWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+        :param pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
-        :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         if criteria is not None:
             pulumi.set(__self__, "criteria", criteria)
-        if custom_http_headers is not None:
-            pulumi.set(__self__, "custom_http_headers", custom_http_headers)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if event_types is not None:
             pulumi.set(__self__, "event_types", event_types)
+        if handlers is not None:
+            pulumi.set(__self__, "handlers", handlers)
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -216,18 +156,6 @@ class _ArtifactWebhookState:
         pulumi.set(self, "criteria", value)
 
     @property
-    @pulumi.getter(name="customHttpHeaders")
-    def custom_http_headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        """
-        return pulumi.get(self, "custom_http_headers")
-
-    @custom_http_headers.setter
-    def custom_http_headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "custom_http_headers", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -243,7 +171,7 @@ class _ArtifactWebhookState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to 'true'.
         """
         return pulumi.get(self, "enabled")
 
@@ -255,13 +183,25 @@ class _ArtifactWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
         """
         return pulumi.get(self, "event_types")
 
     @event_types.setter
     def event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "event_types", value)
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]]]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
+
+    @handlers.setter
+    def handlers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArtifactWebhookHandlerArgs']]]]):
+        pulumi.set(self, "handlers", value)
 
     @property
     @pulumi.getter
@@ -275,42 +215,6 @@ class _ArtifactWebhookState:
     def key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key", value)
 
-    @property
-    @pulumi.getter
-    def proxy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
-        return pulumi.get(self, "proxy")
-
-    @proxy.setter
-    def proxy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "proxy", value)
-
-    @property
-    @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret authentication token that will be sent to the configured URL
-        """
-        return pulumi.get(self, "secret")
-
-    @secret.setter
-    def secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "url", value)
-
 
 class ArtifactWebhook(pulumi.CustomResource):
     @overload
@@ -318,18 +222,13 @@ class ArtifactWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']]] = None,
-                 custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactWebhookHandlerArgs']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Artifact Webhook Resource
-
         Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
 
         ## Example Usage
@@ -355,27 +254,26 @@ class ArtifactWebhook(pulumi.CustomResource):
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],
             ),
-            url="http://tempurl.org/webhook",
-            secret="some-secret",
-            proxy="proxy-key",
-            custom_http_headers={
-                "header-1": "value-1",
-                "header-2": "value-2",
-            },
+            handlers=[artifactory.ArtifactWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
+                custom_http_headers={
+                    "header-1": "value-1",
+                    "header-2": "value-2",
+                },
+            )],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
-        :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         ...
     @overload
@@ -384,8 +282,6 @@ class ArtifactWebhook(pulumi.CustomResource):
                  args: ArtifactWebhookArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Artifact Webhook Resource
-
         Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
 
         ## Example Usage
@@ -411,13 +307,15 @@ class ArtifactWebhook(pulumi.CustomResource):
                 include_patterns=["foo/**"],
                 exclude_patterns=["bar/**"],
             ),
-            url="http://tempurl.org/webhook",
-            secret="some-secret",
-            proxy="proxy-key",
-            custom_http_headers={
-                "header-1": "value-1",
-                "header-2": "value-2",
-            },
+            handlers=[artifactory.ArtifactWebhookHandlerArgs(
+                url="http://tempurl.org/webhook",
+                secret="some-secret",
+                proxy="proxy-key",
+                custom_http_headers={
+                    "header-1": "value-1",
+                    "header-2": "value-2",
+                },
+            )],
             opts=pulumi.ResourceOptions(depends_on=[my_generic_local]))
         ```
 
@@ -437,14 +335,11 @@ class ArtifactWebhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  criteria: Optional[pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']]] = None,
-                 custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactWebhookHandlerArgs']]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 proxy: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None,
-                 url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -460,20 +355,17 @@ class ArtifactWebhook(pulumi.CustomResource):
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria
-            __props__.__dict__["custom_http_headers"] = custom_http_headers
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
             if event_types is None and not opts.urn:
                 raise TypeError("Missing required property 'event_types'")
             __props__.__dict__["event_types"] = event_types
+            if handlers is None and not opts.urn:
+                raise TypeError("Missing required property 'handlers'")
+            __props__.__dict__["handlers"] = handlers
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
-            __props__.__dict__["proxy"] = proxy
-            __props__.__dict__["secret"] = secret
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
-            __props__.__dict__["url"] = url
         super(ArtifactWebhook, __self__).__init__(
             'artifactory:index/artifactWebhook:ArtifactWebhook',
             resource_name,
@@ -485,14 +377,11 @@ class ArtifactWebhook(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             criteria: Optional[pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']]] = None,
-            custom_http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            key: Optional[pulumi.Input[str]] = None,
-            proxy: Optional[pulumi.Input[str]] = None,
-            secret: Optional[pulumi.Input[str]] = None,
-            url: Optional[pulumi.Input[str]] = None) -> 'ArtifactWebhook':
+            handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactWebhookHandlerArgs']]]]] = None,
+            key: Optional[pulumi.Input[str]] = None) -> 'ArtifactWebhook':
         """
         Get an existing ArtifactWebhook resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -501,28 +390,22 @@ class ArtifactWebhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_http_headers: Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] secret: Secret authentication token that will be sent to the configured URL
-        :param pulumi.Input[str] url: Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ArtifactWebhookState.__new__(_ArtifactWebhookState)
 
         __props__.__dict__["criteria"] = criteria
-        __props__.__dict__["custom_http_headers"] = custom_http_headers
         __props__.__dict__["description"] = description
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_types"] = event_types
+        __props__.__dict__["handlers"] = handlers
         __props__.__dict__["key"] = key
-        __props__.__dict__["proxy"] = proxy
-        __props__.__dict__["secret"] = secret
-        __props__.__dict__["url"] = url
         return ArtifactWebhook(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -532,14 +415,6 @@ class ArtifactWebhook(pulumi.CustomResource):
         Specifies where the webhook will be applied on which repositories.
         """
         return pulumi.get(self, "criteria")
-
-    @property
-    @pulumi.getter(name="customHttpHeaders")
-    def custom_http_headers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        """
-        return pulumi.get(self, "custom_http_headers")
 
     @property
     @pulumi.getter
@@ -553,7 +428,7 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to 'true'.
         """
         return pulumi.get(self, "enabled")
 
@@ -561,9 +436,17 @@ class ArtifactWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
         """
         return pulumi.get(self, "event_types")
+
+    @property
+    @pulumi.getter
+    def handlers(self) -> pulumi.Output[Sequence['outputs.ArtifactWebhookHandler']]:
+        """
+        At least one is required.
+        """
+        return pulumi.get(self, "handlers")
 
     @property
     @pulumi.getter
@@ -572,28 +455,4 @@ class ArtifactWebhook(pulumi.CustomResource):
         The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
         return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter
-    def proxy(self) -> pulumi.Output[Optional[str]]:
-        """
-        Proxy key from Artifactory Proxies setting
-        """
-        return pulumi.get(self, "proxy")
-
-    @property
-    @pulumi.getter
-    def secret(self) -> pulumi.Output[Optional[str]]:
-        """
-        Secret authentication token that will be sent to the configured URL
-        """
-        return pulumi.get(self, "secret")
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Output[str]:
-        """
-        Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        """
-        return pulumi.get(self, "url")
 

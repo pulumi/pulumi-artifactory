@@ -35,7 +35,7 @@ class LocalIvyRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LocalIvyRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
@@ -113,7 +113,7 @@ class LocalIvyRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -400,7 +400,7 @@ class _LocalIvyRepositoryState:
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -578,7 +578,7 @@ class _LocalIvyRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -748,9 +748,7 @@ class LocalIvyRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Local Ivy Repository Resource
-
-        Creates a local ivy repository.
+        Creates a local Ivy repository.
 
         ## Example Usage
 
@@ -759,6 +757,14 @@ class LocalIvyRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -778,7 +784,7 @@ class LocalIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -804,9 +810,7 @@ class LocalIvyRepository(pulumi.CustomResource):
                  args: LocalIvyRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Local Ivy Repository Resource
-
-        Creates a local ivy repository.
+        Creates a local Ivy repository.
 
         ## Example Usage
 
@@ -815,6 +819,14 @@ class LocalIvyRepository(pulumi.CustomResource):
         import pulumi_artifactory as artifactory
 
         terraform_local_test_ivy_repo = artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", key="terraform-local-test-ivy-repo")
+        ```
+
+        ## Import
+
+        Local repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -940,7 +952,7 @@ class LocalIvyRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] handle_snapshots: If set, Artifactory allows you to deploy snapshot artifacts into this repository.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: - the identity key of the repo
+        :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[int] max_unique_snapshots: The maximum number of unique snapshots of a single artifact to store. Once the number of snapshots exceeds this setting,
                older versions are removed. A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
@@ -1066,7 +1078,7 @@ class LocalIvyRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 

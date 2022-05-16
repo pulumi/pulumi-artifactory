@@ -25,8 +25,8 @@ class KeypairArgs:
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
         :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
-        :param pulumi.Input[str] public_key: - Public key. PEM format will be validated.
-        :param pulumi.Input[str] passphrase: - Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "pair_name", pair_name)
@@ -88,7 +88,7 @@ class KeypairArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[str]:
         """
-        - Public key. PEM format will be validated.
+        Public key. PEM format will be validated.
         """
         return pulumi.get(self, "public_key")
 
@@ -100,7 +100,7 @@ class KeypairArgs:
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
         """
-        - Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side.
         """
         return pulumi.get(self, "passphrase")
 
@@ -124,10 +124,10 @@ class _KeypairState:
         :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: - Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
-        :param pulumi.Input[str] public_key: - Public key. PEM format will be validated.
-        :param pulumi.Input[bool] unavailable: - Unknown usage. Returned in the json payload and cannot be set.
+        :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
+        :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -184,7 +184,7 @@ class _KeypairState:
     @pulumi.getter
     def passphrase(self) -> Optional[pulumi.Input[str]]:
         """
-        - Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side.
         """
         return pulumi.get(self, "passphrase")
 
@@ -208,7 +208,7 @@ class _KeypairState:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
         """
-        - Public key. PEM format will be validated.
+        Public key. PEM format will be validated.
         """
         return pulumi.get(self, "public_key")
 
@@ -220,7 +220,7 @@ class _KeypairState:
     @pulumi.getter
     def unavailable(self) -> Optional[pulumi.Input[bool]]:
         """
-        - Unknown usage. Returned in the json payload and cannot be set.
+        Unknown usage. Returned in the json payload and cannot be set.
         """
         return pulumi.get(self, "unavailable")
 
@@ -242,8 +242,6 @@ class Keypair(pulumi.CustomResource):
                  public_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory keypair Resource
-
         RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
         used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
         RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
@@ -278,9 +276,9 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: - Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
-        :param pulumi.Input[str] public_key: - Public key. PEM format will be validated.
+        :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         """
         ...
     @overload
@@ -289,8 +287,6 @@ class Keypair(pulumi.CustomResource):
                  args: KeypairArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory keypair Resource
-
         RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
         used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
         RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
@@ -397,10 +393,10 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] passphrase: - Passphrase will be used to decrypt the private key. Validated server side.
+        :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
-        :param pulumi.Input[str] public_key: - Public key. PEM format will be validated.
-        :param pulumi.Input[bool] unavailable: - Unknown usage. Returned in the json payload and cannot be set.
+        :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
+        :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,7 +439,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter
     def passphrase(self) -> pulumi.Output[Optional[str]]:
         """
-        - Passphrase will be used to decrypt the private key. Validated server side.
+        Passphrase will be used to decrypt the private key. Validated server side.
         """
         return pulumi.get(self, "passphrase")
 
@@ -459,7 +455,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[str]:
         """
-        - Public key. PEM format will be validated.
+        Public key. PEM format will be validated.
         """
         return pulumi.get(self, "public_key")
 
@@ -467,7 +463,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter
     def unavailable(self) -> pulumi.Output[bool]:
         """
-        - Unknown usage. Returned in the json payload and cannot be set.
+        Unknown usage. Returned in the json payload and cannot be set.
         """
         return pulumi.get(self, "unavailable")
 

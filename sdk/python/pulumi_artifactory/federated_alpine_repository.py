@@ -23,7 +23,9 @@ class FederatedAlpineRepositoryArgs:
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
@@ -32,16 +34,31 @@ class FederatedAlpineRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedAlpineRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -57,8 +74,12 @@ class FederatedAlpineRepositoryArgs:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if primary_keypair_ref is not None:
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
@@ -76,7 +97,7 @@ class FederatedAlpineRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,7 +109,10 @@ class FederatedAlpineRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -113,6 +137,9 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -131,6 +158,10 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -140,6 +171,10 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -149,11 +184,24 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
     def includes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "includes_pattern", value)
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
 
     @property
     @pulumi.getter
@@ -163,6 +211,19 @@ class FederatedAlpineRepositoryArgs:
     @notes.setter
     def notes(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notes", value)
+
+    @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+        """
+        return pulumi.get(self, "primary_keypair_ref")
+
+    @primary_keypair_ref.setter
+    def primary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_keypair_ref", value)
 
     @property
     @pulumi.getter(name="priorityResolution")
@@ -204,6 +265,9 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -225,6 +289,10 @@ class FederatedAlpineRepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -241,10 +309,12 @@ class _FederatedAlpineRepositoryState:
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
@@ -256,13 +326,28 @@ class _FederatedAlpineRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -276,6 +361,8 @@ class _FederatedAlpineRepositoryState:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if members is not None:
@@ -284,6 +371,8 @@ class _FederatedAlpineRepositoryState:
             pulumi.set(__self__, "notes", notes)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if primary_keypair_ref is not None:
+            pulumi.set(__self__, "primary_keypair_ref", primary_keypair_ref)
         if priority_resolution is not None:
             pulumi.set(__self__, "priority_resolution", priority_resolution)
         if project_environments is not None:
@@ -314,6 +403,9 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -332,6 +424,10 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -341,6 +437,10 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -350,6 +450,10 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -357,10 +461,19 @@ class _FederatedAlpineRepositoryState:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -372,7 +485,10 @@ class _FederatedAlpineRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedAlpineRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -399,6 +515,19 @@ class _FederatedAlpineRepositoryState:
         pulumi.set(self, "package_type", value)
 
     @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+        """
+        return pulumi.get(self, "primary_keypair_ref")
+
+    @primary_keypair_ref.setter
+    def primary_keypair_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_keypair_ref", value)
+
+    @property
     @pulumi.getter(name="priorityResolution")
     def priority_resolution(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -438,6 +567,9 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -459,6 +591,10 @@ class _FederatedAlpineRepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -477,9 +613,11 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
@@ -488,9 +626,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Alpine Repository Resource
-
-        Creates a federated Alpine repository
+        Creates a federated Alpine repository.
 
         ## Example Usage
 
@@ -512,18 +648,41 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedAlpineRepository:FederatedAlpineRepository terraform-federated-test-alpine-repo terraform-federated-test-alpine-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -532,9 +691,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  args: FederatedAlpineRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Alpine Repository Resource
-
-        Creates a federated Alpine repository
+        Creates a federated Alpine repository.
 
         ## Example Usage
 
@@ -554,6 +711,14 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedAlpineRepository:FederatedAlpineRepository terraform-federated-test-alpine-repo terraform-federated-test-alpine-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -577,9 +742,11 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
+                 primary_keypair_ref: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
@@ -604,6 +771,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
+            __props__.__dict__["index_compression_formats"] = index_compression_formats
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -611,6 +779,7 @@ class FederatedAlpineRepository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'members'")
             __props__.__dict__["members"] = members
             __props__.__dict__["notes"] = notes
+            __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
@@ -634,10 +803,12 @@ class FederatedAlpineRepository(pulumi.CustomResource):
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
+            index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             package_type: Optional[pulumi.Input[str]] = None,
+            primary_keypair_ref: Optional[pulumi.Input[str]] = None,
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
@@ -654,13 +825,28 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedAlpineRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[str] primary_keypair_ref: Used to sign index files in Alpine Linux repositories. See:
+               https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -672,10 +858,12 @@ class FederatedAlpineRepository(pulumi.CustomResource):
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
+        __props__.__dict__["index_compression_formats"] = index_compression_formats
         __props__.__dict__["key"] = key
         __props__.__dict__["members"] = members
         __props__.__dict__["notes"] = notes
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["primary_keypair_ref"] = primary_keypair_ref
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
@@ -697,6 +885,9 @@ class FederatedAlpineRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
@@ -707,23 +898,40 @@ class FederatedAlpineRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "index_compression_formats")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -731,7 +939,10 @@ class FederatedAlpineRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedAlpineRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -744,6 +955,15 @@ class FederatedAlpineRepository(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[str]:
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter(name="primaryKeypairRef")
+    def primary_keypair_ref(self) -> pulumi.Output[Optional[str]]:
+        """
+        Used to sign index files in Alpine Linux repositories. See:
+        https://www.jfrog.com/confluence/display/JFROG/Alpine+Linux+Repositories#AlpineLinuxRepositories-SigningAlpineLinuxIndex
+        """
+        return pulumi.get(self, "primary_keypair_ref")
 
     @property
     @pulumi.getter(name="priorityResolution")
@@ -773,6 +993,9 @@ class FederatedAlpineRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -785,6 +1008,10 @@ class FederatedAlpineRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

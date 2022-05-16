@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

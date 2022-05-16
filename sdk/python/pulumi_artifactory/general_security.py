@@ -58,8 +58,6 @@ class GeneralSecurity(pulumi.CustomResource):
                  enable_anonymous_access: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory General Security Resource
-
         This resource can be used to manage Artifactory's general security settings.
 
         Only a single `GeneralSecurity` resource is meant to be defined.
@@ -94,8 +92,6 @@ class GeneralSecurity(pulumi.CustomResource):
                  args: Optional[GeneralSecurityArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory General Security Resource
-
         This resource can be used to manage Artifactory's general security settings.
 
         Only a single `GeneralSecurity` resource is meant to be defined.

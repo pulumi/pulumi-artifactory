@@ -17,12 +17,14 @@ class FederatedCargoRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  members: pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]],
+                 anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,19 +34,37 @@ class FederatedCargoRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedCargoRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+               access to these resources (only), note that this will override the security anonymous access option. Default value is
+               'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
+        if anonymous_access is not None:
+            pulumi.set(__self__, "anonymous_access", anonymous_access)
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
@@ -57,6 +77,8 @@ class FederatedCargoRepositoryArgs:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if priority_resolution is not None:
@@ -76,7 +98,7 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,13 +110,30 @@ class FederatedCargoRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
     @members.setter
     def members(self, value: pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]):
         pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter(name="anonymousAccess")
+    def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+        access to these resources (only), note that this will override the security anonymous access option. Default value is
+        'false'.
+        """
+        return pulumi.get(self, "anonymous_access")
+
+    @anonymous_access.setter
+    def anonymous_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_access", value)
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -113,6 +152,9 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -131,6 +173,10 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -140,6 +186,10 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -149,11 +199,24 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
     def includes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "includes_pattern", value)
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
 
     @property
     @pulumi.getter
@@ -204,6 +267,9 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -225,6 +291,10 @@ class FederatedCargoRepositoryArgs:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -235,12 +305,14 @@ class FederatedCargoRepositoryArgs:
 @pulumi.input_type
 class _FederatedCargoRepositoryState:
     def __init__(__self__, *,
+                 anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -253,17 +325,35 @@ class _FederatedCargoRepositoryState:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering FederatedCargoRepository resources.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+               access to these resources (only), note that this will override the security anonymous access option. Default value is
+               'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
+        if anonymous_access is not None:
+            pulumi.set(__self__, "anonymous_access", anonymous_access)
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
@@ -276,6 +366,8 @@ class _FederatedCargoRepositoryState:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
+        if index_compression_formats is not None:
+            pulumi.set(__self__, "index_compression_formats", index_compression_formats)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if members is not None:
@@ -298,6 +390,20 @@ class _FederatedCargoRepositoryState:
             pulumi.set(__self__, "xray_index", xray_index)
 
     @property
+    @pulumi.getter(name="anonymousAccess")
+    def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+        access to these resources (only), note that this will override the security anonymous access option. Default value is
+        'false'.
+        """
+        return pulumi.get(self, "anonymous_access")
+
+    @anonymous_access.setter
+    def anonymous_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "anonymous_access", value)
+
+    @property
     @pulumi.getter(name="archiveBrowsingEnabled")
     def archive_browsing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -314,6 +420,9 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -332,6 +441,10 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -341,6 +454,10 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -350,6 +467,10 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -357,10 +478,19 @@ class _FederatedCargoRepositoryState:
         pulumi.set(self, "includes_pattern", value)
 
     @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "index_compression_formats")
+
+    @index_compression_formats.setter
+    def index_compression_formats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "index_compression_formats", value)
+
+    @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -372,7 +502,10 @@ class _FederatedCargoRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedCargoRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -438,6 +571,9 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -459,6 +595,10 @@ class _FederatedCargoRepositoryState:
     @property
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 
     @xray_index.setter
@@ -471,12 +611,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -488,9 +630,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Cargo Repository Resource
-
-        Creates a federated Cargo repository
+        Creates a federated Cargo repository.
 
         ## Example Usage
 
@@ -512,18 +652,42 @@ class FederatedCargoRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+               access to these resources (only), note that this will override the security anonymous access option. Default value is
+               'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -532,9 +696,7 @@ class FederatedCargoRepository(pulumi.CustomResource):
                  args: FederatedCargoRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Cargo Repository Resource
-
-        Creates a federated Cargo repository
+        Creates a federated Cargo repository.
 
         ## Example Usage
 
@@ -554,6 +716,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -571,12 +741,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
+                 index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -598,12 +770,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FederatedCargoRepositoryArgs.__new__(FederatedCargoRepositoryArgs)
 
+            __props__.__dict__["anonymous_access"] = anonymous_access
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
+            __props__.__dict__["index_compression_formats"] = index_compression_formats
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
@@ -628,12 +802,14 @@ class FederatedCargoRepository(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            anonymous_access: Optional[pulumi.Input[bool]] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
+            index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]]] = None,
             notes: Optional[pulumi.Input[str]] = None,
@@ -651,27 +827,45 @@ class FederatedCargoRepository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+               access to these resources (only), note that this will override the security anonymous access option. Default value is
+               'false'.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedCargoRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
                with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _FederatedCargoRepositoryState.__new__(_FederatedCargoRepositoryState)
 
+        __props__.__dict__["anonymous_access"] = anonymous_access
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
+        __props__.__dict__["index_compression_formats"] = index_compression_formats
         __props__.__dict__["key"] = key
         __props__.__dict__["members"] = members
         __props__.__dict__["notes"] = notes
@@ -683,6 +877,16 @@ class FederatedCargoRepository(pulumi.CustomResource):
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["xray_index"] = xray_index
         return FederatedCargoRepository(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="anonymousAccess")
+    def anonymous_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+        access to these resources (only), note that this will override the security anonymous access option. Default value is
+        'false'.
+        """
+        return pulumi.get(self, "anonymous_access")
 
     @property
     @pulumi.getter(name="archiveBrowsingEnabled")
@@ -697,6 +901,9 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
@@ -707,23 +914,40 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
+
+    @property
+    @pulumi.getter(name="indexCompressionFormats")
+    def index_compression_formats(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "index_compression_formats")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -731,7 +955,10 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedCargoRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -773,6 +1000,9 @@ class FederatedCargoRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -785,6 +1015,10 @@ class FederatedCargoRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
+        """
         return pulumi.get(self, "xray_index")
 

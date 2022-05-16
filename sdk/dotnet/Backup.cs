@@ -10,11 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Backup Resource
-    /// 
     /// This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
     /// 
-    /// When a artifactory.Backup resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.  The backup process creates a time-stamped directory in the target backup directory.
+    /// When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
+    /// The backup process creates a time-stamped directory in the target backup directory.
     /// 
     /// ## Example Usage
     /// 
@@ -63,7 +62,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> CreateArchive { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
@@ -157,7 +156,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
@@ -218,7 +217,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? "
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }

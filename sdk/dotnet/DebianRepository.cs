@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Debian Repository Resource
-    /// 
-    /// Creates a local Debian repository and allows for the creation of a GPG key
+    /// Creates a local Debian repository and allows for the creation of a GPG key.
     /// 
     /// ## Example Usage
     /// 
@@ -65,6 +63,14 @@ namespace Pulumi.Artifactory
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
+    /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/debianRepository:DebianRepository")]
     public partial class DebianRepository : Pulumi.CustomResource
@@ -108,13 +114,14 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - If you're creating this repo, then maybe you know?
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
         /// </summary>
         [Output("indexCompressionFormats")]
         public Output<ImmutableArray<string>> IndexCompressionFormats { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -126,7 +133,7 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// - The RSA key to be used to sign packages
+        /// The primary RSA key to be used to sign packages.
         /// </summary>
         [Output("primaryKeypairRef")]
         public Output<string?> PrimaryKeypairRef { get; private set; } = null!;
@@ -163,13 +170,13 @@ namespace Pulumi.Artifactory
         public Output<string?> RepoLayoutRef { get; private set; } = null!;
 
         /// <summary>
-        /// - Not really clear what this does
+        /// The secondary RSA key to be used to sign packages.
         /// </summary>
         [Output("secondaryKeypairRef")]
         public Output<string?> SecondaryKeypairRef { get; private set; } = null!;
 
         /// <summary>
-        /// - Apparently this is a deprecated repo layout
+        /// When set, the repository will use the deprecated trivial layout.
         /// </summary>
         [Output("trivialLayout")]
         public Output<bool?> TrivialLayout { get; private set; } = null!;
@@ -269,7 +276,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _indexCompressionFormats;
 
         /// <summary>
-        /// - If you're creating this repo, then maybe you know?
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
         /// </summary>
         public InputList<string> IndexCompressionFormats
         {
@@ -278,7 +286,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -287,7 +295,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign packages
+        /// The primary RSA key to be used to sign packages.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -336,13 +344,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// - Not really clear what this does
+        /// The secondary RSA key to be used to sign packages.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
-        /// - Apparently this is a deprecated repo layout
+        /// When set, the repository will use the deprecated trivial layout.
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }
@@ -403,7 +411,8 @@ namespace Pulumi.Artifactory
         private InputList<string>? _indexCompressionFormats;
 
         /// <summary>
-        /// - If you're creating this repo, then maybe you know?
+        /// The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+        /// and XZ (.xz extension).
         /// </summary>
         public InputList<string> IndexCompressionFormats
         {
@@ -412,7 +421,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
@@ -424,7 +433,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// - The RSA key to be used to sign packages
+        /// The primary RSA key to be used to sign packages.
         /// </summary>
         [Input("primaryKeypairRef")]
         public Input<string>? PrimaryKeypairRef { get; set; }
@@ -473,13 +482,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RepoLayoutRef { get; set; }
 
         /// <summary>
-        /// - Not really clear what this does
+        /// The secondary RSA key to be used to sign packages.
         /// </summary>
         [Input("secondaryKeypairRef")]
         public Input<string>? SecondaryKeypairRef { get; set; }
 
         /// <summary>
-        /// - Apparently this is a deprecated repo layout
+        /// When set, the repository will use the deprecated trivial layout.
         /// </summary>
         [Input("trivialLayout")]
         public Input<bool>? TrivialLayout { get; set; }

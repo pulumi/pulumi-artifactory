@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Pull Replication Resource
- *
  * Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
  * for a local or remote repo.
  *

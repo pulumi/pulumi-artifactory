@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Release Bundle Webhook Resource
-    /// 
     /// Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
     /// 
     /// ## Example Usage
@@ -25,9 +23,9 @@ namespace Pulumi.Artifactory
     /// {
     ///     public MyStack()
     ///     {
-    ///         var release_bundle_webhook = new Artifactory.ReleaseBundleWebhook("release-bundle-webhook", new Artifactory.ReleaseBundleWebhookArgs
+    ///         var artifactory_release_bundle_webhook = new Artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", new Artifactory.ArtifactoryReleaseBundleWebhookArgs
     ///         {
-    ///             Criteria = new Artifactory.Inputs.ReleaseBundleWebhookCriteriaArgs
+    ///             Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs
     ///             {
     ///                 AnyReleaseBundle = false,
     ///                 ExcludePatterns = 
@@ -43,21 +41,28 @@ namespace Pulumi.Artifactory
     ///                     "bundle-name",
     ///                 },
     ///             },
-    ///             CustomHttpHeaders = 
-    ///             {
-    ///                 { "header-1", "value-1" },
-    ///                 { "header-2", "value-2" },
-    ///             },
     ///             EventTypes = 
     ///             {
-    ///                 "created",
-    ///                 "signed",
-    ///                 "deleted",
+    ///                 "received",
+    ///                 "delete_started",
+    ///                 "delete_completed",
+    ///                 "delete_failed",
     ///             },
-    ///             Key = "release-bundle-webhook",
-    ///             Proxy = "proxy-key",
-    ///             Secret = "some-secret",
-    ///             Url = "http://tempurl.org/webhook",
+    ///             Handlers = 
+    ///             {
+    ///                 new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs
+    ///                 {
+    ///                     CustomHttpHeaders = 
+    ///                     {
+    ///                         { "header-1", "value-1" },
+    ///                         { "header-2", "value-2" },
+    ///                     },
+    ///                     Proxy = "proxy-key",
+    ///                     Secret = "some-secret",
+    ///                     Url = "http://tempurl.org/webhook",
+    ///                 },
+    ///             },
+    ///             Key = "artifactory-release-bundle-webhook",
     ///         });
     ///     }
     /// 
@@ -74,12 +79,6 @@ namespace Pulumi.Artifactory
         public Output<Outputs.ArtifactoryReleaseBundleWebhookCriteria> Criteria { get; private set; } = null!;
 
         /// <summary>
-        /// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        /// </summary>
-        [Output("customHttpHeaders")]
-        public Output<ImmutableDictionary<string, string>?> CustomHttpHeaders { get; private set; } = null!;
-
-        /// <summary>
         /// Webhook description. Max length 1000 characters.
         /// </summary>
         [Output("description")]
@@ -92,34 +91,22 @@ namespace Pulumi.Artifactory
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         [Output("eventTypes")]
         public Output<ImmutableArray<string>> EventTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// At least one is required.
+        /// </summary>
+        [Output("handlers")]
+        public Output<ImmutableArray<Outputs.ArtifactoryReleaseBundleWebhookHandler>> Handlers { get; private set; } = null!;
 
         /// <summary>
         /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
-
-        /// <summary>
-        /// Proxy key from Artifactory Proxies setting
-        /// </summary>
-        [Output("proxy")]
-        public Output<string?> Proxy { get; private set; } = null!;
-
-        /// <summary>
-        /// Secret authentication token that will be sent to the configured URL
-        /// </summary>
-        [Output("secret")]
-        public Output<string?> Secret { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        /// </summary>
-        [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -173,18 +160,6 @@ namespace Pulumi.Artifactory
         [Input("criteria", required: true)]
         public Input<Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs> Criteria { get; set; } = null!;
 
-        [Input("customHttpHeaders")]
-        private InputMap<string>? _customHttpHeaders;
-
-        /// <summary>
-        /// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        /// </summary>
-        public InputMap<string> CustomHttpHeaders
-        {
-            get => _customHttpHeaders ?? (_customHttpHeaders = new InputMap<string>());
-            set => _customHttpHeaders = value;
-        }
-
         /// <summary>
         /// Webhook description. Max length 1000 characters.
         /// </summary>
@@ -201,7 +176,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -209,29 +184,23 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
+        [Input("handlers", required: true)]
+        private InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs>? _handlers;
+
+        /// <summary>
+        /// At least one is required.
+        /// </summary>
+        public InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs> Handlers
+        {
+            get => _handlers ?? (_handlers = new InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs>());
+            set => _handlers = value;
+        }
+
         /// <summary>
         /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
-
-        /// <summary>
-        /// Proxy key from Artifactory Proxies setting
-        /// </summary>
-        [Input("proxy")]
-        public Input<string>? Proxy { get; set; }
-
-        /// <summary>
-        /// Secret authentication token that will be sent to the configured URL
-        /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
-
-        /// <summary>
-        /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
 
         public ArtifactoryReleaseBundleWebhookArgs()
         {
@@ -245,18 +214,6 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.ArtifactoryReleaseBundleWebhookCriteriaGetArgs>? Criteria { get; set; }
-
-        [Input("customHttpHeaders")]
-        private InputMap<string>? _customHttpHeaders;
-
-        /// <summary>
-        /// Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
-        /// </summary>
-        public InputMap<string> CustomHttpHeaders
-        {
-            get => _customHttpHeaders ?? (_customHttpHeaders = new InputMap<string>());
-            set => _customHttpHeaders = value;
-        }
 
         /// <summary>
         /// Webhook description. Max length 1000 characters.
@@ -274,7 +231,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _eventTypes;
 
         /// <summary>
-        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "created", "signed", "deleted"
+        /// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
         /// </summary>
         public InputList<string> EventTypes
         {
@@ -282,29 +239,23 @@ namespace Pulumi.Artifactory
             set => _eventTypes = value;
         }
 
+        [Input("handlers")]
+        private InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerGetArgs>? _handlers;
+
+        /// <summary>
+        /// At least one is required.
+        /// </summary>
+        public InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerGetArgs> Handlers
+        {
+            get => _handlers ?? (_handlers = new InputList<Inputs.ArtifactoryReleaseBundleWebhookHandlerGetArgs>());
+            set => _handlers = value;
+        }
+
         /// <summary>
         /// The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Proxy key from Artifactory Proxies setting
-        /// </summary>
-        [Input("proxy")]
-        public Input<string>? Proxy { get; set; }
-
-        /// <summary>
-        /// Secret authentication token that will be sent to the configured URL
-        /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
-
-        /// <summary>
-        /// Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
-        /// </summary>
-        [Input("url")]
-        public Input<string>? Url { get; set; }
 
         public ArtifactoryReleaseBundleWebhookState()
         {

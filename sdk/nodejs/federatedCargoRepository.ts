@@ -6,9 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Federated Cargo Repository Resource
- *
- * Creates a federated Cargo repository
+ * Creates a federated Cargo repository.
  *
  * ## Example Usage
  *
@@ -29,6 +27,14 @@ import * as utilities from "./utilities";
  *         },
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Federated repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
  * ```
  */
 export class FederatedCargoRepository extends pulumi.CustomResource {
@@ -60,22 +66,47 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
     }
 
     /**
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+     * access to these resources (only), note that this will override the security anonymous access option. Default value is
+     * 'false'.
+     */
+    public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
+    /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
     public readonly archiveBrowsingEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
-    public readonly excludesPattern!: pulumi.Output<string>;
-    public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
+    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
+    public readonly excludesPattern!: pulumi.Output<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
+    public readonly includesPattern!: pulumi.Output<string>;
+    public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
+    /**
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
      */
     public readonly members!: pulumi.Output<outputs.FederatedCargoRepositoryMember[]>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -93,12 +124,19 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
      * with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
+    /**
+     * List of property set name
+     */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
      * Repository layout key for the local repository
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
-    public readonly xrayIndex!: pulumi.Output<boolean>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
+    public readonly xrayIndex!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FederatedCargoRepository resource with the given unique name, arguments, and options.
@@ -113,12 +151,14 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FederatedCargoRepositoryState | undefined;
+            resourceInputs["anonymousAccess"] = state ? state.anonymousAccess : undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["members"] = state ? state.members : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -137,12 +177,14 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
             if ((!args || args.members === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
+            resourceInputs["anonymousAccess"] = args ? args.anonymousAccess : undefined;
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
+            resourceInputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["members"] = args ? args.members : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -164,22 +206,47 @@ export class FederatedCargoRepository extends pulumi.CustomResource {
  */
 export interface FederatedCargoRepositoryState {
     /**
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+     * access to these resources (only), note that this will override the security anonymous access option. Default value is
+     * 'false'.
+     */
+    anonymousAccess?: pulumi.Input<boolean>;
+    /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
+    excludesPattern?: pulumi.Input<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
+    includesPattern?: pulumi.Input<string>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     /**
-     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
      */
     members?: pulumi.Input<pulumi.Input<inputs.FederatedCargoRepositoryMember>[]>;
     notes?: pulumi.Input<string>;
@@ -197,11 +264,18 @@ export interface FederatedCargoRepositoryState {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }
 
@@ -210,22 +284,47 @@ export interface FederatedCargoRepositoryState {
  */
 export interface FederatedCargoRepositoryArgs {
     /**
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
+     * access to these resources (only), note that this will override the security anonymous access option. Default value is
+     * 'false'.
+     */
+    anonymousAccess?: pulumi.Input<boolean>;
+    /**
      * When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
      * therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
      * security (e.g., cross-site scripting attacks).
      */
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
+    /**
+     * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+     */
     blackedOut?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
-    downloadDirect?: pulumi.Input<boolean>;
-    excludesPattern?: pulumi.Input<string>;
-    includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
+     * artifacts are excluded.
+     */
+    excludesPattern?: pulumi.Input<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
+     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     */
+    includesPattern?: pulumi.Input<string>;
+    indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     /**
-     * - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+     * The list of Federated members and must contain this repository URL (configured base URL
+     * `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+     * Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+     * to set up Federated repositories correctly.
      */
     members: pulumi.Input<pulumi.Input<inputs.FederatedCargoRepositoryMember>[]>;
     notes?: pulumi.Input<string>;
@@ -242,10 +341,17 @@ export interface FederatedCargoRepositoryArgs {
      * with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
+    /**
+     * List of property set name
+     */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Repository layout key for the local repository
      */
     repoLayoutRef?: pulumi.Input<string>;
+    /**
+     * Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+     * Xray settings.
+     */
     xrayIndex?: pulumi.Input<boolean>;
 }

@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Push Replication Resource
-    /// 
     /// Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
     /// 
     /// ## Example Usage

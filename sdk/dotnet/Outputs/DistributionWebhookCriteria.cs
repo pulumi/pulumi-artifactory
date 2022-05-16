@@ -14,19 +14,19 @@ namespace Pulumi.Artifactory.Outputs
     public sealed class DistributionWebhookCriteria
     {
         /// <summary>
-        /// Trigger on any release bundle
+        /// Trigger on any release bundle.
         /// </summary>
         public readonly bool AnyReleaseBundle;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> ExcludePatterns;
         /// <summary>
-        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, **, ?).\nFor example: "org/apache/**"
+        /// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
         /// </summary>
         public readonly ImmutableArray<string> IncludePatterns;
         /// <summary>
-        /// Trigger on this list of release bundle names
+        /// Trigger on this list of release bundle names.
         /// </summary>
         public readonly ImmutableArray<string> RegisteredReleaseBundleNames;
 

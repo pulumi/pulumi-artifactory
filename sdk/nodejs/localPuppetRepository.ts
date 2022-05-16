@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Puppet Repository Resource
- *
- * Creates a local puppet repository.
+ * Creates a local Puppet repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_puppet_repo = new artifactory.LocalPuppetRepository("terraform-local-test-puppet-repo", {
  *     key: "terraform-local-test-puppet-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
  * ```
  */
 export class LocalPuppetRepository extends pulumi.CustomResource {
@@ -75,7 +81,7 @@ export class LocalPuppetRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +198,7 @@ export interface LocalPuppetRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +262,7 @@ export interface LocalPuppetRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

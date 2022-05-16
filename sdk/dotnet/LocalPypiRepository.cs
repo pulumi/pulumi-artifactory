@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Pypi Repository Resource
-    /// 
-    /// Creates a local pypi repository.
+    /// Creates a local Pypi repository.
     /// 
     /// ## Example Usage
     /// 
@@ -31,6 +29,14 @@ namespace Pulumi.Artifactory
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localPypiRepository:LocalPypiRepository terraform-local-test-pypi-repo terraform-local-test-pypi-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localPypiRepository:LocalPypiRepository")]
@@ -75,7 +81,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -209,7 +215,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -313,7 +319,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

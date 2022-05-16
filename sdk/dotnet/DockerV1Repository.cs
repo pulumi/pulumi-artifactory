@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Docker V1 Repository Resource
-    /// 
-    /// Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options
+    /// Creates a local Docker v1 repository - By choosing a V1 repository, you don't really have many options.
     /// 
     /// ## Example Usage
     /// 
@@ -24,13 +22,21 @@ namespace Pulumi.Artifactory
     /// {
     ///     public MyStack()
     ///     {
-    ///         var foo = new Artifactory.DockerV2Repository("foo", new Artifactory.DockerV2RepositoryArgs
+    ///         var foo = new Artifactory.DockerV1Repository("foo", new Artifactory.DockerV1RepositoryArgs
     ///         {
     ///             Key = "foo",
     ///         });
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerV1Repository:DockerV1Repository")]
@@ -81,7 +87,7 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
@@ -221,7 +227,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
@@ -334,7 +340,7 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }

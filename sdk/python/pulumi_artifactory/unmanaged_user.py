@@ -296,8 +296,6 @@ class UnmanagedUser(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Unmanaged User Resource
-
         Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.
 
         When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
@@ -344,8 +342,6 @@ class UnmanagedUser(pulumi.CustomResource):
                  args: UnmanagedUserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Unmanaged User Resource
-
         Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.
 
         When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.

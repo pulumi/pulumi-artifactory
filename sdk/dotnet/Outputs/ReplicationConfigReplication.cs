@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory.Outputs
     {
         public readonly bool? Enabled;
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
         /// </summary>
         public readonly string? Password;
         public readonly string? PathPrefix;

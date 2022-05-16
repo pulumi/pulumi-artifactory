@@ -151,7 +151,7 @@ class _AccessTokenState:
         :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
         :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
-        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
@@ -250,7 +250,7 @@ class _AccessTokenState:
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[str]]:
         """
-        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         """
         return pulumi.get(self, "refresh_token")
 
@@ -399,7 +399,7 @@ class AccessToken(pulumi.CustomResource):
         :param pulumi.Input[str] end_date: (Optional) The end date which the token is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`).
         :param pulumi.Input[str] end_date_relative: (Optional) A relative duration for which the token is valid until, for example `240h` (10 days) or `2400h30m`. Valid time units are "s", "m", "h".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: (Optional) List of groups. The token is granted access based on the permissions of the groups. Specify `["*"]` for all groups that the user belongs to. `groups` cannot be specified with `admin_token`.
-        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        :param pulumi.Input[str] refresh_token: Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         :param pulumi.Input[bool] refreshable: (Optional) Is this token refreshable? Defaults to `false`
         :param pulumi.Input[str] username: (Required) The username or subject for the token. A non-admin can only specify their own username. Admins can specify any existing username, or a new name for a temporary token. Temporary tokens require `groups` to be set.
         """
@@ -470,7 +470,7 @@ class AccessToken(pulumi.CustomResource):
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> pulumi.Output[str]:
         """
-        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false
+        Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         """
         return pulumi.get(self, "refresh_token")
 

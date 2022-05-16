@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
+    /// replication. Primarily used when pull replication is needed.
+    /// 
+    /// **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
+    /// unexpected behaviour and will almost certainly cause your replications to break.**
+    /// 
     /// ## Import
     /// 
     /// Replication configs can be imported using their repo key, e.g.
@@ -31,7 +37,7 @@ namespace Pulumi.Artifactory
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -40,7 +46,7 @@ namespace Pulumi.Artifactory
         public Output<string?> PathPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies setting.
         /// </summary>
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
@@ -125,7 +131,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PathPrefix { get; set; }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies setting.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
@@ -168,7 +174,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -177,7 +183,7 @@ namespace Pulumi.Artifactory
         public Input<string>? PathPrefix { get; set; }
 
         /// <summary>
-        /// Proxy key from Artifactory Proxies setting
+        /// Proxy key from Artifactory Proxies setting.
         /// </summary>
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }

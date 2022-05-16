@@ -27,9 +27,8 @@ class VirtualP2RepositoryArgs:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a VirtualP2Repository resource.
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -76,9 +75,8 @@ class VirtualP2RepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -252,9 +250,8 @@ class _VirtualP2RepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -360,9 +357,8 @@ class _VirtualP2RepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -476,9 +472,8 @@ class VirtualP2Repository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual P2 Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific P2 features.
+        Creates a virtual P2 repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/P2+Repositories#P2Repositories-DefiningaVirtualRepository)
 
         ## Example Usage
 
@@ -500,7 +495,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
         ```
 
         :param str resource_name: The name of the resource.
@@ -514,9 +509,8 @@ class VirtualP2Repository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
@@ -533,9 +527,8 @@ class VirtualP2Repository(pulumi.CustomResource):
                  args: VirtualP2RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual P2 Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific P2 features.
+        Creates a virtual P2 repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/P2+Repositories#P2Repositories-DefiningaVirtualRepository)
 
         ## Example Usage
 
@@ -557,7 +550,7 @@ class VirtualP2Repository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo foo
+         $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
         ```
 
         :param str resource_name: The name of the resource.
@@ -653,9 +646,8 @@ class VirtualP2Repository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -733,9 +725,8 @@ class VirtualP2Repository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 

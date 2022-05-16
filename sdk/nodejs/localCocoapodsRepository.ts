@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Cocoapods Repository Resource
- *
- * Creates a local cocoapods repository.
+ * Creates a local Cocoapods repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_cocoapods_repo = new artifactory.LocalCocoapodsRepository("terraform-local-test-cocoapods-repo", {
  *     key: "terraform-local-test-cocoapods-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
  * ```
  */
 export class LocalCocoapodsRepository extends pulumi.CustomResource {
@@ -75,7 +81,7 @@ export class LocalCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +198,7 @@ export interface LocalCocoapodsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +262,7 @@ export interface LocalCocoapodsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

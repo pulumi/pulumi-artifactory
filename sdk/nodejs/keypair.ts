@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory keypair Resource
- *
  * RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are
  * used to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple
  * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
@@ -79,7 +77,7 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly pairType!: pulumi.Output<string>;
     /**
-     * - Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side.
      */
     public readonly passphrase!: pulumi.Output<string | undefined>;
     /**
@@ -87,11 +85,11 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
-     * - Public key. PEM format will be validated.
+     * Public key. PEM format will be validated.
      */
     public readonly publicKey!: pulumi.Output<string>;
     /**
-     * - Unknown usage. Returned in the json payload and cannot be set.
+     * Unknown usage. Returned in the json payload and cannot be set.
      */
     public /*out*/ readonly unavailable!: pulumi.Output<boolean>;
 
@@ -162,7 +160,7 @@ export interface KeypairState {
      */
     pairType?: pulumi.Input<string>;
     /**
-     * - Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side.
      */
     passphrase?: pulumi.Input<string>;
     /**
@@ -170,11 +168,11 @@ export interface KeypairState {
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * - Public key. PEM format will be validated.
+     * Public key. PEM format will be validated.
      */
     publicKey?: pulumi.Input<string>;
     /**
-     * - Unknown usage. Returned in the json payload and cannot be set.
+     * Unknown usage. Returned in the json payload and cannot be set.
      */
     unavailable?: pulumi.Input<boolean>;
 }
@@ -196,7 +194,7 @@ export interface KeypairArgs {
      */
     pairType: pulumi.Input<string>;
     /**
-     * - Passphrase will be used to decrypt the private key. Validated server side.
+     * Passphrase will be used to decrypt the private key. Validated server side.
      */
     passphrase?: pulumi.Input<string>;
     /**
@@ -204,7 +202,7 @@ export interface KeypairArgs {
      */
     privateKey: pulumi.Input<string>;
     /**
-     * - Public key. PEM format will be validated.
+     * Public key. PEM format will be validated.
      */
     publicKey: pulumi.Input<string>;
 }

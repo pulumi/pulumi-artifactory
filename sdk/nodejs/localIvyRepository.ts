@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Ivy Repository Resource
- *
- * Creates a local ivy repository.
+ * Creates a local Ivy repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_ivy_repo = new artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", {
  *     key: "terraform-local-test-ivy-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
  * ```
  */
 export class LocalIvyRepository extends pulumi.CustomResource {
@@ -89,7 +95,7 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -250,7 +256,7 @@ export interface LocalIvyRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     /**
@@ -346,7 +352,7 @@ export interface LocalIvyRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     /**

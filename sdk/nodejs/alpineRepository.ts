@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Alpine Repository Resource
- *
- * Creates a local Alpine repository
+ * Creates a local Alpine repository.
  *
  * ## Example Usage
  *
@@ -29,6 +27,14 @@ import * as utilities from "./utilities";
  * }, {
  *     dependsOn: [some_keypairRSA],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
  * ```
  */
 export class AlpineRepository extends pulumi.CustomResource {
@@ -87,13 +93,13 @@ export class AlpineRepository extends pulumi.CustomResource {
     public readonly includesPattern!: pulumi.Output<string>;
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * - The RSA key to be used to sign alpine indecies
+     * The RSA key to be used to sign alpine indices.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -213,13 +219,13 @@ export interface AlpineRepositoryState {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * - The RSA key to be used to sign alpine indecies
+     * The RSA key to be used to sign alpine indices.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -282,12 +288,12 @@ export interface AlpineRepositoryArgs {
     includesPattern?: pulumi.Input<string>;
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     /**
-     * - The RSA key to be used to sign alpine indecies
+     * The RSA key to be used to sign alpine indices.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**

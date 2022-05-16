@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Debian Repository Resource
- *
- * Creates a local Debian repository and allows for the creation of a GPG key
+ * Creates a local Debian repository and allows for the creation of a GPG key.
  *
  * ## Example Usage
  *
@@ -46,6 +44,14 @@ import * as utilities from "./utilities";
  *         some_keypairGPG2,
  *     ],
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
  * ```
  */
 export class DebianRepository extends pulumi.CustomResource {
@@ -103,17 +109,18 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - If you're creating this repo, then maybe you know?
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
      */
     public readonly indexCompressionFormats!: pulumi.Output<string[] | undefined>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * - The RSA key to be used to sign packages
+     * The primary RSA key to be used to sign packages.
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
@@ -138,11 +145,11 @@ export class DebianRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * - Not really clear what this does
+     * The secondary RSA key to be used to sign packages.
      */
     public readonly secondaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
-     * - Apparently this is a deprecated repo layout
+     * When set, the repository will use the deprecated trivial layout.
      *
      * @deprecated You shouldn't be using this
      */
@@ -246,17 +253,18 @@ export interface DebianRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - If you're creating this repo, then maybe you know?
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
      */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     packageType?: pulumi.Input<string>;
     /**
-     * - The RSA key to be used to sign packages
+     * The primary RSA key to be used to sign packages.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -281,11 +289,11 @@ export interface DebianRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * - Not really clear what this does
+     * The secondary RSA key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
-     * - Apparently this is a deprecated repo layout
+     * When set, the repository will use the deprecated trivial layout.
      *
      * @deprecated You shouldn't be using this
      */
@@ -328,16 +336,17 @@ export interface DebianRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - If you're creating this repo, then maybe you know?
+     * The options are Bzip2 (.bz2 extension) (default), LZMA (.lzma extension)
+     * and XZ (.xz extension).
      */
     indexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
     /**
-     * - The RSA key to be used to sign packages
+     * The primary RSA key to be used to sign packages.
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
@@ -362,11 +371,11 @@ export interface DebianRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * - Not really clear what this does
+     * The secondary RSA key to be used to sign packages.
      */
     secondaryKeypairRef?: pulumi.Input<string>;
     /**
-     * - Apparently this is a deprecated repo layout
+     * When set, the repository will use the deprecated trivial layout.
      *
      * @deprecated You shouldn't be using this
      */

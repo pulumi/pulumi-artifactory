@@ -6,14 +6,10 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Remote CocoaPods Repository Resource
- *
  * Creates a remote CocoaPods repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CocoaPods+Repositories)
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CocoaPods+Repositories).
  *
  * ## Example Usage
- *
- * To create a new Artifactory remote CocoaPods repository called my-remote-cocoapods.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,9 +17,18 @@ import * as utilities from "./utilities";
  *
  * const my_remote_cocoapods = new artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", {
  *     key: "my-remote-cocoapods",
+ *     podsSpecsRepoUrl: "https://github.com/CocoaPods/Spec",
  *     url: "https://github.com/",
  *     vcsGitProvider: "GITHUB",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
  * ```
  */
 export class RemoteCocoapodsRepository extends pulumi.CustomResource {
@@ -109,12 +114,13 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
     /**
@@ -123,7 +129,7 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -160,11 +166,11 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     /**
-     * List of property set name
+     * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -203,7 +209,7 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -212,7 +218,8 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -393,12 +400,13 @@ export interface RemoteCocoapodsRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -407,7 +415,7 @@ export interface RemoteCocoapodsRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -444,11 +452,11 @@ export interface RemoteCocoapodsRepositoryState {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -487,7 +495,7 @@ export interface RemoteCocoapodsRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -496,7 +504,8 @@ export interface RemoteCocoapodsRepositoryState {
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -561,12 +570,13 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -575,7 +585,7 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -611,11 +621,11 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -654,7 +664,7 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -663,7 +673,8 @@ export interface RemoteCocoapodsRepositoryArgs {
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "ARTIFACTORY".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
+     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

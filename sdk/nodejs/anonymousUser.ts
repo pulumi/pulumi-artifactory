@@ -52,8 +52,7 @@ export class AnonymousUser extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-     * state.
+     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -85,8 +84,7 @@ export class AnonymousUser extends pulumi.CustomResource {
  */
 export interface AnonymousUserState {
     /**
-     * (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-     * state.
+     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
      */
     name?: pulumi.Input<string>;
 }
@@ -96,8 +94,7 @@ export interface AnonymousUserState {
  */
 export interface AnonymousUserArgs {
     /**
-     * (Optional) Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform
-     * state.
+     * Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
      */
     name?: pulumi.Input<string>;
 }

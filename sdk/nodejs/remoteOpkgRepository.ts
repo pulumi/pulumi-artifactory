@@ -6,14 +6,10 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Remote Opkg Repository Resource
- *
  * Creates a remote Opkg repository.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Opkg+Repositories)
+ * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Opkg+Repositories).
  *
  * ## Example Usage
- *
- * To create a new Artifactory remote Opkg repository called my-remote-opkg.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,6 +19,14 @@ import * as utilities from "./utilities";
  *     key: "my-remote-opkg",
  *     url: "http://testartifactory.io/artifactory/example-opkg/",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Remote repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/remoteOpkgRepository:RemoteOpkgRepository my-remote-opkg my-remote-opkg
  * ```
  */
 export class RemoteOpkgRepository extends pulumi.CustomResource {
@@ -108,12 +112,13 @@ export class RemoteOpkgRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     public readonly listRemoteFolderItems!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,7 +127,7 @@ export class RemoteOpkgRepository extends pulumi.CustomResource {
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     public readonly mismatchingMimeTypesOverrideList!: pulumi.Output<string | undefined>;
@@ -155,11 +160,11 @@ export class RemoteOpkgRepository extends pulumi.CustomResource {
      */
     public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
     /**
-     * List of property set name
+     * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
     /**
@@ -198,7 +203,7 @@ export class RemoteOpkgRepository extends pulumi.CustomResource {
      */
     public readonly unusedArtifactsCleanupPeriodHours!: pulumi.Output<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
@@ -374,12 +379,13 @@ export interface RemoteOpkgRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key?: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -388,7 +394,7 @@ export interface RemoteOpkgRepositoryState {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -421,11 +427,11 @@ export interface RemoteOpkgRepositoryState {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -464,7 +470,7 @@ export interface RemoteOpkgRepositoryState {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
@@ -530,12 +536,13 @@ export interface RemoteOpkgRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * The repository identifier. Must be unique system-wide
+     * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+     * contain spaces or special characters.
      */
     key: pulumi.Input<string>;
     /**
-     * (Optional) Lists the items of remote folders in simple and list browsing. The remote content is cached according to the
-     * value of the 'Retrieval Cache Period'. Default value is 'false'.
+     * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
+     * the 'Retrieval Cache Period'. Default value is 'false'.
      */
     listRemoteFolderItems?: pulumi.Input<boolean>;
     /**
@@ -544,7 +551,7 @@ export interface RemoteOpkgRepositoryArgs {
      */
     localAddress?: pulumi.Input<string>;
     /**
-     * (Optional) The set of mime types that should override the block_mismatching_mime_types setting. Eg:
+     * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
      */
     mismatchingMimeTypesOverrideList?: pulumi.Input<string>;
@@ -576,11 +583,11 @@ export interface RemoteOpkgRepositoryArgs {
      */
     propagateQueryParams?: pulumi.Input<boolean>;
     /**
-     * List of property set name
+     * List of property set names
      */
     propertySets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Proxy key from Artifactory Proxies setting
+     * Proxy key from Artifactory Proxies settings
      */
     proxy?: pulumi.Input<string>;
     /**
@@ -619,7 +626,7 @@ export interface RemoteOpkgRepositoryArgs {
      */
     unusedArtifactsCleanupPeriodHours?: pulumi.Input<number>;
     /**
-     * - the remote repo URL. You kinda don't have a remote repo without it
+     * The remote repo URL.
      */
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;

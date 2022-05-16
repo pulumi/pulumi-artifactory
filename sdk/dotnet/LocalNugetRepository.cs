@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// ## # Artifactory Local Nuget Repository Resource
-    /// 
-    /// Creates a local Nuget repository
+    /// Creates a local Nuget repository.
     /// 
     /// ## Example Usage
     /// 
@@ -33,6 +31,14 @@ namespace Pulumi.Artifactory
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Local repositories can be imported using their name, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localNugetRepository:LocalNugetRepository")]
@@ -70,7 +76,8 @@ namespace Pulumi.Artifactory
         public Output<string> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - Force basic authentication credentials in order to use this repository.
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool?> ForceNugetAuthentication { get; private set; } = null!;
@@ -83,14 +90,14 @@ namespace Pulumi.Artifactory
         public Output<string> IncludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
-        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// The maximum number of unique snapshots of a single artifact to store
+        /// Once the number of snapshots exceeds this setting, older versions are removed
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Output("maxUniqueSnapshots")]
@@ -218,7 +225,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// - Force basic authentication credentials in order to use this repository.
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -231,14 +239,14 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
-        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// The maximum number of unique snapshots of a single artifact to store
+        /// Once the number of snapshots exceeds this setting, older versions are removed
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]
@@ -336,7 +344,8 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// - Force basic authentication credentials in order to use this repository.
+        /// Force basic authentication credentials in order to use this repository.
+        /// Default is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -349,14 +358,14 @@ namespace Pulumi.Artifactory
         public Input<string>? IncludesPattern { get; set; }
 
         /// <summary>
-        /// - the identity key of the repo
+        /// the identity key of the repo.
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// - The maximum number of unique snapshots of a single artifact to store.
-        /// Once the number of snapshots exceeds this setting, older versions are removed.
+        /// The maximum number of unique snapshots of a single artifact to store
+        /// Once the number of snapshots exceeds this setting, older versions are removed
         /// A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         /// </summary>
         [Input("maxUniqueSnapshots")]

@@ -32,16 +32,29 @@ class FederatedGenericRepositoryArgs:
                  xray_index: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FederatedGenericRepository resource.
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "members", members)
@@ -76,7 +89,7 @@ class FederatedGenericRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -88,7 +101,10 @@ class FederatedGenericRepositoryArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -113,6 +129,9 @@ class FederatedGenericRepositoryArgs:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -131,6 +150,10 @@ class FederatedGenericRepositoryArgs:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -140,6 +163,10 @@ class FederatedGenericRepositoryArgs:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -149,6 +176,10 @@ class FederatedGenericRepositoryArgs:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -192,7 +223,8 @@ class FederatedGenericRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -203,6 +235,9 @@ class FederatedGenericRepositoryArgs:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -225,7 +260,8 @@ class FederatedGenericRepositoryArgs:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -258,13 +294,26 @@ class _FederatedGenericRepositoryState:
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         if archive_browsing_enabled is not None:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
@@ -316,6 +365,9 @@ class _FederatedGenericRepositoryState:
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @blacked_out.setter
@@ -334,6 +386,10 @@ class _FederatedGenericRepositoryState:
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @download_direct.setter
@@ -343,6 +399,10 @@ class _FederatedGenericRepositoryState:
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @excludes_pattern.setter
@@ -352,6 +412,10 @@ class _FederatedGenericRepositoryState:
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @includes_pattern.setter
@@ -362,7 +426,7 @@ class _FederatedGenericRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -374,7 +438,10 @@ class _FederatedGenericRepositoryState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FederatedGenericRepositoryMemberArgs']]]]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -428,7 +495,8 @@ class _FederatedGenericRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -439,6 +507,9 @@ class _FederatedGenericRepositoryState:
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property_sets.setter
@@ -461,7 +532,8 @@ class _FederatedGenericRepositoryState:
     @pulumi.getter(name="xrayIndex")
     def xray_index(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 
@@ -492,9 +564,7 @@ class FederatedGenericRepository(pulumi.CustomResource):
                  xray_index: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory Federated Generic Repository Resource
-
-        Creates a federated Generic repository
+        Creates a federated Generic repository.
 
         ## Example Usage
 
@@ -516,18 +586,39 @@ class FederatedGenericRepository(pulumi.CustomResource):
             ])
         ```
 
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedGenericRepository:FederatedGenericRepository terraform-federated-test-generic-repo terraform-federated-test-generic-repo
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGenericRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGenericRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         ...
     @overload
@@ -536,9 +627,7 @@ class FederatedGenericRepository(pulumi.CustomResource):
                  args: FederatedGenericRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Federated Generic Repository Resource
-
-        Creates a federated Generic repository
+        Creates a federated Generic repository.
 
         ## Example Usage
 
@@ -558,6 +647,14 @@ class FederatedGenericRepository(pulumi.CustomResource):
                     url="http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
                 ),
             ])
+        ```
+
+        ## Import
+
+        Federated repositories can be imported using their name, e.g.
+
+        ```sh
+         $ pulumi import artifactory:index/federatedGenericRepository:FederatedGenericRepository terraform-federated-test-generic-repo terraform-federated-test-generic-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -658,13 +755,26 @@ class FederatedGenericRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
-        :param pulumi.Input[str] key: - the identity key of the repo
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGenericRepositoryMemberArgs']]]] members: - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+               artifacts are excluded.
+        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] key: the identity key of the repo.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FederatedGenericRepositoryMemberArgs']]]] members: The list of Federated members and must contain this repository URL (configured base URL
+               `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+               Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+               to set up Federated repositories correctly.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+               Xray settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -701,6 +811,9 @@ class FederatedGenericRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        """
         return pulumi.get(self, "blacked_out")
 
     @property
@@ -711,23 +824,35 @@ class FederatedGenericRepository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="downloadDirect")
     def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only.
+        """
         return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
+        artifacts are excluded.
+        """
         return pulumi.get(self, "excludes_pattern")
 
     @property
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
+        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        """
         return pulumi.get(self, "includes_pattern")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        - the identity key of the repo
+        the identity key of the repo.
         """
         return pulumi.get(self, "key")
 
@@ -735,7 +860,10 @@ class FederatedGenericRepository(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.FederatedGenericRepositoryMember']]:
         """
-        - The list of Federated members and must contain this repository URL (configured base URL + `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set. Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository) to set up Federated repositories correctly.
+        The list of Federated members and must contain this repository URL (configured base URL
+        `/artifactory/` + repo `key`). Note that each of the federated members will need to have a base URL set.
+        Please follow the [instruction](https://www.jfrog.com/confluence/display/JFROG/Working+with+Federated+Repositories#WorkingwithFederatedRepositories-SettingUpaFederatedRepository)
+        to set up Federated repositories correctly.
         """
         return pulumi.get(self, "members")
 
@@ -769,13 +897,17 @@ class FederatedGenericRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
+        with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
     @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of property set name
+        """
         return pulumi.get(self, "property_sets")
 
     @property
@@ -788,9 +920,10 @@ class FederatedGenericRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xrayIndex")
-    def xray_index(self) -> pulumi.Output[bool]:
+    def xray_index(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via Xray settings.
+        Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
+        Xray settings.
         """
         return pulumi.get(self, "xray_index")
 

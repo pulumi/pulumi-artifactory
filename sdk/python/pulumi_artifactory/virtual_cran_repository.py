@@ -27,9 +27,8 @@ class VirtualCranRepositoryArgs:
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a VirtualCranRepository resource.
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -45,7 +44,8 @@ class VirtualCranRepositoryArgs:
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -75,9 +75,8 @@ class VirtualCranRepositoryArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -214,7 +213,8 @@ class VirtualCranRepositoryArgs:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -250,9 +250,8 @@ class _VirtualCranRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -260,7 +259,8 @@ class _VirtualCranRepositoryState:
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -357,9 +357,8 @@ class _VirtualCranRepositoryState:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -444,7 +443,8 @@ class _VirtualCranRepositoryState:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -472,9 +472,8 @@ class VirtualCranRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        ## # Artifactory Virtual Cran Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific cran features.
+        Creates a virtual Cran repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories#CRANRepositories-VirtualRepositories).
 
         ## Example Usage
 
@@ -496,7 +495,7 @@ class VirtualCranRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo foo
+         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
         ```
 
         :param str resource_name: The name of the resource.
@@ -510,16 +509,16 @@ class VirtualCranRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         ...
     @overload
@@ -528,9 +527,8 @@ class VirtualCranRepository(pulumi.CustomResource):
                  args: VirtualCranRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Virtual Cran Repository Resource
-
-        Provides an Artifactory virtual repository resource with specific cran features.
+        Creates a virtual Cran repository.
+        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/CRAN+Repositories#CRANRepositories-VirtualRepositories).
 
         ## Example Usage
 
@@ -552,7 +550,7 @@ class VirtualCranRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo foo
+         $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
         ```
 
         :param str resource_name: The name of the resource.
@@ -648,9 +646,8 @@ class VirtualCranRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-        :param pulumi.Input[str] key: The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-               contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-               'libs-release-local').
+        :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+               contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
@@ -658,7 +655,8 @@ class VirtualCranRepository(pulumi.CustomResource):
                repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+               repositories. A value of 0 indicates no caching.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -727,9 +725,8 @@ class VirtualCranRepository(pulumi.CustomResource):
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
-        The Repository Key. A mandatory identifier for the repository and must be unique. It cannot begin with a number or
-        contain spaces or special characters. For local repositories, we recommend using a '-local' suffix (e.g.
-        'libs-release-local').
+        A mandatory identifier for the repository that must be unique. It cannot begin with a number or
+        contain spaces or special characters.
         """
         return pulumi.get(self, "key")
 
@@ -786,7 +783,8 @@ class VirtualCranRepository(pulumi.CustomResource):
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching. Default value is 7200.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
+        repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 

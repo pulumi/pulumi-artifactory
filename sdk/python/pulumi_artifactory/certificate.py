@@ -203,8 +203,6 @@ class Certificate(pulumi.CustomResource):
                  file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## # Artifactory Certificate Resource
-
         Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
 
         ## Example Usage
@@ -241,8 +239,6 @@ class Certificate(pulumi.CustomResource):
                  args: CertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory Certificate Resource
-
         Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.
 
         ## Example Usage

@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Local Opkg Repository Resource
- *
- * Creates a local opkg repository.
+ * Creates a local Opkg repository.
  *
  * ## Example Usage
  *
@@ -18,6 +16,14 @@ import * as utilities from "./utilities";
  * const terraform_local_test_opkg_repo = new artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", {
  *     key: "terraform-local-test-opkg-repo",
  * });
+ * ```
+ *
+ * ## Import
+ *
+ * Local repositories can be imported using their name, e.g.
+ *
+ * ```sh
+ *  $ pulumi import artifactory:index/localOpkgRepository:LocalOpkgRepository terraform-local-test-opkg-repo terraform-local-test-opkg-repo
  * ```
  */
 export class LocalOpkgRepository extends pulumi.CustomResource {
@@ -75,7 +81,7 @@ export class LocalOpkgRepository extends pulumi.CustomResource {
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     public readonly key!: pulumi.Output<string>;
     public readonly notes!: pulumi.Output<string | undefined>;
@@ -192,7 +198,7 @@ export interface LocalOpkgRepositoryState {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key?: pulumi.Input<string>;
     notes?: pulumi.Input<string>;
@@ -256,7 +262,7 @@ export interface LocalOpkgRepositoryArgs {
      */
     includesPattern?: pulumi.Input<string>;
     /**
-     * - the identity key of the repo
+     * the identity key of the repo.
      */
     key: pulumi.Input<string>;
     notes?: pulumi.Input<string>;

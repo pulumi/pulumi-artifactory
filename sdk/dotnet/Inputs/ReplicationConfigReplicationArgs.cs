@@ -16,7 +16,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Requires password encryption to be turned off `POST /api/system/decrypt`
+        /// Requires password encryption to be turned off `POST /api/system/decrypt`.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

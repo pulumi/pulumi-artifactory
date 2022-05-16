@@ -6,10 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory Permission Target Resource
- *
- * **Requires Artifactory >= 6.6.0. If using a lower version see here**
- *
  * Provides an Artifactory permission target resource. This can be used to create and manage Artifactory permission targets.
  *
  * ## Example Usage
@@ -32,6 +28,16 @@ import * as utilities from "./utilities";
  *         },
  *         includesPatterns: ["**"],
  *         repositories: ["artifactory-build-info"],
+ *     },
+ *     releaseBundle: {
+ *         actions: {
+ *             users: [{
+ *                 name: "anonymous",
+ *                 permissions: ["read"],
+ *             }],
+ *         },
+ *         includesPatterns: ["**"],
+ *         repositories: ["release-bundles"],
  *     },
  *     repo: {
  *         actions: {
@@ -112,12 +118,15 @@ export class PermissionTarget extends pulumi.CustomResource {
      */
     public readonly build!: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
     /**
-     * Name of permission
+     * Name of permission.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * As for repo for for release-bundles permissions.
+     */
     public readonly releaseBundle!: pulumi.Output<outputs.PermissionTargetReleaseBundle | undefined>;
     /**
-     * Repository permission configuration
+     * Repository permission configuration.
      */
     public readonly repo!: pulumi.Output<outputs.PermissionTargetRepo | undefined>;
 
@@ -159,12 +168,15 @@ export interface PermissionTargetState {
      */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
     /**
-     * Name of permission
+     * Name of permission.
      */
     name?: pulumi.Input<string>;
+    /**
+     * As for repo for for release-bundles permissions.
+     */
     releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
     /**
-     * Repository permission configuration
+     * Repository permission configuration.
      */
     repo?: pulumi.Input<inputs.PermissionTargetRepo>;
 }
@@ -178,12 +190,15 @@ export interface PermissionTargetArgs {
      */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
     /**
-     * Name of permission
+     * Name of permission.
      */
     name?: pulumi.Input<string>;
+    /**
+     * As for repo for for release-bundles permissions.
+     */
     releaseBundle?: pulumi.Input<inputs.PermissionTargetReleaseBundle>;
     /**
-     * Repository permission configuration
+     * Repository permission configuration.
      */
     repo?: pulumi.Input<inputs.PermissionTargetRepo>;
 }

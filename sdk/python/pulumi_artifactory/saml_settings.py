@@ -459,8 +459,6 @@ class SamlSettings(pulumi.CustomResource):
                  verify_audience_restriction: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        ## # Artifactory SAML SSO Settings Resource
-
         This resource can be used to manage Artifactory's SAML SSO settings.
 
         Only a single `SamlSettings` resource is meant to be defined.
@@ -519,8 +517,6 @@ class SamlSettings(pulumi.CustomResource):
                  args: SamlSettingsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## # Artifactory SAML SSO Settings Resource
-
         This resource can be used to manage Artifactory's SAML SSO settings.
 
         Only a single `SamlSettings` resource is meant to be defined.

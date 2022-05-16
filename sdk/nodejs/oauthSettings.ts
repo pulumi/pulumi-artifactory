@@ -6,8 +6,6 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * ## # Artifactory OAuth SSO Settings Resource
- *
  * This resource can be used to manage Artifactory's OAuth SSO settings.
  *
  * Only a single `artifactory.OauthSettings` resource is meant to be defined.

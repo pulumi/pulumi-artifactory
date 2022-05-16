@@ -10,7 +10,8 @@ from .. import _utilities
 
 accessToken: Optional[str]
 """
-This is a access token that can be given to you by your admin under `Identity and Access`
+This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
+attribute value will be used.
 """
 
 apiKey: Optional[str]
