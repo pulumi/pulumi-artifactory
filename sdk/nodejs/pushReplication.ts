@@ -7,6 +7,9 @@ import * as utilities from "./utilities";
 
 /**
  * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+ * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+ * end invoking a synchronization of artifacts to the far end.
+ * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
  *
  * ## Example Usage
  *
@@ -70,6 +73,9 @@ export class PushReplication extends pulumi.CustomResource {
     }
 
     public readonly cronExp!: pulumi.Output<string>;
+    /**
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     */
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly replications!: pulumi.Output<outputs.PushReplicationReplication[] | undefined>;
     public readonly repoKey!: pulumi.Output<string>;
@@ -114,6 +120,9 @@ export class PushReplication extends pulumi.CustomResource {
  */
 export interface PushReplicationState {
     cronExp?: pulumi.Input<string>;
+    /**
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     */
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
     repoKey?: pulumi.Input<string>;
@@ -124,6 +133,9 @@ export interface PushReplicationState {
  */
 export interface PushReplicationArgs {
     cronExp: pulumi.Input<string>;
+    /**
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     */
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
     repoKey: pulumi.Input<string>;

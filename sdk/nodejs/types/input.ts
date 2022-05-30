@@ -884,18 +884,51 @@ export interface PermissionTargetsRepoActionsUser {
 }
 
 export interface PushReplicationReplication {
+    /**
+     * When true, enables distributed checksum storage. For more information, see
+     * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     */
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    /**
+     * When set, this replication will be enabled when saved.
+     */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     password: pulumi.Input<string>;
+    /**
+     * Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+     */
     pathPrefix?: pulumi.Input<string>;
     /**
-     * Proxy key from Artifactory Proxies setting.
+     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      */
     proxy?: pulumi.Input<string>;
+    /**
+     * The network timeout in milliseconds to use for remote operations.
+     */
     socketTimeoutMillis?: pulumi.Input<number>;
+    /**
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+     * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+     */
     syncDeletes?: pulumi.Input<boolean>;
+    /**
+     * When set, the task also synchronizes the properties of replicated artifacts.
+     */
     syncProperties?: pulumi.Input<boolean>;
+    /**
+     * When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+     */
     syncStatistics?: pulumi.Input<boolean>;
+    /**
+     * The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+     */
     url: pulumi.Input<string>;
+    /**
+     * Required for local repository, but not needed for remote repository.
+     */
     username: pulumi.Input<string>;
 }
 

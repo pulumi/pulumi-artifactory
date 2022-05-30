@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
+    /// Note: this resource is deprecated in favor of `artifactory.PullReplication` resource.
+    /// 
     /// Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
     /// replication. Primarily used when pull replication is needed.
     /// 

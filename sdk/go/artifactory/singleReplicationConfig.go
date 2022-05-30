@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Note: this resource is deprecated in favor of `PullReplication` resource.
+//
 // Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
 // replication. Primarily used when pull replication is needed.
 //

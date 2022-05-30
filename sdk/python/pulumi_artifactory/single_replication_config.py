@@ -355,6 +355,8 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Note: this resource is deprecated in favor of `PullReplication` resource.
+
         Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
         replication. Primarily used when pull replication is needed.
 
@@ -380,6 +382,8 @@ class SingleReplicationConfig(pulumi.CustomResource):
                  args: SingleReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Note: this resource is deprecated in favor of `PullReplication` resource.
+
         Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory
         replication. Primarily used when pull replication is needed.
 

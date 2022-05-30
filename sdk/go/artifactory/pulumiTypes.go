@@ -8556,17 +8556,30 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PushReplicationReplication struct {
-	Enabled    *bool   `pulumi:"enabled"`
-	Password   string  `pulumi:"password"`
+	// When true, enables distributed checksum storage. For more information, see
+	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set, this replication will be enabled when saved.
+	Enabled *bool `pulumi:"enabled"`
+	// Required for local repository, but not needed for remote repository.
+	Password string `pulumi:"password"`
+	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix *string `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting.
-	Proxy               *string `pulumi:"proxy"`
-	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes         *bool   `pulumi:"syncDeletes"`
-	SyncProperties      *bool   `pulumi:"syncProperties"`
-	SyncStatistics      *bool   `pulumi:"syncStatistics"`
-	Url                 string  `pulumi:"url"`
-	Username            string  `pulumi:"username"`
+	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+	Proxy *string `pulumi:"proxy"`
+	// The network timeout in milliseconds to use for remote operations.
+	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
+	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+	// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+	SyncDeletes *bool `pulumi:"syncDeletes"`
+	// When set, the task also synchronizes the properties of replicated artifacts.
+	SyncProperties *bool `pulumi:"syncProperties"`
+	// When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+	SyncStatistics *bool `pulumi:"syncStatistics"`
+	// The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+	Url string `pulumi:"url"`
+	// Required for local repository, but not needed for remote repository.
+	Username string `pulumi:"username"`
 }
 
 // PushReplicationReplicationInput is an input type that accepts PushReplicationReplicationArgs and PushReplicationReplicationOutput values.
@@ -8581,17 +8594,30 @@ type PushReplicationReplicationInput interface {
 }
 
 type PushReplicationReplicationArgs struct {
-	Enabled    pulumi.BoolPtrInput   `pulumi:"enabled"`
-	Password   pulumi.StringInput    `pulumi:"password"`
+	// When true, enables distributed checksum storage. For more information, see
+	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set, this replication will be enabled when saved.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Required for local repository, but not needed for remote repository.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
-	// Proxy key from Artifactory Proxies setting.
-	Proxy               pulumi.StringPtrInput `pulumi:"proxy"`
-	SocketTimeoutMillis pulumi.IntPtrInput    `pulumi:"socketTimeoutMillis"`
-	SyncDeletes         pulumi.BoolPtrInput   `pulumi:"syncDeletes"`
-	SyncProperties      pulumi.BoolPtrInput   `pulumi:"syncProperties"`
-	SyncStatistics      pulumi.BoolPtrInput   `pulumi:"syncStatistics"`
-	Url                 pulumi.StringInput    `pulumi:"url"`
-	Username            pulumi.StringInput    `pulumi:"username"`
+	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// The network timeout in milliseconds to use for remote operations.
+	SocketTimeoutMillis pulumi.IntPtrInput `pulumi:"socketTimeoutMillis"`
+	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+	// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+	SyncDeletes pulumi.BoolPtrInput `pulumi:"syncDeletes"`
+	// When set, the task also synchronizes the properties of replicated artifacts.
+	SyncProperties pulumi.BoolPtrInput `pulumi:"syncProperties"`
+	// When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+	SyncStatistics pulumi.BoolPtrInput `pulumi:"syncStatistics"`
+	// The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+	Url pulumi.StringInput `pulumi:"url"`
+	// Required for local repository, but not needed for remote repository.
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (PushReplicationReplicationArgs) ElementType() reflect.Type {
@@ -8645,43 +8671,59 @@ func (o PushReplicationReplicationOutput) ToPushReplicationReplicationOutputWith
 	return o
 }
 
+// When true, enables distributed checksum storage. For more information, see
+// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+func (o PushReplicationReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.CheckBinaryExistenceInFilestore }).(pulumi.BoolPtrOutput)
+}
+
+// When set, this replication will be enabled when saved.
 func (o PushReplicationReplicationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// Required for local repository, but not needed for remote repository.
 func (o PushReplicationReplicationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v PushReplicationReplication) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 func (o PushReplicationReplicationOutput) PathPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Proxy key from Artifactory Proxies setting.
+// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
 func (o PushReplicationReplicationOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
+// The network timeout in milliseconds to use for remote operations.
 func (o PushReplicationReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *int { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
 }
 
+// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
 func (o PushReplicationReplicationOutput) SyncDeletes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncDeletes }).(pulumi.BoolPtrOutput)
 }
 
+// When set, the task also synchronizes the properties of replicated artifacts.
 func (o PushReplicationReplicationOutput) SyncProperties() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncProperties }).(pulumi.BoolPtrOutput)
 }
 
+// When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
 func (o PushReplicationReplicationOutput) SyncStatistics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PushReplicationReplication) *bool { return v.SyncStatistics }).(pulumi.BoolPtrOutput)
 }
 
+// The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
 func (o PushReplicationReplicationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v PushReplicationReplication) string { return v.Url }).(pulumi.StringOutput)
 }
 
+// Required for local repository, but not needed for remote repository.
 func (o PushReplicationReplicationOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v PushReplicationReplication) string { return v.Username }).(pulumi.StringOutput)
 }

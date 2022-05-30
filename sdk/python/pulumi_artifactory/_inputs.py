@@ -3241,6 +3241,7 @@ class PushReplicationReplicationArgs:
                  password: pulumi.Input[str],
                  url: pulumi.Input[str],
                  username: pulumi.Input[str],
+                 check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  path_prefix: Optional[pulumi.Input[str]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
@@ -3249,11 +3250,25 @@ class PushReplicationReplicationArgs:
                  sync_properties: Optional[pulumi.Input[bool]] = None,
                  sync_statistics: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting.
+        :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
+        :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param pulumi.Input[int] socket_timeout_millis: The network timeout in milliseconds to use for remote operations.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+               Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "url", url)
         pulumi.set(__self__, "username", username)
+        if check_binary_existence_in_filestore is not None:
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if path_prefix is not None:
@@ -3272,6 +3287,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -3281,6 +3299,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
+        """
+        The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -3290,6 +3311,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        Required for local repository, but not needed for remote repository.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -3297,8 +3321,24 @@ class PushReplicationReplicationArgs:
         pulumi.set(self, "username", value)
 
     @property
+    @pulumi.getter(name="checkBinaryExistenceInFilestore")
+    def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @check_binary_existence_in_filestore.setter
+    def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "check_binary_existence_in_filestore", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, this replication will be enabled when saved.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -3308,6 +3348,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
         return pulumi.get(self, "path_prefix")
 
     @path_prefix.setter
@@ -3318,7 +3361,7 @@ class PushReplicationReplicationArgs:
     @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy key from Artifactory Proxies setting.
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
         """
         return pulumi.get(self, "proxy")
 
@@ -3329,6 +3372,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter(name="socketTimeoutMillis")
     def socket_timeout_millis(self) -> Optional[pulumi.Input[int]]:
+        """
+        The network timeout in milliseconds to use for remote operations.
+        """
         return pulumi.get(self, "socket_timeout_millis")
 
     @socket_timeout_millis.setter
@@ -3338,6 +3384,10 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+        Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
+        """
         return pulumi.get(self, "sync_deletes")
 
     @sync_deletes.setter
@@ -3347,6 +3397,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
         return pulumi.get(self, "sync_properties")
 
     @sync_properties.setter
@@ -3356,6 +3409,9 @@ class PushReplicationReplicationArgs:
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         return pulumi.get(self, "sync_statistics")
 
     @sync_statistics.setter

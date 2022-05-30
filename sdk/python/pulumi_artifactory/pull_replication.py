@@ -15,6 +15,7 @@ class PullReplicationArgs:
     def __init__(__self__, *,
                  cron_exp: pulumi.Input[str],
                  repo_key: pulumi.Input[str],
+                 check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -28,13 +29,25 @@ class PullReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+               For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+               Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
+        if check_binary_existence_in_filestore is not None:
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if enable_event_replication is not None:
             pulumi.set(__self__, "enable_event_replication", enable_event_replication)
         if enabled is not None:
@@ -77,8 +90,24 @@ class PullReplicationArgs:
         pulumi.set(self, "repo_key", value)
 
     @property
+    @pulumi.getter(name="checkBinaryExistenceInFilestore")
+    def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @check_binary_existence_in_filestore.setter
+    def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "check_binary_existence_in_filestore", value)
+
+    @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
@@ -88,6 +117,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, this replication will be enabled when saved.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -109,6 +141,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
         return pulumi.get(self, "path_prefix")
 
     @path_prefix.setter
@@ -139,6 +174,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        """
         return pulumi.get(self, "sync_deletes")
 
     @sync_deletes.setter
@@ -148,6 +186,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
         return pulumi.get(self, "sync_properties")
 
     @sync_properties.setter
@@ -157,6 +198,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         return pulumi.get(self, "sync_statistics")
 
     @sync_statistics.setter
@@ -167,6 +211,8 @@ class PullReplicationArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "url")
@@ -191,6 +237,7 @@ class PullReplicationArgs:
 @pulumi.input_type
 class _PullReplicationState:
     def __init__(__self__, *,
+                 check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -206,11 +253,23 @@ class _PullReplicationState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PullReplication resources.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+               For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+               Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
+        if check_binary_existence_in_filestore is not None:
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
         if enable_event_replication is not None:
@@ -239,6 +298,19 @@ class _PullReplicationState:
             pulumi.set(__self__, "username", username)
 
     @property
+    @pulumi.getter(name="checkBinaryExistenceInFilestore")
+    def check_binary_existence_in_filestore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @check_binary_existence_in_filestore.setter
+    def check_binary_existence_in_filestore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "check_binary_existence_in_filestore", value)
+
+    @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "cron_exp")
@@ -250,6 +322,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
@@ -259,6 +334,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, this replication will be enabled when saved.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -280,6 +358,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
         return pulumi.get(self, "path_prefix")
 
     @path_prefix.setter
@@ -319,6 +400,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        """
         return pulumi.get(self, "sync_deletes")
 
     @sync_deletes.setter
@@ -328,6 +412,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
         return pulumi.get(self, "sync_properties")
 
     @sync_properties.setter
@@ -337,6 +424,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         return pulumi.get(self, "sync_statistics")
 
     @sync_statistics.setter
@@ -347,6 +437,8 @@ class _PullReplicationState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "url")
@@ -373,6 +465,7 @@ class PullReplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -389,7 +482,9 @@ class PullReplication(pulumi.CustomResource):
                  __props__=None):
         """
         Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-        for a local or remote repo.
+        for a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful
+        when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
 
         ## Example Usage
 
@@ -420,9 +515,19 @@ class PullReplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+               For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+               Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         ...
@@ -433,7 +538,9 @@ class PullReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory
-        for a local or remote repo.
+        for a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful
+        when waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).
 
         ## Example Usage
 
@@ -477,6 +584,7 @@ class PullReplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -502,6 +610,7 @@ class PullReplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PullReplicationArgs.__new__(PullReplicationArgs)
 
+            __props__.__dict__["check_binary_existence_in_filestore"] = check_binary_existence_in_filestore
             if cron_exp is None and not opts.urn:
                 raise TypeError("Missing required property 'cron_exp'")
             __props__.__dict__["cron_exp"] = cron_exp
@@ -529,6 +638,7 @@ class PullReplication(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            check_binary_existence_in_filestore: Optional[pulumi.Input[bool]] = None,
             cron_exp: Optional[pulumi.Input[str]] = None,
             enable_event_replication: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -549,15 +659,26 @@ class PullReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
+               [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
-        :param pulumi.Input[str] url: Required for local repository, but not needed for remote repository.
+        :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
+        :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        :param pulumi.Input[str] url: The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+               For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
+               Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] username: Required for local repository, but not needed for remote repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _PullReplicationState.__new__(_PullReplicationState)
 
+        __props__.__dict__["check_binary_existence_in_filestore"] = check_binary_existence_in_filestore
         __props__.__dict__["cron_exp"] = cron_exp
         __props__.__dict__["enable_event_replication"] = enable_event_replication
         __props__.__dict__["enabled"] = enabled
@@ -574,6 +695,15 @@ class PullReplication(pulumi.CustomResource):
         return PullReplication(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="checkBinaryExistenceInFilestore")
+    def check_binary_existence_in_filestore(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When true, enables distributed checksum storage. For more information, see
+        [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
         return pulumi.get(self, "cron_exp")
@@ -581,11 +711,17 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> pulumi.Output[bool]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
+        """
+        When set, this replication will be enabled when saved.
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -599,6 +735,9 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="pathPrefix")
     def path_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
+        """
         return pulumi.get(self, "path_prefix")
 
     @property
@@ -622,22 +761,33 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="syncDeletes")
     def sync_deletes(self) -> pulumi.Output[bool]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
+        """
         return pulumi.get(self, "sync_deletes")
 
     @property
     @pulumi.getter(name="syncProperties")
     def sync_properties(self) -> pulumi.Output[bool]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts.
+        """
         return pulumi.get(self, "sync_properties")
 
     @property
     @pulumi.getter(name="syncStatistics")
     def sync_statistics(self) -> pulumi.Output[bool]:
+        """
+        When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
+        """
         return pulumi.get(self, "sync_statistics")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
         """
+        The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/<pkg>. 
+        For a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).
         Required for local repository, but not needed for remote repository.
         """
         return pulumi.get(self, "url")
