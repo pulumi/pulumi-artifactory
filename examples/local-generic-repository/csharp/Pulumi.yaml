@@ -1,0 +1,3 @@
+name: csharp-artifactory
+runtime: dotnet
+description: A minimal C# Pulumi program
