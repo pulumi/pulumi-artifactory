@@ -133,6 +133,8 @@ class ReplicationConfig(pulumi.CustomResource):
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Note: this resource is deprecated in favor of `PushReplication` resource.
+
         Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
 
         ## Example Usage
@@ -173,6 +175,8 @@ class ReplicationConfig(pulumi.CustomResource):
                  args: ReplicationConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Note: this resource is deprecated in favor of `PushReplication` resource.
+
         Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.
 
         ## Example Usage

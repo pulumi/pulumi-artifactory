@@ -12,6 +12,9 @@ import (
 )
 
 // Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+// Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+// end invoking a synchronization of artifacts to the far end.
+// See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
 //
 // ## Example Usage
 //
@@ -69,7 +72,8 @@ import (
 type PushReplication struct {
 	pulumi.CustomResourceState
 
-	CronExp                pulumi.StringOutput                   `pulumi:"cronExp"`
+	CronExp pulumi.StringOutput `pulumi:"cronExp"`
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolOutput                     `pulumi:"enableEventReplication"`
 	Replications           PushReplicationReplicationArrayOutput `pulumi:"replications"`
 	RepoKey                pulumi.StringOutput                   `pulumi:"repoKey"`
@@ -110,14 +114,16 @@ func GetPushReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PushReplication resources.
 type pushReplicationState struct {
-	CronExp                *string                      `pulumi:"cronExp"`
+	CronExp *string `pulumi:"cronExp"`
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool                        `pulumi:"enableEventReplication"`
 	Replications           []PushReplicationReplication `pulumi:"replications"`
 	RepoKey                *string                      `pulumi:"repoKey"`
 }
 
 type PushReplicationState struct {
-	CronExp                pulumi.StringPtrInput
+	CronExp pulumi.StringPtrInput
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	Replications           PushReplicationReplicationArrayInput
 	RepoKey                pulumi.StringPtrInput
@@ -128,7 +134,8 @@ func (PushReplicationState) ElementType() reflect.Type {
 }
 
 type pushReplicationArgs struct {
-	CronExp                string                       `pulumi:"cronExp"`
+	CronExp string `pulumi:"cronExp"`
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool                        `pulumi:"enableEventReplication"`
 	Replications           []PushReplicationReplication `pulumi:"replications"`
 	RepoKey                string                       `pulumi:"repoKey"`
@@ -136,7 +143,8 @@ type pushReplicationArgs struct {
 
 // The set of arguments for constructing a PushReplication resource.
 type PushReplicationArgs struct {
-	CronExp                pulumi.StringInput
+	CronExp pulumi.StringInput
+	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	Replications           PushReplicationReplicationArrayInput
 	RepoKey                pulumi.StringInput
@@ -233,6 +241,7 @@ func (o PushReplicationOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *PushReplication) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }
 
+// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 func (o PushReplicationOutput) EnableEventReplication() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PushReplication) pulumi.BoolOutput { return v.EnableEventReplication }).(pulumi.BoolOutput)
 }

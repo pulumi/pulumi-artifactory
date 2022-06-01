@@ -2342,8 +2342,18 @@
         },
         "artifactory:index/PushReplicationReplication:PushReplicationReplication": {
             "properties": {
+                "checkBinaryExistenceInFilestore": {
+                    "type": "boolean",
+                    "description": "When true, enables distributed checksum storage. For more information, see\n[Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "enabled": {
                     "type": "boolean",
+                    "description": "When set, this replication will be enabled when saved.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2352,6 +2362,7 @@
                 },
                 "password": {
                     "type": "string",
+                    "description": "Required for local repository, but not needed for remote repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2360,6 +2371,7 @@
                 },
                 "pathPrefix": {
                     "type": "string",
+                    "description": "Only artifacts that located in path that matches the subpath within the remote repository will be replicated.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2368,7 +2380,7 @@
                 },
                 "proxy": {
                     "type": "string",
-                    "description": "Proxy key from Artifactory Proxies setting.\n",
+                    "description": "Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2377,6 +2389,7 @@
                 },
                 "socketTimeoutMillis": {
                     "type": "integer",
+                    "description": "The network timeout in milliseconds to use for remote operations.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2385,6 +2398,7 @@
                 },
                 "syncDeletes": {
                     "type": "boolean",
+                    "description": "When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). \nNote that enabling this option, will delete artifacts on the target that do not exist in the source repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2393,6 +2407,7 @@
                 },
                 "syncProperties": {
                     "type": "boolean",
+                    "description": "When set, the task also synchronizes the properties of replicated artifacts.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2401,6 +2416,7 @@
                 },
                 "syncStatistics": {
                     "type": "boolean",
+                    "description": "When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2409,6 +2425,7 @@
                 },
                 "url": {
                     "type": "string",
+                    "description": "The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2417,6 +2434,7 @@
                 },
                 "username": {
                     "type": "string",
+                    "description": "Required for local repository, but not needed for remote repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -19676,23 +19694,30 @@
             }
         },
         "artifactory:index/pullReplication:PullReplication": {
-            "description": "Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory\nfor a local or remote repo.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.RemoteMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n    password: \"bar\",\n    url: pulumi.interpolate`https://example.com/artifactory/${artifactory_local_maven_repository_artifactory_local_maven_repository.key}`,\n    username: \"foo\",\n});\nconst remote_rep = new artifactory.PullReplication(\"remote-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    repoKey: providerTestDest.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.RemoteMavenRepository(\"providerTestDest\",\n    key=\"provider_test_dest\",\n    password=\"bar\",\n    url=f\"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}\",\n    username=\"foo\")\nremote_rep = artifactory.PullReplication(\"remote-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    repo_key=provider_test_dest.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.RemoteMavenRepository(\"providerTestDest\", new Artifactory.RemoteMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n            Password = \"bar\",\n            Url = $\"https://example.com/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}\",\n            Username = \"foo\",\n        });\n        var remote_rep = new Artifactory.PullReplication(\"remote-rep\", new Artifactory.PullReplicationArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            RepoKey = providerTestDest.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tproviderTestDest, err := artifactory.NewRemoteMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tKey:      pulumi.String(\"provider_test_dest\"),\n\t\t\tPassword: pulumi.String(\"bar\"),\n\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"https://example.com/artifactory/\", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),\n\t\t\tUsername: pulumi.String(\"foo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewPullReplication(ctx, \"remote-rep\", \u0026artifactory.PullReplicationArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tRepoKey:                providerTestDest.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new RemoteMavenRepository(\"providerTestDest\", RemoteMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .password(\"bar\")\n            .url(String.format(\"https://example.com/artifactory/%s\", artifactory_local_maven_repository.getArtifactory_local_maven_repository().getKey()))\n            .username(\"foo\")\n            .build());\n\n        var remote_rep = new PullReplication(\"remote-rep\", PullReplicationArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .repoKey(providerTestDest.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      key: provider_test_dest\n      password: bar\n      url: https://example.com/artifactory/${artifactory_local_maven_repository.artifactory_local_maven_repository.key}\n      username: foo\n  remote-rep:\n    type: artifactory:PullReplication\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      repoKey: ${providerTestDest.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPull replication config can be imported using its repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key\n```\n\n ",
+            "description": "Provides an Artifactory pull replication resource. This can be used to create and manage pull replication in Artifactory\nfor a local or remote repo. Pull replication provides a convenient way to proactively populate a remote cache, and is very useful \nwhen waiting for new artifacts to arrive on demand (when first requested) is not desirable due to network latency.\nSee the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PullReplication).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.RemoteMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n    password: \"bar\",\n    url: pulumi.interpolate`https://example.com/artifactory/${artifactory_local_maven_repository_artifactory_local_maven_repository.key}`,\n    username: \"foo\",\n});\nconst remote_rep = new artifactory.PullReplication(\"remote-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    repoKey: providerTestDest.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.RemoteMavenRepository(\"providerTestDest\",\n    key=\"provider_test_dest\",\n    password=\"bar\",\n    url=f\"https://example.com/artifactory/{artifactory_local_maven_repository['artifactory_local_maven_repository']['key']}\",\n    username=\"foo\")\nremote_rep = artifactory.PullReplication(\"remote-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    repo_key=provider_test_dest.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.RemoteMavenRepository(\"providerTestDest\", new Artifactory.RemoteMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n            Password = \"bar\",\n            Url = $\"https://example.com/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}\",\n            Username = \"foo\",\n        });\n        var remote_rep = new Artifactory.PullReplication(\"remote-rep\", new Artifactory.PullReplicationArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            RepoKey = providerTestDest.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tproviderTestDest, err := artifactory.NewRemoteMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tKey:      pulumi.String(\"provider_test_dest\"),\n\t\t\tPassword: pulumi.String(\"bar\"),\n\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"https://example.com/artifactory/\", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),\n\t\t\tUsername: pulumi.String(\"foo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewPullReplication(ctx, \"remote-rep\", \u0026artifactory.PullReplicationArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tRepoKey:                providerTestDest.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new RemoteMavenRepository(\"providerTestDest\", RemoteMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .password(\"bar\")\n            .url(String.format(\"https://example.com/artifactory/%s\", artifactory_local_maven_repository.getArtifactory_local_maven_repository().getKey()))\n            .username(\"foo\")\n            .build());\n\n        var remote_rep = new PullReplication(\"remote-rep\", PullReplicationArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .repoKey(providerTestDest.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      key: provider_test_dest\n      password: bar\n      url: https://example.com/artifactory/${artifactory_local_maven_repository.artifactory_local_maven_repository.key}\n      username: foo\n  remote-rep:\n    type: artifactory:PullReplication\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      repoKey: ${providerTestDest.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPull replication config can be imported using its repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key\n```\n\n ",
             "properties": {
+                "checkBinaryExistenceInFilestore": {
+                    "type": "boolean",
+                    "description": "When true, enables distributed checksum storage. For more information, see\n[Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).\n"
+                },
                 "cronExp": {
                     "type": "string"
                 },
                 "enableEventReplication": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                 },
                 "enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, this replication will be enabled when saved.\n"
                 },
                 "password": {
                     "type": "string",
                     "description": "Required for local repository, but not needed for remote repository.\n"
                 },
                 "pathPrefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Only artifacts that located in path that matches the subpath within the remote repository will be replicated.\n"
                 },
                 "proxy": {
                     "type": "string",
@@ -19705,17 +19730,20 @@
                     "type": "integer"
                 },
                 "syncDeletes": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).\n"
                 },
                 "syncProperties": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, the task also synchronizes the properties of replicated artifacts.\n"
                 },
                 "syncStatistics": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.\n"
                 },
                 "url": {
                     "type": "string",
-                    "description": "Required for local repository, but not needed for remote repository.\n"
+                    "description": "The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/\u003cpkg\u003e. \nFor a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).\nRequired for local repository, but not needed for remote repository.\n"
                 },
                 "username": {
                     "type": "string",
@@ -19733,21 +19761,28 @@
                 "syncStatistics"
             ],
             "inputProperties": {
+                "checkBinaryExistenceInFilestore": {
+                    "type": "boolean",
+                    "description": "When true, enables distributed checksum storage. For more information, see\n[Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).\n"
+                },
                 "cronExp": {
                     "type": "string"
                 },
                 "enableEventReplication": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                 },
                 "enabled": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, this replication will be enabled when saved.\n"
                 },
                 "password": {
                     "type": "string",
                     "description": "Required for local repository, but not needed for remote repository.\n"
                 },
                 "pathPrefix": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Only artifacts that located in path that matches the subpath within the remote repository will be replicated.\n"
                 },
                 "proxy": {
                     "type": "string",
@@ -19760,17 +19795,20 @@
                     "type": "integer"
                 },
                 "syncDeletes": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).\n"
                 },
                 "syncProperties": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, the task also synchronizes the properties of replicated artifacts.\n"
                 },
                 "syncStatistics": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.\n"
                 },
                 "url": {
                     "type": "string",
-                    "description": "Required for local repository, but not needed for remote repository.\n"
+                    "description": "The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/\u003cpkg\u003e. \nFor a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).\nRequired for local repository, but not needed for remote repository.\n"
                 },
                 "username": {
                     "type": "string",
@@ -19784,21 +19822,28 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PullReplication resources.\n",
                 "properties": {
+                    "checkBinaryExistenceInFilestore": {
+                        "type": "boolean",
+                        "description": "When true, enables distributed checksum storage. For more information, see\n[Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).\n"
+                    },
                     "cronExp": {
                         "type": "string"
                     },
                     "enableEventReplication": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                     },
                     "enabled": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, this replication will be enabled when saved.\n"
                     },
                     "password": {
                         "type": "string",
                         "description": "Required for local repository, but not needed for remote repository.\n"
                     },
                     "pathPrefix": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Only artifacts that located in path that matches the subpath within the remote repository will be replicated.\n"
                     },
                     "proxy": {
                         "type": "string",
@@ -19811,17 +19856,20 @@
                         "type": "integer"
                     },
                     "syncDeletes": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).\n"
                     },
                     "syncProperties": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, the task also synchronizes the properties of replicated artifacts.\n"
                     },
                     "syncStatistics": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.\n"
                     },
                     "url": {
                         "type": "string",
-                        "description": "Required for local repository, but not needed for remote repository.\n"
+                        "description": "The URL of the target local repository on a remote Artifactory server. For some package types, you need to prefix the repository key in the URL with api/\u003cpkg\u003e. \nFor a list of package types where this is required, see the [note](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-anchorPREFIX).\nRequired for local repository, but not needed for remote repository.\n"
                     },
                     "username": {
                         "type": "string",
@@ -19832,13 +19880,14 @@
             }
         },
         "artifactory:index/pushReplication:PushReplication": {
-            "description": "Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.PushReplication(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    replications: [{\n        password: \"$var.artifactory_password\",\n        url: \"$var.artifactory_url\",\n        username: \"$var.artifactory_username\",\n    }],\n    repoKey: providerTestSource.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.LocalMavenRepository(\"providerTestDest\", key=\"provider_test_dest\")\nfoo_rep = artifactory.PushReplication(\"foo-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    replications=[artifactory.PushReplicationReplicationArgs(\n        password=\"$var.artifactory_password\",\n        url=\"$var.artifactory_url\",\n        username=\"$var.artifactory_username\",\n    )],\n    repo_key=provider_test_source.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.LocalMavenRepository(\"providerTestDest\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n        });\n        var foo_rep = new Artifactory.PushReplication(\"foo-rep\", new Artifactory.PushReplicationArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            Replications = \n            {\n                new Artifactory.Inputs.PushReplicationReplicationArgs\n                {\n                    Password = \"$var.artifactory_password\",\n                    Url = \"$var.artifactory_url\",\n                    Username = \"$var.artifactory_username\",\n                },\n            },\n            RepoKey = providerTestSource.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproviderTestSource, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_dest\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewPushReplication(ctx, \"foo-rep\", \u0026artifactory.PushReplicationArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tReplications: PushReplicationReplicationArray{\n\t\t\t\t\u0026PushReplicationReplicationArgs{\n\t\t\t\t\tPassword: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_password\")),\n\t\t\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_url\")),\n\t\t\t\t\tUsername: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_username\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepoKey: providerTestSource.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new PushReplication(\"foo-rep\", PushReplicationArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .replications(PushReplicationReplication.builder()\n                .password(\"$var.artifactory_password\")\n                .url(\"$var.artifactory_url\")\n                .username(\"$var.artifactory_username\")\n                .build())\n            .repoKey(providerTestSource.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:PushReplication\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      replications:\n        - password: $var.artifactory_password\n          url: $var.artifactory_url\n          username: $var.artifactory_username\n      repoKey: ${providerTestSource.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPush replication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source\n```\n\n ",
+            "description": "Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.\nPush replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near \nend invoking a synchronization of artifacts to the far end.\nSee the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.PushReplication(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    replications: [{\n        password: \"$var.artifactory_password\",\n        url: \"$var.artifactory_url\",\n        username: \"$var.artifactory_username\",\n    }],\n    repoKey: providerTestSource.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.LocalMavenRepository(\"providerTestDest\", key=\"provider_test_dest\")\nfoo_rep = artifactory.PushReplication(\"foo-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    replications=[artifactory.PushReplicationReplicationArgs(\n        password=\"$var.artifactory_password\",\n        url=\"$var.artifactory_url\",\n        username=\"$var.artifactory_username\",\n    )],\n    repo_key=provider_test_source.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.LocalMavenRepository(\"providerTestDest\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n        });\n        var foo_rep = new Artifactory.PushReplication(\"foo-rep\", new Artifactory.PushReplicationArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            Replications = \n            {\n                new Artifactory.Inputs.PushReplicationReplicationArgs\n                {\n                    Password = \"$var.artifactory_password\",\n                    Url = \"$var.artifactory_url\",\n                    Username = \"$var.artifactory_username\",\n                },\n            },\n            RepoKey = providerTestSource.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproviderTestSource, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_dest\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewPushReplication(ctx, \"foo-rep\", \u0026artifactory.PushReplicationArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tReplications: PushReplicationReplicationArray{\n\t\t\t\t\u0026PushReplicationReplicationArgs{\n\t\t\t\t\tPassword: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_password\")),\n\t\t\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_url\")),\n\t\t\t\t\tUsername: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_username\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepoKey: providerTestSource.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new PushReplication(\"foo-rep\", PushReplicationArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .replications(PushReplicationReplication.builder()\n                .password(\"$var.artifactory_password\")\n                .url(\"$var.artifactory_url\")\n                .username(\"$var.artifactory_username\")\n                .build())\n            .repoKey(providerTestSource.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:PushReplication\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      replications:\n        - password: $var.artifactory_password\n          url: $var.artifactory_url\n          username: $var.artifactory_username\n      repoKey: ${providerTestSource.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nPush replication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source\n```\n\n ",
             "properties": {
                 "cronExp": {
                     "type": "string"
                 },
                 "enableEventReplication": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                 },
                 "replications": {
                     "type": "array",
@@ -19860,7 +19909,8 @@
                     "type": "string"
                 },
                 "enableEventReplication": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                 },
                 "replications": {
                     "type": "array",
@@ -19883,7 +19933,8 @@
                         "type": "string"
                     },
                     "enableEventReplication": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.\n"
                     },
                     "replications": {
                         "type": "array",
@@ -35470,7 +35521,7 @@
             }
         },
         "artifactory:index/replicationConfig:ReplicationConfig": {
-            "description": "Provides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.ReplicationConfig(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    replications: [{\n        password: \"$var.artifactory_password\",\n        url: \"$var.artifactory_url\",\n        username: \"$var.artifactory_username\",\n    }],\n    repoKey: providerTestSource.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.LocalMavenRepository(\"providerTestDest\", key=\"provider_test_dest\")\nfoo_rep = artifactory.ReplicationConfig(\"foo-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    replications=[artifactory.ReplicationConfigReplicationArgs(\n        password=\"$var.artifactory_password\",\n        url=\"$var.artifactory_url\",\n        username=\"$var.artifactory_username\",\n    )],\n    repo_key=provider_test_source.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.LocalMavenRepository(\"providerTestDest\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n        });\n        var foo_rep = new Artifactory.ReplicationConfig(\"foo-rep\", new Artifactory.ReplicationConfigArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            Replications = \n            {\n                new Artifactory.Inputs.ReplicationConfigReplicationArgs\n                {\n                    Password = \"$var.artifactory_password\",\n                    Url = \"$var.artifactory_url\",\n                    Username = \"$var.artifactory_username\",\n                },\n            },\n            RepoKey = providerTestSource.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproviderTestSource, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_dest\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewReplicationConfig(ctx, \"foo-rep\", \u0026artifactory.ReplicationConfigArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tReplications: ReplicationConfigReplicationArray{\n\t\t\t\t\u0026ReplicationConfigReplicationArgs{\n\t\t\t\t\tPassword: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_password\")),\n\t\t\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_url\")),\n\t\t\t\t\tUsername: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_username\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepoKey: providerTestSource.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new ReplicationConfig(\"foo-rep\", ReplicationConfigArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .replications(ReplicationConfigReplication.builder()\n                .password(\"$var.artifactory_password\")\n                .url(\"$var.artifactory_url\")\n                .username(\"$var.artifactory_username\")\n                .build())\n            .repoKey(providerTestSource.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:ReplicationConfig\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      replications:\n        - password: $var.artifactory_password\n          url: $var.artifactory_url\n          username: $var.artifactory_username\n      repoKey: ${providerTestSource.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReplication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source\n```\n\n ",
+            "description": "Note: this resource is deprecated in favor of `artifactory.PushReplication` resource.\n\nProvides an Artifactory replication config resource. This can be used to create and manage Artifactory replications.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.ReplicationConfig(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    replications: [{\n        password: \"$var.artifactory_password\",\n        url: \"$var.artifactory_url\",\n        username: \"$var.artifactory_username\",\n    }],\n    repoKey: providerTestSource.key,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a replication between two artifactory local repositories\nprovider_test_source = artifactory.LocalMavenRepository(\"providerTestSource\", key=\"provider_test_source\")\nprovider_test_dest = artifactory.LocalMavenRepository(\"providerTestDest\", key=\"provider_test_dest\")\nfoo_rep = artifactory.ReplicationConfig(\"foo-rep\",\n    cron_exp=\"0 0 * * * ?\",\n    enable_event_replication=True,\n    replications=[artifactory.ReplicationConfigReplicationArgs(\n        password=\"$var.artifactory_password\",\n        url=\"$var.artifactory_url\",\n        username=\"$var.artifactory_username\",\n    )],\n    repo_key=provider_test_source.key)\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Create a replication between two artifactory local repositories\n        var providerTestSource = new Artifactory.LocalMavenRepository(\"providerTestSource\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_source\",\n        });\n        var providerTestDest = new Artifactory.LocalMavenRepository(\"providerTestDest\", new Artifactory.LocalMavenRepositoryArgs\n        {\n            Key = \"provider_test_dest\",\n        });\n        var foo_rep = new Artifactory.ReplicationConfig(\"foo-rep\", new Artifactory.ReplicationConfigArgs\n        {\n            CronExp = \"0 0 * * * ?\",\n            EnableEventReplication = true,\n            Replications = \n            {\n                new Artifactory.Inputs.ReplicationConfigReplicationArgs\n                {\n                    Password = \"$var.artifactory_password\",\n                    Url = \"$var.artifactory_url\",\n                    Username = \"$var.artifactory_username\",\n                },\n            },\n            RepoKey = providerTestSource.Key,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproviderTestSource, err := artifactory.NewLocalMavenRepository(ctx, \"providerTestSource\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_source\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalMavenRepository(ctx, \"providerTestDest\", \u0026artifactory.LocalMavenRepositoryArgs{\n\t\t\tKey: pulumi.String(\"provider_test_dest\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewReplicationConfig(ctx, \"foo-rep\", \u0026artifactory.ReplicationConfigArgs{\n\t\t\tCronExp:                pulumi.String(\"0 0 * * * ?\"),\n\t\t\tEnableEventReplication: pulumi.Bool(true),\n\t\t\tReplications: ReplicationConfigReplicationArray{\n\t\t\t\t\u0026ReplicationConfigReplicationArgs{\n\t\t\t\t\tPassword: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_password\")),\n\t\t\t\t\tUrl:      pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_url\")),\n\t\t\t\t\tUsername: pulumi.String(fmt.Sprintf(\"%v%v\", \"$\", \"var.artifactory_username\")),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepoKey: providerTestSource.Key,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new ReplicationConfig(\"foo-rep\", ReplicationConfigArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .replications(ReplicationConfigReplication.builder()\n                .password(\"$var.artifactory_password\")\n                .url(\"$var.artifactory_url\")\n                .username(\"$var.artifactory_username\")\n                .build())\n            .repoKey(providerTestSource.getKey())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:ReplicationConfig\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      replications:\n        - password: $var.artifactory_password\n          url: $var.artifactory_url\n          username: $var.artifactory_username\n      repoKey: ${providerTestSource.key}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReplication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/replicationConfig:ReplicationConfig foo-rep provider_test_source\n```\n\n ",
             "properties": {
                 "cronExp": {
                     "type": "string"
@@ -35716,7 +35767,7 @@
             }
         },
         "artifactory:index/singleReplicationConfig:SingleReplicationConfig": {
-            "description": "Provides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory\nreplication. Primarily used when pull replication is needed.\n\n**WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause\nunexpected behaviour and will almost certainly cause your replications to break.**\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.SingleReplicationConfig(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    password: var_artifactory_password,\n    repoKey: providerTestSource.key,\n    url: var_artifactory_url,\n    username: var_artifactory_username,\n});\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new SingleReplicationConfig(\"foo-rep\", SingleReplicationConfigArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .password(var_.getArtifactory_password())\n            .repoKey(providerTestSource.getKey())\n            .url(var_.getArtifactory_url())\n            .username(var_.getArtifactory_username())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:SingleReplicationConfig\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      password: ${var.artifactory_password}\n      repoKey: ${providerTestSource.key}\n      url: ${var.artifactory_url}\n      username: ${var.artifactory_username}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReplication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key\n```\n\n ",
+            "description": "Note: this resource is deprecated in favor of `artifactory.PullReplication` resource.\n\nProvides an Artifactory single replication config resource. This can be used to create and manage a single Artifactory\nreplication. Primarily used when pull replication is needed.\n\n**WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause\nunexpected behaviour and will almost certainly cause your replications to break.**\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a replication between two artifactory local repositories\nconst providerTestSource = new artifactory.LocalMavenRepository(\"provider_test_source\", {\n    key: \"provider_test_source\",\n});\nconst providerTestDest = new artifactory.LocalMavenRepository(\"provider_test_dest\", {\n    key: \"provider_test_dest\",\n});\nconst foo_rep = new artifactory.SingleReplicationConfig(\"foo-rep\", {\n    cronExp: \"0 0 * * * ?\",\n    enableEventReplication: true,\n    password: var_artifactory_password,\n    repoKey: providerTestSource.key,\n    url: var_artifactory_url,\n    username: var_artifactory_username,\n});\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var providerTestSource = new LocalMavenRepository(\"providerTestSource\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_source\")\n            .build());\n\n        var providerTestDest = new LocalMavenRepository(\"providerTestDest\", LocalMavenRepositoryArgs.builder()        \n            .key(\"provider_test_dest\")\n            .build());\n\n        var foo_rep = new SingleReplicationConfig(\"foo-rep\", SingleReplicationConfigArgs.builder()        \n            .cronExp(\"0 0 * * * ?\")\n            .enableEventReplication(true)\n            .password(var_.getArtifactory_password())\n            .repoKey(providerTestSource.getKey())\n            .url(var_.getArtifactory_url())\n            .username(var_.getArtifactory_username())\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  providerTestSource:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_source\n  providerTestDest:\n    type: artifactory:LocalMavenRepository\n    properties:\n      key: provider_test_dest\n  foo-rep:\n    type: artifactory:SingleReplicationConfig\n    properties:\n      cronExp: 0 0 * * * ?\n      enableEventReplication: true\n      password: ${var.artifactory_password}\n      repoKey: ${providerTestSource.key}\n      url: ${var.artifactory_url}\n      username: ${var.artifactory_username}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nReplication configs can be imported using their repo key, e.g.\n\n```sh\n $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key\n```\n\n ",
             "properties": {
                 "cronExp": {
                     "type": "string"

@@ -21,6 +21,7 @@ class PushReplicationArgs:
                  replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a PushReplication resource.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -50,6 +51,9 @@ class PushReplicationArgs:
     @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
@@ -75,6 +79,7 @@ class _PushReplicationState:
                  repo_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PushReplication resources.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -97,6 +102,9 @@ class _PushReplicationState:
     @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @enable_event_replication.setter
@@ -134,6 +142,9 @@ class PushReplication(pulumi.CustomResource):
                  __props__=None):
         """
         Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+        end invoking a synchronization of artifacts to the far end.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
 
         ## Example Usage
 
@@ -165,6 +176,7 @@ class PushReplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         ...
     @overload
@@ -174,6 +186,9 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+        end invoking a synchronization of artifacts to the far end.
+        See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
 
         ## Example Usage
 
@@ -263,6 +278,7 @@ class PushReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -282,6 +298,9 @@ class PushReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> pulumi.Output[bool]:
+        """
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        """
         return pulumi.get(self, "enable_event_replication")
 
     @property

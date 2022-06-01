@@ -11,6 +11,9 @@ namespace Pulumi.Artifactory
 {
     /// <summary>
     /// Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications.
+    /// Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
+    /// end invoking a synchronization of artifacts to the far end.
+    /// See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
     /// 
     /// ## Example Usage
     /// 
@@ -65,6 +68,9 @@ namespace Pulumi.Artifactory
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        /// </summary>
         [Output("enableEventReplication")]
         public Output<bool> EnableEventReplication { get; private set; } = null!;
 
@@ -123,6 +129,9 @@ namespace Pulumi.Artifactory
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
+        /// <summary>
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
 
@@ -147,6 +156,9 @@ namespace Pulumi.Artifactory
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
+        /// <summary>
+        /// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        /// </summary>
         [Input("enableEventReplication")]
         public Input<bool>? EnableEventReplication { get; set; }
 
