@@ -9530,7 +9530,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -9604,7 +9604,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -9633,7 +9633,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -9704,7 +9704,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -9732,7 +9732,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -9806,7 +9806,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -10064,7 +10064,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -10138,7 +10138,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -10167,7 +10167,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -10238,7 +10238,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -10266,7 +10266,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -10340,7 +10340,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -10367,7 +10367,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -10441,7 +10441,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -10470,7 +10470,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -10541,7 +10541,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -10569,7 +10569,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -10643,7 +10643,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -12146,7 +12146,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -12220,7 +12220,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -12249,7 +12249,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -12320,7 +12320,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -12348,7 +12348,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -12422,7 +12422,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -16547,7 +16547,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -16614,7 +16614,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -16642,7 +16642,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -16706,7 +16706,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -16733,7 +16733,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -16800,7 +16800,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -18659,7 +18659,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -18726,7 +18726,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -18754,7 +18754,7 @@
                 },
                 "checksumPolicyType": {
                     "type": "string",
-                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                    "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                 },
                 "description": {
                     "type": "string"
@@ -18818,7 +18818,7 @@
                 },
                 "snapshotVersionBehavior": {
                     "type": "string",
-                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                    "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                 },
                 "suppressPomConsistencyChecks": {
                     "type": "boolean",
@@ -18845,7 +18845,7 @@
                     },
                     "checksumPolicyType": {
                         "type": "string",
-                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
+                        "description": "Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or\nconflicts with the locally calculated checksum (bad checksum). Options are: \"client-checksums\", or\n\"server-generated-checksums\". Default: \"client-checksums\"\\n For more details, please refer to Checksum Policy -\nhttps://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy\n"
                     },
                     "description": {
                         "type": "string"
@@ -18912,7 +18912,7 @@
                     },
                     "snapshotVersionBehavior": {
                         "type": "string",
-                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a\ntime-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
+                        "description": "Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a\ntime-stamp (default) non-unique: Version number uses a self-overriding naming pattern of\nartifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.\n"
                     },
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
@@ -35761,6 +35761,167 @@
                     "verifyAudienceRestriction": {
                         "type": "boolean",
                         "description": "Enable \"audience\", or who the SAML assertion is intended for.  Ensures that the correct service provider intended for Artifactory is used on the IdP.  Default value is `true`.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/scopedToken:ScopedToken": {
+            "description": "\n\n\n## Import\n\nArtifactory **does not** retain scoped tokens and cannot be imported into state. ",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "Returns the access token to authenticate to Artifactory\n"
+                },
+                "audiences": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.\n"
+                },
+                "expiresIn": {
+                    "type": "integer",
+                    "description": "(Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.\n"
+                },
+                "expiry": {
+                    "type": "integer",
+                    "description": "Returns the token expiry\n"
+                },
+                "issuedAt": {
+                    "type": "integer",
+                    "description": "Returns the token issued at date/time\n"
+                },
+                "issuer": {
+                    "type": "string",
+                    "description": "Returns the token issuer\n"
+                },
+                "refreshable": {
+                    "type": "boolean",
+                    "description": "(Optional) Is this token refreshable? Defaults to `false`\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.\n"
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "Returns the token type\n"
+                },
+                "tokenType": {
+                    "type": "string",
+                    "description": "Returns the token type\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "(Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `\u003cservice-id\u003e/users/\u003cusername\u003e`. Limited to 255 characters.\n"
+                }
+            },
+            "required": [
+                "accessToken",
+                "expiresIn",
+                "expiry",
+                "issuedAt",
+                "issuer",
+                "scopes",
+                "subject",
+                "tokenType"
+            ],
+            "inputProperties": {
+                "audiences": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.\n"
+                },
+                "expiresIn": {
+                    "type": "integer",
+                    "description": "(Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.\n"
+                },
+                "refreshable": {
+                    "type": "boolean",
+                    "description": "(Optional) Is this token refreshable? Defaults to `false`\n"
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "(Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "(Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `\u003cservice-id\u003e/users/\u003cusername\u003e`. Limited to 255 characters.\n"
+                }
+            },
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ScopedToken resources.\n",
+                "properties": {
+                    "accessToken": {
+                        "type": "string",
+                        "description": "Returns the access token to authenticate to Artifactory\n"
+                    },
+                    "audiences": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "(Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.\n"
+                    },
+                    "expiresIn": {
+                        "type": "integer",
+                        "description": "(Optional) The amount of time, in seconds, it would take for the token to expire. An admin shall be able to set whether expiry is mandatory, what is the default expiry, and what is the maximum expiry allowed. Must be non-negative. Default value is based on configuration in `access.config.yaml`. See [API documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RevokeTokenbyIDrevoketokenbyid) for details.\n"
+                    },
+                    "expiry": {
+                        "type": "integer",
+                        "description": "Returns the token expiry\n"
+                    },
+                    "issuedAt": {
+                        "type": "integer",
+                        "description": "Returns the token issued at date/time\n"
+                    },
+                    "issuer": {
+                        "type": "string",
+                        "description": "Returns the token issuer\n"
+                    },
+                    "refreshable": {
+                        "type": "boolean",
+                        "description": "(Optional) Is this token refreshable? Defaults to `false`\n"
+                    },
+                    "scopes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "(Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.\n"
+                    },
+                    "subject": {
+                        "type": "string",
+                        "description": "Returns the token type\n"
+                    },
+                    "tokenType": {
+                        "type": "string",
+                        "description": "Returns the token type\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "(Optional) The user name for which this token is created. The username is based on the authenticated user - either from the user of the authenticated token or based on the username (if basic auth was used). The username is then used to set the subject of the token: `\u003cservice-id\u003e/users/\u003cusername\u003e`. Limited to 255 characters.\n"
                     }
                 },
                 "type": "object"

@@ -120,6 +120,7 @@ from .remote_sbt_repository import *
 from .remote_vcs_repository import *
 from .replication_config import *
 from .saml_settings import *
+from .scoped_token import *
 from .single_replication_config import *
 from .unmanaged_user import *
 from .user import *
@@ -1053,6 +1054,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/samlSettings:SamlSettings": "SamlSettings"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/scopedToken",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/scopedToken:ScopedToken": "ScopedToken"
   }
  },
  {

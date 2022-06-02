@@ -244,6 +244,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationConfig{}
 	case "artifactory:index/samlSettings:SamlSettings":
 		r = &SamlSettings{}
+	case "artifactory:index/scopedToken:ScopedToken":
+		r = &ScopedToken{}
 	case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
 		r = &SingleReplicationConfig{}
 	case "artifactory:index/unmanagedUser:UnmanagedUser":
@@ -882,6 +884,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/samlSettings",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/scopedToken",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
