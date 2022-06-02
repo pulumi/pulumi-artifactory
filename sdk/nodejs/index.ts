@@ -120,6 +120,7 @@ export * from "./remoteSbtRepository";
 export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
+export * from "./scopedToken";
 export * from "./singleReplicationConfig";
 export * from "./unmanagedUser";
 export * from "./user";
@@ -269,6 +270,7 @@ import { RemoteSbtRepository } from "./remoteSbtRepository";
 import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
+import { ScopedToken } from "./scopedToken";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
 import { UnmanagedUser } from "./unmanagedUser";
 import { User } from "./user";
@@ -524,6 +526,8 @@ const _module = {
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
                 return new SamlSettings(name, <any>undefined, { urn })
+            case "artifactory:index/scopedToken:ScopedToken":
+                return new ScopedToken(name, <any>undefined, { urn })
             case "artifactory:index/singleReplicationConfig:SingleReplicationConfig":
                 return new SingleReplicationConfig(name, <any>undefined, { urn })
             case "artifactory:index/unmanagedUser:UnmanagedUser":
@@ -693,6 +697,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/unmanagedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/user", _module)

@@ -63,7 +63,8 @@ type FederatedIvyRepository struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrOutput `pulumi:"checksumPolicyType"`
 	Description        pulumi.StringPtrOutput `pulumi:"description"`
@@ -103,9 +104,9 @@ type FederatedIvyRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrOutput `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
 	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
@@ -159,7 +160,8 @@ type federatedIvyRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	Description        *string `pulumi:"description"`
@@ -199,9 +201,9 @@ type federatedIvyRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
 	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
@@ -221,7 +223,8 @@ type FederatedIvyRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
 	Description        pulumi.StringPtrInput
@@ -261,9 +264,9 @@ type FederatedIvyRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
 	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
@@ -287,7 +290,8 @@ type federatedIvyRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType *string `pulumi:"checksumPolicyType"`
 	Description        *string `pulumi:"description"`
@@ -326,9 +330,9 @@ type federatedIvyRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
 	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
@@ -349,7 +353,8 @@ type FederatedIvyRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-	// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+	// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+	// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 	// https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 	ChecksumPolicyType pulumi.StringPtrInput
 	Description        pulumi.StringPtrInput
@@ -388,9 +393,9 @@ type FederatedIvyRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
-	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-	// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-	// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+	// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+	// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+	// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
 	// groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
@@ -502,7 +507,8 @@ func (o FederatedIvyRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 }
 
 // Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-// conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
 // https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
 func (o FederatedIvyRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
@@ -593,9 +599,9 @@ func (o FederatedIvyRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-// time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-// artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+// Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+// time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+// artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
 func (o FederatedIvyRepositoryOutput) SnapshotVersionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedIvyRepository) pulumi.StringPtrOutput { return v.SnapshotVersionBehavior }).(pulumi.StringPtrOutput)
 }

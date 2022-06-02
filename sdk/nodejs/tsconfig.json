@@ -131,6 +131,7 @@
         "remoteVcsRepository.ts",
         "replicationConfig.ts",
         "samlSettings.ts",
+        "scopedToken.ts",
         "singleReplicationConfig.ts",
         "types/index.ts",
         "types/input.ts",

@@ -66,7 +66,8 @@ export class LocalIvyRepository extends pulumi.CustomResource {
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     public readonly checksumPolicyType!: pulumi.Output<string | undefined>;
@@ -127,9 +128,9 @@ export class LocalIvyRepository extends pulumi.CustomResource {
      */
     public readonly repoLayoutRef!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
      */
     public readonly snapshotVersionBehavior!: pulumi.Output<string | undefined>;
     /**
@@ -227,7 +228,8 @@ export interface LocalIvyRepositoryState {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
@@ -288,9 +290,9 @@ export interface LocalIvyRepositoryState {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
      */
     snapshotVersionBehavior?: pulumi.Input<string>;
     /**
@@ -323,7 +325,8 @@ export interface LocalIvyRepositoryArgs {
     blackedOut?: pulumi.Input<boolean>;
     /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-     * conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+     * conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+     * "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
      * https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
      */
     checksumPolicyType?: pulumi.Input<string>;
@@ -383,9 +386,9 @@ export interface LocalIvyRepositoryArgs {
      */
     repoLayoutRef?: pulumi.Input<string>;
     /**
-     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-     * time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-     * artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+     * Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+     * time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+     * artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
      */
     snapshotVersionBehavior?: pulumi.Input<string>;
     /**

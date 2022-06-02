@@ -48,7 +48,8 @@ class FederatedIvyRepositoryArgs:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -66,9 +67,9 @@ class FederatedIvyRepositoryArgs:
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
                groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
                deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
@@ -175,7 +176,8 @@ class FederatedIvyRepositoryArgs:
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
         https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
@@ -343,9 +345,9 @@ class FederatedIvyRepositoryArgs:
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -414,7 +416,8 @@ class _FederatedIvyRepositoryState:
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -437,9 +440,9 @@ class _FederatedIvyRepositoryState:
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
                groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
                deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
@@ -523,7 +526,8 @@ class _FederatedIvyRepositoryState:
     def checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
         https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
@@ -727,9 +731,9 @@ class _FederatedIvyRepositoryState:
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -831,7 +835,8 @@ class FederatedIvyRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -854,9 +859,9 @@ class FederatedIvyRepository(pulumi.CustomResource):
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
                groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
                deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
@@ -1019,7 +1024,8 @@ class FederatedIvyRepository(pulumi.CustomResource):
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-               conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+               conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+               "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
                https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
@@ -1042,9 +1048,9 @@ class FederatedIvyRepository(pulumi.CustomResource):
                with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
-        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-               time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-               artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+               time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+               artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the
                groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the
                deployment with a "409 Conflict" error. You can disable this behavior by setting the Suppress POM Consistency Checks
@@ -1103,7 +1109,8 @@ class FederatedIvyRepository(pulumi.CustomResource):
     def checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
         Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
-        conflicts with the locally calculated checksum (bad checksum). For more details, please refer to Checksum Policy -
+        conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
+        "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
         https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy
         """
         return pulumi.get(self, "checksum_policy_type")
@@ -1239,9 +1246,9 @@ class FederatedIvyRepository(pulumi.CustomResource):
     @pulumi.getter(name="snapshotVersionBehavior")
     def snapshot_version_behavior(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the naming convention for Maven SNAPSHOT versions. The options are - Unique: Version number is based on a
-        time-stamp (default) Non-unique: Version number uses a self-overriding naming pattern of
-        artifactId-version-SNAPSHOT.type Deployer: Respects the settings in the Maven client that is deploying the artifact.
+        Specifies the naming convention for Maven SNAPSHOT versions. The options are - unique: Version number is based on a
+        time-stamp (default) non-unique: Version number uses a self-overriding naming pattern of
+        artifactId-version-SNAPSHOT.type deployer: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
