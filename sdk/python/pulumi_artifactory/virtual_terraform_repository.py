@@ -8,19 +8,16 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
-__all__ = ['VirtualNpmRepositoryArgs', 'VirtualNpmRepository']
+__all__ = ['VirtualTerraformRepositoryArgs', 'VirtualTerraformRepository']
 
 @pulumi.input_type
-class VirtualNpmRepositoryArgs:
+class VirtualTerraformRepositoryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
                  default_deployment_repo: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
-                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
-                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_dependencies_remote_repo: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -29,7 +26,7 @@ class VirtualNpmRepositoryArgs:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
-        The set of arguments for constructing a VirtualNpmRepository resource.
+        The set of arguments for constructing a VirtualTerraformRepository resource.
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -39,10 +36,6 @@ class VirtualNpmRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
@@ -63,12 +56,6 @@ class VirtualNpmRepositoryArgs:
             pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
-        if external_dependencies_enabled is not None:
-            pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
-        if external_dependencies_patterns is not None:
-            pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
-        if external_dependencies_remote_repo is not None:
-            pulumi.set(__self__, "external_dependencies_remote_repo", external_dependencies_remote_repo)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if notes is not None:
@@ -147,43 +134,6 @@ class VirtualNpmRepositoryArgs:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesEnabled")
-    def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, external dependencies are rewritten. Default value is false.
-        """
-        return pulumi.get(self, "external_dependencies_enabled")
-
-    @external_dependencies_enabled.setter
-    def external_dependencies_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "external_dependencies_enabled", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesPatterns")
-    def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
-        """
-        return pulumi.get(self, "external_dependencies_patterns")
-
-    @external_dependencies_patterns.setter
-    def external_dependencies_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_dependencies_patterns", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesRemoteRepo")
-    def external_dependencies_remote_repo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-        """
-        return pulumi.get(self, "external_dependencies_remote_repo")
-
-    @external_dependencies_remote_repo.setter
-    def external_dependencies_remote_repo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "external_dependencies_remote_repo", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -274,15 +224,12 @@ class VirtualNpmRepositoryArgs:
 
 
 @pulumi.input_type
-class _VirtualNpmRepositoryState:
+class _VirtualTerraformRepositoryState:
     def __init__(__self__, *,
                  artifactory_requests_can_retrieve_remote_artifacts: Optional[pulumi.Input[bool]] = None,
                  default_deployment_repo: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
-                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
-                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_dependencies_remote_repo: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -293,7 +240,7 @@ class _VirtualNpmRepositoryState:
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
         """
-        Input properties used for looking up and filtering VirtualNpmRepository resources.
+        Input properties used for looking up and filtering VirtualTerraformRepository resources.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
                another Artifactory instance.
         :param pulumi.Input[str] default_deployment_repo: Default repository to deploy artifacts.
@@ -301,10 +248,6 @@ class _VirtualNpmRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -327,12 +270,6 @@ class _VirtualNpmRepositoryState:
             pulumi.set(__self__, "description", description)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
-        if external_dependencies_enabled is not None:
-            pulumi.set(__self__, "external_dependencies_enabled", external_dependencies_enabled)
-        if external_dependencies_patterns is not None:
-            pulumi.set(__self__, "external_dependencies_patterns", external_dependencies_patterns)
-        if external_dependencies_remote_repo is not None:
-            pulumi.set(__self__, "external_dependencies_remote_repo", external_dependencies_remote_repo)
         if includes_pattern is not None:
             pulumi.set(__self__, "includes_pattern", includes_pattern)
         if key is not None:
@@ -402,43 +339,6 @@ class _VirtualNpmRepositoryState:
     @excludes_pattern.setter
     def excludes_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "excludes_pattern", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesEnabled")
-    def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, external dependencies are rewritten. Default value is false.
-        """
-        return pulumi.get(self, "external_dependencies_enabled")
-
-    @external_dependencies_enabled.setter
-    def external_dependencies_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "external_dependencies_enabled", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesPatterns")
-    def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
-        """
-        return pulumi.get(self, "external_dependencies_patterns")
-
-    @external_dependencies_patterns.setter
-    def external_dependencies_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_dependencies_patterns", value)
-
-    @property
-    @pulumi.getter(name="externalDependenciesRemoteRepo")
-    def external_dependencies_remote_repo(self) -> Optional[pulumi.Input[str]]:
-        """
-        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-        """
-        return pulumi.get(self, "external_dependencies_remote_repo")
-
-    @external_dependencies_remote_repo.setter
-    def external_dependencies_remote_repo(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "external_dependencies_remote_repo", value)
 
     @property
     @pulumi.getter(name="includesPattern")
@@ -553,7 +453,7 @@ class _VirtualNpmRepositoryState:
         pulumi.set(self, "retrieval_cache_period_seconds", value)
 
 
-class VirtualNpmRepository(pulumi.CustomResource):
+class VirtualTerraformRepository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -562,9 +462,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
                  default_deployment_repo: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
-                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
-                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_dependencies_remote_repo: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -575,20 +472,17 @@ class VirtualNpmRepository(pulumi.CustomResource):
                  retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Creates a virtual repository resource with specific npm features.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry#npmRegistry-VirtualnpmRegistry).
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_npm = artifactory.VirtualNpmRepository("foo-npm",
+        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
             description="A test virtual repo",
             excludes_pattern="com/google/**",
             includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-npm",
+            key="terraform-remote",
             notes="Internal description",
             repositories=[])
         ```
@@ -598,7 +492,7 @@ class VirtualNpmRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+         $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
         ```
 
         :param str resource_name: The name of the resource.
@@ -610,10 +504,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -631,23 +521,20 @@ class VirtualNpmRepository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNpmRepositoryArgs,
+                 args: VirtualTerraformRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a virtual repository resource with specific npm features.
-        Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry#npmRegistry-VirtualnpmRegistry).
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_artifactory as artifactory
 
-        foo_npm = artifactory.VirtualNpmRepository("foo-npm",
+        terraform_virtual = artifactory.VirtualTerraformRepository("terraform-virtual",
             description="A test virtual repo",
             excludes_pattern="com/google/**",
             includes_pattern="com/jfrog/**,cloud/jfrog/**",
-            key="foo-npm",
+            key="terraform-remote",
             notes="Internal description",
             repositories=[])
         ```
@@ -657,16 +544,16 @@ class VirtualNpmRepository(pulumi.CustomResource):
         Virtual repositories can be imported using their name, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+         $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualNpmRepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualTerraformRepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNpmRepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualTerraformRepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -679,9 +566,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
                  default_deployment_repo: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
-                 external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
-                 external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_dependencies_remote_repo: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -700,15 +584,12 @@ class VirtualNpmRepository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNpmRepositoryArgs.__new__(VirtualNpmRepositoryArgs)
+            __props__ = VirtualTerraformRepositoryArgs.__new__(VirtualTerraformRepositoryArgs)
 
             __props__.__dict__["artifactory_requests_can_retrieve_remote_artifacts"] = artifactory_requests_can_retrieve_remote_artifacts
             __props__.__dict__["default_deployment_repo"] = default_deployment_repo
             __props__.__dict__["description"] = description
             __props__.__dict__["excludes_pattern"] = excludes_pattern
-            __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
-            __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
-            __props__.__dict__["external_dependencies_remote_repo"] = external_dependencies_remote_repo
             __props__.__dict__["includes_pattern"] = includes_pattern
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
@@ -720,8 +601,8 @@ class VirtualNpmRepository(pulumi.CustomResource):
             __props__.__dict__["repositories"] = repositories
             __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
             __props__.__dict__["package_type"] = None
-        super(VirtualNpmRepository, __self__).__init__(
-            'artifactory:index/virtualNpmRepository:VirtualNpmRepository',
+        super(VirtualTerraformRepository, __self__).__init__(
+            'artifactory:index/virtualTerraformRepository:VirtualTerraformRepository',
             resource_name,
             __props__,
             opts)
@@ -734,9 +615,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
             default_deployment_repo: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
-            external_dependencies_enabled: Optional[pulumi.Input[bool]] = None,
-            external_dependencies_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            external_dependencies_remote_repo: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
@@ -745,9 +623,9 @@ class VirtualNpmRepository(pulumi.CustomResource):
             project_key: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None) -> 'VirtualNpmRepository':
+            retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None) -> 'VirtualTerraformRepository':
         """
-        Get an existing VirtualNpmRepository resource's state with the given name, id, and optional extra
+        Get an existing VirtualTerraformRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -760,10 +638,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. Default value is false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-               this is set to ** which means that dependencies may be downloaded from any external source.
-        :param pulumi.Input[str] external_dependencies_remote_repo: The remote repository aggregated by this virtual repository in which the external dependency will be cached.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
                artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -780,15 +654,12 @@ class VirtualNpmRepository(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _VirtualNpmRepositoryState.__new__(_VirtualNpmRepositoryState)
+        __props__ = _VirtualTerraformRepositoryState.__new__(_VirtualTerraformRepositoryState)
 
         __props__.__dict__["artifactory_requests_can_retrieve_remote_artifacts"] = artifactory_requests_can_retrieve_remote_artifacts
         __props__.__dict__["default_deployment_repo"] = default_deployment_repo
         __props__.__dict__["description"] = description
         __props__.__dict__["excludes_pattern"] = excludes_pattern
-        __props__.__dict__["external_dependencies_enabled"] = external_dependencies_enabled
-        __props__.__dict__["external_dependencies_patterns"] = external_dependencies_patterns
-        __props__.__dict__["external_dependencies_remote_repo"] = external_dependencies_remote_repo
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["key"] = key
         __props__.__dict__["notes"] = notes
@@ -798,7 +669,7 @@ class VirtualNpmRepository(pulumi.CustomResource):
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["repositories"] = repositories
         __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
-        return VirtualNpmRepository(resource_name, opts=opts, __props__=__props__)
+        return VirtualTerraformRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
@@ -834,31 +705,6 @@ class VirtualNpmRepository(pulumi.CustomResource):
         artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
-
-    @property
-    @pulumi.getter(name="externalDependenciesEnabled")
-    def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set, external dependencies are rewritten. Default value is false.
-        """
-        return pulumi.get(self, "external_dependencies_enabled")
-
-    @property
-    @pulumi.getter(name="externalDependenciesPatterns")
-    def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-        this is set to ** which means that dependencies may be downloaded from any external source.
-        """
-        return pulumi.get(self, "external_dependencies_patterns")
-
-    @property
-    @pulumi.getter(name="externalDependenciesRemoteRepo")
-    def external_dependencies_remote_repo(self) -> pulumi.Output[Optional[str]]:
-        """
-        The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-        """
-        return pulumi.get(self, "external_dependencies_remote_repo")
 
     @property
     @pulumi.getter(name="includesPattern")

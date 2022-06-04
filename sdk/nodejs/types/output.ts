@@ -560,6 +560,30 @@ export interface FederatedSbtRepositoryMember {
     url: string;
 }
 
+export interface FederatedTerraformModuleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
+export interface FederatedTerraformProviderRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: boolean;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: string;
+}
+
 export interface FederatedVagrantRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -1160,6 +1184,13 @@ export interface RemoteRpmRepositoryContentSynchronisation {
 }
 
 export interface RemoteSbtRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface RemoteTerraformRepositoryContentSynchronisation {
     enabled?: boolean;
     propertiesEnabled?: boolean;
     sourceOriginAbsenceDetection?: boolean;

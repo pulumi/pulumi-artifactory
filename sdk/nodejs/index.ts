@@ -46,6 +46,8 @@ export * from "./federatedPuppetRepository";
 export * from "./federatedPypiRepository";
 export * from "./federatedRpmRepository";
 export * from "./federatedSbtRepository";
+export * from "./federatedTerraformModuleRepository";
+export * from "./federatedTerraformProviderRepository";
 export * from "./federatedVagrantRepository";
 export * from "./generalSecurity";
 export * from "./getFile";
@@ -79,6 +81,9 @@ export * from "./localPuppetRepository";
 export * from "./localPypiRepository";
 export * from "./localRpmRepository";
 export * from "./localSbtRepository";
+export * from "./localTerraformBackendRepository";
+export * from "./localTerraformModuleRepository";
+export * from "./localTerraformProviderRepository";
 export * from "./localVagrantRepository";
 export * from "./managedUser";
 export * from "./mavenRepository";
@@ -117,6 +122,7 @@ export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRpmRepository";
 export * from "./remoteSbtRepository";
+export * from "./remoteTerraformRepository";
 export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
 export * from "./samlSettings";
@@ -147,6 +153,7 @@ export * from "./virtualPuppetRepository";
 export * from "./virtualPypiRepository";
 export * from "./virtualRpmRepository";
 export * from "./virtualSbtRepository";
+export * from "./virtualTerraformRepository";
 
 // Export sub-modules:
 import * as config from "./config";
@@ -199,6 +206,8 @@ import { FederatedPuppetRepository } from "./federatedPuppetRepository";
 import { FederatedPypiRepository } from "./federatedPypiRepository";
 import { FederatedRpmRepository } from "./federatedRpmRepository";
 import { FederatedSbtRepository } from "./federatedSbtRepository";
+import { FederatedTerraformModuleRepository } from "./federatedTerraformModuleRepository";
+import { FederatedTerraformProviderRepository } from "./federatedTerraformProviderRepository";
 import { FederatedVagrantRepository } from "./federatedVagrantRepository";
 import { GeneralSecurity } from "./generalSecurity";
 import { GoRepository } from "./goRepository";
@@ -230,6 +239,9 @@ import { LocalPuppetRepository } from "./localPuppetRepository";
 import { LocalPypiRepository } from "./localPypiRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
 import { LocalSbtRepository } from "./localSbtRepository";
+import { LocalTerraformBackendRepository } from "./localTerraformBackendRepository";
+import { LocalTerraformModuleRepository } from "./localTerraformModuleRepository";
+import { LocalTerraformProviderRepository } from "./localTerraformProviderRepository";
 import { LocalVagrantRepository } from "./localVagrantRepository";
 import { ManagedUser } from "./managedUser";
 import { MavenRepository } from "./mavenRepository";
@@ -267,6 +279,7 @@ import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRpmRepository } from "./remoteRpmRepository";
 import { RemoteSbtRepository } from "./remoteSbtRepository";
+import { RemoteTerraformRepository } from "./remoteTerraformRepository";
 import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
 import { SamlSettings } from "./samlSettings";
@@ -297,6 +310,7 @@ import { VirtualPuppetRepository } from "./virtualPuppetRepository";
 import { VirtualPypiRepository } from "./virtualPypiRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { VirtualSbtRepository } from "./virtualSbtRepository";
+import { VirtualTerraformRepository } from "./virtualTerraformRepository";
 
 const _module = {
     version: utilities.getVersion(),
@@ -384,6 +398,10 @@ const _module = {
                 return new FederatedRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
                 return new FederatedSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository":
+                return new FederatedTerraformModuleRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository":
+                return new FederatedTerraformProviderRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository":
                 return new FederatedVagrantRepository(name, <any>undefined, { urn })
             case "artifactory:index/generalSecurity:GeneralSecurity":
@@ -446,6 +464,12 @@ const _module = {
                 return new LocalRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localSbtRepository:LocalSbtRepository":
                 return new LocalSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository":
+                return new LocalTerraformBackendRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository":
+                return new LocalTerraformModuleRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository":
+                return new LocalTerraformProviderRepository(name, <any>undefined, { urn })
             case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
                 return new LocalVagrantRepository(name, <any>undefined, { urn })
             case "artifactory:index/managedUser:ManagedUser":
@@ -520,6 +544,8 @@ const _module = {
                 return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
                 return new RemoteSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository":
+                return new RemoteTerraformRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
                 return new RemoteVcsRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -580,6 +606,8 @@ const _module = {
                 return new VirtualRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
                 return new VirtualSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository":
+                return new VirtualTerraformRepository(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -626,6 +654,8 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedPuppetRepos
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformModuleRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformProviderRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedVagrantRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/generalSecurity", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/goRepository", _module)
@@ -657,6 +687,9 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformBackendRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformModuleRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformProviderRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localVagrantRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/managedUser", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _module)
@@ -694,6 +727,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteTerraformRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
@@ -724,6 +758,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetReposit
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualTerraformRepository", _module)
 
 import { Provider } from "./provider";
 

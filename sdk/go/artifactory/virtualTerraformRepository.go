@@ -11,9 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a virtual repository resource with specific npm features.
-// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry#npmRegistry-VirtualnpmRegistry).
-//
 // ## Example Usage
 //
 // ```go
@@ -26,11 +23,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualNpmRepository(ctx, "foo-npm", &artifactory.VirtualNpmRepositoryArgs{
+// 		_, err := artifactory.NewVirtualTerraformRepository(ctx, "terraform-virtual", &artifactory.VirtualTerraformRepositoryArgs{
 // 			Description:     pulumi.String("A test virtual repo"),
 // 			ExcludesPattern: pulumi.String("com/google/**"),
 // 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-npm"),
+// 			Key:             pulumi.String("terraform-remote"),
 // 			Notes:           pulumi.String("Internal description"),
 // 			Repositories:    pulumi.StringArray{},
 // 		})
@@ -47,9 +44,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+//  $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
 // ```
-type VirtualNpmRepository struct {
+type VirtualTerraformRepository struct {
 	pulumi.CustomResourceState
 
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -63,13 +60,6 @@ type VirtualNpmRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
-	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo pulumi.StringPtrOutput `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
@@ -94,9 +84,9 @@ type VirtualNpmRepository struct {
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 }
 
-// NewVirtualNpmRepository registers a new resource with the given unique name, arguments, and options.
-func NewVirtualNpmRepository(ctx *pulumi.Context,
-	name string, args *VirtualNpmRepositoryArgs, opts ...pulumi.ResourceOption) (*VirtualNpmRepository, error) {
+// NewVirtualTerraformRepository registers a new resource with the given unique name, arguments, and options.
+func NewVirtualTerraformRepository(ctx *pulumi.Context,
+	name string, args *VirtualTerraformRepositoryArgs, opts ...pulumi.ResourceOption) (*VirtualTerraformRepository, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -104,28 +94,28 @@ func NewVirtualNpmRepository(ctx *pulumi.Context,
 	if args.Key == nil {
 		return nil, errors.New("invalid value for required argument 'Key'")
 	}
-	var resource VirtualNpmRepository
-	err := ctx.RegisterResource("artifactory:index/virtualNpmRepository:VirtualNpmRepository", name, args, &resource, opts...)
+	var resource VirtualTerraformRepository
+	err := ctx.RegisterResource("artifactory:index/virtualTerraformRepository:VirtualTerraformRepository", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// GetVirtualNpmRepository gets an existing VirtualNpmRepository resource's state with the given name, ID, and optional
+// GetVirtualTerraformRepository gets an existing VirtualTerraformRepository resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetVirtualNpmRepository(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *VirtualNpmRepositoryState, opts ...pulumi.ResourceOption) (*VirtualNpmRepository, error) {
-	var resource VirtualNpmRepository
-	err := ctx.ReadResource("artifactory:index/virtualNpmRepository:VirtualNpmRepository", name, id, state, &resource, opts...)
+func GetVirtualTerraformRepository(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *VirtualTerraformRepositoryState, opts ...pulumi.ResourceOption) (*VirtualTerraformRepository, error) {
+	var resource VirtualTerraformRepository
+	err := ctx.ReadResource("artifactory:index/virtualTerraformRepository:VirtualTerraformRepository", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering VirtualNpmRepository resources.
-type virtualNpmRepositoryState struct {
+// Input properties used for looking up and filtering VirtualTerraformRepository resources.
+type virtualTerraformRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
@@ -137,13 +127,6 @@ type virtualNpmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -168,7 +151,7 @@ type virtualNpmRepositoryState struct {
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
-type VirtualNpmRepositoryState struct {
+type VirtualTerraformRepositoryState struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
@@ -180,13 +163,6 @@ type VirtualNpmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns pulumi.StringArrayInput
-	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
@@ -211,11 +187,11 @@ type VirtualNpmRepositoryState struct {
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
-func (VirtualNpmRepositoryState) ElementType() reflect.Type {
-	return reflect.TypeOf((*virtualNpmRepositoryState)(nil)).Elem()
+func (VirtualTerraformRepositoryState) ElementType() reflect.Type {
+	return reflect.TypeOf((*virtualTerraformRepositoryState)(nil)).Elem()
 }
 
-type virtualNpmRepositoryArgs struct {
+type virtualTerraformRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts *bool `pulumi:"artifactoryRequestsCanRetrieveRemoteArtifacts"`
@@ -227,13 +203,6 @@ type virtualNpmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
-	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo *string `pulumi:"externalDependenciesRemoteRepo"`
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
@@ -256,8 +225,8 @@ type virtualNpmRepositoryArgs struct {
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 }
 
-// The set of arguments for constructing a VirtualNpmRepository resource.
-type VirtualNpmRepositoryArgs struct {
+// The set of arguments for constructing a VirtualTerraformRepository resource.
+type VirtualTerraformRepositoryArgs struct {
 	// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 	// another Artifactory instance.
 	ArtifactoryRequestsCanRetrieveRemoteArtifacts pulumi.BoolPtrInput
@@ -269,13 +238,6 @@ type VirtualNpmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten. Default value is false.
-	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-	// this is set to ** which means that dependencies may be downloaded from any external source.
-	ExternalDependenciesPatterns pulumi.StringArrayInput
-	// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-	ExternalDependenciesRemoteRepo pulumi.StringPtrInput
 	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
@@ -298,228 +260,212 @@ type VirtualNpmRepositoryArgs struct {
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 }
 
-func (VirtualNpmRepositoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*virtualNpmRepositoryArgs)(nil)).Elem()
+func (VirtualTerraformRepositoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*virtualTerraformRepositoryArgs)(nil)).Elem()
 }
 
-type VirtualNpmRepositoryInput interface {
+type VirtualTerraformRepositoryInput interface {
 	pulumi.Input
 
-	ToVirtualNpmRepositoryOutput() VirtualNpmRepositoryOutput
-	ToVirtualNpmRepositoryOutputWithContext(ctx context.Context) VirtualNpmRepositoryOutput
+	ToVirtualTerraformRepositoryOutput() VirtualTerraformRepositoryOutput
+	ToVirtualTerraformRepositoryOutputWithContext(ctx context.Context) VirtualTerraformRepositoryOutput
 }
 
-func (*VirtualNpmRepository) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNpmRepository)(nil)).Elem()
+func (*VirtualTerraformRepository) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (i *VirtualNpmRepository) ToVirtualNpmRepositoryOutput() VirtualNpmRepositoryOutput {
-	return i.ToVirtualNpmRepositoryOutputWithContext(context.Background())
+func (i *VirtualTerraformRepository) ToVirtualTerraformRepositoryOutput() VirtualTerraformRepositoryOutput {
+	return i.ToVirtualTerraformRepositoryOutputWithContext(context.Background())
 }
 
-func (i *VirtualNpmRepository) ToVirtualNpmRepositoryOutputWithContext(ctx context.Context) VirtualNpmRepositoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNpmRepositoryOutput)
+func (i *VirtualTerraformRepository) ToVirtualTerraformRepositoryOutputWithContext(ctx context.Context) VirtualTerraformRepositoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryOutput)
 }
 
-// VirtualNpmRepositoryArrayInput is an input type that accepts VirtualNpmRepositoryArray and VirtualNpmRepositoryArrayOutput values.
-// You can construct a concrete instance of `VirtualNpmRepositoryArrayInput` via:
+// VirtualTerraformRepositoryArrayInput is an input type that accepts VirtualTerraformRepositoryArray and VirtualTerraformRepositoryArrayOutput values.
+// You can construct a concrete instance of `VirtualTerraformRepositoryArrayInput` via:
 //
-//          VirtualNpmRepositoryArray{ VirtualNpmRepositoryArgs{...} }
-type VirtualNpmRepositoryArrayInput interface {
+//          VirtualTerraformRepositoryArray{ VirtualTerraformRepositoryArgs{...} }
+type VirtualTerraformRepositoryArrayInput interface {
 	pulumi.Input
 
-	ToVirtualNpmRepositoryArrayOutput() VirtualNpmRepositoryArrayOutput
-	ToVirtualNpmRepositoryArrayOutputWithContext(context.Context) VirtualNpmRepositoryArrayOutput
+	ToVirtualTerraformRepositoryArrayOutput() VirtualTerraformRepositoryArrayOutput
+	ToVirtualTerraformRepositoryArrayOutputWithContext(context.Context) VirtualTerraformRepositoryArrayOutput
 }
 
-type VirtualNpmRepositoryArray []VirtualNpmRepositoryInput
+type VirtualTerraformRepositoryArray []VirtualTerraformRepositoryInput
 
-func (VirtualNpmRepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*VirtualNpmRepository)(nil)).Elem()
+func (VirtualTerraformRepositoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (i VirtualNpmRepositoryArray) ToVirtualNpmRepositoryArrayOutput() VirtualNpmRepositoryArrayOutput {
-	return i.ToVirtualNpmRepositoryArrayOutputWithContext(context.Background())
+func (i VirtualTerraformRepositoryArray) ToVirtualTerraformRepositoryArrayOutput() VirtualTerraformRepositoryArrayOutput {
+	return i.ToVirtualTerraformRepositoryArrayOutputWithContext(context.Background())
 }
 
-func (i VirtualNpmRepositoryArray) ToVirtualNpmRepositoryArrayOutputWithContext(ctx context.Context) VirtualNpmRepositoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNpmRepositoryArrayOutput)
+func (i VirtualTerraformRepositoryArray) ToVirtualTerraformRepositoryArrayOutputWithContext(ctx context.Context) VirtualTerraformRepositoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryArrayOutput)
 }
 
-// VirtualNpmRepositoryMapInput is an input type that accepts VirtualNpmRepositoryMap and VirtualNpmRepositoryMapOutput values.
-// You can construct a concrete instance of `VirtualNpmRepositoryMapInput` via:
+// VirtualTerraformRepositoryMapInput is an input type that accepts VirtualTerraformRepositoryMap and VirtualTerraformRepositoryMapOutput values.
+// You can construct a concrete instance of `VirtualTerraformRepositoryMapInput` via:
 //
-//          VirtualNpmRepositoryMap{ "key": VirtualNpmRepositoryArgs{...} }
-type VirtualNpmRepositoryMapInput interface {
+//          VirtualTerraformRepositoryMap{ "key": VirtualTerraformRepositoryArgs{...} }
+type VirtualTerraformRepositoryMapInput interface {
 	pulumi.Input
 
-	ToVirtualNpmRepositoryMapOutput() VirtualNpmRepositoryMapOutput
-	ToVirtualNpmRepositoryMapOutputWithContext(context.Context) VirtualNpmRepositoryMapOutput
+	ToVirtualTerraformRepositoryMapOutput() VirtualTerraformRepositoryMapOutput
+	ToVirtualTerraformRepositoryMapOutputWithContext(context.Context) VirtualTerraformRepositoryMapOutput
 }
 
-type VirtualNpmRepositoryMap map[string]VirtualNpmRepositoryInput
+type VirtualTerraformRepositoryMap map[string]VirtualTerraformRepositoryInput
 
-func (VirtualNpmRepositoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*VirtualNpmRepository)(nil)).Elem()
+func (VirtualTerraformRepositoryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (i VirtualNpmRepositoryMap) ToVirtualNpmRepositoryMapOutput() VirtualNpmRepositoryMapOutput {
-	return i.ToVirtualNpmRepositoryMapOutputWithContext(context.Background())
+func (i VirtualTerraformRepositoryMap) ToVirtualTerraformRepositoryMapOutput() VirtualTerraformRepositoryMapOutput {
+	return i.ToVirtualTerraformRepositoryMapOutputWithContext(context.Background())
 }
 
-func (i VirtualNpmRepositoryMap) ToVirtualNpmRepositoryMapOutputWithContext(ctx context.Context) VirtualNpmRepositoryMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNpmRepositoryMapOutput)
+func (i VirtualTerraformRepositoryMap) ToVirtualTerraformRepositoryMapOutputWithContext(ctx context.Context) VirtualTerraformRepositoryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualTerraformRepositoryMapOutput)
 }
 
-type VirtualNpmRepositoryOutput struct{ *pulumi.OutputState }
+type VirtualTerraformRepositoryOutput struct{ *pulumi.OutputState }
 
-func (VirtualNpmRepositoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNpmRepository)(nil)).Elem()
+func (VirtualTerraformRepositoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (o VirtualNpmRepositoryOutput) ToVirtualNpmRepositoryOutput() VirtualNpmRepositoryOutput {
+func (o VirtualTerraformRepositoryOutput) ToVirtualTerraformRepositoryOutput() VirtualTerraformRepositoryOutput {
 	return o
 }
 
-func (o VirtualNpmRepositoryOutput) ToVirtualNpmRepositoryOutputWithContext(ctx context.Context) VirtualNpmRepositoryOutput {
+func (o VirtualTerraformRepositoryOutput) ToVirtualTerraformRepositoryOutputWithContext(ctx context.Context) VirtualTerraformRepositoryOutput {
 	return o
 }
 
 // Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
 // another Artifactory instance.
-func (o VirtualNpmRepositoryOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.BoolPtrOutput {
+func (o VirtualTerraformRepositoryOutput) ArtifactoryRequestsCanRetrieveRemoteArtifacts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.BoolPtrOutput {
 		return v.ArtifactoryRequestsCanRetrieveRemoteArtifacts
 	}).(pulumi.BoolPtrOutput)
 }
 
 // Default repository to deploy artifacts.
-func (o VirtualNpmRepositoryOutput) DefaultDeploymentRepo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.DefaultDeploymentRepo }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) DefaultDeploymentRepo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.DefaultDeploymentRepo }).(pulumi.StringPtrOutput)
 }
 
 // A free text field that describes the content and purpose of the repository. If you choose to insert a link into this
 // field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
-func (o VirtualNpmRepositoryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 // artifacts are excluded.
-func (o VirtualNpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
-}
-
-// When set, external dependencies are rewritten. Default value is false.
-func (o VirtualNpmRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-// this is set to ** which means that dependencies may be downloaded from any external source.
-func (o VirtualNpmRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
-}
-
-// The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-func (o VirtualNpmRepositoryOutput) ExternalDependenciesRemoteRepo() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ExternalDependenciesRemoteRepo }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
 // artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
-func (o VirtualNpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 // contain spaces or special characters.
-func (o VirtualNpmRepositoryOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+func (o VirtualTerraformRepositoryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
 // A free text field to add additional notes about the repository. These are only visible to the administrator.
-func (o VirtualNpmRepositoryOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
 // The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
-func (o VirtualNpmRepositoryOutput) PackageType() pulumi.StringOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
+func (o VirtualTerraformRepositoryOutput) PackageType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
 // Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-func (o VirtualNpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
+func (o VirtualTerraformRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
 // Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
 // repository to a project, repository key must be prefixed with project key, separated by a dash.
-func (o VirtualNpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
 
 // Repository layout key for the local repository
-func (o VirtualNpmRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
+func (o VirtualTerraformRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringPtrOutput { return v.RepoLayoutRef }).(pulumi.StringPtrOutput)
 }
 
 // The effective list of actual repositories included in this virtual repository.
-func (o VirtualNpmRepositoryOutput) Repositories() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
+func (o VirtualTerraformRepositoryOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
 // This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
 // repositories. A value of 0 indicates no caching.
-func (o VirtualNpmRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
+func (o VirtualTerraformRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualTerraformRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-type VirtualNpmRepositoryArrayOutput struct{ *pulumi.OutputState }
+type VirtualTerraformRepositoryArrayOutput struct{ *pulumi.OutputState }
 
-func (VirtualNpmRepositoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*VirtualNpmRepository)(nil)).Elem()
+func (VirtualTerraformRepositoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (o VirtualNpmRepositoryArrayOutput) ToVirtualNpmRepositoryArrayOutput() VirtualNpmRepositoryArrayOutput {
+func (o VirtualTerraformRepositoryArrayOutput) ToVirtualTerraformRepositoryArrayOutput() VirtualTerraformRepositoryArrayOutput {
 	return o
 }
 
-func (o VirtualNpmRepositoryArrayOutput) ToVirtualNpmRepositoryArrayOutputWithContext(ctx context.Context) VirtualNpmRepositoryArrayOutput {
+func (o VirtualTerraformRepositoryArrayOutput) ToVirtualTerraformRepositoryArrayOutputWithContext(ctx context.Context) VirtualTerraformRepositoryArrayOutput {
 	return o
 }
 
-func (o VirtualNpmRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualNpmRepositoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNpmRepository {
-		return vs[0].([]*VirtualNpmRepository)[vs[1].(int)]
-	}).(VirtualNpmRepositoryOutput)
+func (o VirtualTerraformRepositoryArrayOutput) Index(i pulumi.IntInput) VirtualTerraformRepositoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualTerraformRepository {
+		return vs[0].([]*VirtualTerraformRepository)[vs[1].(int)]
+	}).(VirtualTerraformRepositoryOutput)
 }
 
-type VirtualNpmRepositoryMapOutput struct{ *pulumi.OutputState }
+type VirtualTerraformRepositoryMapOutput struct{ *pulumi.OutputState }
 
-func (VirtualNpmRepositoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*VirtualNpmRepository)(nil)).Elem()
+func (VirtualTerraformRepositoryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*VirtualTerraformRepository)(nil)).Elem()
 }
 
-func (o VirtualNpmRepositoryMapOutput) ToVirtualNpmRepositoryMapOutput() VirtualNpmRepositoryMapOutput {
+func (o VirtualTerraformRepositoryMapOutput) ToVirtualTerraformRepositoryMapOutput() VirtualTerraformRepositoryMapOutput {
 	return o
 }
 
-func (o VirtualNpmRepositoryMapOutput) ToVirtualNpmRepositoryMapOutputWithContext(ctx context.Context) VirtualNpmRepositoryMapOutput {
+func (o VirtualTerraformRepositoryMapOutput) ToVirtualTerraformRepositoryMapOutputWithContext(ctx context.Context) VirtualTerraformRepositoryMapOutput {
 	return o
 }
 
-func (o VirtualNpmRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualNpmRepositoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualNpmRepository {
-		return vs[0].(map[string]*VirtualNpmRepository)[vs[1].(string)]
-	}).(VirtualNpmRepositoryOutput)
+func (o VirtualTerraformRepositoryMapOutput) MapIndex(k pulumi.StringInput) VirtualTerraformRepositoryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualTerraformRepository {
+		return vs[0].(map[string]*VirtualTerraformRepository)[vs[1].(string)]
+	}).(VirtualTerraformRepositoryOutput)
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNpmRepositoryInput)(nil)).Elem(), &VirtualNpmRepository{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNpmRepositoryArrayInput)(nil)).Elem(), VirtualNpmRepositoryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNpmRepositoryMapInput)(nil)).Elem(), VirtualNpmRepositoryMap{})
-	pulumi.RegisterOutputType(VirtualNpmRepositoryOutput{})
-	pulumi.RegisterOutputType(VirtualNpmRepositoryArrayOutput{})
-	pulumi.RegisterOutputType(VirtualNpmRepositoryMapOutput{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualTerraformRepositoryInput)(nil)).Elem(), &VirtualTerraformRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualTerraformRepositoryArrayInput)(nil)).Elem(), VirtualTerraformRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualTerraformRepositoryMapInput)(nil)).Elem(), VirtualTerraformRepositoryMap{})
+	pulumi.RegisterOutputType(VirtualTerraformRepositoryOutput{})
+	pulumi.RegisterOutputType(VirtualTerraformRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(VirtualTerraformRepositoryMapOutput{})
 }

@@ -56,6 +56,8 @@
         "federatedPypiRepository.ts",
         "federatedRpmRepository.ts",
         "federatedSbtRepository.ts",
+        "federatedTerraformModuleRepository.ts",
+        "federatedTerraformProviderRepository.ts",
         "federatedVagrantRepository.ts",
         "generalSecurity.ts",
         "getFile.ts",
@@ -90,6 +92,9 @@
         "localPypiRepository.ts",
         "localRpmRepository.ts",
         "localSbtRepository.ts",
+        "localTerraformBackendRepository.ts",
+        "localTerraformModuleRepository.ts",
+        "localTerraformProviderRepository.ts",
         "localVagrantRepository.ts",
         "managedUser.ts",
         "mavenRepository.ts",
@@ -128,6 +133,7 @@
         "remotePypiRepository.ts",
         "remoteRpmRepository.ts",
         "remoteSbtRepository.ts",
+        "remoteTerraformRepository.ts",
         "remoteVcsRepository.ts",
         "replicationConfig.ts",
         "samlSettings.ts",
@@ -161,6 +167,7 @@
         "virtualPuppetRepository.ts",
         "virtualPypiRepository.ts",
         "virtualRpmRepository.ts",
-        "virtualSbtRepository.ts"
+        "virtualSbtRepository.ts",
+        "virtualTerraformRepository.ts"
     ]
 }

@@ -4942,6 +4942,224 @@ func (o FederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 	}).(FederatedSbtRepositoryMemberOutput)
 }
 
+type FederatedTerraformModuleRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedTerraformModuleRepositoryMemberInput is an input type that accepts FederatedTerraformModuleRepositoryMemberArgs and FederatedTerraformModuleRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedTerraformModuleRepositoryMemberInput` via:
+//
+//          FederatedTerraformModuleRepositoryMemberArgs{...}
+type FederatedTerraformModuleRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedTerraformModuleRepositoryMemberOutput() FederatedTerraformModuleRepositoryMemberOutput
+	ToFederatedTerraformModuleRepositoryMemberOutputWithContext(context.Context) FederatedTerraformModuleRepositoryMemberOutput
+}
+
+type FederatedTerraformModuleRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedTerraformModuleRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedTerraformModuleRepositoryMemberArgs) ToFederatedTerraformModuleRepositoryMemberOutput() FederatedTerraformModuleRepositoryMemberOutput {
+	return i.ToFederatedTerraformModuleRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedTerraformModuleRepositoryMemberArgs) ToFederatedTerraformModuleRepositoryMemberOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformModuleRepositoryMemberOutput)
+}
+
+// FederatedTerraformModuleRepositoryMemberArrayInput is an input type that accepts FederatedTerraformModuleRepositoryMemberArray and FederatedTerraformModuleRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedTerraformModuleRepositoryMemberArrayInput` via:
+//
+//          FederatedTerraformModuleRepositoryMemberArray{ FederatedTerraformModuleRepositoryMemberArgs{...} }
+type FederatedTerraformModuleRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedTerraformModuleRepositoryMemberArrayOutput() FederatedTerraformModuleRepositoryMemberArrayOutput
+	ToFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(context.Context) FederatedTerraformModuleRepositoryMemberArrayOutput
+}
+
+type FederatedTerraformModuleRepositoryMemberArray []FederatedTerraformModuleRepositoryMemberInput
+
+func (FederatedTerraformModuleRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedTerraformModuleRepositoryMemberArray) ToFederatedTerraformModuleRepositoryMemberArrayOutput() FederatedTerraformModuleRepositoryMemberArrayOutput {
+	return i.ToFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedTerraformModuleRepositoryMemberArray) ToFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformModuleRepositoryMemberArrayOutput)
+}
+
+type FederatedTerraformModuleRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedTerraformModuleRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedTerraformModuleRepositoryMemberOutput) ToFederatedTerraformModuleRepositoryMemberOutput() FederatedTerraformModuleRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedTerraformModuleRepositoryMemberOutput) ToFederatedTerraformModuleRepositoryMemberOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedTerraformModuleRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedTerraformModuleRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedTerraformModuleRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedTerraformModuleRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedTerraformModuleRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedTerraformModuleRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedTerraformModuleRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedTerraformModuleRepositoryMemberArrayOutput) ToFederatedTerraformModuleRepositoryMemberArrayOutput() FederatedTerraformModuleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedTerraformModuleRepositoryMemberArrayOutput) ToFederatedTerraformModuleRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedTerraformModuleRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedTerraformModuleRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedTerraformModuleRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedTerraformModuleRepositoryMember {
+		return vs[0].([]FederatedTerraformModuleRepositoryMember)[vs[1].(int)]
+	}).(FederatedTerraformModuleRepositoryMemberOutput)
+}
+
+type FederatedTerraformProviderRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedTerraformProviderRepositoryMemberInput is an input type that accepts FederatedTerraformProviderRepositoryMemberArgs and FederatedTerraformProviderRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedTerraformProviderRepositoryMemberInput` via:
+//
+//          FederatedTerraformProviderRepositoryMemberArgs{...}
+type FederatedTerraformProviderRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedTerraformProviderRepositoryMemberOutput() FederatedTerraformProviderRepositoryMemberOutput
+	ToFederatedTerraformProviderRepositoryMemberOutputWithContext(context.Context) FederatedTerraformProviderRepositoryMemberOutput
+}
+
+type FederatedTerraformProviderRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedTerraformProviderRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedTerraformProviderRepositoryMemberArgs) ToFederatedTerraformProviderRepositoryMemberOutput() FederatedTerraformProviderRepositoryMemberOutput {
+	return i.ToFederatedTerraformProviderRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedTerraformProviderRepositoryMemberArgs) ToFederatedTerraformProviderRepositoryMemberOutputWithContext(ctx context.Context) FederatedTerraformProviderRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformProviderRepositoryMemberOutput)
+}
+
+// FederatedTerraformProviderRepositoryMemberArrayInput is an input type that accepts FederatedTerraformProviderRepositoryMemberArray and FederatedTerraformProviderRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedTerraformProviderRepositoryMemberArrayInput` via:
+//
+//          FederatedTerraformProviderRepositoryMemberArray{ FederatedTerraformProviderRepositoryMemberArgs{...} }
+type FederatedTerraformProviderRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedTerraformProviderRepositoryMemberArrayOutput() FederatedTerraformProviderRepositoryMemberArrayOutput
+	ToFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(context.Context) FederatedTerraformProviderRepositoryMemberArrayOutput
+}
+
+type FederatedTerraformProviderRepositoryMemberArray []FederatedTerraformProviderRepositoryMemberInput
+
+func (FederatedTerraformProviderRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedTerraformProviderRepositoryMemberArray) ToFederatedTerraformProviderRepositoryMemberArrayOutput() FederatedTerraformProviderRepositoryMemberArrayOutput {
+	return i.ToFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedTerraformProviderRepositoryMemberArray) ToFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedTerraformProviderRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedTerraformProviderRepositoryMemberArrayOutput)
+}
+
+type FederatedTerraformProviderRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedTerraformProviderRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedTerraformProviderRepositoryMemberOutput) ToFederatedTerraformProviderRepositoryMemberOutput() FederatedTerraformProviderRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedTerraformProviderRepositoryMemberOutput) ToFederatedTerraformProviderRepositoryMemberOutputWithContext(ctx context.Context) FederatedTerraformProviderRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedTerraformProviderRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedTerraformProviderRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedTerraformProviderRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedTerraformProviderRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedTerraformProviderRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedTerraformProviderRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedTerraformProviderRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedTerraformProviderRepositoryMemberArrayOutput) ToFederatedTerraformProviderRepositoryMemberArrayOutput() FederatedTerraformProviderRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedTerraformProviderRepositoryMemberArrayOutput) ToFederatedTerraformProviderRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedTerraformProviderRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedTerraformProviderRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedTerraformProviderRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedTerraformProviderRepositoryMember {
+		return vs[0].([]FederatedTerraformProviderRepositoryMember)[vs[1].(int)]
+	}).(FederatedTerraformProviderRepositoryMemberOutput)
+}
+
 type FederatedVagrantRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -14050,6 +14268,184 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteTerraformRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteTerraformRepositoryContentSynchronisationInput is an input type that accepts RemoteTerraformRepositoryContentSynchronisationArgs and RemoteTerraformRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteTerraformRepositoryContentSynchronisationInput` via:
+//
+//          RemoteTerraformRepositoryContentSynchronisationArgs{...}
+type RemoteTerraformRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteTerraformRepositoryContentSynchronisationOutput() RemoteTerraformRepositoryContentSynchronisationOutput
+	ToRemoteTerraformRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteTerraformRepositoryContentSynchronisationOutput
+}
+
+type RemoteTerraformRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteTerraformRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteTerraformRepositoryContentSynchronisationArgs) ToRemoteTerraformRepositoryContentSynchronisationOutput() RemoteTerraformRepositoryContentSynchronisationOutput {
+	return i.ToRemoteTerraformRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteTerraformRepositoryContentSynchronisationArgs) ToRemoteTerraformRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteTerraformRepositoryContentSynchronisationArgs) ToRemoteTerraformRepositoryContentSynchronisationPtrOutput() RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteTerraformRepositoryContentSynchronisationArgs) ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryContentSynchronisationOutput).ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteTerraformRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteTerraformRepositoryContentSynchronisationArgs, RemoteTerraformRepositoryContentSynchronisationPtr and RemoteTerraformRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteTerraformRepositoryContentSynchronisationPtrInput` via:
+//
+//          RemoteTerraformRepositoryContentSynchronisationArgs{...}
+//
+//  or:
+//
+//          nil
+type RemoteTerraformRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteTerraformRepositoryContentSynchronisationPtrOutput() RemoteTerraformRepositoryContentSynchronisationPtrOutput
+	ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteTerraformRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteTerraformRepositoryContentSynchronisationPtrType RemoteTerraformRepositoryContentSynchronisationArgs
+
+func RemoteTerraformRepositoryContentSynchronisationPtr(v *RemoteTerraformRepositoryContentSynchronisationArgs) RemoteTerraformRepositoryContentSynchronisationPtrInput {
+	return (*remoteTerraformRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteTerraformRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteTerraformRepositoryContentSynchronisationPtrType) ToRemoteTerraformRepositoryContentSynchronisationPtrOutput() RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteTerraformRepositoryContentSynchronisationPtrType) ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteTerraformRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteTerraformRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteTerraformRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) ToRemoteTerraformRepositoryContentSynchronisationOutput() RemoteTerraformRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) ToRemoteTerraformRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) ToRemoteTerraformRepositoryContentSynchronisationPtrOutput() RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteTerraformRepositoryContentSynchronisation) *RemoteTerraformRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteTerraformRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteTerraformRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteTerraformRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteTerraformRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) ToRemoteTerraformRepositoryContentSynchronisationPtrOutput() RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) ToRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) Elem() RemoteTerraformRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) RemoteTerraformRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteTerraformRepositoryContentSynchronisation
+		return ret
+	}).(RemoteTerraformRepositoryContentSynchronisationOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteVcsRepositoryContentSynchronisation struct {
 	Enabled                      *bool `pulumi:"enabled"`
 	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
@@ -14461,6 +14857,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryMemberArrayInput)(nil)).Elem(), FederatedRpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMemberInput)(nil)).Elem(), FederatedSbtRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMemberArrayInput)(nil)).Elem(), FederatedSbtRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformModuleRepositoryMemberInput)(nil)).Elem(), FederatedTerraformModuleRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformModuleRepositoryMemberArrayInput)(nil)).Elem(), FederatedTerraformModuleRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformProviderRepositoryMemberInput)(nil)).Elem(), FederatedTerraformProviderRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformProviderRepositoryMemberArrayInput)(nil)).Elem(), FederatedTerraformProviderRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMemberInput)(nil)).Elem(), FederatedVagrantRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMemberArrayInput)(nil)).Elem(), FederatedVagrantRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderInput)(nil)).Elem(), OauthSettingsOauthProviderArgs{})
@@ -14575,6 +14975,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteTerraformRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteTerraformRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
@@ -14657,6 +15059,10 @@ func init() {
 	pulumi.RegisterOutputType(FederatedRpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedTerraformModuleRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedTerraformModuleRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedTerraformProviderRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedTerraformProviderRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderOutput{})
@@ -14771,6 +15177,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteRpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteTerraformRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteTerraformRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})

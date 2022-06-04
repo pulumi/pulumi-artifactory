@@ -46,6 +46,8 @@ from .federated_puppet_repository import *
 from .federated_pypi_repository import *
 from .federated_rpm_repository import *
 from .federated_sbt_repository import *
+from .federated_terraform_module_repository import *
+from .federated_terraform_provider_repository import *
 from .federated_vagrant_repository import *
 from .general_security import *
 from .get_file import *
@@ -79,6 +81,9 @@ from .local_puppet_repository import *
 from .local_pypi_repository import *
 from .local_rpm_repository import *
 from .local_sbt_repository import *
+from .local_terraform_backend_repository import *
+from .local_terraform_module_repository import *
+from .local_terraform_provider_repository import *
 from .local_vagrant_repository import *
 from .managed_user import *
 from .maven_repository import *
@@ -117,6 +122,7 @@ from .remote_puppet_repository import *
 from .remote_pypi_repository import *
 from .remote_rpm_repository import *
 from .remote_sbt_repository import *
+from .remote_terraform_repository import *
 from .remote_vcs_repository import *
 from .replication_config import *
 from .saml_settings import *
@@ -147,6 +153,7 @@ from .virtual_puppet_repository import *
 from .virtual_pypi_repository import *
 from .virtual_rpm_repository import *
 from .virtual_sbt_repository import *
+from .virtual_terraform_repository import *
 from ._inputs import *
 from . import outputs
 
@@ -490,6 +497,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/federatedTerraformModuleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository": "FederatedTerraformModuleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedTerraformProviderRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository": "FederatedTerraformProviderRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/federatedVagrantRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -734,6 +757,30 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/localSbtRepository:LocalSbtRepository": "LocalSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localTerraformBackendRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository": "LocalTerraformBackendRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localTerraformModuleRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository": "LocalTerraformModuleRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localTerraformProviderRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository": "LocalTerraformProviderRepository"
   }
  },
  {
@@ -1034,6 +1081,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteTerraformRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository": "RemoteTerraformRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteVcsRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1270,6 +1325,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualSbtRepository:VirtualSbtRepository": "VirtualSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualTerraformRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository": "VirtualTerraformRepository"
   }
  }
 ]
