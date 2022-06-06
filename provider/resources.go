@@ -253,6 +253,23 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_managed_user":                       {Tok: makeResource(mainMod, "ManagedUser")},
 			"artifactory_unmanaged_user":                     {Tok: makeResource(mainMod, "UnmanagedUser")},
 			"artifactory_virtual_pub_repository":             {Tok: makeResource(mainMod, "VirtualPubRepository")},
+			"artifactory_federated_terraform_module_repository": {
+				Tok: makeResource(mainMod, "FederatedTerraformModuleRepository"),
+			},
+			"artifactory_federated_terraform_provider_repository": {
+				Tok: makeResource(mainMod, "FederatedTerraformProviderRepository"),
+			},
+			"artifactory_local_terraform_module_repository": {
+				Tok: makeResource(mainMod, "LocalTerraformModuleRepository"),
+			},
+			"artifactory_local_terraform_provider_repository": {
+				Tok: makeResource(mainMod, "LocalTerraformProviderRepository"),
+			},
+			"artifactory_local_terraformbackend_repository": {
+				Tok: makeResource(mainMod, "LocalTerraformBackendRepository"),
+			},
+			"artifactory_remote_terraform_repository":  {Tok: makeResource(mainMod, "RemoteTerraformRepository")},
+			"artifactory_virtual_terraform_repository": {Tok: makeResource(mainMod, "VirtualTerraformRepository")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

@@ -102,6 +102,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedRpmRepository{}
 	case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
 		r = &FederatedSbtRepository{}
+	case "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository":
+		r = &FederatedTerraformModuleRepository{}
+	case "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository":
+		r = &FederatedTerraformProviderRepository{}
 	case "artifactory:index/federatedVagrantRepository:FederatedVagrantRepository":
 		r = &FederatedVagrantRepository{}
 	case "artifactory:index/generalSecurity:GeneralSecurity":
@@ -164,6 +168,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalRpmRepository{}
 	case "artifactory:index/localSbtRepository:LocalSbtRepository":
 		r = &LocalSbtRepository{}
+	case "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository":
+		r = &LocalTerraformBackendRepository{}
+	case "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository":
+		r = &LocalTerraformModuleRepository{}
+	case "artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository":
+		r = &LocalTerraformProviderRepository{}
 	case "artifactory:index/localVagrantRepository:LocalVagrantRepository":
 		r = &LocalVagrantRepository{}
 	case "artifactory:index/managedUser:ManagedUser":
@@ -238,6 +248,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteRpmRepository{}
 	case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
 		r = &RemoteSbtRepository{}
+	case "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository":
+		r = &RemoteTerraformRepository{}
 	case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
 		r = &RemoteVcsRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
@@ -298,6 +310,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualRpmRepository{}
 	case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
 		r = &VirtualSbtRepository{}
+	case "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository":
+		r = &VirtualTerraformRepository{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -533,6 +547,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/federatedTerraformModuleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedTerraformProviderRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/federatedVagrantRepository",
 		&module{version},
 	)
@@ -684,6 +708,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/localSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localTerraformBackendRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localTerraformModuleRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localTerraformProviderRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -873,6 +912,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteTerraformRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteVcsRepository",
 		&module{version},
 	)
@@ -1019,6 +1063,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualTerraformRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

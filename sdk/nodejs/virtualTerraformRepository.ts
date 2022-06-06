@@ -5,20 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Creates a virtual repository resource with specific npm features.
- * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/npm+Registry#npmRegistry-VirtualnpmRegistry).
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const foo_npm = new artifactory.VirtualNpmRepository("foo-npm", {
+ * const terraform_virtual = new artifactory.VirtualTerraformRepository("terraform-virtual", {
  *     description: "A test virtual repo",
  *     excludesPattern: "com/google/**",
  *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
- *     key: "foo-npm",
+ *     key: "terraform-remote",
  *     notes: "Internal description",
  *     repositories: [],
  * });
@@ -29,12 +26,12 @@ import * as utilities from "./utilities";
  * Virtual repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+ *  $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
  * ```
  */
-export class VirtualNpmRepository extends pulumi.CustomResource {
+export class VirtualTerraformRepository extends pulumi.CustomResource {
     /**
-     * Get an existing VirtualNpmRepository resource's state with the given name, ID, and optional extra
+     * Get an existing VirtualTerraformRepository resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,22 +39,22 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualNpmRepositoryState, opts?: pulumi.CustomResourceOptions): VirtualNpmRepository {
-        return new VirtualNpmRepository(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualTerraformRepositoryState, opts?: pulumi.CustomResourceOptions): VirtualTerraformRepository {
+        return new VirtualTerraformRepository(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'artifactory:index/virtualNpmRepository:VirtualNpmRepository';
+    public static readonly __pulumiType = 'artifactory:index/virtualTerraformRepository:VirtualTerraformRepository';
 
     /**
-     * Returns true if the given object is an instance of VirtualNpmRepository.  This is designed to work even
+     * Returns true if the given object is an instance of VirtualTerraformRepository.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is VirtualNpmRepository {
+    public static isInstance(obj: any): obj is VirtualTerraformRepository {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === VirtualNpmRepository.__pulumiType;
+        return obj['__pulumiType'] === VirtualTerraformRepository.__pulumiType;
     }
 
     /**
@@ -79,19 +76,6 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
      * artifacts are excluded.
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
-    /**
-     * When set, external dependencies are rewritten. Default value is false.
-     */
-    public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
-     */
-    public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
-    /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     */
-    public readonly externalDependenciesRemoteRepo!: pulumi.Output<string | undefined>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
@@ -134,25 +118,22 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
     /**
-     * Create a VirtualNpmRepository resource with the given unique name, arguments, and options.
+     * Create a VirtualTerraformRepository resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VirtualNpmRepositoryArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: VirtualNpmRepositoryArgs | VirtualNpmRepositoryState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: VirtualTerraformRepositoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: VirtualTerraformRepositoryArgs | VirtualTerraformRepositoryState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as VirtualNpmRepositoryState | undefined;
+            const state = argsOrState as VirtualTerraformRepositoryState | undefined;
             resourceInputs["artifactoryRequestsCanRetrieveRemoteArtifacts"] = state ? state.artifactoryRequestsCanRetrieveRemoteArtifacts : undefined;
             resourceInputs["defaultDeploymentRepo"] = state ? state.defaultDeploymentRepo : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
-            resourceInputs["externalDependenciesEnabled"] = state ? state.externalDependenciesEnabled : undefined;
-            resourceInputs["externalDependenciesPatterns"] = state ? state.externalDependenciesPatterns : undefined;
-            resourceInputs["externalDependenciesRemoteRepo"] = state ? state.externalDependenciesRemoteRepo : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -163,7 +144,7 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
             resourceInputs["repositories"] = state ? state.repositories : undefined;
             resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
         } else {
-            const args = argsOrState as VirtualNpmRepositoryArgs | undefined;
+            const args = argsOrState as VirtualTerraformRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'key'");
             }
@@ -171,9 +152,6 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
             resourceInputs["defaultDeploymentRepo"] = args ? args.defaultDeploymentRepo : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
-            resourceInputs["externalDependenciesEnabled"] = args ? args.externalDependenciesEnabled : undefined;
-            resourceInputs["externalDependenciesPatterns"] = args ? args.externalDependenciesPatterns : undefined;
-            resourceInputs["externalDependenciesRemoteRepo"] = args ? args.externalDependenciesRemoteRepo : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -185,14 +163,14 @@ export class VirtualNpmRepository extends pulumi.CustomResource {
             resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNpmRepository.__pulumiType, name, resourceInputs, opts);
+        super(VirtualTerraformRepository.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering VirtualNpmRepository resources.
+ * Input properties used for looking up and filtering VirtualTerraformRepository resources.
  */
-export interface VirtualNpmRepositoryState {
+export interface VirtualTerraformRepositoryState {
     /**
      * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
      * another Artifactory instance.
@@ -212,19 +190,6 @@ export interface VirtualNpmRepositoryState {
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
-    /**
-     * When set, external dependencies are rewritten. Default value is false.
-     */
-    externalDependenciesEnabled?: pulumi.Input<boolean>;
-    /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
-     */
-    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     */
-    externalDependenciesRemoteRepo?: pulumi.Input<string>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
@@ -268,9 +233,9 @@ export interface VirtualNpmRepositoryState {
 }
 
 /**
- * The set of arguments for constructing a VirtualNpmRepository resource.
+ * The set of arguments for constructing a VirtualTerraformRepository resource.
  */
-export interface VirtualNpmRepositoryArgs {
+export interface VirtualTerraformRepositoryArgs {
     /**
      * Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
      * another Artifactory instance.
@@ -290,19 +255,6 @@ export interface VirtualNpmRepositoryArgs {
      * artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
-    /**
-     * When set, external dependencies are rewritten. Default value is false.
-     */
-    externalDependenciesEnabled?: pulumi.Input<boolean>;
-    /**
-     * An Allow List of Ant-style path expressions that specify where external dependencies may be downloaded from. By default,
-     * this is set to ** which means that dependencies may be downloaded from any external source.
-     */
-    externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The remote repository aggregated by this virtual repository in which the external dependency will be cached.
-     */
-    externalDependenciesRemoteRepo?: pulumi.Input<string>;
     /**
      * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
      * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).

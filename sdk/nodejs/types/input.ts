@@ -560,6 +560,30 @@ export interface FederatedSbtRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface FederatedTerraformModuleRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface FederatedTerraformProviderRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface FederatedVagrantRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -1166,6 +1190,13 @@ export interface RemoteSbtRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface RemoteTerraformRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemoteVcsRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
     propertiesEnabled?: pulumi.Input<boolean>;
@@ -1191,4 +1222,3 @@ export interface ReplicationConfigReplication {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
 }
-
