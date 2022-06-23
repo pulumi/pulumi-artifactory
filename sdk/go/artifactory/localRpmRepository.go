@@ -37,7 +37,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
+// 			PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias1"),
 // 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
@@ -47,7 +47,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
+// 			PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
 // 			PairType:   pulumi.String("GPG"),
 // 			Alias:      pulumi.String("foo-alias2"),
 // 			PrivateKey: readFileOrPanic("samples/gpg.priv"),

@@ -7,43 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Creates a local RPM repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * from "fs";
- *
- * const some_keypair_gpg_1 = new artifactory.Keypair("some-keypair-gpg-1", {
- *     pairName: `some-keypair${random_id.randid.id}`,
- *     pairType: "GPG",
- *     alias: "foo-alias1",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const some_keypair_gpg_2 = new artifactory.Keypair("some-keypair-gpg-2", {
- *     pairName: `some-keypair${random_id.randid.id}`,
- *     pairType: "GPG",
- *     alias: "foo-alias2",
- *     privateKey: fs.readFileSync("samples/gpg.priv"),
- *     publicKey: fs.readFileSync("samples/gpg.pub"),
- * });
- * const terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", {
- *     key: "terraform-local-test-rpm-repo-basic",
- *     yumRootDepth: 5,
- *     calculateYumMetadata: true,
- *     enableFileListsIndexing: true,
- *     yumGroupFileNames: "file-1.xml,file-2.xml",
- *     primaryKeypairRef: artifactory_keypair["some-keypairGPG1"].pair_name,
- *     secondaryKeypairRef: artifactory_keypair["some-keypairGPG2"].pair_name,
- * }, {
- *     dependsOn: [
- *         some_keypair_gpg_1,
- *         some_keypair_gpg_2,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Local repositories can be imported using their name, e.g.

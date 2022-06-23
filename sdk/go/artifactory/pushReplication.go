@@ -47,9 +47,9 @@ import (
 // 			EnableEventReplication: pulumi.Bool(true),
 // 			Replications: PushReplicationReplicationArray{
 // 				&PushReplicationReplicationArgs{
-// 					Password: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_password")),
-// 					Url:      pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_url")),
-// 					Username: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_username")),
+// 					Password: pulumi.String(fmt.Sprintf("$var.artifactory_password")),
+// 					Url:      pulumi.String(fmt.Sprintf("$var.artifactory_url")),
+// 					Username: pulumi.String(fmt.Sprintf("$var.artifactory_username")),
 // 				},
 // 			},
 // 			RepoKey: providerTestSource.Key,

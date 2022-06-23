@@ -7,42 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- *
- * ## Example Usage
- *
- * .
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_docker_local = new artifactory.DockerV2Repository("my-docker-local", {key: "my-docker-local"});
- * const docker_webhook = new artifactory.DockerWebhook("docker-webhook", {
- *     key: "docker-webhook",
- *     eventTypes: [
- *         "pushed",
- *         "deleted",
- *         "promoted",
- *     ],
- *     criteria: {
- *         anyLocal: true,
- *         anyRemote: false,
- *         repoKeys: [my_docker_local.key],
- *         includePatterns: ["foo/**"],
- *         excludePatterns: ["bar/**"],
- *     },
- *     handlers: [{
- *         url: "http://tempurl.org/webhook",
- *         secret: "some-secret",
- *         proxy: "proxy-key",
- *         customHttpHeaders: {
- *             "header-1": "value-1",
- *             "header-2": "value-2",
- *         },
- *     }],
- * }, {
- *     dependsOn: [my_docker_local],
- * });
- * ```
  */
 export class DockerWebhook extends pulumi.CustomResource {
     /**

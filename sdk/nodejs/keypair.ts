@@ -12,22 +12,6 @@ import * as utilities from "./utilities";
  * through the Keys Management UI and REST API.
  * Passphrases are not currently supported, though they exist in the API.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- * import * from "fs";
- *
- * const some_keypair6543461672124900137 = new artifactory.Keypair("some-keypair6543461672124900137", {
- *     pairName: "some-keypair6543461672124900137",
- *     pairType: "RSA",
- *     alias: "foo-alias6543461672124900137",
- *     privateKey: fs.readFileSync("samples/rsa.priv"),
- *     publicKey: fs.readFileSync("samples/rsa.pub"),
- * });
- * ```
- *
  * ## Import
  *
  * Keypair can be imported using their name, e.g.

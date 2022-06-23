@@ -7,41 +7,6 @@ import * as utilities from "./utilities";
 
 /**
  * Provides an Artifactory webhook resource. This can be used to register and manage Artifactory webhook subscription which enables you to be notified or notify other users when such events take place in Artifactory.
- *
- * ## Example Usage
- *
- * .
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * const my_generic_local = new artifactory.LocalGenericRepository("my-generic-local", {key: "my-generic-local"});
- * const artifact_webhook = new artifactory.ArtifactPropertyWebhook("artifact-webhook", {
- *     key: "artifact-property-webhook",
- *     eventTypes: [
- *         "added",
- *         "deleted",
- *     ],
- *     criteria: {
- *         anyLocal: true,
- *         anyRemote: false,
- *         repoKeys: [my_generic_local.key],
- *         includePatterns: ["foo/**"],
- *         excludePatterns: ["bar/**"],
- *     },
- *     handlers: [{
- *         url: "http://tempurl.org/webhook",
- *         secret: "some-secret",
- *         proxy: "proxy-key",
- *         customHttpHeaders: {
- *             "header-1": "value-1",
- *             "header-2": "value-2",
- *         },
- *     }],
- * }, {
- *     dependsOn: [my_generic_local],
- * });
- * ```
  */
 export class ArtifactPropertyWebhook extends pulumi.CustomResource {
     /**
