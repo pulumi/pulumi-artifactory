@@ -68,6 +68,8 @@ import * as utilities from "./utilities";
  * * `annotate`
  * * `delete`
  * * `manage`
+ * * `managedXrayMeta`
+ * * `distribute`
  *
  * The values can be mapped to the permissions from the official [documentation](https://www.jfrog.com/confluence/display/JFROG/Permissions):
  *
@@ -76,6 +78,8 @@ import * as utilities from "./utilities";
  * * `annotate` - matches `Annotate` permissions.
  * * `delete` - matches `Delete / Overwrite` permissions.
  * * `manage` - matches `Manage` permissions.
+ * * `managedXrayMeta` - matches `Manage Xray Metadata` permissions.
+ * * `distribute` - matches `Distribute` permissions.
  *
  * ## Import
  *

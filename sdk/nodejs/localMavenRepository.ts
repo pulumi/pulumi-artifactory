@@ -71,10 +71,10 @@ export class LocalMavenRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-     * `client-checksums` and `generated-checksums`. For more details,
-     * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`.
+     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     public readonly checksumPolicyType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -235,10 +235,10 @@ export interface LocalMavenRepositoryState {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-     * `client-checksums` and `generated-checksums`. For more details,
-     * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`.
+     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
@@ -334,10 +334,10 @@ export interface LocalMavenRepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed
-     * resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are
-     * `client-checksums` and `generated-checksums`. For more details,
-     * please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+     * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
+     * - `client-checksums`
+     * - `server-generated-checksums`.
+     * For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
      */
     checksumPolicyType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
