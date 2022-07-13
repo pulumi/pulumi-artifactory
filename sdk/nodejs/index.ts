@@ -81,6 +81,7 @@ export * from "./localPuppetRepository";
 export * from "./localPypiRepository";
 export * from "./localRpmRepository";
 export * from "./localSbtRepository";
+export * from "./localSwiftRepository";
 export * from "./localTerraformBackendRepository";
 export * from "./localTerraformModuleRepository";
 export * from "./localTerraformProviderRepository";
@@ -122,6 +123,7 @@ export * from "./remotePuppetRepository";
 export * from "./remotePypiRepository";
 export * from "./remoteRpmRepository";
 export * from "./remoteSbtRepository";
+export * from "./remoteSwiftRepository";
 export * from "./remoteTerraformRepository";
 export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
@@ -153,6 +155,7 @@ export * from "./virtualPuppetRepository";
 export * from "./virtualPypiRepository";
 export * from "./virtualRpmRepository";
 export * from "./virtualSbtRepository";
+export * from "./virtualSwiftRepository";
 export * from "./virtualTerraformRepository";
 
 // Export sub-modules:
@@ -239,6 +242,7 @@ import { LocalPuppetRepository } from "./localPuppetRepository";
 import { LocalPypiRepository } from "./localPypiRepository";
 import { LocalRpmRepository } from "./localRpmRepository";
 import { LocalSbtRepository } from "./localSbtRepository";
+import { LocalSwiftRepository } from "./localSwiftRepository";
 import { LocalTerraformBackendRepository } from "./localTerraformBackendRepository";
 import { LocalTerraformModuleRepository } from "./localTerraformModuleRepository";
 import { LocalTerraformProviderRepository } from "./localTerraformProviderRepository";
@@ -279,6 +283,7 @@ import { RemotePuppetRepository } from "./remotePuppetRepository";
 import { RemotePypiRepository } from "./remotePypiRepository";
 import { RemoteRpmRepository } from "./remoteRpmRepository";
 import { RemoteSbtRepository } from "./remoteSbtRepository";
+import { RemoteSwiftRepository } from "./remoteSwiftRepository";
 import { RemoteTerraformRepository } from "./remoteTerraformRepository";
 import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
@@ -310,6 +315,7 @@ import { VirtualPuppetRepository } from "./virtualPuppetRepository";
 import { VirtualPypiRepository } from "./virtualPypiRepository";
 import { VirtualRpmRepository } from "./virtualRpmRepository";
 import { VirtualSbtRepository } from "./virtualSbtRepository";
+import { VirtualSwiftRepository } from "./virtualSwiftRepository";
 import { VirtualTerraformRepository } from "./virtualTerraformRepository";
 
 const _module = {
@@ -464,6 +470,8 @@ const _module = {
                 return new LocalRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localSbtRepository:LocalSbtRepository":
                 return new LocalSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localSwiftRepository:LocalSwiftRepository":
+                return new LocalSwiftRepository(name, <any>undefined, { urn })
             case "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository":
                 return new LocalTerraformBackendRepository(name, <any>undefined, { urn })
             case "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository":
@@ -544,6 +552,8 @@ const _module = {
                 return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
                 return new RemoteSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository":
+                return new RemoteSwiftRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository":
                 return new RemoteTerraformRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
@@ -606,6 +616,8 @@ const _module = {
                 return new VirtualRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
                 return new VirtualSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository":
+                return new VirtualSwiftRepository(name, <any>undefined, { urn })
             case "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository":
                 return new VirtualTerraformRepository(name, <any>undefined, { urn })
             default:
@@ -687,6 +699,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformBackendRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformModuleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localTerraformProviderRepository", _module)
@@ -727,6 +740,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetReposito
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteTerraformRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
@@ -758,6 +772,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualPuppetReposit
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/virtualSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualTerraformRepository", _module)
 
 import { Provider } from "./provider";

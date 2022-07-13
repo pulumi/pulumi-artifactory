@@ -92,6 +92,7 @@
         "localPypiRepository.ts",
         "localRpmRepository.ts",
         "localSbtRepository.ts",
+        "localSwiftRepository.ts",
         "localTerraformBackendRepository.ts",
         "localTerraformModuleRepository.ts",
         "localTerraformProviderRepository.ts",
@@ -133,6 +134,7 @@
         "remotePypiRepository.ts",
         "remoteRpmRepository.ts",
         "remoteSbtRepository.ts",
+        "remoteSwiftRepository.ts",
         "remoteTerraformRepository.ts",
         "remoteVcsRepository.ts",
         "replicationConfig.ts",
@@ -168,6 +170,7 @@
         "virtualPypiRepository.ts",
         "virtualRpmRepository.ts",
         "virtualSbtRepository.ts",
+        "virtualSwiftRepository.ts",
         "virtualTerraformRepository.ts"
     ]
 }

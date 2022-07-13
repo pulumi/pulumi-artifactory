@@ -1190,6 +1190,13 @@ export interface RemoteSbtRepositoryContentSynchronisation {
     statisticsEnabled?: boolean;
 }
 
+export interface RemoteSwiftRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface RemoteTerraformRepositoryContentSynchronisation {
     enabled?: boolean;
     propertiesEnabled?: boolean;

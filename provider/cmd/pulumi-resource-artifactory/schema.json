@@ -20,7 +20,8 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n"
+                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n",
+                "deprecationMessage": "An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).\nIn September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.\nIn January 2023, API Keys will be deprecated all together and the option to use them will no longer be available."
             },
             "checkLicense": {
                 "type": "boolean",
@@ -3654,6 +3655,43 @@
             },
             "type": "object"
         },
+        "artifactory:index/RemoteSwiftRepositoryContentSynchronisation:RemoteSwiftRepositoryContentSynchronisation": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "propertiesEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceOriginAbsenceDetection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "statisticsEnabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "artifactory:index/RemoteTerraformRepositoryContentSynchronisation:RemoteTerraformRepositoryContentSynchronisation": {
             "properties": {
                 "enabled": {
@@ -3837,7 +3875,8 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n"
+                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n",
+                "deprecationMessage": "An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).\nIn September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.\nIn January 2023, API Keys will be deprecated all together and the option to use them will no longer be available."
             },
             "checkLicense": {
                 "type": "boolean",
@@ -3854,7 +3893,8 @@
             },
             "apiKey": {
                 "type": "string",
-                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n"
+                "description": "API token. Projects functionality will not work with any auth method other than access tokens\n",
+                "deprecationMessage": "An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).\nIn September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.\nIn January 2023, API Keys will be deprecated all together and the option to use them will no longer be available."
             },
             "checkLicense": {
                 "type": "boolean",
@@ -19470,6 +19510,214 @@
                     "suppressPomConsistencyChecks": {
                         "type": "boolean",
                         "description": "By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the\ngroupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the\ndeployment with a \"409 Conflict\" error. You can disable this behavior by setting the Suppress POM Consistency Checks\ncheckbox.\n"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/localSwiftRepository:LocalSwiftRepository": {
+            "description": "Creates a local Swift repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst terraform_local_test_swift_repo = new artifactory.LocalSwiftRepository(\"terraform-local-test-swift-repo\", {\n    key: \"terraform-local-test-swift-repo\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nterraform_local_test_swift_repo = artifactory.LocalSwiftRepository(\"terraform-local-test-swift-repo\", key=\"terraform-local-test-swift-repo\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var terraform_local_test_swift_repo = new Artifactory.LocalSwiftRepository(\"terraform-local-test-swift-repo\", new Artifactory.LocalSwiftRepositoryArgs\n        {\n            Key = \"terraform-local-test-swift-repo\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewLocalSwiftRepository(ctx, \"terraform-local-test-swift-repo\", \u0026artifactory.LocalSwiftRepositoryArgs{\n\t\t\tKey: pulumi.String(\"terraform-local-test-swift-repo\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var terraform_local_test_swift_repo = new LocalSwiftRepository(\"terraform-local-test-swift-repo\", LocalSwiftRepositoryArgs.builder()        \n            .key(\"terraform-local-test-swift-repo\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  terraform-local-test-swift-repo:\n    type: artifactory:LocalSwiftRepository\n    properties:\n      key: terraform-local-test-swift-repo\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo\n```\n\n ",
+            "properties": {
+                "archiveBrowsingEnabled": {
+                    "type": "boolean",
+                    "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and\ntherefore requires strict content moderation to prevent malicious users from uploading content that may compromise\nsecurity (e.g., cross-site scripting attacks).\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "the identity key of the repo.\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "packageType": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed\nwith project key, separated by a dash.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set name\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                }
+            },
+            "required": [
+                "excludesPattern",
+                "includesPattern",
+                "key",
+                "packageType"
+            ],
+            "inputProperties": {
+                "archiveBrowsingEnabled": {
+                    "type": "boolean",
+                    "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and\ntherefore requires strict content moderation to prevent malicious users from uploading content that may compromise\nsecurity (e.g., cross-site scripting attacks).\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "the identity key of the repo.\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed\nwith project key, separated by a dash.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set name\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                }
+            },
+            "requiredInputs": [
+                "key"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering LocalSwiftRepository resources.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean",
+                        "description": "When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and\ntherefore requires strict content moderation to prevent malicious users from uploading content that may compromise\nsecurity (e.g., cross-site scripting attacks).\n"
+                    },
+                    "blackedOut": {
+                        "type": "boolean",
+                        "description": "When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.\n"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only.\n"
+                    },
+                    "excludesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "the identity key of the repo.\n"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean",
+                        "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                    },
+                    "projectKey": {
+                        "type": "string",
+                        "description": "Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed\nwith project key, separated by a dash.\n"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of property set name\n"
+                    },
+                    "repoLayoutRef": {
+                        "type": "string",
+                        "description": "Repository layout key for the local repository\n"
                     },
                     "xrayIndex": {
                         "type": "boolean",
@@ -36152,6 +36400,515 @@
                 "type": "object"
             }
         },
+        "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository": {
+            "description": "Creates a remote Swift repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Conan+Repositories).\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst my_remote_swift = new artifactory.RemoteSwiftRepository(\"my-remote-swift\", {\n    key: \"my-remote-swift\",\n    url: \"https://swift.org/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmy_remote_swift = artifactory.RemoteSwiftRepository(\"my-remote-swift\",\n    key=\"my-remote-swift\",\n    url=\"https://swift.org/\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var my_remote_swift = new Artifactory.RemoteSwiftRepository(\"my-remote-swift\", new Artifactory.RemoteSwiftRepositoryArgs\n        {\n            Key = \"my-remote-swift\",\n            Url = \"https://swift.org/\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteSwiftRepository(ctx, \"my-remote-swift\", \u0026artifactory.RemoteSwiftRepositoryArgs{\n\t\t\tKey: pulumi.String(\"my-remote-swift\"),\n\t\t\tUrl: pulumi.String(\"https://swift.org/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_remote_swift = new RemoteSwiftRepository(\"my-remote-swift\", RemoteSwiftRepositoryArgs.builder()        \n            .key(\"my-remote-swift\")\n            .url(\"https://swift.org/\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  my-remote-swift:\n    type: artifactory:RemoteSwiftRepository\n    properties:\n      key: my-remote-swift\n      url: https://swift.org/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift\n```\n\n ",
+            "properties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "bypassHeadRequests": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "clientTlsCertificate": {
+                    "type": "string"
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemoteSwiftRepositoryContentSynchronisation:RemoteSwiftRepositoryContentSynchronisation"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                },
+                "failedRetrievalCachePeriodSecs": {
+                    "type": "integer",
+                    "deprecationMessage": "This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function"
+                },
+                "hardFail": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to\ncommunicate with this repository.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                },
+                "listRemoteFolderItems": {
+                    "type": "boolean",
+                    "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of\nthe 'Retrieval Cache Period'. Default value is 'false'.\n"
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                },
+                "mismatchingMimeTypesOverrideList": {
+                    "type": "string",
+                    "description": "The set of mime types that should override the block_mismatching_mime_types setting. Eg:\n\"application/json,application/xml\". Default value is empty.\n"
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                },
+                "packageType": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                },
+                "propagateQueryParams": {
+                    "type": "boolean",
+                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set names\n"
+                },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies settings\n"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the remote layout mapping\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer",
+                    "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network\noperation is considered a retrieval failure.\n"
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties.\n"
+                },
+                "unusedArtifactsCleanupPeriodEnabled": {
+                    "type": "boolean"
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer",
+                    "description": "The number of hours to wait before an artifact is deemed \"unused\" and eligible for cleanup from the repository. A value\nof 0 means automatic cleanup of cached artifacts is disabled.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The remote repo URL.\n"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                }
+            },
+            "required": [
+                "allowAnyHostAuth",
+                "blackedOut",
+                "blockMismatchingMimeTypes",
+                "bypassHeadRequests",
+                "clientTlsCertificate",
+                "contentSynchronisation",
+                "description",
+                "enableCookieManagement",
+                "excludesPattern",
+                "failedRetrievalCachePeriodSecs",
+                "hardFail",
+                "includesPattern",
+                "key",
+                "missedCachePeriodSeconds",
+                "offline",
+                "packageType",
+                "priorityResolution",
+                "remoteRepoLayoutRef",
+                "retrievalCachePeriodSeconds",
+                "shareConfiguration",
+                "socketTimeoutMillis",
+                "storeArtifactsLocally",
+                "synchronizeProperties",
+                "unusedArtifactsCleanupPeriodEnabled",
+                "unusedArtifactsCleanupPeriodHours",
+                "url"
+            ],
+            "inputProperties": {
+                "allowAnyHostAuth": {
+                    "type": "boolean",
+                    "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                },
+                "assumedOfflinePeriodSecs": {
+                    "type": "integer",
+                    "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                },
+                "blackedOut": {
+                    "type": "boolean",
+                    "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                },
+                "blockMismatchingMimeTypes": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "bypassHeadRequests": {
+                    "type": "boolean",
+                    "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                },
+                "clientTlsCertificate": {
+                    "type": "string"
+                },
+                "contentSynchronisation": {
+                    "$ref": "#/types/artifactory:index/RemoteSwiftRepositoryContentSynchronisation:RemoteSwiftRepositoryContentSynchronisation"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "enableCookieManagement": {
+                    "type": "boolean",
+                    "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                },
+                "hardFail": {
+                    "type": "boolean",
+                    "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to\ncommunicate with this repository.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                },
+                "listRemoteFolderItems": {
+                    "type": "boolean",
+                    "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of\nthe 'Retrieval Cache Period'. Default value is 'false'.\n"
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                },
+                "mismatchingMimeTypesOverrideList": {
+                    "type": "string",
+                    "description": "The set of mime types that should override the block_mismatching_mime_types setting. Eg:\n\"application/json,application/xml\". Default value is empty.\n"
+                },
+                "missedCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.\n"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "offline": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "priorityResolution": {
+                    "type": "boolean",
+                    "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                },
+                "propagateQueryParams": {
+                    "type": "boolean",
+                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
+                },
+                "propertySets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of property set names\n"
+                },
+                "proxy": {
+                    "type": "string",
+                    "description": "Proxy key from Artifactory Proxies settings\n"
+                },
+                "remoteRepoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the remote layout mapping\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                },
+                "shareConfiguration": {
+                    "type": "boolean"
+                },
+                "socketTimeoutMillis": {
+                    "type": "integer",
+                    "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network\noperation is considered a retrieval failure.\n"
+                },
+                "storeArtifactsLocally": {
+                    "type": "boolean",
+                    "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                },
+                "synchronizeProperties": {
+                    "type": "boolean",
+                    "description": "When set, remote artifacts are fetched along with their properties.\n"
+                },
+                "unusedArtifactsCleanupPeriodEnabled": {
+                    "type": "boolean"
+                },
+                "unusedArtifactsCleanupPeriodHours": {
+                    "type": "integer",
+                    "description": "The number of hours to wait before an artifact is deemed \"unused\" and eligible for cleanup from the repository. A value\nof 0 means automatic cleanup of cached artifacts is disabled.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "The remote repo URL.\n"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "xrayIndex": {
+                    "type": "boolean",
+                    "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                }
+            },
+            "requiredInputs": [
+                "key",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RemoteSwiftRepository resources.\n",
+                "properties": {
+                    "allowAnyHostAuth": {
+                        "type": "boolean",
+                        "description": "Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to\nany other host.\n"
+                    },
+                    "assumedOfflinePeriodSecs": {
+                        "type": "integer",
+                        "description": "The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,\nan online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed\noffline. Default to 300.\n"
+                    },
+                    "blackedOut": {
+                        "type": "boolean",
+                        "description": "(A.K.A 'Ignore Repository' on the UI) When set, the repository or its local cache do not participate in artifact\nresolution.\n"
+                    },
+                    "blockMismatchingMimeTypes": {
+                        "type": "boolean",
+                        "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                    },
+                    "bypassHeadRequests": {
+                        "type": "boolean",
+                        "description": "Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,\nHEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,\nArtifactory will bypass the HEAD request and cache the artifact directly using a GET request.\n"
+                    },
+                    "clientTlsCertificate": {
+                        "type": "string"
+                    },
+                    "contentSynchronisation": {
+                        "$ref": "#/types/artifactory:index/RemoteSwiftRepositoryContentSynchronisation:RemoteSwiftRepositoryContentSynchronisation"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enableCookieManagement": {
+                        "type": "boolean",
+                        "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
+                    },
+                    "excludesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    },
+                    "failedRetrievalCachePeriodSecs": {
+                        "type": "integer",
+                        "deprecationMessage": "This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function"
+                    },
+                    "hardFail": {
+                        "type": "boolean",
+                        "description": "When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to\ncommunicate with this repository.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                    },
+                    "listRemoteFolderItems": {
+                        "type": "boolean",
+                        "description": "Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of\nthe 'Retrieval Cache Period'. Default value is 'false'.\n"
+                    },
+                    "localAddress": {
+                        "type": "string",
+                        "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                    },
+                    "mismatchingMimeTypesOverrideList": {
+                        "type": "string",
+                        "description": "The set of mime types that should override the block_mismatching_mime_types setting. Eg:\n\"application/json,application/xml\". Default value is empty.\n"
+                    },
+                    "missedCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.\n"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "offline": {
+                        "type": "boolean",
+                        "description": "If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.\n"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean",
+                        "description": "Setting repositories with priority will cause metadata to be merged only from repositories set with this field\n"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                    },
+                    "projectKey": {
+                        "type": "string",
+                        "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                    },
+                    "propagateQueryParams": {
+                        "type": "boolean",
+                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of property set names\n"
+                    },
+                    "proxy": {
+                        "type": "string",
+                        "description": "Proxy key from Artifactory Proxies settings\n"
+                    },
+                    "remoteRepoLayoutRef": {
+                        "type": "string",
+                        "description": "Repository layout key for the remote layout mapping\n"
+                    },
+                    "repoLayoutRef": {
+                        "type": "string",
+                        "description": "Repository layout key for the local repository\n"
+                    },
+                    "retrievalCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.\n"
+                    },
+                    "shareConfiguration": {
+                        "type": "boolean"
+                    },
+                    "socketTimeoutMillis": {
+                        "type": "integer",
+                        "description": "Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network\noperation is considered a retrieval failure.\n"
+                    },
+                    "storeArtifactsLocally": {
+                        "type": "boolean",
+                        "description": "When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and\ndirect repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with\none Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory\nservers.\n"
+                    },
+                    "synchronizeProperties": {
+                        "type": "boolean",
+                        "description": "When set, remote artifacts are fetched along with their properties.\n"
+                    },
+                    "unusedArtifactsCleanupPeriodEnabled": {
+                        "type": "boolean"
+                    },
+                    "unusedArtifactsCleanupPeriodHours": {
+                        "type": "integer",
+                        "description": "The number of hours to wait before an artifact is deemed \"unused\" and eligible for cleanup from the repository. A value\nof 0 means automatic cleanup of cached artifacts is disabled.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "The remote repo URL.\n"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean",
+                        "description": "Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via\nXray settings.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository": {
             "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst terraform_remote = new artifactory.RemoteTerraformRepository(\"terraform-remote\", {\n    key: \"terraform-remote\",\n    terraformProvidersUrl: \"https://releases.hashicorp.com\",\n    terraformRegistryUrl: \"https://registry.terraform.io\",\n    url: \"https://github.com/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nterraform_remote = artifactory.RemoteTerraformRepository(\"terraform-remote\",\n    key=\"terraform-remote\",\n    terraform_providers_url=\"https://releases.hashicorp.com\",\n    terraform_registry_url=\"https://registry.terraform.io\",\n    url=\"https://github.com/\")\n```\n```csharp\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var terraform_remote = new Artifactory.RemoteTerraformRepository(\"terraform-remote\", new Artifactory.RemoteTerraformRepositoryArgs\n        {\n            Key = \"terraform-remote\",\n            TerraformProvidersUrl = \"https://releases.hashicorp.com\",\n            TerraformRegistryUrl = \"https://registry.terraform.io\",\n            Url = \"https://github.com/\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteTerraformRepository(ctx, \"terraform-remote\", \u0026artifactory.RemoteTerraformRepositoryArgs{\n\t\t\tKey:                   pulumi.String(\"terraform-remote\"),\n\t\t\tTerraformProvidersUrl: pulumi.String(\"https://releases.hashicorp.com\"),\n\t\t\tTerraformRegistryUrl:  pulumi.String(\"https://registry.terraform.io\"),\n\t\t\tUrl:                   pulumi.String(\"https://github.com/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport java.util.*;\nimport java.io.*;\nimport java.nio.*;\nimport com.pulumi.*;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var terraform_remote = new RemoteTerraformRepository(\"terraform-remote\", RemoteTerraformRepositoryArgs.builder()        \n            .key(\"terraform-remote\")\n            .terraformProvidersUrl(\"https://releases.hashicorp.com\")\n            .terraformRegistryUrl(\"https://registry.terraform.io\")\n            .url(\"https://github.com/\")\n            .build());\n\n        }\n}\n```\n```yaml\nresources:\n  terraform-remote:\n    type: artifactory:RemoteTerraformRepository\n    properties:\n      key: terraform-remote\n      terraformProvidersUrl: https://releases.hashicorp.com\n      terraformRegistryUrl: https://registry.terraform.io\n      url: https://github.com/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote\n```\n\n ",
             "properties": {
@@ -42695,6 +43452,196 @@
                     "pomRepositoryReferencesCleanupPolicy": {
                         "type": "string",
                         "description": "- (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.\n- (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.\n- (3: nothing) Nothing - Does not remove any repository elements declared in the POM.\n"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                    },
+                    "projectKey": {
+                        "type": "string",
+                        "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                    },
+                    "repoLayoutRef": {
+                        "type": "string",
+                        "description": "Repository layout key for the local repository\n"
+                    },
+                    "repositories": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The effective list of actual repositories included in this virtual repository.\n"
+                    },
+                    "retrievalCachePeriodSeconds": {
+                        "type": "integer",
+                        "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated\nrepositories. A value of 0 indicates no caching.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository": {
+            "description": "Creates a virtual Swift repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Swift+Repositories#SwiftRepositories-VirtualRepositories).\n\n\n## Import\n\nVirtual repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift\n```\n\n ",
+            "properties": {
+                "artifactoryRequestsCanRetrieveRemoteArtifacts": {
+                    "type": "boolean",
+                    "description": "Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by\nanother Artifactory instance.\n"
+                },
+                "defaultDeploymentRepo": {
+                    "type": "string",
+                    "description": "Default repository to deploy artifacts.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A free text field that describes the content and purpose of the repository. If you choose to insert a link into this\nfield, clicking the link will prompt the user to confirm that they might be redirected to a new domain.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no\nartifacts are excluded.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "A free text field to add additional notes about the repository. These are only visible to the administrator.\n"
+                },
+                "packageType": {
+                    "type": "string",
+                    "description": "The Package Type. This must be specified when the repository is created, and once set, cannot be changed.\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The effective list of actual repositories included in this virtual repository.\n"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated\nrepositories. A value of 0 indicates no caching.\n"
+                }
+            },
+            "required": [
+                "key",
+                "packageType"
+            ],
+            "inputProperties": {
+                "artifactoryRequestsCanRetrieveRemoteArtifacts": {
+                    "type": "boolean",
+                    "description": "Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by\nanother Artifactory instance.\n"
+                },
+                "defaultDeploymentRepo": {
+                    "type": "string",
+                    "description": "Default repository to deploy artifacts.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A free text field that describes the content and purpose of the repository. If you choose to insert a link into this\nfield, clicking the link will prompt the user to confirm that they might be redirected to a new domain.\n"
+                },
+                "excludesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no\nartifacts are excluded.\n"
+                },
+                "includesPattern": {
+                    "type": "string",
+                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                },
+                "notes": {
+                    "type": "string",
+                    "description": "A free text field to add additional notes about the repository. These are only visible to the administrator.\n"
+                },
+                "projectEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Project environment for assigning this repository to. Allow values: \"DEV\" or \"PROD\"\n"
+                },
+                "projectKey": {
+                    "type": "string",
+                    "description": "Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning\nrepository to a project, repository key must be prefixed with project key, separated by a dash.\n"
+                },
+                "repoLayoutRef": {
+                    "type": "string",
+                    "description": "Repository layout key for the local repository\n"
+                },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The effective list of actual repositories included in this virtual repository.\n"
+                },
+                "retrievalCachePeriodSeconds": {
+                    "type": "integer",
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated\nrepositories. A value of 0 indicates no caching.\n"
+                }
+            },
+            "requiredInputs": [
+                "key"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering VirtualSwiftRepository resources.\n",
+                "properties": {
+                    "artifactoryRequestsCanRetrieveRemoteArtifacts": {
+                        "type": "boolean",
+                        "description": "Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by\nanother Artifactory instance.\n"
+                    },
+                    "defaultDeploymentRepo": {
+                        "type": "string",
+                        "description": "Default repository to deploy artifacts.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A free text field that describes the content and purpose of the repository. If you choose to insert a link into this\nfield, clicking the link will prompt the user to confirm that they might be redirected to a new domain.\n"
+                    },
+                    "excludesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no\nartifacts are excluded.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string",
+                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "A mandatory identifier for the repository that must be unique. It cannot begin with a number or\ncontain spaces or special characters.\n"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "A free text field to add additional notes about the repository. These are only visible to the administrator.\n"
+                    },
+                    "packageType": {
+                        "type": "string",
+                        "description": "The Package Type. This must be specified when the repository is created, and once set, cannot be changed.\n"
                     },
                     "projectEnvironments": {
                         "type": "array",

@@ -27,6 +27,13 @@ class ProviderArgs:
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
         if api_key is not None:
+            warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+            pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
+        if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if check_license is None:
             check_license = False
@@ -149,6 +156,13 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["access_token"] = access_token
+            if api_key is not None and not opts.urn:
+                warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""", DeprecationWarning)
+                pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
             __props__.__dict__["api_key"] = api_key
             if check_license is None:
                 check_license = False
