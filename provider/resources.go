@@ -270,6 +270,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"artifactory_remote_terraform_repository":  {Tok: makeResource(mainMod, "RemoteTerraformRepository")},
 			"artifactory_virtual_terraform_repository": {Tok: makeResource(mainMod, "VirtualTerraformRepository")},
+			"artifactory_local_swift_repository":       {Tok: makeResource(mainMod, "LocalSwiftRepository")},
+			"artifactory_remote_swift_repository":      {Tok: makeResource(mainMod, "RemoteSwiftRepository")},
+			"artifactory_virtual_swift_repository":     {Tok: makeResource(mainMod, "VirtualSwiftRepository")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

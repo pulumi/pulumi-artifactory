@@ -107,6 +107,7 @@ __all__ = [
     'RemotePypiRepositoryContentSynchronisationArgs',
     'RemoteRpmRepositoryContentSynchronisationArgs',
     'RemoteSbtRepositoryContentSynchronisationArgs',
+    'RemoteSwiftRepositoryContentSynchronisationArgs',
     'RemoteTerraformRepositoryContentSynchronisationArgs',
     'RemoteVcsRepositoryContentSynchronisationArgs',
     'ReplicationConfigReplicationArgs',
@@ -5072,6 +5073,59 @@ class RemoteRpmRepositoryContentSynchronisationArgs:
 
 @pulumi.input_type
 class RemoteSbtRepositoryContentSynchronisationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 properties_enabled: Optional[pulumi.Input[bool]] = None,
+                 source_origin_absence_detection: Optional[pulumi.Input[bool]] = None,
+                 statistics_enabled: Optional[pulumi.Input[bool]] = None):
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if properties_enabled is not None:
+            pulumi.set(__self__, "properties_enabled", properties_enabled)
+        if source_origin_absence_detection is not None:
+            pulumi.set(__self__, "source_origin_absence_detection", source_origin_absence_detection)
+        if statistics_enabled is not None:
+            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="propertiesEnabled")
+    def properties_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "properties_enabled")
+
+    @properties_enabled.setter
+    def properties_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "properties_enabled", value)
+
+    @property
+    @pulumi.getter(name="sourceOriginAbsenceDetection")
+    def source_origin_absence_detection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "source_origin_absence_detection")
+
+    @source_origin_absence_detection.setter
+    def source_origin_absence_detection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "source_origin_absence_detection", value)
+
+    @property
+    @pulumi.getter(name="statisticsEnabled")
+    def statistics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "statistics_enabled")
+
+    @statistics_enabled.setter
+    def statistics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "statistics_enabled", value)
+
+
+@pulumi.input_type
+class RemoteSwiftRepositoryContentSynchronisationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  properties_enabled: Optional[pulumi.Input[bool]] = None,

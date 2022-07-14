@@ -1190,6 +1190,13 @@ export interface RemoteSbtRepositoryContentSynchronisation {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface RemoteSwiftRepositoryContentSynchronisation {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface RemoteTerraformRepositoryContentSynchronisation {
     enabled?: pulumi.Input<boolean>;
     propertiesEnabled?: pulumi.Input<boolean>;

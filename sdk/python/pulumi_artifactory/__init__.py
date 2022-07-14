@@ -81,6 +81,7 @@ from .local_puppet_repository import *
 from .local_pypi_repository import *
 from .local_rpm_repository import *
 from .local_sbt_repository import *
+from .local_swift_repository import *
 from .local_terraform_backend_repository import *
 from .local_terraform_module_repository import *
 from .local_terraform_provider_repository import *
@@ -122,6 +123,7 @@ from .remote_puppet_repository import *
 from .remote_pypi_repository import *
 from .remote_rpm_repository import *
 from .remote_sbt_repository import *
+from .remote_swift_repository import *
 from .remote_terraform_repository import *
 from .remote_vcs_repository import *
 from .replication_config import *
@@ -153,6 +155,7 @@ from .virtual_puppet_repository import *
 from .virtual_pypi_repository import *
 from .virtual_rpm_repository import *
 from .virtual_sbt_repository import *
+from .virtual_swift_repository import *
 from .virtual_terraform_repository import *
 from ._inputs import *
 from . import outputs
@@ -761,6 +764,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localSwiftRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localSwiftRepository:LocalSwiftRepository": "LocalSwiftRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localTerraformBackendRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1081,6 +1092,14 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/remoteSwiftRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository": "RemoteSwiftRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/remoteTerraformRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1325,6 +1344,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/virtualSbtRepository:VirtualSbtRepository": "VirtualSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/virtualSwiftRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository": "VirtualSwiftRepository"
   }
  },
  {

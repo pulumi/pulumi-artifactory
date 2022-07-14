@@ -168,6 +168,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalRpmRepository{}
 	case "artifactory:index/localSbtRepository:LocalSbtRepository":
 		r = &LocalSbtRepository{}
+	case "artifactory:index/localSwiftRepository:LocalSwiftRepository":
+		r = &LocalSwiftRepository{}
 	case "artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository":
 		r = &LocalTerraformBackendRepository{}
 	case "artifactory:index/localTerraformModuleRepository:LocalTerraformModuleRepository":
@@ -248,6 +250,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteRpmRepository{}
 	case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
 		r = &RemoteSbtRepository{}
+	case "artifactory:index/remoteSwiftRepository:RemoteSwiftRepository":
+		r = &RemoteSwiftRepository{}
 	case "artifactory:index/remoteTerraformRepository:RemoteTerraformRepository":
 		r = &RemoteTerraformRepository{}
 	case "artifactory:index/remoteVcsRepository:RemoteVcsRepository":
@@ -310,6 +314,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualRpmRepository{}
 	case "artifactory:index/virtualSbtRepository:VirtualSbtRepository":
 		r = &VirtualSbtRepository{}
+	case "artifactory:index/virtualSwiftRepository:VirtualSwiftRepository":
+		r = &VirtualSwiftRepository{}
 	case "artifactory:index/virtualTerraformRepository:VirtualTerraformRepository":
 		r = &VirtualTerraformRepository{}
 	default:
@@ -712,6 +718,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localSwiftRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localTerraformBackendRepository",
 		&module{version},
 	)
@@ -912,6 +923,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/remoteSwiftRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/remoteTerraformRepository",
 		&module{version},
 	)
@@ -1063,6 +1079,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/virtualSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/virtualSwiftRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

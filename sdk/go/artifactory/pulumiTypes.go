@@ -14268,6 +14268,184 @@ func (o RemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type RemoteSwiftRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// RemoteSwiftRepositoryContentSynchronisationInput is an input type that accepts RemoteSwiftRepositoryContentSynchronisationArgs and RemoteSwiftRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `RemoteSwiftRepositoryContentSynchronisationInput` via:
+//
+//          RemoteSwiftRepositoryContentSynchronisationArgs{...}
+type RemoteSwiftRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToRemoteSwiftRepositoryContentSynchronisationOutput() RemoteSwiftRepositoryContentSynchronisationOutput
+	ToRemoteSwiftRepositoryContentSynchronisationOutputWithContext(context.Context) RemoteSwiftRepositoryContentSynchronisationOutput
+}
+
+type RemoteSwiftRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (RemoteSwiftRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i RemoteSwiftRepositoryContentSynchronisationArgs) ToRemoteSwiftRepositoryContentSynchronisationOutput() RemoteSwiftRepositoryContentSynchronisationOutput {
+	return i.ToRemoteSwiftRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i RemoteSwiftRepositoryContentSynchronisationArgs) ToRemoteSwiftRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryContentSynchronisationOutput)
+}
+
+func (i RemoteSwiftRepositoryContentSynchronisationArgs) ToRemoteSwiftRepositoryContentSynchronisationPtrOutput() RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i RemoteSwiftRepositoryContentSynchronisationArgs) ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryContentSynchronisationOutput).ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// RemoteSwiftRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteSwiftRepositoryContentSynchronisationArgs, RemoteSwiftRepositoryContentSynchronisationPtr and RemoteSwiftRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `RemoteSwiftRepositoryContentSynchronisationPtrInput` via:
+//
+//          RemoteSwiftRepositoryContentSynchronisationArgs{...}
+//
+//  or:
+//
+//          nil
+type RemoteSwiftRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToRemoteSwiftRepositoryContentSynchronisationPtrOutput() RemoteSwiftRepositoryContentSynchronisationPtrOutput
+	ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Context) RemoteSwiftRepositoryContentSynchronisationPtrOutput
+}
+
+type remoteSwiftRepositoryContentSynchronisationPtrType RemoteSwiftRepositoryContentSynchronisationArgs
+
+func RemoteSwiftRepositoryContentSynchronisationPtr(v *RemoteSwiftRepositoryContentSynchronisationArgs) RemoteSwiftRepositoryContentSynchronisationPtrInput {
+	return (*remoteSwiftRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*remoteSwiftRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *remoteSwiftRepositoryContentSynchronisationPtrType) ToRemoteSwiftRepositoryContentSynchronisationPtrOutput() RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return i.ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *remoteSwiftRepositoryContentSynchronisationPtrType) ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RemoteSwiftRepositoryContentSynchronisationPtrOutput)
+}
+
+type RemoteSwiftRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (RemoteSwiftRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) ToRemoteSwiftRepositoryContentSynchronisationOutput() RemoteSwiftRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) ToRemoteSwiftRepositoryContentSynchronisationOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) ToRemoteSwiftRepositoryContentSynchronisationPtrOutput() RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o.ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemoteSwiftRepositoryContentSynchronisation) *RemoteSwiftRepositoryContentSynchronisation {
+		return &v
+	}).(RemoteSwiftRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RemoteSwiftRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type RemoteSwiftRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (RemoteSwiftRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) ToRemoteSwiftRepositoryContentSynchronisationPtrOutput() RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) ToRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) RemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) Elem() RemoteSwiftRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) RemoteSwiftRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret RemoteSwiftRepositoryContentSynchronisation
+		return ret
+	}).(RemoteSwiftRepositoryContentSynchronisationOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type RemoteTerraformRepositoryContentSynchronisation struct {
 	Enabled                      *bool `pulumi:"enabled"`
 	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
@@ -14975,6 +15153,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteRpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteRpmRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSbtRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteSbtRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSwiftRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteSwiftRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RemoteSwiftRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteSwiftRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteTerraformRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteTerraformRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteTerraformRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
@@ -15177,6 +15357,8 @@ func init() {
 	pulumi.RegisterOutputType(RemoteRpmRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteSbtRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(RemoteSwiftRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(RemoteSwiftRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteTerraformRepositoryContentSynchronisationOutput{})
 	pulumi.RegisterOutputType(RemoteTerraformRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationOutput{})
