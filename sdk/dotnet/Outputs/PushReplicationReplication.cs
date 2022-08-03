@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly int? SocketTimeoutMillis;
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         /// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
         /// </summary>
         public readonly bool? SyncDeletes;

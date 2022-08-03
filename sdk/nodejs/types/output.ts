@@ -934,7 +934,7 @@ export interface PushReplicationReplication {
      */
     socketTimeoutMillis: number;
     /**
-     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
      */
     syncDeletes: boolean;

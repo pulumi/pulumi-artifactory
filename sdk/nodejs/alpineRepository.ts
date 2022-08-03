@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const some_keypairRSA = new artifactory.Keypair("some-keypairRSA", {
  *     pairName: "some-keypair",

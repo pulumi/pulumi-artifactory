@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const primary_keypair = new artifactory.Keypair("primary-keypair", {
  *     pairName: "primary-keypair",

@@ -39,7 +39,7 @@ import (
 // 		providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
 // 			Key:      pulumi.String("provider_test_dest"),
 // 			Password: pulumi.String("bar"),
-// 			Url:      pulumi.String(fmt.Sprintf("%v%v", "https://example.com/artifactory/", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
+// 			Url:      pulumi.String(fmt.Sprintf("https://example.com/artifactory/%v", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
 // 			Username: pulumi.String("foo"),
 // 		})
 // 		if err != nil {

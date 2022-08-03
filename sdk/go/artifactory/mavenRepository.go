@@ -33,7 +33,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
+// 		baz, err := artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
 // 			Key:           pulumi.String("baz"),
 // 			RepoLayoutRef: pulumi.String("maven-2-default"),
 // 			Url:           pulumi.String("https://search.maven.com/"),
@@ -52,7 +52,7 @@ import (
 // 			RepoLayoutRef:                        pulumi.String("maven-2-default"),
 // 			Repositories: pulumi.StringArray{
 // 				bar.Key,
-// 				pulumi.Any(artifactory_local_maven_repository.Baz.Key),
+// 				baz.Key,
 // 			},
 // 		})
 // 		if err != nil {

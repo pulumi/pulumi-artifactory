@@ -26,33 +26,41 @@ import (
 //
 // 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		artifactoryUrl := cfg.Require("artifactoryUrl")
+// 		artifactoryUsername := cfg.Require("artifactoryUsername")
+// 		artifactoryPassword := cfg.Require("artifactoryPassword")
 // 		providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
 // 			Key: pulumi.String("provider_test_source"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+// 		providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
 // 			Key: pulumi.String("provider_test_dest"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
+// 			RepoKey:                providerTestSource.Key,
 // 			CronExp:                pulumi.String("0 0 * * * ?"),
 // 			EnableEventReplication: pulumi.Bool(true),
 // 			Replications: PushReplicationReplicationArray{
 // 				&PushReplicationReplicationArgs{
-// 					Password: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_password")),
-// 					Url:      pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_url")),
-// 					Username: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_username")),
+// 					Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
+// 						return fmt.Sprintf("%v/%v", artifactoryUrl, key), nil
+// 					}).(pulumi.StringOutput),
+// 					Username: pulumi.String(fmt.Sprintf("$var.artifactory_username")),
+// 					Password: pulumi.String(fmt.Sprintf("$var.artifactory_password")),
+// 					Enabled:  pulumi.Bool(true),
 // 				},
 // 			},
-// 			RepoKey: providerTestSource.Key,
 // 		})
 // 		if err != nil {
 // 			return err
