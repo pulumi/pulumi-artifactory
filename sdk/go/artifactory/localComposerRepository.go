@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalComposerRepository(ctx, "terraform-local-test-composer-repo", &artifactory.LocalComposerRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-composer-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalComposerRepository(ctx, "terraform-local-test-composer-repo", &artifactory.LocalComposerRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-composer-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
+//
+//	$ pulumi import artifactory:index/localComposerRepository:LocalComposerRepository terraform-local-test-composer-repo terraform-local-test-composer-repo
+//
 // ```
 type LocalComposerRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalComposerRepository) ToLocalComposerRepositoryOutputWithContext(ctx
 // LocalComposerRepositoryArrayInput is an input type that accepts LocalComposerRepositoryArray and LocalComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalComposerRepositoryArrayInput` via:
 //
-//          LocalComposerRepositoryArray{ LocalComposerRepositoryArgs{...} }
+//	LocalComposerRepositoryArray{ LocalComposerRepositoryArgs{...} }
 type LocalComposerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalComposerRepositoryArray) ToLocalComposerRepositoryArrayOutputWithCo
 // LocalComposerRepositoryMapInput is an input type that accepts LocalComposerRepositoryMap and LocalComposerRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalComposerRepositoryMapInput` via:
 //
-//          LocalComposerRepositoryMap{ "key": LocalComposerRepositoryArgs{...} }
+//	LocalComposerRepositoryMap{ "key": LocalComposerRepositoryArgs{...} }
 type LocalComposerRepositoryMapInput interface {
 	pulumi.Input
 

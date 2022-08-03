@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualPypiRepository(ctx, "foo-pypi", &artifactory.VirtualPypiRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-pypi"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualPypiRepository(ctx, "foo-pypi", &artifactory.VirtualPypiRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-pypi"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo-pypi foo-pypi
+//
+//	$ pulumi import artifactory:index/virtualPypiRepository:VirtualPypiRepository foo-pypi foo-pypi
+//
 // ```
 type VirtualPypiRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualPypiRepository) ToVirtualPypiRepositoryOutputWithContext(ctx con
 // VirtualPypiRepositoryArrayInput is an input type that accepts VirtualPypiRepositoryArray and VirtualPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualPypiRepositoryArrayInput` via:
 //
-//          VirtualPypiRepositoryArray{ VirtualPypiRepositoryArgs{...} }
+//	VirtualPypiRepositoryArray{ VirtualPypiRepositoryArgs{...} }
 type VirtualPypiRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualPypiRepositoryArray) ToVirtualPypiRepositoryArrayOutputWithContex
 // VirtualPypiRepositoryMapInput is an input type that accepts VirtualPypiRepositoryMap and VirtualPypiRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualPypiRepositoryMapInput` via:
 //
-//          VirtualPypiRepositoryMap{ "key": VirtualPypiRepositoryArgs{...} }
+//	VirtualPypiRepositoryMap{ "key": VirtualPypiRepositoryArgs{...} }
 type VirtualPypiRepositoryMapInput interface {
 	pulumi.Input
 

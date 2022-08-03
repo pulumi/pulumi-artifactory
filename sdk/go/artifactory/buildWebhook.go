@@ -20,49 +20,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewBuildWebhook(ctx, "build-webhook", &artifactory.BuildWebhookArgs{
-// 			Criteria: &BuildWebhookCriteriaArgs{
-// 				AnyBuild: pulumi.Bool(true),
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				SelectedBuilds: pulumi.StringArray{
-// 					pulumi.String("build-id"),
-// 				},
-// 			},
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("uploaded"),
-// 				pulumi.String("deleted"),
-// 				pulumi.String("promoted"),
-// 			},
-// 			Handlers: BuildWebhookHandlerArray{
-// 				&BuildWebhookHandlerArgs{
-// 					CustomHttpHeaders: pulumi.StringMap{
-// 						"header-1": pulumi.String("value-1"),
-// 						"header-2": pulumi.String("value-2"),
-// 					},
-// 					Proxy:  pulumi.String("proxy-key"),
-// 					Secret: pulumi.String("some-secret"),
-// 					Url:    pulumi.String("http://tempurl.org/webhook"),
-// 				},
-// 			},
-// 			Key: pulumi.String("build-webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewBuildWebhook(ctx, "build-webhook", &artifactory.BuildWebhookArgs{
+//				Criteria: &BuildWebhookCriteriaArgs{
+//					AnyBuild: pulumi.Bool(true),
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					SelectedBuilds: pulumi.StringArray{
+//						pulumi.String("build-id"),
+//					},
+//				},
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("uploaded"),
+//					pulumi.String("deleted"),
+//					pulumi.String("promoted"),
+//				},
+//				Handlers: BuildWebhookHandlerArray{
+//					&BuildWebhookHandlerArgs{
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//						Proxy:  pulumi.String("proxy-key"),
+//						Secret: pulumi.String("some-secret"),
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//					},
+//				},
+//				Key: pulumi.String("build-webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type BuildWebhook struct {
 	pulumi.CustomResourceState
@@ -212,7 +215,7 @@ func (i *BuildWebhook) ToBuildWebhookOutputWithContext(ctx context.Context) Buil
 // BuildWebhookArrayInput is an input type that accepts BuildWebhookArray and BuildWebhookArrayOutput values.
 // You can construct a concrete instance of `BuildWebhookArrayInput` via:
 //
-//          BuildWebhookArray{ BuildWebhookArgs{...} }
+//	BuildWebhookArray{ BuildWebhookArgs{...} }
 type BuildWebhookArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +240,7 @@ func (i BuildWebhookArray) ToBuildWebhookArrayOutputWithContext(ctx context.Cont
 // BuildWebhookMapInput is an input type that accepts BuildWebhookMap and BuildWebhookMapOutput values.
 // You can construct a concrete instance of `BuildWebhookMapInput` via:
 //
-//          BuildWebhookMap{ "key": BuildWebhookArgs{...} }
+//	BuildWebhookMap{ "key": BuildWebhookArgs{...} }
 type BuildWebhookMapInput interface {
 	pulumi.Input
 

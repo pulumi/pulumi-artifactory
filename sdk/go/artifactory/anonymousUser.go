@@ -16,19 +16,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewAnonymousUser(ctx, "anonymous", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewAnonymousUser(ctx, "anonymous", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -36,7 +39,9 @@ import (
 // Anonymous user can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+//
+//	$ pulumi import artifactory:index/anonymousUser:AnonymousUser anonymous-user anonymous
+//
 // ```
 type AnonymousUser struct {
 	pulumi.CustomResourceState
@@ -124,7 +129,7 @@ func (i *AnonymousUser) ToAnonymousUserOutputWithContext(ctx context.Context) An
 // AnonymousUserArrayInput is an input type that accepts AnonymousUserArray and AnonymousUserArrayOutput values.
 // You can construct a concrete instance of `AnonymousUserArrayInput` via:
 //
-//          AnonymousUserArray{ AnonymousUserArgs{...} }
+//	AnonymousUserArray{ AnonymousUserArgs{...} }
 type AnonymousUserArrayInput interface {
 	pulumi.Input
 
@@ -149,7 +154,7 @@ func (i AnonymousUserArray) ToAnonymousUserArrayOutputWithContext(ctx context.Co
 // AnonymousUserMapInput is an input type that accepts AnonymousUserMap and AnonymousUserMapOutput values.
 // You can construct a concrete instance of `AnonymousUserMapInput` via:
 //
-//          AnonymousUserMap{ "key": AnonymousUserArgs{...} }
+//	AnonymousUserMap{ "key": AnonymousUserArgs{...} }
 type AnonymousUserMapInput interface {
 	pulumi.Input
 

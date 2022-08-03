@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteDebianRepository(ctx, "my-remote-debian", &artifactory.RemoteDebianRepositoryArgs{
-// 			Key: pulumi.String("my-remote-Debian"),
-// 			Url: pulumi.String("http://archive.ubuntu.com/ubuntu/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteDebianRepository(ctx, "my-remote-debian", &artifactory.RemoteDebianRepositoryArgs{
+//				Key: pulumi.String("my-remote-Debian"),
+//				Url: pulumi.String("http://archive.ubuntu.com/ubuntu/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteDebianRepository:RemoteDebianRepository my-remote-debian my-remote-debian
+//
+//	$ pulumi import artifactory:index/remoteDebianRepository:RemoteDebianRepository my-remote-debian my-remote-debian
+//
 // ```
 type RemoteDebianRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteDebianRepository) ToRemoteDebianRepositoryOutputWithContext(ctx c
 // RemoteDebianRepositoryArrayInput is an input type that accepts RemoteDebianRepositoryArray and RemoteDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteDebianRepositoryArrayInput` via:
 //
-//          RemoteDebianRepositoryArray{ RemoteDebianRepositoryArgs{...} }
+//	RemoteDebianRepositoryArray{ RemoteDebianRepositoryArgs{...} }
 type RemoteDebianRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteDebianRepositoryArray) ToRemoteDebianRepositoryArrayOutputWithCont
 // RemoteDebianRepositoryMapInput is an input type that accepts RemoteDebianRepositoryMap and RemoteDebianRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteDebianRepositoryMapInput` via:
 //
-//          RemoteDebianRepositoryMap{ "key": RemoteDebianRepositoryArgs{...} }
+//	RemoteDebianRepositoryMap{ "key": RemoteDebianRepositoryArgs{...} }
 type RemoteDebianRepositoryMapInput interface {
 	pulumi.Input
 

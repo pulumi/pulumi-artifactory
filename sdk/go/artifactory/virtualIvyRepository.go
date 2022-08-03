@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualIvyRepository(ctx, "foo-ivy", &artifactory.VirtualIvyRepositoryArgs{
-// 			Description:                          pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:                      pulumi.String("com/google/**"),
-// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                                  pulumi.String("foo-ivy"),
-// 			Notes:                                pulumi.String("Internal description"),
-// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-// 			Repositories:                         pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualIvyRepository(ctx, "foo-ivy", &artifactory.VirtualIvyRepositoryArgs{
+//				Description:                          pulumi.String("A test virtual repo"),
+//				ExcludesPattern:                      pulumi.String("com/google/**"),
+//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                                  pulumi.String("foo-ivy"),
+//				Notes:                                pulumi.String("Internal description"),
+//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
+//				Repositories:                         pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
+//
+//	$ pulumi import artifactory:index/virtualIvyRepository:VirtualIvyRepository foo-ivy foo-ivy
+//
 // ```
 type VirtualIvyRepository struct {
 	pulumi.CustomResourceState
@@ -335,7 +340,7 @@ func (i *VirtualIvyRepository) ToVirtualIvyRepositoryOutputWithContext(ctx conte
 // VirtualIvyRepositoryArrayInput is an input type that accepts VirtualIvyRepositoryArray and VirtualIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualIvyRepositoryArrayInput` via:
 //
-//          VirtualIvyRepositoryArray{ VirtualIvyRepositoryArgs{...} }
+//	VirtualIvyRepositoryArray{ VirtualIvyRepositoryArgs{...} }
 type VirtualIvyRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +365,7 @@ func (i VirtualIvyRepositoryArray) ToVirtualIvyRepositoryArrayOutputWithContext(
 // VirtualIvyRepositoryMapInput is an input type that accepts VirtualIvyRepositoryMap and VirtualIvyRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualIvyRepositoryMapInput` via:
 //
-//          VirtualIvyRepositoryMap{ "key": VirtualIvyRepositoryArgs{...} }
+//	VirtualIvyRepositoryMap{ "key": VirtualIvyRepositoryArgs{...} }
 type VirtualIvyRepositoryMapInput interface {
 	pulumi.Input
 

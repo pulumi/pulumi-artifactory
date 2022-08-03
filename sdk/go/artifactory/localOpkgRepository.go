@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalOpkgRepository(ctx, "terraform-local-test-opkg-repo", &artifactory.LocalOpkgRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-opkg-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalOpkgRepository(ctx, "terraform-local-test-opkg-repo", &artifactory.LocalOpkgRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-opkg-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localOpkgRepository:LocalOpkgRepository terraform-local-test-opkg-repo terraform-local-test-opkg-repo
+//
+//	$ pulumi import artifactory:index/localOpkgRepository:LocalOpkgRepository terraform-local-test-opkg-repo terraform-local-test-opkg-repo
+//
 // ```
 type LocalOpkgRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalOpkgRepository) ToLocalOpkgRepositoryOutputWithContext(ctx context
 // LocalOpkgRepositoryArrayInput is an input type that accepts LocalOpkgRepositoryArray and LocalOpkgRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalOpkgRepositoryArrayInput` via:
 //
-//          LocalOpkgRepositoryArray{ LocalOpkgRepositoryArgs{...} }
+//	LocalOpkgRepositoryArray{ LocalOpkgRepositoryArgs{...} }
 type LocalOpkgRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalOpkgRepositoryArray) ToLocalOpkgRepositoryArrayOutputWithContext(ct
 // LocalOpkgRepositoryMapInput is an input type that accepts LocalOpkgRepositoryMap and LocalOpkgRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalOpkgRepositoryMapInput` via:
 //
-//          LocalOpkgRepositoryMap{ "key": LocalOpkgRepositoryArgs{...} }
+//	LocalOpkgRepositoryMap{ "key": LocalOpkgRepositoryArgs{...} }
 type LocalOpkgRepositoryMapInput interface {
 	pulumi.Input
 

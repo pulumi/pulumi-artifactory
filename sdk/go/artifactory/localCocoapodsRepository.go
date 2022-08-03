@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCocoapodsRepository(ctx, "terraform-local-test-cocoapods-repo", &artifactory.LocalCocoapodsRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-cocoapods-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalCocoapodsRepository(ctx, "terraform-local-test-cocoapods-repo", &artifactory.LocalCocoapodsRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-cocoapods-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
+//
+//	$ pulumi import artifactory:index/localCocoapodsRepository:LocalCocoapodsRepository terraform-local-test-cocoapods-repo terraform-local-test-cocoapods-repo
+//
 // ```
 type LocalCocoapodsRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalCocoapodsRepository) ToLocalCocoapodsRepositoryOutputWithContext(c
 // LocalCocoapodsRepositoryArrayInput is an input type that accepts LocalCocoapodsRepositoryArray and LocalCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCocoapodsRepositoryArrayInput` via:
 //
-//          LocalCocoapodsRepositoryArray{ LocalCocoapodsRepositoryArgs{...} }
+//	LocalCocoapodsRepositoryArray{ LocalCocoapodsRepositoryArgs{...} }
 type LocalCocoapodsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalCocoapodsRepositoryArray) ToLocalCocoapodsRepositoryArrayOutputWith
 // LocalCocoapodsRepositoryMapInput is an input type that accepts LocalCocoapodsRepositoryMap and LocalCocoapodsRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalCocoapodsRepositoryMapInput` via:
 //
-//          LocalCocoapodsRepositoryMap{ "key": LocalCocoapodsRepositoryArgs{...} }
+//	LocalCocoapodsRepositoryMap{ "key": LocalCocoapodsRepositoryArgs{...} }
 type LocalCocoapodsRepositoryMapInput interface {
 	pulumi.Input
 

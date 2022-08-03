@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  *     repoLayoutRef: "maven-2-default",
  *     repositories: [
  *         bar.key,
- *         artifactory_local_maven_repository_baz.key,
+ *         baz.key,
  *     ],
  * });
  * ```

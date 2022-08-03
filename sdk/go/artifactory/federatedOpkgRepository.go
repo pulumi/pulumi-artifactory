@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedOpkgRepository(ctx, "terraform-federated-test-opkg-repo", &artifactory.FederatedOpkgRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-opkg-repo"),
-// 			Members: FederatedOpkgRepositoryMemberArray{
-// 				&FederatedOpkgRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-opkg-repo"),
-// 				},
-// 				&FederatedOpkgRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedOpkgRepository(ctx, "terraform-federated-test-opkg-repo", &artifactory.FederatedOpkgRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-opkg-repo"),
+//				Members: FederatedOpkgRepositoryMemberArray{
+//					&FederatedOpkgRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-opkg-repo"),
+//					},
+//					&FederatedOpkgRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-opkg-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedOpkgRepository:FederatedOpkgRepository terraform-federated-test-opkg-repo terraform-federated-test-opkg-repo
+//
+//	$ pulumi import artifactory:index/federatedOpkgRepository:FederatedOpkgRepository terraform-federated-test-opkg-repo terraform-federated-test-opkg-repo
+//
 // ```
 type FederatedOpkgRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedOpkgRepository) ToFederatedOpkgRepositoryOutputWithContext(ctx
 // FederatedOpkgRepositoryArrayInput is an input type that accepts FederatedOpkgRepositoryArray and FederatedOpkgRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedOpkgRepositoryArrayInput` via:
 //
-//          FederatedOpkgRepositoryArray{ FederatedOpkgRepositoryArgs{...} }
+//	FederatedOpkgRepositoryArray{ FederatedOpkgRepositoryArgs{...} }
 type FederatedOpkgRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedOpkgRepositoryArray) ToFederatedOpkgRepositoryArrayOutputWithCo
 // FederatedOpkgRepositoryMapInput is an input type that accepts FederatedOpkgRepositoryMap and FederatedOpkgRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedOpkgRepositoryMapInput` via:
 //
-//          FederatedOpkgRepositoryMap{ "key": FederatedOpkgRepositoryArgs{...} }
+//	FederatedOpkgRepositoryMap{ "key": FederatedOpkgRepositoryArgs{...} }
 type FederatedOpkgRepositoryMapInput interface {
 	pulumi.Input
 

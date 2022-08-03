@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteChefRepository(ctx, "my-remote-chef", &artifactory.RemoteChefRepositoryArgs{
-// 			Key: pulumi.String("my-remote-chef"),
-// 			Url: pulumi.String("https://supermarket.chef.io"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteChefRepository(ctx, "my-remote-chef", &artifactory.RemoteChefRepositoryArgs{
+//				Key: pulumi.String("my-remote-chef"),
+//				Url: pulumi.String("https://supermarket.chef.io"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteChefRepository:RemoteChefRepository my-remote-chef my-remote-chef
+//
+//	$ pulumi import artifactory:index/remoteChefRepository:RemoteChefRepository my-remote-chef my-remote-chef
+//
 // ```
 type RemoteChefRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteChefRepository) ToRemoteChefRepositoryOutputWithContext(ctx conte
 // RemoteChefRepositoryArrayInput is an input type that accepts RemoteChefRepositoryArray and RemoteChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteChefRepositoryArrayInput` via:
 //
-//          RemoteChefRepositoryArray{ RemoteChefRepositoryArgs{...} }
+//	RemoteChefRepositoryArray{ RemoteChefRepositoryArgs{...} }
 type RemoteChefRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteChefRepositoryArray) ToRemoteChefRepositoryArrayOutputWithContext(
 // RemoteChefRepositoryMapInput is an input type that accepts RemoteChefRepositoryMap and RemoteChefRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteChefRepositoryMapInput` via:
 //
-//          RemoteChefRepositoryMap{ "key": RemoteChefRepositoryArgs{...} }
+//	RemoteChefRepositoryMap{ "key": RemoteChefRepositoryArgs{...} }
 type RemoteChefRepositoryMapInput interface {
 	pulumi.Input
 

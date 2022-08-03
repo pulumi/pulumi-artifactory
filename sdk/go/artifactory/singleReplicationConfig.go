@@ -24,7 +24,9 @@ import (
 // Replication configs can be imported using their repo key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+//
+//	$ pulumi import artifactory:index/singleReplicationConfig:SingleReplicationConfig foo-rep repository-key
+//
 // ```
 type SingleReplicationConfig struct {
 	pulumi.CustomResourceState
@@ -179,7 +181,7 @@ func (i *SingleReplicationConfig) ToSingleReplicationConfigOutputWithContext(ctx
 // SingleReplicationConfigArrayInput is an input type that accepts SingleReplicationConfigArray and SingleReplicationConfigArrayOutput values.
 // You can construct a concrete instance of `SingleReplicationConfigArrayInput` via:
 //
-//          SingleReplicationConfigArray{ SingleReplicationConfigArgs{...} }
+//	SingleReplicationConfigArray{ SingleReplicationConfigArgs{...} }
 type SingleReplicationConfigArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +206,7 @@ func (i SingleReplicationConfigArray) ToSingleReplicationConfigArrayOutputWithCo
 // SingleReplicationConfigMapInput is an input type that accepts SingleReplicationConfigMap and SingleReplicationConfigMapOutput values.
 // You can construct a concrete instance of `SingleReplicationConfigMapInput` via:
 //
-//          SingleReplicationConfigMap{ "key": SingleReplicationConfigArgs{...} }
+//	SingleReplicationConfigMap{ "key": SingleReplicationConfigArgs{...} }
 type SingleReplicationConfigMapInput interface {
 	pulumi.Input
 

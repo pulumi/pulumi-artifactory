@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualP2Repository(ctx, "foo-p2", &artifactory.VirtualP2RepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-p2"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualP2Repository(ctx, "foo-p2", &artifactory.VirtualP2RepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-p2"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
+//
+//	$ pulumi import artifactory:index/virtualP2Repository:VirtualP2Repository foo-p2 foo-p2
+//
 // ```
 type VirtualP2Repository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualP2Repository) ToVirtualP2RepositoryOutputWithContext(ctx context
 // VirtualP2RepositoryArrayInput is an input type that accepts VirtualP2RepositoryArray and VirtualP2RepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualP2RepositoryArrayInput` via:
 //
-//          VirtualP2RepositoryArray{ VirtualP2RepositoryArgs{...} }
+//	VirtualP2RepositoryArray{ VirtualP2RepositoryArgs{...} }
 type VirtualP2RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualP2RepositoryArray) ToVirtualP2RepositoryArrayOutputWithContext(ct
 // VirtualP2RepositoryMapInput is an input type that accepts VirtualP2RepositoryMap and VirtualP2RepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualP2RepositoryMapInput` via:
 //
-//          VirtualP2RepositoryMap{ "key": VirtualP2RepositoryArgs{...} }
+//	VirtualP2RepositoryMap{ "key": VirtualP2RepositoryArgs{...} }
 type VirtualP2RepositoryMapInput interface {
 	pulumi.Input
 

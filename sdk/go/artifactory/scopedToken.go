@@ -185,7 +185,7 @@ func (i *ScopedToken) ToScopedTokenOutputWithContext(ctx context.Context) Scoped
 // ScopedTokenArrayInput is an input type that accepts ScopedTokenArray and ScopedTokenArrayOutput values.
 // You can construct a concrete instance of `ScopedTokenArrayInput` via:
 //
-//          ScopedTokenArray{ ScopedTokenArgs{...} }
+//	ScopedTokenArray{ ScopedTokenArgs{...} }
 type ScopedTokenArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +210,7 @@ func (i ScopedTokenArray) ToScopedTokenArrayOutputWithContext(ctx context.Contex
 // ScopedTokenMapInput is an input type that accepts ScopedTokenMap and ScopedTokenMapOutput values.
 // You can construct a concrete instance of `ScopedTokenMapInput` via:
 //
-//          ScopedTokenMap{ "key": ScopedTokenArgs{...} }
+//	ScopedTokenMap{ "key": ScopedTokenArgs{...} }
 type ScopedTokenMapInput interface {
 	pulumi.Input
 

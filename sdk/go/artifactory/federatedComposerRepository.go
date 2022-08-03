@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedComposerRepository(ctx, "terraform-federated-test-composer-repo", &artifactory.FederatedComposerRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-composer-repo"),
-// 			Members: FederatedComposerRepositoryMemberArray{
-// 				&FederatedComposerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-composer-repo"),
-// 				},
-// 				&FederatedComposerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedComposerRepository(ctx, "terraform-federated-test-composer-repo", &artifactory.FederatedComposerRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-composer-repo"),
+//				Members: FederatedComposerRepositoryMemberArray{
+//					&FederatedComposerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-composer-repo"),
+//					},
+//					&FederatedComposerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
+//
+//	$ pulumi import artifactory:index/federatedComposerRepository:FederatedComposerRepository terraform-federated-test-composer-repo terraform-federated-test-composer-repo
+//
 // ```
 type FederatedComposerRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedComposerRepository) ToFederatedComposerRepositoryOutputWithCon
 // FederatedComposerRepositoryArrayInput is an input type that accepts FederatedComposerRepositoryArray and FederatedComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedComposerRepositoryArrayInput` via:
 //
-//          FederatedComposerRepositoryArray{ FederatedComposerRepositoryArgs{...} }
+//	FederatedComposerRepositoryArray{ FederatedComposerRepositoryArgs{...} }
 type FederatedComposerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedComposerRepositoryArray) ToFederatedComposerRepositoryArrayOutp
 // FederatedComposerRepositoryMapInput is an input type that accepts FederatedComposerRepositoryMap and FederatedComposerRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedComposerRepositoryMapInput` via:
 //
-//          FederatedComposerRepositoryMap{ "key": FederatedComposerRepositoryArgs{...} }
+//	FederatedComposerRepositoryMap{ "key": FederatedComposerRepositoryArgs{...} }
 type FederatedComposerRepositoryMapInput interface {
 	pulumi.Input
 

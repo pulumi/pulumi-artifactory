@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGoRepository(ctx, "terraform-federated-test-go-repo", &artifactory.FederatedGoRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-go-repo"),
-// 			Members: FederatedGoRepositoryMemberArray{
-// 				&FederatedGoRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-go-repo"),
-// 				},
-// 				&FederatedGoRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedGoRepository(ctx, "terraform-federated-test-go-repo", &artifactory.FederatedGoRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-go-repo"),
+//				Members: FederatedGoRepositoryMemberArray{
+//					&FederatedGoRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-go-repo"),
+//					},
+//					&FederatedGoRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-go-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedGoRepository:FederatedGoRepository terraform-federated-test-go-repo terraform-federated-test-go-repo
+//
+//	$ pulumi import artifactory:index/federatedGoRepository:FederatedGoRepository terraform-federated-test-go-repo terraform-federated-test-go-repo
+//
 // ```
 type FederatedGoRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedGoRepository) ToFederatedGoRepositoryOutputWithContext(ctx con
 // FederatedGoRepositoryArrayInput is an input type that accepts FederatedGoRepositoryArray and FederatedGoRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGoRepositoryArrayInput` via:
 //
-//          FederatedGoRepositoryArray{ FederatedGoRepositoryArgs{...} }
+//	FederatedGoRepositoryArray{ FederatedGoRepositoryArgs{...} }
 type FederatedGoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedGoRepositoryArray) ToFederatedGoRepositoryArrayOutputWithContex
 // FederatedGoRepositoryMapInput is an input type that accepts FederatedGoRepositoryMap and FederatedGoRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedGoRepositoryMapInput` via:
 //
-//          FederatedGoRepositoryMap{ "key": FederatedGoRepositoryArgs{...} }
+//	FederatedGoRepositoryMap{ "key": FederatedGoRepositoryArgs{...} }
 type FederatedGoRepositoryMapInput interface {
 	pulumi.Input
 

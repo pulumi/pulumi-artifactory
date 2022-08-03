@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGitltfsRepository(ctx, "terraform-federated-test-gitlfs-repo", &artifactory.FederatedGitltfsRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-gitlfs-repo"),
-// 			Members: FederatedGitltfsRepositoryMemberArray{
-// 				&FederatedGitltfsRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo"),
-// 				},
-// 				&FederatedGitltfsRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedGitltfsRepository(ctx, "terraform-federated-test-gitlfs-repo", &artifactory.FederatedGitltfsRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-gitlfs-repo"),
+//				Members: FederatedGitltfsRepositoryMemberArray{
+//					&FederatedGitltfsRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo"),
+//					},
+//					&FederatedGitltfsRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository terraform-federated-test-gitlfs-repo terraform-federated-test-gitlfs-repo
+//
+//	$ pulumi import artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository terraform-federated-test-gitlfs-repo terraform-federated-test-gitlfs-repo
+//
 // ```
 type FederatedGitltfsRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedGitltfsRepository) ToFederatedGitltfsRepositoryOutputWithConte
 // FederatedGitltfsRepositoryArrayInput is an input type that accepts FederatedGitltfsRepositoryArray and FederatedGitltfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGitltfsRepositoryArrayInput` via:
 //
-//          FederatedGitltfsRepositoryArray{ FederatedGitltfsRepositoryArgs{...} }
+//	FederatedGitltfsRepositoryArray{ FederatedGitltfsRepositoryArgs{...} }
 type FederatedGitltfsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedGitltfsRepositoryArray) ToFederatedGitltfsRepositoryArrayOutput
 // FederatedGitltfsRepositoryMapInput is an input type that accepts FederatedGitltfsRepositoryMap and FederatedGitltfsRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedGitltfsRepositoryMapInput` via:
 //
-//          FederatedGitltfsRepositoryMap{ "key": FederatedGitltfsRepositoryArgs{...} }
+//	FederatedGitltfsRepositoryMap{ "key": FederatedGitltfsRepositoryArgs{...} }
 type FederatedGitltfsRepositoryMapInput interface {
 	pulumi.Input
 

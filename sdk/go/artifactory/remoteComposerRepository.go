@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteComposerRepository(ctx, "my-remote-composer", &artifactory.RemoteComposerRepositoryArgs{
-// 			Key:            pulumi.String("my-remote-composer"),
-// 			Url:            pulumi.String("https://github.com/"),
-// 			VcsGitProvider: pulumi.String("GITHUB"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteComposerRepository(ctx, "my-remote-composer", &artifactory.RemoteComposerRepositoryArgs{
+//				Key:            pulumi.String("my-remote-composer"),
+//				Url:            pulumi.String("https://github.com/"),
+//				VcsGitProvider: pulumi.String("GITHUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
+//
+//	$ pulumi import artifactory:index/remoteComposerRepository:RemoteComposerRepository my-remote-composer my-remote-composer
+//
 // ```
 type RemoteComposerRepository struct {
 	pulumi.CustomResourceState
@@ -622,7 +627,7 @@ func (i *RemoteComposerRepository) ToRemoteComposerRepositoryOutputWithContext(c
 // RemoteComposerRepositoryArrayInput is an input type that accepts RemoteComposerRepositoryArray and RemoteComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteComposerRepositoryArrayInput` via:
 //
-//          RemoteComposerRepositoryArray{ RemoteComposerRepositoryArgs{...} }
+//	RemoteComposerRepositoryArray{ RemoteComposerRepositoryArgs{...} }
 type RemoteComposerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -647,7 +652,7 @@ func (i RemoteComposerRepositoryArray) ToRemoteComposerRepositoryArrayOutputWith
 // RemoteComposerRepositoryMapInput is an input type that accepts RemoteComposerRepositoryMap and RemoteComposerRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteComposerRepositoryMapInput` via:
 //
-//          RemoteComposerRepositoryMap{ "key": RemoteComposerRepositoryArgs{...} }
+//	RemoteComposerRepositoryMap{ "key": RemoteComposerRepositoryArgs{...} }
 type RemoteComposerRepositoryMapInput interface {
 	pulumi.Input
 

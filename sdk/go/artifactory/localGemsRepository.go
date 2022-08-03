@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGemsRepository(ctx, "terraform-local-test-gems-repo", &artifactory.LocalGemsRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-gems-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGemsRepository(ctx, "terraform-local-test-gems-repo", &artifactory.LocalGemsRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-gems-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localGemsRepository:LocalGemsRepository terraform-local-test-gems-repo terraform-local-test-gems-repo
+//
+//	$ pulumi import artifactory:index/localGemsRepository:LocalGemsRepository terraform-local-test-gems-repo terraform-local-test-gems-repo
+//
 // ```
 type LocalGemsRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalGemsRepository) ToLocalGemsRepositoryOutputWithContext(ctx context
 // LocalGemsRepositoryArrayInput is an input type that accepts LocalGemsRepositoryArray and LocalGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGemsRepositoryArrayInput` via:
 //
-//          LocalGemsRepositoryArray{ LocalGemsRepositoryArgs{...} }
+//	LocalGemsRepositoryArray{ LocalGemsRepositoryArgs{...} }
 type LocalGemsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalGemsRepositoryArray) ToLocalGemsRepositoryArrayOutputWithContext(ct
 // LocalGemsRepositoryMapInput is an input type that accepts LocalGemsRepositoryMap and LocalGemsRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalGemsRepositoryMapInput` via:
 //
-//          LocalGemsRepositoryMap{ "key": LocalGemsRepositoryArgs{...} }
+//	LocalGemsRepositoryMap{ "key": LocalGemsRepositoryArgs{...} }
 type LocalGemsRepositoryMapInput interface {
 	pulumi.Input
 

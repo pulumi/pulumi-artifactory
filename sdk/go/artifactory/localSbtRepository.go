@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalSbtRepository(ctx, "terraform-local-test-sbt-repo", &artifactory.LocalSbtRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-sbt-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalSbtRepository(ctx, "terraform-local-test-sbt-repo", &artifactory.LocalSbtRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-sbt-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
+//
+//	$ pulumi import artifactory:index/localSbtRepository:LocalSbtRepository terraform-local-test-sbt-repo terraform-local-test-sbt-repo
+//
 // ```
 type LocalSbtRepository struct {
 	pulumi.CustomResourceState
@@ -395,7 +400,7 @@ func (i *LocalSbtRepository) ToLocalSbtRepositoryOutputWithContext(ctx context.C
 // LocalSbtRepositoryArrayInput is an input type that accepts LocalSbtRepositoryArray and LocalSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalSbtRepositoryArrayInput` via:
 //
-//          LocalSbtRepositoryArray{ LocalSbtRepositoryArgs{...} }
+//	LocalSbtRepositoryArray{ LocalSbtRepositoryArgs{...} }
 type LocalSbtRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (i LocalSbtRepositoryArray) ToLocalSbtRepositoryArrayOutputWithContext(ctx 
 // LocalSbtRepositoryMapInput is an input type that accepts LocalSbtRepositoryMap and LocalSbtRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalSbtRepositoryMapInput` via:
 //
-//          LocalSbtRepositoryMap{ "key": LocalSbtRepositoryArgs{...} }
+//	LocalSbtRepositoryMap{ "key": LocalSbtRepositoryArgs{...} }
 type LocalSbtRepositoryMapInput interface {
 	pulumi.Input
 

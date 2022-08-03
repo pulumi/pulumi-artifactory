@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualAlpineRepository(ctx, "foo-alpine", &artifactory.VirtualAlpineRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-alpine"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualAlpineRepository(ctx, "foo-alpine", &artifactory.VirtualAlpineRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-alpine"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualAlpineRepository:VirtualAlpineRepository foo-alpine foo-alpine
+//
+//	$ pulumi import artifactory:index/virtualAlpineRepository:VirtualAlpineRepository foo-alpine foo-alpine
+//
 // ```
 type VirtualAlpineRepository struct {
 	pulumi.CustomResourceState
@@ -299,7 +304,7 @@ func (i *VirtualAlpineRepository) ToVirtualAlpineRepositoryOutputWithContext(ctx
 // VirtualAlpineRepositoryArrayInput is an input type that accepts VirtualAlpineRepositoryArray and VirtualAlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualAlpineRepositoryArrayInput` via:
 //
-//          VirtualAlpineRepositoryArray{ VirtualAlpineRepositoryArgs{...} }
+//	VirtualAlpineRepositoryArray{ VirtualAlpineRepositoryArgs{...} }
 type VirtualAlpineRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -324,7 +329,7 @@ func (i VirtualAlpineRepositoryArray) ToVirtualAlpineRepositoryArrayOutputWithCo
 // VirtualAlpineRepositoryMapInput is an input type that accepts VirtualAlpineRepositoryMap and VirtualAlpineRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualAlpineRepositoryMapInput` via:
 //
-//          VirtualAlpineRepositoryMap{ "key": VirtualAlpineRepositoryArgs{...} }
+//	VirtualAlpineRepositoryMap{ "key": VirtualAlpineRepositoryArgs{...} }
 type VirtualAlpineRepositoryMapInput interface {
 	pulumi.Input
 

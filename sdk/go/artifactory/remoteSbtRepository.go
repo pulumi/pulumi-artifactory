@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteSbtRepository(ctx, "sbt-remote", &artifactory.RemoteSbtRepositoryArgs{
-// 			FetchJarsEagerly:             pulumi.Bool(true),
-// 			FetchSourcesEagerly:          pulumi.Bool(false),
-// 			Key:                          pulumi.String("sbt-remote-foo"),
-// 			RejectInvalidJars:            pulumi.Bool(true),
-// 			SuppressPomConsistencyChecks: pulumi.Bool(true),
-// 			Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteSbtRepository(ctx, "sbt-remote", &artifactory.RemoteSbtRepositoryArgs{
+//				FetchJarsEagerly:             pulumi.Bool(true),
+//				FetchSourcesEagerly:          pulumi.Bool(false),
+//				Key:                          pulumi.String("sbt-remote-foo"),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				SuppressPomConsistencyChecks: pulumi.Bool(true),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+//
+//	$ pulumi import artifactory:index/remoteSbtRepository:RemoteSbtRepository sbt-remote sbt-remote
+//
 // ```
 type RemoteSbtRepository struct {
 	pulumi.CustomResourceState
@@ -660,7 +665,7 @@ func (i *RemoteSbtRepository) ToRemoteSbtRepositoryOutputWithContext(ctx context
 // RemoteSbtRepositoryArrayInput is an input type that accepts RemoteSbtRepositoryArray and RemoteSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteSbtRepositoryArrayInput` via:
 //
-//          RemoteSbtRepositoryArray{ RemoteSbtRepositoryArgs{...} }
+//	RemoteSbtRepositoryArray{ RemoteSbtRepositoryArgs{...} }
 type RemoteSbtRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -685,7 +690,7 @@ func (i RemoteSbtRepositoryArray) ToRemoteSbtRepositoryArrayOutputWithContext(ct
 // RemoteSbtRepositoryMapInput is an input type that accepts RemoteSbtRepositoryMap and RemoteSbtRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteSbtRepositoryMapInput` via:
 //
-//          RemoteSbtRepositoryMap{ "key": RemoteSbtRepositoryArgs{...} }
+//	RemoteSbtRepositoryMap{ "key": RemoteSbtRepositoryArgs{...} }
 type RemoteSbtRepositoryMapInput interface {
 	pulumi.Input
 

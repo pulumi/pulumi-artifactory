@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCondaRepository(ctx, "terraform-local-test-conda-repo", &artifactory.LocalCondaRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-conda-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalCondaRepository(ctx, "terraform-local-test-conda-repo", &artifactory.LocalCondaRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-conda-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localCondaRepository:LocalCondaRepository terraform-local-test-conda-repo terraform-local-test-conda-repo
+//
+//	$ pulumi import artifactory:index/localCondaRepository:LocalCondaRepository terraform-local-test-conda-repo terraform-local-test-conda-repo
+//
 // ```
 type LocalCondaRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalCondaRepository) ToLocalCondaRepositoryOutputWithContext(ctx conte
 // LocalCondaRepositoryArrayInput is an input type that accepts LocalCondaRepositoryArray and LocalCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCondaRepositoryArrayInput` via:
 //
-//          LocalCondaRepositoryArray{ LocalCondaRepositoryArgs{...} }
+//	LocalCondaRepositoryArray{ LocalCondaRepositoryArgs{...} }
 type LocalCondaRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalCondaRepositoryArray) ToLocalCondaRepositoryArrayOutputWithContext(
 // LocalCondaRepositoryMapInput is an input type that accepts LocalCondaRepositoryMap and LocalCondaRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalCondaRepositoryMapInput` via:
 //
-//          LocalCondaRepositoryMap{ "key": LocalCondaRepositoryArgs{...} }
+//	LocalCondaRepositoryMap{ "key": LocalCondaRepositoryArgs{...} }
 type LocalCondaRepositoryMapInput interface {
 	pulumi.Input
 

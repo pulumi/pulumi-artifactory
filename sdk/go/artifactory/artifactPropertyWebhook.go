@@ -20,57 +20,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGenericRepository(ctx, "my-generic-local", &artifactory.LocalGenericRepositoryArgs{
-// 			Key: pulumi.String("my-generic-local"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewArtifactPropertyWebhook(ctx, "artifact-webhook", &artifactory.ArtifactPropertyWebhookArgs{
-// 			Key: pulumi.String("artifact-property-webhook"),
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("added"),
-// 				pulumi.String("deleted"),
-// 			},
-// 			Criteria: &ArtifactPropertyWebhookCriteriaArgs{
-// 				AnyLocal:  pulumi.Bool(true),
-// 				AnyRemote: pulumi.Bool(false),
-// 				RepoKeys: pulumi.StringArray{
-// 					my_generic_local.Key,
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 			},
-// 			Handlers: ArtifactPropertyWebhookHandlerArray{
-// 				&ArtifactPropertyWebhookHandlerArgs{
-// 					Url:    pulumi.String("http://tempurl.org/webhook"),
-// 					Secret: pulumi.String("some-secret"),
-// 					Proxy:  pulumi.String("proxy-key"),
-// 					CustomHttpHeaders: pulumi.StringMap{
-// 						"header-1": pulumi.String("value-1"),
-// 						"header-2": pulumi.String("value-2"),
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			my_generic_local,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGenericRepository(ctx, "my-generic-local", &artifactory.LocalGenericRepositoryArgs{
+//				Key: pulumi.String("my-generic-local"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewArtifactPropertyWebhook(ctx, "artifact-webhook", &artifactory.ArtifactPropertyWebhookArgs{
+//				Key: pulumi.String("artifact-property-webhook"),
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("added"),
+//					pulumi.String("deleted"),
+//				},
+//				Criteria: &ArtifactPropertyWebhookCriteriaArgs{
+//					AnyLocal:  pulumi.Bool(true),
+//					AnyRemote: pulumi.Bool(false),
+//					RepoKeys: pulumi.StringArray{
+//						my_generic_local.Key,
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
+//				Handlers: ArtifactPropertyWebhookHandlerArray{
+//					&ArtifactPropertyWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				my_generic_local,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ArtifactPropertyWebhook struct {
 	pulumi.CustomResourceState
@@ -220,7 +223,7 @@ func (i *ArtifactPropertyWebhook) ToArtifactPropertyWebhookOutputWithContext(ctx
 // ArtifactPropertyWebhookArrayInput is an input type that accepts ArtifactPropertyWebhookArray and ArtifactPropertyWebhookArrayOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookArrayInput` via:
 //
-//          ArtifactPropertyWebhookArray{ ArtifactPropertyWebhookArgs{...} }
+//	ArtifactPropertyWebhookArray{ ArtifactPropertyWebhookArgs{...} }
 type ArtifactPropertyWebhookArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +248,7 @@ func (i ArtifactPropertyWebhookArray) ToArtifactPropertyWebhookArrayOutputWithCo
 // ArtifactPropertyWebhookMapInput is an input type that accepts ArtifactPropertyWebhookMap and ArtifactPropertyWebhookMapOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookMapInput` via:
 //
-//          ArtifactPropertyWebhookMap{ "key": ArtifactPropertyWebhookArgs{...} }
+//	ArtifactPropertyWebhookMap{ "key": ArtifactPropertyWebhookArgs{...} }
 type ArtifactPropertyWebhookMapInput interface {
 	pulumi.Input
 

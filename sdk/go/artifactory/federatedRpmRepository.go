@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedRpmRepository(ctx, "terraform-federated-test-rpm-repo", &artifactory.FederatedRpmRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-rpm-repo"),
-// 			Members: FederatedRpmRepositoryMemberArray{
-// 				&FederatedRpmRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-rpm-repo"),
-// 				},
-// 				&FederatedRpmRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedRpmRepository(ctx, "terraform-federated-test-rpm-repo", &artifactory.FederatedRpmRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-rpm-repo"),
+//				Members: FederatedRpmRepositoryMemberArray{
+//					&FederatedRpmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-rpm-repo"),
+//					},
+//					&FederatedRpmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-rpm-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+//
+//	$ pulumi import artifactory:index/federatedRpmRepository:FederatedRpmRepository terraform-federated-test-rpm-repo terraform-federated-test-rpm-repo
+//
 // ```
 type FederatedRpmRepository struct {
 	pulumi.CustomResourceState
@@ -398,7 +403,7 @@ func (i *FederatedRpmRepository) ToFederatedRpmRepositoryOutputWithContext(ctx c
 // FederatedRpmRepositoryArrayInput is an input type that accepts FederatedRpmRepositoryArray and FederatedRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedRpmRepositoryArrayInput` via:
 //
-//          FederatedRpmRepositoryArray{ FederatedRpmRepositoryArgs{...} }
+//	FederatedRpmRepositoryArray{ FederatedRpmRepositoryArgs{...} }
 type FederatedRpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -423,7 +428,7 @@ func (i FederatedRpmRepositoryArray) ToFederatedRpmRepositoryArrayOutputWithCont
 // FederatedRpmRepositoryMapInput is an input type that accepts FederatedRpmRepositoryMap and FederatedRpmRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedRpmRepositoryMapInput` via:
 //
-//          FederatedRpmRepositoryMap{ "key": FederatedRpmRepositoryArgs{...} }
+//	FederatedRpmRepositoryMap{ "key": FederatedRpmRepositoryArgs{...} }
 type FederatedRpmRepositoryMapInput interface {
 	pulumi.Input
 

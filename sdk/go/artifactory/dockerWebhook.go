@@ -20,58 +20,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDockerV2Repository(ctx, "my-docker-local", &artifactory.DockerV2RepositoryArgs{
-// 			Key: pulumi.String("my-docker-local"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewDockerWebhook(ctx, "docker-webhook", &artifactory.DockerWebhookArgs{
-// 			Key: pulumi.String("docker-webhook"),
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("pushed"),
-// 				pulumi.String("deleted"),
-// 				pulumi.String("promoted"),
-// 			},
-// 			Criteria: &DockerWebhookCriteriaArgs{
-// 				AnyLocal:  pulumi.Bool(true),
-// 				AnyRemote: pulumi.Bool(false),
-// 				RepoKeys: pulumi.StringArray{
-// 					my_docker_local.Key,
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 			},
-// 			Handlers: DockerWebhookHandlerArray{
-// 				&DockerWebhookHandlerArgs{
-// 					Url:    pulumi.String("http://tempurl.org/webhook"),
-// 					Secret: pulumi.String("some-secret"),
-// 					Proxy:  pulumi.String("proxy-key"),
-// 					CustomHttpHeaders: pulumi.StringMap{
-// 						"header-1": pulumi.String("value-1"),
-// 						"header-2": pulumi.String("value-2"),
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			my_docker_local,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDockerV2Repository(ctx, "my-docker-local", &artifactory.DockerV2RepositoryArgs{
+//				Key: pulumi.String("my-docker-local"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewDockerWebhook(ctx, "docker-webhook", &artifactory.DockerWebhookArgs{
+//				Key: pulumi.String("docker-webhook"),
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("pushed"),
+//					pulumi.String("deleted"),
+//					pulumi.String("promoted"),
+//				},
+//				Criteria: &DockerWebhookCriteriaArgs{
+//					AnyLocal:  pulumi.Bool(true),
+//					AnyRemote: pulumi.Bool(false),
+//					RepoKeys: pulumi.StringArray{
+//						my_docker_local.Key,
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//				},
+//				Handlers: DockerWebhookHandlerArray{
+//					&DockerWebhookHandlerArgs{
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//						Secret: pulumi.String("some-secret"),
+//						Proxy:  pulumi.String("proxy-key"),
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				my_docker_local,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type DockerWebhook struct {
 	pulumi.CustomResourceState
@@ -221,7 +224,7 @@ func (i *DockerWebhook) ToDockerWebhookOutputWithContext(ctx context.Context) Do
 // DockerWebhookArrayInput is an input type that accepts DockerWebhookArray and DockerWebhookArrayOutput values.
 // You can construct a concrete instance of `DockerWebhookArrayInput` via:
 //
-//          DockerWebhookArray{ DockerWebhookArgs{...} }
+//	DockerWebhookArray{ DockerWebhookArgs{...} }
 type DockerWebhookArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +249,7 @@ func (i DockerWebhookArray) ToDockerWebhookArrayOutputWithContext(ctx context.Co
 // DockerWebhookMapInput is an input type that accepts DockerWebhookMap and DockerWebhookMapOutput values.
 // You can construct a concrete instance of `DockerWebhookMapInput` via:
 //
-//          DockerWebhookMap{ "key": DockerWebhookArgs{...} }
+//	DockerWebhookMap{ "key": DockerWebhookArgs{...} }
 type DockerWebhookMapInput interface {
 	pulumi.Input
 

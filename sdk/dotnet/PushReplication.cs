@@ -25,6 +25,10 @@ namespace Pulumi.Artifactory
     /// {
     ///     public MyStack()
     ///     {
+    ///         var config = new Config();
+    ///         var artifactoryUrl = config.Require("artifactoryUrl");
+    ///         var artifactoryUsername = config.Require("artifactoryUsername");
+    ///         var artifactoryPassword = config.Require("artifactoryPassword");
     ///         // Create a replication between two artifactory local repositories
     ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
     ///         {
@@ -36,18 +40,19 @@ namespace Pulumi.Artifactory
     ///         });
     ///         var foo_rep = new Artifactory.PushReplication("foo-rep", new Artifactory.PushReplicationArgs
     ///         {
+    ///             RepoKey = providerTestSource.Key,
     ///             CronExp = "0 0 * * * ?",
     ///             EnableEventReplication = true,
     ///             Replications = 
     ///             {
     ///                 new Artifactory.Inputs.PushReplicationReplicationArgs
     ///                 {
-    ///                     Password = "$var.artifactory_password",
-    ///                     Url = "$var.artifactory_url",
+    ///                     Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/{key}"),
     ///                     Username = "$var.artifactory_username",
+    ///                     Password = "$var.artifactory_password",
+    ///                     Enabled = true,
     ///                 },
     ///             },
-    ///             RepoKey = providerTestSource.Key,
     ///         });
     ///     }
     /// 

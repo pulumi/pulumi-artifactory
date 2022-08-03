@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedVagrantRepository(ctx, "terraform-federated-test-vagrant-repo", &artifactory.FederatedVagrantRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-vagrant-repo"),
-// 			Members: FederatedVagrantRepositoryMemberArray{
-// 				&FederatedVagrantRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
-// 				},
-// 				&FederatedVagrantRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedVagrantRepository(ctx, "terraform-federated-test-vagrant-repo", &artifactory.FederatedVagrantRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-vagrant-repo"),
+//				Members: FederatedVagrantRepositoryMemberArray{
+//					&FederatedVagrantRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo"),
+//					},
+//					&FederatedVagrantRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedVagrantRepository:FederatedVagrantRepository terraform-federated-test-vagrant-repo terraform-federated-test-vagrant-repo
+//
+//	$ pulumi import artifactory:index/federatedVagrantRepository:FederatedVagrantRepository terraform-federated-test-vagrant-repo terraform-federated-test-vagrant-repo
+//
 // ```
 type FederatedVagrantRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedVagrantRepository) ToFederatedVagrantRepositoryOutputWithConte
 // FederatedVagrantRepositoryArrayInput is an input type that accepts FederatedVagrantRepositoryArray and FederatedVagrantRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedVagrantRepositoryArrayInput` via:
 //
-//          FederatedVagrantRepositoryArray{ FederatedVagrantRepositoryArgs{...} }
+//	FederatedVagrantRepositoryArray{ FederatedVagrantRepositoryArgs{...} }
 type FederatedVagrantRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedVagrantRepositoryArray) ToFederatedVagrantRepositoryArrayOutput
 // FederatedVagrantRepositoryMapInput is an input type that accepts FederatedVagrantRepositoryMap and FederatedVagrantRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedVagrantRepositoryMapInput` via:
 //
-//          FederatedVagrantRepositoryMap{ "key": FederatedVagrantRepositoryArgs{...} }
+//	FederatedVagrantRepositoryMap{ "key": FederatedVagrantRepositoryArgs{...} }
 type FederatedVagrantRepositoryMapInput interface {
 	pulumi.Input
 

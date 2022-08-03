@@ -47,7 +47,7 @@ namespace Pulumi.Artifactory
     ///             Repositories = 
     ///             {
     ///                 bar.Key,
-    ///                 artifactory_local_maven_repository.Baz.Key,
+    ///                 baz.Key,
     ///             },
     ///         });
     ///     }

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalConanRepository(ctx, "terraform-local-test-conan-repo", &artifactory.LocalConanRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-conan-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalConanRepository(ctx, "terraform-local-test-conan-repo", &artifactory.LocalConanRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-conan-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localConanRepository:LocalConanRepository terraform-local-test-conan-repo terraform-local-test-conan-repo
+//
+//	$ pulumi import artifactory:index/localConanRepository:LocalConanRepository terraform-local-test-conan-repo terraform-local-test-conan-repo
+//
 // ```
 type LocalConanRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalConanRepository) ToLocalConanRepositoryOutputWithContext(ctx conte
 // LocalConanRepositoryArrayInput is an input type that accepts LocalConanRepositoryArray and LocalConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalConanRepositoryArrayInput` via:
 //
-//          LocalConanRepositoryArray{ LocalConanRepositoryArgs{...} }
+//	LocalConanRepositoryArray{ LocalConanRepositoryArgs{...} }
 type LocalConanRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalConanRepositoryArray) ToLocalConanRepositoryArrayOutputWithContext(
 // LocalConanRepositoryMapInput is an input type that accepts LocalConanRepositoryMap and LocalConanRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalConanRepositoryMapInput` via:
 //
-//          LocalConanRepositoryMap{ "key": LocalConanRepositoryArgs{...} }
+//	LocalConanRepositoryMap{ "key": LocalConanRepositoryArgs{...} }
 type LocalConanRepositoryMapInput interface {
 	pulumi.Input
 

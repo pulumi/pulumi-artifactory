@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedDebianRepository(ctx, "terraform-federated-test-debian-repo", &artifactory.FederatedDebianRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-debian-repo"),
-// 			Members: FederatedDebianRepositoryMemberArray{
-// 				&FederatedDebianRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-debian-repo"),
-// 				},
-// 				&FederatedDebianRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedDebianRepository(ctx, "terraform-federated-test-debian-repo", &artifactory.FederatedDebianRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-debian-repo"),
+//				Members: FederatedDebianRepositoryMemberArray{
+//					&FederatedDebianRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-debian-repo"),
+//					},
+//					&FederatedDebianRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedDebianRepository:FederatedDebianRepository terraform-federated-test-debian-repo terraform-federated-test-debian-repo
+//
+//	$ pulumi import artifactory:index/federatedDebianRepository:FederatedDebianRepository terraform-federated-test-debian-repo terraform-federated-test-debian-repo
+//
 // ```
 type FederatedDebianRepository struct {
 	pulumi.CustomResourceState
@@ -373,7 +378,7 @@ func (i *FederatedDebianRepository) ToFederatedDebianRepositoryOutputWithContext
 // FederatedDebianRepositoryArrayInput is an input type that accepts FederatedDebianRepositoryArray and FederatedDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDebianRepositoryArrayInput` via:
 //
-//          FederatedDebianRepositoryArray{ FederatedDebianRepositoryArgs{...} }
+//	FederatedDebianRepositoryArray{ FederatedDebianRepositoryArgs{...} }
 type FederatedDebianRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -398,7 +403,7 @@ func (i FederatedDebianRepositoryArray) ToFederatedDebianRepositoryArrayOutputWi
 // FederatedDebianRepositoryMapInput is an input type that accepts FederatedDebianRepositoryMap and FederatedDebianRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedDebianRepositoryMapInput` via:
 //
-//          FederatedDebianRepositoryMap{ "key": FederatedDebianRepositoryArgs{...} }
+//	FederatedDebianRepositoryMap{ "key": FederatedDebianRepositoryArgs{...} }
 type FederatedDebianRepositoryMapInput interface {
 	pulumi.Input
 

@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedTerraformProviderRepository(ctx, "terraform-federated-test-terraformProvider-repo", &artifactory.FederatedTerraformProviderRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-terraform-provider-repo"),
-// 			Members: FederatedTerraformProviderRepositoryMemberArray{
-// 				&FederatedTerraformProviderRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo"),
-// 				},
-// 				&FederatedTerraformProviderRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedTerraformProviderRepository(ctx, "terraform-federated-test-terraformProvider-repo", &artifactory.FederatedTerraformProviderRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-terraform-provider-repo"),
+//				Members: FederatedTerraformProviderRepositoryMemberArray{
+//					&FederatedTerraformProviderRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-terraform_provider-repo"),
+//					},
+//					&FederatedTerraformProviderRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-terraform_provider-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository terraform-federated-test-terraform_provider-repo terraform-federated-test-terraform-provider-repo
+//
+//	$ pulumi import artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository terraform-federated-test-terraform_provider-repo terraform-federated-test-terraform-provider-repo
+//
 // ```
 type FederatedTerraformProviderRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedTerraformProviderRepository) ToFederatedTerraformProviderRepos
 // FederatedTerraformProviderRepositoryArrayInput is an input type that accepts FederatedTerraformProviderRepositoryArray and FederatedTerraformProviderRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedTerraformProviderRepositoryArrayInput` via:
 //
-//          FederatedTerraformProviderRepositoryArray{ FederatedTerraformProviderRepositoryArgs{...} }
+//	FederatedTerraformProviderRepositoryArray{ FederatedTerraformProviderRepositoryArgs{...} }
 type FederatedTerraformProviderRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedTerraformProviderRepositoryArray) ToFederatedTerraformProviderR
 // FederatedTerraformProviderRepositoryMapInput is an input type that accepts FederatedTerraformProviderRepositoryMap and FederatedTerraformProviderRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedTerraformProviderRepositoryMapInput` via:
 //
-//          FederatedTerraformProviderRepositoryMap{ "key": FederatedTerraformProviderRepositoryArgs{...} }
+//	FederatedTerraformProviderRepositoryMap{ "key": FederatedTerraformProviderRepositoryArgs{...} }
 type FederatedTerraformProviderRepositoryMapInput interface {
 	pulumi.Input
 

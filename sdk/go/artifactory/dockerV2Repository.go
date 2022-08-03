@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDockerV2Repository(ctx, "foo", &artifactory.DockerV2RepositoryArgs{
-// 			Key:           pulumi.String("foo"),
-// 			MaxUniqueTags: pulumi.Int(5),
-// 			TagRetention:  pulumi.Int(3),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDockerV2Repository(ctx, "foo", &artifactory.DockerV2RepositoryArgs{
+//				Key:           pulumi.String("foo"),
+//				MaxUniqueTags: pulumi.Int(5),
+//				TagRetention:  pulumi.Int(3),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+//
+//	$ pulumi import artifactory:index/dockerV2Repository:DockerV2Repository foo foo
+//
 // ```
 type DockerV2Repository struct {
 	pulumi.CustomResourceState
@@ -348,7 +353,7 @@ func (i *DockerV2Repository) ToDockerV2RepositoryOutputWithContext(ctx context.C
 // DockerV2RepositoryArrayInput is an input type that accepts DockerV2RepositoryArray and DockerV2RepositoryArrayOutput values.
 // You can construct a concrete instance of `DockerV2RepositoryArrayInput` via:
 //
-//          DockerV2RepositoryArray{ DockerV2RepositoryArgs{...} }
+//	DockerV2RepositoryArray{ DockerV2RepositoryArgs{...} }
 type DockerV2RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -373,7 +378,7 @@ func (i DockerV2RepositoryArray) ToDockerV2RepositoryArrayOutputWithContext(ctx 
 // DockerV2RepositoryMapInput is an input type that accepts DockerV2RepositoryMap and DockerV2RepositoryMapOutput values.
 // You can construct a concrete instance of `DockerV2RepositoryMapInput` via:
 //
-//          DockerV2RepositoryMap{ "key": DockerV2RepositoryArgs{...} }
+//	DockerV2RepositoryMap{ "key": DockerV2RepositoryArgs{...} }
 type DockerV2RepositoryMapInput interface {
 	pulumi.Input
 

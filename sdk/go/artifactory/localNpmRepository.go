@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalNpmRepository(ctx, "terraform-local-test-npm-repo", &artifactory.LocalNpmRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-npm-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalNpmRepository(ctx, "terraform-local-test-npm-repo", &artifactory.LocalNpmRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-npm-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
+//
+//	$ pulumi import artifactory:index/localNpmRepository:LocalNpmRepository terraform-local-test-npm-repo terraform-local-test-npm-repo
+//
 // ```
 type LocalNpmRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalNpmRepository) ToLocalNpmRepositoryOutputWithContext(ctx context.C
 // LocalNpmRepositoryArrayInput is an input type that accepts LocalNpmRepositoryArray and LocalNpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalNpmRepositoryArrayInput` via:
 //
-//          LocalNpmRepositoryArray{ LocalNpmRepositoryArgs{...} }
+//	LocalNpmRepositoryArray{ LocalNpmRepositoryArgs{...} }
 type LocalNpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalNpmRepositoryArray) ToLocalNpmRepositoryArrayOutputWithContext(ctx 
 // LocalNpmRepositoryMapInput is an input type that accepts LocalNpmRepositoryMap and LocalNpmRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalNpmRepositoryMapInput` via:
 //
-//          LocalNpmRepositoryMap{ "key": LocalNpmRepositoryArgs{...} }
+//	LocalNpmRepositoryMap{ "key": LocalNpmRepositoryArgs{...} }
 type LocalNpmRepositoryMapInput interface {
 	pulumi.Input
 

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteConanRepository(ctx, "my-remote-conan", &artifactory.RemoteConanRepositoryArgs{
-// 			Key: pulumi.String("my-remote-conan"),
-// 			Url: pulumi.String("https://conan.io/center/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteConanRepository(ctx, "my-remote-conan", &artifactory.RemoteConanRepositoryArgs{
+//				Key: pulumi.String("my-remote-conan"),
+//				Url: pulumi.String("https://conan.io/center/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
+//
+//	$ pulumi import artifactory:index/remoteConanRepository:RemoteConanRepository my-remote-conan my-remote-conan
+//
 // ```
 type RemoteConanRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteConanRepository) ToRemoteConanRepositoryOutputWithContext(ctx con
 // RemoteConanRepositoryArrayInput is an input type that accepts RemoteConanRepositoryArray and RemoteConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteConanRepositoryArrayInput` via:
 //
-//          RemoteConanRepositoryArray{ RemoteConanRepositoryArgs{...} }
+//	RemoteConanRepositoryArray{ RemoteConanRepositoryArgs{...} }
 type RemoteConanRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteConanRepositoryArray) ToRemoteConanRepositoryArrayOutputWithContex
 // RemoteConanRepositoryMapInput is an input type that accepts RemoteConanRepositoryMap and RemoteConanRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteConanRepositoryMapInput` via:
 //
-//          RemoteConanRepositoryMap{ "key": RemoteConanRepositoryArgs{...} }
+//	RemoteConanRepositoryMap{ "key": RemoteConanRepositoryArgs{...} }
 type RemoteConanRepositoryMapInput interface {
 	pulumi.Input
 

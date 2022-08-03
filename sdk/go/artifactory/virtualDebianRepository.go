@@ -20,31 +20,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
-// 			DebianDefaultArchitectures: pulumi.String("amd64,i386"),
-// 			Description:                pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:            pulumi.String("com/google/**"),
-// 			IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                        pulumi.String("foo-debian"),
-// 			Notes:                      pulumi.String("Internal description"),
-// 			OptionalIndexCompressionFormats: pulumi.StringArray{
-// 				pulumi.String("bz2"),
-// 				pulumi.String("xz"),
-// 			},
-// 			Repositories: pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualDebianRepository(ctx, "foo-debian", &artifactory.VirtualDebianRepositoryArgs{
+//				DebianDefaultArchitectures: pulumi.String("amd64,i386"),
+//				Description:                pulumi.String("A test virtual repo"),
+//				ExcludesPattern:            pulumi.String("com/google/**"),
+//				IncludesPattern:            pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                        pulumi.String("foo-debian"),
+//				Notes:                      pulumi.String("Internal description"),
+//				OptionalIndexCompressionFormats: pulumi.StringArray{
+//					pulumi.String("bz2"),
+//					pulumi.String("xz"),
+//				},
+//				Repositories: pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
+//
+//	$ pulumi import artifactory:index/virtualDebianRepository:VirtualDebianRepository foo-debian foo-debian
+//
 // ```
 type VirtualDebianRepository struct {
 	pulumi.CustomResourceState
@@ -334,7 +339,7 @@ func (i *VirtualDebianRepository) ToVirtualDebianRepositoryOutputWithContext(ctx
 // VirtualDebianRepositoryArrayInput is an input type that accepts VirtualDebianRepositoryArray and VirtualDebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualDebianRepositoryArrayInput` via:
 //
-//          VirtualDebianRepositoryArray{ VirtualDebianRepositoryArgs{...} }
+//	VirtualDebianRepositoryArray{ VirtualDebianRepositoryArgs{...} }
 type VirtualDebianRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +364,7 @@ func (i VirtualDebianRepositoryArray) ToVirtualDebianRepositoryArrayOutputWithCo
 // VirtualDebianRepositoryMapInput is an input type that accepts VirtualDebianRepositoryMap and VirtualDebianRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualDebianRepositoryMapInput` via:
 //
-//          VirtualDebianRepositoryMap{ "key": VirtualDebianRepositoryArgs{...} }
+//	VirtualDebianRepositoryMap{ "key": VirtualDebianRepositoryArgs{...} }
 type VirtualDebianRepositoryMapInput interface {
 	pulumi.Input
 

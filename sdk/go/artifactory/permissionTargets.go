@@ -18,87 +18,90 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
-// 			Build: &PermissionTargetBuildArgs{
-// 				Actions: &PermissionTargetBuildActionsArgs{
-// 					Users: PermissionTargetBuildActionsUserArray{
-// 						&PermissionTargetBuildActionsUserArgs{
-// 							Name: pulumi.String("anonymous"),
-// 							Permissions: pulumi.StringArray{
-// 								pulumi.String("read"),
-// 								pulumi.String("write"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				IncludesPatterns: pulumi.StringArray{
-// 					pulumi.String("**"),
-// 				},
-// 				Repositories: pulumi.StringArray{
-// 					pulumi.String("artifactory-build-info"),
-// 				},
-// 			},
-// 			ReleaseBundle: &PermissionTargetReleaseBundleArgs{
-// 				Actions: &PermissionTargetReleaseBundleActionsArgs{
-// 					Users: PermissionTargetReleaseBundleActionsUserArray{
-// 						&PermissionTargetReleaseBundleActionsUserArgs{
-// 							Name: pulumi.String("anonymous"),
-// 							Permissions: pulumi.StringArray{
-// 								pulumi.String("read"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				IncludesPatterns: pulumi.StringArray{
-// 					pulumi.String("**"),
-// 				},
-// 				Repositories: pulumi.StringArray{
-// 					pulumi.String("release-bundles"),
-// 				},
-// 			},
-// 			Repo: &PermissionTargetRepoArgs{
-// 				Actions: &PermissionTargetRepoActionsArgs{
-// 					Groups: PermissionTargetRepoActionsGroupArray{
-// 						&PermissionTargetRepoActionsGroupArgs{
-// 							Name: pulumi.String("readers"),
-// 							Permissions: pulumi.StringArray{
-// 								pulumi.String("read"),
-// 							},
-// 						},
-// 					},
-// 					Users: PermissionTargetRepoActionsUserArray{
-// 						&PermissionTargetRepoActionsUserArgs{
-// 							Name: pulumi.String("anonymous"),
-// 							Permissions: pulumi.StringArray{
-// 								pulumi.String("read"),
-// 								pulumi.String("write"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 				ExcludesPatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 				IncludesPatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				Repositories: pulumi.StringArray{
-// 					pulumi.String("example-repo-local"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
+//				Build: &PermissionTargetBuildArgs{
+//					Actions: &PermissionTargetBuildActionsArgs{
+//						Users: PermissionTargetBuildActionsUserArray{
+//							&PermissionTargetBuildActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("artifactory-build-info"),
+//					},
+//				},
+//				ReleaseBundle: &PermissionTargetReleaseBundleArgs{
+//					Actions: &PermissionTargetReleaseBundleActionsArgs{
+//						Users: PermissionTargetReleaseBundleActionsUserArray{
+//							&PermissionTargetReleaseBundleActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//								},
+//							},
+//						},
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("release-bundles"),
+//					},
+//				},
+//				Repo: &PermissionTargetRepoArgs{
+//					Actions: &PermissionTargetRepoActionsArgs{
+//						Groups: PermissionTargetRepoActionsGroupArray{
+//							&PermissionTargetRepoActionsGroupArgs{
+//								Name: pulumi.String("readers"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//								},
+//							},
+//						},
+//						Users: PermissionTargetRepoActionsUserArray{
+//							&PermissionTargetRepoActionsUserArgs{
+//								Name: pulumi.String("anonymous"),
+//								Permissions: pulumi.StringArray{
+//									pulumi.String("read"),
+//									pulumi.String("write"),
+//								},
+//							},
+//						},
+//					},
+//					ExcludesPatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludesPatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					Repositories: pulumi.StringArray{
+//						pulumi.String("example-repo-local"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Permissions
 //
@@ -127,7 +130,9 @@ import (
 // Permission targets can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/permissionTargets:PermissionTargets terraform-test-permission mypermission
+//
+//	$ pulumi import artifactory:index/permissionTargets:PermissionTargets terraform-test-permission mypermission
+//
 // ```
 type PermissionTargets struct {
 	pulumi.CustomResourceState
@@ -245,7 +250,7 @@ func (i *PermissionTargets) ToPermissionTargetsOutputWithContext(ctx context.Con
 // PermissionTargetsArrayInput is an input type that accepts PermissionTargetsArray and PermissionTargetsArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsArrayInput` via:
 //
-//          PermissionTargetsArray{ PermissionTargetsArgs{...} }
+//	PermissionTargetsArray{ PermissionTargetsArgs{...} }
 type PermissionTargetsArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i PermissionTargetsArray) ToPermissionTargetsArrayOutputWithContext(ctx co
 // PermissionTargetsMapInput is an input type that accepts PermissionTargetsMap and PermissionTargetsMapOutput values.
 // You can construct a concrete instance of `PermissionTargetsMapInput` via:
 //
-//          PermissionTargetsMap{ "key": PermissionTargetsArgs{...} }
+//	PermissionTargetsMap{ "key": PermissionTargetsArgs{...} }
 type PermissionTargetsMapInput interface {
 	pulumi.Input
 

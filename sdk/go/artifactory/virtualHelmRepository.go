@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualHelmRepository(ctx, "foo-helm-virtual", &artifactory.VirtualHelmRepositoryArgs{
-// 			Key:           pulumi.String("foo-helm-virtual"),
-// 			UseNamespaces: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualHelmRepository(ctx, "foo-helm-virtual", &artifactory.VirtualHelmRepositoryArgs{
+//				Key:           pulumi.String("foo-helm-virtual"),
+//				UseNamespaces: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
+//
+//	$ pulumi import artifactory:index/virtualHelmRepository:VirtualHelmRepository foo-helm-virtual foo-helm-virtual
+//
 // ```
 type VirtualHelmRepository struct {
 	pulumi.CustomResourceState
@@ -295,7 +300,7 @@ func (i *VirtualHelmRepository) ToVirtualHelmRepositoryOutputWithContext(ctx con
 // VirtualHelmRepositoryArrayInput is an input type that accepts VirtualHelmRepositoryArray and VirtualHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualHelmRepositoryArrayInput` via:
 //
-//          VirtualHelmRepositoryArray{ VirtualHelmRepositoryArgs{...} }
+//	VirtualHelmRepositoryArray{ VirtualHelmRepositoryArgs{...} }
 type VirtualHelmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -320,7 +325,7 @@ func (i VirtualHelmRepositoryArray) ToVirtualHelmRepositoryArrayOutputWithContex
 // VirtualHelmRepositoryMapInput is an input type that accepts VirtualHelmRepositoryMap and VirtualHelmRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualHelmRepositoryMapInput` via:
 //
-//          VirtualHelmRepositoryMap{ "key": VirtualHelmRepositoryArgs{...} }
+//	VirtualHelmRepositoryMap{ "key": VirtualHelmRepositoryArgs{...} }
 type VirtualHelmRepositoryMapInput interface {
 	pulumi.Input
 

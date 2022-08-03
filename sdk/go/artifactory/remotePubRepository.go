@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemotePubRepository(ctx, "my-remote-pub", &artifactory.RemotePubRepositoryArgs{
-// 			Key: pulumi.String("my-remote-pub"),
-// 			Url: pulumi.String("https://pub.dartlang.org"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemotePubRepository(ctx, "my-remote-pub", &artifactory.RemotePubRepositoryArgs{
+//				Key: pulumi.String("my-remote-pub"),
+//				Url: pulumi.String("https://pub.dartlang.org"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
+//
+//	$ pulumi import artifactory:index/remotePubRepository:RemotePubRepository my-remote-pub my-remote-pub
+//
 // ```
 type RemotePubRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemotePubRepository) ToRemotePubRepositoryOutputWithContext(ctx context
 // RemotePubRepositoryArrayInput is an input type that accepts RemotePubRepositoryArray and RemotePubRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemotePubRepositoryArrayInput` via:
 //
-//          RemotePubRepositoryArray{ RemotePubRepositoryArgs{...} }
+//	RemotePubRepositoryArray{ RemotePubRepositoryArgs{...} }
 type RemotePubRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemotePubRepositoryArray) ToRemotePubRepositoryArrayOutputWithContext(ct
 // RemotePubRepositoryMapInput is an input type that accepts RemotePubRepositoryMap and RemotePubRepositoryMapOutput values.
 // You can construct a concrete instance of `RemotePubRepositoryMapInput` via:
 //
-//          RemotePubRepositoryMap{ "key": RemotePubRepositoryArgs{...} }
+//	RemotePubRepositoryMap{ "key": RemotePubRepositoryArgs{...} }
 type RemotePubRepositoryMapInput interface {
 	pulumi.Input
 

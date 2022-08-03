@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteHelmRepository(ctx, "helm-remote", &artifactory.RemoteHelmRepositoryArgs{
-// 			ExternalDependenciesEnabled: pulumi.Bool(true),
-// 			ExternalDependenciesPatterns: pulumi.StringArray{
-// 				pulumi.String("**github.com**"),
-// 			},
-// 			HelmChartsBaseUrl: pulumi.String("https://foo.com"),
-// 			Key:               pulumi.String("helm-remote-foo25"),
-// 			Url:               pulumi.String("https://repo.chartcenter.io/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteHelmRepository(ctx, "helm-remote", &artifactory.RemoteHelmRepositoryArgs{
+//				ExternalDependenciesEnabled: pulumi.Bool(true),
+//				ExternalDependenciesPatterns: pulumi.StringArray{
+//					pulumi.String("**github.com**"),
+//				},
+//				HelmChartsBaseUrl: pulumi.String("https://foo.com"),
+//				Key:               pulumi.String("helm-remote-foo25"),
+//				Url:               pulumi.String("https://repo.chartcenter.io/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
+//
+//	$ pulumi import artifactory:index/remoteHelmRepository:RemoteHelmRepository helm-remote helm-remote
+//
 // ```
 type RemoteHelmRepository struct {
 	pulumi.CustomResourceState
@@ -631,7 +636,7 @@ func (i *RemoteHelmRepository) ToRemoteHelmRepositoryOutputWithContext(ctx conte
 // RemoteHelmRepositoryArrayInput is an input type that accepts RemoteHelmRepositoryArray and RemoteHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteHelmRepositoryArrayInput` via:
 //
-//          RemoteHelmRepositoryArray{ RemoteHelmRepositoryArgs{...} }
+//	RemoteHelmRepositoryArray{ RemoteHelmRepositoryArgs{...} }
 type RemoteHelmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -656,7 +661,7 @@ func (i RemoteHelmRepositoryArray) ToRemoteHelmRepositoryArrayOutputWithContext(
 // RemoteHelmRepositoryMapInput is an input type that accepts RemoteHelmRepositoryMap and RemoteHelmRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteHelmRepositoryMapInput` via:
 //
-//          RemoteHelmRepositoryMap{ "key": RemoteHelmRepositoryArgs{...} }
+//	RemoteHelmRepositoryMap{ "key": RemoteHelmRepositoryArgs{...} }
 type RemoteHelmRepositoryMapInput interface {
 	pulumi.Input
 

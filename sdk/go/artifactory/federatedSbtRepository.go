@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedSbtRepository(ctx, "terraform-federated-test-sbt-repo", &artifactory.FederatedSbtRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-sbt-repo"),
-// 			Members: FederatedSbtRepositoryMemberArray{
-// 				&FederatedSbtRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-sbt-repo"),
-// 				},
-// 				&FederatedSbtRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedSbtRepository(ctx, "terraform-federated-test-sbt-repo", &artifactory.FederatedSbtRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-sbt-repo"),
+//				Members: FederatedSbtRepositoryMemberArray{
+//					&FederatedSbtRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-sbt-repo"),
+//					},
+//					&FederatedSbtRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-sbt-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedSbtRepository:FederatedSbtRepository terraform-federated-test-sbt-repo terraform-federated-test-sbt-repo
+//
+//	$ pulumi import artifactory:index/federatedSbtRepository:FederatedSbtRepository terraform-federated-test-sbt-repo terraform-federated-test-sbt-repo
+//
 // ```
 type FederatedSbtRepository struct {
 	pulumi.CustomResourceState
@@ -433,7 +438,7 @@ func (i *FederatedSbtRepository) ToFederatedSbtRepositoryOutputWithContext(ctx c
 // FederatedSbtRepositoryArrayInput is an input type that accepts FederatedSbtRepositoryArray and FederatedSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedSbtRepositoryArrayInput` via:
 //
-//          FederatedSbtRepositoryArray{ FederatedSbtRepositoryArgs{...} }
+//	FederatedSbtRepositoryArray{ FederatedSbtRepositoryArgs{...} }
 type FederatedSbtRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -458,7 +463,7 @@ func (i FederatedSbtRepositoryArray) ToFederatedSbtRepositoryArrayOutputWithCont
 // FederatedSbtRepositoryMapInput is an input type that accepts FederatedSbtRepositoryMap and FederatedSbtRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedSbtRepositoryMapInput` via:
 //
-//          FederatedSbtRepositoryMap{ "key": FederatedSbtRepositoryArgs{...} }
+//	FederatedSbtRepositoryMap{ "key": FederatedSbtRepositoryArgs{...} }
 type FederatedSbtRepositoryMapInput interface {
 	pulumi.Input
 

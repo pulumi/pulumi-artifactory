@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGitltfsRepository(ctx, "terraform-local-test-gitlfs-repo", &artifactory.LocalGitltfsRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-gitlfs-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGitltfsRepository(ctx, "terraform-local-test-gitlfs-repo", &artifactory.LocalGitltfsRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-gitlfs-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
+//
+//	$ pulumi import artifactory:index/localGitltfsRepository:LocalGitltfsRepository terraform-local-test-gitlfs-repo terraform-local-test-gitlfs-repo
+//
 // ```
 type LocalGitltfsRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalGitltfsRepository) ToLocalGitltfsRepositoryOutputWithContext(ctx c
 // LocalGitltfsRepositoryArrayInput is an input type that accepts LocalGitltfsRepositoryArray and LocalGitltfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGitltfsRepositoryArrayInput` via:
 //
-//          LocalGitltfsRepositoryArray{ LocalGitltfsRepositoryArgs{...} }
+//	LocalGitltfsRepositoryArray{ LocalGitltfsRepositoryArgs{...} }
 type LocalGitltfsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalGitltfsRepositoryArray) ToLocalGitltfsRepositoryArrayOutputWithCont
 // LocalGitltfsRepositoryMapInput is an input type that accepts LocalGitltfsRepositoryMap and LocalGitltfsRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalGitltfsRepositoryMapInput` via:
 //
-//          LocalGitltfsRepositoryMap{ "key": LocalGitltfsRepositoryArgs{...} }
+//	LocalGitltfsRepositoryMap{ "key": LocalGitltfsRepositoryArgs{...} }
 type LocalGitltfsRepositoryMapInput interface {
 	pulumi.Input
 

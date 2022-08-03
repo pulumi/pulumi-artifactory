@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualPuppetRepository(ctx, "foo-puppet", &artifactory.VirtualPuppetRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-puppet"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualPuppetRepository(ctx, "foo-puppet", &artifactory.VirtualPuppetRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-puppet"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualPuppetRepository:VirtualPuppetRepository foo-puppet foo-puppet
+//
+//	$ pulumi import artifactory:index/virtualPuppetRepository:VirtualPuppetRepository foo-puppet foo-puppet
+//
 // ```
 type VirtualPuppetRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualPuppetRepository) ToVirtualPuppetRepositoryOutputWithContext(ctx
 // VirtualPuppetRepositoryArrayInput is an input type that accepts VirtualPuppetRepositoryArray and VirtualPuppetRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualPuppetRepositoryArrayInput` via:
 //
-//          VirtualPuppetRepositoryArray{ VirtualPuppetRepositoryArgs{...} }
+//	VirtualPuppetRepositoryArray{ VirtualPuppetRepositoryArgs{...} }
 type VirtualPuppetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualPuppetRepositoryArray) ToVirtualPuppetRepositoryArrayOutputWithCo
 // VirtualPuppetRepositoryMapInput is an input type that accepts VirtualPuppetRepositoryMap and VirtualPuppetRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualPuppetRepositoryMapInput` via:
 //
-//          VirtualPuppetRepositoryMap{ "key": VirtualPuppetRepositoryArgs{...} }
+//	VirtualPuppetRepositoryMap{ "key": VirtualPuppetRepositoryArgs{...} }
 type VirtualPuppetRepositoryMapInput interface {
 	pulumi.Input
 

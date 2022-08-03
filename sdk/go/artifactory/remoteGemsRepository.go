@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteGemsRepository(ctx, "my-remote-gems", &artifactory.RemoteGemsRepositoryArgs{
-// 			Key: pulumi.String("my-remote-gems"),
-// 			Url: pulumi.String("https://rubygems.org/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteGemsRepository(ctx, "my-remote-gems", &artifactory.RemoteGemsRepositoryArgs{
+//				Key: pulumi.String("my-remote-gems"),
+//				Url: pulumi.String("https://rubygems.org/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteGemsRepository:RemoteGemsRepository my-remote-gems my-remote-gems
+//
+//	$ pulumi import artifactory:index/remoteGemsRepository:RemoteGemsRepository my-remote-gems my-remote-gems
+//
 // ```
 type RemoteGemsRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteGemsRepository) ToRemoteGemsRepositoryOutputWithContext(ctx conte
 // RemoteGemsRepositoryArrayInput is an input type that accepts RemoteGemsRepositoryArray and RemoteGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGemsRepositoryArrayInput` via:
 //
-//          RemoteGemsRepositoryArray{ RemoteGemsRepositoryArgs{...} }
+//	RemoteGemsRepositoryArray{ RemoteGemsRepositoryArgs{...} }
 type RemoteGemsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteGemsRepositoryArray) ToRemoteGemsRepositoryArrayOutputWithContext(
 // RemoteGemsRepositoryMapInput is an input type that accepts RemoteGemsRepositoryMap and RemoteGemsRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteGemsRepositoryMapInput` via:
 //
-//          RemoteGemsRepositoryMap{ "key": RemoteGemsRepositoryArgs{...} }
+//	RemoteGemsRepositoryMap{ "key": RemoteGemsRepositoryArgs{...} }
 type RemoteGemsRepositoryMapInput interface {
 	pulumi.Input
 

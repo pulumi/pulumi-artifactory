@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualCranRepository(ctx, "foo-cran", &artifactory.VirtualCranRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-cran"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualCranRepository(ctx, "foo-cran", &artifactory.VirtualCranRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-cran"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
+//
+//	$ pulumi import artifactory:index/virtualCranRepository:VirtualCranRepository foo-cran foo-cran
+//
 // ```
 type VirtualCranRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualCranRepository) ToVirtualCranRepositoryOutputWithContext(ctx con
 // VirtualCranRepositoryArrayInput is an input type that accepts VirtualCranRepositoryArray and VirtualCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualCranRepositoryArrayInput` via:
 //
-//          VirtualCranRepositoryArray{ VirtualCranRepositoryArgs{...} }
+//	VirtualCranRepositoryArray{ VirtualCranRepositoryArgs{...} }
 type VirtualCranRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualCranRepositoryArray) ToVirtualCranRepositoryArrayOutputWithContex
 // VirtualCranRepositoryMapInput is an input type that accepts VirtualCranRepositoryMap and VirtualCranRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualCranRepositoryMapInput` via:
 //
-//          VirtualCranRepositoryMap{ "key": VirtualCranRepositoryArgs{...} }
+//	VirtualCranRepositoryMap{ "key": VirtualCranRepositoryArgs{...} }
 type VirtualCranRepositoryMapInput interface {
 	pulumi.Input
 

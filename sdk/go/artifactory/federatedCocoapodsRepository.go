@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCocoapodsRepository(ctx, "terraform-federated-test-cocoapods-repo", &artifactory.FederatedCocoapodsRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-cocoapods-repo"),
-// 			Members: FederatedCocoapodsRepositoryMemberArray{
-// 				&FederatedCocoapodsRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo"),
-// 				},
-// 				&FederatedCocoapodsRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedCocoapodsRepository(ctx, "terraform-federated-test-cocoapods-repo", &artifactory.FederatedCocoapodsRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-cocoapods-repo"),
+//				Members: FederatedCocoapodsRepositoryMemberArray{
+//					&FederatedCocoapodsRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo"),
+//					},
+//					&FederatedCocoapodsRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository terraform-federated-test-cocoapods-repo terraform-federated-test-cocoapods-repo
+//
+//	$ pulumi import artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository terraform-federated-test-cocoapods-repo terraform-federated-test-cocoapods-repo
+//
 // ```
 type FederatedCocoapodsRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedCocoapodsRepository) ToFederatedCocoapodsRepositoryOutputWithC
 // FederatedCocoapodsRepositoryArrayInput is an input type that accepts FederatedCocoapodsRepositoryArray and FederatedCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCocoapodsRepositoryArrayInput` via:
 //
-//          FederatedCocoapodsRepositoryArray{ FederatedCocoapodsRepositoryArgs{...} }
+//	FederatedCocoapodsRepositoryArray{ FederatedCocoapodsRepositoryArgs{...} }
 type FederatedCocoapodsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedCocoapodsRepositoryArray) ToFederatedCocoapodsRepositoryArrayOu
 // FederatedCocoapodsRepositoryMapInput is an input type that accepts FederatedCocoapodsRepositoryMap and FederatedCocoapodsRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedCocoapodsRepositoryMapInput` via:
 //
-//          FederatedCocoapodsRepositoryMap{ "key": FederatedCocoapodsRepositoryArgs{...} }
+//	FederatedCocoapodsRepositoryMap{ "key": FederatedCocoapodsRepositoryArgs{...} }
 type FederatedCocoapodsRepositoryMapInput interface {
 	pulumi.Input
 

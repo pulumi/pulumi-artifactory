@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias1"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair4", random_id.Randid.Id)),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias2"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
-// 			Key:                 pulumi.String("my-debian-repo"),
-// 			PrimaryKeypairRef:   some_keypairGPG1.PairName,
-// 			SecondaryKeypairRef: some_keypairGPG2.PairName,
-// 			IndexCompressionFormats: pulumi.StringArray{
-// 				pulumi.String("bz2"),
-// 				pulumi.String("lzma"),
-// 				pulumi.String("xz"),
-// 			},
-// 			TrivialLayout: pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			some_keypairGPG1,
-// 			some_keypairGPG2,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypairGPG1", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias1"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypairGPG2", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair4%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias2"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewDebianRepository(ctx, "my-debian-repo", &artifactory.DebianRepositoryArgs{
+//				Key:                 pulumi.String("my-debian-repo"),
+//				PrimaryKeypairRef:   some_keypairGPG1.PairName,
+//				SecondaryKeypairRef: some_keypairGPG2.PairName,
+//				IndexCompressionFormats: pulumi.StringArray{
+//					pulumi.String("bz2"),
+//					pulumi.String("lzma"),
+//					pulumi.String("xz"),
+//				},
+//				TrivialLayout: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypairGPG1,
+//				some_keypairGPG2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
+//
+//	$ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo
+//
 // ```
 type DebianRepository struct {
 	pulumi.CustomResourceState
@@ -387,7 +392,7 @@ func (i *DebianRepository) ToDebianRepositoryOutputWithContext(ctx context.Conte
 // DebianRepositoryArrayInput is an input type that accepts DebianRepositoryArray and DebianRepositoryArrayOutput values.
 // You can construct a concrete instance of `DebianRepositoryArrayInput` via:
 //
-//          DebianRepositoryArray{ DebianRepositoryArgs{...} }
+//	DebianRepositoryArray{ DebianRepositoryArgs{...} }
 type DebianRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -412,7 +417,7 @@ func (i DebianRepositoryArray) ToDebianRepositoryArrayOutputWithContext(ctx cont
 // DebianRepositoryMapInput is an input type that accepts DebianRepositoryMap and DebianRepositoryMapOutput values.
 // You can construct a concrete instance of `DebianRepositoryMapInput` via:
 //
-//          DebianRepositoryMap{ "key": DebianRepositoryArgs{...} }
+//	DebianRepositoryMap{ "key": DebianRepositoryArgs{...} }
 type DebianRepositoryMapInput interface {
 	pulumi.Input
 

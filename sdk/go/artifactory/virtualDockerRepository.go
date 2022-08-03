@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualDockerRepository(ctx, "foo-docker", &artifactory.VirtualDockerRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-docker"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualDockerRepository(ctx, "foo-docker", &artifactory.VirtualDockerRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-docker"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
+//
+//	$ pulumi import artifactory:index/virtualDockerRepository:VirtualDockerRepository foo-docker foo-docker
+//
 // ```
 type VirtualDockerRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualDockerRepository) ToVirtualDockerRepositoryOutputWithContext(ctx
 // VirtualDockerRepositoryArrayInput is an input type that accepts VirtualDockerRepositoryArray and VirtualDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualDockerRepositoryArrayInput` via:
 //
-//          VirtualDockerRepositoryArray{ VirtualDockerRepositoryArgs{...} }
+//	VirtualDockerRepositoryArray{ VirtualDockerRepositoryArgs{...} }
 type VirtualDockerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualDockerRepositoryArray) ToVirtualDockerRepositoryArrayOutputWithCo
 // VirtualDockerRepositoryMapInput is an input type that accepts VirtualDockerRepositoryMap and VirtualDockerRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualDockerRepositoryMapInput` via:
 //
-//          VirtualDockerRepositoryMap{ "key": VirtualDockerRepositoryArgs{...} }
+//	VirtualDockerRepositoryMap{ "key": VirtualDockerRepositoryArgs{...} }
 type VirtualDockerRepositoryMapInput interface {
 	pulumi.Input
 

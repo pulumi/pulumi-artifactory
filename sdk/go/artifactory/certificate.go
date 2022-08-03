@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
-// 			Alias:   pulumi.String("my-cert"),
-// 			Content: readFileOrPanic("/path/to/bundle.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
-// 			ClientTlsCertificate: my_cert.Alias,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewCertificate(ctx, "my-cert", &artifactory.CertificateArgs{
+//				Alias:   pulumi.String("my-cert"),
+//				Content: readFileOrPanic("/path/to/bundle.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewRemoteMavenRepository(ctx, "my-remote", &artifactory.RemoteMavenRepositoryArgs{
+//				ClientTlsCertificate: my_cert.Alias,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Certificates can be imported using their alias, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+//
+//	$ pulumi import artifactory:index/certificate:Certificate my-cert my-cert
+//
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
-//          CertificateArray{ CertificateArgs{...} }
+//	CertificateArray{ CertificateArgs{...} }
 type CertificateArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Contex
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
 // You can construct a concrete instance of `CertificateMapInput` via:
 //
-//          CertificateMap{ "key": CertificateArgs{...} }
+//	CertificateMap{ "key": CertificateArgs{...} }
 type CertificateMapInput interface {
 	pulumi.Input
 

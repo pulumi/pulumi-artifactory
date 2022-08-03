@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteGoRepository(ctx, "my-remote-go", &artifactory.RemoteGoRepositoryArgs{
-// 			Key:            pulumi.String("my-remote-go"),
-// 			Url:            pulumi.String("https://proxy.golang.org/"),
-// 			VcsGitProvider: pulumi.String("ARTIFACTORY"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteGoRepository(ctx, "my-remote-go", &artifactory.RemoteGoRepositoryArgs{
+//				Key:            pulumi.String("my-remote-go"),
+//				Url:            pulumi.String("https://proxy.golang.org/"),
+//				VcsGitProvider: pulumi.String("ARTIFACTORY"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
+//
+//	$ pulumi import artifactory:index/remoteGoRepository:RemoteGoRepository my-remote-go my-remote-go
+//
 // ```
 type RemoteGoRepository struct {
 	pulumi.CustomResourceState
@@ -597,7 +602,7 @@ func (i *RemoteGoRepository) ToRemoteGoRepositoryOutputWithContext(ctx context.C
 // RemoteGoRepositoryArrayInput is an input type that accepts RemoteGoRepositoryArray and RemoteGoRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGoRepositoryArrayInput` via:
 //
-//          RemoteGoRepositoryArray{ RemoteGoRepositoryArgs{...} }
+//	RemoteGoRepositoryArray{ RemoteGoRepositoryArgs{...} }
 type RemoteGoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -622,7 +627,7 @@ func (i RemoteGoRepositoryArray) ToRemoteGoRepositoryArrayOutputWithContext(ctx 
 // RemoteGoRepositoryMapInput is an input type that accepts RemoteGoRepositoryMap and RemoteGoRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteGoRepositoryMapInput` via:
 //
-//          RemoteGoRepositoryMap{ "key": RemoteGoRepositoryArgs{...} }
+//	RemoteGoRepositoryMap{ "key": RemoteGoRepositoryArgs{...} }
 type RemoteGoRepositoryMapInput interface {
 	pulumi.Input
 

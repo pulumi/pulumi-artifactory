@@ -20,49 +20,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewReleaseBundleWebhook(ctx, "release-bundle-webhook", &artifactory.ReleaseBundleWebhookArgs{
-// 			Criteria: &ReleaseBundleWebhookCriteriaArgs{
-// 				AnyReleaseBundle: pulumi.Bool(false),
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				RegisteredReleaseBundleNames: pulumi.StringArray{
-// 					pulumi.String("bundle-name"),
-// 				},
-// 			},
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("created"),
-// 				pulumi.String("signed"),
-// 				pulumi.String("deleted"),
-// 			},
-// 			Handlers: ReleaseBundleWebhookHandlerArray{
-// 				&ReleaseBundleWebhookHandlerArgs{
-// 					CustomHttpHeaders: pulumi.StringMap{
-// 						"header-1": pulumi.String("value-1"),
-// 						"header-2": pulumi.String("value-2"),
-// 					},
-// 					Proxy:  pulumi.String("proxy-key"),
-// 					Secret: pulumi.String("some-secret"),
-// 					Url:    pulumi.String("http://tempurl.org/webhook"),
-// 				},
-// 			},
-// 			Key: pulumi.String("release-bundle-webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewReleaseBundleWebhook(ctx, "release-bundle-webhook", &artifactory.ReleaseBundleWebhookArgs{
+//				Criteria: &ReleaseBundleWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//				},
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("created"),
+//					pulumi.String("signed"),
+//					pulumi.String("deleted"),
+//				},
+//				Handlers: ReleaseBundleWebhookHandlerArray{
+//					&ReleaseBundleWebhookHandlerArgs{
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//						Proxy:  pulumi.String("proxy-key"),
+//						Secret: pulumi.String("some-secret"),
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//					},
+//				},
+//				Key: pulumi.String("release-bundle-webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ReleaseBundleWebhook struct {
 	pulumi.CustomResourceState
@@ -212,7 +215,7 @@ func (i *ReleaseBundleWebhook) ToReleaseBundleWebhookOutputWithContext(ctx conte
 // ReleaseBundleWebhookArrayInput is an input type that accepts ReleaseBundleWebhookArray and ReleaseBundleWebhookArrayOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookArrayInput` via:
 //
-//          ReleaseBundleWebhookArray{ ReleaseBundleWebhookArgs{...} }
+//	ReleaseBundleWebhookArray{ ReleaseBundleWebhookArgs{...} }
 type ReleaseBundleWebhookArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +240,7 @@ func (i ReleaseBundleWebhookArray) ToReleaseBundleWebhookArrayOutputWithContext(
 // ReleaseBundleWebhookMapInput is an input type that accepts ReleaseBundleWebhookMap and ReleaseBundleWebhookMapOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookMapInput` via:
 //
-//          ReleaseBundleWebhookMap{ "key": ReleaseBundleWebhookArgs{...} }
+//	ReleaseBundleWebhookMap{ "key": ReleaseBundleWebhookArgs{...} }
 type ReleaseBundleWebhookMapInput interface {
 	pulumi.Input
 

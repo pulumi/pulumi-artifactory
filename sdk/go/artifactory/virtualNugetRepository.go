@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualNugetRepository(ctx, "foo-nuget", &artifactory.VirtualNugetRepositoryArgs{
-// 			Description:              pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:          pulumi.String("com/google/**"),
-// 			ForceNugetAuthentication: pulumi.Bool(true),
-// 			IncludesPattern:          pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                      pulumi.String("foo-nuget"),
-// 			Notes:                    pulumi.String("Internal description"),
-// 			Repositories:             pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualNugetRepository(ctx, "foo-nuget", &artifactory.VirtualNugetRepositoryArgs{
+//				Description:              pulumi.String("A test virtual repo"),
+//				ExcludesPattern:          pulumi.String("com/google/**"),
+//				ForceNugetAuthentication: pulumi.Bool(true),
+//				IncludesPattern:          pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                      pulumi.String("foo-nuget"),
+//				Notes:                    pulumi.String("Internal description"),
+//				Repositories:             pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
+//
+//	$ pulumi import artifactory:index/virtualNugetRepository:VirtualNugetRepository foo-nuget foo-nuget
+//
 // ```
 type VirtualNugetRepository struct {
 	pulumi.CustomResourceState
@@ -300,7 +305,7 @@ func (i *VirtualNugetRepository) ToVirtualNugetRepositoryOutputWithContext(ctx c
 // VirtualNugetRepositoryArrayInput is an input type that accepts VirtualNugetRepositoryArray and VirtualNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualNugetRepositoryArrayInput` via:
 //
-//          VirtualNugetRepositoryArray{ VirtualNugetRepositoryArgs{...} }
+//	VirtualNugetRepositoryArray{ VirtualNugetRepositoryArgs{...} }
 type VirtualNugetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -325,7 +330,7 @@ func (i VirtualNugetRepositoryArray) ToVirtualNugetRepositoryArrayOutputWithCont
 // VirtualNugetRepositoryMapInput is an input type that accepts VirtualNugetRepositoryMap and VirtualNugetRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualNugetRepositoryMapInput` via:
 //
-//          VirtualNugetRepositoryMap{ "key": VirtualNugetRepositoryArgs{...} }
+//	VirtualNugetRepositoryMap{ "key": VirtualNugetRepositoryArgs{...} }
 type VirtualNugetRepositoryMapInput interface {
 	pulumi.Input
 

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGoRepository(ctx, "terraform-local-test-go-repo", &artifactory.LocalGoRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-go-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGoRepository(ctx, "terraform-local-test-go-repo", &artifactory.LocalGoRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-go-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
+//
+//	$ pulumi import artifactory:index/localGoRepository:LocalGoRepository terraform-local-test-go-repo terraform-local-test-go-repo
+//
 // ```
 type LocalGoRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalGoRepository) ToLocalGoRepositoryOutputWithContext(ctx context.Con
 // LocalGoRepositoryArrayInput is an input type that accepts LocalGoRepositoryArray and LocalGoRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGoRepositoryArrayInput` via:
 //
-//          LocalGoRepositoryArray{ LocalGoRepositoryArgs{...} }
+//	LocalGoRepositoryArray{ LocalGoRepositoryArgs{...} }
 type LocalGoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalGoRepositoryArray) ToLocalGoRepositoryArrayOutputWithContext(ctx co
 // LocalGoRepositoryMapInput is an input type that accepts LocalGoRepositoryMap and LocalGoRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalGoRepositoryMapInput` via:
 //
-//          LocalGoRepositoryMap{ "key": LocalGoRepositoryArgs{...} }
+//	LocalGoRepositoryMap{ "key": LocalGoRepositoryArgs{...} }
 type LocalGoRepositoryMapInput interface {
 	pulumi.Input
 

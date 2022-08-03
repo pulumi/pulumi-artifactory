@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalIvyRepository(ctx, "terraform-local-test-ivy-repo", &artifactory.LocalIvyRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-ivy-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalIvyRepository(ctx, "terraform-local-test-ivy-repo", &artifactory.LocalIvyRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-ivy-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
+//
+//	$ pulumi import artifactory:index/localIvyRepository:LocalIvyRepository terraform-local-test-ivy-repo terraform-local-test-ivy-repo
+//
 // ```
 type LocalIvyRepository struct {
 	pulumi.CustomResourceState
@@ -395,7 +400,7 @@ func (i *LocalIvyRepository) ToLocalIvyRepositoryOutputWithContext(ctx context.C
 // LocalIvyRepositoryArrayInput is an input type that accepts LocalIvyRepositoryArray and LocalIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalIvyRepositoryArrayInput` via:
 //
-//          LocalIvyRepositoryArray{ LocalIvyRepositoryArgs{...} }
+//	LocalIvyRepositoryArray{ LocalIvyRepositoryArgs{...} }
 type LocalIvyRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -420,7 +425,7 @@ func (i LocalIvyRepositoryArray) ToLocalIvyRepositoryArrayOutputWithContext(ctx 
 // LocalIvyRepositoryMapInput is an input type that accepts LocalIvyRepositoryMap and LocalIvyRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalIvyRepositoryMapInput` via:
 //
-//          LocalIvyRepositoryMap{ "key": LocalIvyRepositoryArgs{...} }
+//	LocalIvyRepositoryMap{ "key": LocalIvyRepositoryArgs{...} }
 type LocalIvyRepositoryMapInput interface {
 	pulumi.Input
 

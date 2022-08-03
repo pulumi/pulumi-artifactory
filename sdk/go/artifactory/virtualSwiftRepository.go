@@ -19,7 +19,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
+//
+//	$ pulumi import artifactory:index/virtualSwiftRepository:VirtualSwiftRepository foo-swift foo-swift
+//
 // ```
 type VirtualSwiftRepository struct {
 	pulumi.CustomResourceState
@@ -261,7 +263,7 @@ func (i *VirtualSwiftRepository) ToVirtualSwiftRepositoryOutputWithContext(ctx c
 // VirtualSwiftRepositoryArrayInput is an input type that accepts VirtualSwiftRepositoryArray and VirtualSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualSwiftRepositoryArrayInput` via:
 //
-//          VirtualSwiftRepositoryArray{ VirtualSwiftRepositoryArgs{...} }
+//	VirtualSwiftRepositoryArray{ VirtualSwiftRepositoryArgs{...} }
 type VirtualSwiftRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +288,7 @@ func (i VirtualSwiftRepositoryArray) ToVirtualSwiftRepositoryArrayOutputWithCont
 // VirtualSwiftRepositoryMapInput is an input type that accepts VirtualSwiftRepositoryMap and VirtualSwiftRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualSwiftRepositoryMapInput` via:
 //
-//          VirtualSwiftRepositoryMap{ "key": VirtualSwiftRepositoryArgs{...} }
+//	VirtualSwiftRepositoryMap{ "key": VirtualSwiftRepositoryArgs{...} }
 type VirtualSwiftRepositoryMapInput interface {
 	pulumi.Input
 

@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualSbtRepository(ctx, "foo-sbt", &artifactory.VirtualSbtRepositoryArgs{
-// 			Description:                          pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:                      pulumi.String("com/google/**"),
-// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                                  pulumi.String("foo-sbt"),
-// 			Notes:                                pulumi.String("Internal description"),
-// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-// 			Repositories:                         pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualSbtRepository(ctx, "foo-sbt", &artifactory.VirtualSbtRepositoryArgs{
+//				Description:                          pulumi.String("A test virtual repo"),
+//				ExcludesPattern:                      pulumi.String("com/google/**"),
+//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                                  pulumi.String("foo-sbt"),
+//				Notes:                                pulumi.String("Internal description"),
+//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
+//				Repositories:                         pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
+//
+//	$ pulumi import artifactory:index/virtualSbtRepository:VirtualSbtRepository foo-sbt foo-sbt
+//
 // ```
 type VirtualSbtRepository struct {
 	pulumi.CustomResourceState
@@ -335,7 +340,7 @@ func (i *VirtualSbtRepository) ToVirtualSbtRepositoryOutputWithContext(ctx conte
 // VirtualSbtRepositoryArrayInput is an input type that accepts VirtualSbtRepositoryArray and VirtualSbtRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualSbtRepositoryArrayInput` via:
 //
-//          VirtualSbtRepositoryArray{ VirtualSbtRepositoryArgs{...} }
+//	VirtualSbtRepositoryArray{ VirtualSbtRepositoryArgs{...} }
 type VirtualSbtRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +365,7 @@ func (i VirtualSbtRepositoryArray) ToVirtualSbtRepositoryArrayOutputWithContext(
 // VirtualSbtRepositoryMapInput is an input type that accepts VirtualSbtRepositoryMap and VirtualSbtRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualSbtRepositoryMapInput` via:
 //
-//          VirtualSbtRepositoryMap{ "key": VirtualSbtRepositoryArgs{...} }
+//	VirtualSbtRepositoryMap{ "key": VirtualSbtRepositoryArgs{...} }
 type VirtualSbtRepositoryMapInput interface {
 	pulumi.Input
 

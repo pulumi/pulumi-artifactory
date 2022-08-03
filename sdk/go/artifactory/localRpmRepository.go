@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias1"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String(fmt.Sprintf("%v%v", "some-keypair", random_id.Randid.Id)),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias2"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
-// 			Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
-// 			YumRootDepth:            pulumi.Int(5),
-// 			CalculateYumMetadata:    pulumi.Bool(true),
-// 			EnableFileListsIndexing: pulumi.Bool(true),
-// 			YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
-// 			PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.Some - keypairGPG1.Pair_name),
-// 			SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.Some - keypairGPG2.Pair_name),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			some_keypair_gpg_1,
-// 			some_keypair_gpg_2,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypair-gpg-1", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias1"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "some-keypair-gpg-2", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String(fmt.Sprintf("some-keypair%v", random_id.Randid.Id)),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias2"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewLocalRpmRepository(ctx, "terraform-local-test-rpm-repo-basic", &artifactory.LocalRpmRepositoryArgs{
+//				Key:                     pulumi.String("terraform-local-test-rpm-repo-basic"),
+//				YumRootDepth:            pulumi.Int(5),
+//				CalculateYumMetadata:    pulumi.Bool(true),
+//				EnableFileListsIndexing: pulumi.Bool(true),
+//				YumGroupFileNames:       pulumi.String("file-1.xml,file-2.xml"),
+//				PrimaryKeypairRef:       pulumi.Any(artifactory_keypair.Some - keypairGPG1.Pair_name),
+//				SecondaryKeypairRef:     pulumi.Any(artifactory_keypair.Some - keypairGPG2.Pair_name),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypair_gpg_1,
+//				some_keypair_gpg_2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic
+//
+//	$ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic
+//
 // ```
 type LocalRpmRepository struct {
 	pulumi.CustomResourceState
@@ -420,7 +425,7 @@ func (i *LocalRpmRepository) ToLocalRpmRepositoryOutputWithContext(ctx context.C
 // LocalRpmRepositoryArrayInput is an input type that accepts LocalRpmRepositoryArray and LocalRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalRpmRepositoryArrayInput` via:
 //
-//          LocalRpmRepositoryArray{ LocalRpmRepositoryArgs{...} }
+//	LocalRpmRepositoryArray{ LocalRpmRepositoryArgs{...} }
 type LocalRpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -445,7 +450,7 @@ func (i LocalRpmRepositoryArray) ToLocalRpmRepositoryArrayOutputWithContext(ctx 
 // LocalRpmRepositoryMapInput is an input type that accepts LocalRpmRepositoryMap and LocalRpmRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalRpmRepositoryMapInput` via:
 //
-//          LocalRpmRepositoryMap{ "key": LocalRpmRepositoryArgs{...} }
+//	LocalRpmRepositoryMap{ "key": LocalRpmRepositoryArgs{...} }
 type LocalRpmRepositoryMapInput interface {
 	pulumi.Input
 

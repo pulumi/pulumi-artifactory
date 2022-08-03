@@ -17,7 +17,7 @@ type AccessTokenAdminToken struct {
 // AccessTokenAdminTokenInput is an input type that accepts AccessTokenAdminTokenArgs and AccessTokenAdminTokenOutput values.
 // You can construct a concrete instance of `AccessTokenAdminTokenInput` via:
 //
-//          AccessTokenAdminTokenArgs{...}
+//	AccessTokenAdminTokenArgs{...}
 type AccessTokenAdminTokenInput interface {
 	pulumi.Input
 
@@ -52,11 +52,11 @@ func (i AccessTokenAdminTokenArgs) ToAccessTokenAdminTokenPtrOutputWithContext(c
 // AccessTokenAdminTokenPtrInput is an input type that accepts AccessTokenAdminTokenArgs, AccessTokenAdminTokenPtr and AccessTokenAdminTokenPtrOutput values.
 // You can construct a concrete instance of `AccessTokenAdminTokenPtrInput` via:
 //
-//          AccessTokenAdminTokenArgs{...}
+//	        AccessTokenAdminTokenArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccessTokenAdminTokenPtrInput interface {
 	pulumi.Input
 
@@ -159,7 +159,7 @@ type ArtifactPropertyWebhookCriteria struct {
 // ArtifactPropertyWebhookCriteriaInput is an input type that accepts ArtifactPropertyWebhookCriteriaArgs and ArtifactPropertyWebhookCriteriaOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookCriteriaInput` via:
 //
-//          ArtifactPropertyWebhookCriteriaArgs{...}
+//	ArtifactPropertyWebhookCriteriaArgs{...}
 type ArtifactPropertyWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -203,11 +203,11 @@ func (i ArtifactPropertyWebhookCriteriaArgs) ToArtifactPropertyWebhookCriteriaPt
 // ArtifactPropertyWebhookCriteriaPtrInput is an input type that accepts ArtifactPropertyWebhookCriteriaArgs, ArtifactPropertyWebhookCriteriaPtr and ArtifactPropertyWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookCriteriaPtrInput` via:
 //
-//          ArtifactPropertyWebhookCriteriaArgs{...}
+//	        ArtifactPropertyWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ArtifactPropertyWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -370,7 +370,7 @@ type ArtifactPropertyWebhookHandler struct {
 // ArtifactPropertyWebhookHandlerInput is an input type that accepts ArtifactPropertyWebhookHandlerArgs and ArtifactPropertyWebhookHandlerOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookHandlerInput` via:
 //
-//          ArtifactPropertyWebhookHandlerArgs{...}
+//	ArtifactPropertyWebhookHandlerArgs{...}
 type ArtifactPropertyWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -404,7 +404,7 @@ func (i ArtifactPropertyWebhookHandlerArgs) ToArtifactPropertyWebhookHandlerOutp
 // ArtifactPropertyWebhookHandlerArrayInput is an input type that accepts ArtifactPropertyWebhookHandlerArray and ArtifactPropertyWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `ArtifactPropertyWebhookHandlerArrayInput` via:
 //
-//          ArtifactPropertyWebhookHandlerArray{ ArtifactPropertyWebhookHandlerArgs{...} }
+//	ArtifactPropertyWebhookHandlerArray{ ArtifactPropertyWebhookHandlerArgs{...} }
 type ArtifactPropertyWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -496,7 +496,7 @@ type ArtifactWebhookCriteria struct {
 // ArtifactWebhookCriteriaInput is an input type that accepts ArtifactWebhookCriteriaArgs and ArtifactWebhookCriteriaOutput values.
 // You can construct a concrete instance of `ArtifactWebhookCriteriaInput` via:
 //
-//          ArtifactWebhookCriteriaArgs{...}
+//	ArtifactWebhookCriteriaArgs{...}
 type ArtifactWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -540,11 +540,11 @@ func (i ArtifactWebhookCriteriaArgs) ToArtifactWebhookCriteriaPtrOutputWithConte
 // ArtifactWebhookCriteriaPtrInput is an input type that accepts ArtifactWebhookCriteriaArgs, ArtifactWebhookCriteriaPtr and ArtifactWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `ArtifactWebhookCriteriaPtrInput` via:
 //
-//          ArtifactWebhookCriteriaArgs{...}
+//	        ArtifactWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ArtifactWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -707,7 +707,7 @@ type ArtifactWebhookHandler struct {
 // ArtifactWebhookHandlerInput is an input type that accepts ArtifactWebhookHandlerArgs and ArtifactWebhookHandlerOutput values.
 // You can construct a concrete instance of `ArtifactWebhookHandlerInput` via:
 //
-//          ArtifactWebhookHandlerArgs{...}
+//	ArtifactWebhookHandlerArgs{...}
 type ArtifactWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -741,7 +741,7 @@ func (i ArtifactWebhookHandlerArgs) ToArtifactWebhookHandlerOutputWithContext(ct
 // ArtifactWebhookHandlerArrayInput is an input type that accepts ArtifactWebhookHandlerArray and ArtifactWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `ArtifactWebhookHandlerArrayInput` via:
 //
-//          ArtifactWebhookHandlerArray{ ArtifactWebhookHandlerArgs{...} }
+//	ArtifactWebhookHandlerArray{ ArtifactWebhookHandlerArgs{...} }
 type ArtifactWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -831,7 +831,7 @@ type ArtifactoryReleaseBundleWebhookCriteria struct {
 // ArtifactoryReleaseBundleWebhookCriteriaInput is an input type that accepts ArtifactoryReleaseBundleWebhookCriteriaArgs and ArtifactoryReleaseBundleWebhookCriteriaOutput values.
 // You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookCriteriaInput` via:
 //
-//          ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
+//	ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
 type ArtifactoryReleaseBundleWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -873,11 +873,11 @@ func (i ArtifactoryReleaseBundleWebhookCriteriaArgs) ToArtifactoryReleaseBundleW
 // ArtifactoryReleaseBundleWebhookCriteriaPtrInput is an input type that accepts ArtifactoryReleaseBundleWebhookCriteriaArgs, ArtifactoryReleaseBundleWebhookCriteriaPtr and ArtifactoryReleaseBundleWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookCriteriaPtrInput` via:
 //
-//          ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
+//	        ArtifactoryReleaseBundleWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ArtifactoryReleaseBundleWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -1025,7 +1025,7 @@ type ArtifactoryReleaseBundleWebhookHandler struct {
 // ArtifactoryReleaseBundleWebhookHandlerInput is an input type that accepts ArtifactoryReleaseBundleWebhookHandlerArgs and ArtifactoryReleaseBundleWebhookHandlerOutput values.
 // You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookHandlerInput` via:
 //
-//          ArtifactoryReleaseBundleWebhookHandlerArgs{...}
+//	ArtifactoryReleaseBundleWebhookHandlerArgs{...}
 type ArtifactoryReleaseBundleWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -1059,7 +1059,7 @@ func (i ArtifactoryReleaseBundleWebhookHandlerArgs) ToArtifactoryReleaseBundleWe
 // ArtifactoryReleaseBundleWebhookHandlerArrayInput is an input type that accepts ArtifactoryReleaseBundleWebhookHandlerArray and ArtifactoryReleaseBundleWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `ArtifactoryReleaseBundleWebhookHandlerArrayInput` via:
 //
-//          ArtifactoryReleaseBundleWebhookHandlerArray{ ArtifactoryReleaseBundleWebhookHandlerArgs{...} }
+//	ArtifactoryReleaseBundleWebhookHandlerArray{ ArtifactoryReleaseBundleWebhookHandlerArgs{...} }
 type ArtifactoryReleaseBundleWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -1149,7 +1149,7 @@ type BuildWebhookCriteria struct {
 // BuildWebhookCriteriaInput is an input type that accepts BuildWebhookCriteriaArgs and BuildWebhookCriteriaOutput values.
 // You can construct a concrete instance of `BuildWebhookCriteriaInput` via:
 //
-//          BuildWebhookCriteriaArgs{...}
+//	BuildWebhookCriteriaArgs{...}
 type BuildWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -1191,11 +1191,11 @@ func (i BuildWebhookCriteriaArgs) ToBuildWebhookCriteriaPtrOutputWithContext(ctx
 // BuildWebhookCriteriaPtrInput is an input type that accepts BuildWebhookCriteriaArgs, BuildWebhookCriteriaPtr and BuildWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `BuildWebhookCriteriaPtrInput` via:
 //
-//          BuildWebhookCriteriaArgs{...}
+//	        BuildWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BuildWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -1343,7 +1343,7 @@ type BuildWebhookHandler struct {
 // BuildWebhookHandlerInput is an input type that accepts BuildWebhookHandlerArgs and BuildWebhookHandlerOutput values.
 // You can construct a concrete instance of `BuildWebhookHandlerInput` via:
 //
-//          BuildWebhookHandlerArgs{...}
+//	BuildWebhookHandlerArgs{...}
 type BuildWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -1377,7 +1377,7 @@ func (i BuildWebhookHandlerArgs) ToBuildWebhookHandlerOutputWithContext(ctx cont
 // BuildWebhookHandlerArrayInput is an input type that accepts BuildWebhookHandlerArray and BuildWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `BuildWebhookHandlerArrayInput` via:
 //
-//          BuildWebhookHandlerArray{ BuildWebhookHandlerArgs{...} }
+//	BuildWebhookHandlerArray{ BuildWebhookHandlerArgs{...} }
 type BuildWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -1467,7 +1467,7 @@ type DistributionWebhookCriteria struct {
 // DistributionWebhookCriteriaInput is an input type that accepts DistributionWebhookCriteriaArgs and DistributionWebhookCriteriaOutput values.
 // You can construct a concrete instance of `DistributionWebhookCriteriaInput` via:
 //
-//          DistributionWebhookCriteriaArgs{...}
+//	DistributionWebhookCriteriaArgs{...}
 type DistributionWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -1509,11 +1509,11 @@ func (i DistributionWebhookCriteriaArgs) ToDistributionWebhookCriteriaPtrOutputW
 // DistributionWebhookCriteriaPtrInput is an input type that accepts DistributionWebhookCriteriaArgs, DistributionWebhookCriteriaPtr and DistributionWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `DistributionWebhookCriteriaPtrInput` via:
 //
-//          DistributionWebhookCriteriaArgs{...}
+//	        DistributionWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DistributionWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -1661,7 +1661,7 @@ type DistributionWebhookHandler struct {
 // DistributionWebhookHandlerInput is an input type that accepts DistributionWebhookHandlerArgs and DistributionWebhookHandlerOutput values.
 // You can construct a concrete instance of `DistributionWebhookHandlerInput` via:
 //
-//          DistributionWebhookHandlerArgs{...}
+//	DistributionWebhookHandlerArgs{...}
 type DistributionWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -1695,7 +1695,7 @@ func (i DistributionWebhookHandlerArgs) ToDistributionWebhookHandlerOutputWithCo
 // DistributionWebhookHandlerArrayInput is an input type that accepts DistributionWebhookHandlerArray and DistributionWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `DistributionWebhookHandlerArrayInput` via:
 //
-//          DistributionWebhookHandlerArray{ DistributionWebhookHandlerArgs{...} }
+//	DistributionWebhookHandlerArray{ DistributionWebhookHandlerArgs{...} }
 type DistributionWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -1787,7 +1787,7 @@ type DockerWebhookCriteria struct {
 // DockerWebhookCriteriaInput is an input type that accepts DockerWebhookCriteriaArgs and DockerWebhookCriteriaOutput values.
 // You can construct a concrete instance of `DockerWebhookCriteriaInput` via:
 //
-//          DockerWebhookCriteriaArgs{...}
+//	DockerWebhookCriteriaArgs{...}
 type DockerWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -1831,11 +1831,11 @@ func (i DockerWebhookCriteriaArgs) ToDockerWebhookCriteriaPtrOutputWithContext(c
 // DockerWebhookCriteriaPtrInput is an input type that accepts DockerWebhookCriteriaArgs, DockerWebhookCriteriaPtr and DockerWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `DockerWebhookCriteriaPtrInput` via:
 //
-//          DockerWebhookCriteriaArgs{...}
+//	        DockerWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DockerWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -1998,7 +1998,7 @@ type DockerWebhookHandler struct {
 // DockerWebhookHandlerInput is an input type that accepts DockerWebhookHandlerArgs and DockerWebhookHandlerOutput values.
 // You can construct a concrete instance of `DockerWebhookHandlerInput` via:
 //
-//          DockerWebhookHandlerArgs{...}
+//	DockerWebhookHandlerArgs{...}
 type DockerWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -2032,7 +2032,7 @@ func (i DockerWebhookHandlerArgs) ToDockerWebhookHandlerOutputWithContext(ctx co
 // DockerWebhookHandlerArrayInput is an input type that accepts DockerWebhookHandlerArray and DockerWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `DockerWebhookHandlerArrayInput` via:
 //
-//          DockerWebhookHandlerArray{ DockerWebhookHandlerArgs{...} }
+//	DockerWebhookHandlerArray{ DockerWebhookHandlerArgs{...} }
 type DockerWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -2119,7 +2119,7 @@ type FederatedAlpineRepositoryMember struct {
 // FederatedAlpineRepositoryMemberInput is an input type that accepts FederatedAlpineRepositoryMemberArgs and FederatedAlpineRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedAlpineRepositoryMemberInput` via:
 //
-//          FederatedAlpineRepositoryMemberArgs{...}
+//	FederatedAlpineRepositoryMemberArgs{...}
 type FederatedAlpineRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2150,7 +2150,7 @@ func (i FederatedAlpineRepositoryMemberArgs) ToFederatedAlpineRepositoryMemberOu
 // FederatedAlpineRepositoryMemberArrayInput is an input type that accepts FederatedAlpineRepositoryMemberArray and FederatedAlpineRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedAlpineRepositoryMemberArrayInput` via:
 //
-//          FederatedAlpineRepositoryMemberArray{ FederatedAlpineRepositoryMemberArgs{...} }
+//	FederatedAlpineRepositoryMemberArray{ FederatedAlpineRepositoryMemberArgs{...} }
 type FederatedAlpineRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2228,7 +2228,7 @@ type FederatedBowerRepositoryMember struct {
 // FederatedBowerRepositoryMemberInput is an input type that accepts FederatedBowerRepositoryMemberArgs and FederatedBowerRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedBowerRepositoryMemberInput` via:
 //
-//          FederatedBowerRepositoryMemberArgs{...}
+//	FederatedBowerRepositoryMemberArgs{...}
 type FederatedBowerRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2259,7 +2259,7 @@ func (i FederatedBowerRepositoryMemberArgs) ToFederatedBowerRepositoryMemberOutp
 // FederatedBowerRepositoryMemberArrayInput is an input type that accepts FederatedBowerRepositoryMemberArray and FederatedBowerRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedBowerRepositoryMemberArrayInput` via:
 //
-//          FederatedBowerRepositoryMemberArray{ FederatedBowerRepositoryMemberArgs{...} }
+//	FederatedBowerRepositoryMemberArray{ FederatedBowerRepositoryMemberArgs{...} }
 type FederatedBowerRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2337,7 +2337,7 @@ type FederatedCargoRepositoryMember struct {
 // FederatedCargoRepositoryMemberInput is an input type that accepts FederatedCargoRepositoryMemberArgs and FederatedCargoRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedCargoRepositoryMemberInput` via:
 //
-//          FederatedCargoRepositoryMemberArgs{...}
+//	FederatedCargoRepositoryMemberArgs{...}
 type FederatedCargoRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2368,7 +2368,7 @@ func (i FederatedCargoRepositoryMemberArgs) ToFederatedCargoRepositoryMemberOutp
 // FederatedCargoRepositoryMemberArrayInput is an input type that accepts FederatedCargoRepositoryMemberArray and FederatedCargoRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedCargoRepositoryMemberArrayInput` via:
 //
-//          FederatedCargoRepositoryMemberArray{ FederatedCargoRepositoryMemberArgs{...} }
+//	FederatedCargoRepositoryMemberArray{ FederatedCargoRepositoryMemberArgs{...} }
 type FederatedCargoRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2446,7 +2446,7 @@ type FederatedChefRepositoryMember struct {
 // FederatedChefRepositoryMemberInput is an input type that accepts FederatedChefRepositoryMemberArgs and FederatedChefRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedChefRepositoryMemberInput` via:
 //
-//          FederatedChefRepositoryMemberArgs{...}
+//	FederatedChefRepositoryMemberArgs{...}
 type FederatedChefRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2477,7 +2477,7 @@ func (i FederatedChefRepositoryMemberArgs) ToFederatedChefRepositoryMemberOutput
 // FederatedChefRepositoryMemberArrayInput is an input type that accepts FederatedChefRepositoryMemberArray and FederatedChefRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedChefRepositoryMemberArrayInput` via:
 //
-//          FederatedChefRepositoryMemberArray{ FederatedChefRepositoryMemberArgs{...} }
+//	FederatedChefRepositoryMemberArray{ FederatedChefRepositoryMemberArgs{...} }
 type FederatedChefRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2555,7 +2555,7 @@ type FederatedCocoapodsRepositoryMember struct {
 // FederatedCocoapodsRepositoryMemberInput is an input type that accepts FederatedCocoapodsRepositoryMemberArgs and FederatedCocoapodsRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedCocoapodsRepositoryMemberInput` via:
 //
-//          FederatedCocoapodsRepositoryMemberArgs{...}
+//	FederatedCocoapodsRepositoryMemberArgs{...}
 type FederatedCocoapodsRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2586,7 +2586,7 @@ func (i FederatedCocoapodsRepositoryMemberArgs) ToFederatedCocoapodsRepositoryMe
 // FederatedCocoapodsRepositoryMemberArrayInput is an input type that accepts FederatedCocoapodsRepositoryMemberArray and FederatedCocoapodsRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedCocoapodsRepositoryMemberArrayInput` via:
 //
-//          FederatedCocoapodsRepositoryMemberArray{ FederatedCocoapodsRepositoryMemberArgs{...} }
+//	FederatedCocoapodsRepositoryMemberArray{ FederatedCocoapodsRepositoryMemberArgs{...} }
 type FederatedCocoapodsRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2664,7 +2664,7 @@ type FederatedComposerRepositoryMember struct {
 // FederatedComposerRepositoryMemberInput is an input type that accepts FederatedComposerRepositoryMemberArgs and FederatedComposerRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedComposerRepositoryMemberInput` via:
 //
-//          FederatedComposerRepositoryMemberArgs{...}
+//	FederatedComposerRepositoryMemberArgs{...}
 type FederatedComposerRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2695,7 +2695,7 @@ func (i FederatedComposerRepositoryMemberArgs) ToFederatedComposerRepositoryMemb
 // FederatedComposerRepositoryMemberArrayInput is an input type that accepts FederatedComposerRepositoryMemberArray and FederatedComposerRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedComposerRepositoryMemberArrayInput` via:
 //
-//          FederatedComposerRepositoryMemberArray{ FederatedComposerRepositoryMemberArgs{...} }
+//	FederatedComposerRepositoryMemberArray{ FederatedComposerRepositoryMemberArgs{...} }
 type FederatedComposerRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2773,7 +2773,7 @@ type FederatedConanRepositoryMember struct {
 // FederatedConanRepositoryMemberInput is an input type that accepts FederatedConanRepositoryMemberArgs and FederatedConanRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedConanRepositoryMemberInput` via:
 //
-//          FederatedConanRepositoryMemberArgs{...}
+//	FederatedConanRepositoryMemberArgs{...}
 type FederatedConanRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2804,7 +2804,7 @@ func (i FederatedConanRepositoryMemberArgs) ToFederatedConanRepositoryMemberOutp
 // FederatedConanRepositoryMemberArrayInput is an input type that accepts FederatedConanRepositoryMemberArray and FederatedConanRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedConanRepositoryMemberArrayInput` via:
 //
-//          FederatedConanRepositoryMemberArray{ FederatedConanRepositoryMemberArgs{...} }
+//	FederatedConanRepositoryMemberArray{ FederatedConanRepositoryMemberArgs{...} }
 type FederatedConanRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2882,7 +2882,7 @@ type FederatedCondaRepositoryMember struct {
 // FederatedCondaRepositoryMemberInput is an input type that accepts FederatedCondaRepositoryMemberArgs and FederatedCondaRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedCondaRepositoryMemberInput` via:
 //
-//          FederatedCondaRepositoryMemberArgs{...}
+//	FederatedCondaRepositoryMemberArgs{...}
 type FederatedCondaRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -2913,7 +2913,7 @@ func (i FederatedCondaRepositoryMemberArgs) ToFederatedCondaRepositoryMemberOutp
 // FederatedCondaRepositoryMemberArrayInput is an input type that accepts FederatedCondaRepositoryMemberArray and FederatedCondaRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedCondaRepositoryMemberArrayInput` via:
 //
-//          FederatedCondaRepositoryMemberArray{ FederatedCondaRepositoryMemberArgs{...} }
+//	FederatedCondaRepositoryMemberArray{ FederatedCondaRepositoryMemberArgs{...} }
 type FederatedCondaRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -2991,7 +2991,7 @@ type FederatedCranRepositoryMember struct {
 // FederatedCranRepositoryMemberInput is an input type that accepts FederatedCranRepositoryMemberArgs and FederatedCranRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedCranRepositoryMemberInput` via:
 //
-//          FederatedCranRepositoryMemberArgs{...}
+//	FederatedCranRepositoryMemberArgs{...}
 type FederatedCranRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3022,7 +3022,7 @@ func (i FederatedCranRepositoryMemberArgs) ToFederatedCranRepositoryMemberOutput
 // FederatedCranRepositoryMemberArrayInput is an input type that accepts FederatedCranRepositoryMemberArray and FederatedCranRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedCranRepositoryMemberArrayInput` via:
 //
-//          FederatedCranRepositoryMemberArray{ FederatedCranRepositoryMemberArgs{...} }
+//	FederatedCranRepositoryMemberArray{ FederatedCranRepositoryMemberArgs{...} }
 type FederatedCranRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3100,7 +3100,7 @@ type FederatedDebianRepositoryMember struct {
 // FederatedDebianRepositoryMemberInput is an input type that accepts FederatedDebianRepositoryMemberArgs and FederatedDebianRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedDebianRepositoryMemberInput` via:
 //
-//          FederatedDebianRepositoryMemberArgs{...}
+//	FederatedDebianRepositoryMemberArgs{...}
 type FederatedDebianRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3131,7 +3131,7 @@ func (i FederatedDebianRepositoryMemberArgs) ToFederatedDebianRepositoryMemberOu
 // FederatedDebianRepositoryMemberArrayInput is an input type that accepts FederatedDebianRepositoryMemberArray and FederatedDebianRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedDebianRepositoryMemberArrayInput` via:
 //
-//          FederatedDebianRepositoryMemberArray{ FederatedDebianRepositoryMemberArgs{...} }
+//	FederatedDebianRepositoryMemberArray{ FederatedDebianRepositoryMemberArgs{...} }
 type FederatedDebianRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3209,7 +3209,7 @@ type FederatedDockerRepositoryMember struct {
 // FederatedDockerRepositoryMemberInput is an input type that accepts FederatedDockerRepositoryMemberArgs and FederatedDockerRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedDockerRepositoryMemberInput` via:
 //
-//          FederatedDockerRepositoryMemberArgs{...}
+//	FederatedDockerRepositoryMemberArgs{...}
 type FederatedDockerRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3240,7 +3240,7 @@ func (i FederatedDockerRepositoryMemberArgs) ToFederatedDockerRepositoryMemberOu
 // FederatedDockerRepositoryMemberArrayInput is an input type that accepts FederatedDockerRepositoryMemberArray and FederatedDockerRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedDockerRepositoryMemberArrayInput` via:
 //
-//          FederatedDockerRepositoryMemberArray{ FederatedDockerRepositoryMemberArgs{...} }
+//	FederatedDockerRepositoryMemberArray{ FederatedDockerRepositoryMemberArgs{...} }
 type FederatedDockerRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3318,7 +3318,7 @@ type FederatedGemsRepositoryMember struct {
 // FederatedGemsRepositoryMemberInput is an input type that accepts FederatedGemsRepositoryMemberArgs and FederatedGemsRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedGemsRepositoryMemberInput` via:
 //
-//          FederatedGemsRepositoryMemberArgs{...}
+//	FederatedGemsRepositoryMemberArgs{...}
 type FederatedGemsRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3349,7 +3349,7 @@ func (i FederatedGemsRepositoryMemberArgs) ToFederatedGemsRepositoryMemberOutput
 // FederatedGemsRepositoryMemberArrayInput is an input type that accepts FederatedGemsRepositoryMemberArray and FederatedGemsRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedGemsRepositoryMemberArrayInput` via:
 //
-//          FederatedGemsRepositoryMemberArray{ FederatedGemsRepositoryMemberArgs{...} }
+//	FederatedGemsRepositoryMemberArray{ FederatedGemsRepositoryMemberArgs{...} }
 type FederatedGemsRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3427,7 +3427,7 @@ type FederatedGenericRepositoryMember struct {
 // FederatedGenericRepositoryMemberInput is an input type that accepts FederatedGenericRepositoryMemberArgs and FederatedGenericRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedGenericRepositoryMemberInput` via:
 //
-//          FederatedGenericRepositoryMemberArgs{...}
+//	FederatedGenericRepositoryMemberArgs{...}
 type FederatedGenericRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3458,7 +3458,7 @@ func (i FederatedGenericRepositoryMemberArgs) ToFederatedGenericRepositoryMember
 // FederatedGenericRepositoryMemberArrayInput is an input type that accepts FederatedGenericRepositoryMemberArray and FederatedGenericRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedGenericRepositoryMemberArrayInput` via:
 //
-//          FederatedGenericRepositoryMemberArray{ FederatedGenericRepositoryMemberArgs{...} }
+//	FederatedGenericRepositoryMemberArray{ FederatedGenericRepositoryMemberArgs{...} }
 type FederatedGenericRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3536,7 +3536,7 @@ type FederatedGitltfsRepositoryMember struct {
 // FederatedGitltfsRepositoryMemberInput is an input type that accepts FederatedGitltfsRepositoryMemberArgs and FederatedGitltfsRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedGitltfsRepositoryMemberInput` via:
 //
-//          FederatedGitltfsRepositoryMemberArgs{...}
+//	FederatedGitltfsRepositoryMemberArgs{...}
 type FederatedGitltfsRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3567,7 +3567,7 @@ func (i FederatedGitltfsRepositoryMemberArgs) ToFederatedGitltfsRepositoryMember
 // FederatedGitltfsRepositoryMemberArrayInput is an input type that accepts FederatedGitltfsRepositoryMemberArray and FederatedGitltfsRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedGitltfsRepositoryMemberArrayInput` via:
 //
-//          FederatedGitltfsRepositoryMemberArray{ FederatedGitltfsRepositoryMemberArgs{...} }
+//	FederatedGitltfsRepositoryMemberArray{ FederatedGitltfsRepositoryMemberArgs{...} }
 type FederatedGitltfsRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3645,7 +3645,7 @@ type FederatedGoRepositoryMember struct {
 // FederatedGoRepositoryMemberInput is an input type that accepts FederatedGoRepositoryMemberArgs and FederatedGoRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedGoRepositoryMemberInput` via:
 //
-//          FederatedGoRepositoryMemberArgs{...}
+//	FederatedGoRepositoryMemberArgs{...}
 type FederatedGoRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3676,7 +3676,7 @@ func (i FederatedGoRepositoryMemberArgs) ToFederatedGoRepositoryMemberOutputWith
 // FederatedGoRepositoryMemberArrayInput is an input type that accepts FederatedGoRepositoryMemberArray and FederatedGoRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedGoRepositoryMemberArrayInput` via:
 //
-//          FederatedGoRepositoryMemberArray{ FederatedGoRepositoryMemberArgs{...} }
+//	FederatedGoRepositoryMemberArray{ FederatedGoRepositoryMemberArgs{...} }
 type FederatedGoRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3754,7 +3754,7 @@ type FederatedGradleRepositoryMember struct {
 // FederatedGradleRepositoryMemberInput is an input type that accepts FederatedGradleRepositoryMemberArgs and FederatedGradleRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedGradleRepositoryMemberInput` via:
 //
-//          FederatedGradleRepositoryMemberArgs{...}
+//	FederatedGradleRepositoryMemberArgs{...}
 type FederatedGradleRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3785,7 +3785,7 @@ func (i FederatedGradleRepositoryMemberArgs) ToFederatedGradleRepositoryMemberOu
 // FederatedGradleRepositoryMemberArrayInput is an input type that accepts FederatedGradleRepositoryMemberArray and FederatedGradleRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedGradleRepositoryMemberArrayInput` via:
 //
-//          FederatedGradleRepositoryMemberArray{ FederatedGradleRepositoryMemberArgs{...} }
+//	FederatedGradleRepositoryMemberArray{ FederatedGradleRepositoryMemberArgs{...} }
 type FederatedGradleRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3863,7 +3863,7 @@ type FederatedHelmRepositoryMember struct {
 // FederatedHelmRepositoryMemberInput is an input type that accepts FederatedHelmRepositoryMemberArgs and FederatedHelmRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedHelmRepositoryMemberInput` via:
 //
-//          FederatedHelmRepositoryMemberArgs{...}
+//	FederatedHelmRepositoryMemberArgs{...}
 type FederatedHelmRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -3894,7 +3894,7 @@ func (i FederatedHelmRepositoryMemberArgs) ToFederatedHelmRepositoryMemberOutput
 // FederatedHelmRepositoryMemberArrayInput is an input type that accepts FederatedHelmRepositoryMemberArray and FederatedHelmRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedHelmRepositoryMemberArrayInput` via:
 //
-//          FederatedHelmRepositoryMemberArray{ FederatedHelmRepositoryMemberArgs{...} }
+//	FederatedHelmRepositoryMemberArray{ FederatedHelmRepositoryMemberArgs{...} }
 type FederatedHelmRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -3972,7 +3972,7 @@ type FederatedIvyRepositoryMember struct {
 // FederatedIvyRepositoryMemberInput is an input type that accepts FederatedIvyRepositoryMemberArgs and FederatedIvyRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedIvyRepositoryMemberInput` via:
 //
-//          FederatedIvyRepositoryMemberArgs{...}
+//	FederatedIvyRepositoryMemberArgs{...}
 type FederatedIvyRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4003,7 +4003,7 @@ func (i FederatedIvyRepositoryMemberArgs) ToFederatedIvyRepositoryMemberOutputWi
 // FederatedIvyRepositoryMemberArrayInput is an input type that accepts FederatedIvyRepositoryMemberArray and FederatedIvyRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedIvyRepositoryMemberArrayInput` via:
 //
-//          FederatedIvyRepositoryMemberArray{ FederatedIvyRepositoryMemberArgs{...} }
+//	FederatedIvyRepositoryMemberArray{ FederatedIvyRepositoryMemberArgs{...} }
 type FederatedIvyRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4081,7 +4081,7 @@ type FederatedMavenRepositoryMember struct {
 // FederatedMavenRepositoryMemberInput is an input type that accepts FederatedMavenRepositoryMemberArgs and FederatedMavenRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedMavenRepositoryMemberInput` via:
 //
-//          FederatedMavenRepositoryMemberArgs{...}
+//	FederatedMavenRepositoryMemberArgs{...}
 type FederatedMavenRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4112,7 +4112,7 @@ func (i FederatedMavenRepositoryMemberArgs) ToFederatedMavenRepositoryMemberOutp
 // FederatedMavenRepositoryMemberArrayInput is an input type that accepts FederatedMavenRepositoryMemberArray and FederatedMavenRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedMavenRepositoryMemberArrayInput` via:
 //
-//          FederatedMavenRepositoryMemberArray{ FederatedMavenRepositoryMemberArgs{...} }
+//	FederatedMavenRepositoryMemberArray{ FederatedMavenRepositoryMemberArgs{...} }
 type FederatedMavenRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4190,7 +4190,7 @@ type FederatedNpmRepositoryMember struct {
 // FederatedNpmRepositoryMemberInput is an input type that accepts FederatedNpmRepositoryMemberArgs and FederatedNpmRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedNpmRepositoryMemberInput` via:
 //
-//          FederatedNpmRepositoryMemberArgs{...}
+//	FederatedNpmRepositoryMemberArgs{...}
 type FederatedNpmRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4221,7 +4221,7 @@ func (i FederatedNpmRepositoryMemberArgs) ToFederatedNpmRepositoryMemberOutputWi
 // FederatedNpmRepositoryMemberArrayInput is an input type that accepts FederatedNpmRepositoryMemberArray and FederatedNpmRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedNpmRepositoryMemberArrayInput` via:
 //
-//          FederatedNpmRepositoryMemberArray{ FederatedNpmRepositoryMemberArgs{...} }
+//	FederatedNpmRepositoryMemberArray{ FederatedNpmRepositoryMemberArgs{...} }
 type FederatedNpmRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4299,7 +4299,7 @@ type FederatedNugetRepositoryMember struct {
 // FederatedNugetRepositoryMemberInput is an input type that accepts FederatedNugetRepositoryMemberArgs and FederatedNugetRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedNugetRepositoryMemberInput` via:
 //
-//          FederatedNugetRepositoryMemberArgs{...}
+//	FederatedNugetRepositoryMemberArgs{...}
 type FederatedNugetRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4330,7 +4330,7 @@ func (i FederatedNugetRepositoryMemberArgs) ToFederatedNugetRepositoryMemberOutp
 // FederatedNugetRepositoryMemberArrayInput is an input type that accepts FederatedNugetRepositoryMemberArray and FederatedNugetRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedNugetRepositoryMemberArrayInput` via:
 //
-//          FederatedNugetRepositoryMemberArray{ FederatedNugetRepositoryMemberArgs{...} }
+//	FederatedNugetRepositoryMemberArray{ FederatedNugetRepositoryMemberArgs{...} }
 type FederatedNugetRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4408,7 +4408,7 @@ type FederatedOpkgRepositoryMember struct {
 // FederatedOpkgRepositoryMemberInput is an input type that accepts FederatedOpkgRepositoryMemberArgs and FederatedOpkgRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedOpkgRepositoryMemberInput` via:
 //
-//          FederatedOpkgRepositoryMemberArgs{...}
+//	FederatedOpkgRepositoryMemberArgs{...}
 type FederatedOpkgRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4439,7 +4439,7 @@ func (i FederatedOpkgRepositoryMemberArgs) ToFederatedOpkgRepositoryMemberOutput
 // FederatedOpkgRepositoryMemberArrayInput is an input type that accepts FederatedOpkgRepositoryMemberArray and FederatedOpkgRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedOpkgRepositoryMemberArrayInput` via:
 //
-//          FederatedOpkgRepositoryMemberArray{ FederatedOpkgRepositoryMemberArgs{...} }
+//	FederatedOpkgRepositoryMemberArray{ FederatedOpkgRepositoryMemberArgs{...} }
 type FederatedOpkgRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4517,7 +4517,7 @@ type FederatedPuppetRepositoryMember struct {
 // FederatedPuppetRepositoryMemberInput is an input type that accepts FederatedPuppetRepositoryMemberArgs and FederatedPuppetRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedPuppetRepositoryMemberInput` via:
 //
-//          FederatedPuppetRepositoryMemberArgs{...}
+//	FederatedPuppetRepositoryMemberArgs{...}
 type FederatedPuppetRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4548,7 +4548,7 @@ func (i FederatedPuppetRepositoryMemberArgs) ToFederatedPuppetRepositoryMemberOu
 // FederatedPuppetRepositoryMemberArrayInput is an input type that accepts FederatedPuppetRepositoryMemberArray and FederatedPuppetRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedPuppetRepositoryMemberArrayInput` via:
 //
-//          FederatedPuppetRepositoryMemberArray{ FederatedPuppetRepositoryMemberArgs{...} }
+//	FederatedPuppetRepositoryMemberArray{ FederatedPuppetRepositoryMemberArgs{...} }
 type FederatedPuppetRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4626,7 +4626,7 @@ type FederatedPypiRepositoryMember struct {
 // FederatedPypiRepositoryMemberInput is an input type that accepts FederatedPypiRepositoryMemberArgs and FederatedPypiRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedPypiRepositoryMemberInput` via:
 //
-//          FederatedPypiRepositoryMemberArgs{...}
+//	FederatedPypiRepositoryMemberArgs{...}
 type FederatedPypiRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4657,7 +4657,7 @@ func (i FederatedPypiRepositoryMemberArgs) ToFederatedPypiRepositoryMemberOutput
 // FederatedPypiRepositoryMemberArrayInput is an input type that accepts FederatedPypiRepositoryMemberArray and FederatedPypiRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedPypiRepositoryMemberArrayInput` via:
 //
-//          FederatedPypiRepositoryMemberArray{ FederatedPypiRepositoryMemberArgs{...} }
+//	FederatedPypiRepositoryMemberArray{ FederatedPypiRepositoryMemberArgs{...} }
 type FederatedPypiRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4735,7 +4735,7 @@ type FederatedRpmRepositoryMember struct {
 // FederatedRpmRepositoryMemberInput is an input type that accepts FederatedRpmRepositoryMemberArgs and FederatedRpmRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedRpmRepositoryMemberInput` via:
 //
-//          FederatedRpmRepositoryMemberArgs{...}
+//	FederatedRpmRepositoryMemberArgs{...}
 type FederatedRpmRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4766,7 +4766,7 @@ func (i FederatedRpmRepositoryMemberArgs) ToFederatedRpmRepositoryMemberOutputWi
 // FederatedRpmRepositoryMemberArrayInput is an input type that accepts FederatedRpmRepositoryMemberArray and FederatedRpmRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedRpmRepositoryMemberArrayInput` via:
 //
-//          FederatedRpmRepositoryMemberArray{ FederatedRpmRepositoryMemberArgs{...} }
+//	FederatedRpmRepositoryMemberArray{ FederatedRpmRepositoryMemberArgs{...} }
 type FederatedRpmRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4844,7 +4844,7 @@ type FederatedSbtRepositoryMember struct {
 // FederatedSbtRepositoryMemberInput is an input type that accepts FederatedSbtRepositoryMemberArgs and FederatedSbtRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedSbtRepositoryMemberInput` via:
 //
-//          FederatedSbtRepositoryMemberArgs{...}
+//	FederatedSbtRepositoryMemberArgs{...}
 type FederatedSbtRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4875,7 +4875,7 @@ func (i FederatedSbtRepositoryMemberArgs) ToFederatedSbtRepositoryMemberOutputWi
 // FederatedSbtRepositoryMemberArrayInput is an input type that accepts FederatedSbtRepositoryMemberArray and FederatedSbtRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedSbtRepositoryMemberArrayInput` via:
 //
-//          FederatedSbtRepositoryMemberArray{ FederatedSbtRepositoryMemberArgs{...} }
+//	FederatedSbtRepositoryMemberArray{ FederatedSbtRepositoryMemberArgs{...} }
 type FederatedSbtRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -4953,7 +4953,7 @@ type FederatedTerraformModuleRepositoryMember struct {
 // FederatedTerraformModuleRepositoryMemberInput is an input type that accepts FederatedTerraformModuleRepositoryMemberArgs and FederatedTerraformModuleRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedTerraformModuleRepositoryMemberInput` via:
 //
-//          FederatedTerraformModuleRepositoryMemberArgs{...}
+//	FederatedTerraformModuleRepositoryMemberArgs{...}
 type FederatedTerraformModuleRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -4984,7 +4984,7 @@ func (i FederatedTerraformModuleRepositoryMemberArgs) ToFederatedTerraformModule
 // FederatedTerraformModuleRepositoryMemberArrayInput is an input type that accepts FederatedTerraformModuleRepositoryMemberArray and FederatedTerraformModuleRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedTerraformModuleRepositoryMemberArrayInput` via:
 //
-//          FederatedTerraformModuleRepositoryMemberArray{ FederatedTerraformModuleRepositoryMemberArgs{...} }
+//	FederatedTerraformModuleRepositoryMemberArray{ FederatedTerraformModuleRepositoryMemberArgs{...} }
 type FederatedTerraformModuleRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -5062,7 +5062,7 @@ type FederatedTerraformProviderRepositoryMember struct {
 // FederatedTerraformProviderRepositoryMemberInput is an input type that accepts FederatedTerraformProviderRepositoryMemberArgs and FederatedTerraformProviderRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedTerraformProviderRepositoryMemberInput` via:
 //
-//          FederatedTerraformProviderRepositoryMemberArgs{...}
+//	FederatedTerraformProviderRepositoryMemberArgs{...}
 type FederatedTerraformProviderRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -5093,7 +5093,7 @@ func (i FederatedTerraformProviderRepositoryMemberArgs) ToFederatedTerraformProv
 // FederatedTerraformProviderRepositoryMemberArrayInput is an input type that accepts FederatedTerraformProviderRepositoryMemberArray and FederatedTerraformProviderRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedTerraformProviderRepositoryMemberArrayInput` via:
 //
-//          FederatedTerraformProviderRepositoryMemberArray{ FederatedTerraformProviderRepositoryMemberArgs{...} }
+//	FederatedTerraformProviderRepositoryMemberArray{ FederatedTerraformProviderRepositoryMemberArgs{...} }
 type FederatedTerraformProviderRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -5171,7 +5171,7 @@ type FederatedVagrantRepositoryMember struct {
 // FederatedVagrantRepositoryMemberInput is an input type that accepts FederatedVagrantRepositoryMemberArgs and FederatedVagrantRepositoryMemberOutput values.
 // You can construct a concrete instance of `FederatedVagrantRepositoryMemberInput` via:
 //
-//          FederatedVagrantRepositoryMemberArgs{...}
+//	FederatedVagrantRepositoryMemberArgs{...}
 type FederatedVagrantRepositoryMemberInput interface {
 	pulumi.Input
 
@@ -5202,7 +5202,7 @@ func (i FederatedVagrantRepositoryMemberArgs) ToFederatedVagrantRepositoryMember
 // FederatedVagrantRepositoryMemberArrayInput is an input type that accepts FederatedVagrantRepositoryMemberArray and FederatedVagrantRepositoryMemberArrayOutput values.
 // You can construct a concrete instance of `FederatedVagrantRepositoryMemberArrayInput` via:
 //
-//          FederatedVagrantRepositoryMemberArray{ FederatedVagrantRepositoryMemberArgs{...} }
+//	FederatedVagrantRepositoryMemberArray{ FederatedVagrantRepositoryMemberArgs{...} }
 type FederatedVagrantRepositoryMemberArrayInput interface {
 	pulumi.Input
 
@@ -5291,7 +5291,7 @@ type OauthSettingsOauthProvider struct {
 // OauthSettingsOauthProviderInput is an input type that accepts OauthSettingsOauthProviderArgs and OauthSettingsOauthProviderOutput values.
 // You can construct a concrete instance of `OauthSettingsOauthProviderInput` via:
 //
-//          OauthSettingsOauthProviderArgs{...}
+//	OauthSettingsOauthProviderArgs{...}
 type OauthSettingsOauthProviderInput interface {
 	pulumi.Input
 
@@ -5333,7 +5333,7 @@ func (i OauthSettingsOauthProviderArgs) ToOauthSettingsOauthProviderOutputWithCo
 // OauthSettingsOauthProviderArrayInput is an input type that accepts OauthSettingsOauthProviderArray and OauthSettingsOauthProviderArrayOutput values.
 // You can construct a concrete instance of `OauthSettingsOauthProviderArrayInput` via:
 //
-//          OauthSettingsOauthProviderArray{ OauthSettingsOauthProviderArgs{...} }
+//	OauthSettingsOauthProviderArray{ OauthSettingsOauthProviderArgs{...} }
 type OauthSettingsOauthProviderArrayInput interface {
 	pulumi.Input
 
@@ -5443,7 +5443,7 @@ type PermissionTargetBuild struct {
 // PermissionTargetBuildInput is an input type that accepts PermissionTargetBuildArgs and PermissionTargetBuildOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildInput` via:
 //
-//          PermissionTargetBuildArgs{...}
+//	PermissionTargetBuildArgs{...}
 type PermissionTargetBuildInput interface {
 	pulumi.Input
 
@@ -5485,11 +5485,11 @@ func (i PermissionTargetBuildArgs) ToPermissionTargetBuildPtrOutputWithContext(c
 // PermissionTargetBuildPtrInput is an input type that accepts PermissionTargetBuildArgs, PermissionTargetBuildPtr and PermissionTargetBuildPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildPtrInput` via:
 //
-//          PermissionTargetBuildArgs{...}
+//	        PermissionTargetBuildArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetBuildPtrInput interface {
 	pulumi.Input
 
@@ -5633,7 +5633,7 @@ type PermissionTargetBuildActions struct {
 // PermissionTargetBuildActionsInput is an input type that accepts PermissionTargetBuildActionsArgs and PermissionTargetBuildActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsInput` via:
 //
-//          PermissionTargetBuildActionsArgs{...}
+//	PermissionTargetBuildActionsArgs{...}
 type PermissionTargetBuildActionsInput interface {
 	pulumi.Input
 
@@ -5671,11 +5671,11 @@ func (i PermissionTargetBuildActionsArgs) ToPermissionTargetBuildActionsPtrOutpu
 // PermissionTargetBuildActionsPtrInput is an input type that accepts PermissionTargetBuildActionsArgs, PermissionTargetBuildActionsPtr and PermissionTargetBuildActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsPtrInput` via:
 //
-//          PermissionTargetBuildActionsArgs{...}
+//	        PermissionTargetBuildActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetBuildActionsPtrInput interface {
 	pulumi.Input
 
@@ -5788,7 +5788,7 @@ type PermissionTargetBuildActionsGroup struct {
 // PermissionTargetBuildActionsGroupInput is an input type that accepts PermissionTargetBuildActionsGroupArgs and PermissionTargetBuildActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsGroupInput` via:
 //
-//          PermissionTargetBuildActionsGroupArgs{...}
+//	PermissionTargetBuildActionsGroupArgs{...}
 type PermissionTargetBuildActionsGroupInput interface {
 	pulumi.Input
 
@@ -5817,7 +5817,7 @@ func (i PermissionTargetBuildActionsGroupArgs) ToPermissionTargetBuildActionsGro
 // PermissionTargetBuildActionsGroupArrayInput is an input type that accepts PermissionTargetBuildActionsGroupArray and PermissionTargetBuildActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsGroupArrayInput` via:
 //
-//          PermissionTargetBuildActionsGroupArray{ PermissionTargetBuildActionsGroupArgs{...} }
+//	PermissionTargetBuildActionsGroupArray{ PermissionTargetBuildActionsGroupArgs{...} }
 type PermissionTargetBuildActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -5891,7 +5891,7 @@ type PermissionTargetBuildActionsUser struct {
 // PermissionTargetBuildActionsUserInput is an input type that accepts PermissionTargetBuildActionsUserArgs and PermissionTargetBuildActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsUserInput` via:
 //
-//          PermissionTargetBuildActionsUserArgs{...}
+//	PermissionTargetBuildActionsUserArgs{...}
 type PermissionTargetBuildActionsUserInput interface {
 	pulumi.Input
 
@@ -5920,7 +5920,7 @@ func (i PermissionTargetBuildActionsUserArgs) ToPermissionTargetBuildActionsUser
 // PermissionTargetBuildActionsUserArrayInput is an input type that accepts PermissionTargetBuildActionsUserArray and PermissionTargetBuildActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetBuildActionsUserArrayInput` via:
 //
-//          PermissionTargetBuildActionsUserArray{ PermissionTargetBuildActionsUserArgs{...} }
+//	PermissionTargetBuildActionsUserArray{ PermissionTargetBuildActionsUserArgs{...} }
 type PermissionTargetBuildActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -5999,7 +5999,7 @@ type PermissionTargetReleaseBundle struct {
 // PermissionTargetReleaseBundleInput is an input type that accepts PermissionTargetReleaseBundleArgs and PermissionTargetReleaseBundleOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleInput` via:
 //
-//          PermissionTargetReleaseBundleArgs{...}
+//	PermissionTargetReleaseBundleArgs{...}
 type PermissionTargetReleaseBundleInput interface {
 	pulumi.Input
 
@@ -6041,11 +6041,11 @@ func (i PermissionTargetReleaseBundleArgs) ToPermissionTargetReleaseBundlePtrOut
 // PermissionTargetReleaseBundlePtrInput is an input type that accepts PermissionTargetReleaseBundleArgs, PermissionTargetReleaseBundlePtr and PermissionTargetReleaseBundlePtrOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundlePtrInput` via:
 //
-//          PermissionTargetReleaseBundleArgs{...}
+//	        PermissionTargetReleaseBundleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetReleaseBundlePtrInput interface {
 	pulumi.Input
 
@@ -6189,7 +6189,7 @@ type PermissionTargetReleaseBundleActions struct {
 // PermissionTargetReleaseBundleActionsInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs and PermissionTargetReleaseBundleActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsInput` via:
 //
-//          PermissionTargetReleaseBundleActionsArgs{...}
+//	PermissionTargetReleaseBundleActionsArgs{...}
 type PermissionTargetReleaseBundleActionsInput interface {
 	pulumi.Input
 
@@ -6227,11 +6227,11 @@ func (i PermissionTargetReleaseBundleActionsArgs) ToPermissionTargetReleaseBundl
 // PermissionTargetReleaseBundleActionsPtrInput is an input type that accepts PermissionTargetReleaseBundleActionsArgs, PermissionTargetReleaseBundleActionsPtr and PermissionTargetReleaseBundleActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsPtrInput` via:
 //
-//          PermissionTargetReleaseBundleActionsArgs{...}
+//	        PermissionTargetReleaseBundleActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetReleaseBundleActionsPtrInput interface {
 	pulumi.Input
 
@@ -6348,7 +6348,7 @@ type PermissionTargetReleaseBundleActionsGroup struct {
 // PermissionTargetReleaseBundleActionsGroupInput is an input type that accepts PermissionTargetReleaseBundleActionsGroupArgs and PermissionTargetReleaseBundleActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsGroupInput` via:
 //
-//          PermissionTargetReleaseBundleActionsGroupArgs{...}
+//	PermissionTargetReleaseBundleActionsGroupArgs{...}
 type PermissionTargetReleaseBundleActionsGroupInput interface {
 	pulumi.Input
 
@@ -6377,7 +6377,7 @@ func (i PermissionTargetReleaseBundleActionsGroupArgs) ToPermissionTargetRelease
 // PermissionTargetReleaseBundleActionsGroupArrayInput is an input type that accepts PermissionTargetReleaseBundleActionsGroupArray and PermissionTargetReleaseBundleActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsGroupArrayInput` via:
 //
-//          PermissionTargetReleaseBundleActionsGroupArray{ PermissionTargetReleaseBundleActionsGroupArgs{...} }
+//	PermissionTargetReleaseBundleActionsGroupArray{ PermissionTargetReleaseBundleActionsGroupArgs{...} }
 type PermissionTargetReleaseBundleActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -6451,7 +6451,7 @@ type PermissionTargetReleaseBundleActionsUser struct {
 // PermissionTargetReleaseBundleActionsUserInput is an input type that accepts PermissionTargetReleaseBundleActionsUserArgs and PermissionTargetReleaseBundleActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsUserInput` via:
 //
-//          PermissionTargetReleaseBundleActionsUserArgs{...}
+//	PermissionTargetReleaseBundleActionsUserArgs{...}
 type PermissionTargetReleaseBundleActionsUserInput interface {
 	pulumi.Input
 
@@ -6480,7 +6480,7 @@ func (i PermissionTargetReleaseBundleActionsUserArgs) ToPermissionTargetReleaseB
 // PermissionTargetReleaseBundleActionsUserArrayInput is an input type that accepts PermissionTargetReleaseBundleActionsUserArray and PermissionTargetReleaseBundleActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetReleaseBundleActionsUserArrayInput` via:
 //
-//          PermissionTargetReleaseBundleActionsUserArray{ PermissionTargetReleaseBundleActionsUserArgs{...} }
+//	PermissionTargetReleaseBundleActionsUserArray{ PermissionTargetReleaseBundleActionsUserArgs{...} }
 type PermissionTargetReleaseBundleActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -6559,7 +6559,7 @@ type PermissionTargetRepo struct {
 // PermissionTargetRepoInput is an input type that accepts PermissionTargetRepoArgs and PermissionTargetRepoOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoInput` via:
 //
-//          PermissionTargetRepoArgs{...}
+//	PermissionTargetRepoArgs{...}
 type PermissionTargetRepoInput interface {
 	pulumi.Input
 
@@ -6601,11 +6601,11 @@ func (i PermissionTargetRepoArgs) ToPermissionTargetRepoPtrOutputWithContext(ctx
 // PermissionTargetRepoPtrInput is an input type that accepts PermissionTargetRepoArgs, PermissionTargetRepoPtr and PermissionTargetRepoPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoPtrInput` via:
 //
-//          PermissionTargetRepoArgs{...}
+//	        PermissionTargetRepoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetRepoPtrInput interface {
 	pulumi.Input
 
@@ -6749,7 +6749,7 @@ type PermissionTargetRepoActions struct {
 // PermissionTargetRepoActionsInput is an input type that accepts PermissionTargetRepoActionsArgs and PermissionTargetRepoActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsInput` via:
 //
-//          PermissionTargetRepoActionsArgs{...}
+//	PermissionTargetRepoActionsArgs{...}
 type PermissionTargetRepoActionsInput interface {
 	pulumi.Input
 
@@ -6787,11 +6787,11 @@ func (i PermissionTargetRepoActionsArgs) ToPermissionTargetRepoActionsPtrOutputW
 // PermissionTargetRepoActionsPtrInput is an input type that accepts PermissionTargetRepoActionsArgs, PermissionTargetRepoActionsPtr and PermissionTargetRepoActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsPtrInput` via:
 //
-//          PermissionTargetRepoActionsArgs{...}
+//	        PermissionTargetRepoActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetRepoActionsPtrInput interface {
 	pulumi.Input
 
@@ -6904,7 +6904,7 @@ type PermissionTargetRepoActionsGroup struct {
 // PermissionTargetRepoActionsGroupInput is an input type that accepts PermissionTargetRepoActionsGroupArgs and PermissionTargetRepoActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsGroupInput` via:
 //
-//          PermissionTargetRepoActionsGroupArgs{...}
+//	PermissionTargetRepoActionsGroupArgs{...}
 type PermissionTargetRepoActionsGroupInput interface {
 	pulumi.Input
 
@@ -6933,7 +6933,7 @@ func (i PermissionTargetRepoActionsGroupArgs) ToPermissionTargetRepoActionsGroup
 // PermissionTargetRepoActionsGroupArrayInput is an input type that accepts PermissionTargetRepoActionsGroupArray and PermissionTargetRepoActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsGroupArrayInput` via:
 //
-//          PermissionTargetRepoActionsGroupArray{ PermissionTargetRepoActionsGroupArgs{...} }
+//	PermissionTargetRepoActionsGroupArray{ PermissionTargetRepoActionsGroupArgs{...} }
 type PermissionTargetRepoActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -7007,7 +7007,7 @@ type PermissionTargetRepoActionsUser struct {
 // PermissionTargetRepoActionsUserInput is an input type that accepts PermissionTargetRepoActionsUserArgs and PermissionTargetRepoActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsUserInput` via:
 //
-//          PermissionTargetRepoActionsUserArgs{...}
+//	PermissionTargetRepoActionsUserArgs{...}
 type PermissionTargetRepoActionsUserInput interface {
 	pulumi.Input
 
@@ -7036,7 +7036,7 @@ func (i PermissionTargetRepoActionsUserArgs) ToPermissionTargetRepoActionsUserOu
 // PermissionTargetRepoActionsUserArrayInput is an input type that accepts PermissionTargetRepoActionsUserArray and PermissionTargetRepoActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetRepoActionsUserArrayInput` via:
 //
-//          PermissionTargetRepoActionsUserArray{ PermissionTargetRepoActionsUserArgs{...} }
+//	PermissionTargetRepoActionsUserArray{ PermissionTargetRepoActionsUserArgs{...} }
 type PermissionTargetRepoActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -7115,7 +7115,7 @@ type PermissionTargetsBuild struct {
 // PermissionTargetsBuildInput is an input type that accepts PermissionTargetsBuildArgs and PermissionTargetsBuildOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildInput` via:
 //
-//          PermissionTargetsBuildArgs{...}
+//	PermissionTargetsBuildArgs{...}
 type PermissionTargetsBuildInput interface {
 	pulumi.Input
 
@@ -7157,11 +7157,11 @@ func (i PermissionTargetsBuildArgs) ToPermissionTargetsBuildPtrOutputWithContext
 // PermissionTargetsBuildPtrInput is an input type that accepts PermissionTargetsBuildArgs, PermissionTargetsBuildPtr and PermissionTargetsBuildPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildPtrInput` via:
 //
-//          PermissionTargetsBuildArgs{...}
+//	        PermissionTargetsBuildArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsBuildPtrInput interface {
 	pulumi.Input
 
@@ -7305,7 +7305,7 @@ type PermissionTargetsBuildActions struct {
 // PermissionTargetsBuildActionsInput is an input type that accepts PermissionTargetsBuildActionsArgs and PermissionTargetsBuildActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsInput` via:
 //
-//          PermissionTargetsBuildActionsArgs{...}
+//	PermissionTargetsBuildActionsArgs{...}
 type PermissionTargetsBuildActionsInput interface {
 	pulumi.Input
 
@@ -7343,11 +7343,11 @@ func (i PermissionTargetsBuildActionsArgs) ToPermissionTargetsBuildActionsPtrOut
 // PermissionTargetsBuildActionsPtrInput is an input type that accepts PermissionTargetsBuildActionsArgs, PermissionTargetsBuildActionsPtr and PermissionTargetsBuildActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsPtrInput` via:
 //
-//          PermissionTargetsBuildActionsArgs{...}
+//	        PermissionTargetsBuildActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsBuildActionsPtrInput interface {
 	pulumi.Input
 
@@ -7460,7 +7460,7 @@ type PermissionTargetsBuildActionsGroup struct {
 // PermissionTargetsBuildActionsGroupInput is an input type that accepts PermissionTargetsBuildActionsGroupArgs and PermissionTargetsBuildActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsGroupInput` via:
 //
-//          PermissionTargetsBuildActionsGroupArgs{...}
+//	PermissionTargetsBuildActionsGroupArgs{...}
 type PermissionTargetsBuildActionsGroupInput interface {
 	pulumi.Input
 
@@ -7489,7 +7489,7 @@ func (i PermissionTargetsBuildActionsGroupArgs) ToPermissionTargetsBuildActionsG
 // PermissionTargetsBuildActionsGroupArrayInput is an input type that accepts PermissionTargetsBuildActionsGroupArray and PermissionTargetsBuildActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsGroupArrayInput` via:
 //
-//          PermissionTargetsBuildActionsGroupArray{ PermissionTargetsBuildActionsGroupArgs{...} }
+//	PermissionTargetsBuildActionsGroupArray{ PermissionTargetsBuildActionsGroupArgs{...} }
 type PermissionTargetsBuildActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -7563,7 +7563,7 @@ type PermissionTargetsBuildActionsUser struct {
 // PermissionTargetsBuildActionsUserInput is an input type that accepts PermissionTargetsBuildActionsUserArgs and PermissionTargetsBuildActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsUserInput` via:
 //
-//          PermissionTargetsBuildActionsUserArgs{...}
+//	PermissionTargetsBuildActionsUserArgs{...}
 type PermissionTargetsBuildActionsUserInput interface {
 	pulumi.Input
 
@@ -7592,7 +7592,7 @@ func (i PermissionTargetsBuildActionsUserArgs) ToPermissionTargetsBuildActionsUs
 // PermissionTargetsBuildActionsUserArrayInput is an input type that accepts PermissionTargetsBuildActionsUserArray and PermissionTargetsBuildActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsBuildActionsUserArrayInput` via:
 //
-//          PermissionTargetsBuildActionsUserArray{ PermissionTargetsBuildActionsUserArgs{...} }
+//	PermissionTargetsBuildActionsUserArray{ PermissionTargetsBuildActionsUserArgs{...} }
 type PermissionTargetsBuildActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -7671,7 +7671,7 @@ type PermissionTargetsReleaseBundle struct {
 // PermissionTargetsReleaseBundleInput is an input type that accepts PermissionTargetsReleaseBundleArgs and PermissionTargetsReleaseBundleOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleInput` via:
 //
-//          PermissionTargetsReleaseBundleArgs{...}
+//	PermissionTargetsReleaseBundleArgs{...}
 type PermissionTargetsReleaseBundleInput interface {
 	pulumi.Input
 
@@ -7713,11 +7713,11 @@ func (i PermissionTargetsReleaseBundleArgs) ToPermissionTargetsReleaseBundlePtrO
 // PermissionTargetsReleaseBundlePtrInput is an input type that accepts PermissionTargetsReleaseBundleArgs, PermissionTargetsReleaseBundlePtr and PermissionTargetsReleaseBundlePtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundlePtrInput` via:
 //
-//          PermissionTargetsReleaseBundleArgs{...}
+//	        PermissionTargetsReleaseBundleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsReleaseBundlePtrInput interface {
 	pulumi.Input
 
@@ -7861,7 +7861,7 @@ type PermissionTargetsReleaseBundleActions struct {
 // PermissionTargetsReleaseBundleActionsInput is an input type that accepts PermissionTargetsReleaseBundleActionsArgs and PermissionTargetsReleaseBundleActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsArgs{...}
+//	PermissionTargetsReleaseBundleActionsArgs{...}
 type PermissionTargetsReleaseBundleActionsInput interface {
 	pulumi.Input
 
@@ -7899,11 +7899,11 @@ func (i PermissionTargetsReleaseBundleActionsArgs) ToPermissionTargetsReleaseBun
 // PermissionTargetsReleaseBundleActionsPtrInput is an input type that accepts PermissionTargetsReleaseBundleActionsArgs, PermissionTargetsReleaseBundleActionsPtr and PermissionTargetsReleaseBundleActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsPtrInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsArgs{...}
+//	        PermissionTargetsReleaseBundleActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsReleaseBundleActionsPtrInput interface {
 	pulumi.Input
 
@@ -8020,7 +8020,7 @@ type PermissionTargetsReleaseBundleActionsGroup struct {
 // PermissionTargetsReleaseBundleActionsGroupInput is an input type that accepts PermissionTargetsReleaseBundleActionsGroupArgs and PermissionTargetsReleaseBundleActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsGroupInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsGroupArgs{...}
+//	PermissionTargetsReleaseBundleActionsGroupArgs{...}
 type PermissionTargetsReleaseBundleActionsGroupInput interface {
 	pulumi.Input
 
@@ -8049,7 +8049,7 @@ func (i PermissionTargetsReleaseBundleActionsGroupArgs) ToPermissionTargetsRelea
 // PermissionTargetsReleaseBundleActionsGroupArrayInput is an input type that accepts PermissionTargetsReleaseBundleActionsGroupArray and PermissionTargetsReleaseBundleActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsGroupArrayInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsGroupArray{ PermissionTargetsReleaseBundleActionsGroupArgs{...} }
+//	PermissionTargetsReleaseBundleActionsGroupArray{ PermissionTargetsReleaseBundleActionsGroupArgs{...} }
 type PermissionTargetsReleaseBundleActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -8123,7 +8123,7 @@ type PermissionTargetsReleaseBundleActionsUser struct {
 // PermissionTargetsReleaseBundleActionsUserInput is an input type that accepts PermissionTargetsReleaseBundleActionsUserArgs and PermissionTargetsReleaseBundleActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsUserInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsUserArgs{...}
+//	PermissionTargetsReleaseBundleActionsUserArgs{...}
 type PermissionTargetsReleaseBundleActionsUserInput interface {
 	pulumi.Input
 
@@ -8152,7 +8152,7 @@ func (i PermissionTargetsReleaseBundleActionsUserArgs) ToPermissionTargetsReleas
 // PermissionTargetsReleaseBundleActionsUserArrayInput is an input type that accepts PermissionTargetsReleaseBundleActionsUserArray and PermissionTargetsReleaseBundleActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsReleaseBundleActionsUserArrayInput` via:
 //
-//          PermissionTargetsReleaseBundleActionsUserArray{ PermissionTargetsReleaseBundleActionsUserArgs{...} }
+//	PermissionTargetsReleaseBundleActionsUserArray{ PermissionTargetsReleaseBundleActionsUserArgs{...} }
 type PermissionTargetsReleaseBundleActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -8231,7 +8231,7 @@ type PermissionTargetsRepo struct {
 // PermissionTargetsRepoInput is an input type that accepts PermissionTargetsRepoArgs and PermissionTargetsRepoOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoInput` via:
 //
-//          PermissionTargetsRepoArgs{...}
+//	PermissionTargetsRepoArgs{...}
 type PermissionTargetsRepoInput interface {
 	pulumi.Input
 
@@ -8273,11 +8273,11 @@ func (i PermissionTargetsRepoArgs) ToPermissionTargetsRepoPtrOutputWithContext(c
 // PermissionTargetsRepoPtrInput is an input type that accepts PermissionTargetsRepoArgs, PermissionTargetsRepoPtr and PermissionTargetsRepoPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoPtrInput` via:
 //
-//          PermissionTargetsRepoArgs{...}
+//	        PermissionTargetsRepoArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsRepoPtrInput interface {
 	pulumi.Input
 
@@ -8421,7 +8421,7 @@ type PermissionTargetsRepoActions struct {
 // PermissionTargetsRepoActionsInput is an input type that accepts PermissionTargetsRepoActionsArgs and PermissionTargetsRepoActionsOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsInput` via:
 //
-//          PermissionTargetsRepoActionsArgs{...}
+//	PermissionTargetsRepoActionsArgs{...}
 type PermissionTargetsRepoActionsInput interface {
 	pulumi.Input
 
@@ -8459,11 +8459,11 @@ func (i PermissionTargetsRepoActionsArgs) ToPermissionTargetsRepoActionsPtrOutpu
 // PermissionTargetsRepoActionsPtrInput is an input type that accepts PermissionTargetsRepoActionsArgs, PermissionTargetsRepoActionsPtr and PermissionTargetsRepoActionsPtrOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsPtrInput` via:
 //
-//          PermissionTargetsRepoActionsArgs{...}
+//	        PermissionTargetsRepoActionsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type PermissionTargetsRepoActionsPtrInput interface {
 	pulumi.Input
 
@@ -8576,7 +8576,7 @@ type PermissionTargetsRepoActionsGroup struct {
 // PermissionTargetsRepoActionsGroupInput is an input type that accepts PermissionTargetsRepoActionsGroupArgs and PermissionTargetsRepoActionsGroupOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsGroupInput` via:
 //
-//          PermissionTargetsRepoActionsGroupArgs{...}
+//	PermissionTargetsRepoActionsGroupArgs{...}
 type PermissionTargetsRepoActionsGroupInput interface {
 	pulumi.Input
 
@@ -8605,7 +8605,7 @@ func (i PermissionTargetsRepoActionsGroupArgs) ToPermissionTargetsRepoActionsGro
 // PermissionTargetsRepoActionsGroupArrayInput is an input type that accepts PermissionTargetsRepoActionsGroupArray and PermissionTargetsRepoActionsGroupArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsGroupArrayInput` via:
 //
-//          PermissionTargetsRepoActionsGroupArray{ PermissionTargetsRepoActionsGroupArgs{...} }
+//	PermissionTargetsRepoActionsGroupArray{ PermissionTargetsRepoActionsGroupArgs{...} }
 type PermissionTargetsRepoActionsGroupArrayInput interface {
 	pulumi.Input
 
@@ -8679,7 +8679,7 @@ type PermissionTargetsRepoActionsUser struct {
 // PermissionTargetsRepoActionsUserInput is an input type that accepts PermissionTargetsRepoActionsUserArgs and PermissionTargetsRepoActionsUserOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsUserInput` via:
 //
-//          PermissionTargetsRepoActionsUserArgs{...}
+//	PermissionTargetsRepoActionsUserArgs{...}
 type PermissionTargetsRepoActionsUserInput interface {
 	pulumi.Input
 
@@ -8708,7 +8708,7 @@ func (i PermissionTargetsRepoActionsUserArgs) ToPermissionTargetsRepoActionsUser
 // PermissionTargetsRepoActionsUserArrayInput is an input type that accepts PermissionTargetsRepoActionsUserArray and PermissionTargetsRepoActionsUserArrayOutput values.
 // You can construct a concrete instance of `PermissionTargetsRepoActionsUserArrayInput` via:
 //
-//          PermissionTargetsRepoActionsUserArray{ PermissionTargetsRepoActionsUserArgs{...} }
+//	PermissionTargetsRepoActionsUserArray{ PermissionTargetsRepoActionsUserArgs{...} }
 type PermissionTargetsRepoActionsUserArrayInput interface {
 	pulumi.Input
 
@@ -8803,7 +8803,7 @@ type PushReplicationReplication struct {
 // PushReplicationReplicationInput is an input type that accepts PushReplicationReplicationArgs and PushReplicationReplicationOutput values.
 // You can construct a concrete instance of `PushReplicationReplicationInput` via:
 //
-//          PushReplicationReplicationArgs{...}
+//	PushReplicationReplicationArgs{...}
 type PushReplicationReplicationInput interface {
 	pulumi.Input
 
@@ -8853,7 +8853,7 @@ func (i PushReplicationReplicationArgs) ToPushReplicationReplicationOutputWithCo
 // PushReplicationReplicationArrayInput is an input type that accepts PushReplicationReplicationArray and PushReplicationReplicationArrayOutput values.
 // You can construct a concrete instance of `PushReplicationReplicationArrayInput` via:
 //
-//          PushReplicationReplicationArray{ PushReplicationReplicationArgs{...} }
+//	PushReplicationReplicationArray{ PushReplicationReplicationArgs{...} }
 type PushReplicationReplicationArrayInput interface {
 	pulumi.Input
 
@@ -8980,7 +8980,7 @@ type ReleaseBundleWebhookCriteria struct {
 // ReleaseBundleWebhookCriteriaInput is an input type that accepts ReleaseBundleWebhookCriteriaArgs and ReleaseBundleWebhookCriteriaOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookCriteriaInput` via:
 //
-//          ReleaseBundleWebhookCriteriaArgs{...}
+//	ReleaseBundleWebhookCriteriaArgs{...}
 type ReleaseBundleWebhookCriteriaInput interface {
 	pulumi.Input
 
@@ -9022,11 +9022,11 @@ func (i ReleaseBundleWebhookCriteriaArgs) ToReleaseBundleWebhookCriteriaPtrOutpu
 // ReleaseBundleWebhookCriteriaPtrInput is an input type that accepts ReleaseBundleWebhookCriteriaArgs, ReleaseBundleWebhookCriteriaPtr and ReleaseBundleWebhookCriteriaPtrOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookCriteriaPtrInput` via:
 //
-//          ReleaseBundleWebhookCriteriaArgs{...}
+//	        ReleaseBundleWebhookCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReleaseBundleWebhookCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -9174,7 +9174,7 @@ type ReleaseBundleWebhookHandler struct {
 // ReleaseBundleWebhookHandlerInput is an input type that accepts ReleaseBundleWebhookHandlerArgs and ReleaseBundleWebhookHandlerOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookHandlerInput` via:
 //
-//          ReleaseBundleWebhookHandlerArgs{...}
+//	ReleaseBundleWebhookHandlerArgs{...}
 type ReleaseBundleWebhookHandlerInput interface {
 	pulumi.Input
 
@@ -9208,7 +9208,7 @@ func (i ReleaseBundleWebhookHandlerArgs) ToReleaseBundleWebhookHandlerOutputWith
 // ReleaseBundleWebhookHandlerArrayInput is an input type that accepts ReleaseBundleWebhookHandlerArray and ReleaseBundleWebhookHandlerArrayOutput values.
 // You can construct a concrete instance of `ReleaseBundleWebhookHandlerArrayInput` via:
 //
-//          ReleaseBundleWebhookHandlerArray{ ReleaseBundleWebhookHandlerArgs{...} }
+//	ReleaseBundleWebhookHandlerArray{ ReleaseBundleWebhookHandlerArgs{...} }
 type ReleaseBundleWebhookHandlerArrayInput interface {
 	pulumi.Input
 
@@ -9294,7 +9294,7 @@ type RemoteAlpineRepositoryContentSynchronisation struct {
 // RemoteAlpineRepositoryContentSynchronisationInput is an input type that accepts RemoteAlpineRepositoryContentSynchronisationArgs and RemoteAlpineRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteAlpineRepositoryContentSynchronisationInput` via:
 //
-//          RemoteAlpineRepositoryContentSynchronisationArgs{...}
+//	RemoteAlpineRepositoryContentSynchronisationArgs{...}
 type RemoteAlpineRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -9332,11 +9332,11 @@ func (i RemoteAlpineRepositoryContentSynchronisationArgs) ToRemoteAlpineReposito
 // RemoteAlpineRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteAlpineRepositoryContentSynchronisationArgs, RemoteAlpineRepositoryContentSynchronisationPtr and RemoteAlpineRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteAlpineRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteAlpineRepositoryContentSynchronisationArgs{...}
+//	        RemoteAlpineRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteAlpineRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -9472,7 +9472,7 @@ type RemoteBowerRepositoryContentSynchronisation struct {
 // RemoteBowerRepositoryContentSynchronisationInput is an input type that accepts RemoteBowerRepositoryContentSynchronisationArgs and RemoteBowerRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteBowerRepositoryContentSynchronisationInput` via:
 //
-//          RemoteBowerRepositoryContentSynchronisationArgs{...}
+//	RemoteBowerRepositoryContentSynchronisationArgs{...}
 type RemoteBowerRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -9510,11 +9510,11 @@ func (i RemoteBowerRepositoryContentSynchronisationArgs) ToRemoteBowerRepository
 // RemoteBowerRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteBowerRepositoryContentSynchronisationArgs, RemoteBowerRepositoryContentSynchronisationPtr and RemoteBowerRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteBowerRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteBowerRepositoryContentSynchronisationArgs{...}
+//	        RemoteBowerRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteBowerRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -9650,7 +9650,7 @@ type RemoteCargoRepositoryContentSynchronisation struct {
 // RemoteCargoRepositoryContentSynchronisationInput is an input type that accepts RemoteCargoRepositoryContentSynchronisationArgs and RemoteCargoRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteCargoRepositoryContentSynchronisationInput` via:
 //
-//          RemoteCargoRepositoryContentSynchronisationArgs{...}
+//	RemoteCargoRepositoryContentSynchronisationArgs{...}
 type RemoteCargoRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -9688,11 +9688,11 @@ func (i RemoteCargoRepositoryContentSynchronisationArgs) ToRemoteCargoRepository
 // RemoteCargoRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteCargoRepositoryContentSynchronisationArgs, RemoteCargoRepositoryContentSynchronisationPtr and RemoteCargoRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteCargoRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteCargoRepositoryContentSynchronisationArgs{...}
+//	        RemoteCargoRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteCargoRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -9828,7 +9828,7 @@ type RemoteChefRepositoryContentSynchronisation struct {
 // RemoteChefRepositoryContentSynchronisationInput is an input type that accepts RemoteChefRepositoryContentSynchronisationArgs and RemoteChefRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteChefRepositoryContentSynchronisationInput` via:
 //
-//          RemoteChefRepositoryContentSynchronisationArgs{...}
+//	RemoteChefRepositoryContentSynchronisationArgs{...}
 type RemoteChefRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -9866,11 +9866,11 @@ func (i RemoteChefRepositoryContentSynchronisationArgs) ToRemoteChefRepositoryCo
 // RemoteChefRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteChefRepositoryContentSynchronisationArgs, RemoteChefRepositoryContentSynchronisationPtr and RemoteChefRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteChefRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteChefRepositoryContentSynchronisationArgs{...}
+//	        RemoteChefRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteChefRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10006,7 +10006,7 @@ type RemoteCocoapodsRepositoryContentSynchronisation struct {
 // RemoteCocoapodsRepositoryContentSynchronisationInput is an input type that accepts RemoteCocoapodsRepositoryContentSynchronisationArgs and RemoteCocoapodsRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteCocoapodsRepositoryContentSynchronisationInput` via:
 //
-//          RemoteCocoapodsRepositoryContentSynchronisationArgs{...}
+//	RemoteCocoapodsRepositoryContentSynchronisationArgs{...}
 type RemoteCocoapodsRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10044,11 +10044,11 @@ func (i RemoteCocoapodsRepositoryContentSynchronisationArgs) ToRemoteCocoapodsRe
 // RemoteCocoapodsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteCocoapodsRepositoryContentSynchronisationArgs, RemoteCocoapodsRepositoryContentSynchronisationPtr and RemoteCocoapodsRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteCocoapodsRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteCocoapodsRepositoryContentSynchronisationArgs{...}
+//	        RemoteCocoapodsRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteCocoapodsRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10184,7 +10184,7 @@ type RemoteComposerRepositoryContentSynchronisation struct {
 // RemoteComposerRepositoryContentSynchronisationInput is an input type that accepts RemoteComposerRepositoryContentSynchronisationArgs and RemoteComposerRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteComposerRepositoryContentSynchronisationInput` via:
 //
-//          RemoteComposerRepositoryContentSynchronisationArgs{...}
+//	RemoteComposerRepositoryContentSynchronisationArgs{...}
 type RemoteComposerRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10222,11 +10222,11 @@ func (i RemoteComposerRepositoryContentSynchronisationArgs) ToRemoteComposerRepo
 // RemoteComposerRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteComposerRepositoryContentSynchronisationArgs, RemoteComposerRepositoryContentSynchronisationPtr and RemoteComposerRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteComposerRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteComposerRepositoryContentSynchronisationArgs{...}
+//	        RemoteComposerRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteComposerRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10362,7 +10362,7 @@ type RemoteConanRepositoryContentSynchronisation struct {
 // RemoteConanRepositoryContentSynchronisationInput is an input type that accepts RemoteConanRepositoryContentSynchronisationArgs and RemoteConanRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteConanRepositoryContentSynchronisationInput` via:
 //
-//          RemoteConanRepositoryContentSynchronisationArgs{...}
+//	RemoteConanRepositoryContentSynchronisationArgs{...}
 type RemoteConanRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10400,11 +10400,11 @@ func (i RemoteConanRepositoryContentSynchronisationArgs) ToRemoteConanRepository
 // RemoteConanRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteConanRepositoryContentSynchronisationArgs, RemoteConanRepositoryContentSynchronisationPtr and RemoteConanRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteConanRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteConanRepositoryContentSynchronisationArgs{...}
+//	        RemoteConanRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteConanRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10540,7 +10540,7 @@ type RemoteCondaRepositoryContentSynchronisation struct {
 // RemoteCondaRepositoryContentSynchronisationInput is an input type that accepts RemoteCondaRepositoryContentSynchronisationArgs and RemoteCondaRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteCondaRepositoryContentSynchronisationInput` via:
 //
-//          RemoteCondaRepositoryContentSynchronisationArgs{...}
+//	RemoteCondaRepositoryContentSynchronisationArgs{...}
 type RemoteCondaRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10578,11 +10578,11 @@ func (i RemoteCondaRepositoryContentSynchronisationArgs) ToRemoteCondaRepository
 // RemoteCondaRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteCondaRepositoryContentSynchronisationArgs, RemoteCondaRepositoryContentSynchronisationPtr and RemoteCondaRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteCondaRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteCondaRepositoryContentSynchronisationArgs{...}
+//	        RemoteCondaRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteCondaRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10718,7 +10718,7 @@ type RemoteCranRepositoryContentSynchronisation struct {
 // RemoteCranRepositoryContentSynchronisationInput is an input type that accepts RemoteCranRepositoryContentSynchronisationArgs and RemoteCranRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteCranRepositoryContentSynchronisationInput` via:
 //
-//          RemoteCranRepositoryContentSynchronisationArgs{...}
+//	RemoteCranRepositoryContentSynchronisationArgs{...}
 type RemoteCranRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10756,11 +10756,11 @@ func (i RemoteCranRepositoryContentSynchronisationArgs) ToRemoteCranRepositoryCo
 // RemoteCranRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteCranRepositoryContentSynchronisationArgs, RemoteCranRepositoryContentSynchronisationPtr and RemoteCranRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteCranRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteCranRepositoryContentSynchronisationArgs{...}
+//	        RemoteCranRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteCranRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -10896,7 +10896,7 @@ type RemoteDebianRepositoryContentSynchronisation struct {
 // RemoteDebianRepositoryContentSynchronisationInput is an input type that accepts RemoteDebianRepositoryContentSynchronisationArgs and RemoteDebianRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteDebianRepositoryContentSynchronisationInput` via:
 //
-//          RemoteDebianRepositoryContentSynchronisationArgs{...}
+//	RemoteDebianRepositoryContentSynchronisationArgs{...}
 type RemoteDebianRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -10934,11 +10934,11 @@ func (i RemoteDebianRepositoryContentSynchronisationArgs) ToRemoteDebianReposito
 // RemoteDebianRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteDebianRepositoryContentSynchronisationArgs, RemoteDebianRepositoryContentSynchronisationPtr and RemoteDebianRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteDebianRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteDebianRepositoryContentSynchronisationArgs{...}
+//	        RemoteDebianRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteDebianRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11074,7 +11074,7 @@ type RemoteDockerRepositoryContentSynchronisation struct {
 // RemoteDockerRepositoryContentSynchronisationInput is an input type that accepts RemoteDockerRepositoryContentSynchronisationArgs and RemoteDockerRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteDockerRepositoryContentSynchronisationInput` via:
 //
-//          RemoteDockerRepositoryContentSynchronisationArgs{...}
+//	RemoteDockerRepositoryContentSynchronisationArgs{...}
 type RemoteDockerRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -11112,11 +11112,11 @@ func (i RemoteDockerRepositoryContentSynchronisationArgs) ToRemoteDockerReposito
 // RemoteDockerRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteDockerRepositoryContentSynchronisationArgs, RemoteDockerRepositoryContentSynchronisationPtr and RemoteDockerRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteDockerRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteDockerRepositoryContentSynchronisationArgs{...}
+//	        RemoteDockerRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteDockerRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11252,7 +11252,7 @@ type RemoteGemsRepositoryContentSynchronisation struct {
 // RemoteGemsRepositoryContentSynchronisationInput is an input type that accepts RemoteGemsRepositoryContentSynchronisationArgs and RemoteGemsRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteGemsRepositoryContentSynchronisationInput` via:
 //
-//          RemoteGemsRepositoryContentSynchronisationArgs{...}
+//	RemoteGemsRepositoryContentSynchronisationArgs{...}
 type RemoteGemsRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -11290,11 +11290,11 @@ func (i RemoteGemsRepositoryContentSynchronisationArgs) ToRemoteGemsRepositoryCo
 // RemoteGemsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteGemsRepositoryContentSynchronisationArgs, RemoteGemsRepositoryContentSynchronisationPtr and RemoteGemsRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteGemsRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteGemsRepositoryContentSynchronisationArgs{...}
+//	        RemoteGemsRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteGemsRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11430,7 +11430,7 @@ type RemoteGenericRepositoryContentSynchronisation struct {
 // RemoteGenericRepositoryContentSynchronisationInput is an input type that accepts RemoteGenericRepositoryContentSynchronisationArgs and RemoteGenericRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteGenericRepositoryContentSynchronisationInput` via:
 //
-//          RemoteGenericRepositoryContentSynchronisationArgs{...}
+//	RemoteGenericRepositoryContentSynchronisationArgs{...}
 type RemoteGenericRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -11468,11 +11468,11 @@ func (i RemoteGenericRepositoryContentSynchronisationArgs) ToRemoteGenericReposi
 // RemoteGenericRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteGenericRepositoryContentSynchronisationArgs, RemoteGenericRepositoryContentSynchronisationPtr and RemoteGenericRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteGenericRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteGenericRepositoryContentSynchronisationArgs{...}
+//	        RemoteGenericRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteGenericRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11608,7 +11608,7 @@ type RemoteGitlfsRepositoryContentSynchronisation struct {
 // RemoteGitlfsRepositoryContentSynchronisationInput is an input type that accepts RemoteGitlfsRepositoryContentSynchronisationArgs and RemoteGitlfsRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteGitlfsRepositoryContentSynchronisationInput` via:
 //
-//          RemoteGitlfsRepositoryContentSynchronisationArgs{...}
+//	RemoteGitlfsRepositoryContentSynchronisationArgs{...}
 type RemoteGitlfsRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -11646,11 +11646,11 @@ func (i RemoteGitlfsRepositoryContentSynchronisationArgs) ToRemoteGitlfsReposito
 // RemoteGitlfsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteGitlfsRepositoryContentSynchronisationArgs, RemoteGitlfsRepositoryContentSynchronisationPtr and RemoteGitlfsRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteGitlfsRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteGitlfsRepositoryContentSynchronisationArgs{...}
+//	        RemoteGitlfsRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteGitlfsRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11786,7 +11786,7 @@ type RemoteGoRepositoryContentSynchronisation struct {
 // RemoteGoRepositoryContentSynchronisationInput is an input type that accepts RemoteGoRepositoryContentSynchronisationArgs and RemoteGoRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteGoRepositoryContentSynchronisationInput` via:
 //
-//          RemoteGoRepositoryContentSynchronisationArgs{...}
+//	RemoteGoRepositoryContentSynchronisationArgs{...}
 type RemoteGoRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -11824,11 +11824,11 @@ func (i RemoteGoRepositoryContentSynchronisationArgs) ToRemoteGoRepositoryConten
 // RemoteGoRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteGoRepositoryContentSynchronisationArgs, RemoteGoRepositoryContentSynchronisationPtr and RemoteGoRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteGoRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteGoRepositoryContentSynchronisationArgs{...}
+//	        RemoteGoRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteGoRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -11964,7 +11964,7 @@ type RemoteGradleRepositoryContentSynchronisation struct {
 // RemoteGradleRepositoryContentSynchronisationInput is an input type that accepts RemoteGradleRepositoryContentSynchronisationArgs and RemoteGradleRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteGradleRepositoryContentSynchronisationInput` via:
 //
-//          RemoteGradleRepositoryContentSynchronisationArgs{...}
+//	RemoteGradleRepositoryContentSynchronisationArgs{...}
 type RemoteGradleRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12002,11 +12002,11 @@ func (i RemoteGradleRepositoryContentSynchronisationArgs) ToRemoteGradleReposito
 // RemoteGradleRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteGradleRepositoryContentSynchronisationArgs, RemoteGradleRepositoryContentSynchronisationPtr and RemoteGradleRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteGradleRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteGradleRepositoryContentSynchronisationArgs{...}
+//	        RemoteGradleRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteGradleRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -12142,7 +12142,7 @@ type RemoteHelmRepositoryContentSynchronisation struct {
 // RemoteHelmRepositoryContentSynchronisationInput is an input type that accepts RemoteHelmRepositoryContentSynchronisationArgs and RemoteHelmRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteHelmRepositoryContentSynchronisationInput` via:
 //
-//          RemoteHelmRepositoryContentSynchronisationArgs{...}
+//	RemoteHelmRepositoryContentSynchronisationArgs{...}
 type RemoteHelmRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12180,11 +12180,11 @@ func (i RemoteHelmRepositoryContentSynchronisationArgs) ToRemoteHelmRepositoryCo
 // RemoteHelmRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteHelmRepositoryContentSynchronisationArgs, RemoteHelmRepositoryContentSynchronisationPtr and RemoteHelmRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteHelmRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteHelmRepositoryContentSynchronisationArgs{...}
+//	        RemoteHelmRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteHelmRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -12320,7 +12320,7 @@ type RemoteIvyRepositoryContentSynchronisation struct {
 // RemoteIvyRepositoryContentSynchronisationInput is an input type that accepts RemoteIvyRepositoryContentSynchronisationArgs and RemoteIvyRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteIvyRepositoryContentSynchronisationInput` via:
 //
-//          RemoteIvyRepositoryContentSynchronisationArgs{...}
+//	RemoteIvyRepositoryContentSynchronisationArgs{...}
 type RemoteIvyRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12358,11 +12358,11 @@ func (i RemoteIvyRepositoryContentSynchronisationArgs) ToRemoteIvyRepositoryCont
 // RemoteIvyRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteIvyRepositoryContentSynchronisationArgs, RemoteIvyRepositoryContentSynchronisationPtr and RemoteIvyRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteIvyRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteIvyRepositoryContentSynchronisationArgs{...}
+//	        RemoteIvyRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteIvyRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -12498,7 +12498,7 @@ type RemoteMavenRepositoryContentSynchronisation struct {
 // RemoteMavenRepositoryContentSynchronisationInput is an input type that accepts RemoteMavenRepositoryContentSynchronisationArgs and RemoteMavenRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteMavenRepositoryContentSynchronisationInput` via:
 //
-//          RemoteMavenRepositoryContentSynchronisationArgs{...}
+//	RemoteMavenRepositoryContentSynchronisationArgs{...}
 type RemoteMavenRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12536,11 +12536,11 @@ func (i RemoteMavenRepositoryContentSynchronisationArgs) ToRemoteMavenRepository
 // RemoteMavenRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteMavenRepositoryContentSynchronisationArgs, RemoteMavenRepositoryContentSynchronisationPtr and RemoteMavenRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteMavenRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteMavenRepositoryContentSynchronisationArgs{...}
+//	        RemoteMavenRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteMavenRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -12676,7 +12676,7 @@ type RemoteNpmRepositoryContentSynchronisation struct {
 // RemoteNpmRepositoryContentSynchronisationInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs and RemoteNpmRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteNpmRepositoryContentSynchronisationInput` via:
 //
-//          RemoteNpmRepositoryContentSynchronisationArgs{...}
+//	RemoteNpmRepositoryContentSynchronisationArgs{...}
 type RemoteNpmRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12714,11 +12714,11 @@ func (i RemoteNpmRepositoryContentSynchronisationArgs) ToRemoteNpmRepositoryCont
 // RemoteNpmRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteNpmRepositoryContentSynchronisationArgs, RemoteNpmRepositoryContentSynchronisationPtr and RemoteNpmRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteNpmRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteNpmRepositoryContentSynchronisationArgs{...}
+//	        RemoteNpmRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteNpmRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -12854,7 +12854,7 @@ type RemoteNugetRepositoryContentSynchronisation struct {
 // RemoteNugetRepositoryContentSynchronisationInput is an input type that accepts RemoteNugetRepositoryContentSynchronisationArgs and RemoteNugetRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteNugetRepositoryContentSynchronisationInput` via:
 //
-//          RemoteNugetRepositoryContentSynchronisationArgs{...}
+//	RemoteNugetRepositoryContentSynchronisationArgs{...}
 type RemoteNugetRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -12892,11 +12892,11 @@ func (i RemoteNugetRepositoryContentSynchronisationArgs) ToRemoteNugetRepository
 // RemoteNugetRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteNugetRepositoryContentSynchronisationArgs, RemoteNugetRepositoryContentSynchronisationPtr and RemoteNugetRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteNugetRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteNugetRepositoryContentSynchronisationArgs{...}
+//	        RemoteNugetRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteNugetRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13032,7 +13032,7 @@ type RemoteOpkgRepositoryContentSynchronisation struct {
 // RemoteOpkgRepositoryContentSynchronisationInput is an input type that accepts RemoteOpkgRepositoryContentSynchronisationArgs and RemoteOpkgRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteOpkgRepositoryContentSynchronisationInput` via:
 //
-//          RemoteOpkgRepositoryContentSynchronisationArgs{...}
+//	RemoteOpkgRepositoryContentSynchronisationArgs{...}
 type RemoteOpkgRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13070,11 +13070,11 @@ func (i RemoteOpkgRepositoryContentSynchronisationArgs) ToRemoteOpkgRepositoryCo
 // RemoteOpkgRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteOpkgRepositoryContentSynchronisationArgs, RemoteOpkgRepositoryContentSynchronisationPtr and RemoteOpkgRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteOpkgRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteOpkgRepositoryContentSynchronisationArgs{...}
+//	        RemoteOpkgRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteOpkgRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13210,7 +13210,7 @@ type RemoteP2RepositoryContentSynchronisation struct {
 // RemoteP2RepositoryContentSynchronisationInput is an input type that accepts RemoteP2RepositoryContentSynchronisationArgs and RemoteP2RepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteP2RepositoryContentSynchronisationInput` via:
 //
-//          RemoteP2RepositoryContentSynchronisationArgs{...}
+//	RemoteP2RepositoryContentSynchronisationArgs{...}
 type RemoteP2RepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13248,11 +13248,11 @@ func (i RemoteP2RepositoryContentSynchronisationArgs) ToRemoteP2RepositoryConten
 // RemoteP2RepositoryContentSynchronisationPtrInput is an input type that accepts RemoteP2RepositoryContentSynchronisationArgs, RemoteP2RepositoryContentSynchronisationPtr and RemoteP2RepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteP2RepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteP2RepositoryContentSynchronisationArgs{...}
+//	        RemoteP2RepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteP2RepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13388,7 +13388,7 @@ type RemotePubRepositoryContentSynchronisation struct {
 // RemotePubRepositoryContentSynchronisationInput is an input type that accepts RemotePubRepositoryContentSynchronisationArgs and RemotePubRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemotePubRepositoryContentSynchronisationInput` via:
 //
-//          RemotePubRepositoryContentSynchronisationArgs{...}
+//	RemotePubRepositoryContentSynchronisationArgs{...}
 type RemotePubRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13426,11 +13426,11 @@ func (i RemotePubRepositoryContentSynchronisationArgs) ToRemotePubRepositoryCont
 // RemotePubRepositoryContentSynchronisationPtrInput is an input type that accepts RemotePubRepositoryContentSynchronisationArgs, RemotePubRepositoryContentSynchronisationPtr and RemotePubRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemotePubRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemotePubRepositoryContentSynchronisationArgs{...}
+//	        RemotePubRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemotePubRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13566,7 +13566,7 @@ type RemotePuppetRepositoryContentSynchronisation struct {
 // RemotePuppetRepositoryContentSynchronisationInput is an input type that accepts RemotePuppetRepositoryContentSynchronisationArgs and RemotePuppetRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemotePuppetRepositoryContentSynchronisationInput` via:
 //
-//          RemotePuppetRepositoryContentSynchronisationArgs{...}
+//	RemotePuppetRepositoryContentSynchronisationArgs{...}
 type RemotePuppetRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13604,11 +13604,11 @@ func (i RemotePuppetRepositoryContentSynchronisationArgs) ToRemotePuppetReposito
 // RemotePuppetRepositoryContentSynchronisationPtrInput is an input type that accepts RemotePuppetRepositoryContentSynchronisationArgs, RemotePuppetRepositoryContentSynchronisationPtr and RemotePuppetRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemotePuppetRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemotePuppetRepositoryContentSynchronisationArgs{...}
+//	        RemotePuppetRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemotePuppetRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13744,7 +13744,7 @@ type RemotePypiRepositoryContentSynchronisation struct {
 // RemotePypiRepositoryContentSynchronisationInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs and RemotePypiRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemotePypiRepositoryContentSynchronisationInput` via:
 //
-//          RemotePypiRepositoryContentSynchronisationArgs{...}
+//	RemotePypiRepositoryContentSynchronisationArgs{...}
 type RemotePypiRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13782,11 +13782,11 @@ func (i RemotePypiRepositoryContentSynchronisationArgs) ToRemotePypiRepositoryCo
 // RemotePypiRepositoryContentSynchronisationPtrInput is an input type that accepts RemotePypiRepositoryContentSynchronisationArgs, RemotePypiRepositoryContentSynchronisationPtr and RemotePypiRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemotePypiRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemotePypiRepositoryContentSynchronisationArgs{...}
+//	        RemotePypiRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemotePypiRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -13922,7 +13922,7 @@ type RemoteRpmRepositoryContentSynchronisation struct {
 // RemoteRpmRepositoryContentSynchronisationInput is an input type that accepts RemoteRpmRepositoryContentSynchronisationArgs and RemoteRpmRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteRpmRepositoryContentSynchronisationInput` via:
 //
-//          RemoteRpmRepositoryContentSynchronisationArgs{...}
+//	RemoteRpmRepositoryContentSynchronisationArgs{...}
 type RemoteRpmRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -13960,11 +13960,11 @@ func (i RemoteRpmRepositoryContentSynchronisationArgs) ToRemoteRpmRepositoryCont
 // RemoteRpmRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteRpmRepositoryContentSynchronisationArgs, RemoteRpmRepositoryContentSynchronisationPtr and RemoteRpmRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteRpmRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteRpmRepositoryContentSynchronisationArgs{...}
+//	        RemoteRpmRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteRpmRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -14100,7 +14100,7 @@ type RemoteSbtRepositoryContentSynchronisation struct {
 // RemoteSbtRepositoryContentSynchronisationInput is an input type that accepts RemoteSbtRepositoryContentSynchronisationArgs and RemoteSbtRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteSbtRepositoryContentSynchronisationInput` via:
 //
-//          RemoteSbtRepositoryContentSynchronisationArgs{...}
+//	RemoteSbtRepositoryContentSynchronisationArgs{...}
 type RemoteSbtRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -14138,11 +14138,11 @@ func (i RemoteSbtRepositoryContentSynchronisationArgs) ToRemoteSbtRepositoryCont
 // RemoteSbtRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteSbtRepositoryContentSynchronisationArgs, RemoteSbtRepositoryContentSynchronisationPtr and RemoteSbtRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteSbtRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteSbtRepositoryContentSynchronisationArgs{...}
+//	        RemoteSbtRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteSbtRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -14278,7 +14278,7 @@ type RemoteSwiftRepositoryContentSynchronisation struct {
 // RemoteSwiftRepositoryContentSynchronisationInput is an input type that accepts RemoteSwiftRepositoryContentSynchronisationArgs and RemoteSwiftRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteSwiftRepositoryContentSynchronisationInput` via:
 //
-//          RemoteSwiftRepositoryContentSynchronisationArgs{...}
+//	RemoteSwiftRepositoryContentSynchronisationArgs{...}
 type RemoteSwiftRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -14316,11 +14316,11 @@ func (i RemoteSwiftRepositoryContentSynchronisationArgs) ToRemoteSwiftRepository
 // RemoteSwiftRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteSwiftRepositoryContentSynchronisationArgs, RemoteSwiftRepositoryContentSynchronisationPtr and RemoteSwiftRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteSwiftRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteSwiftRepositoryContentSynchronisationArgs{...}
+//	        RemoteSwiftRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteSwiftRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -14456,7 +14456,7 @@ type RemoteTerraformRepositoryContentSynchronisation struct {
 // RemoteTerraformRepositoryContentSynchronisationInput is an input type that accepts RemoteTerraformRepositoryContentSynchronisationArgs and RemoteTerraformRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteTerraformRepositoryContentSynchronisationInput` via:
 //
-//          RemoteTerraformRepositoryContentSynchronisationArgs{...}
+//	RemoteTerraformRepositoryContentSynchronisationArgs{...}
 type RemoteTerraformRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -14494,11 +14494,11 @@ func (i RemoteTerraformRepositoryContentSynchronisationArgs) ToRemoteTerraformRe
 // RemoteTerraformRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteTerraformRepositoryContentSynchronisationArgs, RemoteTerraformRepositoryContentSynchronisationPtr and RemoteTerraformRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteTerraformRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteTerraformRepositoryContentSynchronisationArgs{...}
+//	        RemoteTerraformRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteTerraformRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -14634,7 +14634,7 @@ type RemoteVcsRepositoryContentSynchronisation struct {
 // RemoteVcsRepositoryContentSynchronisationInput is an input type that accepts RemoteVcsRepositoryContentSynchronisationArgs and RemoteVcsRepositoryContentSynchronisationOutput values.
 // You can construct a concrete instance of `RemoteVcsRepositoryContentSynchronisationInput` via:
 //
-//          RemoteVcsRepositoryContentSynchronisationArgs{...}
+//	RemoteVcsRepositoryContentSynchronisationArgs{...}
 type RemoteVcsRepositoryContentSynchronisationInput interface {
 	pulumi.Input
 
@@ -14672,11 +14672,11 @@ func (i RemoteVcsRepositoryContentSynchronisationArgs) ToRemoteVcsRepositoryCont
 // RemoteVcsRepositoryContentSynchronisationPtrInput is an input type that accepts RemoteVcsRepositoryContentSynchronisationArgs, RemoteVcsRepositoryContentSynchronisationPtr and RemoteVcsRepositoryContentSynchronisationPtrOutput values.
 // You can construct a concrete instance of `RemoteVcsRepositoryContentSynchronisationPtrInput` via:
 //
-//          RemoteVcsRepositoryContentSynchronisationArgs{...}
+//	        RemoteVcsRepositoryContentSynchronisationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RemoteVcsRepositoryContentSynchronisationPtrInput interface {
 	pulumi.Input
 
@@ -14820,7 +14820,7 @@ type ReplicationConfigReplication struct {
 // ReplicationConfigReplicationInput is an input type that accepts ReplicationConfigReplicationArgs and ReplicationConfigReplicationOutput values.
 // You can construct a concrete instance of `ReplicationConfigReplicationInput` via:
 //
-//          ReplicationConfigReplicationArgs{...}
+//	ReplicationConfigReplicationArgs{...}
 type ReplicationConfigReplicationInput interface {
 	pulumi.Input
 
@@ -14858,7 +14858,7 @@ func (i ReplicationConfigReplicationArgs) ToReplicationConfigReplicationOutputWi
 // ReplicationConfigReplicationArrayInput is an input type that accepts ReplicationConfigReplicationArray and ReplicationConfigReplicationArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigReplicationArrayInput` via:
 //
-//          ReplicationConfigReplicationArray{ ReplicationConfigReplicationArgs{...} }
+//	ReplicationConfigReplicationArray{ ReplicationConfigReplicationArgs{...} }
 type ReplicationConfigReplicationArrayInput interface {
 	pulumi.Input
 

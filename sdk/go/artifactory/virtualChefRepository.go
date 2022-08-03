@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualChefRepository(ctx, "foo-chef", &artifactory.VirtualChefRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-chef"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualChefRepository(ctx, "foo-chef", &artifactory.VirtualChefRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-chef"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualChefRepository:VirtualChefRepository foo-chef foo-chef
+//
+//	$ pulumi import artifactory:index/virtualChefRepository:VirtualChefRepository foo-chef foo-chef
+//
 // ```
 type VirtualChefRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualChefRepository) ToVirtualChefRepositoryOutputWithContext(ctx con
 // VirtualChefRepositoryArrayInput is an input type that accepts VirtualChefRepositoryArray and VirtualChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualChefRepositoryArrayInput` via:
 //
-//          VirtualChefRepositoryArray{ VirtualChefRepositoryArgs{...} }
+//	VirtualChefRepositoryArray{ VirtualChefRepositoryArgs{...} }
 type VirtualChefRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualChefRepositoryArray) ToVirtualChefRepositoryArrayOutputWithContex
 // VirtualChefRepositoryMapInput is an input type that accepts VirtualChefRepositoryMap and VirtualChefRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualChefRepositoryMapInput` via:
 //
-//          VirtualChefRepositoryMap{ "key": VirtualChefRepositoryArgs{...} }
+//	VirtualChefRepositoryMap{ "key": VirtualChefRepositoryArgs{...} }
 type VirtualChefRepositoryMapInput interface {
 	pulumi.Input
 

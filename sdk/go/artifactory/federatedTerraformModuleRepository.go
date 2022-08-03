@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedTerraformModuleRepository(ctx, "terraform-federated-test-terraformModule-repo", &artifactory.FederatedTerraformModuleRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-terraform-module-repo"),
-// 			Members: FederatedTerraformModuleRepositoryMemberArray{
-// 				&FederatedTerraformModuleRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo"),
-// 				},
-// 				&FederatedTerraformModuleRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedTerraformModuleRepository(ctx, "terraform-federated-test-terraformModule-repo", &artifactory.FederatedTerraformModuleRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-terraform-module-repo"),
+//				Members: FederatedTerraformModuleRepositoryMemberArray{
+//					&FederatedTerraformModuleRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo"),
+//					},
+//					&FederatedTerraformModuleRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+//
+//	$ pulumi import artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository terraform-federated-test-terraform_module-repo terraform-federated-test-terraform-module-repo
+//
 // ```
 type FederatedTerraformModuleRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedTerraformModuleRepository) ToFederatedTerraformModuleRepositor
 // FederatedTerraformModuleRepositoryArrayInput is an input type that accepts FederatedTerraformModuleRepositoryArray and FederatedTerraformModuleRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedTerraformModuleRepositoryArrayInput` via:
 //
-//          FederatedTerraformModuleRepositoryArray{ FederatedTerraformModuleRepositoryArgs{...} }
+//	FederatedTerraformModuleRepositoryArray{ FederatedTerraformModuleRepositoryArgs{...} }
 type FederatedTerraformModuleRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedTerraformModuleRepositoryArray) ToFederatedTerraformModuleRepos
 // FederatedTerraformModuleRepositoryMapInput is an input type that accepts FederatedTerraformModuleRepositoryMap and FederatedTerraformModuleRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedTerraformModuleRepositoryMapInput` via:
 //
-//          FederatedTerraformModuleRepositoryMap{ "key": FederatedTerraformModuleRepositoryArgs{...} }
+//	FederatedTerraformModuleRepositoryMap{ "key": FederatedTerraformModuleRepositoryArgs{...} }
 type FederatedTerraformModuleRepositoryMapInput interface {
 	pulumi.Input
 

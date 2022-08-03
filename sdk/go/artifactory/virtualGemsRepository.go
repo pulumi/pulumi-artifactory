@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualGemsRepository(ctx, "foo-gems", &artifactory.VirtualGemsRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-gems"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualGemsRepository(ctx, "foo-gems", &artifactory.VirtualGemsRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-gems"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo-gems foo-gems
+//
+//	$ pulumi import artifactory:index/virtualGemsRepository:VirtualGemsRepository foo-gems foo-gems
+//
 // ```
 type VirtualGemsRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualGemsRepository) ToVirtualGemsRepositoryOutputWithContext(ctx con
 // VirtualGemsRepositoryArrayInput is an input type that accepts VirtualGemsRepositoryArray and VirtualGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGemsRepositoryArrayInput` via:
 //
-//          VirtualGemsRepositoryArray{ VirtualGemsRepositoryArgs{...} }
+//	VirtualGemsRepositoryArray{ VirtualGemsRepositoryArgs{...} }
 type VirtualGemsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualGemsRepositoryArray) ToVirtualGemsRepositoryArrayOutputWithContex
 // VirtualGemsRepositoryMapInput is an input type that accepts VirtualGemsRepositoryMap and VirtualGemsRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualGemsRepositoryMapInput` via:
 //
-//          VirtualGemsRepositoryMap{ "key": VirtualGemsRepositoryArgs{...} }
+//	VirtualGemsRepositoryMap{ "key": VirtualGemsRepositoryArgs{...} }
 type VirtualGemsRepositoryMapInput interface {
 	pulumi.Input
 

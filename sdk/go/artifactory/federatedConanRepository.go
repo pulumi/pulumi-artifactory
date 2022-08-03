@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedConanRepository(ctx, "terraform-federated-test-conan-repo", &artifactory.FederatedConanRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-conan-repo"),
-// 			Members: FederatedConanRepositoryMemberArray{
-// 				&FederatedConanRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conan-repo"),
-// 				},
-// 				&FederatedConanRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedConanRepository(ctx, "terraform-federated-test-conan-repo", &artifactory.FederatedConanRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-conan-repo"),
+//				Members: FederatedConanRepositoryMemberArray{
+//					&FederatedConanRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conan-repo"),
+//					},
+//					&FederatedConanRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,10 +54,12 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
+//
+//	$ pulumi import artifactory:index/federatedConanRepository:FederatedConanRepository resource "artifactory_federated_conan_repository" "terraform-federated-test-conan-repo" {
+//
 // ```
 //
-//  .terraform-federated-test-conan-repo terraform-federated-test-conan-repo
+//	.terraform-federated-test-conan-repo terraform-federated-test-conan-repo
 type FederatedConanRepository struct {
 	pulumi.CustomResourceState
 
@@ -330,7 +335,7 @@ func (i *FederatedConanRepository) ToFederatedConanRepositoryOutputWithContext(c
 // FederatedConanRepositoryArrayInput is an input type that accepts FederatedConanRepositoryArray and FederatedConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedConanRepositoryArrayInput` via:
 //
-//          FederatedConanRepositoryArray{ FederatedConanRepositoryArgs{...} }
+//	FederatedConanRepositoryArray{ FederatedConanRepositoryArgs{...} }
 type FederatedConanRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -355,7 +360,7 @@ func (i FederatedConanRepositoryArray) ToFederatedConanRepositoryArrayOutputWith
 // FederatedConanRepositoryMapInput is an input type that accepts FederatedConanRepositoryMap and FederatedConanRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedConanRepositoryMapInput` via:
 //
-//          FederatedConanRepositoryMap{ "key": FederatedConanRepositoryArgs{...} }
+//	FederatedConanRepositoryMap{ "key": FederatedConanRepositoryArgs{...} }
 type FederatedConanRepositoryMapInput interface {
 	pulumi.Input
 

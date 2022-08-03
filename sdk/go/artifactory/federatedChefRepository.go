@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedChefRepository(ctx, "terraform-federated-test-chef-repo", &artifactory.FederatedChefRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-chef-repo"),
-// 			Members: FederatedChefRepositoryMemberArray{
-// 				&FederatedChefRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-chef-repo"),
-// 				},
-// 				&FederatedChefRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedChefRepository(ctx, "terraform-federated-test-chef-repo", &artifactory.FederatedChefRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-chef-repo"),
+//				Members: FederatedChefRepositoryMemberArray{
+//					&FederatedChefRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-chef-repo"),
+//					},
+//					&FederatedChefRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
+//
+//	$ pulumi import artifactory:index/federatedChefRepository:FederatedChefRepository terraform-federated-test-chef-repo terraform-federated-test-chef-repo
+//
 // ```
 type FederatedChefRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedChefRepository) ToFederatedChefRepositoryOutputWithContext(ctx
 // FederatedChefRepositoryArrayInput is an input type that accepts FederatedChefRepositoryArray and FederatedChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedChefRepositoryArrayInput` via:
 //
-//          FederatedChefRepositoryArray{ FederatedChefRepositoryArgs{...} }
+//	FederatedChefRepositoryArray{ FederatedChefRepositoryArgs{...} }
 type FederatedChefRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedChefRepositoryArray) ToFederatedChefRepositoryArrayOutputWithCo
 // FederatedChefRepositoryMapInput is an input type that accepts FederatedChefRepositoryMap and FederatedChefRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedChefRepositoryMapInput` via:
 //
-//          FederatedChefRepositoryMap{ "key": FederatedChefRepositoryArgs{...} }
+//	FederatedChefRepositoryMap{ "key": FederatedChefRepositoryArgs{...} }
 type FederatedChefRepositoryMapInput interface {
 	pulumi.Input
 

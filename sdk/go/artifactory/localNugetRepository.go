@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
-// 			ForceNugetAuthentication: pulumi.Bool(true),
-// 			Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
-// 			MaxUniqueSnapshots:       pulumi.Int(5),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalNugetRepository(ctx, "terraform-local-test-nuget-repo-basic", &artifactory.LocalNugetRepositoryArgs{
+//				ForceNugetAuthentication: pulumi.Bool(true),
+//				Key:                      pulumi.String("terraform-local-test-nuget-repo-basic"),
+//				MaxUniqueSnapshots:       pulumi.Int(5),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
+//
+//	$ pulumi import artifactory:index/localNugetRepository:LocalNugetRepository terraform-local-test-nuget-repo-basic terraform-local-test-nuget-repo-basic
+//
 // ```
 type LocalNugetRepository struct {
 	pulumi.CustomResourceState
@@ -327,7 +332,7 @@ func (i *LocalNugetRepository) ToLocalNugetRepositoryOutputWithContext(ctx conte
 // LocalNugetRepositoryArrayInput is an input type that accepts LocalNugetRepositoryArray and LocalNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalNugetRepositoryArrayInput` via:
 //
-//          LocalNugetRepositoryArray{ LocalNugetRepositoryArgs{...} }
+//	LocalNugetRepositoryArray{ LocalNugetRepositoryArgs{...} }
 type LocalNugetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -352,7 +357,7 @@ func (i LocalNugetRepositoryArray) ToLocalNugetRepositoryArrayOutputWithContext(
 // LocalNugetRepositoryMapInput is an input type that accepts LocalNugetRepositoryMap and LocalNugetRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalNugetRepositoryMapInput` via:
 //
-//          LocalNugetRepositoryMap{ "key": LocalNugetRepositoryArgs{...} }
+//	LocalNugetRepositoryMap{ "key": LocalNugetRepositoryArgs{...} }
 type LocalNugetRepositoryMapInput interface {
 	pulumi.Input
 

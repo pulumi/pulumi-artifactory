@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGenericRepository(ctx, "terraform-federated-test-generic-repo", &artifactory.FederatedGenericRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-generic-repo"),
-// 			Members: FederatedGenericRepositoryMemberArray{
-// 				&FederatedGenericRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-generic-repo"),
-// 				},
-// 				&FederatedGenericRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedGenericRepository(ctx, "terraform-federated-test-generic-repo", &artifactory.FederatedGenericRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-generic-repo"),
+//				Members: FederatedGenericRepositoryMemberArray{
+//					&FederatedGenericRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-generic-repo"),
+//					},
+//					&FederatedGenericRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedGenericRepository:FederatedGenericRepository terraform-federated-test-generic-repo terraform-federated-test-generic-repo
+//
+//	$ pulumi import artifactory:index/federatedGenericRepository:FederatedGenericRepository terraform-federated-test-generic-repo terraform-federated-test-generic-repo
+//
 // ```
 type FederatedGenericRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedGenericRepository) ToFederatedGenericRepositoryOutputWithConte
 // FederatedGenericRepositoryArrayInput is an input type that accepts FederatedGenericRepositoryArray and FederatedGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGenericRepositoryArrayInput` via:
 //
-//          FederatedGenericRepositoryArray{ FederatedGenericRepositoryArgs{...} }
+//	FederatedGenericRepositoryArray{ FederatedGenericRepositoryArgs{...} }
 type FederatedGenericRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedGenericRepositoryArray) ToFederatedGenericRepositoryArrayOutput
 // FederatedGenericRepositoryMapInput is an input type that accepts FederatedGenericRepositoryMap and FederatedGenericRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedGenericRepositoryMapInput` via:
 //
-//          FederatedGenericRepositoryMap{ "key": FederatedGenericRepositoryArgs{...} }
+//	FederatedGenericRepositoryMap{ "key": FederatedGenericRepositoryArgs{...} }
 type FederatedGenericRepositoryMapInput interface {
 	pulumi.Input
 

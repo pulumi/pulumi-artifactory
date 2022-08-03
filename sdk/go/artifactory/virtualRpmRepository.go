@@ -20,56 +20,59 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("primary-keypair"),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias-1"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("secondary-keypair"),
-// 			PairType:   pulumi.String("GPG"),
-// 			Alias:      pulumi.String("foo-alias-2"),
-// 			PrivateKey: readFileOrPanic("samples/gpg.priv"),
-// 			PublicKey:  readFileOrPanic("samples/gpg.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
-// 			Key:                 pulumi.String("foo-rpm-virtual"),
-// 			PrimaryKeypairRef:   primary_keypair.PairName,
-// 			SecondaryKeypairRef: secondary_keypair.PairName,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			primary_keypair,
-// 			secondary_keypair,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "primary-keypair", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("primary-keypair"),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias-1"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewKeypair(ctx, "secondary-keypair", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("secondary-keypair"),
+//				PairType:   pulumi.String("GPG"),
+//				Alias:      pulumi.String("foo-alias-2"),
+//				PrivateKey: readFileOrPanic("samples/gpg.priv"),
+//				PublicKey:  readFileOrPanic("samples/gpg.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewVirtualRpmRepository(ctx, "foo-rpm-virtual", &artifactory.VirtualRpmRepositoryArgs{
+//				Key:                 pulumi.String("foo-rpm-virtual"),
+//				PrimaryKeypairRef:   primary_keypair.PairName,
+//				SecondaryKeypairRef: secondary_keypair.PairName,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				primary_keypair,
+//				secondary_keypair,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+//
+//	$ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual
+//
 // ```
 type VirtualRpmRepository struct {
 	pulumi.CustomResourceState
@@ -339,7 +344,7 @@ func (i *VirtualRpmRepository) ToVirtualRpmRepositoryOutputWithContext(ctx conte
 // VirtualRpmRepositoryArrayInput is an input type that accepts VirtualRpmRepositoryArray and VirtualRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualRpmRepositoryArrayInput` via:
 //
-//          VirtualRpmRepositoryArray{ VirtualRpmRepositoryArgs{...} }
+//	VirtualRpmRepositoryArray{ VirtualRpmRepositoryArgs{...} }
 type VirtualRpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -364,7 +369,7 @@ func (i VirtualRpmRepositoryArray) ToVirtualRpmRepositoryArrayOutputWithContext(
 // VirtualRpmRepositoryMapInput is an input type that accepts VirtualRpmRepositoryMap and VirtualRpmRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualRpmRepositoryMapInput` via:
 //
-//          VirtualRpmRepositoryMap{ "key": VirtualRpmRepositoryArgs{...} }
+//	VirtualRpmRepositoryMap{ "key": VirtualRpmRepositoryArgs{...} }
 type VirtualRpmRepositoryMapInput interface {
 	pulumi.Input
 

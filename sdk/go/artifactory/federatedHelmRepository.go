@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedHelmRepository(ctx, "terraform-federated-test-helm-repo", &artifactory.FederatedHelmRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-helm-repo"),
-// 			Members: FederatedHelmRepositoryMemberArray{
-// 				&FederatedHelmRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-helm-repo"),
-// 				},
-// 				&FederatedHelmRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedHelmRepository(ctx, "terraform-federated-test-helm-repo", &artifactory.FederatedHelmRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-helm-repo"),
+//				Members: FederatedHelmRepositoryMemberArray{
+//					&FederatedHelmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-helm-repo"),
+//					},
+//					&FederatedHelmRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-helm-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedHelmRepository:FederatedHelmRepository terraform-federated-test-helm-repo terraform-federated-test-helm-repo
+//
+//	$ pulumi import artifactory:index/federatedHelmRepository:FederatedHelmRepository terraform-federated-test-helm-repo terraform-federated-test-helm-repo
+//
 // ```
 type FederatedHelmRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedHelmRepository) ToFederatedHelmRepositoryOutputWithContext(ctx
 // FederatedHelmRepositoryArrayInput is an input type that accepts FederatedHelmRepositoryArray and FederatedHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedHelmRepositoryArrayInput` via:
 //
-//          FederatedHelmRepositoryArray{ FederatedHelmRepositoryArgs{...} }
+//	FederatedHelmRepositoryArray{ FederatedHelmRepositoryArgs{...} }
 type FederatedHelmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedHelmRepositoryArray) ToFederatedHelmRepositoryArrayOutputWithCo
 // FederatedHelmRepositoryMapInput is an input type that accepts FederatedHelmRepositoryMap and FederatedHelmRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedHelmRepositoryMapInput` via:
 //
-//          FederatedHelmRepositoryMap{ "key": FederatedHelmRepositoryArgs{...} }
+//	FederatedHelmRepositoryMap{ "key": FederatedHelmRepositoryArgs{...} }
 type FederatedHelmRepositoryMapInput interface {
 	pulumi.Input
 

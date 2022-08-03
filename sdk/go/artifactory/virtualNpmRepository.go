@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualNpmRepository(ctx, "foo-npm", &artifactory.VirtualNpmRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-npm"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualNpmRepository(ctx, "foo-npm", &artifactory.VirtualNpmRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-npm"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+//
+//	$ pulumi import artifactory:index/virtualNpmRepository:VirtualNpmRepository foo-npm foo-npm
+//
 // ```
 type VirtualNpmRepository struct {
 	pulumi.CustomResourceState
@@ -324,7 +329,7 @@ func (i *VirtualNpmRepository) ToVirtualNpmRepositoryOutputWithContext(ctx conte
 // VirtualNpmRepositoryArrayInput is an input type that accepts VirtualNpmRepositoryArray and VirtualNpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualNpmRepositoryArrayInput` via:
 //
-//          VirtualNpmRepositoryArray{ VirtualNpmRepositoryArgs{...} }
+//	VirtualNpmRepositoryArray{ VirtualNpmRepositoryArgs{...} }
 type VirtualNpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -349,7 +354,7 @@ func (i VirtualNpmRepositoryArray) ToVirtualNpmRepositoryArrayOutputWithContext(
 // VirtualNpmRepositoryMapInput is an input type that accepts VirtualNpmRepositoryMap and VirtualNpmRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualNpmRepositoryMapInput` via:
 //
-//          VirtualNpmRepositoryMap{ "key": VirtualNpmRepositoryArgs{...} }
+//	VirtualNpmRepositoryMap{ "key": VirtualNpmRepositoryArgs{...} }
 type VirtualNpmRepositoryMapInput interface {
 	pulumi.Input
 

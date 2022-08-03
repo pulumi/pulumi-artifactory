@@ -20,32 +20,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewGoRepository(ctx, "baz-go", &artifactory.GoRepositoryArgs{
-// 			Description:                 pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:             pulumi.String("com/google/**"),
-// 			ExternalDependenciesEnabled: pulumi.Bool(true),
-// 			ExternalDependenciesPatterns: pulumi.StringArray{
-// 				pulumi.String("**/github.com/**"),
-// 				pulumi.String("**/go.googlesource.com/**"),
-// 			},
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("baz-go"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			RepoLayoutRef:   pulumi.String("go-default"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewGoRepository(ctx, "baz-go", &artifactory.GoRepositoryArgs{
+//				Description:                 pulumi.String("A test virtual repo"),
+//				ExcludesPattern:             pulumi.String("com/google/**"),
+//				ExternalDependenciesEnabled: pulumi.Bool(true),
+//				ExternalDependenciesPatterns: pulumi.StringArray{
+//					pulumi.String("**/github.com/**"),
+//					pulumi.String("**/go.googlesource.com/**"),
+//				},
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("baz-go"),
+//				Notes:           pulumi.String("Internal description"),
+//				RepoLayoutRef:   pulumi.String("go-default"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+//
+//	$ pulumi import artifactory:index/goRepository:GoRepository baz-go baz-go
+//
 // ```
 type GoRepository struct {
 	pulumi.CustomResourceState
@@ -320,7 +325,7 @@ func (i *GoRepository) ToGoRepositoryOutputWithContext(ctx context.Context) GoRe
 // GoRepositoryArrayInput is an input type that accepts GoRepositoryArray and GoRepositoryArrayOutput values.
 // You can construct a concrete instance of `GoRepositoryArrayInput` via:
 //
-//          GoRepositoryArray{ GoRepositoryArgs{...} }
+//	GoRepositoryArray{ GoRepositoryArgs{...} }
 type GoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -345,7 +350,7 @@ func (i GoRepositoryArray) ToGoRepositoryArrayOutputWithContext(ctx context.Cont
 // GoRepositoryMapInput is an input type that accepts GoRepositoryMap and GoRepositoryMapOutput values.
 // You can construct a concrete instance of `GoRepositoryMapInput` via:
 //
-//          GoRepositoryMap{ "key": GoRepositoryArgs{...} }
+//	GoRepositoryMap{ "key": GoRepositoryArgs{...} }
 type GoRepositoryMapInput interface {
 	pulumi.Input
 
