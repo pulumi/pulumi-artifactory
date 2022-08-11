@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ivy_remote = new Artifactory.RemoteIvyRepository("ivy-remote", new()
     ///     {
-    ///         var ivy_remote = new Artifactory.RemoteIvyRepository("ivy-remote", new Artifactory.RemoteIvyRepositoryArgs
-    ///         {
-    ///             FetchJarsEagerly = true,
-    ///             FetchSourcesEagerly = false,
-    ///             Key = "ivy-remote-foo",
-    ///             RejectInvalidJars = true,
-    ///             SuppressPomConsistencyChecks = true,
-    ///             Url = "https://repo1.maven.org/maven2/",
-    ///         });
-    ///     }
+    ///         FetchJarsEagerly = true,
+    ///         FetchSourcesEagerly = false,
+    ///         Key = "ivy-remote-foo",
+    ///         RejectInvalidJars = true,
+    ///         SuppressPomConsistencyChecks = true,
+    ///         Url = "https://repo1.maven.org/maven2/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteIvyRepository:RemoteIvyRepository")]
-    public partial class RemoteIvyRepository : Pulumi.CustomResource
+    public partial class RemoteIvyRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -366,7 +364,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteIvyRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteIvyRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -651,9 +649,10 @@ namespace Pulumi.Artifactory
         public RemoteIvyRepositoryArgs()
         {
         }
+        public static new RemoteIvyRepositoryArgs Empty => new RemoteIvyRepositoryArgs();
     }
 
-    public sealed class RemoteIvyRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteIvyRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -944,5 +943,6 @@ namespace Pulumi.Artifactory
         public RemoteIvyRepositoryState()
         {
         }
+        public static new RemoteIvyRepositoryState Empty => new RemoteIvyRepositoryState();
     }
 }

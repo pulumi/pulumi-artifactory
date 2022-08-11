@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_conda = new Artifactory.RemoteCondaRepository("my-remote-conda", new()
     ///     {
-    ///         var my_remote_conda = new Artifactory.RemoteCondaRepository("my-remote-conda", new Artifactory.RemoteCondaRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-conda",
-    ///             Url = "https://repo.anaconda.com/pkgs/main",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-conda",
+    ///         Url = "https://repo.anaconda.com/pkgs/main",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCondaRepository:RemoteCondaRepository")]
-    public partial class RemoteCondaRepository : Pulumi.CustomResource
+    public partial class RemoteCondaRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteCondaRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteCondaRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteCondaRepositoryArgs()
         {
         }
+        public static new RemoteCondaRepositoryArgs Empty => new RemoteCondaRepositoryArgs();
     }
 
-    public sealed class RemoteCondaRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteCondaRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteCondaRepositoryState()
         {
         }
+        public static new RemoteCondaRepositoryState Empty => new RemoteCondaRepositoryState();
     }
 }

@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var gradle_remote = new Artifactory.RemoteGradleRepository("gradle-remote", new()
     ///     {
-    ///         var gradle_remote = new Artifactory.RemoteGradleRepository("gradle-remote", new Artifactory.RemoteGradleRepositoryArgs
-    ///         {
-    ///             FetchJarsEagerly = true,
-    ///             FetchSourcesEagerly = false,
-    ///             Key = "gradle-remote-foo",
-    ///             RejectInvalidJars = true,
-    ///             SuppressPomConsistencyChecks = true,
-    ///             Url = "https://repo1.maven.org/maven2/",
-    ///         });
-    ///     }
+    ///         FetchJarsEagerly = true,
+    ///         FetchSourcesEagerly = false,
+    ///         Key = "gradle-remote-foo",
+    ///         RejectInvalidJars = true,
+    ///         SuppressPomConsistencyChecks = true,
+    ///         Url = "https://repo1.maven.org/maven2/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGradleRepository:RemoteGradleRepository")]
-    public partial class RemoteGradleRepository : Pulumi.CustomResource
+    public partial class RemoteGradleRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -366,7 +364,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteGradleRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteGradleRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -651,9 +649,10 @@ namespace Pulumi.Artifactory
         public RemoteGradleRepositoryArgs()
         {
         }
+        public static new RemoteGradleRepositoryArgs Empty => new RemoteGradleRepositoryArgs();
     }
 
-    public sealed class RemoteGradleRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteGradleRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -944,5 +943,6 @@ namespace Pulumi.Artifactory
         public RemoteGradleRepositoryState()
         {
         }
+        public static new RemoteGradleRepositoryState Empty => new RemoteGradleRepositoryState();
     }
 }

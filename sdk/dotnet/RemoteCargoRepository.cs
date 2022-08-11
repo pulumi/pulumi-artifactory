@@ -16,23 +16,21 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_cargo = new Artifactory.RemoteCargoRepository("my-remote-cargo", new()
     ///     {
-    ///         var my_remote_cargo = new Artifactory.RemoteCargoRepository("my-remote-cargo", new Artifactory.RemoteCargoRepositoryArgs
-    ///         {
-    ///             AnonymousAccess = true,
-    ///             GitRegistryUrl = "https://github.com/rust-lang/foo.index",
-    ///             Key = "my-remote-cargo",
-    ///             Url = "https://github.com/rust-lang/crates.io-index",
-    ///         });
-    ///     }
+    ///         AnonymousAccess = true,
+    ///         GitRegistryUrl = "https://github.com/rust-lang/foo.index",
+    ///         Key = "my-remote-cargo",
+    ///         Url = "https://github.com/rust-lang/crates.io-index",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Note
     /// 
@@ -48,7 +46,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCargoRepository:RemoteCargoRepository")]
-    public partial class RemoteCargoRepository : Pulumi.CustomResource
+    public partial class RemoteCargoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -338,7 +336,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteCargoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteCargoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -593,9 +591,10 @@ namespace Pulumi.Artifactory
         public RemoteCargoRepositoryArgs()
         {
         }
+        public static new RemoteCargoRepositoryArgs Empty => new RemoteCargoRepositoryArgs();
     }
 
-    public sealed class RemoteCargoRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteCargoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -856,5 +855,6 @@ namespace Pulumi.Artifactory
         public RemoteCargoRepositoryState()
         {
         }
+        public static new RemoteCargoRepositoryState Empty => new RemoteCargoRepositoryState();
     }
 }

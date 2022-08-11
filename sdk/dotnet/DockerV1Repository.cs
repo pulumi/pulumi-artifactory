@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Artifactory.DockerV1Repository("foo", new()
     ///     {
-    ///         var foo = new Artifactory.DockerV1Repository("foo", new Artifactory.DockerV1RepositoryArgs
-    ///         {
-    ///             Key = "foo",
-    ///         });
-    ///     }
+    ///         Key = "foo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerV1Repository:DockerV1Repository")]
-    public partial class DockerV1Repository : Pulumi.CustomResource
+    public partial class DockerV1Repository : global::Pulumi.CustomResource
     {
         [Output("apiVersion")]
         public Output<string> ApiVersion { get; private set; } = null!;
@@ -186,7 +184,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class DockerV1RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class DockerV1RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -291,9 +289,10 @@ namespace Pulumi.Artifactory
         public DockerV1RepositoryArgs()
         {
         }
+        public static new DockerV1RepositoryArgs Empty => new DockerV1RepositoryArgs();
     }
 
-    public sealed class DockerV1RepositoryState : Pulumi.ResourceArgs
+    public sealed class DockerV1RepositoryState : global::Pulumi.ResourceArgs
     {
         [Input("apiVersion")]
         public Input<string>? ApiVersion { get; set; }
@@ -410,5 +409,6 @@ namespace Pulumi.Artifactory
         public DockerV1RepositoryState()
         {
         }
+        public static new DockerV1RepositoryState Empty => new DockerV1RepositoryState();
     }
 }

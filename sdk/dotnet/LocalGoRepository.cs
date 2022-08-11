@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_go_repo = new Artifactory.LocalGoRepository("terraform-local-test-go-repo", new()
     ///     {
-    ///         var terraform_local_test_go_repo = new Artifactory.LocalGoRepository("terraform-local-test-go-repo", new Artifactory.LocalGoRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-go-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-go-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGoRepository:LocalGoRepository")]
-    public partial class LocalGoRepository : Pulumi.CustomResource
+    public partial class LocalGoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalGoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalGoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalGoRepositoryArgs()
         {
         }
+        public static new LocalGoRepositoryArgs Empty => new LocalGoRepositoryArgs();
     }
 
-    public sealed class LocalGoRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalGoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalGoRepositoryState()
         {
         }
+        public static new LocalGoRepositoryState Empty => new LocalGoRepositoryState();
     }
 }

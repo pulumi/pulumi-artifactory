@@ -16,22 +16,20 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_bower = new Artifactory.RemoteBowerRepository("my-remote-bower", new()
     ///     {
-    ///         var my_remote_bower = new Artifactory.RemoteBowerRepository("my-remote-bower", new Artifactory.RemoteBowerRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-bower",
-    ///             Url = "https://github.com/",
-    ///             VcsGitProvider = "GITHUB",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-bower",
+    ///         Url = "https://github.com/",
+    ///         VcsGitProvider = "GITHUB",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteBowerRepository:RemoteBowerRepository")]
-    public partial class RemoteBowerRepository : Pulumi.CustomResource
+    public partial class RemoteBowerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -340,7 +338,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteBowerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteBowerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -602,9 +600,10 @@ namespace Pulumi.Artifactory
         public RemoteBowerRepositoryArgs()
         {
         }
+        public static new RemoteBowerRepositoryArgs Empty => new RemoteBowerRepositoryArgs();
     }
 
-    public sealed class RemoteBowerRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteBowerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -872,5 +871,6 @@ namespace Pulumi.Artifactory
         public RemoteBowerRepositoryState()
         {
         }
+        public static new RemoteBowerRepositoryState Empty => new RemoteBowerRepositoryState();
     }
 }

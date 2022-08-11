@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_pypi_repo = new Artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", new()
     ///     {
-    ///         var terraform_local_test_pypi_repo = new Artifactory.LocalPypiRepository("terraform-local-test-pypi-repo", new Artifactory.LocalPypiRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-pypi-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-pypi-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localPypiRepository:LocalPypiRepository")]
-    public partial class LocalPypiRepository : Pulumi.CustomResource
+    public partial class LocalPypiRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalPypiRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalPypiRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalPypiRepositoryArgs()
         {
         }
+        public static new LocalPypiRepositoryArgs Empty => new LocalPypiRepositoryArgs();
     }
 
-    public sealed class LocalPypiRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalPypiRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalPypiRepositoryState()
         {
         }
+        public static new LocalPypiRepositoryState Empty => new LocalPypiRepositoryState();
     }
 }

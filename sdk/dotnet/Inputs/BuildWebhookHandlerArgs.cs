@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class BuildWebhookHandlerArgs : Pulumi.ResourceArgs
+    public sealed class BuildWebhookHandlerArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHttpHeaders")]
         private InputMap<string>? _customHttpHeaders;
@@ -45,5 +45,6 @@ namespace Pulumi.Artifactory.Inputs
         public BuildWebhookHandlerArgs()
         {
         }
+        public static new BuildWebhookHandlerArgs Empty => new BuildWebhookHandlerArgs();
     }
 }

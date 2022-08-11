@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class PermissionTargetsReleaseBundleActionsArgs : Pulumi.ResourceArgs
+    public sealed class PermissionTargetsReleaseBundleActionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("groups")]
         private InputList<Inputs.PermissionTargetsReleaseBundleActionsGroupArgs>? _groups;
@@ -39,5 +39,6 @@ namespace Pulumi.Artifactory.Inputs
         public PermissionTargetsReleaseBundleActionsArgs()
         {
         }
+        public static new PermissionTargetsReleaseBundleActionsArgs Empty => new PermissionTargetsReleaseBundleActionsArgs();
     }
 }

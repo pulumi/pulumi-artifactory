@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_pub = new Artifactory.VirtualPubRepository("foo-pub", new()
     ///     {
-    ///         var foo_pub = new Artifactory.VirtualPubRepository("foo-pub", new Artifactory.VirtualPubRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-pub",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-pub",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualPubRepository:VirtualPubRepository")]
-    public partial class VirtualPubRepository : Pulumi.CustomResource
+    public partial class VirtualPubRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -177,7 +175,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualPubRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualPubRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -273,9 +271,10 @@ namespace Pulumi.Artifactory
         public VirtualPubRepositoryArgs()
         {
         }
+        public static new VirtualPubRepositoryArgs Empty => new VirtualPubRepositoryArgs();
     }
 
-    public sealed class VirtualPubRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualPubRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -377,5 +376,6 @@ namespace Pulumi.Artifactory
         public VirtualPubRepositoryState()
         {
         }
+        public static new VirtualPubRepositoryState Empty => new VirtualPubRepositoryState();
     }
 }

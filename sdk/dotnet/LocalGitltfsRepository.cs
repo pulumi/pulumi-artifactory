@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_gitlfs_repo = new Artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", new()
     ///     {
-    ///         var terraform_local_test_gitlfs_repo = new Artifactory.LocalGitltfsRepository("terraform-local-test-gitlfs-repo", new Artifactory.LocalGitltfsRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-gitlfs-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-gitlfs-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGitltfsRepository:LocalGitltfsRepository")]
-    public partial class LocalGitltfsRepository : Pulumi.CustomResource
+    public partial class LocalGitltfsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalGitltfsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalGitltfsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalGitltfsRepositoryArgs()
         {
         }
+        public static new LocalGitltfsRepositoryArgs Empty => new LocalGitltfsRepositoryArgs();
     }
 
-    public sealed class LocalGitltfsRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalGitltfsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalGitltfsRepositoryState()
         {
         }
+        public static new LocalGitltfsRepositoryState Empty => new LocalGitltfsRepositoryState();
     }
 }

@@ -15,26 +15,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new()
     ///     {
-    ///         var foo_bower = new Artifactory.VirtualBowerRepository("foo-bower", new Artifactory.VirtualBowerRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ExternalDependenciesEnabled = false,
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-bower",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ExternalDependenciesEnabled = false,
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-bower",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualBowerRepository:VirtualBowerRepository")]
-    public partial class VirtualBowerRepository : Pulumi.CustomResource
+    public partial class VirtualBowerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -195,7 +193,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualBowerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualBowerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -315,9 +313,10 @@ namespace Pulumi.Artifactory
         public VirtualBowerRepositoryArgs()
         {
         }
+        public static new VirtualBowerRepositoryArgs Empty => new VirtualBowerRepositoryArgs();
     }
 
-    public sealed class VirtualBowerRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualBowerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -443,5 +442,6 @@ namespace Pulumi.Artifactory
         public VirtualBowerRepositoryState()
         {
         }
+        public static new VirtualBowerRepositoryState Empty => new VirtualBowerRepositoryState();
     }
 }

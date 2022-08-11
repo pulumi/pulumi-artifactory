@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_gradle_repo = new Artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo", new()
     ///     {
-    ///         var terraform_federated_test_gradle_repo = new Artifactory.FederatedGradleRepository("terraform-federated-test-gradle-repo", new Artifactory.FederatedGradleRepositoryArgs
+    ///         Key = "terraform-federated-test-gradle-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-gradle-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedGradleRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedGradleRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedGradleRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-gradle-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedGradleRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGradleRepository:FederatedGradleRepository")]
-    public partial class FederatedGradleRepository : Pulumi.CustomResource
+    public partial class FederatedGradleRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -241,7 +239,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedGradleRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGradleRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -403,9 +401,10 @@ namespace Pulumi.Artifactory
         public FederatedGradleRepositoryArgs()
         {
         }
+        public static new FederatedGradleRepositoryArgs Empty => new FederatedGradleRepositoryArgs();
     }
 
-    public sealed class FederatedGradleRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedGradleRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -570,5 +569,6 @@ namespace Pulumi.Artifactory
         public FederatedGradleRepositoryState()
         {
         }
+        public static new FederatedGradleRepositoryState Empty => new FederatedGradleRepositoryState();
     }
 }

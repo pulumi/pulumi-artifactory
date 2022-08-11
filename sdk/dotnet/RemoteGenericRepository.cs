@@ -15,21 +15,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_generic = new Artifactory.RemoteGenericRepository("my-remote-generic", new()
     ///     {
-    ///         var my_remote_generic = new Artifactory.RemoteGenericRepository("my-remote-generic", new Artifactory.RemoteGenericRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-generic",
-    ///             Url = "http://testartifactory.io/artifactory/example-generic/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-generic",
+    ///         Url = "http://testartifactory.io/artifactory/example-generic/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGenericRepository:RemoteGenericRepository")]
-    public partial class RemoteGenericRepository : Pulumi.CustomResource
+    public partial class RemoteGenericRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -319,7 +317,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteGenericRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteGenericRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -562,9 +560,10 @@ namespace Pulumi.Artifactory
         public RemoteGenericRepositoryArgs()
         {
         }
+        public static new RemoteGenericRepositoryArgs Empty => new RemoteGenericRepositoryArgs();
     }
 
-    public sealed class RemoteGenericRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteGenericRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -813,5 +812,6 @@ namespace Pulumi.Artifactory
         public RemoteGenericRepositoryState()
         {
         }
+        public static new RemoteGenericRepositoryState Empty => new RemoteGenericRepositoryState();
     }
 }

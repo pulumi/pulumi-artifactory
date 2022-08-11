@@ -16,26 +16,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_gradle = new Artifactory.VirtualGradleRepository("foo-gradle", new()
     ///     {
-    ///         var foo_gradle = new Artifactory.VirtualGradleRepository("foo-gradle", new Artifactory.VirtualGradleRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-gradle",
-    ///             Notes = "Internal description",
-    ///             PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-gradle",
+    ///         Notes = "Internal description",
+    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGradleRepository:VirtualGradleRepository")]
-    public partial class VirtualGradleRepository : Pulumi.CustomResource
+    public partial class VirtualGradleRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -199,7 +197,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualGradleRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGradleRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -316,9 +314,10 @@ namespace Pulumi.Artifactory
         public VirtualGradleRepositoryArgs()
         {
         }
+        public static new VirtualGradleRepositoryArgs Empty => new VirtualGradleRepositoryArgs();
     }
 
-    public sealed class VirtualGradleRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualGradleRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -441,5 +440,6 @@ namespace Pulumi.Artifactory
         public VirtualGradleRepositoryState()
         {
         }
+        public static new VirtualGradleRepositoryState Empty => new VirtualGradleRepositoryState();
     }
 }

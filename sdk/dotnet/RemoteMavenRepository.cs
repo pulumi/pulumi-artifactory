@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var maven_remote = new Artifactory.RemoteMavenRepository("maven-remote", new()
     ///     {
-    ///         var maven_remote = new Artifactory.RemoteMavenRepository("maven-remote", new Artifactory.RemoteMavenRepositoryArgs
-    ///         {
-    ///             FetchJarsEagerly = true,
-    ///             FetchSourcesEagerly = false,
-    ///             Key = "maven-remote-foo",
-    ///             RejectInvalidJars = true,
-    ///             SuppressPomConsistencyChecks = false,
-    ///             Url = "https://repo1.maven.org/maven2/",
-    ///         });
-    ///     }
+    ///         FetchJarsEagerly = true,
+    ///         FetchSourcesEagerly = false,
+    ///         Key = "maven-remote-foo",
+    ///         RejectInvalidJars = true,
+    ///         SuppressPomConsistencyChecks = false,
+    ///         Url = "https://repo1.maven.org/maven2/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteMavenRepository:RemoteMavenRepository")]
-    public partial class RemoteMavenRepository : Pulumi.CustomResource
+    public partial class RemoteMavenRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -366,7 +364,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteMavenRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteMavenRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -651,9 +649,10 @@ namespace Pulumi.Artifactory
         public RemoteMavenRepositoryArgs()
         {
         }
+        public static new RemoteMavenRepositoryArgs Empty => new RemoteMavenRepositoryArgs();
     }
 
-    public sealed class RemoteMavenRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteMavenRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -944,5 +943,6 @@ namespace Pulumi.Artifactory
         public RemoteMavenRepositoryState()
         {
         }
+        public static new RemoteMavenRepositoryState Empty => new RemoteMavenRepositoryState();
     }
 }

@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_debian = new Artifactory.RemoteDebianRepository("my-remote-debian", new()
     ///     {
-    ///         var my_remote_debian = new Artifactory.RemoteDebianRepository("my-remote-debian", new Artifactory.RemoteDebianRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-Debian",
-    ///             Url = "http://archive.ubuntu.com/ubuntu/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-Debian",
+    ///         Url = "http://archive.ubuntu.com/ubuntu/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteDebianRepository:RemoteDebianRepository")]
-    public partial class RemoteDebianRepository : Pulumi.CustomResource
+    public partial class RemoteDebianRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteDebianRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteDebianRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteDebianRepositoryArgs()
         {
         }
+        public static new RemoteDebianRepositoryArgs Empty => new RemoteDebianRepositoryArgs();
     }
 
-    public sealed class RemoteDebianRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteDebianRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteDebianRepositoryState()
         {
         }
+        public static new RemoteDebianRepositoryState Empty => new RemoteDebianRepositoryState();
     }
 }

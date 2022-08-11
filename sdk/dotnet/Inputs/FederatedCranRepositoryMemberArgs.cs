@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class FederatedCranRepositoryMemberArgs : Pulumi.ResourceArgs
+    public sealed class FederatedCranRepositoryMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the active state of the federated member. It is supported to change the enabled
@@ -28,5 +28,6 @@ namespace Pulumi.Artifactory.Inputs
         public FederatedCranRepositoryMemberArgs()
         {
         }
+        public static new FederatedCranRepositoryMemberArgs Empty => new FederatedCranRepositoryMemberArgs();
     }
 }

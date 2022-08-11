@@ -16,72 +16,71 @@ namespace Pulumi.Artifactory
     /// 
     /// .
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_generic_local = new Artifactory.LocalGenericRepository("my-generic-local", new()
     ///     {
-    ///         var my_generic_local = new Artifactory.LocalGenericRepository("my-generic-local", new Artifactory.LocalGenericRepositoryArgs
-    ///         {
-    ///             Key = "my-generic-local",
-    ///         });
-    ///         var artifact_webhook = new Artifactory.ArtifactWebhook("artifact-webhook", new Artifactory.ArtifactWebhookArgs
-    ///         {
-    ///             Key = "artifact-webhook",
-    ///             EventTypes = 
-    ///             {
-    ///                 "deployed",
-    ///                 "deleted",
-    ///                 "moved",
-    ///                 "copied",
-    ///             },
-    ///             Criteria = new Artifactory.Inputs.ArtifactWebhookCriteriaArgs
-    ///             {
-    ///                 AnyLocal = true,
-    ///                 AnyRemote = false,
-    ///                 RepoKeys = 
-    ///                 {
-    ///                     my_generic_local.Key,
-    ///                 },
-    ///                 IncludePatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 ExcludePatterns = 
-    ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///             },
-    ///             Handlers = 
-    ///             {
-    ///                 new Artifactory.Inputs.ArtifactWebhookHandlerArgs
-    ///                 {
-    ///                     Url = "http://tempurl.org/webhook",
-    ///                     Secret = "some-secret",
-    ///                     Proxy = "proxy-key",
-    ///                     CustomHttpHeaders = 
-    ///                     {
-    ///                         { "header-1", "value-1" },
-    ///                         { "header-2", "value-2" },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 my_generic_local,
-    ///             },
-    ///         });
-    ///     }
+    ///         Key = "my-generic-local",
+    ///     });
     /// 
-    /// }
+    ///     var artifact_webhook = new Artifactory.ArtifactWebhook("artifact-webhook", new()
+    ///     {
+    ///         Key = "artifact-webhook",
+    ///         EventTypes = new[]
+    ///         {
+    ///             "deployed",
+    ///             "deleted",
+    ///             "moved",
+    ///             "copied",
+    ///         },
+    ///         Criteria = new Artifactory.Inputs.ArtifactWebhookCriteriaArgs
+    ///         {
+    ///             AnyLocal = true,
+    ///             AnyRemote = false,
+    ///             RepoKeys = new[]
+    ///             {
+    ///                 my_generic_local.Key,
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
+    ///         Handlers = new[]
+    ///         {
+    ///             new Artifactory.Inputs.ArtifactWebhookHandlerArgs
+    ///             {
+    ///                 Url = "http://tempurl.org/webhook",
+    ///                 Secret = "some-secret",
+    ///                 Proxy = "proxy-key",
+    ///                 CustomHttpHeaders = 
+    ///                 {
+    ///                     { "header-1", "value-1" },
+    ///                     { "header-2", "value-2" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             my_generic_local,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/artifactWebhook:ArtifactWebhook")]
-    public partial class ArtifactWebhook : Pulumi.CustomResource
+    public partial class ArtifactWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -163,7 +162,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ArtifactWebhookArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -216,9 +215,10 @@ namespace Pulumi.Artifactory
         public ArtifactWebhookArgs()
         {
         }
+        public static new ArtifactWebhookArgs Empty => new ArtifactWebhookArgs();
     }
 
-    public sealed class ArtifactWebhookState : Pulumi.ResourceArgs
+    public sealed class ArtifactWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -271,5 +271,6 @@ namespace Pulumi.Artifactory
         public ArtifactWebhookState()
         {
         }
+        public static new ArtifactWebhookState Empty => new ArtifactWebhookState();
     }
 }

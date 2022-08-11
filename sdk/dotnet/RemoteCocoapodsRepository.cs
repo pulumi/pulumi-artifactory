@@ -16,23 +16,21 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_cocoapods = new Artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", new()
     ///     {
-    ///         var my_remote_cocoapods = new Artifactory.RemoteCocoapodsRepository("my-remote-cocoapods", new Artifactory.RemoteCocoapodsRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-cocoapods",
-    ///             PodsSpecsRepoUrl = "https://github.com/CocoaPods/Spec",
-    ///             Url = "https://github.com/",
-    ///             VcsGitProvider = "GITHUB",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-cocoapods",
+    ///         PodsSpecsRepoUrl = "https://github.com/CocoaPods/Spec",
+    ///         Url = "https://github.com/",
+    ///         VcsGitProvider = "GITHUB",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository")]
-    public partial class RemoteCocoapodsRepository : Pulumi.CustomResource
+    public partial class RemoteCocoapodsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -341,7 +339,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteCocoapodsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteCocoapodsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -603,9 +601,10 @@ namespace Pulumi.Artifactory
         public RemoteCocoapodsRepositoryArgs()
         {
         }
+        public static new RemoteCocoapodsRepositoryArgs Empty => new RemoteCocoapodsRepositoryArgs();
     }
 
-    public sealed class RemoteCocoapodsRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteCocoapodsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -873,5 +872,6 @@ namespace Pulumi.Artifactory
         public RemoteCocoapodsRepositoryState()
         {
         }
+        public static new RemoteCocoapodsRepositoryState Empty => new RemoteCocoapodsRepositoryState();
     }
 }

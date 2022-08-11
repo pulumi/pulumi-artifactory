@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_terraformModule_repo = new Artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo", new()
     ///     {
-    ///         var terraform_federated_test_terraformModule_repo = new Artifactory.FederatedTerraformModuleRepository("terraform-federated-test-terraformModule-repo", new Artifactory.FederatedTerraformModuleRepositoryArgs
+    ///         Key = "terraform-federated-test-terraform-module-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-terraform-module-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-terraform_module-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedTerraformModuleRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-terraform_module-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository")]
-    public partial class FederatedTerraformModuleRepository : Pulumi.CustomResource
+    public partial class FederatedTerraformModuleRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedTerraformModuleRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedTerraformModuleRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedTerraformModuleRepositoryArgs()
         {
         }
+        public static new FederatedTerraformModuleRepositoryArgs Empty => new FederatedTerraformModuleRepositoryArgs();
     }
 
-    public sealed class FederatedTerraformModuleRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedTerraformModuleRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedTerraformModuleRepositoryState()
         {
         }
+        public static new FederatedTerraformModuleRepositoryState Empty => new FederatedTerraformModuleRepositoryState();
     }
 }

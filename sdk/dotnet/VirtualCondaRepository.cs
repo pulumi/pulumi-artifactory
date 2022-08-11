@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new()
     ///     {
-    ///         var foo_conda = new Artifactory.VirtualCondaRepository("foo-conda", new Artifactory.VirtualCondaRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-conda",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-conda",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualCondaRepository:VirtualCondaRepository")]
-    public partial class VirtualCondaRepository : Pulumi.CustomResource
+    public partial class VirtualCondaRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -177,7 +175,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualCondaRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualCondaRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -273,9 +271,10 @@ namespace Pulumi.Artifactory
         public VirtualCondaRepositoryArgs()
         {
         }
+        public static new VirtualCondaRepositoryArgs Empty => new VirtualCondaRepositoryArgs();
     }
 
-    public sealed class VirtualCondaRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualCondaRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -377,5 +376,6 @@ namespace Pulumi.Artifactory
         public VirtualCondaRepositoryState()
         {
         }
+        public static new VirtualCondaRepositoryState Empty => new VirtualCondaRepositoryState();
     }
 }

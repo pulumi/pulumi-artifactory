@@ -16,22 +16,20 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_composer = new Artifactory.RemoteComposerRepository("my-remote-composer", new()
     ///     {
-    ///         var my_remote_composer = new Artifactory.RemoteComposerRepository("my-remote-composer", new Artifactory.RemoteComposerRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-composer",
-    ///             Url = "https://github.com/",
-    ///             VcsGitProvider = "GITHUB",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-composer",
+    ///         Url = "https://github.com/",
+    ///         VcsGitProvider = "GITHUB",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteComposerRepository:RemoteComposerRepository")]
-    public partial class RemoteComposerRepository : Pulumi.CustomResource
+    public partial class RemoteComposerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -340,7 +338,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteComposerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteComposerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -602,9 +600,10 @@ namespace Pulumi.Artifactory
         public RemoteComposerRepositoryArgs()
         {
         }
+        public static new RemoteComposerRepositoryArgs Empty => new RemoteComposerRepositoryArgs();
     }
 
-    public sealed class RemoteComposerRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteComposerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -872,5 +871,6 @@ namespace Pulumi.Artifactory
         public RemoteComposerRepositoryState()
         {
         }
+        public static new RemoteComposerRepositoryState Empty => new RemoteComposerRepositoryState();
     }
 }

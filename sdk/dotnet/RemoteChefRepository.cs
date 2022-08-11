@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_chef = new Artifactory.RemoteChefRepository("my-remote-chef", new()
     ///     {
-    ///         var my_remote_chef = new Artifactory.RemoteChefRepository("my-remote-chef", new Artifactory.RemoteChefRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-chef",
-    ///             Url = "https://supermarket.chef.io",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-chef",
+    ///         Url = "https://supermarket.chef.io",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteChefRepository:RemoteChefRepository")]
-    public partial class RemoteChefRepository : Pulumi.CustomResource
+    public partial class RemoteChefRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteChefRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteChefRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteChefRepositoryArgs()
         {
         }
+        public static new RemoteChefRepositoryArgs Empty => new RemoteChefRepositoryArgs();
     }
 
-    public sealed class RemoteChefRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteChefRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteChefRepositoryState()
         {
         }
+        public static new RemoteChefRepositoryState Empty => new RemoteChefRepositoryState();
     }
 }

@@ -15,112 +15,110 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Artifactory permission target called testpermission
+    ///     var test_perm = new Artifactory.PermissionTarget("test-perm", new()
     ///     {
-    ///         // Create a new Artifactory permission target called testpermission
-    ///         var test_perm = new Artifactory.PermissionTarget("test-perm", new Artifactory.PermissionTargetArgs
+    ///         Build = new Artifactory.Inputs.PermissionTargetBuildArgs
     ///         {
-    ///             Build = new Artifactory.Inputs.PermissionTargetBuildArgs
+    ///             Actions = new Artifactory.Inputs.PermissionTargetBuildActionsArgs
     ///             {
-    ///                 Actions = new Artifactory.Inputs.PermissionTargetBuildActionsArgs
+    ///                 Users = new[]
     ///                 {
-    ///                     Users = 
+    ///                     new Artifactory.Inputs.PermissionTargetBuildActionsUserArgs
     ///                     {
-    ///                         new Artifactory.Inputs.PermissionTargetBuildActionsUserArgs
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
     ///                         {
-    ///                             Name = "anonymous",
-    ///                             Permissions = 
-    ///                             {
-    ///                                 "read",
-    ///                                 "write",
-    ///                             },
+    ///                             "read",
+    ///                             "write",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 IncludesPatterns = 
-    ///                 {
-    ///                     "**",
-    ///                 },
-    ///                 Repositories = 
-    ///                 {
-    ///                     "artifactory-build-info",
     ///                 },
     ///             },
-    ///             ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///             IncludesPatterns = new[]
     ///             {
-    ///                 Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
+    ///                 "**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "artifactory-build-info",
+    ///             },
+    ///         },
+    ///         ReleaseBundle = new Artifactory.Inputs.PermissionTargetReleaseBundleArgs
+    ///         {
+    ///             Actions = new Artifactory.Inputs.PermissionTargetReleaseBundleActionsArgs
+    ///             {
+    ///                 Users = new[]
     ///                 {
-    ///                     Users = 
+    ///                     new Artifactory.Inputs.PermissionTargetReleaseBundleActionsUserArgs
     ///                     {
-    ///                         new Artifactory.Inputs.PermissionTargetReleaseBundleActionsUserArgs
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
     ///                         {
-    ///                             Name = "anonymous",
-    ///                             Permissions = 
-    ///                             {
-    ///                                 "read",
-    ///                             },
+    ///                             "read",
     ///                         },
     ///                     },
-    ///                 },
-    ///                 IncludesPatterns = 
-    ///                 {
-    ///                     "**",
-    ///                 },
-    ///                 Repositories = 
-    ///                 {
-    ///                     "release-bundles",
     ///                 },
     ///             },
-    ///             Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///             IncludesPatterns = new[]
     ///             {
-    ///                 Actions = new Artifactory.Inputs.PermissionTargetRepoActionsArgs
+    ///                 "**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "release-bundles",
+    ///             },
+    ///         },
+    ///         Repo = new Artifactory.Inputs.PermissionTargetRepoArgs
+    ///         {
+    ///             Actions = new Artifactory.Inputs.PermissionTargetRepoActionsArgs
+    ///             {
+    ///                 Groups = new[]
     ///                 {
-    ///                     Groups = 
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
     ///                     {
-    ///                         new Artifactory.Inputs.PermissionTargetRepoActionsGroupArgs
+    ///                         Name = "readers",
+    ///                         Permissions = new[]
     ///                         {
-    ///                             Name = "readers",
-    ///                             Permissions = 
-    ///                             {
-    ///                                 "read",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     Users = 
-    ///                     {
-    ///                         new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
-    ///                         {
-    ///                             Name = "anonymous",
-    ///                             Permissions = 
-    ///                             {
-    ///                                 "read",
-    ///                                 "write",
-    ///                             },
+    ///                             "read",
     ///                         },
     ///                     },
     ///                 },
-    ///                 ExcludesPatterns = 
+    ///                 Users = new[]
     ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///                 IncludesPatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 Repositories = 
-    ///                 {
-    ///                     "example-repo-local",
+    ///                     new Artifactory.Inputs.PermissionTargetRepoActionsUserArgs
+    ///                     {
+    ///                         Name = "anonymous",
+    ///                         Permissions = new[]
+    ///                         {
+    ///                             "read",
+    ///                             "write",
+    ///                         },
+    ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             ExcludesPatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///             IncludesPatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             Repositories = new[]
+    ///             {
+    ///                 "example-repo-local",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Permissions
     /// 
@@ -153,7 +151,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/permissionTarget:PermissionTarget")]
-    public partial class PermissionTarget : Pulumi.CustomResource
+    public partial class PermissionTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// As for repo but for artifactory-build-info permssions.
@@ -223,7 +221,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class PermissionTargetArgs : Pulumi.ResourceArgs
+    public sealed class PermissionTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// As for repo but for artifactory-build-info permssions.
@@ -252,9 +250,10 @@ namespace Pulumi.Artifactory
         public PermissionTargetArgs()
         {
         }
+        public static new PermissionTargetArgs Empty => new PermissionTargetArgs();
     }
 
-    public sealed class PermissionTargetState : Pulumi.ResourceArgs
+    public sealed class PermissionTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// As for repo but for artifactory-build-info permssions.
@@ -283,5 +282,6 @@ namespace Pulumi.Artifactory
         public PermissionTargetState()
         {
         }
+        public static new PermissionTargetState Empty => new PermissionTargetState();
     }
 }

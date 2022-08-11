@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_p2 = new Artifactory.RemoteP2Repository("my-remote-p2", new()
     ///     {
-    ///         var my_remote_p2 = new Artifactory.RemoteP2Repository("my-remote-p2", new Artifactory.RemoteP2RepositoryArgs
-    ///         {
-    ///             Key = "my-remote-p2",
-    ///             Url = "http://testartifactory.io/artifactory/example-p2/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-p2",
+    ///         Url = "http://testartifactory.io/artifactory/example-p2/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteP2Repository:RemoteP2Repository")]
-    public partial class RemoteP2Repository : Pulumi.CustomResource
+    public partial class RemoteP2Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteP2RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteP2RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteP2RepositoryArgs()
         {
         }
+        public static new RemoteP2RepositoryArgs Empty => new RemoteP2RepositoryArgs();
     }
 
-    public sealed class RemoteP2RepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteP2RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteP2RepositoryState()
         {
         }
+        public static new RemoteP2RepositoryState Empty => new RemoteP2RepositoryState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class RemoteComposerRepositoryContentSynchronisationArgs : Pulumi.ResourceArgs
+    public sealed class RemoteComposerRepositoryContentSynchronisationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Artifactory.Inputs
         public RemoteComposerRepositoryContentSynchronisationArgs()
         {
         }
+        public static new RemoteComposerRepositoryContentSynchronisationArgs Empty => new RemoteComposerRepositoryContentSynchronisationArgs();
     }
 }

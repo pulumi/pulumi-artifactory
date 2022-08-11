@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_gems_repo = new Artifactory.LocalGemsRepository("terraform-local-test-gems-repo", new()
     ///     {
-    ///         var terraform_local_test_gems_repo = new Artifactory.LocalGemsRepository("terraform-local-test-gems-repo", new Artifactory.LocalGemsRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-gems-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-gems-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGemsRepository:LocalGemsRepository")]
-    public partial class LocalGemsRepository : Pulumi.CustomResource
+    public partial class LocalGemsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalGemsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalGemsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalGemsRepositoryArgs()
         {
         }
+        public static new LocalGemsRepositoryArgs Empty => new LocalGemsRepositoryArgs();
     }
 
-    public sealed class LocalGemsRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalGemsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalGemsRepositoryState()
         {
         }
+        public static new LocalGemsRepositoryState Empty => new LocalGemsRepositoryState();
     }
 }

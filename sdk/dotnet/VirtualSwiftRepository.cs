@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualSwiftRepository:VirtualSwiftRepository")]
-    public partial class VirtualSwiftRepository : Pulumi.CustomResource
+    public partial class VirtualSwiftRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -153,7 +153,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualSwiftRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualSwiftRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -249,9 +249,10 @@ namespace Pulumi.Artifactory
         public VirtualSwiftRepositoryArgs()
         {
         }
+        public static new VirtualSwiftRepositoryArgs Empty => new VirtualSwiftRepositoryArgs();
     }
 
-    public sealed class VirtualSwiftRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualSwiftRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -353,5 +354,6 @@ namespace Pulumi.Artifactory
         public VirtualSwiftRepositoryState()
         {
         }
+        public static new VirtualSwiftRepositoryState Empty => new VirtualSwiftRepositoryState();
     }
 }

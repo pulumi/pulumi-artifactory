@@ -16,26 +16,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_conan = new Artifactory.VirtualConanRepository("foo-conan", new()
     ///     {
-    ///         var foo_conan = new Artifactory.VirtualConanRepository("foo-conan", new Artifactory.VirtualConanRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-conan",
-    ///             Notes = "Internal description",
-    ///             RepoLayoutRef = "conan-default",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-conan",
+    ///         Notes = "Internal description",
+    ///         RepoLayoutRef = "conan-default",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualConanRepository:VirtualConanRepository")]
-    public partial class VirtualConanRepository : Pulumi.CustomResource
+    public partial class VirtualConanRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -178,7 +176,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualConanRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualConanRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -274,9 +272,10 @@ namespace Pulumi.Artifactory
         public VirtualConanRepositoryArgs()
         {
         }
+        public static new VirtualConanRepositoryArgs Empty => new VirtualConanRepositoryArgs();
     }
 
-    public sealed class VirtualConanRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualConanRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -378,5 +377,6 @@ namespace Pulumi.Artifactory
         public VirtualConanRepositoryState()
         {
         }
+        public static new VirtualConanRepositoryState Empty => new VirtualConanRepositoryState();
     }
 }

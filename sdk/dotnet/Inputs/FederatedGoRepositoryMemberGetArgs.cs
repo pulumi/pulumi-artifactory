@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class FederatedGoRepositoryMemberGetArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGoRepositoryMemberGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the active state of the federated member. It is supported to change the enabled
@@ -28,5 +28,6 @@ namespace Pulumi.Artifactory.Inputs
         public FederatedGoRepositoryMemberGetArgs()
         {
         }
+        public static new FederatedGoRepositoryMemberGetArgs Empty => new FederatedGoRepositoryMemberGetArgs();
     }
 }

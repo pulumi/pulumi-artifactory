@@ -13,23 +13,21 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new()
     ///     {
-    ///         var terraform_remote = new Artifactory.RemoteTerraformRepository("terraform-remote", new Artifactory.RemoteTerraformRepositoryArgs
-    ///         {
-    ///             Key = "terraform-remote",
-    ///             TerraformProvidersUrl = "https://releases.hashicorp.com",
-    ///             TerraformRegistryUrl = "https://registry.terraform.io",
-    ///             Url = "https://github.com/",
-    ///         });
-    ///     }
+    ///         Key = "terraform-remote",
+    ///         TerraformProvidersUrl = "https://releases.hashicorp.com",
+    ///         TerraformRegistryUrl = "https://registry.terraform.io",
+    ///         Url = "https://github.com/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteTerraformRepository:RemoteTerraformRepository")]
-    public partial class RemoteTerraformRepository : Pulumi.CustomResource
+    public partial class RemoteTerraformRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -333,7 +331,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteTerraformRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteTerraformRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -590,9 +588,10 @@ namespace Pulumi.Artifactory
         public RemoteTerraformRepositoryArgs()
         {
         }
+        public static new RemoteTerraformRepositoryArgs Empty => new RemoteTerraformRepositoryArgs();
     }
 
-    public sealed class RemoteTerraformRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteTerraformRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -855,5 +854,6 @@ namespace Pulumi.Artifactory
         public RemoteTerraformRepositoryState()
         {
         }
+        public static new RemoteTerraformRepositoryState Empty => new RemoteTerraformRepositoryState();
     }
 }

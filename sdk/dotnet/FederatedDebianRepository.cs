@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_debian_repo = new Artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo", new()
     ///     {
-    ///         var terraform_federated_test_debian_repo = new Artifactory.FederatedDebianRepository("terraform-federated-test-debian-repo", new Artifactory.FederatedDebianRepositoryArgs
+    ///         Key = "terraform-federated-test-debian-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-debian-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedDebianRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedDebianRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedDebianRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-debian-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedDebianRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedDebianRepository:FederatedDebianRepository")]
-    public partial class FederatedDebianRepository : Pulumi.CustomResource
+    public partial class FederatedDebianRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -217,7 +215,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedDebianRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedDebianRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -360,9 +358,10 @@ namespace Pulumi.Artifactory
         public FederatedDebianRepositoryArgs()
         {
         }
+        public static new FederatedDebianRepositoryArgs Empty => new FederatedDebianRepositoryArgs();
     }
 
-    public sealed class FederatedDebianRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedDebianRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -508,5 +507,6 @@ namespace Pulumi.Artifactory
         public FederatedDebianRepositoryState()
         {
         }
+        public static new FederatedDebianRepositoryState Empty => new FederatedDebianRepositoryState();
     }
 }

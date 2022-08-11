@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_ivy_repo = new Artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo", new()
     ///     {
-    ///         var terraform_federated_test_ivy_repo = new Artifactory.FederatedIvyRepository("terraform-federated-test-ivy-repo", new Artifactory.FederatedIvyRepositoryArgs
+    ///         Key = "terraform-federated-test-ivy-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-ivy-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedIvyRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedIvyRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedIvyRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-ivy-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedIvyRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedIvyRepository:FederatedIvyRepository")]
-    public partial class FederatedIvyRepository : Pulumi.CustomResource
+    public partial class FederatedIvyRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -241,7 +239,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedIvyRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedIvyRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -403,9 +401,10 @@ namespace Pulumi.Artifactory
         public FederatedIvyRepositoryArgs()
         {
         }
+        public static new FederatedIvyRepositoryArgs Empty => new FederatedIvyRepositoryArgs();
     }
 
-    public sealed class FederatedIvyRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedIvyRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -570,5 +569,6 @@ namespace Pulumi.Artifactory
         public FederatedIvyRepositoryState()
         {
         }
+        public static new FederatedIvyRepositoryState Empty => new FederatedIvyRepositoryState();
     }
 }

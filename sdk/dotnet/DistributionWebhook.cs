@@ -16,64 +16,62 @@ namespace Pulumi.Artifactory
     /// 
     /// .
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var distribution_webhook = new Artifactory.DistributionWebhook("distribution-webhook", new()
     ///     {
-    ///         var distribution_webhook = new Artifactory.DistributionWebhook("distribution-webhook", new Artifactory.DistributionWebhookArgs
+    ///         Criteria = new Artifactory.Inputs.DistributionWebhookCriteriaArgs
     ///         {
-    ///             Criteria = new Artifactory.Inputs.DistributionWebhookCriteriaArgs
+    ///             AnyReleaseBundle = false,
+    ///             ExcludePatterns = new[]
     ///             {
-    ///                 AnyReleaseBundle = false,
-    ///                 ExcludePatterns = 
-    ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///                 IncludePatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 RegisteredReleaseBundleNames = 
-    ///                 {
-    ///                     "bundle-name",
-    ///                 },
+    ///                 "bar/**",
     ///             },
-    ///             EventTypes = 
+    ///             IncludePatterns = new[]
     ///             {
-    ///                 "distribute_started",
-    ///                 "distribute_completed",
-    ///                 "distribute_aborted",
-    ///                 "distribute_failed",
-    ///                 "delete_started",
-    ///                 "delete_completed",
-    ///                 "delete_failed",
+    ///                 "foo/**",
     ///             },
-    ///             Handlers = 
+    ///             RegisteredReleaseBundleNames = new[]
     ///             {
-    ///                 new Artifactory.Inputs.DistributionWebhookHandlerArgs
-    ///                 {
-    ///                     CustomHttpHeaders = 
-    ///                     {
-    ///                         { "header-1", "value-1" },
-    ///                         { "header-2", "value-2" },
-    ///                     },
-    ///                     Proxy = "proxy-key",
-    ///                     Secret = "some-secret",
-    ///                     Url = "http://tempurl.org/webhook",
-    ///                 },
+    ///                 "bundle-name",
     ///             },
-    ///             Key = "distribution-webhook",
-    ///         });
-    ///     }
+    ///         },
+    ///         EventTypes = new[]
+    ///         {
+    ///             "distribute_started",
+    ///             "distribute_completed",
+    ///             "distribute_aborted",
+    ///             "distribute_failed",
+    ///             "delete_started",
+    ///             "delete_completed",
+    ///             "delete_failed",
+    ///         },
+    ///         Handlers = new[]
+    ///         {
+    ///             new Artifactory.Inputs.DistributionWebhookHandlerArgs
+    ///             {
+    ///                 CustomHttpHeaders = 
+    ///                 {
+    ///                     { "header-1", "value-1" },
+    ///                     { "header-2", "value-2" },
+    ///                 },
+    ///                 Proxy = "proxy-key",
+    ///                 Secret = "some-secret",
+    ///                 Url = "http://tempurl.org/webhook",
+    ///             },
+    ///         },
+    ///         Key = "distribution-webhook",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/distributionWebhook:DistributionWebhook")]
-    public partial class DistributionWebhook : Pulumi.CustomResource
+    public partial class DistributionWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -155,7 +153,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class DistributionWebhookArgs : Pulumi.ResourceArgs
+    public sealed class DistributionWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -208,9 +206,10 @@ namespace Pulumi.Artifactory
         public DistributionWebhookArgs()
         {
         }
+        public static new DistributionWebhookArgs Empty => new DistributionWebhookArgs();
     }
 
-    public sealed class DistributionWebhookState : Pulumi.ResourceArgs
+    public sealed class DistributionWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -263,5 +262,6 @@ namespace Pulumi.Artifactory
         public DistributionWebhookState()
         {
         }
+        public static new DistributionWebhookState Empty => new DistributionWebhookState();
     }
 }

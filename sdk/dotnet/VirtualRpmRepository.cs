@@ -16,46 +16,46 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primary_keypair = new Artifactory.Keypair("primary-keypair", new()
     ///     {
-    ///         var primary_keypair = new Artifactory.Keypair("primary-keypair", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "primary-keypair",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias-1",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "secondary-keypair",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias-2",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new Artifactory.VirtualRpmRepositoryArgs
-    ///         {
-    ///             Key = "foo-rpm-virtual",
-    ///             PrimaryKeypairRef = primary_keypair.PairName,
-    ///             SecondaryKeypairRef = secondary_keypair.PairName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 primary_keypair,
-    ///                 secondary_keypair,
-    ///             },
-    ///         });
-    ///     }
+    ///         PairName = "primary-keypair",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias-1",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
     /// 
-    /// }
+    ///     var secondary_keypair = new Artifactory.Keypair("secondary-keypair", new()
+    ///     {
+    ///         PairName = "secondary-keypair",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias-2",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
+    /// 
+    ///     var foo_rpm_virtual = new Artifactory.VirtualRpmRepository("foo-rpm-virtual", new()
+    ///     {
+    ///         Key = "foo-rpm-virtual",
+    ///         PrimaryKeypairRef = primary_keypair.PairName,
+    ///         SecondaryKeypairRef = secondary_keypair.PairName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             primary_keypair,
+    ///             secondary_keypair,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualRpmRepository:VirtualRpmRepository")]
-    public partial class VirtualRpmRepository : Pulumi.CustomResource
+    public partial class VirtualRpmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -210,7 +210,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualRpmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualRpmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -318,9 +318,10 @@ namespace Pulumi.Artifactory
         public VirtualRpmRepositoryArgs()
         {
         }
+        public static new VirtualRpmRepositoryArgs Empty => new VirtualRpmRepositoryArgs();
     }
 
-    public sealed class VirtualRpmRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualRpmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -434,5 +435,6 @@ namespace Pulumi.Artifactory
         public VirtualRpmRepositoryState()
         {
         }
+        public static new VirtualRpmRepositoryState Empty => new VirtualRpmRepositoryState();
     }
 }

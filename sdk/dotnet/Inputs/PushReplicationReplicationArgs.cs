@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class PushReplicationReplicationArgs : Pulumi.ResourceArgs
+    public sealed class PushReplicationReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables distributed checksum storage. For more information, see
@@ -83,5 +83,6 @@ namespace Pulumi.Artifactory.Inputs
         public PushReplicationReplicationArgs()
         {
         }
+        public static new PushReplicationReplicationArgs Empty => new PushReplicationReplicationArgs();
     }
 }

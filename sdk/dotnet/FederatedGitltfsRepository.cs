@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_gitlfs_repo = new Artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new()
     ///     {
-    ///         var terraform_federated_test_gitlfs_repo = new Artifactory.FederatedGitltfsRepository("terraform-federated-test-gitlfs-repo", new Artifactory.FederatedGitltfsRepositoryArgs
+    ///         Key = "terraform-federated-test-gitlfs-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-gitlfs-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-gitlfs-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedGitltfsRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-gitlfs-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGitltfsRepository:FederatedGitltfsRepository")]
-    public partial class FederatedGitltfsRepository : Pulumi.CustomResource
+    public partial class FederatedGitltfsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedGitltfsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGitltfsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedGitltfsRepositoryArgs()
         {
         }
+        public static new FederatedGitltfsRepositoryArgs Empty => new FederatedGitltfsRepositoryArgs();
     }
 
-    public sealed class FederatedGitltfsRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedGitltfsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedGitltfsRepositoryState()
         {
         }
+        public static new FederatedGitltfsRepositoryState Empty => new FederatedGitltfsRepositoryState();
     }
 }

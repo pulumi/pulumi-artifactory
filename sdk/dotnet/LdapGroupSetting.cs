@@ -24,7 +24,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/ldapGroupSetting:LdapGroupSetting")]
-    public partial class LdapGroupSetting : Pulumi.CustomResource
+    public partial class LdapGroupSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -128,7 +128,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LdapGroupSettingArgs : Pulumi.ResourceArgs
+    public sealed class LdapGroupSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -191,9 +191,10 @@ namespace Pulumi.Artifactory
         public LdapGroupSettingArgs()
         {
         }
+        public static new LdapGroupSettingArgs Empty => new LdapGroupSettingArgs();
     }
 
-    public sealed class LdapGroupSettingState : Pulumi.ResourceArgs
+    public sealed class LdapGroupSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An attribute on the group entry which denoting the group description. Used when importing groups.
@@ -256,5 +257,6 @@ namespace Pulumi.Artifactory
         public LdapGroupSettingState()
         {
         }
+        public static new LdapGroupSettingState Empty => new LdapGroupSettingState();
     }
 }

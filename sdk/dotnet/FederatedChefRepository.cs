@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_chef_repo = new Artifactory.FederatedChefRepository("terraform-federated-test-chef-repo", new()
     ///     {
-    ///         var terraform_federated_test_chef_repo = new Artifactory.FederatedChefRepository("terraform-federated-test-chef-repo", new Artifactory.FederatedChefRepositoryArgs
+    ///         Key = "terraform-federated-test-chef-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-chef-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-chef-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedChefRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-chef-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedChefRepository:FederatedChefRepository")]
-    public partial class FederatedChefRepository : Pulumi.CustomResource
+    public partial class FederatedChefRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedChefRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedChefRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedChefRepositoryArgs()
         {
         }
+        public static new FederatedChefRepositoryArgs Empty => new FederatedChefRepositoryArgs();
     }
 
-    public sealed class FederatedChefRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedChefRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedChefRepositoryState()
         {
         }
+        public static new FederatedChefRepositoryState Empty => new FederatedChefRepositoryState();
     }
 }

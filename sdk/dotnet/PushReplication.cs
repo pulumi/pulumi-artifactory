@@ -18,45 +18,45 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var config = new Config();
+    ///     var artifactoryUrl = config.Require("artifactoryUrl");
+    ///     var artifactoryUsername = config.Require("artifactoryUsername");
+    ///     var artifactoryPassword = config.Require("artifactoryPassword");
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
     ///     {
-    ///         var config = new Config();
-    ///         var artifactoryUrl = config.Require("artifactoryUrl");
-    ///         var artifactoryUsername = config.Require("artifactoryUsername");
-    ///         var artifactoryPassword = config.Require("artifactoryPassword");
-    ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_source",
-    ///         });
-    ///         var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_dest",
-    ///         });
-    ///         var foo_rep = new Artifactory.PushReplication("foo-rep", new Artifactory.PushReplicationArgs
-    ///         {
-    ///             RepoKey = providerTestSource.Key,
-    ///             CronExp = "0 0 * * * ?",
-    ///             EnableEventReplication = true,
-    ///             Replications = 
-    ///             {
-    ///                 new Artifactory.Inputs.PushReplicationReplicationArgs
-    ///                 {
-    ///                     Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/{key}"),
-    ///                     Username = "$var.artifactory_username",
-    ///                     Password = "$var.artifactory_password",
-    ///                     Enabled = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Key = "provider_test_source",
+    ///     });
     /// 
-    /// }
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///     });
+    /// 
+    ///     var foo_rep = new Artifactory.PushReplication("foo-rep", new()
+    ///     {
+    ///         RepoKey = providerTestSource.Key,
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         Replications = new[]
+    ///         {
+    ///             new Artifactory.Inputs.PushReplicationReplicationArgs
+    ///             {
+    ///                 Url = providerTestDest.Key.Apply(key =&gt; $"{artifactoryUrl}/{key}"),
+    ///                 Username = "$var.artifactory_username",
+    ///                 Password = "$var.artifactory_password",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +68,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/pushReplication:PushReplication")]
-    public partial class PushReplication : Pulumi.CustomResource
+    public partial class PushReplication : global::Pulumi.CustomResource
     {
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class PushReplicationArgs : Pulumi.ResourceArgs
+    public sealed class PushReplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
@@ -154,9 +154,10 @@ namespace Pulumi.Artifactory
         public PushReplicationArgs()
         {
         }
+        public static new PushReplicationArgs Empty => new PushReplicationArgs();
     }
 
-    public sealed class PushReplicationState : Pulumi.ResourceArgs
+    public sealed class PushReplicationState : global::Pulumi.ResourceArgs
     {
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
@@ -181,5 +182,6 @@ namespace Pulumi.Artifactory
         public PushReplicationState()
         {
         }
+        public static new PushReplicationState Empty => new PushReplicationState();
     }
 }

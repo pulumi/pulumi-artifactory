@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_ivy_repo = new Artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", new()
     ///     {
-    ///         var terraform_local_test_ivy_repo = new Artifactory.LocalIvyRepository("terraform-local-test-ivy-repo", new Artifactory.LocalIvyRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-ivy-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-ivy-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localIvyRepository:LocalIvyRepository")]
-    public partial class LocalIvyRepository : Pulumi.CustomResource
+    public partial class LocalIvyRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -219,7 +217,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalIvyRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalIvyRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -366,9 +364,10 @@ namespace Pulumi.Artifactory
         public LocalIvyRepositoryArgs()
         {
         }
+        public static new LocalIvyRepositoryArgs Empty => new LocalIvyRepositoryArgs();
     }
 
-    public sealed class LocalIvyRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalIvyRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -518,5 +517,6 @@ namespace Pulumi.Artifactory
         public LocalIvyRepositoryState()
         {
         }
+        public static new LocalIvyRepositoryState Empty => new LocalIvyRepositoryState();
     }
 }

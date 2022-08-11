@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_conan = new Artifactory.RemoteConanRepository("my-remote-conan", new()
     ///     {
-    ///         var my_remote_conan = new Artifactory.RemoteConanRepository("my-remote-conan", new Artifactory.RemoteConanRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-conan",
-    ///             Url = "https://conan.io/center/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-conan",
+    ///         Url = "https://conan.io/center/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteConanRepository:RemoteConanRepository")]
-    public partial class RemoteConanRepository : Pulumi.CustomResource
+    public partial class RemoteConanRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteConanRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteConanRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteConanRepositoryArgs()
         {
         }
+        public static new RemoteConanRepositoryArgs Empty => new RemoteConanRepositoryArgs();
     }
 
-    public sealed class RemoteConanRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteConanRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteConanRepositoryState()
         {
         }
+        public static new RemoteConanRepositoryState Empty => new RemoteConanRepositoryState();
     }
 }

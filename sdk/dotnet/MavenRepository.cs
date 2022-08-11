@@ -16,43 +16,43 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var bar = new Artifactory.LocalMavenRepository("bar", new()
     ///     {
-    ///         var bar = new Artifactory.LocalMavenRepository("bar", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "bar",
-    ///             RepoLayoutRef = "maven-2-default",
-    ///         });
-    ///         var baz = new Artifactory.RemoteMavenRepository("baz", new Artifactory.RemoteMavenRepositoryArgs
-    ///         {
-    ///             Key = "baz",
-    ///             RepoLayoutRef = "maven-2-default",
-    ///             Url = "https://search.maven.com/",
-    ///         });
-    ///         var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new Artifactory.MavenRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ForceMavenAuthentication = true,
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "maven-virt-repo",
-    ///             Notes = "Internal description",
-    ///             PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///             RepoLayoutRef = "maven-2-default",
-    ///             Repositories = 
-    ///             {
-    ///                 bar.Key,
-    ///                 baz.Key,
-    ///             },
-    ///         });
-    ///     }
+    ///         Key = "bar",
+    ///         RepoLayoutRef = "maven-2-default",
+    ///     });
     /// 
-    /// }
+    ///     var baz = new Artifactory.RemoteMavenRepository("baz", new()
+    ///     {
+    ///         Key = "baz",
+    ///         RepoLayoutRef = "maven-2-default",
+    ///         Url = "https://search.maven.com/",
+    ///     });
+    /// 
+    ///     var maven_virt_repo = new Artifactory.MavenRepository("maven-virt-repo", new()
+    ///     {
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ForceMavenAuthentication = true,
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "maven-virt-repo",
+    ///         Notes = "Internal description",
+    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
+    ///         RepoLayoutRef = "maven-2-default",
+    ///         Repositories = new[]
+    ///         {
+    ///             bar.Key,
+    ///             baz.Key,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/mavenRepository:MavenRepository")]
-    public partial class MavenRepository : Pulumi.CustomResource
+    public partial class MavenRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -213,7 +213,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class MavenRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class MavenRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -327,9 +327,10 @@ namespace Pulumi.Artifactory
         public MavenRepositoryArgs()
         {
         }
+        public static new MavenRepositoryArgs Empty => new MavenRepositoryArgs();
     }
 
-    public sealed class MavenRepositoryState : Pulumi.ResourceArgs
+    public sealed class MavenRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -449,5 +450,6 @@ namespace Pulumi.Artifactory
         public MavenRepositoryState()
         {
         }
+        public static new MavenRepositoryState Empty => new MavenRepositoryState();
     }
 }

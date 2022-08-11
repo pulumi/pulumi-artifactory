@@ -16,27 +16,25 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new()
     ///     {
-    ///         var helm_remote = new Artifactory.RemoteHelmRepository("helm-remote", new Artifactory.RemoteHelmRepositoryArgs
+    ///         ExternalDependenciesEnabled = true,
+    ///         ExternalDependenciesPatterns = new[]
     ///         {
-    ///             ExternalDependenciesEnabled = true,
-    ///             ExternalDependenciesPatterns = 
-    ///             {
-    ///                 "**github.com**",
-    ///             },
-    ///             HelmChartsBaseUrl = "https://foo.com",
-    ///             Key = "helm-remote-foo25",
-    ///             Url = "https://repo.chartcenter.io/",
-    ///         });
-    ///     }
+    ///             "**github.com**",
+    ///         },
+    ///         HelmChartsBaseUrl = "https://foo.com",
+    ///         Key = "helm-remote-foo25",
+    ///         Url = "https://repo.chartcenter.io/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteHelmRepository:RemoteHelmRepository")]
-    public partial class RemoteHelmRepository : Pulumi.CustomResource
+    public partial class RemoteHelmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -346,7 +344,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteHelmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteHelmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -615,9 +613,10 @@ namespace Pulumi.Artifactory
         public RemoteHelmRepositoryArgs()
         {
         }
+        public static new RemoteHelmRepositoryArgs Empty => new RemoteHelmRepositoryArgs();
     }
 
-    public sealed class RemoteHelmRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteHelmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -892,5 +891,6 @@ namespace Pulumi.Artifactory
         public RemoteHelmRepositoryState()
         {
         }
+        public static new RemoteHelmRepositoryState Empty => new RemoteHelmRepositoryState();
     }
 }

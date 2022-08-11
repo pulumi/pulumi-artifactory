@@ -15,26 +15,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_gradle_repo_basic = new Artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new()
     ///     {
-    ///         var terraform_local_test_gradle_repo_basic = new Artifactory.LocalGradleRepository("terraform-local-test-gradle-repo-basic", new Artifactory.LocalGradleRepositoryArgs
-    ///         {
-    ///             ChecksumPolicyType = "client-checksums",
-    ///             HandleReleases = true,
-    ///             HandleSnapshots = true,
-    ///             Key = "terraform-local-test-gradle-repo-basic",
-    ///             MaxUniqueSnapshots = 10,
-    ///             SnapshotVersionBehavior = "unique",
-    ///             SuppressPomConsistencyChecks = true,
-    ///         });
-    ///     }
+    ///         ChecksumPolicyType = "client-checksums",
+    ///         HandleReleases = true,
+    ///         HandleSnapshots = true,
+    ///         Key = "terraform-local-test-gradle-repo-basic",
+    ///         MaxUniqueSnapshots = 10,
+    ///         SnapshotVersionBehavior = "unique",
+    ///         SuppressPomConsistencyChecks = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localGradleRepository:LocalGradleRepository")]
-    public partial class LocalGradleRepository : Pulumi.CustomResource
+    public partial class LocalGradleRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -227,7 +225,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalGradleRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalGradleRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -376,9 +374,10 @@ namespace Pulumi.Artifactory
         public LocalGradleRepositoryArgs()
         {
         }
+        public static new LocalGradleRepositoryArgs Empty => new LocalGradleRepositoryArgs();
     }
 
-    public sealed class LocalGradleRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalGradleRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -530,5 +529,6 @@ namespace Pulumi.Artifactory
         public LocalGradleRepositoryState()
         {
         }
+        public static new LocalGradleRepositoryState Empty => new LocalGradleRepositoryState();
     }
 }

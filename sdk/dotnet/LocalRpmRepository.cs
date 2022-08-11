@@ -15,50 +15,50 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new()
     ///     {
-    ///         var some_keypair_gpg_1 = new Artifactory.Keypair("some-keypair-gpg-1", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = $"some-keypair{random_id.Randid.Id}",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias1",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = $"some-keypair{random_id.Randid.Id}",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias2",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new Artifactory.LocalRpmRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-rpm-repo-basic",
-    ///             YumRootDepth = 5,
-    ///             CalculateYumMetadata = true,
-    ///             EnableFileListsIndexing = true,
-    ///             YumGroupFileNames = "file-1.xml,file-2.xml",
-    ///             PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
-    ///             SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 some_keypair_gpg_1,
-    ///                 some_keypair_gpg_2,
-    ///             },
-    ///         });
-    ///     }
+    ///         PairName = $"some-keypair{random_id.Randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias1",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
     /// 
-    /// }
+    ///     var some_keypair_gpg_2 = new Artifactory.Keypair("some-keypair-gpg-2", new()
+    ///     {
+    ///         PairName = $"some-keypair{random_id.Randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias2",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
+    /// 
+    ///     var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository("terraform-local-test-rpm-repo-basic", new()
+    ///     {
+    ///         Key = "terraform-local-test-rpm-repo-basic",
+    ///         YumRootDepth = 5,
+    ///         CalculateYumMetadata = true,
+    ///         EnableFileListsIndexing = true,
+    ///         YumGroupFileNames = "file-1.xml,file-2.xml",
+    ///         PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,
+    ///         SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             some_keypair_gpg_1,
+    ///             some_keypair_gpg_2,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +70,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localRpmRepository:LocalRpmRepository")]
-    public partial class LocalRpmRepository : Pulumi.CustomResource
+    public partial class LocalRpmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -246,7 +246,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalRpmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalRpmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -390,9 +390,10 @@ namespace Pulumi.Artifactory
         public LocalRpmRepositoryArgs()
         {
         }
+        public static new LocalRpmRepositoryArgs Empty => new LocalRpmRepositoryArgs();
     }
 
-    public sealed class LocalRpmRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalRpmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -539,5 +540,6 @@ namespace Pulumi.Artifactory
         public LocalRpmRepositoryState()
         {
         }
+        public static new LocalRpmRepositoryState Empty => new LocalRpmRepositoryState();
     }
 }

@@ -16,7 +16,7 @@ namespace Pulumi.Artifactory
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [ArtifactoryResourceType("pulumi:providers:artifactory")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
@@ -60,7 +60,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
@@ -88,5 +88,6 @@ namespace Pulumi.Artifactory
         {
             CheckLicense = false;
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

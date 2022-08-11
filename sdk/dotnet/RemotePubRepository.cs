@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_pub = new Artifactory.RemotePubRepository("my-remote-pub", new()
     ///     {
-    ///         var my_remote_pub = new Artifactory.RemotePubRepository("my-remote-pub", new Artifactory.RemotePubRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-pub",
-    ///             Url = "https://pub.dartlang.org",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-pub",
+    ///         Url = "https://pub.dartlang.org",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remotePubRepository:RemotePubRepository")]
-    public partial class RemotePubRepository : Pulumi.CustomResource
+    public partial class RemotePubRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemotePubRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemotePubRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemotePubRepositoryArgs()
         {
         }
+        public static new RemotePubRepositoryArgs Empty => new RemotePubRepositoryArgs();
     }
 
-    public sealed class RemotePubRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemotePubRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemotePubRepositoryState()
         {
         }
+        public static new RemotePubRepositoryState Empty => new RemotePubRepositoryState();
     }
 }

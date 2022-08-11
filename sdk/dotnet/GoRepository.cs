@@ -16,32 +16,30 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var baz_go = new Artifactory.GoRepository("baz-go", new()
     ///     {
-    ///         var baz_go = new Artifactory.GoRepository("baz-go", new Artifactory.GoRepositoryArgs
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ExternalDependenciesEnabled = true,
+    ///         ExternalDependenciesPatterns = new[]
     ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ExternalDependenciesEnabled = true,
-    ///             ExternalDependenciesPatterns = 
-    ///             {
-    ///                 "**/github.com/**",
-    ///                 "**/go.googlesource.com/**",
-    ///             },
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "baz-go",
-    ///             Notes = "Internal description",
-    ///             RepoLayoutRef = "go-default",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///             "**/github.com/**",
+    ///             "**/go.googlesource.com/**",
+    ///         },
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "baz-go",
+    ///         Notes = "Internal description",
+    ///         RepoLayoutRef = "go-default",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/goRepository:GoRepository")]
-    public partial class GoRepository : Pulumi.CustomResource
+    public partial class GoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -197,7 +195,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class GoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class GoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -312,9 +310,10 @@ namespace Pulumi.Artifactory
         public GoRepositoryArgs()
         {
         }
+        public static new GoRepositoryArgs Empty => new GoRepositoryArgs();
     }
 
-    public sealed class GoRepositoryState : Pulumi.ResourceArgs
+    public sealed class GoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public GoRepositoryState()
         {
         }
+        public static new GoRepositoryState Empty => new GoRepositoryState();
     }
 }

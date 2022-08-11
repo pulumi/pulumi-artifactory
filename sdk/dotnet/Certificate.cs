@@ -15,28 +15,27 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Artifactory certificate called my-cert
+    ///     var my_cert = new Artifactory.Certificate("my-cert", new()
     ///     {
-    ///         // Create a new Artifactory certificate called my-cert
-    ///         var my_cert = new Artifactory.Certificate("my-cert", new Artifactory.CertificateArgs
-    ///         {
-    ///             Alias = "my-cert",
-    ///             Content = File.ReadAllText("/path/to/bundle.pem"),
-    ///         });
-    ///         // This can then be used by a remote repository
-    ///         var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new Artifactory.RemoteMavenRepositoryArgs
-    ///         {
-    ///             ClientTlsCertificate = my_cert.Alias,
-    ///         });
-    ///     }
+    ///         Alias = "my-cert",
+    ///         Content = File.ReadAllText("/path/to/bundle.pem"),
+    ///     });
     /// 
-    /// }
+    ///     // This can then be used by a remote repository
+    ///     var my_remote = new Artifactory.RemoteMavenRepository("my-remote", new()
+    ///     {
+    ///         ClientTlsCertificate = my_cert.Alias,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +47,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of certificate.
@@ -139,7 +138,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of certificate.
@@ -159,9 +158,10 @@ namespace Pulumi.Artifactory
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of certificate.
@@ -211,5 +211,6 @@ namespace Pulumi.Artifactory
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

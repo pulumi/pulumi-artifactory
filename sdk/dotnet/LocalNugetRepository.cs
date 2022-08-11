@@ -15,22 +15,20 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_nuget_repo_basic = new Artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", new()
     ///     {
-    ///         var terraform_local_test_nuget_repo_basic = new Artifactory.LocalNugetRepository("terraform-local-test-nuget-repo-basic", new Artifactory.LocalNugetRepositoryArgs
-    ///         {
-    ///             ForceNugetAuthentication = true,
-    ///             Key = "terraform-local-test-nuget-repo-basic",
-    ///             MaxUniqueSnapshots = 5,
-    ///         });
-    ///     }
+    ///         ForceNugetAuthentication = true,
+    ///         Key = "terraform-local-test-nuget-repo-basic",
+    ///         MaxUniqueSnapshots = 5,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localNugetRepository:LocalNugetRepository")]
-    public partial class LocalNugetRepository : Pulumi.CustomResource
+    public partial class LocalNugetRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -191,7 +189,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalNugetRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalNugetRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -308,9 +306,10 @@ namespace Pulumi.Artifactory
         public LocalNugetRepositoryArgs()
         {
         }
+        public static new LocalNugetRepositoryArgs Empty => new LocalNugetRepositoryArgs();
     }
 
-    public sealed class LocalNugetRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalNugetRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -430,5 +429,6 @@ namespace Pulumi.Artifactory
         public LocalNugetRepositoryState()
         {
         }
+        public static new LocalNugetRepositoryState Empty => new LocalNugetRepositoryState();
     }
 }

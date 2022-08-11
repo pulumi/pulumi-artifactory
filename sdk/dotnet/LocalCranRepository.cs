@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_cran_repo = new Artifactory.LocalCranRepository("terraform-local-test-cran-repo", new()
     ///     {
-    ///         var terraform_local_test_cran_repo = new Artifactory.LocalCranRepository("terraform-local-test-cran-repo", new Artifactory.LocalCranRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-cran-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-cran-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCranRepository:LocalCranRepository")]
-    public partial class LocalCranRepository : Pulumi.CustomResource
+    public partial class LocalCranRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalCranRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalCranRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalCranRepositoryArgs()
         {
         }
+        public static new LocalCranRepositoryArgs Empty => new LocalCranRepositoryArgs();
     }
 
-    public sealed class LocalCranRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalCranRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalCranRepositoryState()
         {
         }
+        public static new LocalCranRepositoryState Empty => new LocalCranRepositoryState();
     }
 }

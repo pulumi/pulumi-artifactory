@@ -13,20 +13,16 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Create a new Artifactory API key for the configured user
-    ///         var ci = new Artifactory.ApiKey("ci", new Artifactory.ApiKeyArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     // Create a new Artifactory API key for the configured user
+    ///     var ci = new Artifactory.ApiKey("ci");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +34,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/apiKey:ApiKey")]
-    public partial class ApiKey : Pulumi.CustomResource
+    public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API key.
@@ -90,14 +86,15 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ApiKeyArgs : Pulumi.ResourceArgs
+    public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         public ApiKeyArgs()
         {
         }
+        public static new ApiKeyArgs Empty => new ApiKeyArgs();
     }
 
-    public sealed class ApiKeyState : Pulumi.ResourceArgs
+    public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key.
@@ -108,5 +105,6 @@ namespace Pulumi.Artifactory
         public ApiKeyState()
         {
         }
+        public static new ApiKeyState Empty => new ApiKeyState();
     }
 }

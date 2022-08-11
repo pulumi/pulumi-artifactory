@@ -17,33 +17,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Configure Artifactory SAML SSO settings
+    ///     var saml = new Artifactory.SamlSettings("saml", new()
     ///     {
-    ///         // Configure Artifactory SAML SSO settings
-    ///         var saml = new Artifactory.SamlSettings("saml", new Artifactory.SamlSettingsArgs
-    ///         {
-    ///             AllowUserToAccessProfile = true,
-    ///             AutoRedirect = true,
-    ///             Certificate = "test-certificate",
-    ///             EmailAttribute = "email",
-    ///             Enable = true,
-    ///             GroupAttribute = "groups",
-    ///             LoginUrl = "test-login-url",
-    ///             LogoutUrl = "test-logout-url",
-    ///             NoAutoUserCreation = false,
-    ///             ServiceProviderName = "okta",
-    ///             SyncGroups = true,
-    ///             UseEncryptedAssertion = false,
-    ///             VerifyAudienceRestriction = true,
-    ///         });
-    ///     }
+    ///         AllowUserToAccessProfile = true,
+    ///         AutoRedirect = true,
+    ///         Certificate = "test-certificate",
+    ///         EmailAttribute = "email",
+    ///         Enable = true,
+    ///         GroupAttribute = "groups",
+    ///         LoginUrl = "test-login-url",
+    ///         LogoutUrl = "test-logout-url",
+    ///         NoAutoUserCreation = false,
+    ///         ServiceProviderName = "okta",
+    ///         SyncGroups = true,
+    ///         UseEncryptedAssertion = false,
+    ///         VerifyAudienceRestriction = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/samlSettings:SamlSettings")]
-    public partial class SamlSettings : Pulumi.CustomResource
+    public partial class SamlSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `true`.
@@ -179,7 +177,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class SamlSettingsArgs : Pulumi.ResourceArgs
+    public sealed class SamlSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `true`.
@@ -262,9 +260,10 @@ namespace Pulumi.Artifactory
         public SamlSettingsArgs()
         {
         }
+        public static new SamlSettingsArgs Empty => new SamlSettingsArgs();
     }
 
-    public sealed class SamlSettingsState : Pulumi.ResourceArgs
+    public sealed class SamlSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `true`.
@@ -347,5 +346,6 @@ namespace Pulumi.Artifactory
         public SamlSettingsState()
         {
         }
+        public static new SamlSettingsState Empty => new SamlSettingsState();
     }
 }

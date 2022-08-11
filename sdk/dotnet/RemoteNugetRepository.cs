@@ -16,24 +16,22 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_nuget = new Artifactory.RemoteNugetRepository("my-remote-nuget", new()
     ///     {
-    ///         var my_remote_nuget = new Artifactory.RemoteNugetRepository("my-remote-nuget", new Artifactory.RemoteNugetRepositoryArgs
-    ///         {
-    ///             DownloadContextPath = "api/v2/package",
-    ///             ForceNugetAuthentication = true,
-    ///             Key = "my-remote-nuget",
-    ///             Url = "https://www.nuget.org/",
-    ///             V3FeedUrl = "https://api.nuget.org/v3/index.json",
-    ///         });
-    ///     }
+    ///         DownloadContextPath = "api/v2/package",
+    ///         ForceNugetAuthentication = true,
+    ///         Key = "my-remote-nuget",
+    ///         Url = "https://www.nuget.org/",
+    ///         V3FeedUrl = "https://api.nuget.org/v3/index.json",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteNugetRepository:RemoteNugetRepository")]
-    public partial class RemoteNugetRepository : Pulumi.CustomResource
+    public partial class RemoteNugetRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -349,7 +347,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteNugetRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteNugetRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -618,9 +616,10 @@ namespace Pulumi.Artifactory
         public RemoteNugetRepositoryArgs()
         {
         }
+        public static new RemoteNugetRepositoryArgs Empty => new RemoteNugetRepositoryArgs();
     }
 
-    public sealed class RemoteNugetRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteNugetRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -895,5 +894,6 @@ namespace Pulumi.Artifactory
         public RemoteNugetRepositoryState()
         {
         }
+        public static new RemoteNugetRepositoryState Empty => new RemoteNugetRepositoryState();
     }
 }

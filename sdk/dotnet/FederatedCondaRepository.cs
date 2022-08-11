@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_conda_repo = new Artifactory.FederatedCondaRepository("terraform-federated-test-conda-repo", new()
     ///     {
-    ///         var terraform_federated_test_conda_repo = new Artifactory.FederatedCondaRepository("terraform-federated-test-conda-repo", new Artifactory.FederatedCondaRepositoryArgs
+    ///         Key = "terraform-federated-test-conda-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-conda-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedCondaRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedCondaRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedCondaRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-conda-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedCondaRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedCondaRepository:FederatedCondaRepository")]
-    public partial class FederatedCondaRepository : Pulumi.CustomResource
+    public partial class FederatedCondaRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedCondaRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedCondaRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedCondaRepositoryArgs()
         {
         }
+        public static new FederatedCondaRepositoryArgs Empty => new FederatedCondaRepositoryArgs();
     }
 
-    public sealed class FederatedCondaRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedCondaRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedCondaRepositoryState()
         {
         }
+        public static new FederatedCondaRepositoryState Empty => new FederatedCondaRepositoryState();
     }
 }

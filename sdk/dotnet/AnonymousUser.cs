@@ -13,20 +13,16 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         // Define a new Artifactory 'anonymous' user for import
-    ///         var anonymous = new Artifactory.AnonymousUser("anonymous", new Artifactory.AnonymousUserArgs
-    ///         {
-    ///         });
-    ///     }
+    ///     // Define a new Artifactory 'anonymous' user for import
+    ///     var anonymous = new Artifactory.AnonymousUser("anonymous");
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +34,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/anonymousUser:AnonymousUser")]
-    public partial class AnonymousUser : Pulumi.CustomResource
+    public partial class AnonymousUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
@@ -90,7 +86,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class AnonymousUserArgs : Pulumi.ResourceArgs
+    public sealed class AnonymousUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
@@ -101,9 +97,10 @@ namespace Pulumi.Artifactory
         public AnonymousUserArgs()
         {
         }
+        public static new AnonymousUserArgs Empty => new AnonymousUserArgs();
     }
 
-    public sealed class AnonymousUserState : Pulumi.ResourceArgs
+    public sealed class AnonymousUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Username for anonymous user. This should not be set in the HCL, or change after importing into Terraform state.
@@ -114,5 +111,6 @@ namespace Pulumi.Artifactory
         public AnonymousUserState()
         {
         }
+        public static new AnonymousUserState Empty => new AnonymousUserState();
     }
 }

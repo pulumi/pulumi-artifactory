@@ -15,21 +15,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_cargo_repo_basic = new Artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", new()
     ///     {
-    ///         var terraform_local_test_cargo_repo_basic = new Artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", new Artifactory.LocalCargoRepositoryArgs
-    ///         {
-    ///             AnonymousAccess = false,
-    ///             Key = "terraform-local-test-cargo-repo-basic",
-    ///         });
-    ///     }
+    ///         AnonymousAccess = false,
+    ///         Key = "terraform-local-test-cargo-repo-basic",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCargoRepository:LocalCargoRepository")]
-    public partial class LocalCargoRepository : Pulumi.CustomResource
+    public partial class LocalCargoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
@@ -186,7 +184,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalCargoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalCargoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
@@ -304,9 +302,10 @@ namespace Pulumi.Artifactory
         public LocalCargoRepositoryArgs()
         {
         }
+        public static new LocalCargoRepositoryArgs Empty => new LocalCargoRepositoryArgs();
     }
 
-    public sealed class LocalCargoRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalCargoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. 
@@ -427,5 +426,6 @@ namespace Pulumi.Artifactory
         public LocalCargoRepositoryState()
         {
         }
+        public static new LocalCargoRepositoryState Empty => new LocalCargoRepositoryState();
     }
 }

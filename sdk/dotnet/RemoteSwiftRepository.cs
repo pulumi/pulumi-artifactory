@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_swift = new Artifactory.RemoteSwiftRepository("my-remote-swift", new()
     ///     {
-    ///         var my_remote_swift = new Artifactory.RemoteSwiftRepository("my-remote-swift", new Artifactory.RemoteSwiftRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-swift",
-    ///             Url = "https://swift.org/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-swift",
+    ///         Url = "https://swift.org/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteSwiftRepository:RemoteSwiftRepository")]
-    public partial class RemoteSwiftRepository : Pulumi.CustomResource
+    public partial class RemoteSwiftRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteSwiftRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteSwiftRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteSwiftRepositoryArgs()
         {
         }
+        public static new RemoteSwiftRepositoryArgs Empty => new RemoteSwiftRepositoryArgs();
     }
 
-    public sealed class RemoteSwiftRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteSwiftRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteSwiftRepositoryState()
         {
         }
+        public static new RemoteSwiftRepositoryState Empty => new RemoteSwiftRepositoryState();
     }
 }

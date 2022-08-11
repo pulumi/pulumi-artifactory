@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_alpine = new Artifactory.RemoteAlpineRepository("my-remote-alpine", new()
     ///     {
-    ///         var my_remote_alpine = new Artifactory.RemoteAlpineRepository("my-remote-alpine", new Artifactory.RemoteAlpineRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-alpine",
-    ///             Url = "http://dl-cdn.alpinelinux.org/alpine",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-alpine",
+    ///         Url = "http://dl-cdn.alpinelinux.org/alpine",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteAlpineRepository:RemoteAlpineRepository")]
-    public partial class RemoteAlpineRepository : Pulumi.CustomResource
+    public partial class RemoteAlpineRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteAlpineRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteAlpineRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteAlpineRepositoryArgs()
         {
         }
+        public static new RemoteAlpineRepositoryArgs Empty => new RemoteAlpineRepositoryArgs();
     }
 
-    public sealed class RemoteAlpineRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteAlpineRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteAlpineRepositoryState()
         {
         }
+        public static new RemoteAlpineRepositoryState Empty => new RemoteAlpineRepositoryState();
     }
 }

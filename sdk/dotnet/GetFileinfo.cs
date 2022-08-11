@@ -21,21 +21,19 @@ namespace Pulumi.Artifactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
-        ///         var my_file = Output.Create(Artifactory.GetFileinfo.InvokeAsync(new Artifactory.GetFileinfoArgs
-        ///         {
-        ///             Path = "/path/to/the/artifact.zip",
-        ///             Repository = "repo-key",
-        ///         }));
-        ///     }
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         Repository = "repo-key",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,21 +51,19 @@ namespace Pulumi.Artifactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_file = Artifactory.GetFileinfo.Invoke(new()
         ///     {
-        ///         var my_file = Output.Create(Artifactory.GetFileinfo.InvokeAsync(new Artifactory.GetFileinfoArgs
-        ///         {
-        ///             Path = "/path/to/the/artifact.zip",
-        ///             Repository = "repo-key",
-        ///         }));
-        ///     }
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         Repository = "repo-key",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Artifactory
     }
 
 
-    public sealed class GetFileinfoArgs : Pulumi.InvokeArgs
+    public sealed class GetFileinfoArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The path to the file within the repository.
@@ -94,9 +90,10 @@ namespace Pulumi.Artifactory
         public GetFileinfoArgs()
         {
         }
+        public static new GetFileinfoArgs Empty => new GetFileinfoArgs();
     }
 
-    public sealed class GetFileinfoInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFileinfoInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The path to the file within the repository.
@@ -113,6 +110,7 @@ namespace Pulumi.Artifactory
         public GetFileinfoInvokeArgs()
         {
         }
+        public static new GetFileinfoInvokeArgs Empty => new GetFileinfoInvokeArgs();
     }
 
 

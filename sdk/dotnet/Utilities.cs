@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    internal sealed class ArtifactoryResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class ArtifactoryResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public ArtifactoryResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

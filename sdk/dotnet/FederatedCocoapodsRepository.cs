@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_cocoapods_repo = new Artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", new()
     ///     {
-    ///         var terraform_federated_test_cocoapods_repo = new Artifactory.FederatedCocoapodsRepository("terraform-federated-test-cocoapods-repo", new Artifactory.FederatedCocoapodsRepositoryArgs
+    ///         Key = "terraform-federated-test-cocoapods-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-cocoapods-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-cocoapods-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedCocoapodsRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-cocoapods-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedCocoapodsRepository:FederatedCocoapodsRepository")]
-    public partial class FederatedCocoapodsRepository : Pulumi.CustomResource
+    public partial class FederatedCocoapodsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedCocoapodsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedCocoapodsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedCocoapodsRepositoryArgs()
         {
         }
+        public static new FederatedCocoapodsRepositoryArgs Empty => new FederatedCocoapodsRepositoryArgs();
     }
 
-    public sealed class FederatedCocoapodsRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedCocoapodsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedCocoapodsRepositoryState()
         {
         }
+        public static new FederatedCocoapodsRepositoryState Empty => new FederatedCocoapodsRepositoryState();
     }
 }

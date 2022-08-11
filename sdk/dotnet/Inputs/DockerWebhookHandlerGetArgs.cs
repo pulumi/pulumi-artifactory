@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class DockerWebhookHandlerGetArgs : Pulumi.ResourceArgs
+    public sealed class DockerWebhookHandlerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHttpHeaders")]
         private InputMap<string>? _customHttpHeaders;
@@ -45,5 +45,6 @@ namespace Pulumi.Artifactory.Inputs
         public DockerWebhookHandlerGetArgs()
         {
         }
+        public static new DockerWebhookHandlerGetArgs Empty => new DockerWebhookHandlerGetArgs();
     }
 }

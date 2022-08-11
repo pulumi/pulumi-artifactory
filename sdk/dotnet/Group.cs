@@ -19,7 +19,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -137,7 +137,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -220,9 +220,10 @@ namespace Pulumi.Artifactory
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Any users added to this group will automatically be assigned with admin privileges in the system.
@@ -305,5 +306,6 @@ namespace Pulumi.Artifactory
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }
