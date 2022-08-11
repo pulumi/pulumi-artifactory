@@ -20,25 +20,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var some_keypair6543461672124900137 = new Artifactory.Keypair("some-keypair6543461672124900137", new()
     ///     {
-    ///         var some_keypair6543461672124900137 = new Artifactory.Keypair("some-keypair6543461672124900137", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "some-keypair6543461672124900137",
-    ///             PairType = "RSA",
-    ///             Alias = "foo-alias6543461672124900137",
-    ///             PrivateKey = File.ReadAllText("samples/rsa.priv"),
-    ///             PublicKey = File.ReadAllText("samples/rsa.pub"),
-    ///         });
-    ///     }
+    ///         PairName = "some-keypair6543461672124900137",
+    ///         PairType = "RSA",
+    ///         Alias = "foo-alias6543461672124900137",
+    ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
+    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/keypair:Keypair")]
-    public partial class Keypair : Pulumi.CustomResource
+    public partial class Keypair : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Will be used as a filename when retrieving the public key via REST API.
@@ -138,7 +136,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class KeypairArgs : Pulumi.ResourceArgs
+    public sealed class KeypairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Will be used as a filename when retrieving the public key via REST API.
@@ -179,9 +177,10 @@ namespace Pulumi.Artifactory
         public KeypairArgs()
         {
         }
+        public static new KeypairArgs Empty => new KeypairArgs();
     }
 
-    public sealed class KeypairState : Pulumi.ResourceArgs
+    public sealed class KeypairState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Will be used as a filename when retrieving the public key via REST API.
@@ -228,5 +227,6 @@ namespace Pulumi.Artifactory
         public KeypairState()
         {
         }
+        public static new KeypairState Empty => new KeypairState();
     }
 }

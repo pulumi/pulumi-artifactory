@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteAlpineRepository(ctx, "my-remote-alpine", &artifactory.RemoteAlpineRepositoryArgs{
-// 			Key: pulumi.String("my-remote-alpine"),
-// 			Url: pulumi.String("http://dl-cdn.alpinelinux.org/alpine"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteAlpineRepository(ctx, "my-remote-alpine", &artifactory.RemoteAlpineRepositoryArgs{
+//				Key: pulumi.String("my-remote-alpine"),
+//				Url: pulumi.String("http://dl-cdn.alpinelinux.org/alpine"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
+//
+//	$ pulumi import artifactory:index/remoteAlpineRepository:RemoteAlpineRepository my-remote-alpine my-remote-alpine
+//
 // ```
 type RemoteAlpineRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteAlpineRepository) ToRemoteAlpineRepositoryOutputWithContext(ctx c
 // RemoteAlpineRepositoryArrayInput is an input type that accepts RemoteAlpineRepositoryArray and RemoteAlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteAlpineRepositoryArrayInput` via:
 //
-//          RemoteAlpineRepositoryArray{ RemoteAlpineRepositoryArgs{...} }
+//	RemoteAlpineRepositoryArray{ RemoteAlpineRepositoryArgs{...} }
 type RemoteAlpineRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteAlpineRepositoryArray) ToRemoteAlpineRepositoryArrayOutputWithCont
 // RemoteAlpineRepositoryMapInput is an input type that accepts RemoteAlpineRepositoryMap and RemoteAlpineRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteAlpineRepositoryMapInput` via:
 //
-//          RemoteAlpineRepositoryMap{ "key": RemoteAlpineRepositoryArgs{...} }
+//	RemoteAlpineRepositoryMap{ "key": RemoteAlpineRepositoryArgs{...} }
 type RemoteAlpineRepositoryMapInput interface {
 	pulumi.Input
 

@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_docker_repo = new Artifactory.FederatedDockerRepository("terraform-federated-test-docker-repo", new()
     ///     {
-    ///         var terraform_federated_test_docker_repo = new Artifactory.FederatedDockerRepository("terraform-federated-test-docker-repo", new Artifactory.FederatedDockerRepositoryArgs
+    ///         Key = "terraform-federated-test-docker-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-docker-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-docker-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedDockerRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedDockerRepository:FederatedDockerRepository")]
-    public partial class FederatedDockerRepository : Pulumi.CustomResource
+    public partial class FederatedDockerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Docker API version to use. This cannot be set
@@ -223,7 +221,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedDockerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedDockerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -361,9 +359,10 @@ namespace Pulumi.Artifactory
         public FederatedDockerRepositoryArgs()
         {
         }
+        public static new FederatedDockerRepositoryArgs Empty => new FederatedDockerRepositoryArgs();
     }
 
-    public sealed class FederatedDockerRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedDockerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Docker API version to use. This cannot be set
@@ -510,5 +509,6 @@ namespace Pulumi.Artifactory
         public FederatedDockerRepositoryState()
         {
         }
+        public static new FederatedDockerRepositoryState Empty => new FederatedDockerRepositoryState();
     }
 }

@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_gems = new Artifactory.VirtualGemsRepository("foo-gems", new()
     ///     {
-    ///         var foo_gems = new Artifactory.VirtualGemsRepository("foo-gems", new Artifactory.VirtualGemsRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-gems",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-gems",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGemsRepository:VirtualGemsRepository")]
-    public partial class VirtualGemsRepository : Pulumi.CustomResource
+    public partial class VirtualGemsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -177,7 +175,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualGemsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGemsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -273,9 +271,10 @@ namespace Pulumi.Artifactory
         public VirtualGemsRepositoryArgs()
         {
         }
+        public static new VirtualGemsRepositoryArgs Empty => new VirtualGemsRepositoryArgs();
     }
 
-    public sealed class VirtualGemsRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualGemsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -377,5 +376,6 @@ namespace Pulumi.Artifactory
         public VirtualGemsRepositoryState()
         {
         }
+        public static new VirtualGemsRepositoryState Empty => new VirtualGemsRepositoryState();
     }
 }

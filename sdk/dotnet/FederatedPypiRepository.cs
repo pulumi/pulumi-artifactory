@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_pypi_repo = new Artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo", new()
     ///     {
-    ///         var terraform_federated_test_pypi_repo = new Artifactory.FederatedPypiRepository("terraform-federated-test-pypi-repo", new Artifactory.FederatedPypiRepositoryArgs
+    ///         Key = "terraform-federated-test-pypi-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-pypi-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-pypi-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedPypiRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedPypiRepository:FederatedPypiRepository")]
-    public partial class FederatedPypiRepository : Pulumi.CustomResource
+    public partial class FederatedPypiRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedPypiRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedPypiRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedPypiRepositoryArgs()
         {
         }
+        public static new FederatedPypiRepositoryArgs Empty => new FederatedPypiRepositoryArgs();
     }
 
-    public sealed class FederatedPypiRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedPypiRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedPypiRepositoryState()
         {
         }
+        public static new FederatedPypiRepositoryState Empty => new FederatedPypiRepositoryState();
     }
 }

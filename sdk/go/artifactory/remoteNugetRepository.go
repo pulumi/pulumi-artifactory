@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteNugetRepository(ctx, "my-remote-nuget", &artifactory.RemoteNugetRepositoryArgs{
-// 			DownloadContextPath:      pulumi.String("api/v2/package"),
-// 			ForceNugetAuthentication: pulumi.Bool(true),
-// 			Key:                      pulumi.String("my-remote-nuget"),
-// 			Url:                      pulumi.String("https://www.nuget.org/"),
-// 			V3FeedUrl:                pulumi.String("https://api.nuget.org/v3/index.json"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteNugetRepository(ctx, "my-remote-nuget", &artifactory.RemoteNugetRepositoryArgs{
+//				DownloadContextPath:      pulumi.String("api/v2/package"),
+//				ForceNugetAuthentication: pulumi.Bool(true),
+//				Key:                      pulumi.String("my-remote-nuget"),
+//				Url:                      pulumi.String("https://www.nuget.org/"),
+//				V3FeedUrl:                pulumi.String("https://api.nuget.org/v3/index.json"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+//
+//	$ pulumi import artifactory:index/remoteNugetRepository:RemoteNugetRepository my-remote-nuget my-remote-nuget
+//
 // ```
 type RemoteNugetRepository struct {
 	pulumi.CustomResourceState
@@ -639,7 +644,7 @@ func (i *RemoteNugetRepository) ToRemoteNugetRepositoryOutputWithContext(ctx con
 // RemoteNugetRepositoryArrayInput is an input type that accepts RemoteNugetRepositoryArray and RemoteNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteNugetRepositoryArrayInput` via:
 //
-//          RemoteNugetRepositoryArray{ RemoteNugetRepositoryArgs{...} }
+//	RemoteNugetRepositoryArray{ RemoteNugetRepositoryArgs{...} }
 type RemoteNugetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -664,7 +669,7 @@ func (i RemoteNugetRepositoryArray) ToRemoteNugetRepositoryArrayOutputWithContex
 // RemoteNugetRepositoryMapInput is an input type that accepts RemoteNugetRepositoryMap and RemoteNugetRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteNugetRepositoryMapInput` via:
 //
-//          RemoteNugetRepositoryMap{ "key": RemoteNugetRepositoryArgs{...} }
+//	RemoteNugetRepositoryMap{ "key": RemoteNugetRepositoryArgs{...} }
 type RemoteNugetRepositoryMapInput interface {
 	pulumi.Input
 

@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_conda_repo = new Artifactory.LocalCondaRepository("terraform-local-test-conda-repo", new()
     ///     {
-    ///         var terraform_local_test_conda_repo = new Artifactory.LocalCondaRepository("terraform-local-test-conda-repo", new Artifactory.LocalCondaRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-conda-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-conda-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localCondaRepository:LocalCondaRepository")]
-    public partial class LocalCondaRepository : Pulumi.CustomResource
+    public partial class LocalCondaRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalCondaRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalCondaRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalCondaRepositoryArgs()
         {
         }
+        public static new LocalCondaRepositoryArgs Empty => new LocalCondaRepositoryArgs();
     }
 
-    public sealed class LocalCondaRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalCondaRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalCondaRepositoryState()
         {
         }
+        public static new LocalCondaRepositoryState Empty => new LocalCondaRepositoryState();
     }
 }

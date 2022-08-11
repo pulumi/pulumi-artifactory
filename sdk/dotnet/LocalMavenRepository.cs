@@ -15,26 +15,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_maven_repo_basic = new Artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", new()
     ///     {
-    ///         var terraform_local_test_maven_repo_basic = new Artifactory.LocalMavenRepository("terraform-local-test-maven-repo-basic", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             ChecksumPolicyType = "client-checksums",
-    ///             HandleReleases = true,
-    ///             HandleSnapshots = true,
-    ///             Key = "terraform-local-test-maven-repo-basic",
-    ///             MaxUniqueSnapshots = 10,
-    ///             SnapshotVersionBehavior = "unique",
-    ///             SuppressPomConsistencyChecks = false,
-    ///         });
-    ///     }
+    ///         ChecksumPolicyType = "client-checksums",
+    ///         HandleReleases = true,
+    ///         HandleSnapshots = true,
+    ///         Key = "terraform-local-test-maven-repo-basic",
+    ///         MaxUniqueSnapshots = 10,
+    ///         SnapshotVersionBehavior = "unique",
+    ///         SuppressPomConsistencyChecks = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localMavenRepository:LocalMavenRepository")]
-    public partial class LocalMavenRepository : Pulumi.CustomResource
+    public partial class LocalMavenRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -227,7 +225,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalMavenRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalMavenRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -376,9 +374,10 @@ namespace Pulumi.Artifactory
         public LocalMavenRepositoryArgs()
         {
         }
+        public static new LocalMavenRepositoryArgs Empty => new LocalMavenRepositoryArgs();
     }
 
-    public sealed class LocalMavenRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalMavenRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -530,5 +529,6 @@ namespace Pulumi.Artifactory
         public LocalMavenRepositoryState()
         {
         }
+        public static new LocalMavenRepositoryState Empty => new LocalMavenRepositoryState();
     }
 }

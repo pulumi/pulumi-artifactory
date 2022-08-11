@@ -18,34 +18,34 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
     ///     {
-    ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_source",
-    ///         });
-    ///         var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new Artifactory.RemoteMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_dest",
-    ///             Password = "bar",
-    ///             Url = $"https://example.com/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}",
-    ///             Username = "foo",
-    ///         });
-    ///         var remote_rep = new Artifactory.PullReplication("remote-rep", new Artifactory.PullReplicationArgs
-    ///         {
-    ///             CronExp = "0 0 * * * ?",
-    ///             EnableEventReplication = true,
-    ///             RepoKey = providerTestDest.Key,
-    ///         });
-    ///     }
+    ///         Key = "provider_test_source",
+    ///     });
     /// 
-    /// }
+    ///     var providerTestDest = new Artifactory.RemoteMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///         Password = "bar",
+    ///         Url = $"https://example.com/artifactory/{artifactory_local_maven_repository.Artifactory_local_maven_repository.Key}",
+    ///         Username = "foo",
+    ///     });
+    /// 
+    ///     var remote_rep = new Artifactory.PullReplication("remote-rep", new()
+    ///     {
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         RepoKey = providerTestDest.Key,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/pullReplication:PullReplication")]
-    public partial class PullReplication : Pulumi.CustomResource
+    public partial class PullReplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When true, enables distributed checksum storage. For more information, see
@@ -181,7 +181,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class PullReplicationArgs : Pulumi.ResourceArgs
+    public sealed class PullReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables distributed checksum storage. For more information, see
@@ -264,9 +264,10 @@ namespace Pulumi.Artifactory
         public PullReplicationArgs()
         {
         }
+        public static new PullReplicationArgs Empty => new PullReplicationArgs();
     }
 
-    public sealed class PullReplicationState : Pulumi.ResourceArgs
+    public sealed class PullReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables distributed checksum storage. For more information, see
@@ -349,5 +350,6 @@ namespace Pulumi.Artifactory
         public PullReplicationState()
         {
         }
+        public static new PullReplicationState Empty => new PullReplicationState();
     }
 }

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteRpmRepository(ctx, "my-remote-rpm", &artifactory.RemoteRpmRepositoryArgs{
-// 			Key: pulumi.String("my-remote-rpm"),
-// 			Url: pulumi.String("http://mirror.centos.org/centos/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteRpmRepository(ctx, "my-remote-rpm", &artifactory.RemoteRpmRepositoryArgs{
+//				Key: pulumi.String("my-remote-rpm"),
+//				Url: pulumi.String("http://mirror.centos.org/centos/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
+//
+//	$ pulumi import artifactory:index/remoteRpmRepository:RemoteRpmRepository my-remote-rpm my-remote-rpm
+//
 // ```
 type RemoteRpmRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteRpmRepository) ToRemoteRpmRepositoryOutputWithContext(ctx context
 // RemoteRpmRepositoryArrayInput is an input type that accepts RemoteRpmRepositoryArray and RemoteRpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteRpmRepositoryArrayInput` via:
 //
-//          RemoteRpmRepositoryArray{ RemoteRpmRepositoryArgs{...} }
+//	RemoteRpmRepositoryArray{ RemoteRpmRepositoryArgs{...} }
 type RemoteRpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteRpmRepositoryArray) ToRemoteRpmRepositoryArrayOutputWithContext(ct
 // RemoteRpmRepositoryMapInput is an input type that accepts RemoteRpmRepositoryMap and RemoteRpmRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteRpmRepositoryMapInput` via:
 //
-//          RemoteRpmRepositoryMap{ "key": RemoteRpmRepositoryArgs{...} }
+//	RemoteRpmRepositoryMap{ "key": RemoteRpmRepositoryArgs{...} }
 type RemoteRpmRepositoryMapInput interface {
 	pulumi.Input
 

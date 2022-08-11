@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_conan_repo = new Artifactory.LocalConanRepository("terraform-local-test-conan-repo", new()
     ///     {
-    ///         var terraform_local_test_conan_repo = new Artifactory.LocalConanRepository("terraform-local-test-conan-repo", new Artifactory.LocalConanRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-conan-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-conan-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localConanRepository:LocalConanRepository")]
-    public partial class LocalConanRepository : Pulumi.CustomResource
+    public partial class LocalConanRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalConanRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalConanRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalConanRepositoryArgs()
         {
         }
+        public static new LocalConanRepositoryArgs Empty => new LocalConanRepositoryArgs();
     }
 
-    public sealed class LocalConanRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalConanRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalConanRepositoryState()
         {
         }
+        public static new LocalConanRepositoryState Empty => new LocalConanRepositoryState();
     }
 }

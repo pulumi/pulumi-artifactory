@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedAlpineRepository(ctx, "terraform-federated-test-alpine-repo", &artifactory.FederatedAlpineRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-alpine-repo"),
-// 			Members: FederatedAlpineRepositoryMemberArray{
-// 				&FederatedAlpineRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-alpine-repo"),
-// 				},
-// 				&FederatedAlpineRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedAlpineRepository(ctx, "terraform-federated-test-alpine-repo", &artifactory.FederatedAlpineRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-alpine-repo"),
+//				Members: FederatedAlpineRepositoryMemberArray{
+//					&FederatedAlpineRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-alpine-repo"),
+//					},
+//					&FederatedAlpineRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-alpine-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedAlpineRepository:FederatedAlpineRepository terraform-federated-test-alpine-repo terraform-federated-test-alpine-repo
+//
+//	$ pulumi import artifactory:index/federatedAlpineRepository:FederatedAlpineRepository terraform-federated-test-alpine-repo terraform-federated-test-alpine-repo
+//
 // ```
 type FederatedAlpineRepository struct {
 	pulumi.CustomResourceState
@@ -348,7 +353,7 @@ func (i *FederatedAlpineRepository) ToFederatedAlpineRepositoryOutputWithContext
 // FederatedAlpineRepositoryArrayInput is an input type that accepts FederatedAlpineRepositoryArray and FederatedAlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedAlpineRepositoryArrayInput` via:
 //
-//          FederatedAlpineRepositoryArray{ FederatedAlpineRepositoryArgs{...} }
+//	FederatedAlpineRepositoryArray{ FederatedAlpineRepositoryArgs{...} }
 type FederatedAlpineRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -373,7 +378,7 @@ func (i FederatedAlpineRepositoryArray) ToFederatedAlpineRepositoryArrayOutputWi
 // FederatedAlpineRepositoryMapInput is an input type that accepts FederatedAlpineRepositoryMap and FederatedAlpineRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedAlpineRepositoryMapInput` via:
 //
-//          FederatedAlpineRepositoryMap{ "key": FederatedAlpineRepositoryArgs{...} }
+//	FederatedAlpineRepositoryMap{ "key": FederatedAlpineRepositoryArgs{...} }
 type FederatedAlpineRepositoryMapInput interface {
 	pulumi.Input
 

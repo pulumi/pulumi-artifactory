@@ -22,40 +22,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-// 			Key: pulumi.String("provider_test_source"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
-// 			Key:      pulumi.String("provider_test_dest"),
-// 			Password: pulumi.String("bar"),
-// 			Url:      pulumi.String(fmt.Sprintf("%v%v", "https://example.com/artifactory/", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
-// 			Username: pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewPullReplication(ctx, "remote-rep", &artifactory.PullReplicationArgs{
-// 			CronExp:                pulumi.String("0 0 * * * ?"),
-// 			EnableEventReplication: pulumi.Bool(true),
-// 			RepoKey:                providerTestDest.Key,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_source"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			providerTestDest, err := artifactory.NewRemoteMavenRepository(ctx, "providerTestDest", &artifactory.RemoteMavenRepositoryArgs{
+//				Key:      pulumi.String("provider_test_dest"),
+//				Password: pulumi.String("bar"),
+//				Url:      pulumi.String(fmt.Sprintf("https://example.com/artifactory/%v", artifactory_local_maven_repository.Artifactory_local_maven_repository.Key)),
+//				Username: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewPullReplication(ctx, "remote-rep", &artifactory.PullReplicationArgs{
+//				CronExp:                pulumi.String("0 0 * * * ?"),
+//				EnableEventReplication: pulumi.Bool(true),
+//				RepoKey:                providerTestDest.Key,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Pull replication config can be imported using its repo key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+//
+//	$ pulumi import artifactory:index/pullReplication:PullReplication foo-rep repository-key
+//
 // ```
 type PullReplication struct {
 	pulumi.CustomResourceState
@@ -287,7 +292,7 @@ func (i *PullReplication) ToPullReplicationOutputWithContext(ctx context.Context
 // PullReplicationArrayInput is an input type that accepts PullReplicationArray and PullReplicationArrayOutput values.
 // You can construct a concrete instance of `PullReplicationArrayInput` via:
 //
-//          PullReplicationArray{ PullReplicationArgs{...} }
+//	PullReplicationArray{ PullReplicationArgs{...} }
 type PullReplicationArrayInput interface {
 	pulumi.Input
 
@@ -312,7 +317,7 @@ func (i PullReplicationArray) ToPullReplicationArrayOutputWithContext(ctx contex
 // PullReplicationMapInput is an input type that accepts PullReplicationMap and PullReplicationMapOutput values.
 // You can construct a concrete instance of `PullReplicationMapInput` via:
 //
-//          PullReplicationMap{ "key": PullReplicationArgs{...} }
+//	PullReplicationMap{ "key": PullReplicationArgs{...} }
 type PullReplicationMapInput interface {
 	pulumi.Input
 

@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_npm_repo = new Artifactory.LocalNpmRepository("terraform-local-test-npm-repo", new()
     ///     {
-    ///         var terraform_local_test_npm_repo = new Artifactory.LocalNpmRepository("terraform-local-test-npm-repo", new Artifactory.LocalNpmRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-npm-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-npm-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localNpmRepository:LocalNpmRepository")]
-    public partial class LocalNpmRepository : Pulumi.CustomResource
+    public partial class LocalNpmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalNpmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalNpmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalNpmRepositoryArgs()
         {
         }
+        public static new LocalNpmRepositoryArgs Empty => new LocalNpmRepositoryArgs();
     }
 
-    public sealed class LocalNpmRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalNpmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalNpmRepositoryState()
         {
         }
+        public static new LocalNpmRepositoryState Empty => new LocalNpmRepositoryState();
     }
 }

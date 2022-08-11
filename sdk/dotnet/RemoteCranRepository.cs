@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_cran = new Artifactory.RemoteCranRepository("my-remote-cran", new()
     ///     {
-    ///         var my_remote_cran = new Artifactory.RemoteCranRepository("my-remote-cran", new Artifactory.RemoteCranRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-cran",
-    ///             Url = "https://cran.r-project.org/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-cran",
+    ///         Url = "https://cran.r-project.org/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteCranRepository:RemoteCranRepository")]
-    public partial class RemoteCranRepository : Pulumi.CustomResource
+    public partial class RemoteCranRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteCranRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteCranRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteCranRepositoryArgs()
         {
         }
+        public static new RemoteCranRepositoryArgs Empty => new RemoteCranRepositoryArgs();
     }
 
-    public sealed class RemoteCranRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteCranRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteCranRepositoryState()
         {
         }
+        public static new RemoteCranRepositoryState Empty => new RemoteCranRepositoryState();
     }
 }

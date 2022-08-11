@@ -16,31 +16,29 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new()
     ///     {
-    ///         var foo_debian = new Artifactory.VirtualDebianRepository("foo-debian", new Artifactory.VirtualDebianRepositoryArgs
+    ///         DebianDefaultArchitectures = "amd64,i386",
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-debian",
+    ///         Notes = "Internal description",
+    ///         OptionalIndexCompressionFormats = new[]
     ///         {
-    ///             DebianDefaultArchitectures = "amd64,i386",
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-debian",
-    ///             Notes = "Internal description",
-    ///             OptionalIndexCompressionFormats = 
-    ///             {
-    ///                 "bz2",
-    ///                 "xz",
-    ///             },
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///             "bz2",
+    ///             "xz",
+    ///         },
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +50,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualDebianRepository:VirtualDebianRepository")]
-    public partial class VirtualDebianRepository : Pulumi.CustomResource
+    public partial class VirtualDebianRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -207,7 +205,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualDebianRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualDebianRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -333,9 +331,10 @@ namespace Pulumi.Artifactory
         public VirtualDebianRepositoryArgs()
         {
         }
+        public static new VirtualDebianRepositoryArgs Empty => new VirtualDebianRepositoryArgs();
     }
 
-    public sealed class VirtualDebianRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualDebianRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -467,5 +466,6 @@ namespace Pulumi.Artifactory
         public VirtualDebianRepositoryState()
         {
         }
+        public static new VirtualDebianRepositoryState Empty => new VirtualDebianRepositoryState();
     }
 }

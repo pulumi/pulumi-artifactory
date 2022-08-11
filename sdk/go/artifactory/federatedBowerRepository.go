@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedBowerRepository(ctx, "terraform-federated-test-bower-repo", &artifactory.FederatedBowerRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-bower-repo"),
-// 			Members: FederatedBowerRepositoryMemberArray{
-// 				&FederatedBowerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-bower-repo"),
-// 				},
-// 				&FederatedBowerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedBowerRepository(ctx, "terraform-federated-test-bower-repo", &artifactory.FederatedBowerRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-bower-repo"),
+//				Members: FederatedBowerRepositoryMemberArray{
+//					&FederatedBowerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-bower-repo"),
+//					},
+//					&FederatedBowerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-bower-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
+//
+//	$ pulumi import artifactory:index/federatedBowerRepository:FederatedBowerRepository terraform-federated-test-bower-repo terraform-federated-test-bower-repo
+//
 // ```
 type FederatedBowerRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedBowerRepository) ToFederatedBowerRepositoryOutputWithContext(c
 // FederatedBowerRepositoryArrayInput is an input type that accepts FederatedBowerRepositoryArray and FederatedBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedBowerRepositoryArrayInput` via:
 //
-//          FederatedBowerRepositoryArray{ FederatedBowerRepositoryArgs{...} }
+//	FederatedBowerRepositoryArray{ FederatedBowerRepositoryArgs{...} }
 type FederatedBowerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedBowerRepositoryArray) ToFederatedBowerRepositoryArrayOutputWith
 // FederatedBowerRepositoryMapInput is an input type that accepts FederatedBowerRepositoryMap and FederatedBowerRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedBowerRepositoryMapInput` via:
 //
-//          FederatedBowerRepositoryMap{ "key": FederatedBowerRepositoryArgs{...} }
+//	FederatedBowerRepositoryMap{ "key": FederatedBowerRepositoryArgs{...} }
 type FederatedBowerRepositoryMapInput interface {
 	pulumi.Input
 

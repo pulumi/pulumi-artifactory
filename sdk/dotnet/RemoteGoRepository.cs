@@ -16,22 +16,20 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_go = new Artifactory.RemoteGoRepository("my-remote-go", new()
     ///     {
-    ///         var my_remote_go = new Artifactory.RemoteGoRepository("my-remote-go", new Artifactory.RemoteGoRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-go",
-    ///             Url = "https://proxy.golang.org/",
-    ///             VcsGitProvider = "ARTIFACTORY",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-go",
+    ///         Url = "https://proxy.golang.org/",
+    ///         VcsGitProvider = "ARTIFACTORY",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGoRepository:RemoteGoRepository")]
-    public partial class RemoteGoRepository : Pulumi.CustomResource
+    public partial class RemoteGoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -327,7 +325,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteGoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteGoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -576,9 +574,10 @@ namespace Pulumi.Artifactory
         public RemoteGoRepositoryArgs()
         {
         }
+        public static new RemoteGoRepositoryArgs Empty => new RemoteGoRepositoryArgs();
     }
 
-    public sealed class RemoteGoRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteGoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -833,5 +832,6 @@ namespace Pulumi.Artifactory
         public RemoteGoRepositoryState()
         {
         }
+        public static new RemoteGoRepositoryState Empty => new RemoteGoRepositoryState();
     }
 }

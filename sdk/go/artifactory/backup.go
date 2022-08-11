@@ -22,28 +22,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
-// 			CreateArchive:          pulumi.Bool(false),
-// 			CronExp:                pulumi.String("0 0 12 * * ?"),
-// 			Enabled:                pulumi.Bool(true),
-// 			ExcludeNewRepositories: pulumi.Bool(true),
-// 			ExcludedRepositories:   pulumi.StringArray{},
-// 			Key:                    pulumi.String("backup_config_name"),
-// 			RetentionPeriodHours:   pulumi.Int(1000),
-// 			SendMailOnError:        pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
+//				CreateArchive:          pulumi.Bool(false),
+//				CronExp:                pulumi.String("0 0 12 * * ?"),
+//				Enabled:                pulumi.Bool(true),
+//				ExcludeNewRepositories: pulumi.Bool(true),
+//				ExcludedRepositories:   pulumi.StringArray{},
+//				Key:                    pulumi.String("backup_config_name"),
+//				RetentionPeriodHours:   pulumi.Int(1000),
+//				SendMailOnError:        pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // Note: `Key` argument has to match to the resource name.\
 // Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
@@ -53,7 +56,9 @@ import (
 // Backup config can be imported using the key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/backup:Backup backup_name backup_name
+//
+//	$ pulumi import artifactory:index/backup:Backup backup_name backup_name
+//
 // ```
 type Backup struct {
 	pulumi.CustomResourceState
@@ -217,7 +222,7 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 // BackupArrayInput is an input type that accepts BackupArray and BackupArrayOutput values.
 // You can construct a concrete instance of `BackupArrayInput` via:
 //
-//          BackupArray{ BackupArgs{...} }
+//	BackupArray{ BackupArgs{...} }
 type BackupArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +247,7 @@ func (i BackupArray) ToBackupArrayOutputWithContext(ctx context.Context) BackupA
 // BackupMapInput is an input type that accepts BackupMap and BackupMapOutput values.
 // You can construct a concrete instance of `BackupMapInput` via:
 //
-//          BackupMap{ "key": BackupArgs{...} }
+//	BackupMap{ "key": BackupArgs{...} }
 type BackupMapInput interface {
 	pulumi.Input
 

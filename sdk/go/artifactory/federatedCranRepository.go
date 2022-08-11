@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCranRepository(ctx, "terraform-federated-test-cran-repo", &artifactory.FederatedCranRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-cran-repo"),
-// 			Members: FederatedCranRepositoryMemberArray{
-// 				&FederatedCranRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cran-repo"),
-// 				},
-// 				&FederatedCranRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedCranRepository(ctx, "terraform-federated-test-cran-repo", &artifactory.FederatedCranRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-cran-repo"),
+//				Members: FederatedCranRepositoryMemberArray{
+//					&FederatedCranRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cran-repo"),
+//					},
+//					&FederatedCranRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cran-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedCranRepository:FederatedCranRepository terraform-federated-test-cran-repo terraform-federated-test-cran-repo
+//
+//	$ pulumi import artifactory:index/federatedCranRepository:FederatedCranRepository terraform-federated-test-cran-repo terraform-federated-test-cran-repo
+//
 // ```
 type FederatedCranRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedCranRepository) ToFederatedCranRepositoryOutputWithContext(ctx
 // FederatedCranRepositoryArrayInput is an input type that accepts FederatedCranRepositoryArray and FederatedCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCranRepositoryArrayInput` via:
 //
-//          FederatedCranRepositoryArray{ FederatedCranRepositoryArgs{...} }
+//	FederatedCranRepositoryArray{ FederatedCranRepositoryArgs{...} }
 type FederatedCranRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedCranRepositoryArray) ToFederatedCranRepositoryArrayOutputWithCo
 // FederatedCranRepositoryMapInput is an input type that accepts FederatedCranRepositoryMap and FederatedCranRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedCranRepositoryMapInput` via:
 //
-//          FederatedCranRepositoryMap{ "key": FederatedCranRepositoryArgs{...} }
+//	FederatedCranRepositoryMap{ "key": FederatedCranRepositoryArgs{...} }
 type FederatedCranRepositoryMapInput interface {
 	pulumi.Input
 

@@ -17,21 +17,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Configure Artifactory general security settings
+    ///     var security = new Artifactory.GeneralSecurity("security", new()
     ///     {
-    ///         // Configure Artifactory general security settings
-    ///         var security = new Artifactory.GeneralSecurity("security", new Artifactory.GeneralSecurityArgs
-    ///         {
-    ///             EnableAnonymousAccess = true,
-    ///         });
-    ///     }
+    ///         EnableAnonymousAccess = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Artifactory
     ///  environments, or may change without notice.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
-    public partial class GeneralSecurity : Pulumi.CustomResource
+    public partial class GeneralSecurity : global::Pulumi.CustomResource
     {
         [Output("enableAnonymousAccess")]
         public Output<bool?> EnableAnonymousAccess { get; private set; } = null!;
@@ -94,7 +92,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class GeneralSecurityArgs : Pulumi.ResourceArgs
+    public sealed class GeneralSecurityArgs : global::Pulumi.ResourceArgs
     {
         [Input("enableAnonymousAccess")]
         public Input<bool>? EnableAnonymousAccess { get; set; }
@@ -102,9 +100,10 @@ namespace Pulumi.Artifactory
         public GeneralSecurityArgs()
         {
         }
+        public static new GeneralSecurityArgs Empty => new GeneralSecurityArgs();
     }
 
-    public sealed class GeneralSecurityState : Pulumi.ResourceArgs
+    public sealed class GeneralSecurityState : global::Pulumi.ResourceArgs
     {
         [Input("enableAnonymousAccess")]
         public Input<bool>? EnableAnonymousAccess { get; set; }
@@ -112,5 +111,6 @@ namespace Pulumi.Artifactory
         public GeneralSecurityState()
         {
         }
+        public static new GeneralSecurityState Empty => new GeneralSecurityState();
     }
 }

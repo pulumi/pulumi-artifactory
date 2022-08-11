@@ -16,26 +16,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_nuget = new Artifactory.VirtualNugetRepository("foo-nuget", new()
     ///     {
-    ///         var foo_nuget = new Artifactory.VirtualNugetRepository("foo-nuget", new Artifactory.VirtualNugetRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             ForceNugetAuthentication = true,
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-nuget",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         ForceNugetAuthentication = true,
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-nuget",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualNugetRepository:VirtualNugetRepository")]
-    public partial class VirtualNugetRepository : Pulumi.CustomResource
+    public partial class VirtualNugetRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -184,7 +182,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualNugetRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNugetRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -286,9 +284,10 @@ namespace Pulumi.Artifactory
         public VirtualNugetRepositoryArgs()
         {
         }
+        public static new VirtualNugetRepositoryArgs Empty => new VirtualNugetRepositoryArgs();
     }
 
-    public sealed class VirtualNugetRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualNugetRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -396,5 +395,6 @@ namespace Pulumi.Artifactory
         public VirtualNugetRepositoryState()
         {
         }
+        public static new VirtualNugetRepositoryState Empty => new VirtualNugetRepositoryState();
     }
 }

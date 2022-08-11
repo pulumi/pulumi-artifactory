@@ -16,61 +16,59 @@ namespace Pulumi.Artifactory
     /// 
     /// .
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var artifactory_release_bundle_webhook = new Artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", new()
     ///     {
-    ///         var artifactory_release_bundle_webhook = new Artifactory.ArtifactoryReleaseBundleWebhook("artifactory-release-bundle-webhook", new Artifactory.ArtifactoryReleaseBundleWebhookArgs
+    ///         Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs
     ///         {
-    ///             Criteria = new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookCriteriaArgs
+    ///             AnyReleaseBundle = false,
+    ///             ExcludePatterns = new[]
     ///             {
-    ///                 AnyReleaseBundle = false,
-    ///                 ExcludePatterns = 
-    ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///                 IncludePatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 RegisteredReleaseBundleNames = 
-    ///                 {
-    ///                     "bundle-name",
-    ///                 },
+    ///                 "bar/**",
     ///             },
-    ///             EventTypes = 
+    ///             IncludePatterns = new[]
     ///             {
-    ///                 "received",
-    ///                 "delete_started",
-    ///                 "delete_completed",
-    ///                 "delete_failed",
+    ///                 "foo/**",
     ///             },
-    ///             Handlers = 
+    ///             RegisteredReleaseBundleNames = new[]
     ///             {
-    ///                 new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs
-    ///                 {
-    ///                     CustomHttpHeaders = 
-    ///                     {
-    ///                         { "header-1", "value-1" },
-    ///                         { "header-2", "value-2" },
-    ///                     },
-    ///                     Proxy = "proxy-key",
-    ///                     Secret = "some-secret",
-    ///                     Url = "http://tempurl.org/webhook",
-    ///                 },
+    ///                 "bundle-name",
     ///             },
-    ///             Key = "artifactory-release-bundle-webhook",
-    ///         });
-    ///     }
+    ///         },
+    ///         EventTypes = new[]
+    ///         {
+    ///             "received",
+    ///             "delete_started",
+    ///             "delete_completed",
+    ///             "delete_failed",
+    ///         },
+    ///         Handlers = new[]
+    ///         {
+    ///             new Artifactory.Inputs.ArtifactoryReleaseBundleWebhookHandlerArgs
+    ///             {
+    ///                 CustomHttpHeaders = 
+    ///                 {
+    ///                     { "header-1", "value-1" },
+    ///                     { "header-2", "value-2" },
+    ///                 },
+    ///                 Proxy = "proxy-key",
+    ///                 Secret = "some-secret",
+    ///                 Url = "http://tempurl.org/webhook",
+    ///             },
+    ///         },
+    ///         Key = "artifactory-release-bundle-webhook",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/artifactoryReleaseBundleWebhook:ArtifactoryReleaseBundleWebhook")]
-    public partial class ArtifactoryReleaseBundleWebhook : Pulumi.CustomResource
+    public partial class ArtifactoryReleaseBundleWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -152,7 +150,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ArtifactoryReleaseBundleWebhookArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactoryReleaseBundleWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -205,9 +203,10 @@ namespace Pulumi.Artifactory
         public ArtifactoryReleaseBundleWebhookArgs()
         {
         }
+        public static new ArtifactoryReleaseBundleWebhookArgs Empty => new ArtifactoryReleaseBundleWebhookArgs();
     }
 
-    public sealed class ArtifactoryReleaseBundleWebhookState : Pulumi.ResourceArgs
+    public sealed class ArtifactoryReleaseBundleWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -260,5 +259,6 @@ namespace Pulumi.Artifactory
         public ArtifactoryReleaseBundleWebhookState()
         {
         }
+        public static new ArtifactoryReleaseBundleWebhookState Empty => new ArtifactoryReleaseBundleWebhookState();
     }
 }

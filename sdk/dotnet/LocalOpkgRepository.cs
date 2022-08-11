@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_opkg_repo = new Artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", new()
     ///     {
-    ///         var terraform_local_test_opkg_repo = new Artifactory.LocalOpkgRepository("terraform-local-test-opkg-repo", new Artifactory.LocalOpkgRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-opkg-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-opkg-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localOpkgRepository:LocalOpkgRepository")]
-    public partial class LocalOpkgRepository : Pulumi.CustomResource
+    public partial class LocalOpkgRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalOpkgRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalOpkgRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalOpkgRepositoryArgs()
         {
         }
+        public static new LocalOpkgRepositoryArgs Empty => new LocalOpkgRepositoryArgs();
     }
 
-    public sealed class LocalOpkgRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalOpkgRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalOpkgRepositoryState()
         {
         }
+        public static new LocalOpkgRepositoryState Empty => new LocalOpkgRepositoryState();
     }
 }

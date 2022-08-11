@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteVcsRepository:RemoteVcsRepository")]
-    public partial class RemoteVcsRepository : Pulumi.CustomResource
+    public partial class RemoteVcsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -322,7 +322,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteVcsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteVcsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -587,9 +587,10 @@ namespace Pulumi.Artifactory
         public RemoteVcsRepositoryArgs()
         {
         }
+        public static new RemoteVcsRepositoryArgs Empty => new RemoteVcsRepositoryArgs();
     }
 
-    public sealed class RemoteVcsRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteVcsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -860,5 +861,6 @@ namespace Pulumi.Artifactory
         public RemoteVcsRepositoryState()
         {
         }
+        public static new RemoteVcsRepositoryState Empty => new RemoteVcsRepositoryState();
     }
 }

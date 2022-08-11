@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class RemotePypiRepositoryContentSynchronisationArgs : Pulumi.ResourceArgs
+    public sealed class RemotePypiRepositoryContentSynchronisationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Artifactory.Inputs
         public RemotePypiRepositoryContentSynchronisationArgs()
         {
         }
+        public static new RemotePypiRepositoryContentSynchronisationArgs Empty => new RemotePypiRepositoryContentSynchronisationArgs();
     }
 }

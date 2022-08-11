@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalPypiRepository(ctx, "terraform-local-test-pypi-repo", &artifactory.LocalPypiRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-pypi-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalPypiRepository(ctx, "terraform-local-test-pypi-repo", &artifactory.LocalPypiRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-pypi-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localPypiRepository:LocalPypiRepository terraform-local-test-pypi-repo terraform-local-test-pypi-repo
+//
+//	$ pulumi import artifactory:index/localPypiRepository:LocalPypiRepository terraform-local-test-pypi-repo terraform-local-test-pypi-repo
+//
 // ```
 type LocalPypiRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalPypiRepository) ToLocalPypiRepositoryOutputWithContext(ctx context
 // LocalPypiRepositoryArrayInput is an input type that accepts LocalPypiRepositoryArray and LocalPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalPypiRepositoryArrayInput` via:
 //
-//          LocalPypiRepositoryArray{ LocalPypiRepositoryArgs{...} }
+//	LocalPypiRepositoryArray{ LocalPypiRepositoryArgs{...} }
 type LocalPypiRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalPypiRepositoryArray) ToLocalPypiRepositoryArrayOutputWithContext(ct
 // LocalPypiRepositoryMapInput is an input type that accepts LocalPypiRepositoryMap and LocalPypiRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalPypiRepositoryMapInput` via:
 //
-//          LocalPypiRepositoryMap{ "key": LocalPypiRepositoryArgs{...} }
+//	LocalPypiRepositoryMap{ "key": LocalPypiRepositoryArgs{...} }
 type LocalPypiRepositoryMapInput interface {
 	pulumi.Input
 

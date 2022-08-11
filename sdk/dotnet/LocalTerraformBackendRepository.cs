@@ -13,20 +13,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_terraformbackend_repo = new Artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", new()
     ///     {
-    ///         var terraform_local_test_terraformbackend_repo = new Artifactory.LocalTerraformBackendRepository("terraform-local-test-terraformbackend-repo", new Artifactory.LocalTerraformBackendRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-terraformbackend-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-terraformbackend-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -38,7 +36,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localTerraformBackendRepository:LocalTerraformBackendRepository")]
-    public partial class LocalTerraformBackendRepository : Pulumi.CustomResource
+    public partial class LocalTerraformBackendRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -172,7 +170,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalTerraformBackendRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalTerraformBackendRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -274,9 +272,10 @@ namespace Pulumi.Artifactory
         public LocalTerraformBackendRepositoryArgs()
         {
         }
+        public static new LocalTerraformBackendRepositoryArgs Empty => new LocalTerraformBackendRepositoryArgs();
     }
 
-    public sealed class LocalTerraformBackendRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalTerraformBackendRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -381,5 +380,6 @@ namespace Pulumi.Artifactory
         public LocalTerraformBackendRepositoryState()
         {
         }
+        public static new LocalTerraformBackendRepositoryState Empty => new LocalTerraformBackendRepositoryState();
     }
 }

@@ -20,53 +20,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
-// 			Criteria: &DistributionWebhookCriteriaArgs{
-// 				AnyReleaseBundle: pulumi.Bool(false),
-// 				ExcludePatterns: pulumi.StringArray{
-// 					pulumi.String("bar/**"),
-// 				},
-// 				IncludePatterns: pulumi.StringArray{
-// 					pulumi.String("foo/**"),
-// 				},
-// 				RegisteredReleaseBundleNames: pulumi.StringArray{
-// 					pulumi.String("bundle-name"),
-// 				},
-// 			},
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("distribute_started"),
-// 				pulumi.String("distribute_completed"),
-// 				pulumi.String("distribute_aborted"),
-// 				pulumi.String("distribute_failed"),
-// 				pulumi.String("delete_started"),
-// 				pulumi.String("delete_completed"),
-// 				pulumi.String("delete_failed"),
-// 			},
-// 			Handlers: DistributionWebhookHandlerArray{
-// 				&DistributionWebhookHandlerArgs{
-// 					CustomHttpHeaders: pulumi.StringMap{
-// 						"header-1": pulumi.String("value-1"),
-// 						"header-2": pulumi.String("value-2"),
-// 					},
-// 					Proxy:  pulumi.String("proxy-key"),
-// 					Secret: pulumi.String("some-secret"),
-// 					Url:    pulumi.String("http://tempurl.org/webhook"),
-// 				},
-// 			},
-// 			Key: pulumi.String("distribution-webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
+//				Criteria: &DistributionWebhookCriteriaArgs{
+//					AnyReleaseBundle: pulumi.Bool(false),
+//					ExcludePatterns: pulumi.StringArray{
+//						pulumi.String("bar/**"),
+//					},
+//					IncludePatterns: pulumi.StringArray{
+//						pulumi.String("foo/**"),
+//					},
+//					RegisteredReleaseBundleNames: pulumi.StringArray{
+//						pulumi.String("bundle-name"),
+//					},
+//				},
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("distribute_started"),
+//					pulumi.String("distribute_completed"),
+//					pulumi.String("distribute_aborted"),
+//					pulumi.String("distribute_failed"),
+//					pulumi.String("delete_started"),
+//					pulumi.String("delete_completed"),
+//					pulumi.String("delete_failed"),
+//				},
+//				Handlers: DistributionWebhookHandlerArray{
+//					&DistributionWebhookHandlerArgs{
+//						CustomHttpHeaders: pulumi.StringMap{
+//							"header-1": pulumi.String("value-1"),
+//							"header-2": pulumi.String("value-2"),
+//						},
+//						Proxy:  pulumi.String("proxy-key"),
+//						Secret: pulumi.String("some-secret"),
+//						Url:    pulumi.String("http://tempurl.org/webhook"),
+//					},
+//				},
+//				Key: pulumi.String("distribution-webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type DistributionWebhook struct {
 	pulumi.CustomResourceState
@@ -216,7 +219,7 @@ func (i *DistributionWebhook) ToDistributionWebhookOutputWithContext(ctx context
 // DistributionWebhookArrayInput is an input type that accepts DistributionWebhookArray and DistributionWebhookArrayOutput values.
 // You can construct a concrete instance of `DistributionWebhookArrayInput` via:
 //
-//          DistributionWebhookArray{ DistributionWebhookArgs{...} }
+//	DistributionWebhookArray{ DistributionWebhookArgs{...} }
 type DistributionWebhookArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +244,7 @@ func (i DistributionWebhookArray) ToDistributionWebhookArrayOutputWithContext(ct
 // DistributionWebhookMapInput is an input type that accepts DistributionWebhookMap and DistributionWebhookMapOutput values.
 // You can construct a concrete instance of `DistributionWebhookMapInput` via:
 //
-//          DistributionWebhookMap{ "key": DistributionWebhookArgs{...} }
+//	DistributionWebhookMap{ "key": DistributionWebhookArgs{...} }
 type DistributionWebhookMapInput interface {
 	pulumi.Input
 

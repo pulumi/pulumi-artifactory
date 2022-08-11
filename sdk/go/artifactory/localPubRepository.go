@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalPubRepository(ctx, "terraform-local-test-pub-repo", &artifactory.LocalPubRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-pub-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalPubRepository(ctx, "terraform-local-test-pub-repo", &artifactory.LocalPubRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-pub-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localPubRepository:LocalPubRepository terraform-local-test-pub-repo terraform-local-test-pub-repo
+//
+//	$ pulumi import artifactory:index/localPubRepository:LocalPubRepository terraform-local-test-pub-repo terraform-local-test-pub-repo
+//
 // ```
 type LocalPubRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalPubRepository) ToLocalPubRepositoryOutputWithContext(ctx context.C
 // LocalPubRepositoryArrayInput is an input type that accepts LocalPubRepositoryArray and LocalPubRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalPubRepositoryArrayInput` via:
 //
-//          LocalPubRepositoryArray{ LocalPubRepositoryArgs{...} }
+//	LocalPubRepositoryArray{ LocalPubRepositoryArgs{...} }
 type LocalPubRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalPubRepositoryArray) ToLocalPubRepositoryArrayOutputWithContext(ctx 
 // LocalPubRepositoryMapInput is an input type that accepts LocalPubRepositoryMap and LocalPubRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalPubRepositoryMapInput` via:
 //
-//          LocalPubRepositoryMap{ "key": LocalPubRepositoryArgs{...} }
+//	LocalPubRepositoryMap{ "key": LocalPubRepositoryArgs{...} }
 type LocalPubRepositoryMapInput interface {
 	pulumi.Input
 

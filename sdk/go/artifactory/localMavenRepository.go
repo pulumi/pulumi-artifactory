@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalMavenRepository(ctx, "terraform-local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
-// 			ChecksumPolicyType:           pulumi.String("client-checksums"),
-// 			HandleReleases:               pulumi.Bool(true),
-// 			HandleSnapshots:              pulumi.Bool(true),
-// 			Key:                          pulumi.String("terraform-local-test-maven-repo-basic"),
-// 			MaxUniqueSnapshots:           pulumi.Int(10),
-// 			SnapshotVersionBehavior:      pulumi.String("unique"),
-// 			SuppressPomConsistencyChecks: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalMavenRepository(ctx, "terraform-local-test-maven-repo-basic", &artifactory.LocalMavenRepositoryArgs{
+//				ChecksumPolicyType:           pulumi.String("client-checksums"),
+//				HandleReleases:               pulumi.Bool(true),
+//				HandleSnapshots:              pulumi.Bool(true),
+//				Key:                          pulumi.String("terraform-local-test-maven-repo-basic"),
+//				MaxUniqueSnapshots:           pulumi.Int(10),
+//				SnapshotVersionBehavior:      pulumi.String("unique"),
+//				SuppressPomConsistencyChecks: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
+//
+//	$ pulumi import artifactory:index/localMavenRepository:LocalMavenRepository terraform-local-test-maven-repo-basic terraform-local-test-maven-repo-basic
+//
 // ```
 type LocalMavenRepository struct {
 	pulumi.CustomResourceState
@@ -411,7 +416,7 @@ func (i *LocalMavenRepository) ToLocalMavenRepositoryOutputWithContext(ctx conte
 // LocalMavenRepositoryArrayInput is an input type that accepts LocalMavenRepositoryArray and LocalMavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalMavenRepositoryArrayInput` via:
 //
-//          LocalMavenRepositoryArray{ LocalMavenRepositoryArgs{...} }
+//	LocalMavenRepositoryArray{ LocalMavenRepositoryArgs{...} }
 type LocalMavenRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -436,7 +441,7 @@ func (i LocalMavenRepositoryArray) ToLocalMavenRepositoryArrayOutputWithContext(
 // LocalMavenRepositoryMapInput is an input type that accepts LocalMavenRepositoryMap and LocalMavenRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalMavenRepositoryMapInput` via:
 //
-//          LocalMavenRepositoryMap{ "key": LocalMavenRepositoryArgs{...} }
+//	LocalMavenRepositoryMap{ "key": LocalMavenRepositoryArgs{...} }
 type LocalMavenRepositoryMapInput interface {
 	pulumi.Input
 
@@ -485,9 +490,9 @@ func (o LocalMavenRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 }
 
 // Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
-// - `client-checksums`
-// - `server-generated-checksums`.
-//   For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
+//   - `client-checksums`
+//   - `server-generated-checksums`.
+//     For more details, please refer to [Checksum Policy](https://www.jfrog.com/confluence/display/JFROG/Local+Repositories#LocalRepositories-ChecksumPolicy).
 func (o LocalMavenRepositoryOutput) ChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringPtrOutput { return v.ChecksumPolicyType }).(pulumi.StringPtrOutput)
 }

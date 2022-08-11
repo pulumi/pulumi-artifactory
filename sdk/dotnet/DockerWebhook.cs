@@ -16,71 +16,70 @@ namespace Pulumi.Artifactory
     /// 
     /// .
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_docker_local = new Artifactory.DockerV2Repository("my-docker-local", new()
     ///     {
-    ///         var my_docker_local = new Artifactory.DockerV2Repository("my-docker-local", new Artifactory.DockerV2RepositoryArgs
-    ///         {
-    ///             Key = "my-docker-local",
-    ///         });
-    ///         var docker_webhook = new Artifactory.DockerWebhook("docker-webhook", new Artifactory.DockerWebhookArgs
-    ///         {
-    ///             Key = "docker-webhook",
-    ///             EventTypes = 
-    ///             {
-    ///                 "pushed",
-    ///                 "deleted",
-    ///                 "promoted",
-    ///             },
-    ///             Criteria = new Artifactory.Inputs.DockerWebhookCriteriaArgs
-    ///             {
-    ///                 AnyLocal = true,
-    ///                 AnyRemote = false,
-    ///                 RepoKeys = 
-    ///                 {
-    ///                     my_docker_local.Key,
-    ///                 },
-    ///                 IncludePatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 ExcludePatterns = 
-    ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///             },
-    ///             Handlers = 
-    ///             {
-    ///                 new Artifactory.Inputs.DockerWebhookHandlerArgs
-    ///                 {
-    ///                     Url = "http://tempurl.org/webhook",
-    ///                     Secret = "some-secret",
-    ///                     Proxy = "proxy-key",
-    ///                     CustomHttpHeaders = 
-    ///                     {
-    ///                         { "header-1", "value-1" },
-    ///                         { "header-2", "value-2" },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 my_docker_local,
-    ///             },
-    ///         });
-    ///     }
+    ///         Key = "my-docker-local",
+    ///     });
     /// 
-    /// }
+    ///     var docker_webhook = new Artifactory.DockerWebhook("docker-webhook", new()
+    ///     {
+    ///         Key = "docker-webhook",
+    ///         EventTypes = new[]
+    ///         {
+    ///             "pushed",
+    ///             "deleted",
+    ///             "promoted",
+    ///         },
+    ///         Criteria = new Artifactory.Inputs.DockerWebhookCriteriaArgs
+    ///         {
+    ///             AnyLocal = true,
+    ///             AnyRemote = false,
+    ///             RepoKeys = new[]
+    ///             {
+    ///                 my_docker_local.Key,
+    ///             },
+    ///             IncludePatterns = new[]
+    ///             {
+    ///                 "foo/**",
+    ///             },
+    ///             ExcludePatterns = new[]
+    ///             {
+    ///                 "bar/**",
+    ///             },
+    ///         },
+    ///         Handlers = new[]
+    ///         {
+    ///             new Artifactory.Inputs.DockerWebhookHandlerArgs
+    ///             {
+    ///                 Url = "http://tempurl.org/webhook",
+    ///                 Secret = "some-secret",
+    ///                 Proxy = "proxy-key",
+    ///                 CustomHttpHeaders = 
+    ///                 {
+    ///                     { "header-1", "value-1" },
+    ///                     { "header-2", "value-2" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             my_docker_local,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerWebhook:DockerWebhook")]
-    public partial class DockerWebhook : Pulumi.CustomResource
+    public partial class DockerWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -162,7 +161,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class DockerWebhookArgs : Pulumi.ResourceArgs
+    public sealed class DockerWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -215,9 +214,10 @@ namespace Pulumi.Artifactory
         public DockerWebhookArgs()
         {
         }
+        public static new DockerWebhookArgs Empty => new DockerWebhookArgs();
     }
 
-    public sealed class DockerWebhookState : Pulumi.ResourceArgs
+    public sealed class DockerWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -270,5 +270,6 @@ namespace Pulumi.Artifactory
         public DockerWebhookState()
         {
         }
+        public static new DockerWebhookState Empty => new DockerWebhookState();
     }
 }

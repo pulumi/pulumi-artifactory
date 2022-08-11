@@ -21,33 +21,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
-// 			AllowUserToAccessProfile:  pulumi.Bool(true),
-// 			AutoRedirect:              pulumi.Bool(true),
-// 			Certificate:               pulumi.String("test-certificate"),
-// 			EmailAttribute:            pulumi.String("email"),
-// 			Enable:                    pulumi.Bool(true),
-// 			GroupAttribute:            pulumi.String("groups"),
-// 			LoginUrl:                  pulumi.String("test-login-url"),
-// 			LogoutUrl:                 pulumi.String("test-logout-url"),
-// 			NoAutoUserCreation:        pulumi.Bool(false),
-// 			ServiceProviderName:       pulumi.String("okta"),
-// 			SyncGroups:                pulumi.Bool(true),
-// 			UseEncryptedAssertion:     pulumi.Bool(false),
-// 			VerifyAudienceRestriction: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewSamlSettings(ctx, "saml", &artifactory.SamlSettingsArgs{
+//				AllowUserToAccessProfile:  pulumi.Bool(true),
+//				AutoRedirect:              pulumi.Bool(true),
+//				Certificate:               pulumi.String("test-certificate"),
+//				EmailAttribute:            pulumi.String("email"),
+//				Enable:                    pulumi.Bool(true),
+//				GroupAttribute:            pulumi.String("groups"),
+//				LoginUrl:                  pulumi.String("test-login-url"),
+//				LogoutUrl:                 pulumi.String("test-logout-url"),
+//				NoAutoUserCreation:        pulumi.Bool(false),
+//				ServiceProviderName:       pulumi.String("okta"),
+//				SyncGroups:                pulumi.Bool(true),
+//				UseEncryptedAssertion:     pulumi.Bool(false),
+//				VerifyAudienceRestriction: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Current SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+//
+//	$ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings
+//
 // ```
 type SamlSettings struct {
 	pulumi.CustomResourceState
@@ -272,7 +277,7 @@ func (i *SamlSettings) ToSamlSettingsOutputWithContext(ctx context.Context) Saml
 // SamlSettingsArrayInput is an input type that accepts SamlSettingsArray and SamlSettingsArrayOutput values.
 // You can construct a concrete instance of `SamlSettingsArrayInput` via:
 //
-//          SamlSettingsArray{ SamlSettingsArgs{...} }
+//	SamlSettingsArray{ SamlSettingsArgs{...} }
 type SamlSettingsArrayInput interface {
 	pulumi.Input
 
@@ -297,7 +302,7 @@ func (i SamlSettingsArray) ToSamlSettingsArrayOutputWithContext(ctx context.Cont
 // SamlSettingsMapInput is an input type that accepts SamlSettingsMap and SamlSettingsMapOutput values.
 // You can construct a concrete instance of `SamlSettingsMapInput` via:
 //
-//          SamlSettingsMap{ "key": SamlSettingsArgs{...} }
+//	SamlSettingsMap{ "key": SamlSettingsArgs{...} }
 type SamlSettingsMapInput interface {
 	pulumi.Input
 
@@ -343,12 +348,12 @@ func (o SamlSettingsOutput) AutoRedirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.AutoRedirect }).(pulumi.BoolPtrOutput)
 }
 
-// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is ``.
+// SAML certificate that contains the public key for the IdP service provider.  Used by Artifactory to verify sign-in requests. Default value is “.
 func (o SamlSettingsOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is ``.
+// Name of the attribute in the SAML response from the IdP that contains the user's email. Default value is “.
 func (o SamlSettingsOutput) EmailAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.EmailAttribute }).(pulumi.StringPtrOutput)
 }
@@ -358,7 +363,7 @@ func (o SamlSettingsOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is ``.
+// Name of the attribute in the SAML response from the IdP that contains the user's group memberships. Default value is “.
 func (o SamlSettingsOutput) GroupAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamlSettings) pulumi.StringPtrOutput { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }

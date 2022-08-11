@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualComposerRepository(ctx, "foo-composer", &artifactory.VirtualComposerRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-composer"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualComposerRepository(ctx, "foo-composer", &artifactory.VirtualComposerRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-composer"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualComposerRepository:VirtualComposerRepository foo-composer foo-composer
+//
+//	$ pulumi import artifactory:index/virtualComposerRepository:VirtualComposerRepository foo-composer foo-composer
+//
 // ```
 type VirtualComposerRepository struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *VirtualComposerRepository) ToVirtualComposerRepositoryOutputWithContext
 // VirtualComposerRepositoryArrayInput is an input type that accepts VirtualComposerRepositoryArray and VirtualComposerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualComposerRepositoryArrayInput` via:
 //
-//          VirtualComposerRepositoryArray{ VirtualComposerRepositoryArgs{...} }
+//	VirtualComposerRepositoryArray{ VirtualComposerRepositoryArgs{...} }
 type VirtualComposerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i VirtualComposerRepositoryArray) ToVirtualComposerRepositoryArrayOutputWi
 // VirtualComposerRepositoryMapInput is an input type that accepts VirtualComposerRepositoryMap and VirtualComposerRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualComposerRepositoryMapInput` via:
 //
-//          VirtualComposerRepositoryMap{ "key": VirtualComposerRepositoryArgs{...} }
+//	VirtualComposerRepositoryMap{ "key": VirtualComposerRepositoryArgs{...} }
 type VirtualComposerRepositoryMapInput interface {
 	pulumi.Input
 

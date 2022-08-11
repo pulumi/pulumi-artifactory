@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedNugetRepository(ctx, "terraform-federated-test-nuget-repo", &artifactory.FederatedNugetRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-nuget-repo"),
-// 			Members: FederatedNugetRepositoryMemberArray{
-// 				&FederatedNugetRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-nuget-repo"),
-// 				},
-// 				&FederatedNugetRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedNugetRepository(ctx, "terraform-federated-test-nuget-repo", &artifactory.FederatedNugetRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-nuget-repo"),
+//				Members: FederatedNugetRepositoryMemberArray{
+//					&FederatedNugetRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-nuget-repo"),
+//					},
+//					&FederatedNugetRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-nuget-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedNugetRepository:FederatedNugetRepository terraform-federated-test-nuget-repo terraform-federated-test-nuget-repo
+//
+//	$ pulumi import artifactory:index/federatedNugetRepository:FederatedNugetRepository terraform-federated-test-nuget-repo terraform-federated-test-nuget-repo
+//
 // ```
 type FederatedNugetRepository struct {
 	pulumi.CustomResourceState
@@ -353,7 +358,7 @@ func (i *FederatedNugetRepository) ToFederatedNugetRepositoryOutputWithContext(c
 // FederatedNugetRepositoryArrayInput is an input type that accepts FederatedNugetRepositoryArray and FederatedNugetRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedNugetRepositoryArrayInput` via:
 //
-//          FederatedNugetRepositoryArray{ FederatedNugetRepositoryArgs{...} }
+//	FederatedNugetRepositoryArray{ FederatedNugetRepositoryArgs{...} }
 type FederatedNugetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -378,7 +383,7 @@ func (i FederatedNugetRepositoryArray) ToFederatedNugetRepositoryArrayOutputWith
 // FederatedNugetRepositoryMapInput is an input type that accepts FederatedNugetRepositoryMap and FederatedNugetRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedNugetRepositoryMapInput` via:
 //
-//          FederatedNugetRepositoryMap{ "key": FederatedNugetRepositoryArgs{...} }
+//	FederatedNugetRepositoryMap{ "key": FederatedNugetRepositoryArgs{...} }
 type FederatedNugetRepositoryMapInput interface {
 	pulumi.Input
 

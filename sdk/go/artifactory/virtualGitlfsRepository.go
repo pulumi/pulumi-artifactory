@@ -19,7 +19,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
+//
+//	$ pulumi import artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository foo-gitlfs foo-gitlfs
+//
 // ```
 type VirtualGitlfsRepository struct {
 	pulumi.CustomResourceState
@@ -261,7 +263,7 @@ func (i *VirtualGitlfsRepository) ToVirtualGitlfsRepositoryOutputWithContext(ctx
 // VirtualGitlfsRepositoryArrayInput is an input type that accepts VirtualGitlfsRepositoryArray and VirtualGitlfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGitlfsRepositoryArrayInput` via:
 //
-//          VirtualGitlfsRepositoryArray{ VirtualGitlfsRepositoryArgs{...} }
+//	VirtualGitlfsRepositoryArray{ VirtualGitlfsRepositoryArgs{...} }
 type VirtualGitlfsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -286,7 +288,7 @@ func (i VirtualGitlfsRepositoryArray) ToVirtualGitlfsRepositoryArrayOutputWithCo
 // VirtualGitlfsRepositoryMapInput is an input type that accepts VirtualGitlfsRepositoryMap and VirtualGitlfsRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualGitlfsRepositoryMapInput` via:
 //
-//          VirtualGitlfsRepositoryMap{ "key": VirtualGitlfsRepositoryArgs{...} }
+//	VirtualGitlfsRepositoryMap{ "key": VirtualGitlfsRepositoryArgs{...} }
 type VirtualGitlfsRepositoryMapInput interface {
 	pulumi.Input
 

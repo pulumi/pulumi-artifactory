@@ -17,26 +17,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualTerraformRepository(ctx, "terraform-virtual", &artifactory.VirtualTerraformRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("terraform-remote"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualTerraformRepository(ctx, "terraform-virtual", &artifactory.VirtualTerraformRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("terraform-remote"),
+//				Notes:           pulumi.String("Internal description"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
+//
+//	$ pulumi import artifactory:index/virtualTerraformRepository:VirtualTerraformRepository terraform-virtual terraform-remote
+//
 // ```
 type VirtualTerraformRepository struct {
 	pulumi.CustomResourceState
@@ -286,7 +291,7 @@ func (i *VirtualTerraformRepository) ToVirtualTerraformRepositoryOutputWithConte
 // VirtualTerraformRepositoryArrayInput is an input type that accepts VirtualTerraformRepositoryArray and VirtualTerraformRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualTerraformRepositoryArrayInput` via:
 //
-//          VirtualTerraformRepositoryArray{ VirtualTerraformRepositoryArgs{...} }
+//	VirtualTerraformRepositoryArray{ VirtualTerraformRepositoryArgs{...} }
 type VirtualTerraformRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -311,7 +316,7 @@ func (i VirtualTerraformRepositoryArray) ToVirtualTerraformRepositoryArrayOutput
 // VirtualTerraformRepositoryMapInput is an input type that accepts VirtualTerraformRepositoryMap and VirtualTerraformRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualTerraformRepositoryMapInput` via:
 //
-//          VirtualTerraformRepositoryMap{ "key": VirtualTerraformRepositoryArgs{...} }
+//	VirtualTerraformRepositoryMap{ "key": VirtualTerraformRepositoryArgs{...} }
 type VirtualTerraformRepositoryMapInput interface {
 	pulumi.Input
 

@@ -20,28 +20,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteDockerRepository(ctx, "my-remote-docker", &artifactory.RemoteDockerRepositoryArgs{
-// 			BlockPushingSchema1:         pulumi.Bool(true),
-// 			EnableTokenAuthentication:   pulumi.Bool(true),
-// 			ExternalDependenciesEnabled: pulumi.Bool(true),
-// 			ExternalDependenciesPatterns: pulumi.StringArray{
-// 				pulumi.String("**/hub.docker.io/**"),
-// 			},
-// 			Key: pulumi.String("my-remote-docker"),
-// 			Url: pulumi.String("https://hub.docker.io/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteDockerRepository(ctx, "my-remote-docker", &artifactory.RemoteDockerRepositoryArgs{
+//				BlockPushingSchema1:         pulumi.Bool(true),
+//				EnableTokenAuthentication:   pulumi.Bool(true),
+//				ExternalDependenciesEnabled: pulumi.Bool(true),
+//				ExternalDependenciesPatterns: pulumi.StringArray{
+//					pulumi.String("**/hub.docker.io/**"),
+//				},
+//				Key: pulumi.String("my-remote-docker"),
+//				Url: pulumi.String("https://hub.docker.io/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+//
+//	$ pulumi import artifactory:index/remoteDockerRepository:RemoteDockerRepository my-remote-docker my-remote-docker
+//
 // ```
 type RemoteDockerRepository struct {
 	pulumi.CustomResourceState
@@ -642,7 +647,7 @@ func (i *RemoteDockerRepository) ToRemoteDockerRepositoryOutputWithContext(ctx c
 // RemoteDockerRepositoryArrayInput is an input type that accepts RemoteDockerRepositoryArray and RemoteDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteDockerRepositoryArrayInput` via:
 //
-//          RemoteDockerRepositoryArray{ RemoteDockerRepositoryArgs{...} }
+//	RemoteDockerRepositoryArray{ RemoteDockerRepositoryArgs{...} }
 type RemoteDockerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -667,7 +672,7 @@ func (i RemoteDockerRepositoryArray) ToRemoteDockerRepositoryArrayOutputWithCont
 // RemoteDockerRepositoryMapInput is an input type that accepts RemoteDockerRepositoryMap and RemoteDockerRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteDockerRepositoryMapInput` via:
 //
-//          RemoteDockerRepositoryMap{ "key": RemoteDockerRepositoryArgs{...} }
+//	RemoteDockerRepositoryMap{ "key": RemoteDockerRepositoryArgs{...} }
 type RemoteDockerRepositoryMapInput interface {
 	pulumi.Input
 

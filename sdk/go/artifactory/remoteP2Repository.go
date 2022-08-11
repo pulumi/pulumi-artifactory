@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteP2Repository(ctx, "my-remote-p2", &artifactory.RemoteP2RepositoryArgs{
-// 			Key: pulumi.String("my-remote-p2"),
-// 			Url: pulumi.String("http://testartifactory.io/artifactory/example-p2/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteP2Repository(ctx, "my-remote-p2", &artifactory.RemoteP2RepositoryArgs{
+//				Key: pulumi.String("my-remote-p2"),
+//				Url: pulumi.String("http://testartifactory.io/artifactory/example-p2/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteP2Repository:RemoteP2Repository my-remote-p2 my-remote-p2
+//
+//	$ pulumi import artifactory:index/remoteP2Repository:RemoteP2Repository my-remote-p2 my-remote-p2
+//
 // ```
 type RemoteP2Repository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteP2Repository) ToRemoteP2RepositoryOutputWithContext(ctx context.C
 // RemoteP2RepositoryArrayInput is an input type that accepts RemoteP2RepositoryArray and RemoteP2RepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteP2RepositoryArrayInput` via:
 //
-//          RemoteP2RepositoryArray{ RemoteP2RepositoryArgs{...} }
+//	RemoteP2RepositoryArray{ RemoteP2RepositoryArgs{...} }
 type RemoteP2RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteP2RepositoryArray) ToRemoteP2RepositoryArrayOutputWithContext(ctx 
 // RemoteP2RepositoryMapInput is an input type that accepts RemoteP2RepositoryMap and RemoteP2RepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteP2RepositoryMapInput` via:
 //
-//          RemoteP2RepositoryMap{ "key": RemoteP2RepositoryArgs{...} }
+//	RemoteP2RepositoryMap{ "key": RemoteP2RepositoryArgs{...} }
 type RemoteP2RepositoryMapInput interface {
 	pulumi.Input
 

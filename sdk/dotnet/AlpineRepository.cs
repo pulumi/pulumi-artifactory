@@ -15,36 +15,35 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new()
     ///     {
-    ///         var some_keypairRSA = new Artifactory.Keypair("some-keypairRSA", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = "some-keypair",
-    ///             PairType = "RSA",
-    ///             Alias = "foo-alias",
-    ///             PrivateKey = File.ReadAllText("samples/rsa.priv"),
-    ///             PublicKey = File.ReadAllText("samples/rsa.pub"),
-    ///         });
-    ///         var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new Artifactory.AlpineRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-alpine-repo-basic",
-    ///             PrimaryKeypairRef = some_keypairRSA.PairName,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 some_keypairRSA,
-    ///             },
-    ///         });
-    ///     }
+    ///         PairName = "some-keypair",
+    ///         PairType = "RSA",
+    ///         Alias = "foo-alias",
+    ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
+    ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///     });
     /// 
-    /// }
+    ///     var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository("terraform-local-test-alpine-repo-basic", new()
+    ///     {
+    ///         Key = "terraform-local-test-alpine-repo-basic",
+    ///         PrimaryKeypairRef = some_keypairRSA.PairName,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             some_keypairRSA,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +55,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/alpineRepository:AlpineRepository")]
-    public partial class AlpineRepository : Pulumi.CustomResource
+    public partial class AlpineRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -199,7 +198,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class AlpineRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class AlpineRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -315,9 +314,10 @@ namespace Pulumi.Artifactory
         public AlpineRepositoryArgs()
         {
         }
+        public static new AlpineRepositoryArgs Empty => new AlpineRepositoryArgs();
     }
 
-    public sealed class AlpineRepositoryState : Pulumi.ResourceArgs
+    public sealed class AlpineRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -436,5 +436,6 @@ namespace Pulumi.Artifactory
         public AlpineRepositoryState()
         {
         }
+        public static new AlpineRepositoryState Empty => new AlpineRepositoryState();
     }
 }

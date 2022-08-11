@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedIvyRepository(ctx, "terraform-federated-test-ivy-repo", &artifactory.FederatedIvyRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-ivy-repo"),
-// 			Members: FederatedIvyRepositoryMemberArray{
-// 				&FederatedIvyRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-ivy-repo"),
-// 				},
-// 				&FederatedIvyRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedIvyRepository(ctx, "terraform-federated-test-ivy-repo", &artifactory.FederatedIvyRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-ivy-repo"),
+//				Members: FederatedIvyRepositoryMemberArray{
+//					&FederatedIvyRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-ivy-repo"),
+//					},
+//					&FederatedIvyRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-ivy-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedIvyRepository:FederatedIvyRepository terraform-federated-test-ivy-repo terraform-federated-test-ivy-repo
+//
+//	$ pulumi import artifactory:index/federatedIvyRepository:FederatedIvyRepository terraform-federated-test-ivy-repo terraform-federated-test-ivy-repo
+//
 // ```
 type FederatedIvyRepository struct {
 	pulumi.CustomResourceState
@@ -433,7 +438,7 @@ func (i *FederatedIvyRepository) ToFederatedIvyRepositoryOutputWithContext(ctx c
 // FederatedIvyRepositoryArrayInput is an input type that accepts FederatedIvyRepositoryArray and FederatedIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedIvyRepositoryArrayInput` via:
 //
-//          FederatedIvyRepositoryArray{ FederatedIvyRepositoryArgs{...} }
+//	FederatedIvyRepositoryArray{ FederatedIvyRepositoryArgs{...} }
 type FederatedIvyRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -458,7 +463,7 @@ func (i FederatedIvyRepositoryArray) ToFederatedIvyRepositoryArrayOutputWithCont
 // FederatedIvyRepositoryMapInput is an input type that accepts FederatedIvyRepositoryMap and FederatedIvyRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedIvyRepositoryMapInput` via:
 //
-//          FederatedIvyRepositoryMap{ "key": FederatedIvyRepositoryArgs{...} }
+//	FederatedIvyRepositoryMap{ "key": FederatedIvyRepositoryArgs{...} }
 type FederatedIvyRepositoryMapInput interface {
 	pulumi.Input
 

@@ -15,53 +15,53 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new()
     ///     {
-    ///         var some_keypairGPG1 = new Artifactory.Keypair("some-keypairGPG1", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = $"some-keypair{random_id.Randid.Id}",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias1",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new Artifactory.KeypairArgs
-    ///         {
-    ///             PairName = $"some-keypair4{random_id.Randid.Id}",
-    ///             PairType = "GPG",
-    ///             Alias = "foo-alias2",
-    ///             PrivateKey = File.ReadAllText("samples/gpg.priv"),
-    ///             PublicKey = File.ReadAllText("samples/gpg.pub"),
-    ///         });
-    ///         var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new Artifactory.DebianRepositoryArgs
-    ///         {
-    ///             Key = "my-debian-repo",
-    ///             PrimaryKeypairRef = some_keypairGPG1.PairName,
-    ///             SecondaryKeypairRef = some_keypairGPG2.PairName,
-    ///             IndexCompressionFormats = 
-    ///             {
-    ///                 "bz2",
-    ///                 "lzma",
-    ///                 "xz",
-    ///             },
-    ///             TrivialLayout = true,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 some_keypairGPG1,
-    ///                 some_keypairGPG2,
-    ///             },
-    ///         });
-    ///     }
+    ///         PairName = $"some-keypair{random_id.Randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias1",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
     /// 
-    /// }
+    ///     var some_keypairGPG2 = new Artifactory.Keypair("some-keypairGPG2", new()
+    ///     {
+    ///         PairName = $"some-keypair4{random_id.Randid.Id}",
+    ///         PairType = "GPG",
+    ///         Alias = "foo-alias2",
+    ///         PrivateKey = File.ReadAllText("samples/gpg.priv"),
+    ///         PublicKey = File.ReadAllText("samples/gpg.pub"),
+    ///     });
+    /// 
+    ///     var my_debian_repo = new Artifactory.DebianRepository("my-debian-repo", new()
+    ///     {
+    ///         Key = "my-debian-repo",
+    ///         PrimaryKeypairRef = some_keypairGPG1.PairName,
+    ///         SecondaryKeypairRef = some_keypairGPG2.PairName,
+    ///         IndexCompressionFormats = new[]
+    ///         {
+    ///             "bz2",
+    ///             "lzma",
+    ///             "xz",
+    ///         },
+    ///         TrivialLayout = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             some_keypairGPG1,
+    ///             some_keypairGPG2,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +73,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/debianRepository:DebianRepository")]
-    public partial class DebianRepository : Pulumi.CustomResource
+    public partial class DebianRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -232,7 +232,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class DebianRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class DebianRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -365,9 +365,10 @@ namespace Pulumi.Artifactory
         public DebianRepositoryArgs()
         {
         }
+        public static new DebianRepositoryArgs Empty => new DebianRepositoryArgs();
     }
 
-    public sealed class DebianRepositoryState : Pulumi.ResourceArgs
+    public sealed class DebianRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -503,5 +504,6 @@ namespace Pulumi.Artifactory
         public DebianRepositoryState()
         {
         }
+        public static new DebianRepositoryState Empty => new DebianRepositoryState();
     }
 }

@@ -19,7 +19,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
+//
+//	$ pulumi import artifactory:index/remoteVcsRepository:RemoteVcsRepository my-remote-vcs my-remote-vcs
+//
 // ```
 type RemoteVcsRepository struct {
 	pulumi.CustomResourceState
@@ -612,7 +614,7 @@ func (i *RemoteVcsRepository) ToRemoteVcsRepositoryOutputWithContext(ctx context
 // RemoteVcsRepositoryArrayInput is an input type that accepts RemoteVcsRepositoryArray and RemoteVcsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteVcsRepositoryArrayInput` via:
 //
-//          RemoteVcsRepositoryArray{ RemoteVcsRepositoryArgs{...} }
+//	RemoteVcsRepositoryArray{ RemoteVcsRepositoryArgs{...} }
 type RemoteVcsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -637,7 +639,7 @@ func (i RemoteVcsRepositoryArray) ToRemoteVcsRepositoryArrayOutputWithContext(ct
 // RemoteVcsRepositoryMapInput is an input type that accepts RemoteVcsRepositoryMap and RemoteVcsRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteVcsRepositoryMapInput` via:
 //
-//          RemoteVcsRepositoryMap{ "key": RemoteVcsRepositoryArgs{...} }
+//	RemoteVcsRepositoryMap{ "key": RemoteVcsRepositoryArgs{...} }
 type RemoteVcsRepositoryMapInput interface {
 	pulumi.Input
 

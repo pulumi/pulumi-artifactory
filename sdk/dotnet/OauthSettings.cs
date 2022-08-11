@@ -17,37 +17,35 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Configure Artifactory OAuth SSO settings
+    ///     var oauth = new Artifactory.OauthSettings("oauth", new()
     ///     {
-    ///         // Configure Artifactory OAuth SSO settings
-    ///         var oauth = new Artifactory.OauthSettings("oauth", new Artifactory.OauthSettingsArgs
+    ///         AllowUserToAccessProfile = true,
+    ///         Enable = true,
+    ///         OauthProviders = new[]
     ///         {
-    ///             AllowUserToAccessProfile = true,
-    ///             Enable = true,
-    ///             OauthProviders = 
+    ///             new Artifactory.Inputs.OauthSettingsOauthProviderArgs
     ///             {
-    ///                 new Artifactory.Inputs.OauthSettingsOauthProviderArgs
-    ///                 {
-    ///                     ApiUrl = "https://organization.okta.com/oauth2/v1/userinfo",
-    ///                     AuthUrl = "https://organization.okta.com/oauth2/v1/authorize",
-    ///                     ClientId = "foo",
-    ///                     ClientSecret = "bar",
-    ///                     Enabled = false,
-    ///                     Name = "okta",
-    ///                     TokenUrl = "https://organization.okta.com/oauth2/v1/token",
-    ///                     Type = "openId",
-    ///                 },
+    ///                 ApiUrl = "https://organization.okta.com/oauth2/v1/userinfo",
+    ///                 AuthUrl = "https://organization.okta.com/oauth2/v1/authorize",
+    ///                 ClientId = "foo",
+    ///                 ClientSecret = "bar",
+    ///                 Enabled = false,
+    ///                 Name = "okta",
+    ///                 TokenUrl = "https://organization.okta.com/oauth2/v1/token",
+    ///                 Type = "openId",
     ///             },
-    ///             PersistUsers = true,
-    ///         });
-    ///     }
+    ///         },
+    ///         PersistUsers = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +57,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/oauthSettings:OauthSettings")]
-    public partial class OauthSettings : Pulumi.CustomResource
+    public partial class OauthSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `false`.
@@ -129,7 +127,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class OauthSettingsArgs : Pulumi.ResourceArgs
+    public sealed class OauthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `false`.
@@ -164,9 +162,10 @@ namespace Pulumi.Artifactory
         public OauthSettingsArgs()
         {
         }
+        public static new OauthSettingsArgs Empty => new OauthSettingsArgs();
     }
 
-    public sealed class OauthSettingsState : Pulumi.ResourceArgs
+    public sealed class OauthSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow persisted users to access their profile.  Default value is `false`.
@@ -201,5 +200,6 @@ namespace Pulumi.Artifactory
         public OauthSettingsState()
         {
         }
+        public static new OauthSettingsState Empty => new OauthSettingsState();
     }
 }

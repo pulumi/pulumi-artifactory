@@ -20,47 +20,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		bar, err := artifactory.NewLocalMavenRepository(ctx, "bar", &artifactory.LocalMavenRepositoryArgs{
-// 			Key:           pulumi.String("bar"),
-// 			RepoLayoutRef: pulumi.String("maven-2-default"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
-// 			Key:           pulumi.String("baz"),
-// 			RepoLayoutRef: pulumi.String("maven-2-default"),
-// 			Url:           pulumi.String("https://search.maven.com/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewMavenRepository(ctx, "maven-virt-repo", &artifactory.MavenRepositoryArgs{
-// 			Description:                          pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:                      pulumi.String("com/google/**"),
-// 			ForceMavenAuthentication:             pulumi.Bool(true),
-// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                                  pulumi.String("maven-virt-repo"),
-// 			Notes:                                pulumi.String("Internal description"),
-// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-// 			RepoLayoutRef:                        pulumi.String("maven-2-default"),
-// 			Repositories: pulumi.StringArray{
-// 				bar.Key,
-// 				pulumi.Any(artifactory_local_maven_repository.Baz.Key),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bar, err := artifactory.NewLocalMavenRepository(ctx, "bar", &artifactory.LocalMavenRepositoryArgs{
+//				Key:           pulumi.String("bar"),
+//				RepoLayoutRef: pulumi.String("maven-2-default"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			baz, err := artifactory.NewRemoteMavenRepository(ctx, "baz", &artifactory.RemoteMavenRepositoryArgs{
+//				Key:           pulumi.String("baz"),
+//				RepoLayoutRef: pulumi.String("maven-2-default"),
+//				Url:           pulumi.String("https://search.maven.com/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewMavenRepository(ctx, "maven-virt-repo", &artifactory.MavenRepositoryArgs{
+//				Description:                          pulumi.String("A test virtual repo"),
+//				ExcludesPattern:                      pulumi.String("com/google/**"),
+//				ForceMavenAuthentication:             pulumi.Bool(true),
+//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                                  pulumi.String("maven-virt-repo"),
+//				Notes:                                pulumi.String("Internal description"),
+//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
+//				RepoLayoutRef:                        pulumi.String("maven-2-default"),
+//				Repositories: pulumi.StringArray{
+//					bar.Key,
+//					baz.Key,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+//
+//	$ pulumi import artifactory:index/mavenRepository:MavenRepository maven-virt-repo maven-virt-repo
+//
 // ```
 type MavenRepository struct {
 	pulumi.CustomResourceState
@@ -340,7 +345,7 @@ func (i *MavenRepository) ToMavenRepositoryOutputWithContext(ctx context.Context
 // MavenRepositoryArrayInput is an input type that accepts MavenRepositoryArray and MavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `MavenRepositoryArrayInput` via:
 //
-//          MavenRepositoryArray{ MavenRepositoryArgs{...} }
+//	MavenRepositoryArray{ MavenRepositoryArgs{...} }
 type MavenRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +370,7 @@ func (i MavenRepositoryArray) ToMavenRepositoryArrayOutputWithContext(ctx contex
 // MavenRepositoryMapInput is an input type that accepts MavenRepositoryMap and MavenRepositoryMapOutput values.
 // You can construct a concrete instance of `MavenRepositoryMapInput` via:
 //
-//          MavenRepositoryMap{ "key": MavenRepositoryArgs{...} }
+//	MavenRepositoryMap{ "key": MavenRepositoryArgs{...} }
 type MavenRepositoryMapInput interface {
 	pulumi.Input
 

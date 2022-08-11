@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalBowerRepository(ctx, "terraform-local-test-bower-repo", &artifactory.LocalBowerRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-bower-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalBowerRepository(ctx, "terraform-local-test-bower-repo", &artifactory.LocalBowerRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-bower-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
+//
+//	$ pulumi import artifactory:index/localBowerRepository:LocalBowerRepository terraform-local-test-bower-repo terraform-local-test-bower-repo
+//
 // ```
 type LocalBowerRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalBowerRepository) ToLocalBowerRepositoryOutputWithContext(ctx conte
 // LocalBowerRepositoryArrayInput is an input type that accepts LocalBowerRepositoryArray and LocalBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalBowerRepositoryArrayInput` via:
 //
-//          LocalBowerRepositoryArray{ LocalBowerRepositoryArgs{...} }
+//	LocalBowerRepositoryArray{ LocalBowerRepositoryArgs{...} }
 type LocalBowerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalBowerRepositoryArray) ToLocalBowerRepositoryArrayOutputWithContext(
 // LocalBowerRepositoryMapInput is an input type that accepts LocalBowerRepositoryMap and LocalBowerRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalBowerRepositoryMapInput` via:
 //
-//          LocalBowerRepositoryMap{ "key": LocalBowerRepositoryArgs{...} }
+//	LocalBowerRepositoryMap{ "key": LocalBowerRepositoryArgs{...} }
 type LocalBowerRepositoryMapInput interface {
 	pulumi.Input
 

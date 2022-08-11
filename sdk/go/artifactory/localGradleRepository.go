@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGradleRepository(ctx, "terraform-local-test-gradle-repo-basic", &artifactory.LocalGradleRepositoryArgs{
-// 			ChecksumPolicyType:           pulumi.String("client-checksums"),
-// 			HandleReleases:               pulumi.Bool(true),
-// 			HandleSnapshots:              pulumi.Bool(true),
-// 			Key:                          pulumi.String("terraform-local-test-gradle-repo-basic"),
-// 			MaxUniqueSnapshots:           pulumi.Int(10),
-// 			SnapshotVersionBehavior:      pulumi.String("unique"),
-// 			SuppressPomConsistencyChecks: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGradleRepository(ctx, "terraform-local-test-gradle-repo-basic", &artifactory.LocalGradleRepositoryArgs{
+//				ChecksumPolicyType:           pulumi.String("client-checksums"),
+//				HandleReleases:               pulumi.Bool(true),
+//				HandleSnapshots:              pulumi.Bool(true),
+//				Key:                          pulumi.String("terraform-local-test-gradle-repo-basic"),
+//				MaxUniqueSnapshots:           pulumi.Int(10),
+//				SnapshotVersionBehavior:      pulumi.String("unique"),
+//				SuppressPomConsistencyChecks: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
+//
+//	$ pulumi import artifactory:index/localGradleRepository:LocalGradleRepository terraform-local-test-gradle-repo-basic terraform-local-test-gradle-repo-basic
+//
 // ```
 type LocalGradleRepository struct {
 	pulumi.CustomResourceState
@@ -411,7 +416,7 @@ func (i *LocalGradleRepository) ToLocalGradleRepositoryOutputWithContext(ctx con
 // LocalGradleRepositoryArrayInput is an input type that accepts LocalGradleRepositoryArray and LocalGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGradleRepositoryArrayInput` via:
 //
-//          LocalGradleRepositoryArray{ LocalGradleRepositoryArgs{...} }
+//	LocalGradleRepositoryArray{ LocalGradleRepositoryArgs{...} }
 type LocalGradleRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -436,7 +441,7 @@ func (i LocalGradleRepositoryArray) ToLocalGradleRepositoryArrayOutputWithContex
 // LocalGradleRepositoryMapInput is an input type that accepts LocalGradleRepositoryMap and LocalGradleRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalGradleRepositoryMapInput` via:
 //
-//          LocalGradleRepositoryMap{ "key": LocalGradleRepositoryArgs{...} }
+//	LocalGradleRepositoryMap{ "key": LocalGradleRepositoryArgs{...} }
 type LocalGradleRepositoryMapInput interface {
 	pulumi.Input
 

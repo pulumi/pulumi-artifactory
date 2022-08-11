@@ -21,22 +21,20 @@ namespace Pulumi.Artifactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_file = Artifactory.GetFile.Invoke(new()
         ///     {
-        ///         var my_file = Output.Create(Artifactory.GetFile.InvokeAsync(new Artifactory.GetFileArgs
-        ///         {
-        ///             OutputPath = "tmp/artifact.zip",
-        ///             Path = "/path/to/the/artifact.zip",
-        ///             Repository = "repo-key",
-        ///         }));
-        ///     }
+        ///         OutputPath = "tmp/artifact.zip",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         Repository = "repo-key",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,22 +52,20 @@ namespace Pulumi.Artifactory
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Artifactory = Pulumi.Artifactory;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var my_file = Artifactory.GetFile.Invoke(new()
         ///     {
-        ///         var my_file = Output.Create(Artifactory.GetFile.InvokeAsync(new Artifactory.GetFileArgs
-        ///         {
-        ///             OutputPath = "tmp/artifact.zip",
-        ///             Path = "/path/to/the/artifact.zip",
-        ///             Repository = "repo-key",
-        ///         }));
-        ///     }
+        ///         OutputPath = "tmp/artifact.zip",
+        ///         Path = "/path/to/the/artifact.zip",
+        ///         Repository = "repo-key",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +75,7 @@ namespace Pulumi.Artifactory
     }
 
 
-    public sealed class GetFileArgs : Pulumi.InvokeArgs
+    public sealed class GetFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If set to true, an existing file in the output_path will be overwritten. Default: false
@@ -115,9 +111,10 @@ namespace Pulumi.Artifactory
         public GetFileArgs()
         {
         }
+        public static new GetFileArgs Empty => new GetFileArgs();
     }
 
-    public sealed class GetFileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// If set to true, an existing file in the output_path will be overwritten. Default: false
@@ -153,6 +150,7 @@ namespace Pulumi.Artifactory
         public GetFileInvokeArgs()
         {
         }
+        public static new GetFileInvokeArgs Empty => new GetFileInvokeArgs();
     }
 
 

@@ -20,21 +20,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
-// 			EnableAnonymousAccess: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewGeneralSecurity(ctx, "security", &artifactory.GeneralSecurityArgs{
+//				EnableAnonymousAccess: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,10 +45,12 @@ import (
 // Current general security settings can be imported using `security` as the `ID`, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+//
+//	$ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
+//
 // ```
 //
-//  environments, or may change without notice.
+//	environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 
@@ -127,7 +132,7 @@ func (i *GeneralSecurity) ToGeneralSecurityOutputWithContext(ctx context.Context
 // GeneralSecurityArrayInput is an input type that accepts GeneralSecurityArray and GeneralSecurityArrayOutput values.
 // You can construct a concrete instance of `GeneralSecurityArrayInput` via:
 //
-//          GeneralSecurityArray{ GeneralSecurityArgs{...} }
+//	GeneralSecurityArray{ GeneralSecurityArgs{...} }
 type GeneralSecurityArrayInput interface {
 	pulumi.Input
 
@@ -152,7 +157,7 @@ func (i GeneralSecurityArray) ToGeneralSecurityArrayOutputWithContext(ctx contex
 // GeneralSecurityMapInput is an input type that accepts GeneralSecurityMap and GeneralSecurityMapOutput values.
 // You can construct a concrete instance of `GeneralSecurityMapInput` via:
 //
-//          GeneralSecurityMap{ "key": GeneralSecurityArgs{...} }
+//	GeneralSecurityMap{ "key": GeneralSecurityArgs{...} }
 type GeneralSecurityMapInput interface {
 	pulumi.Input
 

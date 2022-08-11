@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class FederatedGitltfsRepositoryMemberArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGitltfsRepositoryMemberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Represents the active state of the federated member. It is supported to change the enabled
@@ -28,5 +28,6 @@ namespace Pulumi.Artifactory.Inputs
         public FederatedGitltfsRepositoryMemberArgs()
         {
         }
+        public static new FederatedGitltfsRepositoryMemberArgs Empty => new FederatedGitltfsRepositoryMemberArgs();
     }
 }

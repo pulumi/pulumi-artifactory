@@ -17,21 +17,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalTerraformProviderRepository(ctx, "terraform-local-test-terraform-provider-repo", &artifactory.LocalTerraformProviderRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-terraform-provider-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalTerraformProviderRepository(ctx, "terraform-local-test-terraform-provider-repo", &artifactory.LocalTerraformProviderRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-terraform-provider-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -39,7 +42,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+//
+//	$ pulumi import artifactory:index/localTerraformProviderRepository:LocalTerraformProviderRepository terraform-local-test-terraform-provider-repo terraform-local-test-terraform-provider-repo
+//
 // ```
 type LocalTerraformProviderRepository struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *LocalTerraformProviderRepository) ToLocalTerraformProviderRepositoryOut
 // LocalTerraformProviderRepositoryArrayInput is an input type that accepts LocalTerraformProviderRepositoryArray and LocalTerraformProviderRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalTerraformProviderRepositoryArrayInput` via:
 //
-//          LocalTerraformProviderRepositoryArray{ LocalTerraformProviderRepositoryArgs{...} }
+//	LocalTerraformProviderRepositoryArray{ LocalTerraformProviderRepositoryArgs{...} }
 type LocalTerraformProviderRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i LocalTerraformProviderRepositoryArray) ToLocalTerraformProviderRepositor
 // LocalTerraformProviderRepositoryMapInput is an input type that accepts LocalTerraformProviderRepositoryMap and LocalTerraformProviderRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalTerraformProviderRepositoryMapInput` via:
 //
-//          LocalTerraformProviderRepositoryMap{ "key": LocalTerraformProviderRepositoryArgs{...} }
+//	LocalTerraformProviderRepositoryMap{ "key": LocalTerraformProviderRepositoryArgs{...} }
 type LocalTerraformProviderRepositoryMapInput interface {
 	pulumi.Input
 

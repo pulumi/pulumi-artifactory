@@ -22,44 +22,55 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
-// 			Key: pulumi.String("provider_test_source"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
-// 			Key: pulumi.String("provider_test_dest"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
-// 			CronExp:                pulumi.String("0 0 * * * ?"),
-// 			EnableEventReplication: pulumi.Bool(true),
-// 			Replications: PushReplicationReplicationArray{
-// 				&PushReplicationReplicationArgs{
-// 					Password: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_password")),
-// 					Url:      pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_url")),
-// 					Username: pulumi.String(fmt.Sprintf("%v%v", "$", "var.artifactory_username")),
-// 				},
-// 			},
-// 			RepoKey: providerTestSource.Key,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			artifactoryUrl := cfg.Require("artifactoryUrl")
+//			artifactoryUsername := cfg.Require("artifactoryUsername")
+//			artifactoryPassword := cfg.Require("artifactoryPassword")
+//			providerTestSource, err := artifactory.NewLocalMavenRepository(ctx, "providerTestSource", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_source"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			providerTestDest, err := artifactory.NewLocalMavenRepository(ctx, "providerTestDest", &artifactory.LocalMavenRepositoryArgs{
+//				Key: pulumi.String("provider_test_dest"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewPushReplication(ctx, "foo-rep", &artifactory.PushReplicationArgs{
+//				RepoKey:                providerTestSource.Key,
+//				CronExp:                pulumi.String("0 0 * * * ?"),
+//				EnableEventReplication: pulumi.Bool(true),
+//				Replications: PushReplicationReplicationArray{
+//					&PushReplicationReplicationArgs{
+//						Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
+//							return fmt.Sprintf("%v/%v", artifactoryUrl, key), nil
+//						}).(pulumi.StringOutput),
+//						Username: pulumi.String(fmt.Sprintf("$var.artifactory_username")),
+//						Password: pulumi.String(fmt.Sprintf("$var.artifactory_password")),
+//						Enabled:  pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +78,9 @@ import (
 // Push replication configs can be imported using their repo key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+//
+//	$ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+//
 // ```
 type PushReplication struct {
 	pulumi.CustomResourceState
@@ -176,7 +189,7 @@ func (i *PushReplication) ToPushReplicationOutputWithContext(ctx context.Context
 // PushReplicationArrayInput is an input type that accepts PushReplicationArray and PushReplicationArrayOutput values.
 // You can construct a concrete instance of `PushReplicationArrayInput` via:
 //
-//          PushReplicationArray{ PushReplicationArgs{...} }
+//	PushReplicationArray{ PushReplicationArgs{...} }
 type PushReplicationArrayInput interface {
 	pulumi.Input
 
@@ -201,7 +214,7 @@ func (i PushReplicationArray) ToPushReplicationArrayOutputWithContext(ctx contex
 // PushReplicationMapInput is an input type that accepts PushReplicationMap and PushReplicationMapOutput values.
 // You can construct a concrete instance of `PushReplicationMapInput` via:
 //
-//          PushReplicationMap{ "key": PushReplicationArgs{...} }
+//	PushReplicationMap{ "key": PushReplicationArgs{...} }
 type PushReplicationMapInput interface {
 	pulumi.Input
 

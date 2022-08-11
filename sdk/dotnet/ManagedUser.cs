@@ -17,27 +17,25 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Artifactory user called terraform
+    ///     var test_user = new Artifactory.ManagedUser("test-user", new()
     ///     {
-    ///         // Create a new Artifactory user called terraform
-    ///         var test_user = new Artifactory.ManagedUser("test-user", new Artifactory.ManagedUserArgs
+    ///         Email = "test-user@artifactory-terraform.com",
+    ///         Groups = new[]
     ///         {
-    ///             Email = "test-user@artifactory-terraform.com",
-    ///             Groups = 
-    ///             {
-    ///                 "logged-in-users",
-    ///                 "readers",
-    ///             },
-    ///             Password = "my super secret password",
-    ///         });
-    ///     }
+    ///             "logged-in-users",
+    ///             "readers",
+    ///         },
+    ///         Password = "my super secret password",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/managedUser:ManagedUser")]
-    public partial class ManagedUser : Pulumi.CustomResource
+    public partial class ManagedUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -143,7 +141,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ManagedUserArgs : Pulumi.ResourceArgs
+    public sealed class ManagedUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -202,9 +200,10 @@ namespace Pulumi.Artifactory
         public ManagedUserArgs()
         {
         }
+        public static new ManagedUserArgs Empty => new ManagedUserArgs();
     }
 
-    public sealed class ManagedUserState : Pulumi.ResourceArgs
+    public sealed class ManagedUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -263,5 +262,6 @@ namespace Pulumi.Artifactory
         public ManagedUserState()
         {
         }
+        public static new ManagedUserState Empty => new ManagedUserState();
     }
 }

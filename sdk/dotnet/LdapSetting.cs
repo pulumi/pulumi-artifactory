@@ -18,34 +18,32 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Configure Artifactory LDAP setting
+    ///     var ldapName = new Artifactory.LdapSetting("ldapName", new()
     ///     {
-    ///         // Configure Artifactory LDAP setting
-    ///         var ldapName = new Artifactory.LdapSetting("ldapName", new Artifactory.LdapSettingArgs
-    ///         {
-    ///             AllowUserToAccessProfile = false,
-    ///             AutoCreateUser = true,
-    ///             EmailAttribute = "mail",
-    ///             Enabled = true,
-    ///             Key = "ldap_name",
-    ///             LdapPoisoningProtection = true,
-    ///             LdapUrl = "ldap://ldap_server_url",
-    ///             ManagerDn = "mgr_dn",
-    ///             ManagerPassword = "mgr_passwd_random",
-    ///             PagingSupportEnabled = false,
-    ///             SearchBase = "ou=users",
-    ///             SearchFilter = "(uid={0})",
-    ///             SearchSubTree = true,
-    ///             UserDnPattern = "uid={0},ou=People",
-    ///         });
-    ///     }
+    ///         AllowUserToAccessProfile = false,
+    ///         AutoCreateUser = true,
+    ///         EmailAttribute = "mail",
+    ///         Enabled = true,
+    ///         Key = "ldap_name",
+    ///         LdapPoisoningProtection = true,
+    ///         LdapUrl = "ldap://ldap_server_url",
+    ///         ManagerDn = "mgr_dn",
+    ///         ManagerPassword = "mgr_passwd_random",
+    ///         PagingSupportEnabled = false,
+    ///         SearchBase = "ou=users",
+    ///         SearchFilter = "(uid={0})",
+    ///         SearchSubTree = true,
+    ///         UserDnPattern = "uid={0},ou=People",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// Note: `Key` argument has to match to the resource name.\
     /// Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
@@ -59,7 +57,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/ldapSetting:LdapSetting")]
-    public partial class LdapSetting : Pulumi.CustomResource
+    public partial class LdapSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
@@ -192,7 +190,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LdapSettingArgs : Pulumi.ResourceArgs
+    public sealed class LdapSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
@@ -284,9 +282,10 @@ namespace Pulumi.Artifactory
         public LdapSettingArgs()
         {
         }
+        public static new LdapSettingArgs Empty => new LdapSettingArgs();
     }
 
-    public sealed class LdapSettingState : Pulumi.ResourceArgs
+    public sealed class LdapSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
@@ -378,5 +377,6 @@ namespace Pulumi.Artifactory
         public LdapSettingState()
         {
         }
+        public static new LdapSettingState Empty => new LdapSettingState();
     }
 }

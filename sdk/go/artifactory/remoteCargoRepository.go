@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
-// 			AnonymousAccess: pulumi.Bool(true),
-// 			GitRegistryUrl:  pulumi.String("https://github.com/rust-lang/foo.index"),
-// 			Key:             pulumi.String("my-remote-cargo"),
-// 			Url:             pulumi.String("https://github.com/rust-lang/crates.io-index"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
+//				AnonymousAccess: pulumi.Bool(true),
+//				GitRegistryUrl:  pulumi.String("https://github.com/rust-lang/foo.index"),
+//				Key:             pulumi.String("my-remote-cargo"),
+//				Url:             pulumi.String("https://github.com/rust-lang/crates.io-index"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Note
 //
@@ -49,7 +52,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+//
+//	$ pulumi import artifactory:index/remoteCargoRepository:RemoteCargoRepository my-remote-cargo my-remote-cargo
+//
 // ```
 type RemoteCargoRepository struct {
 	pulumi.CustomResourceState
@@ -615,7 +620,7 @@ func (i *RemoteCargoRepository) ToRemoteCargoRepositoryOutputWithContext(ctx con
 // RemoteCargoRepositoryArrayInput is an input type that accepts RemoteCargoRepositoryArray and RemoteCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCargoRepositoryArrayInput` via:
 //
-//          RemoteCargoRepositoryArray{ RemoteCargoRepositoryArgs{...} }
+//	RemoteCargoRepositoryArray{ RemoteCargoRepositoryArgs{...} }
 type RemoteCargoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -640,7 +645,7 @@ func (i RemoteCargoRepositoryArray) ToRemoteCargoRepositoryArrayOutputWithContex
 // RemoteCargoRepositoryMapInput is an input type that accepts RemoteCargoRepositoryMap and RemoteCargoRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteCargoRepositoryMapInput` via:
 //
-//          RemoteCargoRepositoryMap{ "key": RemoteCargoRepositoryArgs{...} }
+//	RemoteCargoRepositoryMap{ "key": RemoteCargoRepositoryArgs{...} }
 type RemoteCargoRepositoryMapInput interface {
 	pulumi.Input
 

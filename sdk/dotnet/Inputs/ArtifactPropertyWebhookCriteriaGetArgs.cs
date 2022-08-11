@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class ArtifactPropertyWebhookCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class ArtifactPropertyWebhookCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Trigger on any local repo.
@@ -63,5 +63,6 @@ namespace Pulumi.Artifactory.Inputs
         public ArtifactPropertyWebhookCriteriaGetArgs()
         {
         }
+        public static new ArtifactPropertyWebhookCriteriaGetArgs Empty => new ArtifactPropertyWebhookCriteriaGetArgs();
     }
 }

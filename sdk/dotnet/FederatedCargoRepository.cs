@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_cargo_repo = new Artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo", new()
     ///     {
-    ///         var terraform_federated_test_cargo_repo = new Artifactory.FederatedCargoRepository("terraform-federated-test-cargo-repo", new Artifactory.FederatedCargoRepositoryArgs
+    ///         Key = "terraform-federated-test-cargo-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-cargo-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedCargoRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedCargoRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedCargoRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-cargo-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedCargoRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedCargoRepository:FederatedCargoRepository")]
-    public partial class FederatedCargoRepository : Pulumi.CustomResource
+    public partial class FederatedCargoRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
@@ -207,7 +205,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedCargoRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedCargoRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
@@ -340,9 +338,10 @@ namespace Pulumi.Artifactory
         public FederatedCargoRepositoryArgs()
         {
         }
+        public static new FederatedCargoRepositoryArgs Empty => new FederatedCargoRepositoryArgs();
     }
 
-    public sealed class FederatedCargoRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedCargoRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous
@@ -478,5 +477,6 @@ namespace Pulumi.Artifactory
         public FederatedCargoRepositoryState()
         {
         }
+        public static new FederatedCargoRepositoryState Empty => new FederatedCargoRepositoryState();
     }
 }

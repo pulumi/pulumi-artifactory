@@ -24,35 +24,38 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("some-keypair6543461672124900137"),
-// 			PairType:   pulumi.String("RSA"),
-// 			Alias:      pulumi.String("foo-alias6543461672124900137"),
-// 			PrivateKey: readFileOrPanic("samples/rsa.priv"),
-// 			PublicKey:  readFileOrPanic("samples/rsa.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypair6543461672124900137", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("some-keypair6543461672124900137"),
+//				PairType:   pulumi.String("RSA"),
+//				Alias:      pulumi.String("foo-alias6543461672124900137"),
+//				PrivateKey: readFileOrPanic("samples/rsa.priv"),
+//				PublicKey:  readFileOrPanic("samples/rsa.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Keypair can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+//
+//	$ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair
+//
 // ```
 type Keypair struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *Keypair) ToKeypairOutputWithContext(ctx context.Context) KeypairOutput 
 // KeypairArrayInput is an input type that accepts KeypairArray and KeypairArrayOutput values.
 // You can construct a concrete instance of `KeypairArrayInput` via:
 //
-//          KeypairArray{ KeypairArgs{...} }
+//	KeypairArray{ KeypairArgs{...} }
 type KeypairArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i KeypairArray) ToKeypairArrayOutputWithContext(ctx context.Context) Keypa
 // KeypairMapInput is an input type that accepts KeypairMap and KeypairMapOutput values.
 // You can construct a concrete instance of `KeypairMapInput` via:
 //
-//          KeypairMap{ "key": KeypairArgs{...} }
+//	KeypairMap{ "key": KeypairArgs{...} }
 type KeypairMapInput interface {
 	pulumi.Input
 

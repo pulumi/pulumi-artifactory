@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_maven_repo = new Artifactory.FederatedMavenRepository("terraform-federated-test-maven-repo", new()
     ///     {
-    ///         var terraform_federated_test_maven_repo = new Artifactory.FederatedMavenRepository("terraform-federated-test-maven-repo", new Artifactory.FederatedMavenRepositoryArgs
+    ///         Key = "terraform-federated-test-maven-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-maven-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedMavenRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedMavenRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedMavenRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-maven-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedMavenRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-maven-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedMavenRepository:FederatedMavenRepository")]
-    public partial class FederatedMavenRepository : Pulumi.CustomResource
+    public partial class FederatedMavenRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -241,7 +239,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedMavenRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedMavenRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -403,9 +401,10 @@ namespace Pulumi.Artifactory
         public FederatedMavenRepositoryArgs()
         {
         }
+        public static new FederatedMavenRepositoryArgs Empty => new FederatedMavenRepositoryArgs();
     }
 
-    public sealed class FederatedMavenRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedMavenRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -570,5 +569,6 @@ namespace Pulumi.Artifactory
         public FederatedMavenRepositoryState()
         {
         }
+        public static new FederatedMavenRepositoryState Empty => new FederatedMavenRepositoryState();
     }
 }

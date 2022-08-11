@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory
     /// Artifactory **does not** retain access tokens and cannot be imported into state.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/accessToken:AccessToken")]
-    public partial class AccessToken : Pulumi.CustomResource
+    public partial class AccessToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Returns the access token to authenciate to Artifactory
@@ -115,7 +115,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class AccessTokenArgs : Pulumi.ResourceArgs
+    public sealed class AccessTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
@@ -168,9 +168,10 @@ namespace Pulumi.Artifactory
         public AccessTokenArgs()
         {
         }
+        public static new AccessTokenArgs Empty => new AccessTokenArgs();
     }
 
-    public sealed class AccessTokenState : Pulumi.ResourceArgs
+    public sealed class AccessTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Returns the access token to authenciate to Artifactory
@@ -235,5 +236,6 @@ namespace Pulumi.Artifactory
         public AccessTokenState()
         {
         }
+        public static new AccessTokenState Empty => new AccessTokenState();
     }
 }

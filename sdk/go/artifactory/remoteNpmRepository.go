@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteNpmRepository(ctx, "npm-remote", &artifactory.RemoteNpmRepositoryArgs{
-// 			Key:                              pulumi.String("npm-remote"),
-// 			ListRemoteFolderItems:            pulumi.Bool(true),
-// 			MismatchingMimeTypesOverrideList: pulumi.String("application/json,application/xml"),
-// 			Url:                              pulumi.String("https://registry.npmjs.org"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteNpmRepository(ctx, "npm-remote", &artifactory.RemoteNpmRepositoryArgs{
+//				Key:                              pulumi.String("npm-remote"),
+//				ListRemoteFolderItems:            pulumi.Bool(true),
+//				MismatchingMimeTypesOverrideList: pulumi.String("application/json,application/xml"),
+//				Url:                              pulumi.String("https://registry.npmjs.org"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+//
+//	$ pulumi import artifactory:index/remoteNpmRepository:RemoteNpmRepository npm-remote npm-remote
+//
 // ```
 type RemoteNpmRepository struct {
 	pulumi.CustomResourceState
@@ -588,7 +593,7 @@ func (i *RemoteNpmRepository) ToRemoteNpmRepositoryOutputWithContext(ctx context
 // RemoteNpmRepositoryArrayInput is an input type that accepts RemoteNpmRepositoryArray and RemoteNpmRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteNpmRepositoryArrayInput` via:
 //
-//          RemoteNpmRepositoryArray{ RemoteNpmRepositoryArgs{...} }
+//	RemoteNpmRepositoryArray{ RemoteNpmRepositoryArgs{...} }
 type RemoteNpmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -613,7 +618,7 @@ func (i RemoteNpmRepositoryArray) ToRemoteNpmRepositoryArrayOutputWithContext(ct
 // RemoteNpmRepositoryMapInput is an input type that accepts RemoteNpmRepositoryMap and RemoteNpmRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteNpmRepositoryMapInput` via:
 //
-//          RemoteNpmRepositoryMap{ "key": RemoteNpmRepositoryArgs{...} }
+//	RemoteNpmRepositoryMap{ "key": RemoteNpmRepositoryArgs{...} }
 type RemoteNpmRepositoryMapInput interface {
 	pulumi.Input
 

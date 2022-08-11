@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewDockerV1Repository(ctx, "foo", &artifactory.DockerV1RepositoryArgs{
-// 			Key: pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewDockerV1Repository(ctx, "foo", &artifactory.DockerV1RepositoryArgs{
+//				Key: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+//
+//	$ pulumi import artifactory:index/dockerV1Repository:DockerV1Repository foo foo
+//
 // ```
 type DockerV1Repository struct {
 	pulumi.CustomResourceState
@@ -304,7 +309,7 @@ func (i *DockerV1Repository) ToDockerV1RepositoryOutputWithContext(ctx context.C
 // DockerV1RepositoryArrayInput is an input type that accepts DockerV1RepositoryArray and DockerV1RepositoryArrayOutput values.
 // You can construct a concrete instance of `DockerV1RepositoryArrayInput` via:
 //
-//          DockerV1RepositoryArray{ DockerV1RepositoryArgs{...} }
+//	DockerV1RepositoryArray{ DockerV1RepositoryArgs{...} }
 type DockerV1RepositoryArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +334,7 @@ func (i DockerV1RepositoryArray) ToDockerV1RepositoryArrayOutputWithContext(ctx 
 // DockerV1RepositoryMapInput is an input type that accepts DockerV1RepositoryMap and DockerV1RepositoryMapOutput values.
 // You can construct a concrete instance of `DockerV1RepositoryMapInput` via:
 //
-//          DockerV1RepositoryMap{ "key": DockerV1RepositoryArgs{...} }
+//	DockerV1RepositoryMap{ "key": DockerV1RepositoryArgs{...} }
 type DockerV1RepositoryMapInput interface {
 	pulumi.Input
 

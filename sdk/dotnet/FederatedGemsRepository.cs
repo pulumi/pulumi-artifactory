@@ -21,7 +21,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGemsRepository:FederatedGemsRepository")]
-    public partial class FederatedGemsRepository : Pulumi.CustomResource
+    public partial class FederatedGemsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -164,7 +164,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedGemsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGemsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -281,9 +281,10 @@ namespace Pulumi.Artifactory
         public FederatedGemsRepositoryArgs()
         {
         }
+        public static new FederatedGemsRepositoryArgs Empty => new FederatedGemsRepositoryArgs();
     }
 
-    public sealed class FederatedGemsRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedGemsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -403,5 +404,6 @@ namespace Pulumi.Artifactory
         public FederatedGemsRepositoryState()
         {
         }
+        public static new FederatedGemsRepositoryState Empty => new FederatedGemsRepositoryState();
     }
 }

@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_cran = new Artifactory.VirtualCranRepository("foo-cran", new()
     ///     {
-    ///         var foo_cran = new Artifactory.VirtualCranRepository("foo-cran", new Artifactory.VirtualCranRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-cran",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-cran",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualCranRepository:VirtualCranRepository")]
-    public partial class VirtualCranRepository : Pulumi.CustomResource
+    public partial class VirtualCranRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -177,7 +175,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualCranRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualCranRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -273,9 +271,10 @@ namespace Pulumi.Artifactory
         public VirtualCranRepositoryArgs()
         {
         }
+        public static new VirtualCranRepositoryArgs Empty => new VirtualCranRepositoryArgs();
     }
 
-    public sealed class VirtualCranRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualCranRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -377,5 +376,6 @@ namespace Pulumi.Artifactory
         public VirtualCranRepositoryState()
         {
         }
+        public static new VirtualCranRepositoryState Empty => new VirtualCranRepositoryState();
     }
 }

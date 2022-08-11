@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_chef_repo = new Artifactory.LocalChefRepository("terraform-local-test-chef-repo", new()
     ///     {
-    ///         var terraform_local_test_chef_repo = new Artifactory.LocalChefRepository("terraform-local-test-chef-repo", new Artifactory.LocalChefRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-chef-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-chef-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localChefRepository:LocalChefRepository")]
-    public partial class LocalChefRepository : Pulumi.CustomResource
+    public partial class LocalChefRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalChefRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalChefRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalChefRepositoryArgs()
         {
         }
+        public static new LocalChefRepositoryArgs Empty => new LocalChefRepositoryArgs();
     }
 
-    public sealed class LocalChefRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalChefRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalChefRepositoryState()
         {
         }
+        public static new LocalChefRepositoryState Empty => new LocalChefRepositoryState();
     }
 }

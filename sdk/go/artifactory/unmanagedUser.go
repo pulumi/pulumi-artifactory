@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewUnmanagedUser(ctx, "test-user", &artifactory.UnmanagedUserArgs{
-// 			Email: pulumi.String("test-user@artifactory-terraform.com"),
-// 			Groups: pulumi.StringArray{
-// 				pulumi.String("logged-in-users"),
-// 				pulumi.String("readers"),
-// 			},
-// 			Password: pulumi.String("my super secret password"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewUnmanagedUser(ctx, "test-user", &artifactory.UnmanagedUserArgs{
+//				Email: pulumi.String("test-user@artifactory-terraform.com"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("logged-in-users"),
+//					pulumi.String("readers"),
+//				},
+//				Password: pulumi.String("my super secret password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Users can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+//
+//	$ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername
+//
 // ```
 type UnmanagedUser struct {
 	pulumi.CustomResourceState
@@ -209,7 +214,7 @@ func (i *UnmanagedUser) ToUnmanagedUserOutputWithContext(ctx context.Context) Un
 // UnmanagedUserArrayInput is an input type that accepts UnmanagedUserArray and UnmanagedUserArrayOutput values.
 // You can construct a concrete instance of `UnmanagedUserArrayInput` via:
 //
-//          UnmanagedUserArray{ UnmanagedUserArgs{...} }
+//	UnmanagedUserArray{ UnmanagedUserArgs{...} }
 type UnmanagedUserArrayInput interface {
 	pulumi.Input
 
@@ -234,7 +239,7 @@ func (i UnmanagedUserArray) ToUnmanagedUserArrayOutputWithContext(ctx context.Co
 // UnmanagedUserMapInput is an input type that accepts UnmanagedUserMap and UnmanagedUserMapOutput values.
 // You can construct a concrete instance of `UnmanagedUserMapInput` via:
 //
-//          UnmanagedUserMap{ "key": UnmanagedUserArgs{...} }
+//	UnmanagedUserMap{ "key": UnmanagedUserArgs{...} }
 type UnmanagedUserMapInput interface {
 	pulumi.Input
 

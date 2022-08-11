@@ -18,7 +18,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gem-repo terraform-federated-test-gem-repo
+//
+//	$ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gem-repo terraform-federated-test-gem-repo
+//
 // ```
 type FederatedGemsRepository struct {
 	pulumi.CustomResourceState
@@ -295,7 +297,7 @@ func (i *FederatedGemsRepository) ToFederatedGemsRepositoryOutputWithContext(ctx
 // FederatedGemsRepositoryArrayInput is an input type that accepts FederatedGemsRepositoryArray and FederatedGemsRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGemsRepositoryArrayInput` via:
 //
-//          FederatedGemsRepositoryArray{ FederatedGemsRepositoryArgs{...} }
+//	FederatedGemsRepositoryArray{ FederatedGemsRepositoryArgs{...} }
 type FederatedGemsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -320,7 +322,7 @@ func (i FederatedGemsRepositoryArray) ToFederatedGemsRepositoryArrayOutputWithCo
 // FederatedGemsRepositoryMapInput is an input type that accepts FederatedGemsRepositoryMap and FederatedGemsRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedGemsRepositoryMapInput` via:
 //
-//          FederatedGemsRepositoryMap{ "key": FederatedGemsRepositoryArgs{...} }
+//	FederatedGemsRepositoryMap{ "key": FederatedGemsRepositoryArgs{...} }
 type FederatedGemsRepositoryMapInput interface {
 	pulumi.Input
 

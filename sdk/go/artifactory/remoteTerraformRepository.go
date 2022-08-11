@@ -17,24 +17,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
-// 			Key:                   pulumi.String("terraform-remote"),
-// 			TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
-// 			TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
-// 			Url:                   pulumi.String("https://github.com/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteTerraformRepository(ctx, "terraform-remote", &artifactory.RemoteTerraformRepositoryArgs{
+//				Key:                   pulumi.String("terraform-remote"),
+//				TerraformProvidersUrl: pulumi.String("https://releases.hashicorp.com"),
+//				TerraformRegistryUrl:  pulumi.String("https://registry.terraform.io"),
+//				Url:                   pulumi.String("https://github.com/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+//
+//	$ pulumi import artifactory:index/remoteTerraformRepository:RemoteTerraformRepository terraform-remote terraform-remote
+//
 // ```
 type RemoteTerraformRepository struct {
 	pulumi.CustomResourceState
@@ -615,7 +620,7 @@ func (i *RemoteTerraformRepository) ToRemoteTerraformRepositoryOutputWithContext
 // RemoteTerraformRepositoryArrayInput is an input type that accepts RemoteTerraformRepositoryArray and RemoteTerraformRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteTerraformRepositoryArrayInput` via:
 //
-//          RemoteTerraformRepositoryArray{ RemoteTerraformRepositoryArgs{...} }
+//	RemoteTerraformRepositoryArray{ RemoteTerraformRepositoryArgs{...} }
 type RemoteTerraformRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -640,7 +645,7 @@ func (i RemoteTerraformRepositoryArray) ToRemoteTerraformRepositoryArrayOutputWi
 // RemoteTerraformRepositoryMapInput is an input type that accepts RemoteTerraformRepositoryMap and RemoteTerraformRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteTerraformRepositoryMapInput` via:
 //
-//          RemoteTerraformRepositoryMap{ "key": RemoteTerraformRepositoryArgs{...} }
+//	RemoteTerraformRepositoryMap{ "key": RemoteTerraformRepositoryArgs{...} }
 type RemoteTerraformRepositoryMapInput interface {
 	pulumi.Input
 

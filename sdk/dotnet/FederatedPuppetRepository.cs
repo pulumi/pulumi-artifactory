@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_puppet_repo = new Artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo", new()
     ///     {
-    ///         var terraform_federated_test_puppet_repo = new Artifactory.FederatedPuppetRepository("terraform-federated-test-puppet-repo", new Artifactory.FederatedPuppetRepositoryArgs
+    ///         Key = "terraform-federated-test-puppet-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-puppet-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-puppet-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedPuppetRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedPuppetRepository:FederatedPuppetRepository")]
-    public partial class FederatedPuppetRepository : Pulumi.CustomResource
+    public partial class FederatedPuppetRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedPuppetRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedPuppetRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedPuppetRepositoryArgs()
         {
         }
+        public static new FederatedPuppetRepositoryArgs Empty => new FederatedPuppetRepositoryArgs();
     }
 
-    public sealed class FederatedPuppetRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedPuppetRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedPuppetRepositoryState()
         {
         }
+        public static new FederatedPuppetRepositoryState Empty => new FederatedPuppetRepositoryState();
     }
 }

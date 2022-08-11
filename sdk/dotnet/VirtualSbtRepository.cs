@@ -16,26 +16,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_sbt = new Artifactory.VirtualSbtRepository("foo-sbt", new()
     ///     {
-    ///         var foo_sbt = new Artifactory.VirtualSbtRepository("foo-sbt", new Artifactory.VirtualSbtRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-sbt",
-    ///             Notes = "Internal description",
-    ///             PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-sbt",
+    ///         Notes = "Internal description",
+    ///         PomRepositoryReferencesCleanupPolicy = "discard_active_reference",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualSbtRepository:VirtualSbtRepository")]
-    public partial class VirtualSbtRepository : Pulumi.CustomResource
+    public partial class VirtualSbtRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -199,7 +197,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualSbtRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualSbtRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -316,9 +314,10 @@ namespace Pulumi.Artifactory
         public VirtualSbtRepositoryArgs()
         {
         }
+        public static new VirtualSbtRepositoryArgs Empty => new VirtualSbtRepositoryArgs();
     }
 
-    public sealed class VirtualSbtRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualSbtRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -441,5 +440,6 @@ namespace Pulumi.Artifactory
         public VirtualSbtRepositoryState()
         {
         }
+        public static new VirtualSbtRepositoryState Empty => new VirtualSbtRepositoryState();
     }
 }

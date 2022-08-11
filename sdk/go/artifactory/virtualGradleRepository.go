@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualGradleRepository(ctx, "foo-gradle", &artifactory.VirtualGradleRepositoryArgs{
-// 			Description:                          pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:                      pulumi.String("com/google/**"),
-// 			IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                                  pulumi.String("foo-gradle"),
-// 			Notes:                                pulumi.String("Internal description"),
-// 			PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
-// 			Repositories:                         pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualGradleRepository(ctx, "foo-gradle", &artifactory.VirtualGradleRepositoryArgs{
+//				Description:                          pulumi.String("A test virtual repo"),
+//				ExcludesPattern:                      pulumi.String("com/google/**"),
+//				IncludesPattern:                      pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                                  pulumi.String("foo-gradle"),
+//				Notes:                                pulumi.String("Internal description"),
+//				PomRepositoryReferencesCleanupPolicy: pulumi.String("discard_active_reference"),
+//				Repositories:                         pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
+//
+//	$ pulumi import artifactory:index/virtualGradleRepository:VirtualGradleRepository foo-gradle foo-gradle
+//
 // ```
 type VirtualGradleRepository struct {
 	pulumi.CustomResourceState
@@ -335,7 +340,7 @@ func (i *VirtualGradleRepository) ToVirtualGradleRepositoryOutputWithContext(ctx
 // VirtualGradleRepositoryArrayInput is an input type that accepts VirtualGradleRepositoryArray and VirtualGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualGradleRepositoryArrayInput` via:
 //
-//          VirtualGradleRepositoryArray{ VirtualGradleRepositoryArgs{...} }
+//	VirtualGradleRepositoryArray{ VirtualGradleRepositoryArgs{...} }
 type VirtualGradleRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -360,7 +365,7 @@ func (i VirtualGradleRepositoryArray) ToVirtualGradleRepositoryArrayOutputWithCo
 // VirtualGradleRepositoryMapInput is an input type that accepts VirtualGradleRepositoryMap and VirtualGradleRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualGradleRepositoryMapInput` via:
 //
-//          VirtualGradleRepositoryMap{ "key": VirtualGradleRepositoryArgs{...} }
+//	VirtualGradleRepositoryMap{ "key": VirtualGradleRepositoryArgs{...} }
 type VirtualGradleRepositoryMapInput interface {
 	pulumi.Input
 

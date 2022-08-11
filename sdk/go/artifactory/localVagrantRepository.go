@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalVagrantRepository(ctx, "terraform-local-test-vagrant-repo", &artifactory.LocalVagrantRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-vagrant-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalVagrantRepository(ctx, "terraform-local-test-vagrant-repo", &artifactory.LocalVagrantRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-vagrant-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
+//
+//	$ pulumi import artifactory:index/localVagrantRepository:LocalVagrantRepository terraform-local-test-vagrant-repo terraform-local-test-vagrant-repo
+//
 // ```
 type LocalVagrantRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalVagrantRepository) ToLocalVagrantRepositoryOutputWithContext(ctx c
 // LocalVagrantRepositoryArrayInput is an input type that accepts LocalVagrantRepositoryArray and LocalVagrantRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalVagrantRepositoryArrayInput` via:
 //
-//          LocalVagrantRepositoryArray{ LocalVagrantRepositoryArgs{...} }
+//	LocalVagrantRepositoryArray{ LocalVagrantRepositoryArgs{...} }
 type LocalVagrantRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalVagrantRepositoryArray) ToLocalVagrantRepositoryArrayOutputWithCont
 // LocalVagrantRepositoryMapInput is an input type that accepts LocalVagrantRepositoryMap and LocalVagrantRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalVagrantRepositoryMapInput` via:
 //
-//          LocalVagrantRepositoryMap{ "key": LocalVagrantRepositoryArgs{...} }
+//	LocalVagrantRepositoryMap{ "key": LocalVagrantRepositoryArgs{...} }
 type LocalVagrantRepositoryMapInput interface {
 	pulumi.Input
 

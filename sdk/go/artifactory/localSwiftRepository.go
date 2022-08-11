@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalSwiftRepository(ctx, "terraform-local-test-swift-repo", &artifactory.LocalSwiftRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-swift-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalSwiftRepository(ctx, "terraform-local-test-swift-repo", &artifactory.LocalSwiftRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-swift-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo
+//
+//	$ pulumi import artifactory:index/localSwiftRepository:LocalSwiftRepository terraform-local-test-swift-repo terraform-local-test-swift-repo
+//
 // ```
 type LocalSwiftRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalSwiftRepository) ToLocalSwiftRepositoryOutputWithContext(ctx conte
 // LocalSwiftRepositoryArrayInput is an input type that accepts LocalSwiftRepositoryArray and LocalSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalSwiftRepositoryArrayInput` via:
 //
-//          LocalSwiftRepositoryArray{ LocalSwiftRepositoryArgs{...} }
+//	LocalSwiftRepositoryArray{ LocalSwiftRepositoryArgs{...} }
 type LocalSwiftRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalSwiftRepositoryArray) ToLocalSwiftRepositoryArrayOutputWithContext(
 // LocalSwiftRepositoryMapInput is an input type that accepts LocalSwiftRepositoryMap and LocalSwiftRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalSwiftRepositoryMapInput` via:
 //
-//          LocalSwiftRepositoryMap{ "key": LocalSwiftRepositoryArgs{...} }
+//	LocalSwiftRepositoryMap{ "key": LocalSwiftRepositoryArgs{...} }
 type LocalSwiftRepositoryMapInput interface {
 	pulumi.Input
 

@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_helm_virtual = new Artifactory.VirtualHelmRepository("foo-helm-virtual", new()
     ///     {
-    ///         var foo_helm_virtual = new Artifactory.VirtualHelmRepository("foo-helm-virtual", new Artifactory.VirtualHelmRepositoryArgs
-    ///         {
-    ///             Key = "foo-helm-virtual",
-    ///             UseNamespaces = true,
-    ///         });
-    ///     }
+    ///         Key = "foo-helm-virtual",
+    ///         UseNamespaces = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualHelmRepository:VirtualHelmRepository")]
-    public partial class VirtualHelmRepository : Pulumi.CustomResource
+    public partial class VirtualHelmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -179,7 +177,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualHelmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualHelmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -281,9 +279,10 @@ namespace Pulumi.Artifactory
         public VirtualHelmRepositoryArgs()
         {
         }
+        public static new VirtualHelmRepositoryArgs Empty => new VirtualHelmRepositoryArgs();
     }
 
-    public sealed class VirtualHelmRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualHelmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -391,5 +390,6 @@ namespace Pulumi.Artifactory
         public VirtualHelmRepositoryState()
         {
         }
+        public static new VirtualHelmRepositoryState Empty => new VirtualHelmRepositoryState();
     }
 }

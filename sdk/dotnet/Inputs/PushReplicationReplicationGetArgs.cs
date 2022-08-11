@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class PushReplicationReplicationGetArgs : Pulumi.ResourceArgs
+    public sealed class PushReplicationReplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When true, enables distributed checksum storage. For more information, see
@@ -50,7 +50,7 @@ namespace Pulumi.Artifactory.Inputs
         public Input<int>? SocketTimeoutMillis { get; set; }
 
         /// <summary>
-        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). 
+        /// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         /// Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
         /// </summary>
         [Input("syncDeletes")]
@@ -83,5 +83,6 @@ namespace Pulumi.Artifactory.Inputs
         public PushReplicationReplicationGetArgs()
         {
         }
+        public static new PushReplicationReplicationGetArgs Empty => new PushReplicationReplicationGetArgs();
     }
 }

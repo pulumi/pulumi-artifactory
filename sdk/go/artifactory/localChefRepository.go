@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalChefRepository(ctx, "terraform-local-test-chef-repo", &artifactory.LocalChefRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-chef-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalChefRepository(ctx, "terraform-local-test-chef-repo", &artifactory.LocalChefRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-chef-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
+//
+//	$ pulumi import artifactory:index/localChefRepository:LocalChefRepository terraform-local-test-chef-repo terraform-local-test-chef-repo
+//
 // ```
 type LocalChefRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalChefRepository) ToLocalChefRepositoryOutputWithContext(ctx context
 // LocalChefRepositoryArrayInput is an input type that accepts LocalChefRepositoryArray and LocalChefRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalChefRepositoryArrayInput` via:
 //
-//          LocalChefRepositoryArray{ LocalChefRepositoryArgs{...} }
+//	LocalChefRepositoryArray{ LocalChefRepositoryArgs{...} }
 type LocalChefRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalChefRepositoryArray) ToLocalChefRepositoryArrayOutputWithContext(ct
 // LocalChefRepositoryMapInput is an input type that accepts LocalChefRepositoryMap and LocalChefRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalChefRepositoryMapInput` via:
 //
-//          LocalChefRepositoryMap{ "key": LocalChefRepositoryArgs{...} }
+//	LocalChefRepositoryMap{ "key": LocalChefRepositoryArgs{...} }
 type LocalChefRepositoryMapInput interface {
 	pulumi.Input
 

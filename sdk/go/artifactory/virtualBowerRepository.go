@@ -19,27 +19,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualBowerRepository(ctx, "foo-bower", &artifactory.VirtualBowerRepositoryArgs{
-// 			Description:                 pulumi.String("A test virtual repo"),
-// 			ExcludesPattern:             pulumi.String("com/google/**"),
-// 			ExternalDependenciesEnabled: pulumi.Bool(false),
-// 			IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:                         pulumi.String("foo-bower"),
-// 			Notes:                       pulumi.String("Internal description"),
-// 			Repositories:                pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualBowerRepository(ctx, "foo-bower", &artifactory.VirtualBowerRepositoryArgs{
+//				Description:                 pulumi.String("A test virtual repo"),
+//				ExcludesPattern:             pulumi.String("com/google/**"),
+//				ExternalDependenciesEnabled: pulumi.Bool(false),
+//				IncludesPattern:             pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                         pulumi.String("foo-bower"),
+//				Notes:                       pulumi.String("Internal description"),
+//				Repositories:                pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
+//
+//	$ pulumi import artifactory:index/virtualBowerRepository:VirtualBowerRepository foo-bower foo-bower
+//
 // ```
 type VirtualBowerRepository struct {
 	pulumi.CustomResourceState
@@ -319,7 +324,7 @@ func (i *VirtualBowerRepository) ToVirtualBowerRepositoryOutputWithContext(ctx c
 // VirtualBowerRepositoryArrayInput is an input type that accepts VirtualBowerRepositoryArray and VirtualBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualBowerRepositoryArrayInput` via:
 //
-//          VirtualBowerRepositoryArray{ VirtualBowerRepositoryArgs{...} }
+//	VirtualBowerRepositoryArray{ VirtualBowerRepositoryArgs{...} }
 type VirtualBowerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -344,7 +349,7 @@ func (i VirtualBowerRepositoryArray) ToVirtualBowerRepositoryArrayOutputWithCont
 // VirtualBowerRepositoryMapInput is an input type that accepts VirtualBowerRepositoryMap and VirtualBowerRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualBowerRepositoryMapInput` via:
 //
-//          VirtualBowerRepositoryMap{ "key": VirtualBowerRepositoryArgs{...} }
+//	VirtualBowerRepositoryMap{ "key": VirtualBowerRepositoryArgs{...} }
 type VirtualBowerRepositoryMapInput interface {
 	pulumi.Input
 

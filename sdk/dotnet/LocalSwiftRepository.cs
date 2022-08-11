@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_swift_repo = new Artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", new()
     ///     {
-    ///         var terraform_local_test_swift_repo = new Artifactory.LocalSwiftRepository("terraform-local-test-swift-repo", new Artifactory.LocalSwiftRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-swift-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-swift-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localSwiftRepository:LocalSwiftRepository")]
-    public partial class LocalSwiftRepository : Pulumi.CustomResource
+    public partial class LocalSwiftRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalSwiftRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalSwiftRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalSwiftRepositoryArgs()
         {
         }
+        public static new LocalSwiftRepositoryArgs Empty => new LocalSwiftRepositoryArgs();
     }
 
-    public sealed class LocalSwiftRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalSwiftRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalSwiftRepositoryState()
         {
         }
+        public static new LocalSwiftRepositoryState Empty => new LocalSwiftRepositoryState();
     }
 }

@@ -16,23 +16,21 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var npm_remote = new Artifactory.RemoteNpmRepository("npm-remote", new()
     ///     {
-    ///         var npm_remote = new Artifactory.RemoteNpmRepository("npm-remote", new Artifactory.RemoteNpmRepositoryArgs
-    ///         {
-    ///             Key = "npm-remote",
-    ///             ListRemoteFolderItems = true,
-    ///             MismatchingMimeTypesOverrideList = "application/json,application/xml",
-    ///             Url = "https://registry.npmjs.org",
-    ///         });
-    ///     }
+    ///         Key = "npm-remote",
+    ///         ListRemoteFolderItems = true,
+    ///         MismatchingMimeTypesOverrideList = "application/json,application/xml",
+    ///         Url = "https://registry.npmjs.org",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteNpmRepository:RemoteNpmRepository")]
-    public partial class RemoteNpmRepository : Pulumi.CustomResource
+    public partial class RemoteNpmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -322,7 +320,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteNpmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteNpmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -565,9 +563,10 @@ namespace Pulumi.Artifactory
         public RemoteNpmRepositoryArgs()
         {
         }
+        public static new RemoteNpmRepositoryArgs Empty => new RemoteNpmRepositoryArgs();
     }
 
-    public sealed class RemoteNpmRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteNpmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -816,5 +815,6 @@ namespace Pulumi.Artifactory
         public RemoteNpmRepositoryState()
         {
         }
+        public static new RemoteNpmRepositoryState Empty => new RemoteNpmRepositoryState();
     }
 }

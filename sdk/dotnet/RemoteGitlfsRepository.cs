@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_gitlfs = new Artifactory.RemoteGitlfsRepository("my-remote-gitlfs", new()
     ///     {
-    ///         var my_remote_gitlfs = new Artifactory.RemoteGitlfsRepository("my-remote-gitlfs", new Artifactory.RemoteGitlfsRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-gitlfs",
-    ///             Url = "http://testartifactory.io/artifactory/example-gitlfs/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-gitlfs",
+    ///         Url = "http://testartifactory.io/artifactory/example-gitlfs/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository")]
-    public partial class RemoteGitlfsRepository : Pulumi.CustomResource
+    public partial class RemoteGitlfsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteGitlfsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteGitlfsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteGitlfsRepositoryArgs()
         {
         }
+        public static new RemoteGitlfsRepositoryArgs Empty => new RemoteGitlfsRepositoryArgs();
     }
 
-    public sealed class RemoteGitlfsRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteGitlfsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteGitlfsRepositoryState()
         {
         }
+        public static new RemoteGitlfsRepositoryState Empty => new RemoteGitlfsRepositoryState();
     }
 }

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalHelmRepository(ctx, "terraform-local-test-helm-repo", &artifactory.LocalHelmRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-helm-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalHelmRepository(ctx, "terraform-local-test-helm-repo", &artifactory.LocalHelmRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-helm-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
+//
+//	$ pulumi import artifactory:index/localHelmRepository:LocalHelmRepository terraform-local-test-helm-repo terraform-local-test-helm-repo
+//
 // ```
 type LocalHelmRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalHelmRepository) ToLocalHelmRepositoryOutputWithContext(ctx context
 // LocalHelmRepositoryArrayInput is an input type that accepts LocalHelmRepositoryArray and LocalHelmRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalHelmRepositoryArrayInput` via:
 //
-//          LocalHelmRepositoryArray{ LocalHelmRepositoryArgs{...} }
+//	LocalHelmRepositoryArray{ LocalHelmRepositoryArgs{...} }
 type LocalHelmRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalHelmRepositoryArray) ToLocalHelmRepositoryArrayOutputWithContext(ct
 // LocalHelmRepositoryMapInput is an input type that accepts LocalHelmRepositoryMap and LocalHelmRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalHelmRepositoryMapInput` via:
 //
-//          LocalHelmRepositoryMap{ "key": LocalHelmRepositoryArgs{...} }
+//	LocalHelmRepositoryMap{ "key": LocalHelmRepositoryArgs{...} }
 type LocalHelmRepositoryMapInput interface {
 	pulumi.Input
 

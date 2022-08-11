@@ -15,7 +15,7 @@ namespace Pulumi.Artifactory
     /// Artifactory **does not** retain scoped tokens and cannot be imported into state.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/scopedToken:ScopedToken")]
-    public partial class ScopedToken : Pulumi.CustomResource
+    public partial class ScopedToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Returns the access token to authenticate to Artifactory
@@ -133,7 +133,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ScopedTokenArgs : Pulumi.ResourceArgs
+    public sealed class ScopedTokenArgs : global::Pulumi.ResourceArgs
     {
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -186,9 +186,10 @@ namespace Pulumi.Artifactory
         public ScopedTokenArgs()
         {
         }
+        public static new ScopedTokenArgs Empty => new ScopedTokenArgs();
     }
 
-    public sealed class ScopedTokenState : Pulumi.ResourceArgs
+    public sealed class ScopedTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Returns the access token to authenticate to Artifactory
@@ -277,5 +278,6 @@ namespace Pulumi.Artifactory
         public ScopedTokenState()
         {
         }
+        public static new ScopedTokenState Empty => new ScopedTokenState();
     }
 }

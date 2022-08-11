@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCargoRepository(ctx, "terraform-federated-test-cargo-repo", &artifactory.FederatedCargoRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-cargo-repo"),
-// 			Members: FederatedCargoRepositoryMemberArray{
-// 				&FederatedCargoRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cargo-repo"),
-// 				},
-// 				&FederatedCargoRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedCargoRepository(ctx, "terraform-federated-test-cargo-repo", &artifactory.FederatedCargoRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-cargo-repo"),
+//				Members: FederatedCargoRepositoryMemberArray{
+//					&FederatedCargoRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cargo-repo"),
+//					},
+//					&FederatedCargoRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
+//
+//	$ pulumi import artifactory:index/federatedCargoRepository:FederatedCargoRepository terraform-federated-test-cargo-repo terraform-federated-test-cargo-repo
+//
 // ```
 type FederatedCargoRepository struct {
 	pulumi.CustomResourceState
@@ -353,7 +358,7 @@ func (i *FederatedCargoRepository) ToFederatedCargoRepositoryOutputWithContext(c
 // FederatedCargoRepositoryArrayInput is an input type that accepts FederatedCargoRepositoryArray and FederatedCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCargoRepositoryArrayInput` via:
 //
-//          FederatedCargoRepositoryArray{ FederatedCargoRepositoryArgs{...} }
+//	FederatedCargoRepositoryArray{ FederatedCargoRepositoryArgs{...} }
 type FederatedCargoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -378,7 +383,7 @@ func (i FederatedCargoRepositoryArray) ToFederatedCargoRepositoryArrayOutputWith
 // FederatedCargoRepositoryMapInput is an input type that accepts FederatedCargoRepositoryMap and FederatedCargoRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedCargoRepositoryMapInput` via:
 //
-//          FederatedCargoRepositoryMap{ "key": FederatedCargoRepositoryArgs{...} }
+//	FederatedCargoRepositoryMap{ "key": FederatedCargoRepositoryArgs{...} }
 type FederatedCargoRepositoryMapInput interface {
 	pulumi.Input
 

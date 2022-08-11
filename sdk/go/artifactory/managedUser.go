@@ -21,26 +21,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewManagedUser(ctx, "test-user", &artifactory.ManagedUserArgs{
-// 			Email: pulumi.String("test-user@artifactory-terraform.com"),
-// 			Groups: pulumi.StringArray{
-// 				pulumi.String("logged-in-users"),
-// 				pulumi.String("readers"),
-// 			},
-// 			Password: pulumi.String("my super secret password"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewManagedUser(ctx, "test-user", &artifactory.ManagedUserArgs{
+//				Email: pulumi.String("test-user@artifactory-terraform.com"),
+//				Groups: pulumi.StringArray{
+//					pulumi.String("logged-in-users"),
+//					pulumi.String("readers"),
+//				},
+//				Password: pulumi.String("my super secret password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Users can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
+//
+//	$ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername
+//
 // ```
 type ManagedUser struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *ManagedUser) ToManagedUserOutputWithContext(ctx context.Context) Manage
 // ManagedUserArrayInput is an input type that accepts ManagedUserArray and ManagedUserArrayOutput values.
 // You can construct a concrete instance of `ManagedUserArrayInput` via:
 //
-//          ManagedUserArray{ ManagedUserArgs{...} }
+//	ManagedUserArray{ ManagedUserArgs{...} }
 type ManagedUserArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i ManagedUserArray) ToManagedUserArrayOutputWithContext(ctx context.Contex
 // ManagedUserMapInput is an input type that accepts ManagedUserMap and ManagedUserMapOutput values.
 // You can construct a concrete instance of `ManagedUserMapInput` via:
 //
-//          ManagedUserMap{ "key": ManagedUserArgs{...} }
+//	ManagedUserMap{ "key": ManagedUserArgs{...} }
 type ManagedUserMapInput interface {
 	pulumi.Input
 

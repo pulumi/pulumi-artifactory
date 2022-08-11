@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class OauthSettingsOauthProviderArgs : Pulumi.ResourceArgs
+    public sealed class OauthSettingsOauthProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// OAuth user info endpoint for the IdP.
@@ -63,5 +63,6 @@ namespace Pulumi.Artifactory.Inputs
         public OauthSettingsOauthProviderArgs()
         {
         }
+        public static new OauthSettingsOauthProviderArgs Empty => new OauthSettingsOauthProviderArgs();
     }
 }

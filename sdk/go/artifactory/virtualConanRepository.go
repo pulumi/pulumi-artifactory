@@ -20,27 +20,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewVirtualConanRepository(ctx, "foo-conan", &artifactory.VirtualConanRepositoryArgs{
-// 			Description:     pulumi.String("A test virtual repo"),
-// 			ExcludesPattern: pulumi.String("com/google/**"),
-// 			IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-// 			Key:             pulumi.String("foo-conan"),
-// 			Notes:           pulumi.String("Internal description"),
-// 			RepoLayoutRef:   pulumi.String("conan-default"),
-// 			Repositories:    pulumi.StringArray{},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewVirtualConanRepository(ctx, "foo-conan", &artifactory.VirtualConanRepositoryArgs{
+//				Description:     pulumi.String("A test virtual repo"),
+//				ExcludesPattern: pulumi.String("com/google/**"),
+//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:             pulumi.String("foo-conan"),
+//				Notes:           pulumi.String("Internal description"),
+//				RepoLayoutRef:   pulumi.String("conan-default"),
+//				Repositories:    pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -48,7 +51,9 @@ import (
 // Virtual repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/virtualConanRepository:VirtualConanRepository foo-conan foo-conan
+//
+//	$ pulumi import artifactory:index/virtualConanRepository:VirtualConanRepository foo-conan foo-conan
+//
 // ```
 type VirtualConanRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *VirtualConanRepository) ToVirtualConanRepositoryOutputWithContext(ctx c
 // VirtualConanRepositoryArrayInput is an input type that accepts VirtualConanRepositoryArray and VirtualConanRepositoryArrayOutput values.
 // You can construct a concrete instance of `VirtualConanRepositoryArrayInput` via:
 //
-//          VirtualConanRepositoryArray{ VirtualConanRepositoryArgs{...} }
+//	VirtualConanRepositoryArray{ VirtualConanRepositoryArgs{...} }
 type VirtualConanRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i VirtualConanRepositoryArray) ToVirtualConanRepositoryArrayOutputWithCont
 // VirtualConanRepositoryMapInput is an input type that accepts VirtualConanRepositoryMap and VirtualConanRepositoryMapOutput values.
 // You can construct a concrete instance of `VirtualConanRepositoryMapInput` via:
 //
-//          VirtualConanRepositoryMap{ "key": VirtualConanRepositoryArgs{...} }
+//	VirtualConanRepositoryMap{ "key": VirtualConanRepositoryArgs{...} }
 type VirtualConanRepositoryMapInput interface {
 	pulumi.Input
 

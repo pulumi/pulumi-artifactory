@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_vagrant_repo = new Artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo", new()
     ///     {
-    ///         var terraform_federated_test_vagrant_repo = new Artifactory.FederatedVagrantRepository("terraform-federated-test-vagrant-repo", new Artifactory.FederatedVagrantRepositoryArgs
+    ///         Key = "terraform-federated-test-vagrant-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-vagrant-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-vagrant-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedVagrantRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-vagrant-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedVagrantRepository:FederatedVagrantRepository")]
-    public partial class FederatedVagrantRepository : Pulumi.CustomResource
+    public partial class FederatedVagrantRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedVagrantRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedVagrantRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedVagrantRepositoryArgs()
         {
         }
+        public static new FederatedVagrantRepositoryArgs Empty => new FederatedVagrantRepositoryArgs();
     }
 
-    public sealed class FederatedVagrantRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedVagrantRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedVagrantRepositoryState()
         {
         }
+        public static new FederatedVagrantRepositoryState Empty => new FederatedVagrantRepositoryState();
     }
 }

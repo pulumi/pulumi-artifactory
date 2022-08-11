@@ -16,23 +16,21 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var pypi_remote = new Artifactory.RemotePypiRepository("pypi-remote", new()
     ///     {
-    ///         var pypi_remote = new Artifactory.RemotePypiRepository("pypi-remote", new Artifactory.RemotePypiRepositoryArgs
-    ///         {
-    ///             Key = "pypi-remote-foo",
-    ///             PypiRegistryUrl = "https://pypi.org",
-    ///             PypiRepositorySuffix = "simple",
-    ///             Url = "https://files.pythonhosted.org",
-    ///         });
-    ///     }
+    ///         Key = "pypi-remote-foo",
+    ///         PypiRegistryUrl = "https://pypi.org",
+    ///         PypiRepositorySuffix = "simple",
+    ///         Url = "https://files.pythonhosted.org",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +42,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remotePypiRepository:RemotePypiRepository")]
-    public partial class RemotePypiRepository : Pulumi.CustomResource
+    public partial class RemotePypiRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -334,7 +332,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemotePypiRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemotePypiRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -589,9 +587,10 @@ namespace Pulumi.Artifactory
         public RemotePypiRepositoryArgs()
         {
         }
+        public static new RemotePypiRepositoryArgs Empty => new RemotePypiRepositoryArgs();
     }
 
-    public sealed class RemotePypiRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemotePypiRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -852,5 +851,6 @@ namespace Pulumi.Artifactory
         public RemotePypiRepositoryState()
         {
         }
+        public static new RemotePypiRepositoryState Empty => new RemotePypiRepositoryState();
     }
 }

@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_composer_repo = new Artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo", new()
     ///     {
-    ///         var terraform_federated_test_composer_repo = new Artifactory.FederatedComposerRepository("terraform-federated-test-composer-repo", new Artifactory.FederatedComposerRepositoryArgs
+    ///         Key = "terraform-federated-test-composer-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-composer-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedComposerRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedComposerRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedComposerRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-composer-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedComposerRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-composer-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedComposerRepository:FederatedComposerRepository")]
-    public partial class FederatedComposerRepository : Pulumi.CustomResource
+    public partial class FederatedComposerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedComposerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedComposerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedComposerRepositoryArgs()
         {
         }
+        public static new FederatedComposerRepositoryArgs Empty => new FederatedComposerRepositoryArgs();
     }
 
-    public sealed class FederatedComposerRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedComposerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedComposerRepositoryState()
         {
         }
+        public static new FederatedComposerRepositoryState Empty => new FederatedComposerRepositoryState();
     }
 }

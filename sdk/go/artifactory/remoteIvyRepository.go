@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteIvyRepository(ctx, "ivy-remote", &artifactory.RemoteIvyRepositoryArgs{
-// 			FetchJarsEagerly:             pulumi.Bool(true),
-// 			FetchSourcesEagerly:          pulumi.Bool(false),
-// 			Key:                          pulumi.String("ivy-remote-foo"),
-// 			RejectInvalidJars:            pulumi.Bool(true),
-// 			SuppressPomConsistencyChecks: pulumi.Bool(true),
-// 			Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteIvyRepository(ctx, "ivy-remote", &artifactory.RemoteIvyRepositoryArgs{
+//				FetchJarsEagerly:             pulumi.Bool(true),
+//				FetchSourcesEagerly:          pulumi.Bool(false),
+//				Key:                          pulumi.String("ivy-remote-foo"),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				SuppressPomConsistencyChecks: pulumi.Bool(true),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteIvyRepository:RemoteIvyRepository ivy-remote ivy-remote
+//
+//	$ pulumi import artifactory:index/remoteIvyRepository:RemoteIvyRepository ivy-remote ivy-remote
+//
 // ```
 type RemoteIvyRepository struct {
 	pulumi.CustomResourceState
@@ -660,7 +665,7 @@ func (i *RemoteIvyRepository) ToRemoteIvyRepositoryOutputWithContext(ctx context
 // RemoteIvyRepositoryArrayInput is an input type that accepts RemoteIvyRepositoryArray and RemoteIvyRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteIvyRepositoryArrayInput` via:
 //
-//          RemoteIvyRepositoryArray{ RemoteIvyRepositoryArgs{...} }
+//	RemoteIvyRepositoryArray{ RemoteIvyRepositoryArgs{...} }
 type RemoteIvyRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -685,7 +690,7 @@ func (i RemoteIvyRepositoryArray) ToRemoteIvyRepositoryArrayOutputWithContext(ct
 // RemoteIvyRepositoryMapInput is an input type that accepts RemoteIvyRepositoryMap and RemoteIvyRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteIvyRepositoryMapInput` via:
 //
-//          RemoteIvyRepositoryMap{ "key": RemoteIvyRepositoryArgs{...} }
+//	RemoteIvyRepositoryMap{ "key": RemoteIvyRepositoryArgs{...} }
 type RemoteIvyRepositoryMapInput interface {
 	pulumi.Input
 

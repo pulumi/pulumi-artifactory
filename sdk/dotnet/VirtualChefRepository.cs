@@ -16,25 +16,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_chef = new Artifactory.VirtualChefRepository("foo-chef", new()
     ///     {
-    ///         var foo_chef = new Artifactory.VirtualChefRepository("foo-chef", new Artifactory.VirtualChefRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-chef",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-chef",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +44,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualChefRepository:VirtualChefRepository")]
-    public partial class VirtualChefRepository : Pulumi.CustomResource
+    public partial class VirtualChefRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -177,7 +175,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualChefRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualChefRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -273,9 +271,10 @@ namespace Pulumi.Artifactory
         public VirtualChefRepositoryArgs()
         {
         }
+        public static new VirtualChefRepositoryArgs Empty => new VirtualChefRepositoryArgs();
     }
 
-    public sealed class VirtualChefRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualChefRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -377,5 +376,6 @@ namespace Pulumi.Artifactory
         public VirtualChefRepositoryState()
         {
         }
+        public static new VirtualChefRepositoryState Empty => new VirtualChefRepositoryState();
     }
 }

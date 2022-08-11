@@ -20,26 +20,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
-// 			FetchJarsEagerly:             pulumi.Bool(true),
-// 			FetchSourcesEagerly:          pulumi.Bool(false),
-// 			Key:                          pulumi.String("maven-remote-foo"),
-// 			RejectInvalidJars:            pulumi.Bool(true),
-// 			SuppressPomConsistencyChecks: pulumi.Bool(false),
-// 			Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
+//				FetchJarsEagerly:             pulumi.Bool(true),
+//				FetchSourcesEagerly:          pulumi.Bool(false),
+//				Key:                          pulumi.String("maven-remote-foo"),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				SuppressPomConsistencyChecks: pulumi.Bool(false),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -47,7 +50,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
+//
+//	$ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote
+//
 // ```
 type RemoteMavenRepository struct {
 	pulumi.CustomResourceState
@@ -660,7 +665,7 @@ func (i *RemoteMavenRepository) ToRemoteMavenRepositoryOutputWithContext(ctx con
 // RemoteMavenRepositoryArrayInput is an input type that accepts RemoteMavenRepositoryArray and RemoteMavenRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteMavenRepositoryArrayInput` via:
 //
-//          RemoteMavenRepositoryArray{ RemoteMavenRepositoryArgs{...} }
+//	RemoteMavenRepositoryArray{ RemoteMavenRepositoryArgs{...} }
 type RemoteMavenRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -685,7 +690,7 @@ func (i RemoteMavenRepositoryArray) ToRemoteMavenRepositoryArrayOutputWithContex
 // RemoteMavenRepositoryMapInput is an input type that accepts RemoteMavenRepositoryMap and RemoteMavenRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteMavenRepositoryMapInput` via:
 //
-//          RemoteMavenRepositoryMap{ "key": RemoteMavenRepositoryArgs{...} }
+//	RemoteMavenRepositoryMap{ "key": RemoteMavenRepositoryArgs{...} }
 type RemoteMavenRepositoryMapInput interface {
 	pulumi.Input
 

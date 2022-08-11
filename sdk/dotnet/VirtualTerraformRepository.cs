@@ -13,25 +13,23 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_virtual = new Artifactory.VirtualTerraformRepository("terraform-virtual", new()
     ///     {
-    ///         var terraform_virtual = new Artifactory.VirtualTerraformRepository("terraform-virtual", new Artifactory.VirtualTerraformRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "terraform-remote",
-    ///             Notes = "Internal description",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "terraform-remote",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualTerraformRepository:VirtualTerraformRepository")]
-    public partial class VirtualTerraformRepository : Pulumi.CustomResource
+    public partial class VirtualTerraformRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualTerraformRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualTerraformRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -270,9 +268,10 @@ namespace Pulumi.Artifactory
         public VirtualTerraformRepositoryArgs()
         {
         }
+        public static new VirtualTerraformRepositoryArgs Empty => new VirtualTerraformRepositoryArgs();
     }
 
-    public sealed class VirtualTerraformRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualTerraformRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -374,5 +373,6 @@ namespace Pulumi.Artifactory
         public VirtualTerraformRepositoryState()
         {
         }
+        public static new VirtualTerraformRepositoryState Empty => new VirtualTerraformRepositoryState();
     }
 }

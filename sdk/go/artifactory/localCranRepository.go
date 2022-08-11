@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCranRepository(ctx, "terraform-local-test-cran-repo", &artifactory.LocalCranRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-cran-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalCranRepository(ctx, "terraform-local-test-cran-repo", &artifactory.LocalCranRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-cran-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localCranRepository:LocalCranRepository terraform-local-test-cran-repo terraform-local-test-cran-repo
+//
+//	$ pulumi import artifactory:index/localCranRepository:LocalCranRepository terraform-local-test-cran-repo terraform-local-test-cran-repo
+//
 // ```
 type LocalCranRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalCranRepository) ToLocalCranRepositoryOutputWithContext(ctx context
 // LocalCranRepositoryArrayInput is an input type that accepts LocalCranRepositoryArray and LocalCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCranRepositoryArrayInput` via:
 //
-//          LocalCranRepositoryArray{ LocalCranRepositoryArgs{...} }
+//	LocalCranRepositoryArray{ LocalCranRepositoryArgs{...} }
 type LocalCranRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalCranRepositoryArray) ToLocalCranRepositoryArrayOutputWithContext(ct
 // LocalCranRepositoryMapInput is an input type that accepts LocalCranRepositoryMap and LocalCranRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalCranRepositoryMapInput` via:
 //
-//          LocalCranRepositoryMap{ "key": LocalCranRepositoryArgs{...} }
+//	LocalCranRepositoryMap{ "key": LocalCranRepositoryArgs{...} }
 type LocalCranRepositoryMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class AccessTokenAdminTokenArgs : Pulumi.ResourceArgs
+    public sealed class AccessTokenAdminTokenArgs : global::Pulumi.ResourceArgs
     {
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Artifactory.Inputs
         public AccessTokenAdminTokenArgs()
         {
         }
+        public static new AccessTokenAdminTokenArgs Empty => new AccessTokenAdminTokenArgs();
     }
 }

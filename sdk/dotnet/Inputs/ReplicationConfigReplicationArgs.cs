@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class ReplicationConfigReplicationArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigReplicationArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -51,5 +51,6 @@ namespace Pulumi.Artifactory.Inputs
         public ReplicationConfigReplicationArgs()
         {
         }
+        public static new ReplicationConfigReplicationArgs Empty => new ReplicationConfigReplicationArgs();
     }
 }

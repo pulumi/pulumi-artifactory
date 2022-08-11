@@ -17,27 +17,25 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a new Artifactory user called terraform
+    ///     var test_user = new Artifactory.UnmanagedUser("test-user", new()
     ///     {
-    ///         // Create a new Artifactory user called terraform
-    ///         var test_user = new Artifactory.UnmanagedUser("test-user", new Artifactory.UnmanagedUserArgs
+    ///         Email = "test-user@artifactory-terraform.com",
+    ///         Groups = new[]
     ///         {
-    ///             Email = "test-user@artifactory-terraform.com",
-    ///             Groups = 
-    ///             {
-    ///                 "logged-in-users",
-    ///                 "readers",
-    ///             },
-    ///             Password = "my super secret password",
-    ///         });
-    ///     }
+    ///             "logged-in-users",
+    ///             "readers",
+    ///         },
+    ///         Password = "my super secret password",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/unmanagedUser:UnmanagedUser")]
-    public partial class UnmanagedUser : Pulumi.CustomResource
+    public partial class UnmanagedUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -143,7 +141,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class UnmanagedUserArgs : Pulumi.ResourceArgs
+    public sealed class UnmanagedUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -202,9 +200,10 @@ namespace Pulumi.Artifactory
         public UnmanagedUserArgs()
         {
         }
+        public static new UnmanagedUserArgs Empty => new UnmanagedUserArgs();
     }
 
-    public sealed class UnmanagedUserState : Pulumi.ResourceArgs
+    public sealed class UnmanagedUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
@@ -263,5 +262,6 @@ namespace Pulumi.Artifactory
         public UnmanagedUserState()
         {
         }
+        public static new UnmanagedUserState Empty => new UnmanagedUserState();
     }
 }

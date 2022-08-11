@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedPypiRepository(ctx, "terraform-federated-test-pypi-repo", &artifactory.FederatedPypiRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-pypi-repo"),
-// 			Members: FederatedPypiRepositoryMemberArray{
-// 				&FederatedPypiRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-pypi-repo"),
-// 				},
-// 				&FederatedPypiRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedPypiRepository(ctx, "terraform-federated-test-pypi-repo", &artifactory.FederatedPypiRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-pypi-repo"),
+//				Members: FederatedPypiRepositoryMemberArray{
+//					&FederatedPypiRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-pypi-repo"),
+//					},
+//					&FederatedPypiRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-pypi-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedPypiRepository:FederatedPypiRepository terraform-federated-test-pypi-repo terraform-federated-test-pypi-repo
+//
+//	$ pulumi import artifactory:index/federatedPypiRepository:FederatedPypiRepository terraform-federated-test-pypi-repo terraform-federated-test-pypi-repo
+//
 // ```
 type FederatedPypiRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedPypiRepository) ToFederatedPypiRepositoryOutputWithContext(ctx
 // FederatedPypiRepositoryArrayInput is an input type that accepts FederatedPypiRepositoryArray and FederatedPypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedPypiRepositoryArrayInput` via:
 //
-//          FederatedPypiRepositoryArray{ FederatedPypiRepositoryArgs{...} }
+//	FederatedPypiRepositoryArray{ FederatedPypiRepositoryArgs{...} }
 type FederatedPypiRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedPypiRepositoryArray) ToFederatedPypiRepositoryArrayOutputWithCo
 // FederatedPypiRepositoryMapInput is an input type that accepts FederatedPypiRepositoryMap and FederatedPypiRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedPypiRepositoryMapInput` via:
 //
-//          FederatedPypiRepositoryMap{ "key": FederatedPypiRepositoryArgs{...} }
+//	FederatedPypiRepositoryMap{ "key": FederatedPypiRepositoryArgs{...} }
 type FederatedPypiRepositoryMapInput interface {
 	pulumi.Input
 

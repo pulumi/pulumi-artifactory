@@ -16,60 +16,58 @@ namespace Pulumi.Artifactory
     /// 
     /// .
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var build_webhook = new Artifactory.BuildWebhook("build-webhook", new()
     ///     {
-    ///         var build_webhook = new Artifactory.BuildWebhook("build-webhook", new Artifactory.BuildWebhookArgs
+    ///         Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
     ///         {
-    ///             Criteria = new Artifactory.Inputs.BuildWebhookCriteriaArgs
+    ///             AnyBuild = true,
+    ///             ExcludePatterns = new[]
     ///             {
-    ///                 AnyBuild = true,
-    ///                 ExcludePatterns = 
-    ///                 {
-    ///                     "bar/**",
-    ///                 },
-    ///                 IncludePatterns = 
-    ///                 {
-    ///                     "foo/**",
-    ///                 },
-    ///                 SelectedBuilds = 
-    ///                 {
-    ///                     "build-id",
-    ///                 },
+    ///                 "bar/**",
     ///             },
-    ///             EventTypes = 
+    ///             IncludePatterns = new[]
     ///             {
-    ///                 "uploaded",
-    ///                 "deleted",
-    ///                 "promoted",
+    ///                 "foo/**",
     ///             },
-    ///             Handlers = 
+    ///             SelectedBuilds = new[]
     ///             {
-    ///                 new Artifactory.Inputs.BuildWebhookHandlerArgs
-    ///                 {
-    ///                     CustomHttpHeaders = 
-    ///                     {
-    ///                         { "header-1", "value-1" },
-    ///                         { "header-2", "value-2" },
-    ///                     },
-    ///                     Proxy = "proxy-key",
-    ///                     Secret = "some-secret",
-    ///                     Url = "http://tempurl.org/webhook",
-    ///                 },
+    ///                 "build-id",
     ///             },
-    ///             Key = "build-webhook",
-    ///         });
-    ///     }
+    ///         },
+    ///         EventTypes = new[]
+    ///         {
+    ///             "uploaded",
+    ///             "deleted",
+    ///             "promoted",
+    ///         },
+    ///         Handlers = new[]
+    ///         {
+    ///             new Artifactory.Inputs.BuildWebhookHandlerArgs
+    ///             {
+    ///                 CustomHttpHeaders = 
+    ///                 {
+    ///                     { "header-1", "value-1" },
+    ///                     { "header-2", "value-2" },
+    ///                 },
+    ///                 Proxy = "proxy-key",
+    ///                 Secret = "some-secret",
+    ///                 Url = "http://tempurl.org/webhook",
+    ///             },
+    ///         },
+    ///         Key = "build-webhook",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/buildWebhook:BuildWebhook")]
-    public partial class BuildWebhook : Pulumi.CustomResource
+    public partial class BuildWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -151,7 +149,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class BuildWebhookArgs : Pulumi.ResourceArgs
+    public sealed class BuildWebhookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -204,9 +202,10 @@ namespace Pulumi.Artifactory
         public BuildWebhookArgs()
         {
         }
+        public static new BuildWebhookArgs Empty => new BuildWebhookArgs();
     }
 
-    public sealed class BuildWebhookState : Pulumi.ResourceArgs
+    public sealed class BuildWebhookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies where the webhook will be applied on which repositories.
@@ -259,5 +258,6 @@ namespace Pulumi.Artifactory
         public BuildWebhookState()
         {
         }
+        public static new BuildWebhookState Empty => new BuildWebhookState();
     }
 }

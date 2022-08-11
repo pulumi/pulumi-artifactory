@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
-// 			AllowUserToAccessProfile: pulumi.Bool(true),
-// 			Enable:                   pulumi.Bool(true),
-// 			OauthProviders: OauthSettingsOauthProviderArray{
-// 				&OauthSettingsOauthProviderArgs{
-// 					ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
-// 					AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
-// 					ClientId:     pulumi.String("foo"),
-// 					ClientSecret: pulumi.String("bar"),
-// 					Enabled:      pulumi.Bool(false),
-// 					Name:         pulumi.String("okta"),
-// 					TokenUrl:     pulumi.String("https://organization.okta.com/oauth2/v1/token"),
-// 					Type:         pulumi.String("openId"),
-// 				},
-// 			},
-// 			PersistUsers: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
+//				AllowUserToAccessProfile: pulumi.Bool(true),
+//				Enable:                   pulumi.Bool(true),
+//				OauthProviders: OauthSettingsOauthProviderArray{
+//					&OauthSettingsOauthProviderArgs{
+//						ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
+//						AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
+//						ClientId:     pulumi.String("foo"),
+//						ClientSecret: pulumi.String("bar"),
+//						Enabled:      pulumi.Bool(false),
+//						Name:         pulumi.String("okta"),
+//						TokenUrl:     pulumi.String("https://organization.okta.com/oauth2/v1/token"),
+//						Type:         pulumi.String("openId"),
+//					},
+//				},
+//				PersistUsers: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Current OAuth SSO settings can be imported using `oauth_settings` as the `ID`, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+//
+//	$ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings
+//
 // ```
 type OauthSettings struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *OauthSettings) ToOauthSettingsOutputWithContext(ctx context.Context) Oa
 // OauthSettingsArrayInput is an input type that accepts OauthSettingsArray and OauthSettingsArrayOutput values.
 // You can construct a concrete instance of `OauthSettingsArrayInput` via:
 //
-//          OauthSettingsArray{ OauthSettingsArgs{...} }
+//	OauthSettingsArray{ OauthSettingsArgs{...} }
 type OauthSettingsArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i OauthSettingsArray) ToOauthSettingsArrayOutputWithContext(ctx context.Co
 // OauthSettingsMapInput is an input type that accepts OauthSettingsMap and OauthSettingsMapOutput values.
 // You can construct a concrete instance of `OauthSettingsMapInput` via:
 //
-//          OauthSettingsMap{ "key": OauthSettingsArgs{...} }
+//	OauthSettingsMap{ "key": OauthSettingsArgs{...} }
 type OauthSettingsMapInput interface {
 	pulumi.Input
 

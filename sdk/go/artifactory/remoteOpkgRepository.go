@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteOpkgRepository(ctx, "my-remote-opkg", &artifactory.RemoteOpkgRepositoryArgs{
-// 			Key: pulumi.String("my-remote-opkg"),
-// 			Url: pulumi.String("http://testartifactory.io/artifactory/example-opkg/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteOpkgRepository(ctx, "my-remote-opkg", &artifactory.RemoteOpkgRepositoryArgs{
+//				Key: pulumi.String("my-remote-opkg"),
+//				Url: pulumi.String("http://testartifactory.io/artifactory/example-opkg/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteOpkgRepository:RemoteOpkgRepository my-remote-opkg my-remote-opkg
+//
+//	$ pulumi import artifactory:index/remoteOpkgRepository:RemoteOpkgRepository my-remote-opkg my-remote-opkg
+//
 // ```
 type RemoteOpkgRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteOpkgRepository) ToRemoteOpkgRepositoryOutputWithContext(ctx conte
 // RemoteOpkgRepositoryArrayInput is an input type that accepts RemoteOpkgRepositoryArray and RemoteOpkgRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteOpkgRepositoryArrayInput` via:
 //
-//          RemoteOpkgRepositoryArray{ RemoteOpkgRepositoryArgs{...} }
+//	RemoteOpkgRepositoryArray{ RemoteOpkgRepositoryArgs{...} }
 type RemoteOpkgRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteOpkgRepositoryArray) ToRemoteOpkgRepositoryArrayOutputWithContext(
 // RemoteOpkgRepositoryMapInput is an input type that accepts RemoteOpkgRepositoryMap and RemoteOpkgRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteOpkgRepositoryMapInput` via:
 //
-//          RemoteOpkgRepositoryMap{ "key": RemoteOpkgRepositoryArgs{...} }
+//	RemoteOpkgRepositoryMap{ "key": RemoteOpkgRepositoryArgs{...} }
 type RemoteOpkgRepositoryMapInput interface {
 	pulumi.Input
 

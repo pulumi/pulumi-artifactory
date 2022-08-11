@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_conan_repo = new Artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", new()
     ///     {
-    ///         var terraform_federated_test_conan_repo = new Artifactory.FederatedConanRepository("terraform-federated-test-conan-repo", new Artifactory.FederatedConanRepositoryArgs
+    ///         Key = "terraform-federated-test-conan-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-conan-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-conan-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedConanRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-conan-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +53,7 @@ namespace Pulumi.Artifactory
     ///  .terraform-federated-test-conan-repo terraform-federated-test-conan-repo
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedConanRepository:FederatedConanRepository")]
-    public partial class FederatedConanRepository : Pulumi.CustomResource
+    public partial class FederatedConanRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -198,7 +196,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedConanRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedConanRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -315,9 +313,10 @@ namespace Pulumi.Artifactory
         public FederatedConanRepositoryArgs()
         {
         }
+        public static new FederatedConanRepositoryArgs Empty => new FederatedConanRepositoryArgs();
     }
 
-    public sealed class FederatedConanRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedConanRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -437,5 +436,6 @@ namespace Pulumi.Artifactory
         public FederatedConanRepositoryState()
         {
         }
+        public static new FederatedConanRepositoryState Empty => new FederatedConanRepositoryState();
     }
 }

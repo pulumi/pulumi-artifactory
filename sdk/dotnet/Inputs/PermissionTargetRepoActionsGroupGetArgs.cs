@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class PermissionTargetRepoActionsGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class PermissionTargetRepoActionsGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of permission.
@@ -29,5 +29,6 @@ namespace Pulumi.Artifactory.Inputs
         public PermissionTargetRepoActionsGroupGetArgs()
         {
         }
+        public static new PermissionTargetRepoActionsGroupGetArgs Empty => new PermissionTargetRepoActionsGroupGetArgs();
     }
 }

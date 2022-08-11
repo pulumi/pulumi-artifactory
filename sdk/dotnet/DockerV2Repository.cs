@@ -15,22 +15,20 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo = new Artifactory.DockerV2Repository("foo", new()
     ///     {
-    ///         var foo = new Artifactory.DockerV2Repository("foo", new Artifactory.DockerV2RepositoryArgs
-    ///         {
-    ///             Key = "foo",
-    ///             MaxUniqueTags = 5,
-    ///             TagRetention = 3,
-    ///         });
-    ///     }
+    ///         Key = "foo",
+    ///         MaxUniqueTags = 5,
+    ///         TagRetention = 3,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/dockerV2Repository:DockerV2Repository")]
-    public partial class DockerV2Repository : Pulumi.CustomResource
+    public partial class DockerV2Repository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Docker API version to use. This cannot be set
@@ -204,7 +202,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class DockerV2RepositoryArgs : Pulumi.ResourceArgs
+    public sealed class DockerV2RepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -328,9 +326,10 @@ namespace Pulumi.Artifactory
         public DockerV2RepositoryArgs()
         {
         }
+        public static new DockerV2RepositoryArgs Empty => new DockerV2RepositoryArgs();
     }
 
-    public sealed class DockerV2RepositoryState : Pulumi.ResourceArgs
+    public sealed class DockerV2RepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Docker API version to use. This cannot be set
@@ -463,5 +462,6 @@ namespace Pulumi.Artifactory
         public DockerV2RepositoryState()
         {
         }
+        public static new DockerV2RepositoryState Empty => new DockerV2RepositoryState();
     }
 }

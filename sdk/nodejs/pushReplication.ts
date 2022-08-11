@@ -17,22 +17,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
+ * const config = new pulumi.Config();
+ * const artifactoryUrl = config.require("artifactoryUrl");
+ * const artifactoryUsername = config.require("artifactoryUsername");
+ * const artifactoryPassword = config.require("artifactoryPassword");
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
- *     key: "provider_test_source",
- * });
- * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {
- *     key: "provider_test_dest",
- * });
+ * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
  * const foo_rep = new artifactory.PushReplication("foo-rep", {
+ *     repoKey: providerTestSource.key,
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [{
- *         password: "$var.artifactory_password",
- *         url: "$var.artifactory_url",
- *         username: "$var.artifactory_username",
+ *         url: pulumi.interpolate`${artifactoryUrl}/${providerTestDest.key}`,
+ *         username: `$var.artifactory_username`,
+ *         password: `$var.artifactory_password`,
+ *         enabled: true,
  *     }],
- *     repoKey: providerTestSource.key,
  * });
  * ```
  *

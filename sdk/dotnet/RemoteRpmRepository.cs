@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_rpm = new Artifactory.RemoteRpmRepository("my-remote-rpm", new()
     ///     {
-    ///         var my_remote_rpm = new Artifactory.RemoteRpmRepository("my-remote-rpm", new Artifactory.RemoteRpmRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-rpm",
-    ///             Url = "http://mirror.centos.org/centos/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-rpm",
+    ///         Url = "http://mirror.centos.org/centos/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteRpmRepository:RemoteRpmRepository")]
-    public partial class RemoteRpmRepository : Pulumi.CustomResource
+    public partial class RemoteRpmRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteRpmRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteRpmRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteRpmRepositoryArgs()
         {
         }
+        public static new RemoteRpmRepositoryArgs Empty => new RemoteRpmRepositoryArgs();
     }
 
-    public sealed class RemoteRpmRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteRpmRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteRpmRepositoryState()
         {
         }
+        public static new RemoteRpmRepositoryState Empty => new RemoteRpmRepositoryState();
     }
 }

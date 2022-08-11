@@ -18,28 +18,26 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Configure Artifactory Backup system config
+    ///     var backupConfigName = new Artifactory.Backup("backupConfigName", new()
     ///     {
-    ///         // Configure Artifactory Backup system config
-    ///         var backupConfigName = new Artifactory.Backup("backupConfigName", new Artifactory.BackupArgs
-    ///         {
-    ///             CreateArchive = false,
-    ///             CronExp = "0 0 12 * * ?",
-    ///             Enabled = true,
-    ///             ExcludeNewRepositories = true,
-    ///             ExcludedRepositories = {},
-    ///             Key = "backup_config_name",
-    ///             RetentionPeriodHours = 1000,
-    ///             SendMailOnError = true,
-    ///         });
-    ///     }
+    ///         CreateArchive = false,
+    ///         CronExp = "0 0 12 * * ?",
+    ///         Enabled = true,
+    ///         ExcludeNewRepositories = true,
+    ///         ExcludedRepositories = new[] {},
+    ///         Key = "backup_config_name",
+    ///         RetentionPeriodHours = 1000,
+    ///         SendMailOnError = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// Note: `Key` argument has to match to the resource name.\
     /// Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/backup:Backup")]
-    public partial class Backup : Pulumi.CustomResource
+    public partial class Backup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
@@ -147,7 +145,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class BackupArgs : Pulumi.ResourceArgs
+    public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
@@ -206,9 +204,10 @@ namespace Pulumi.Artifactory
         public BackupArgs()
         {
         }
+        public static new BackupArgs Empty => new BackupArgs();
     }
 
-    public sealed class BackupState : Pulumi.ResourceArgs
+    public sealed class BackupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
@@ -267,5 +266,6 @@ namespace Pulumi.Artifactory
         public BackupState()
         {
         }
+        public static new BackupState Empty => new BackupState();
     }
 }

@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalPuppetRepository(ctx, "terraform-local-test-puppet-repo", &artifactory.LocalPuppetRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-puppet-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalPuppetRepository(ctx, "terraform-local-test-puppet-repo", &artifactory.LocalPuppetRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-puppet-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
+//
+//	$ pulumi import artifactory:index/localPuppetRepository:LocalPuppetRepository terraform-local-test-puppet-repo terraform-local-test-puppet-repo
+//
 // ```
 type LocalPuppetRepository struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *LocalPuppetRepository) ToLocalPuppetRepositoryOutputWithContext(ctx con
 // LocalPuppetRepositoryArrayInput is an input type that accepts LocalPuppetRepositoryArray and LocalPuppetRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalPuppetRepositoryArrayInput` via:
 //
-//          LocalPuppetRepositoryArray{ LocalPuppetRepositoryArgs{...} }
+//	LocalPuppetRepositoryArray{ LocalPuppetRepositoryArgs{...} }
 type LocalPuppetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i LocalPuppetRepositoryArray) ToLocalPuppetRepositoryArrayOutputWithContex
 // LocalPuppetRepositoryMapInput is an input type that accepts LocalPuppetRepositoryMap and LocalPuppetRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalPuppetRepositoryMapInput` via:
 //
-//          LocalPuppetRepositoryMap{ "key": LocalPuppetRepositoryArgs{...} }
+//	LocalPuppetRepositoryMap{ "key": LocalPuppetRepositoryArgs{...} }
 type LocalPuppetRepositoryMapInput interface {
 	pulumi.Input
 

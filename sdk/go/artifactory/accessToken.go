@@ -175,7 +175,7 @@ func (i *AccessToken) ToAccessTokenOutputWithContext(ctx context.Context) Access
 // AccessTokenArrayInput is an input type that accepts AccessTokenArray and AccessTokenArrayOutput values.
 // You can construct a concrete instance of `AccessTokenArrayInput` via:
 //
-//          AccessTokenArray{ AccessTokenArgs{...} }
+//	AccessTokenArray{ AccessTokenArgs{...} }
 type AccessTokenArrayInput interface {
 	pulumi.Input
 
@@ -200,7 +200,7 @@ func (i AccessTokenArray) ToAccessTokenArrayOutputWithContext(ctx context.Contex
 // AccessTokenMapInput is an input type that accepts AccessTokenMap and AccessTokenMapOutput values.
 // You can construct a concrete instance of `AccessTokenMapInput` via:
 //
-//          AccessTokenMap{ "key": AccessTokenArgs{...} }
+//	AccessTokenMap{ "key": AccessTokenArgs{...} }
 type AccessTokenMapInput interface {
 	pulumi.Input
 

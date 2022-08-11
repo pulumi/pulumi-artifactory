@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.GetFileinfo(ctx, &GetFileinfoArgs{
-// 			Path:       "/path/to/the/artifact.zip",
-// 			Repository: "repo-key",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.GetFileinfo(ctx, &GetFileinfoArgs{
+//				Path:       "/path/to/the/artifact.zip",
+//				Repository: "repo-key",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetFileinfo(ctx *pulumi.Context, args *GetFileinfoArgs, opts ...pulumi.InvokeOption) (*GetFileinfoResult, error) {
 	var rv GetFileinfoResult

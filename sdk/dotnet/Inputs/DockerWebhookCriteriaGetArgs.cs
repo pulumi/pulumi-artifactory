@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory.Inputs
 {
 
-    public sealed class DockerWebhookCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class DockerWebhookCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Trigger on any local repo.
@@ -63,5 +63,6 @@ namespace Pulumi.Artifactory.Inputs
         public DockerWebhookCriteriaGetArgs()
         {
         }
+        public static new DockerWebhookCriteriaGetArgs Empty => new DockerWebhookCriteriaGetArgs();
     }
 }

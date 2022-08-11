@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedGradleRepository(ctx, "terraform-federated-test-gradle-repo", &artifactory.FederatedGradleRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-gradle-repo"),
-// 			Members: FederatedGradleRepositoryMemberArray{
-// 				&FederatedGradleRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gradle-repo"),
-// 				},
-// 				&FederatedGradleRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedGradleRepository(ctx, "terraform-federated-test-gradle-repo", &artifactory.FederatedGradleRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-gradle-repo"),
+//				Members: FederatedGradleRepositoryMemberArray{
+//					&FederatedGradleRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-gradle-repo"),
+//					},
+//					&FederatedGradleRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-gradle-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedGradleRepository:FederatedGradleRepository terraform-federated-test-gradle-repo terraform-federated-test-gradle-repo
+//
+//	$ pulumi import artifactory:index/federatedGradleRepository:FederatedGradleRepository terraform-federated-test-gradle-repo terraform-federated-test-gradle-repo
+//
 // ```
 type FederatedGradleRepository struct {
 	pulumi.CustomResourceState
@@ -433,7 +438,7 @@ func (i *FederatedGradleRepository) ToFederatedGradleRepositoryOutputWithContext
 // FederatedGradleRepositoryArrayInput is an input type that accepts FederatedGradleRepositoryArray and FederatedGradleRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedGradleRepositoryArrayInput` via:
 //
-//          FederatedGradleRepositoryArray{ FederatedGradleRepositoryArgs{...} }
+//	FederatedGradleRepositoryArray{ FederatedGradleRepositoryArgs{...} }
 type FederatedGradleRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -458,7 +463,7 @@ func (i FederatedGradleRepositoryArray) ToFederatedGradleRepositoryArrayOutputWi
 // FederatedGradleRepositoryMapInput is an input type that accepts FederatedGradleRepositoryMap and FederatedGradleRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedGradleRepositoryMapInput` via:
 //
-//          FederatedGradleRepositoryMap{ "key": FederatedGradleRepositoryArgs{...} }
+//	FederatedGradleRepositoryMap{ "key": FederatedGradleRepositoryArgs{...} }
 type FederatedGradleRepositoryMapInput interface {
 	pulumi.Input
 

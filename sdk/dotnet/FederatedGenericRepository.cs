@@ -15,33 +15,31 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_federated_test_generic_repo = new Artifactory.FederatedGenericRepository("terraform-federated-test-generic-repo", new()
     ///     {
-    ///         var terraform_federated_test_generic_repo = new Artifactory.FederatedGenericRepository("terraform-federated-test-generic-repo", new Artifactory.FederatedGenericRepositoryArgs
+    ///         Key = "terraform-federated-test-generic-repo",
+    ///         Members = new[]
     ///         {
-    ///             Key = "terraform-federated-test-generic-repo",
-    ///             Members = 
+    ///             new Artifactory.Inputs.FederatedGenericRepositoryMemberArgs
     ///             {
-    ///                 new Artifactory.Inputs.FederatedGenericRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
-    ///                 },
-    ///                 new Artifactory.Inputs.FederatedGenericRepositoryMemberArgs
-    ///                 {
-    ///                     Enabled = true,
-    ///                     Url = "http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
-    ///                 },
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-generic-repo",
     ///             },
-    ///         });
-    ///     }
+    ///             new Artifactory.Inputs.FederatedGenericRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-generic-repo-2",
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +51,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGenericRepository:FederatedGenericRepository")]
-    public partial class FederatedGenericRepository : Pulumi.CustomResource
+    public partial class FederatedGenericRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -196,7 +194,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class FederatedGenericRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class FederatedGenericRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -313,9 +311,10 @@ namespace Pulumi.Artifactory
         public FederatedGenericRepositoryArgs()
         {
         }
+        public static new FederatedGenericRepositoryArgs Empty => new FederatedGenericRepositoryArgs();
     }
 
-    public sealed class FederatedGenericRepositoryState : Pulumi.ResourceArgs
+    public sealed class FederatedGenericRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -435,5 +434,6 @@ namespace Pulumi.Artifactory
         public FederatedGenericRepositoryState()
         {
         }
+        public static new FederatedGenericRepositoryState Empty => new FederatedGenericRepositoryState();
     }
 }

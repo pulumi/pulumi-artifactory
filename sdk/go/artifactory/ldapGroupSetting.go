@@ -21,7 +21,9 @@ import (
 // LDAP Group setting can be imported using the key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
+//
+//	$ pulumi import artifactory:index/ldapGroupSetting:LdapGroupSetting ldap_group_name ldap_group_name
+//
 // ```
 type LdapGroupSetting struct {
 	pulumi.CustomResourceState
@@ -227,7 +229,7 @@ func (i *LdapGroupSetting) ToLdapGroupSettingOutputWithContext(ctx context.Conte
 // LdapGroupSettingArrayInput is an input type that accepts LdapGroupSettingArray and LdapGroupSettingArrayOutput values.
 // You can construct a concrete instance of `LdapGroupSettingArrayInput` via:
 //
-//          LdapGroupSettingArray{ LdapGroupSettingArgs{...} }
+//	LdapGroupSettingArray{ LdapGroupSettingArgs{...} }
 type LdapGroupSettingArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +254,7 @@ func (i LdapGroupSettingArray) ToLdapGroupSettingArrayOutputWithContext(ctx cont
 // LdapGroupSettingMapInput is an input type that accepts LdapGroupSettingMap and LdapGroupSettingMapOutput values.
 // You can construct a concrete instance of `LdapGroupSettingMapInput` via:
 //
-//          LdapGroupSettingMap{ "key": LdapGroupSettingArgs{...} }
+//	LdapGroupSettingMap{ "key": LdapGroupSettingArgs{...} }
 type LdapGroupSettingMapInput interface {
 	pulumi.Input
 

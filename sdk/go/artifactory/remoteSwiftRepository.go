@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteSwiftRepository(ctx, "my-remote-swift", &artifactory.RemoteSwiftRepositoryArgs{
-// 			Key: pulumi.String("my-remote-swift"),
-// 			Url: pulumi.String("https://swift.org/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteSwiftRepository(ctx, "my-remote-swift", &artifactory.RemoteSwiftRepositoryArgs{
+//				Key: pulumi.String("my-remote-swift"),
+//				Url: pulumi.String("https://swift.org/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift
+//
+//	$ pulumi import artifactory:index/remoteSwiftRepository:RemoteSwiftRepository my-remote-swift my-remote-swift
+//
 // ```
 type RemoteSwiftRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteSwiftRepository) ToRemoteSwiftRepositoryOutputWithContext(ctx con
 // RemoteSwiftRepositoryArrayInput is an input type that accepts RemoteSwiftRepositoryArray and RemoteSwiftRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteSwiftRepositoryArrayInput` via:
 //
-//          RemoteSwiftRepositoryArray{ RemoteSwiftRepositoryArgs{...} }
+//	RemoteSwiftRepositoryArray{ RemoteSwiftRepositoryArgs{...} }
 type RemoteSwiftRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteSwiftRepositoryArray) ToRemoteSwiftRepositoryArrayOutputWithContex
 // RemoteSwiftRepositoryMapInput is an input type that accepts RemoteSwiftRepositoryMap and RemoteSwiftRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteSwiftRepositoryMapInput` via:
 //
-//          RemoteSwiftRepositoryMap{ "key": RemoteSwiftRepositoryArgs{...} }
+//	RemoteSwiftRepositoryMap{ "key": RemoteSwiftRepositoryArgs{...} }
 type RemoteSwiftRepositoryMapInput interface {
 	pulumi.Input
 

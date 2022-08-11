@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/singleReplicationConfig:SingleReplicationConfig")]
-    public partial class SingleReplicationConfig : Pulumi.CustomResource
+    public partial class SingleReplicationConfig : global::Pulumi.CustomResource
     {
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class SingleReplicationConfigArgs : Pulumi.ResourceArgs
+    public sealed class SingleReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
@@ -162,9 +162,10 @@ namespace Pulumi.Artifactory
         public SingleReplicationConfigArgs()
         {
         }
+        public static new SingleReplicationConfigArgs Empty => new SingleReplicationConfigArgs();
     }
 
-    public sealed class SingleReplicationConfigState : Pulumi.ResourceArgs
+    public sealed class SingleReplicationConfigState : global::Pulumi.ResourceArgs
     {
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
@@ -214,5 +215,6 @@ namespace Pulumi.Artifactory
         public SingleReplicationConfigState()
         {
         }
+        public static new SingleReplicationConfigState Empty => new SingleReplicationConfigState();
     }
 }

@@ -20,23 +20,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteBowerRepository(ctx, "my-remote-bower", &artifactory.RemoteBowerRepositoryArgs{
-// 			Key:            pulumi.String("my-remote-bower"),
-// 			Url:            pulumi.String("https://github.com/"),
-// 			VcsGitProvider: pulumi.String("GITHUB"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteBowerRepository(ctx, "my-remote-bower", &artifactory.RemoteBowerRepositoryArgs{
+//				Key:            pulumi.String("my-remote-bower"),
+//				Url:            pulumi.String("https://github.com/"),
+//				VcsGitProvider: pulumi.String("GITHUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -44,7 +47,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+//
+//	$ pulumi import artifactory:index/remoteBowerRepository:RemoteBowerRepository my-remote-bower my-remote-bower
+//
 // ```
 type RemoteBowerRepository struct {
 	pulumi.CustomResourceState
@@ -622,7 +627,7 @@ func (i *RemoteBowerRepository) ToRemoteBowerRepositoryOutputWithContext(ctx con
 // RemoteBowerRepositoryArrayInput is an input type that accepts RemoteBowerRepositoryArray and RemoteBowerRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteBowerRepositoryArrayInput` via:
 //
-//          RemoteBowerRepositoryArray{ RemoteBowerRepositoryArgs{...} }
+//	RemoteBowerRepositoryArray{ RemoteBowerRepositoryArgs{...} }
 type RemoteBowerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -647,7 +652,7 @@ func (i RemoteBowerRepositoryArray) ToRemoteBowerRepositoryArrayOutputWithContex
 // RemoteBowerRepositoryMapInput is an input type that accepts RemoteBowerRepositoryMap and RemoteBowerRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteBowerRepositoryMapInput` via:
 //
-//          RemoteBowerRepositoryMap{ "key": RemoteBowerRepositoryArgs{...} }
+//	RemoteBowerRepositoryMap{ "key": RemoteBowerRepositoryArgs{...} }
 type RemoteBowerRepositoryMapInput interface {
 	pulumi.Input
 

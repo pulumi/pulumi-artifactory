@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteGitlfsRepository(ctx, "my-remote-gitlfs", &artifactory.RemoteGitlfsRepositoryArgs{
-// 			Key: pulumi.String("my-remote-gitlfs"),
-// 			Url: pulumi.String("http://testartifactory.io/artifactory/example-gitlfs/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteGitlfsRepository(ctx, "my-remote-gitlfs", &artifactory.RemoteGitlfsRepositoryArgs{
+//				Key: pulumi.String("my-remote-gitlfs"),
+//				Url: pulumi.String("http://testartifactory.io/artifactory/example-gitlfs/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository my-remote-gitlfs my-remote-gitlfs
+//
+//	$ pulumi import artifactory:index/remoteGitlfsRepository:RemoteGitlfsRepository my-remote-gitlfs my-remote-gitlfs
+//
 // ```
 type RemoteGitlfsRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteGitlfsRepository) ToRemoteGitlfsRepositoryOutputWithContext(ctx c
 // RemoteGitlfsRepositoryArrayInput is an input type that accepts RemoteGitlfsRepositoryArray and RemoteGitlfsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteGitlfsRepositoryArrayInput` via:
 //
-//          RemoteGitlfsRepositoryArray{ RemoteGitlfsRepositoryArgs{...} }
+//	RemoteGitlfsRepositoryArray{ RemoteGitlfsRepositoryArgs{...} }
 type RemoteGitlfsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteGitlfsRepositoryArray) ToRemoteGitlfsRepositoryArrayOutputWithCont
 // RemoteGitlfsRepositoryMapInput is an input type that accepts RemoteGitlfsRepositoryMap and RemoteGitlfsRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteGitlfsRepositoryMapInput` via:
 //
-//          RemoteGitlfsRepositoryMap{ "key": RemoteGitlfsRepositoryArgs{...} }
+//	RemoteGitlfsRepositoryMap{ "key": RemoteGitlfsRepositoryArgs{...} }
 type RemoteGitlfsRepositoryMapInput interface {
 	pulumi.Input
 

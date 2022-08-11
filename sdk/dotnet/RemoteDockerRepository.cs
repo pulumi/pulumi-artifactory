@@ -16,28 +16,26 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_docker = new Artifactory.RemoteDockerRepository("my-remote-docker", new()
     ///     {
-    ///         var my_remote_docker = new Artifactory.RemoteDockerRepository("my-remote-docker", new Artifactory.RemoteDockerRepositoryArgs
+    ///         BlockPushingSchema1 = true,
+    ///         EnableTokenAuthentication = true,
+    ///         ExternalDependenciesEnabled = true,
+    ///         ExternalDependenciesPatterns = new[]
     ///         {
-    ///             BlockPushingSchema1 = true,
-    ///             EnableTokenAuthentication = true,
-    ///             ExternalDependenciesEnabled = true,
-    ///             ExternalDependenciesPatterns = 
-    ///             {
-    ///                 "**/hub.docker.io/**",
-    ///             },
-    ///             Key = "my-remote-docker",
-    ///             Url = "https://hub.docker.io/",
-    ///         });
-    ///     }
+    ///             "**/hub.docker.io/**",
+    ///         },
+    ///         Key = "my-remote-docker",
+    ///         Url = "https://hub.docker.io/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +47,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteDockerRepository:RemoteDockerRepository")]
-    public partial class RemoteDockerRepository : Pulumi.CustomResource
+    public partial class RemoteDockerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -353,7 +351,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteDockerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteDockerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -628,9 +626,10 @@ namespace Pulumi.Artifactory
         public RemoteDockerRepositoryArgs()
         {
         }
+        public static new RemoteDockerRepositoryArgs Empty => new RemoteDockerRepositoryArgs();
     }
 
-    public sealed class RemoteDockerRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteDockerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -911,5 +910,6 @@ namespace Pulumi.Artifactory
         public RemoteDockerRepositoryState()
         {
         }
+        public static new RemoteDockerRepositoryState Empty => new RemoteDockerRepositoryState();
     }
 }

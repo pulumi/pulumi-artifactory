@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedPuppetRepository(ctx, "terraform-federated-test-puppet-repo", &artifactory.FederatedPuppetRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-puppet-repo"),
-// 			Members: FederatedPuppetRepositoryMemberArray{
-// 				&FederatedPuppetRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-puppet-repo"),
-// 				},
-// 				&FederatedPuppetRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedPuppetRepository(ctx, "terraform-federated-test-puppet-repo", &artifactory.FederatedPuppetRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-puppet-repo"),
+//				Members: FederatedPuppetRepositoryMemberArray{
+//					&FederatedPuppetRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-puppet-repo"),
+//					},
+//					&FederatedPuppetRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-puppet-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedPuppetRepository:FederatedPuppetRepository terraform-federated-test-puppet-repo terraform-federated-test-puppet-repo
+//
+//	$ pulumi import artifactory:index/federatedPuppetRepository:FederatedPuppetRepository terraform-federated-test-puppet-repo terraform-federated-test-puppet-repo
+//
 // ```
 type FederatedPuppetRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedPuppetRepository) ToFederatedPuppetRepositoryOutputWithContext
 // FederatedPuppetRepositoryArrayInput is an input type that accepts FederatedPuppetRepositoryArray and FederatedPuppetRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedPuppetRepositoryArrayInput` via:
 //
-//          FederatedPuppetRepositoryArray{ FederatedPuppetRepositoryArgs{...} }
+//	FederatedPuppetRepositoryArray{ FederatedPuppetRepositoryArgs{...} }
 type FederatedPuppetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedPuppetRepositoryArray) ToFederatedPuppetRepositoryArrayOutputWi
 // FederatedPuppetRepositoryMapInput is an input type that accepts FederatedPuppetRepositoryMap and FederatedPuppetRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedPuppetRepositoryMapInput` via:
 //
-//          FederatedPuppetRepositoryMap{ "key": FederatedPuppetRepositoryArgs{...} }
+//	FederatedPuppetRepositoryMap{ "key": FederatedPuppetRepositoryArgs{...} }
 type FederatedPuppetRepositoryMapInput interface {
 	pulumi.Input
 

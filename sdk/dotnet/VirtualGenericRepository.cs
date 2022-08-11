@@ -16,26 +16,24 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_generic = new Artifactory.VirtualGenericRepository("foo-generic", new()
     ///     {
-    ///         var foo_generic = new Artifactory.VirtualGenericRepository("foo-generic", new Artifactory.VirtualGenericRepositoryArgs
-    ///         {
-    ///             Description = "A test virtual repo",
-    ///             ExcludesPattern = "com/google/**",
-    ///             IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
-    ///             Key = "foo-generic",
-    ///             Notes = "Internal description",
-    ///             RepoLayoutRef = "simple-default",
-    ///             Repositories = {},
-    ///         });
-    ///     }
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-generic",
+    ///         Notes = "Internal description",
+    ///         RepoLayoutRef = "simple-default",
+    ///         Repositories = new[] {},
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +45,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGenericRepository:VirtualGenericRepository")]
-    public partial class VirtualGenericRepository : Pulumi.CustomResource
+    public partial class VirtualGenericRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -178,7 +176,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualGenericRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGenericRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -274,9 +272,10 @@ namespace Pulumi.Artifactory
         public VirtualGenericRepositoryArgs()
         {
         }
+        public static new VirtualGenericRepositoryArgs Empty => new VirtualGenericRepositoryArgs();
     }
 
-    public sealed class VirtualGenericRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualGenericRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -378,5 +377,6 @@ namespace Pulumi.Artifactory
         public VirtualGenericRepositoryState()
         {
         }
+        public static new VirtualGenericRepositoryState Empty => new VirtualGenericRepositoryState();
     }
 }

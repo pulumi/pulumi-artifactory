@@ -19,21 +19,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalGenericRepository(ctx, "terraform-local-test-generic-repo", &artifactory.LocalGenericRepositoryArgs{
-// 			Key: pulumi.String("terraform-local-test-generic-repo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalGenericRepository(ctx, "terraform-local-test-generic-repo", &artifactory.LocalGenericRepositoryArgs{
+//				Key: pulumi.String("terraform-local-test-generic-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -41,7 +44,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
+//
+//	$ pulumi import artifactory:index/localGenericRepository:LocalGenericRepository terraform-local-test-generic-repo terraform-local-test-generic-repo
+//
 // ```
 type LocalGenericRepository struct {
 	pulumi.CustomResourceState
@@ -295,7 +300,7 @@ func (i *LocalGenericRepository) ToLocalGenericRepositoryOutputWithContext(ctx c
 // LocalGenericRepositoryArrayInput is an input type that accepts LocalGenericRepositoryArray and LocalGenericRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalGenericRepositoryArrayInput` via:
 //
-//          LocalGenericRepositoryArray{ LocalGenericRepositoryArgs{...} }
+//	LocalGenericRepositoryArray{ LocalGenericRepositoryArgs{...} }
 type LocalGenericRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -320,7 +325,7 @@ func (i LocalGenericRepositoryArray) ToLocalGenericRepositoryArrayOutputWithCont
 // LocalGenericRepositoryMapInput is an input type that accepts LocalGenericRepositoryMap and LocalGenericRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalGenericRepositoryMapInput` via:
 //
-//          LocalGenericRepositoryMap{ "key": LocalGenericRepositoryArgs{...} }
+//	LocalGenericRepositoryMap{ "key": LocalGenericRepositoryArgs{...} }
 type LocalGenericRepositoryMapInput interface {
 	pulumi.Input
 

@@ -17,40 +17,40 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Create a replication between two artifactory local repositories
+    ///     var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new()
     ///     {
-    ///         // Create a replication between two artifactory local repositories
-    ///         var providerTestSource = new Artifactory.LocalMavenRepository("providerTestSource", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_source",
-    ///         });
-    ///         var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new Artifactory.LocalMavenRepositoryArgs
-    ///         {
-    ///             Key = "provider_test_dest",
-    ///         });
-    ///         var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new Artifactory.ReplicationConfigArgs
-    ///         {
-    ///             CronExp = "0 0 * * * ?",
-    ///             EnableEventReplication = true,
-    ///             Replications = 
-    ///             {
-    ///                 new Artifactory.Inputs.ReplicationConfigReplicationArgs
-    ///                 {
-    ///                     Password = "$var.artifactory_password",
-    ///                     Url = "$var.artifactory_url",
-    ///                     Username = "$var.artifactory_username",
-    ///                 },
-    ///             },
-    ///             RepoKey = providerTestSource.Key,
-    ///         });
-    ///     }
+    ///         Key = "provider_test_source",
+    ///     });
     /// 
-    /// }
+    ///     var providerTestDest = new Artifactory.LocalMavenRepository("providerTestDest", new()
+    ///     {
+    ///         Key = "provider_test_dest",
+    ///     });
+    /// 
+    ///     var foo_rep = new Artifactory.ReplicationConfig("foo-rep", new()
+    ///     {
+    ///         CronExp = "0 0 * * * ?",
+    ///         EnableEventReplication = true,
+    ///         Replications = new[]
+    ///         {
+    ///             new Artifactory.Inputs.ReplicationConfigReplicationArgs
+    ///             {
+    ///                 Password = "$var.artifactory_password",
+    ///                 Url = "$var.artifactory_url",
+    ///                 Username = "$var.artifactory_username",
+    ///             },
+    ///         },
+    ///         RepoKey = providerTestSource.Key,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/replicationConfig:ReplicationConfig")]
-    public partial class ReplicationConfig : Pulumi.CustomResource
+    public partial class ReplicationConfig : global::Pulumi.CustomResource
     {
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class ReplicationConfigArgs : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
@@ -142,9 +142,10 @@ namespace Pulumi.Artifactory
         public ReplicationConfigArgs()
         {
         }
+        public static new ReplicationConfigArgs Empty => new ReplicationConfigArgs();
     }
 
-    public sealed class ReplicationConfigState : Pulumi.ResourceArgs
+    public sealed class ReplicationConfigState : global::Pulumi.ResourceArgs
     {
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
@@ -166,5 +167,6 @@ namespace Pulumi.Artifactory
         public ReplicationConfigState()
         {
         }
+        public static new ReplicationConfigState Empty => new ReplicationConfigState();
     }
 }

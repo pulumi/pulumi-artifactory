@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedDockerRepository(ctx, "terraform-federated-test-docker-repo", &artifactory.FederatedDockerRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-docker-repo"),
-// 			Members: FederatedDockerRepositoryMemberArray{
-// 				&FederatedDockerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
-// 				},
-// 				&FederatedDockerRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedDockerRepository(ctx, "terraform-federated-test-docker-repo", &artifactory.FederatedDockerRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-docker-repo"),
+//				Members: FederatedDockerRepositoryMemberArray{
+//					&FederatedDockerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-docker-repo"),
+//					},
+//					&FederatedDockerRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-docker-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+//
+//	$ pulumi import artifactory:index/federatedDockerRepository:FederatedDockerRepository terraform-federated-test-docker-repo terraform-federated-test-docker-repo
+//
 // ```
 type FederatedDockerRepository struct {
 	pulumi.CustomResourceState
@@ -379,7 +384,7 @@ func (i *FederatedDockerRepository) ToFederatedDockerRepositoryOutputWithContext
 // FederatedDockerRepositoryArrayInput is an input type that accepts FederatedDockerRepositoryArray and FederatedDockerRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedDockerRepositoryArrayInput` via:
 //
-//          FederatedDockerRepositoryArray{ FederatedDockerRepositoryArgs{...} }
+//	FederatedDockerRepositoryArray{ FederatedDockerRepositoryArgs{...} }
 type FederatedDockerRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -404,7 +409,7 @@ func (i FederatedDockerRepositoryArray) ToFederatedDockerRepositoryArrayOutputWi
 // FederatedDockerRepositoryMapInput is an input type that accepts FederatedDockerRepositoryMap and FederatedDockerRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedDockerRepositoryMapInput` via:
 //
-//          FederatedDockerRepositoryMap{ "key": FederatedDockerRepositoryArgs{...} }
+//	FederatedDockerRepositoryMap{ "key": FederatedDockerRepositoryArgs{...} }
 type FederatedDockerRepositoryMapInput interface {
 	pulumi.Input
 

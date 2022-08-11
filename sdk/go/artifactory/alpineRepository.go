@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
-// 			PairName:   pulumi.String("some-keypair"),
-// 			PairType:   pulumi.String("RSA"),
-// 			Alias:      pulumi.String("foo-alias"),
-// 			PrivateKey: readFileOrPanic("samples/rsa.priv"),
-// 			PublicKey:  readFileOrPanic("samples/rsa.pub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
-// 			Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
-// 			PrimaryKeypairRef: some_keypairRSA.PairName,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			some_keypairRSA,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewKeypair(ctx, "some-keypairRSA", &artifactory.KeypairArgs{
+//				PairName:   pulumi.String("some-keypair"),
+//				PairType:   pulumi.String("RSA"),
+//				Alias:      pulumi.String("foo-alias"),
+//				PrivateKey: readFileOrPanic("samples/rsa.priv"),
+//				PublicKey:  readFileOrPanic("samples/rsa.pub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = artifactory.NewAlpineRepository(ctx, "terraform-local-test-alpine-repo-basic", &artifactory.AlpineRepositoryArgs{
+//				Key:               pulumi.String("terraform-local-test-alpine-repo-basic"),
+//				PrimaryKeypairRef: some_keypairRSA.PairName,
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				some_keypairRSA,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+//
+//	$ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic
+//
 // ```
 type AlpineRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *AlpineRepository) ToAlpineRepositoryOutputWithContext(ctx context.Conte
 // AlpineRepositoryArrayInput is an input type that accepts AlpineRepositoryArray and AlpineRepositoryArrayOutput values.
 // You can construct a concrete instance of `AlpineRepositoryArrayInput` via:
 //
-//          AlpineRepositoryArray{ AlpineRepositoryArgs{...} }
+//	AlpineRepositoryArray{ AlpineRepositoryArgs{...} }
 type AlpineRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i AlpineRepositoryArray) ToAlpineRepositoryArrayOutputWithContext(ctx cont
 // AlpineRepositoryMapInput is an input type that accepts AlpineRepositoryMap and AlpineRepositoryMapOutput values.
 // You can construct a concrete instance of `AlpineRepositoryMapInput` via:
 //
-//          AlpineRepositoryMap{ "key": AlpineRepositoryArgs{...} }
+//	AlpineRepositoryMap{ "key": AlpineRepositoryArgs{...} }
 type AlpineRepositoryMapInput interface {
 	pulumi.Input
 

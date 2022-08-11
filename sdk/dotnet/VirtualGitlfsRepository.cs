@@ -22,7 +22,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/virtualGitlfsRepository:VirtualGitlfsRepository")]
-    public partial class VirtualGitlfsRepository : Pulumi.CustomResource
+    public partial class VirtualGitlfsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -153,7 +153,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class VirtualGitlfsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class VirtualGitlfsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -249,9 +249,10 @@ namespace Pulumi.Artifactory
         public VirtualGitlfsRepositoryArgs()
         {
         }
+        public static new VirtualGitlfsRepositoryArgs Empty => new VirtualGitlfsRepositoryArgs();
     }
 
-    public sealed class VirtualGitlfsRepositoryState : Pulumi.ResourceArgs
+    public sealed class VirtualGitlfsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -353,5 +354,6 @@ namespace Pulumi.Artifactory
         public VirtualGitlfsRepositoryState()
         {
         }
+        public static new VirtualGitlfsRepositoryState Empty => new VirtualGitlfsRepositoryState();
     }
 }

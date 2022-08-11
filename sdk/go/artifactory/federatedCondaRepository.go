@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewFederatedCondaRepository(ctx, "terraform-federated-test-conda-repo", &artifactory.FederatedCondaRepositoryArgs{
-// 			Key: pulumi.String("terraform-federated-test-conda-repo"),
-// 			Members: FederatedCondaRepositoryMemberArray{
-// 				&FederatedCondaRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conda-repo"),
-// 				},
-// 				&FederatedCondaRepositoryMemberArgs{
-// 					Enabled: pulumi.Bool(true),
-// 					Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewFederatedCondaRepository(ctx, "terraform-federated-test-conda-repo", &artifactory.FederatedCondaRepositoryArgs{
+//				Key: pulumi.String("terraform-federated-test-conda-repo"),
+//				Members: FederatedCondaRepositoryMemberArray{
+//					&FederatedCondaRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-conda-repo"),
+//					},
+//					&FederatedCondaRepositoryMemberArgs{
+//						Enabled: pulumi.Bool(true),
+//						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-conda-repo-2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Federated repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/federatedCondaRepository:FederatedCondaRepository terraform-federated-test-conda-repo terraform-federated-test-conda-repo
+//
+//	$ pulumi import artifactory:index/federatedCondaRepository:FederatedCondaRepository terraform-federated-test-conda-repo terraform-federated-test-conda-repo
+//
 // ```
 type FederatedCondaRepository struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *FederatedCondaRepository) ToFederatedCondaRepositoryOutputWithContext(c
 // FederatedCondaRepositoryArrayInput is an input type that accepts FederatedCondaRepositoryArray and FederatedCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `FederatedCondaRepositoryArrayInput` via:
 //
-//          FederatedCondaRepositoryArray{ FederatedCondaRepositoryArgs{...} }
+//	FederatedCondaRepositoryArray{ FederatedCondaRepositoryArgs{...} }
 type FederatedCondaRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i FederatedCondaRepositoryArray) ToFederatedCondaRepositoryArrayOutputWith
 // FederatedCondaRepositoryMapInput is an input type that accepts FederatedCondaRepositoryMap and FederatedCondaRepositoryMapOutput values.
 // You can construct a concrete instance of `FederatedCondaRepositoryMapInput` via:
 //
-//          FederatedCondaRepositoryMap{ "key": FederatedCondaRepositoryArgs{...} }
+//	FederatedCondaRepositoryMap{ "key": FederatedCondaRepositoryArgs{...} }
 type FederatedCondaRepositoryMapInput interface {
 	pulumi.Input
 

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCranRepository(ctx, "my-remote-cran", &artifactory.RemoteCranRepositoryArgs{
-// 			Key: pulumi.String("my-remote-cran"),
-// 			Url: pulumi.String("https://cran.r-project.org/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteCranRepository(ctx, "my-remote-cran", &artifactory.RemoteCranRepositoryArgs{
+//				Key: pulumi.String("my-remote-cran"),
+//				Url: pulumi.String("https://cran.r-project.org/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
+//
+//	$ pulumi import artifactory:index/remoteCranRepository:RemoteCranRepository my-remote-cran my-remote-cran
+//
 // ```
 type RemoteCranRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteCranRepository) ToRemoteCranRepositoryOutputWithContext(ctx conte
 // RemoteCranRepositoryArrayInput is an input type that accepts RemoteCranRepositoryArray and RemoteCranRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCranRepositoryArrayInput` via:
 //
-//          RemoteCranRepositoryArray{ RemoteCranRepositoryArgs{...} }
+//	RemoteCranRepositoryArray{ RemoteCranRepositoryArgs{...} }
 type RemoteCranRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteCranRepositoryArray) ToRemoteCranRepositoryArrayOutputWithContext(
 // RemoteCranRepositoryMapInput is an input type that accepts RemoteCranRepositoryMap and RemoteCranRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteCranRepositoryMapInput` via:
 //
-//          RemoteCranRepositoryMap{ "key": RemoteCranRepositoryArgs{...} }
+//	RemoteCranRepositoryMap{ "key": RemoteCranRepositoryArgs{...} }
 type RemoteCranRepositoryMapInput interface {
 	pulumi.Input
 

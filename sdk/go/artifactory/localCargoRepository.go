@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
-// 			AnonymousAccess: pulumi.Bool(false),
-// 			Key:             pulumi.String("terraform-local-test-cargo-repo-basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
+//				AnonymousAccess: pulumi.Bool(false),
+//				Key:             pulumi.String("terraform-local-test-cargo-repo-basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Local repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+//
+//	$ pulumi import artifactory:index/localCargoRepository:LocalCargoRepository terraform-local-test-cargo-repo-basic terraform-local-test-cargo-repo-basic
+//
 // ```
 type LocalCargoRepository struct {
 	pulumi.CustomResourceState
@@ -316,7 +321,7 @@ func (i *LocalCargoRepository) ToLocalCargoRepositoryOutputWithContext(ctx conte
 // LocalCargoRepositoryArrayInput is an input type that accepts LocalCargoRepositoryArray and LocalCargoRepositoryArrayOutput values.
 // You can construct a concrete instance of `LocalCargoRepositoryArrayInput` via:
 //
-//          LocalCargoRepositoryArray{ LocalCargoRepositoryArgs{...} }
+//	LocalCargoRepositoryArray{ LocalCargoRepositoryArgs{...} }
 type LocalCargoRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -341,7 +346,7 @@ func (i LocalCargoRepositoryArray) ToLocalCargoRepositoryArrayOutputWithContext(
 // LocalCargoRepositoryMapInput is an input type that accepts LocalCargoRepositoryMap and LocalCargoRepositoryMapOutput values.
 // You can construct a concrete instance of `LocalCargoRepositoryMapInput` via:
 //
-//          LocalCargoRepositoryMap{ "key": LocalCargoRepositoryArgs{...} }
+//	LocalCargoRepositoryMap{ "key": LocalCargoRepositoryArgs{...} }
 type LocalCargoRepositoryMapInput interface {
 	pulumi.Input
 

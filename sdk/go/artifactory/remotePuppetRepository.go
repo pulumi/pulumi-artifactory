@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemotePuppetRepository(ctx, "my-remote-puppet", &artifactory.RemotePuppetRepositoryArgs{
-// 			Key: pulumi.String("my-remote-puppet"),
-// 			Url: pulumi.String("https://forgeapi.puppetlabs.com/"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemotePuppetRepository(ctx, "my-remote-puppet", &artifactory.RemotePuppetRepositoryArgs{
+//				Key: pulumi.String("my-remote-puppet"),
+//				Url: pulumi.String("https://forgeapi.puppetlabs.com/"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remotePuppetRepository:RemotePuppetRepository my-remote-puppet my-remote-puppet
+//
+//	$ pulumi import artifactory:index/remotePuppetRepository:RemotePuppetRepository my-remote-puppet my-remote-puppet
+//
 // ```
 type RemotePuppetRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemotePuppetRepository) ToRemotePuppetRepositoryOutputWithContext(ctx c
 // RemotePuppetRepositoryArrayInput is an input type that accepts RemotePuppetRepositoryArray and RemotePuppetRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemotePuppetRepositoryArrayInput` via:
 //
-//          RemotePuppetRepositoryArray{ RemotePuppetRepositoryArgs{...} }
+//	RemotePuppetRepositoryArray{ RemotePuppetRepositoryArgs{...} }
 type RemotePuppetRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemotePuppetRepositoryArray) ToRemotePuppetRepositoryArrayOutputWithCont
 // RemotePuppetRepositoryMapInput is an input type that accepts RemotePuppetRepositoryMap and RemotePuppetRepositoryMapOutput values.
 // You can construct a concrete instance of `RemotePuppetRepositoryMapInput` via:
 //
-//          RemotePuppetRepositoryMap{ "key": RemotePuppetRepositoryArgs{...} }
+//	RemotePuppetRepositoryMap{ "key": RemotePuppetRepositoryArgs{...} }
 type RemotePuppetRepositoryMapInput interface {
 	pulumi.Input
 

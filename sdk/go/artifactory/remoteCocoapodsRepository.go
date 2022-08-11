@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCocoapodsRepository(ctx, "my-remote-cocoapods", &artifactory.RemoteCocoapodsRepositoryArgs{
-// 			Key:              pulumi.String("my-remote-cocoapods"),
-// 			PodsSpecsRepoUrl: pulumi.String("https://github.com/CocoaPods/Spec"),
-// 			Url:              pulumi.String("https://github.com/"),
-// 			VcsGitProvider:   pulumi.String("GITHUB"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteCocoapodsRepository(ctx, "my-remote-cocoapods", &artifactory.RemoteCocoapodsRepositoryArgs{
+//				Key:              pulumi.String("my-remote-cocoapods"),
+//				PodsSpecsRepoUrl: pulumi.String("https://github.com/CocoaPods/Spec"),
+//				Url:              pulumi.String("https://github.com/"),
+//				VcsGitProvider:   pulumi.String("GITHUB"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+//
+//	$ pulumi import artifactory:index/remoteCocoapodsRepository:RemoteCocoapodsRepository my-remote-cocoapods my-remote-cocoapods
+//
 // ```
 type RemoteCocoapodsRepository struct {
 	pulumi.CustomResourceState
@@ -623,7 +628,7 @@ func (i *RemoteCocoapodsRepository) ToRemoteCocoapodsRepositoryOutputWithContext
 // RemoteCocoapodsRepositoryArrayInput is an input type that accepts RemoteCocoapodsRepositoryArray and RemoteCocoapodsRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCocoapodsRepositoryArrayInput` via:
 //
-//          RemoteCocoapodsRepositoryArray{ RemoteCocoapodsRepositoryArgs{...} }
+//	RemoteCocoapodsRepositoryArray{ RemoteCocoapodsRepositoryArgs{...} }
 type RemoteCocoapodsRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -648,7 +653,7 @@ func (i RemoteCocoapodsRepositoryArray) ToRemoteCocoapodsRepositoryArrayOutputWi
 // RemoteCocoapodsRepositoryMapInput is an input type that accepts RemoteCocoapodsRepositoryMap and RemoteCocoapodsRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteCocoapodsRepositoryMapInput` via:
 //
-//          RemoteCocoapodsRepositoryMap{ "key": RemoteCocoapodsRepositoryArgs{...} }
+//	RemoteCocoapodsRepositoryMap{ "key": RemoteCocoapodsRepositoryArgs{...} }
 type RemoteCocoapodsRepositoryMapInput interface {
 	pulumi.Input
 

@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemoteCondaRepository(ctx, "my-remote-conda", &artifactory.RemoteCondaRepositoryArgs{
-// 			Key: pulumi.String("my-remote-conda"),
-// 			Url: pulumi.String("https://repo.anaconda.com/pkgs/main"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemoteCondaRepository(ctx, "my-remote-conda", &artifactory.RemoteCondaRepositoryArgs{
+//				Key: pulumi.String("my-remote-conda"),
+//				Url: pulumi.String("https://repo.anaconda.com/pkgs/main"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remoteCondaRepository:RemoteCondaRepository my-remote-conda my-remote-conda
+//
+//	$ pulumi import artifactory:index/remoteCondaRepository:RemoteCondaRepository my-remote-conda my-remote-conda
+//
 // ```
 type RemoteCondaRepository struct {
 	pulumi.CustomResourceState
@@ -586,7 +591,7 @@ func (i *RemoteCondaRepository) ToRemoteCondaRepositoryOutputWithContext(ctx con
 // RemoteCondaRepositoryArrayInput is an input type that accepts RemoteCondaRepositoryArray and RemoteCondaRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemoteCondaRepositoryArrayInput` via:
 //
-//          RemoteCondaRepositoryArray{ RemoteCondaRepositoryArgs{...} }
+//	RemoteCondaRepositoryArray{ RemoteCondaRepositoryArgs{...} }
 type RemoteCondaRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -611,7 +616,7 @@ func (i RemoteCondaRepositoryArray) ToRemoteCondaRepositoryArrayOutputWithContex
 // RemoteCondaRepositoryMapInput is an input type that accepts RemoteCondaRepositoryMap and RemoteCondaRepositoryMapOutput values.
 // You can construct a concrete instance of `RemoteCondaRepositoryMapInput` via:
 //
-//          RemoteCondaRepositoryMap{ "key": RemoteCondaRepositoryArgs{...} }
+//	RemoteCondaRepositoryMap{ "key": RemoteCondaRepositoryArgs{...} }
 type RemoteCondaRepositoryMapInput interface {
 	pulumi.Input
 

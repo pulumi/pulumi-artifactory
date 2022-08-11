@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewRemotePypiRepository(ctx, "pypi-remote", &artifactory.RemotePypiRepositoryArgs{
-// 			Key:                  pulumi.String("pypi-remote-foo"),
-// 			PypiRegistryUrl:      pulumi.String("https://pypi.org"),
-// 			PypiRepositorySuffix: pulumi.String("simple"),
-// 			Url:                  pulumi.String("https://files.pythonhosted.org"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewRemotePypiRepository(ctx, "pypi-remote", &artifactory.RemotePypiRepositoryArgs{
+//				Key:                  pulumi.String("pypi-remote-foo"),
+//				PypiRegistryUrl:      pulumi.String("https://pypi.org"),
+//				PypiRepositorySuffix: pulumi.String("simple"),
+//				Url:                  pulumi.String("https://files.pythonhosted.org"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -45,7 +48,9 @@ import (
 // Remote repositories can be imported using their name, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+//
+//	$ pulumi import artifactory:index/remotePypiRepository:RemotePypiRepository pypi-remote pypi-remote
+//
 // ```
 type RemotePypiRepository struct {
 	pulumi.CustomResourceState
@@ -608,7 +613,7 @@ func (i *RemotePypiRepository) ToRemotePypiRepositoryOutputWithContext(ctx conte
 // RemotePypiRepositoryArrayInput is an input type that accepts RemotePypiRepositoryArray and RemotePypiRepositoryArrayOutput values.
 // You can construct a concrete instance of `RemotePypiRepositoryArrayInput` via:
 //
-//          RemotePypiRepositoryArray{ RemotePypiRepositoryArgs{...} }
+//	RemotePypiRepositoryArray{ RemotePypiRepositoryArgs{...} }
 type RemotePypiRepositoryArrayInput interface {
 	pulumi.Input
 
@@ -633,7 +638,7 @@ func (i RemotePypiRepositoryArray) ToRemotePypiRepositoryArrayOutputWithContext(
 // RemotePypiRepositoryMapInput is an input type that accepts RemotePypiRepositoryMap and RemotePypiRepositoryMapOutput values.
 // You can construct a concrete instance of `RemotePypiRepositoryMapInput` via:
 //
-//          RemotePypiRepositoryMap{ "key": RemotePypiRepositoryArgs{...} }
+//	RemotePypiRepositoryMap{ "key": RemotePypiRepositoryArgs{...} }
 type RemotePypiRepositoryMapInput interface {
 	pulumi.Input
 

@@ -15,20 +15,18 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var terraform_local_test_bower_repo = new Artifactory.LocalBowerRepository("terraform-local-test-bower-repo", new()
     ///     {
-    ///         var terraform_local_test_bower_repo = new Artifactory.LocalBowerRepository("terraform-local-test-bower-repo", new Artifactory.LocalBowerRepositoryArgs
-    ///         {
-    ///             Key = "terraform-local-test-bower-repo",
-    ///         });
-    ///     }
+    ///         Key = "terraform-local-test-bower-repo",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -40,7 +38,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/localBowerRepository:LocalBowerRepository")]
-    public partial class LocalBowerRepository : Pulumi.CustomResource
+    public partial class LocalBowerRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -174,7 +172,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class LocalBowerRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class LocalBowerRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -276,9 +274,10 @@ namespace Pulumi.Artifactory
         public LocalBowerRepositoryArgs()
         {
         }
+        public static new LocalBowerRepositoryArgs Empty => new LocalBowerRepositoryArgs();
     }
 
-    public sealed class LocalBowerRepositoryState : Pulumi.ResourceArgs
+    public sealed class LocalBowerRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
@@ -383,5 +382,6 @@ namespace Pulumi.Artifactory
         public LocalBowerRepositoryState()
         {
         }
+        public static new LocalBowerRepositoryState Empty => new LocalBowerRepositoryState();
     }
 }

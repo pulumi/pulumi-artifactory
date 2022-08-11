@@ -22,34 +22,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := artifactory.NewLdapSetting(ctx, "ldapName", &artifactory.LdapSettingArgs{
-// 			AllowUserToAccessProfile: pulumi.Bool(false),
-// 			AutoCreateUser:           pulumi.Bool(true),
-// 			EmailAttribute:           pulumi.String("mail"),
-// 			Enabled:                  pulumi.Bool(true),
-// 			Key:                      pulumi.String("ldap_name"),
-// 			LdapPoisoningProtection:  pulumi.Bool(true),
-// 			LdapUrl:                  pulumi.String("ldap://ldap_server_url"),
-// 			ManagerDn:                pulumi.String("mgr_dn"),
-// 			ManagerPassword:          pulumi.String("mgr_passwd_random"),
-// 			PagingSupportEnabled:     pulumi.Bool(false),
-// 			SearchBase:               pulumi.String("ou=users"),
-// 			SearchFilter:             pulumi.String("(uid={0})"),
-// 			SearchSubTree:            pulumi.Bool(true),
-// 			UserDnPattern:            pulumi.String("uid={0},ou=People"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := artifactory.NewLdapSetting(ctx, "ldapName", &artifactory.LdapSettingArgs{
+//				AllowUserToAccessProfile: pulumi.Bool(false),
+//				AutoCreateUser:           pulumi.Bool(true),
+//				EmailAttribute:           pulumi.String("mail"),
+//				Enabled:                  pulumi.Bool(true),
+//				Key:                      pulumi.String("ldap_name"),
+//				LdapPoisoningProtection:  pulumi.Bool(true),
+//				LdapUrl:                  pulumi.String("ldap://ldap_server_url"),
+//				ManagerDn:                pulumi.String("mgr_dn"),
+//				ManagerPassword:          pulumi.String("mgr_passwd_random"),
+//				PagingSupportEnabled:     pulumi.Bool(false),
+//				SearchBase:               pulumi.String("ou=users"),
+//				SearchFilter:             pulumi.String("(uid={0})"),
+//				SearchSubTree:            pulumi.Bool(true),
+//				UserDnPattern:            pulumi.String("uid={0},ou=People"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // Note: `Key` argument has to match to the resource name.\
 // Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
@@ -59,7 +62,9 @@ import (
 // LDAP setting can be imported using the key, e.g.
 //
 // ```sh
-//  $ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+//
+//	$ pulumi import artifactory:index/ldapSetting:LdapSetting ldap_name ldap_name
+//
 // ```
 type LdapSetting struct {
 	pulumi.CustomResourceState
@@ -298,7 +303,7 @@ func (i *LdapSetting) ToLdapSettingOutputWithContext(ctx context.Context) LdapSe
 // LdapSettingArrayInput is an input type that accepts LdapSettingArray and LdapSettingArrayOutput values.
 // You can construct a concrete instance of `LdapSettingArrayInput` via:
 //
-//          LdapSettingArray{ LdapSettingArgs{...} }
+//	LdapSettingArray{ LdapSettingArgs{...} }
 type LdapSettingArrayInput interface {
 	pulumi.Input
 
@@ -323,7 +328,7 @@ func (i LdapSettingArray) ToLdapSettingArrayOutputWithContext(ctx context.Contex
 // LdapSettingMapInput is an input type that accepts LdapSettingMap and LdapSettingMapOutput values.
 // You can construct a concrete instance of `LdapSettingMapInput` via:
 //
-//          LdapSettingMap{ "key": LdapSettingArgs{...} }
+//	LdapSettingMap{ "key": LdapSettingArgs{...} }
 type LdapSettingMapInput interface {
 	pulumi.Input
 

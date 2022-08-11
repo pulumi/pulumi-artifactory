@@ -16,21 +16,19 @@ namespace Pulumi.Artifactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Artifactory = Pulumi.Artifactory;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var my_remote_gems = new Artifactory.RemoteGemsRepository("my-remote-gems", new()
     ///     {
-    ///         var my_remote_gems = new Artifactory.RemoteGemsRepository("my-remote-gems", new Artifactory.RemoteGemsRepositoryArgs
-    ///         {
-    ///             Key = "my-remote-gems",
-    ///             Url = "https://rubygems.org/",
-    ///         });
-    ///     }
+    ///         Key = "my-remote-gems",
+    ///         Url = "https://rubygems.org/",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Artifactory
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/remoteGemsRepository:RemoteGemsRepository")]
-    public partial class RemoteGemsRepository : Pulumi.CustomResource
+    public partial class RemoteGemsRepository : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -320,7 +318,7 @@ namespace Pulumi.Artifactory
         }
     }
 
-    public sealed class RemoteGemsRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class RemoteGemsRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -563,9 +561,10 @@ namespace Pulumi.Artifactory
         public RemoteGemsRepositoryArgs()
         {
         }
+        public static new RemoteGemsRepositoryArgs Empty => new RemoteGemsRepositoryArgs();
     }
 
-    public sealed class RemoteGemsRepositoryState : Pulumi.ResourceArgs
+    public sealed class RemoteGemsRepositoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Also known as 'Lenient Host Authentication', Allow credentials of this repository to be used on requests redirected to
@@ -814,5 +813,6 @@ namespace Pulumi.Artifactory
         public RemoteGemsRepositoryState()
         {
         }
+        public static new RemoteGemsRepositoryState Empty => new RemoteGemsRepositoryState();
     }
 }
