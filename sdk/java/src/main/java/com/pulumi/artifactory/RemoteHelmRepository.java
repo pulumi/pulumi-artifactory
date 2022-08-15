@@ -430,16 +430,16 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.projectEnvironments);
     }
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {

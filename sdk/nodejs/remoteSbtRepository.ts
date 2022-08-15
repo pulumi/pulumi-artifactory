@@ -171,8 +171,8 @@ export class RemoteSbtRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
@@ -480,8 +480,8 @@ export interface RemoteSbtRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -664,8 +664,8 @@ export interface RemoteSbtRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**

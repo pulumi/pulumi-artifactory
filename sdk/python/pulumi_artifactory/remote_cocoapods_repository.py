@@ -93,8 +93,8 @@ class RemoteCocoapodsRepositoryArgs:
         :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-               repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -489,8 +489,8 @@ class RemoteCocoapodsRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -770,8 +770,8 @@ class _RemoteCocoapodsRepositoryState:
         :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-               repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -1182,8 +1182,8 @@ class _RemoteCocoapodsRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1501,8 +1501,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-               repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -1761,8 +1761,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-               repository to a project, repository key must be prefixed with project key, separated by a dash.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -2032,8 +2032,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-        repository to a project, repository key must be prefixed with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 

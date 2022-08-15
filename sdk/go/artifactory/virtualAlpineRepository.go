@@ -82,8 +82,8 @@ type VirtualAlpineRepository struct {
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
@@ -151,8 +151,8 @@ type virtualAlpineRepositoryState struct {
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -189,8 +189,8 @@ type VirtualAlpineRepositoryState struct {
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -229,8 +229,8 @@ type virtualAlpineRepositoryArgs struct {
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
@@ -266,8 +266,8 @@ type VirtualAlpineRepositoryArgs struct {
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-	// repository to a project, repository key must be prefixed with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
@@ -422,8 +422,8 @@ func (o VirtualAlpineRepositoryOutput) ProjectEnvironments() pulumi.StringArrayO
 	return o.ApplyT(func(v *VirtualAlpineRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-// repository to a project, repository key must be prefixed with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualAlpineRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualAlpineRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
