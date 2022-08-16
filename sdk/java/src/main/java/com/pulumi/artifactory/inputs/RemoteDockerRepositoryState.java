@@ -430,16 +430,16 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-     * repository to a project, repository key must be prefixed with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -1301,8 +1301,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-         * repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -1313,8 +1313,8 @@ public final class RemoteDockerRepositoryState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric characters. When assigning
-         * repository to a project, repository key must be prefixed with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
