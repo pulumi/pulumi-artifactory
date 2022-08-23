@@ -27,6 +27,7 @@ namespace Pulumi.Artifactory
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
     ///         Key = "maven-remote-foo",
+    ///         MetadataRetrievalTimeoutSeconds = 120,
     ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = false,
     ///         Url = "https://repo1.maven.org/maven2/",
@@ -100,11 +101,11 @@ namespace Pulumi.Artifactory
         public Output<bool> EnableCookieManagement { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        /// artifacts are excluded.
+        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        /// default no artifacts are excluded.
         /// </summary>
         [Output("excludesPattern")]
-        public Output<string> ExcludesPattern { get; private set; } = null!;
+        public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         [Output("failedRetrievalCachePeriodSecs")]
         public Output<int> FailedRetrievalCachePeriodSecs { get; private set; } = null!;
@@ -141,8 +142,8 @@ namespace Pulumi.Artifactory
         public Output<bool> HardFail { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Output("includesPattern")]
         public Output<string> IncludesPattern { get; private set; } = null!;
@@ -167,6 +168,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("localAddress")]
         public Output<string?> LocalAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// </summary>
+        [Output("metadataRetrievalTimeoutSeconds")]
+        public Output<int> MetadataRetrievalTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
         /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -420,8 +427,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        /// artifacts are excluded.
+        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        /// default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -458,8 +465,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -484,6 +491,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// </summary>
+        [Input("metadataRetrievalTimeoutSeconds")]
+        public Input<int>? MetadataRetrievalTimeoutSeconds { get; set; }
 
         /// <summary>
         /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
@@ -708,8 +721,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? EnableCookieManagement { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        /// artifacts are excluded.
+        /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        /// default no artifacts are excluded.
         /// </summary>
         [Input("excludesPattern")]
         public Input<string>? ExcludesPattern { get; set; }
@@ -749,8 +762,8 @@ namespace Pulumi.Artifactory
         public Input<bool>? HardFail { get; set; }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -775,6 +788,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("localAddress")]
         public Input<string>? LocalAddress { get; set; }
+
+        /// <summary>
+        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+        /// </summary>
+        [Input("metadataRetrievalTimeoutSeconds")]
+        public Input<int>? MetadataRetrievalTimeoutSeconds { get; set; }
 
         /// <summary>
         /// The set of mime types that should override the block_mismatching_mime_types setting. Eg:

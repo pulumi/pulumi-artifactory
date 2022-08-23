@@ -81,9 +81,9 @@ type RemoteHelmRepository struct {
 	Description            pulumi.StringOutput                              `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
 	// An Allow List of Ant-style path expressions that specify where external
@@ -97,8 +97,8 @@ type RemoteHelmRepository struct {
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
 	// No documentation is available. Hopefully you know what this means.
 	HelmChartsBaseUrl pulumi.StringPtrOutput `pulumi:"helmChartsBaseUrl"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -219,8 +219,8 @@ type remoteHelmRepositoryState struct {
 	Description            *string                                     `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -235,8 +235,8 @@ type remoteHelmRepositoryState struct {
 	HardFail *bool `pulumi:"hardFail"`
 	// No documentation is available. Hopefully you know what this means.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -323,8 +323,8 @@ type RemoteHelmRepositoryState struct {
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -339,8 +339,8 @@ type RemoteHelmRepositoryState struct {
 	HardFail pulumi.BoolPtrInput
 	// No documentation is available. Hopefully you know what this means.
 	HelmChartsBaseUrl pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -431,8 +431,8 @@ type remoteHelmRepositoryArgs struct {
 	Description            *string                                     `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
@@ -445,8 +445,8 @@ type remoteHelmRepositoryArgs struct {
 	HardFail *bool `pulumi:"hardFail"`
 	// No documentation is available. Hopefully you know what this means.
 	HelmChartsBaseUrl *string `pulumi:"helmChartsBaseUrl"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -533,8 +533,8 @@ type RemoteHelmRepositoryArgs struct {
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, external dependencies are rewritten.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
@@ -547,8 +547,8 @@ type RemoteHelmRepositoryArgs struct {
 	HardFail pulumi.BoolPtrInput
 	// No documentation is available. Hopefully you know what this means.
 	HelmChartsBaseUrl pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -749,10 +749,10 @@ func (o RemoteHelmRepositoryOutput) EnableCookieManagement() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolOutput { return v.EnableCookieManagement }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-// artifacts are excluded.
-func (o RemoteHelmRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+// default no artifacts are excluded.
+func (o RemoteHelmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // When set, external dependencies are rewritten.
@@ -783,8 +783,8 @@ func (o RemoteHelmRepositoryOutput) HelmChartsBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.HelmChartsBaseUrl }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o RemoteHelmRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }

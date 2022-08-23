@@ -29,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
-//				FetchJarsEagerly:             pulumi.Bool(true),
-//				FetchSourcesEagerly:          pulumi.Bool(false),
-//				Key:                          pulumi.String("maven-remote-foo"),
-//				RejectInvalidJars:            pulumi.Bool(true),
-//				SuppressPomConsistencyChecks: pulumi.Bool(false),
-//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
+//				FetchJarsEagerly:                pulumi.Bool(true),
+//				FetchSourcesEagerly:             pulumi.Bool(false),
+//				Key:                             pulumi.String("maven-remote-foo"),
+//				MetadataRetrievalTimeoutSeconds: pulumi.Int(120),
+//				RejectInvalidJars:               pulumi.Bool(true),
+//				SuppressPomConsistencyChecks:    pulumi.Bool(false),
+//				Url:                             pulumi.String("https://repo1.maven.org/maven2/"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,9 +81,9 @@ type RemoteMavenRepository struct {
 	Description            pulumi.StringOutput                               `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntOutput `pulumi:"failedRetrievalCachePeriodSecs"`
 	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
@@ -96,8 +97,8 @@ type RemoteMavenRepository struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -108,6 +109,8 @@ type RemoteMavenRepository struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	MetadataRetrievalTimeoutSeconds pulumi.IntOutput `pulumi:"metadataRetrievalTimeoutSeconds"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrOutput `pulumi:"mismatchingMimeTypesOverrideList"`
@@ -224,8 +227,8 @@ type remoteMavenRepositoryState struct {
 	Description            *string                                      `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs *int `pulumi:"failedRetrievalCachePeriodSecs"`
@@ -240,8 +243,8 @@ type remoteMavenRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -252,6 +255,8 @@ type remoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	MetadataRetrievalTimeoutSeconds *int `pulumi:"metadataRetrievalTimeoutSeconds"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
@@ -334,8 +339,8 @@ type RemoteMavenRepositoryState struct {
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
@@ -350,8 +355,8 @@ type RemoteMavenRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -362,6 +367,8 @@ type RemoteMavenRepositoryState struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	MetadataRetrievalTimeoutSeconds pulumi.IntPtrInput
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
@@ -448,8 +455,8 @@ type remoteMavenRepositoryArgs struct {
 	Description            *string                                      `pulumi:"description"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly *bool `pulumi:"fetchJarsEagerly"`
@@ -462,8 +469,8 @@ type remoteMavenRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -474,6 +481,8 @@ type remoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	MetadataRetrievalTimeoutSeconds *int `pulumi:"metadataRetrievalTimeoutSeconds"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList *string `pulumi:"mismatchingMimeTypesOverrideList"`
@@ -556,8 +565,8 @@ type RemoteMavenRepositoryArgs struct {
 	Description            pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
 	FetchJarsEagerly pulumi.BoolPtrInput
@@ -570,8 +579,8 @@ type RemoteMavenRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -582,6 +591,8 @@ type RemoteMavenRepositoryArgs struct {
 	// The local address to be used when creating connections. Useful for specifying the interface to use on systems with
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+	MetadataRetrievalTimeoutSeconds pulumi.IntPtrInput
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// "application/json,application/xml". Default value is empty.
 	MismatchingMimeTypesOverrideList pulumi.StringPtrInput
@@ -778,10 +789,10 @@ func (o RemoteMavenRepositoryOutput) EnableCookieManagement() pulumi.BoolOutput 
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.BoolOutput { return v.EnableCookieManagement }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-// artifacts are excluded.
-func (o RemoteMavenRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+// default no artifacts are excluded.
+func (o RemoteMavenRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
@@ -815,8 +826,8 @@ func (o RemoteMavenRepositoryOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o RemoteMavenRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
@@ -837,6 +848,11 @@ func (o RemoteMavenRepositoryOutput) ListRemoteFolderItems() pulumi.BoolPtrOutpu
 // multiple network interfaces.
 func (o RemoteMavenRepositoryOutput) LocalAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.LocalAddress }).(pulumi.StringPtrOutput)
+}
+
+// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+func (o RemoteMavenRepositoryOutput) MetadataRetrievalTimeoutSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.IntOutput { return v.MetadataRetrievalTimeoutSeconds }).(pulumi.IntOutput)
 }
 
 // The set of mime types that should override the block_mismatching_mime_types setting. Eg:
