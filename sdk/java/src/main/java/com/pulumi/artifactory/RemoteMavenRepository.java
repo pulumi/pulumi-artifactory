@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  *             .fetchJarsEagerly(true)
  *             .fetchSourcesEagerly(false)
  *             .key(&#34;maven-remote-foo&#34;)
+ *             .metadataRetrievalTimeoutSeconds(120)
  *             .rejectInvalidJars(true)
  *             .suppressPomConsistencyChecks(false)
  *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
@@ -187,20 +188,20 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
         return this.enableCookieManagement;
     }
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+     * default no artifacts are excluded.
      * 
      */
     @Export(name="excludesPattern", type=String.class, parameters={})
-    private Output<String> excludesPattern;
+    private Output</* @Nullable */ String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * @return List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+     * default no artifacts are excluded.
      * 
      */
-    public Output<String> excludesPattern() {
-        return this.excludesPattern;
+    public Output<Optional<String>> excludesPattern() {
+        return Codegen.optional(this.excludesPattern);
     }
     /**
      * @deprecated
@@ -287,16 +288,16 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
         return this.hardFail;
     }
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Export(name="includesPattern", type=String.class, parameters={})
     private Output<String> includesPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Output<String> includesPattern() {
@@ -349,6 +350,20 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> localAddress() {
         return Codegen.optional(this.localAddress);
+    }
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
+    @Export(name="metadataRetrievalTimeoutSeconds", type=Integer.class, parameters={})
+    private Output<Integer> metadataRetrievalTimeoutSeconds;
+
+    /**
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
+    public Output<Integer> metadataRetrievalTimeoutSeconds() {
+        return this.metadataRetrievalTimeoutSeconds;
     }
     /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:

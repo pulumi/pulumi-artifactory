@@ -21800,7 +21800,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -21812,7 +21812,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -21932,7 +21932,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -21987,7 +21986,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -21995,7 +21994,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -22146,7 +22145,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -22158,7 +22157,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -22316,7 +22315,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -22328,7 +22327,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -22456,7 +22455,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -22515,7 +22513,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -22523,7 +22521,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -22686,7 +22684,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -22698,7 +22696,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -22864,7 +22862,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -22880,7 +22878,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -23000,7 +22998,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "gitRegistryUrl",
                 "hardFail",
@@ -23060,7 +23057,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "gitRegistryUrl": {
                     "type": "string",
@@ -23072,7 +23069,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -23228,7 +23225,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -23244,7 +23241,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -23398,7 +23395,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -23410,7 +23407,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -23530,7 +23527,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -23585,7 +23581,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -23593,7 +23589,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -23744,7 +23740,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -23756,7 +23752,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -23910,7 +23906,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -23922,7 +23918,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -24054,7 +24050,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -24109,7 +24104,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -24117,7 +24112,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -24280,7 +24275,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -24292,7 +24287,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -24462,7 +24457,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -24474,7 +24469,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -24602,7 +24597,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -24661,7 +24655,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -24669,7 +24663,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -24832,7 +24826,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -24844,7 +24838,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -25006,7 +25000,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -25018,7 +25012,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -25138,7 +25132,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -25193,7 +25186,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -25201,7 +25194,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -25352,7 +25345,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -25364,7 +25357,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -25518,7 +25511,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -25530,7 +25523,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -25650,7 +25643,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -25705,7 +25697,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -25713,7 +25705,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -25864,7 +25856,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -25876,7 +25868,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -26030,7 +26022,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -26042,7 +26034,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -26162,7 +26154,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -26217,7 +26208,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -26225,7 +26216,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -26376,7 +26367,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -26388,7 +26379,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -26542,7 +26533,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -26554,7 +26545,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -26674,7 +26665,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -26729,7 +26719,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -26737,7 +26727,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -26888,7 +26878,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -26900,7 +26890,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -27062,7 +27052,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
@@ -27085,7 +27075,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -27207,7 +27197,6 @@
                 "description",
                 "enableCookieManagement",
                 "enableTokenAuthentication",
-                "excludesPattern",
                 "externalDependenciesEnabled",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
@@ -27271,7 +27260,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
@@ -27290,7 +27279,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -27449,7 +27438,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "externalDependenciesEnabled": {
                         "type": "boolean",
@@ -27472,7 +27461,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -27626,7 +27615,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -27638,7 +27627,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -27758,7 +27747,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -27813,7 +27801,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -27821,7 +27809,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -27972,7 +27960,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -27984,7 +27972,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -28138,7 +28126,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -28150,7 +28138,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -28270,7 +28258,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -28325,7 +28312,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -28333,7 +28320,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -28484,7 +28471,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -28496,7 +28483,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -28650,7 +28637,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -28662,7 +28649,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -28782,7 +28769,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -28837,7 +28823,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -28845,7 +28831,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -28996,7 +28982,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -29008,7 +28994,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -29162,7 +29148,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -29174,7 +29160,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -29298,7 +29284,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -29353,7 +29338,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -29361,7 +29346,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -29516,7 +29501,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -29528,7 +29513,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -29686,7 +29671,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -29714,7 +29699,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -29846,7 +29831,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -29901,7 +29885,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "fetchJarsEagerly": {
                     "type": "boolean",
@@ -29925,7 +29909,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -30088,7 +30072,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -30116,7 +30100,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -30282,7 +30266,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
@@ -30309,7 +30293,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -30429,7 +30413,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -30484,7 +30467,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
@@ -30508,7 +30491,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -30659,7 +30642,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "externalDependenciesEnabled": {
                         "type": "boolean",
@@ -30687,7 +30670,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -30841,7 +30824,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -30869,7 +30852,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -31001,7 +30984,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -31056,7 +31038,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "fetchJarsEagerly": {
                     "type": "boolean",
@@ -31080,7 +31062,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -31243,7 +31225,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -31271,7 +31253,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -31400,7 +31382,7 @@
             }
         },
         "artifactory:index/remoteMavenRepository:RemoteMavenRepository": {
-            "description": "Creates a remote Maven repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst maven_remote = new artifactory.RemoteMavenRepository(\"maven-remote\", {\n    fetchJarsEagerly: true,\n    fetchSourcesEagerly: false,\n    key: \"maven-remote-foo\",\n    rejectInvalidJars: true,\n    suppressPomConsistencyChecks: false,\n    url: \"https://repo1.maven.org/maven2/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmaven_remote = artifactory.RemoteMavenRepository(\"maven-remote\",\n    fetch_jars_eagerly=True,\n    fetch_sources_eagerly=False,\n    key=\"maven-remote-foo\",\n    reject_invalid_jars=True,\n    suppress_pom_consistency_checks=False,\n    url=\"https://repo1.maven.org/maven2/\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var maven_remote = new Artifactory.RemoteMavenRepository(\"maven-remote\", new()\n    {\n        FetchJarsEagerly = true,\n        FetchSourcesEagerly = false,\n        Key = \"maven-remote-foo\",\n        RejectInvalidJars = true,\n        SuppressPomConsistencyChecks = false,\n        Url = \"https://repo1.maven.org/maven2/\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteMavenRepository(ctx, \"maven-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tFetchJarsEagerly:             pulumi.Bool(true),\n\t\t\tFetchSourcesEagerly:          pulumi.Bool(false),\n\t\t\tKey:                          pulumi.String(\"maven-remote-foo\"),\n\t\t\tRejectInvalidJars:            pulumi.Bool(true),\n\t\t\tSuppressPomConsistencyChecks: pulumi.Bool(false),\n\t\t\tUrl:                          pulumi.String(\"https://repo1.maven.org/maven2/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var maven_remote = new RemoteMavenRepository(\"maven-remote\", RemoteMavenRepositoryArgs.builder()        \n            .fetchJarsEagerly(true)\n            .fetchSourcesEagerly(false)\n            .key(\"maven-remote-foo\")\n            .rejectInvalidJars(true)\n            .suppressPomConsistencyChecks(false)\n            .url(\"https://repo1.maven.org/maven2/\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  maven-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      fetchJarsEagerly: true\n      fetchSourcesEagerly: false\n      key: maven-remote-foo\n      rejectInvalidJars: true\n      suppressPomConsistencyChecks: false\n      url: https://repo1.maven.org/maven2/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote\n```\n\n ",
+            "description": "Creates a remote Maven repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst maven_remote = new artifactory.RemoteMavenRepository(\"maven-remote\", {\n    fetchJarsEagerly: true,\n    fetchSourcesEagerly: false,\n    key: \"maven-remote-foo\",\n    metadataRetrievalTimeoutSeconds: 120,\n    rejectInvalidJars: true,\n    suppressPomConsistencyChecks: false,\n    url: \"https://repo1.maven.org/maven2/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmaven_remote = artifactory.RemoteMavenRepository(\"maven-remote\",\n    fetch_jars_eagerly=True,\n    fetch_sources_eagerly=False,\n    key=\"maven-remote-foo\",\n    metadata_retrieval_timeout_seconds=120,\n    reject_invalid_jars=True,\n    suppress_pom_consistency_checks=False,\n    url=\"https://repo1.maven.org/maven2/\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var maven_remote = new Artifactory.RemoteMavenRepository(\"maven-remote\", new()\n    {\n        FetchJarsEagerly = true,\n        FetchSourcesEagerly = false,\n        Key = \"maven-remote-foo\",\n        MetadataRetrievalTimeoutSeconds = 120,\n        RejectInvalidJars = true,\n        SuppressPomConsistencyChecks = false,\n        Url = \"https://repo1.maven.org/maven2/\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteMavenRepository(ctx, \"maven-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tFetchJarsEagerly:                pulumi.Bool(true),\n\t\t\tFetchSourcesEagerly:             pulumi.Bool(false),\n\t\t\tKey:                             pulumi.String(\"maven-remote-foo\"),\n\t\t\tMetadataRetrievalTimeoutSeconds: pulumi.Int(120),\n\t\t\tRejectInvalidJars:               pulumi.Bool(true),\n\t\t\tSuppressPomConsistencyChecks:    pulumi.Bool(false),\n\t\t\tUrl:                             pulumi.String(\"https://repo1.maven.org/maven2/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var maven_remote = new RemoteMavenRepository(\"maven-remote\", RemoteMavenRepositoryArgs.builder()        \n            .fetchJarsEagerly(true)\n            .fetchSourcesEagerly(false)\n            .key(\"maven-remote-foo\")\n            .metadataRetrievalTimeoutSeconds(120)\n            .rejectInvalidJars(true)\n            .suppressPomConsistencyChecks(false)\n            .url(\"https://repo1.maven.org/maven2/\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  maven-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      fetchJarsEagerly: true\n      fetchSourcesEagerly: false\n      key: maven-remote-foo\n      metadataRetrievalTimeoutSeconds: 120\n      rejectInvalidJars: true\n      suppressPomConsistencyChecks: false\n      url: https://repo1.maven.org/maven2/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote\n```\n\n ",
             "properties": {
                 "allowAnyHostAuth": {
                     "type": "boolean",
@@ -31437,7 +31419,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -31465,7 +31447,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -31478,6 +31460,10 @@
                 "localAddress": {
                     "type": "string",
                     "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                },
+                "metadataRetrievalTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                 },
                 "mismatchingMimeTypesOverrideList": {
                     "type": "string",
@@ -31597,11 +31583,11 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
                 "key",
+                "metadataRetrievalTimeoutSeconds",
                 "missedCachePeriodSeconds",
                 "offline",
                 "packageType",
@@ -31652,7 +31638,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "fetchJarsEagerly": {
                     "type": "boolean",
@@ -31676,7 +31662,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -31690,6 +31676,10 @@
                 "localAddress": {
                     "type": "string",
                     "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                },
+                "metadataRetrievalTimeoutSeconds": {
+                    "type": "integer",
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                 },
                 "mismatchingMimeTypesOverrideList": {
                     "type": "string",
@@ -31839,7 +31829,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -31867,7 +31857,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -31881,6 +31871,10 @@
                     "localAddress": {
                         "type": "string",
                         "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
+                    },
+                    "metadataRetrievalTimeoutSeconds": {
+                        "type": "integer",
+                        "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                     },
                     "mismatchingMimeTypesOverrideList": {
                         "type": "string",
@@ -32033,7 +32027,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -32045,7 +32039,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -32165,7 +32159,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -32220,7 +32213,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -32228,7 +32221,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -32379,7 +32372,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -32391,7 +32384,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -32549,7 +32542,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -32569,7 +32562,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -32693,7 +32686,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -32752,7 +32744,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "feedContextPath": {
                     "type": "string",
@@ -32768,7 +32760,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -32927,7 +32919,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -32947,7 +32939,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -33105,7 +33097,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -33117,7 +33109,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -33237,7 +33229,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -33292,7 +33283,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -33300,7 +33291,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -33451,7 +33442,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -33463,7 +33454,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -33617,7 +33608,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -33629,7 +33620,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -33749,7 +33740,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -33804,7 +33794,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -33812,7 +33802,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -33963,7 +33953,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -33975,7 +33965,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -34129,7 +34119,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -34141,7 +34131,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -34261,7 +34251,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -34316,7 +34305,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -34324,7 +34313,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -34475,7 +34464,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -34487,7 +34476,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -34641,7 +34630,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -34653,7 +34642,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -34773,7 +34762,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -34828,7 +34816,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -34836,7 +34824,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -34987,7 +34975,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -34999,7 +34987,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -35153,7 +35141,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -35165,7 +35153,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -35293,7 +35281,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -35348,7 +35335,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -35356,7 +35343,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -35515,7 +35502,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -35527,7 +35514,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -35689,7 +35676,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -35701,7 +35688,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -35821,7 +35808,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -35876,7 +35862,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -35884,7 +35870,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -36035,7 +36021,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -36047,7 +36033,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -36201,7 +36187,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -36229,7 +36215,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -36361,7 +36347,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -36416,7 +36401,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "fetchJarsEagerly": {
                     "type": "boolean",
@@ -36440,7 +36425,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -36603,7 +36588,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -36631,7 +36616,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -36797,7 +36782,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -36809,7 +36794,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -36929,7 +36914,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -36984,7 +36968,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -36992,7 +36976,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -37143,7 +37127,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -37155,7 +37139,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -37309,7 +37293,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -37321,7 +37305,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -37449,7 +37433,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -37504,7 +37487,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -37512,7 +37495,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -37671,7 +37654,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -37683,7 +37666,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",
@@ -37845,7 +37828,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "failedRetrievalCachePeriodSecs": {
                     "type": "integer",
@@ -37857,7 +37840,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -37989,7 +37972,6 @@
                 "contentSynchronisation",
                 "description",
                 "enableCookieManagement",
-                "excludesPattern",
                 "failedRetrievalCachePeriodSecs",
                 "hardFail",
                 "includesPattern",
@@ -38044,7 +38026,7 @@
                 },
                 "excludesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                    "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -38052,7 +38034,7 @@
                 },
                 "includesPattern": {
                     "type": "string",
-                    "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                    "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                 },
                 "key": {
                     "type": "string",
@@ -38215,7 +38197,7 @@
                     },
                     "excludesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no\nartifacts are excluded.\n"
+                        "description": "List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By\ndefault no artifacts are excluded.\n"
                     },
                     "failedRetrievalCachePeriodSecs": {
                         "type": "integer",
@@ -38227,7 +38209,7 @@
                     },
                     "includesPattern": {
                         "type": "string",
-                        "description": "List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only\nartifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
+                        "description": "List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When\nused, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).\n"
                     },
                     "key": {
                         "type": "string",

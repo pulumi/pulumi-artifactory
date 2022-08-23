@@ -80,14 +80,14 @@ class RemoteNugetRepositoryArgs:
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
+        :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+               default no artifacts are excluded.
         :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
                the 'Retrieval Cache Period'. Default value is 'false'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
@@ -352,8 +352,8 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -402,8 +402,8 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -773,14 +773,14 @@ class _RemoteNugetRepositoryState:
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
+        :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+               default no artifacts are excluded.
         :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1032,8 +1032,8 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="excludesPattern")
     def excludes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -1091,8 +1091,8 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -1523,14 +1523,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
+        :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+               default no artifacts are excluded.
         :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1789,14 +1789,14 @@ class RemoteNugetRepository(pulumi.CustomResource):
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
-        :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-               artifacts are excluded.
+        :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+               default no artifacts are excluded.
         :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
         :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[bool] list_remote_folder_items: Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
@@ -1964,10 +1964,10 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="excludesPattern")
-    def excludes_pattern(self) -> pulumi.Output[str]:
+    def excludes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-        artifacts are excluded.
+        List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+        default no artifacts are excluded.
         """
         return pulumi.get(self, "excludes_pattern")
 
@@ -2005,8 +2005,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[str]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 

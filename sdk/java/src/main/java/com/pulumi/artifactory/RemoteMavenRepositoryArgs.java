@@ -147,16 +147,16 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+     * default no artifacts are excluded.
      * 
      */
     @Import(name="excludesPattern")
     private @Nullable Output<String> excludesPattern;
 
     /**
-     * @return List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-     * artifacts are excluded.
+     * @return List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+     * default no artifacts are excluded.
      * 
      */
     public Optional<Output<String>> excludesPattern() {
@@ -241,16 +241,16 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -306,6 +306,21 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<String>> localAddress() {
         return Optional.ofNullable(this.localAddress);
+    }
+
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
+    @Import(name="metadataRetrievalTimeoutSeconds")
+    private @Nullable Output<Integer> metadataRetrievalTimeoutSeconds;
+
+    /**
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+     * 
+     */
+    public Optional<Output<Integer>> metadataRetrievalTimeoutSeconds() {
+        return Optional.ofNullable(this.metadataRetrievalTimeoutSeconds);
     }
 
     /**
@@ -696,6 +711,7 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.metadataRetrievalTimeoutSeconds = $.metadataRetrievalTimeoutSeconds;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
@@ -912,8 +928,8 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+         * default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -924,8 +940,8 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludesPattern List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
-         * artifacts are excluded.
+         * @param excludesPattern List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
+         * default no artifacts are excluded.
          * 
          * @return builder
          * 
@@ -1042,8 +1058,8 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includesPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -1054,8 +1070,8 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includesPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -1131,6 +1147,27 @@ public final class RemoteMavenRepositoryArgs extends com.pulumi.resources.Resour
          */
         public Builder localAddress(String localAddress) {
             return localAddress(Output.of(localAddress));
+        }
+
+        /**
+         * @param metadataRetrievalTimeoutSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataRetrievalTimeoutSeconds(@Nullable Output<Integer> metadataRetrievalTimeoutSeconds) {
+            $.metadataRetrievalTimeoutSeconds = metadataRetrievalTimeoutSeconds;
+            return this;
+        }
+
+        /**
+         * @param metadataRetrievalTimeoutSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataRetrievalTimeoutSeconds(Integer metadataRetrievalTimeoutSeconds) {
+            return metadataRetrievalTimeoutSeconds(Output.of(metadataRetrievalTimeoutSeconds));
         }
 
         /**

@@ -19,6 +19,7 @@ import * as utilities from "./utilities";
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "maven-remote-foo",
+ *     metadataRetrievalTimeoutSeconds: 120,
  *     rejectInvalidJars: true,
  *     suppressPomConsistencyChecks: false,
  *     url: "https://repo1.maven.org/maven2/",
@@ -97,10 +98,10 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
-     * artifacts are excluded.
+     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
+     * default no artifacts are excluded.
      */
-    public readonly excludesPattern!: pulumi.Output<string>;
+    public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
      * @deprecated This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
      */
@@ -127,8 +128,8 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      */
     public readonly hardFail!: pulumi.Output<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string>;
     /**
@@ -146,6 +147,10 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
      * multiple network interfaces.
      */
     public readonly localAddress!: pulumi.Output<string | undefined>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
+    public readonly metadataRetrievalTimeoutSeconds!: pulumi.Output<number>;
     /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
@@ -278,6 +283,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = state ? state.localAddress : undefined;
+            resourceInputs["metadataRetrievalTimeoutSeconds"] = state ? state.metadataRetrievalTimeoutSeconds : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = state ? state.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
@@ -332,6 +338,7 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = args ? args.localAddress : undefined;
+            resourceInputs["metadataRetrievalTimeoutSeconds"] = args ? args.metadataRetrievalTimeoutSeconds : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = args ? args.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
             resourceInputs["notes"] = args ? args.notes : undefined;
@@ -406,8 +413,8 @@ export interface RemoteMavenRepositoryState {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
-     * artifacts are excluded.
+     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
+     * default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -436,8 +443,8 @@ export interface RemoteMavenRepositoryState {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -455,6 +462,10 @@ export interface RemoteMavenRepositoryState {
      * multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
+    metadataRetrievalTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.
@@ -595,8 +606,8 @@ export interface RemoteMavenRepositoryArgs {
      */
     enableCookieManagement?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
-     * artifacts are excluded.
+     * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
+     * default no artifacts are excluded.
      */
     excludesPattern?: pulumi.Input<string>;
     /**
@@ -621,8 +632,8 @@ export interface RemoteMavenRepositoryArgs {
      */
     hardFail?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -640,6 +651,10 @@ export interface RemoteMavenRepositoryArgs {
      * multiple network interfaces.
      */
     localAddress?: pulumi.Input<string>;
+    /**
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
+     */
+    metadataRetrievalTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
      * "application/json,application/xml". Default value is empty.

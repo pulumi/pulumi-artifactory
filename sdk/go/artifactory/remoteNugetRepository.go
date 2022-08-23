@@ -83,9 +83,9 @@ type RemoteNugetRepository struct {
 	DownloadContextPath pulumi.StringPtrOutput `pulumi:"downloadContextPath"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
-	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
+	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntOutput `pulumi:"failedRetrievalCachePeriodSecs"`
 	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
@@ -95,8 +95,8 @@ type RemoteNugetRepository struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolOutput `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -223,8 +223,8 @@ type remoteNugetRepositoryState struct {
 	DownloadContextPath *string `pulumi:"downloadContextPath"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs *int `pulumi:"failedRetrievalCachePeriodSecs"`
@@ -235,8 +235,8 @@ type remoteNugetRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -329,8 +329,8 @@ type RemoteNugetRepositoryState struct {
 	DownloadContextPath pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
 	FailedRetrievalCachePeriodSecs pulumi.IntPtrInput
@@ -341,8 +341,8 @@ type RemoteNugetRepositoryState struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -439,8 +439,8 @@ type remoteNugetRepositoryArgs struct {
 	DownloadContextPath *string `pulumi:"downloadContextPath"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
 	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
 	FeedContextPath *string `pulumi:"feedContextPath"`
@@ -449,8 +449,8 @@ type remoteNugetRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail *bool `pulumi:"hardFail"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -543,8 +543,8 @@ type RemoteNugetRepositoryArgs struct {
 	DownloadContextPath pulumi.StringPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
-	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-	// artifacts are excluded.
+	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
 	// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
 	FeedContextPath pulumi.StringPtrInput
@@ -553,8 +553,8 @@ type RemoteNugetRepositoryArgs struct {
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
 	HardFail pulumi.BoolPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -764,10 +764,10 @@ func (o RemoteNugetRepositoryOutput) EnableCookieManagement() pulumi.BoolOutput 
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolOutput { return v.EnableCookieManagement }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
-// artifacts are excluded.
-func (o RemoteNugetRepositoryOutput) ExcludesPattern() pulumi.StringOutput {
-	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringOutput { return v.ExcludesPattern }).(pulumi.StringOutput)
+// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
+// default no artifacts are excluded.
+func (o RemoteNugetRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
 // Deprecated: This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function
@@ -791,8 +791,8 @@ func (o RemoteNugetRepositoryOutput) HardFail() pulumi.BoolOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.BoolOutput { return v.HardFail }).(pulumi.BoolOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o RemoteNugetRepositoryOutput) IncludesPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteNugetRepository) pulumi.StringOutput { return v.IncludesPattern }).(pulumi.StringOutput)
 }
