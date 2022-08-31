@@ -127,6 +127,7 @@ from .remote_swift_repository import *
 from .remote_terraform_repository import *
 from .remote_vcs_repository import *
 from .replication_config import *
+from .repository_layout import *
 from .saml_settings import *
 from .scoped_token import *
 from .single_replication_config import *
@@ -1120,6 +1121,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/replicationConfig:ReplicationConfig": "ReplicationConfig"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/repositoryLayout",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/repositoryLayout:RepositoryLayout": "RepositoryLayout"
   }
  },
  {

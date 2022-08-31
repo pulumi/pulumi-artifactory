@@ -29,7 +29,8 @@ type ScopedToken struct {
 	// Returns the token issued at date/time
 	IssuedAt pulumi.IntOutput `pulumi:"issuedAt"`
 	// Returns the token issuer
-	Issuer pulumi.StringOutput `pulumi:"issuer"`
+	Issuer       pulumi.StringOutput `pulumi:"issuer"`
+	RefreshToken pulumi.StringOutput `pulumi:"refreshToken"`
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable pulumi.BoolPtrOutput `pulumi:"refreshable"`
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -84,7 +85,8 @@ type scopedTokenState struct {
 	// Returns the token issued at date/time
 	IssuedAt *int `pulumi:"issuedAt"`
 	// Returns the token issuer
-	Issuer *string `pulumi:"issuer"`
+	Issuer       *string `pulumi:"issuer"`
+	RefreshToken *string `pulumi:"refreshToken"`
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable *bool `pulumi:"refreshable"`
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -111,7 +113,8 @@ type ScopedTokenState struct {
 	// Returns the token issued at date/time
 	IssuedAt pulumi.IntPtrInput
 	// Returns the token issuer
-	Issuer pulumi.StringPtrInput
+	Issuer       pulumi.StringPtrInput
+	RefreshToken pulumi.StringPtrInput
 	// (Optional) Is this token refreshable? Defaults to `false`
 	Refreshable pulumi.BoolPtrInput
 	// (Optional) The scope of access that the token provides. Access to the REST API is always provided by default. Administrators can set any scope, while non-admin users can only set the scope to a subset of the groups to which they belong.
@@ -279,6 +282,10 @@ func (o ScopedTokenOutput) IssuedAt() pulumi.IntOutput {
 // Returns the token issuer
 func (o ScopedTokenOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+func (o ScopedTokenOutput) RefreshToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.RefreshToken }).(pulumi.StringOutput)
 }
 
 // (Optional) Is this token refreshable? Defaults to `false`

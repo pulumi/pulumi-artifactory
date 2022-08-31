@@ -51,9 +51,11 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .excludeNewRepositories(true)
  *             .excludedRepositories()
+ *             .exportMissionControl(true)
  *             .key(&#34;backup_config_name&#34;)
  *             .retentionPeriodHours(1000)
  *             .sendMailOnError(true)
+ *             .verifyDiskSpace(true)
  *             .build());
  * 
  *     }
@@ -144,6 +146,20 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludedRepositories);
     }
     /**
+     * When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * 
+     */
+    @Export(name="exportMissionControl", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> exportMissionControl;
+
+    /**
+     * @return When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> exportMissionControl() {
+        return Codegen.optional(this.exportMissionControl);
+    }
+    /**
      * The unique ID of the artifactory backup config.
      * 
      */
@@ -184,6 +200,20 @@ public class Backup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> sendMailOnError() {
         return Codegen.optional(this.sendMailOnError);
+    }
+    /**
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * 
+     */
+    @Export(name="verifyDiskSpace", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> verifyDiskSpace;
+
+    /**
+     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * 
+     */
+    public Output<Optional<Boolean>> verifyDiskSpace() {
+        return Codegen.optional(this.verifyDiskSpace);
     }
 
     /**

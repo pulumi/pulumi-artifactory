@@ -273,6 +273,12 @@ func Provider() tfbridge.ProviderInfo {
 			"artifactory_local_swift_repository":       {Tok: makeResource(mainMod, "LocalSwiftRepository")},
 			"artifactory_remote_swift_repository":      {Tok: makeResource(mainMod, "RemoteSwiftRepository")},
 			"artifactory_virtual_swift_repository":     {Tok: makeResource(mainMod, "VirtualSwiftRepository")},
+			"artifactory_repository_layout": {
+				Tok: makeResource(mainMod, "RepositoryLayout"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"artifactory_file":     {Tok: makeDataSource(mainMod, "getFile")},

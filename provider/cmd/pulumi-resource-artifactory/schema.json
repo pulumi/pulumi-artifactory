@@ -4748,7 +4748,7 @@
             }
         },
         "artifactory:index/backup:Backup": {
-            "description": "This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.\n\nWhen an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically. \nThe backup process creates a time-stamped directory in the target backup directory.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Configure Artifactory Backup system config\nconst backupConfigName = new artifactory.Backup(\"backup_config_name\", {\n    createArchive: false,\n    cronExp: \"0 0 12 * * ?\",\n    enabled: true,\n    excludeNewRepositories: true,\n    excludedRepositories: [],\n    key: \"backup_config_name\",\n    retentionPeriodHours: 1000,\n    sendMailOnError: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Configure Artifactory Backup system config\nbackup_config_name = artifactory.Backup(\"backupConfigName\",\n    create_archive=False,\n    cron_exp=\"0 0 12 * * ?\",\n    enabled=True,\n    exclude_new_repositories=True,\n    excluded_repositories=[],\n    key=\"backup_config_name\",\n    retention_period_hours=1000,\n    send_mail_on_error=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure Artifactory Backup system config\n    var backupConfigName = new Artifactory.Backup(\"backupConfigName\", new()\n    {\n        CreateArchive = false,\n        CronExp = \"0 0 12 * * ?\",\n        Enabled = true,\n        ExcludeNewRepositories = true,\n        ExcludedRepositories = new[] {},\n        Key = \"backup_config_name\",\n        RetentionPeriodHours = 1000,\n        SendMailOnError = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewBackup(ctx, \"backupConfigName\", \u0026artifactory.BackupArgs{\n\t\t\tCreateArchive:          pulumi.Bool(false),\n\t\t\tCronExp:                pulumi.String(\"0 0 12 * * ?\"),\n\t\t\tEnabled:                pulumi.Bool(true),\n\t\t\tExcludeNewRepositories: pulumi.Bool(true),\n\t\t\tExcludedRepositories:   pulumi.StringArray{},\n\t\t\tKey:                    pulumi.String(\"backup_config_name\"),\n\t\t\tRetentionPeriodHours:   pulumi.Int(1000),\n\t\t\tSendMailOnError:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Backup;\nimport com.pulumi.artifactory.BackupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var backupConfigName = new Backup(\"backupConfigName\", BackupArgs.builder()        \n            .createArchive(false)\n            .cronExp(\"0 0 12 * * ?\")\n            .enabled(true)\n            .excludeNewRepositories(true)\n            .excludedRepositories()\n            .key(\"backup_config_name\")\n            .retentionPeriodHours(1000)\n            .sendMailOnError(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure Artifactory Backup system config\n  backupConfigName:\n    type: artifactory:Backup\n    properties:\n      createArchive: false\n      cronExp: 0 0 12 * * ?\n      enabled: true\n      excludeNewRepositories: true\n      excludedRepositories: []\n      key: backup_config_name\n      retentionPeriodHours: 1000\n      sendMailOnError: true\n```\nNote: `Key` argument has to match to the resource name.   \nReference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBackup config can be imported using the key, e.g.\n\n```sh\n $ pulumi import artifactory:index/backup:Backup backup_name backup_name\n```\n\n ",
+            "description": "This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.\n\nWhen an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.\nThe backup process creates a time-stamped directory in the target backup directory.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Configure Artifactory Backup system config\nconst backupConfigName = new artifactory.Backup(\"backup_config_name\", {\n    createArchive: false,\n    cronExp: \"0 0 12 * * ?\",\n    enabled: true,\n    excludeNewRepositories: true,\n    excludedRepositories: [],\n    exportMissionControl: true,\n    key: \"backup_config_name\",\n    retentionPeriodHours: 1000,\n    sendMailOnError: true,\n    verifyDiskSpace: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Configure Artifactory Backup system config\nbackup_config_name = artifactory.Backup(\"backupConfigName\",\n    create_archive=False,\n    cron_exp=\"0 0 12 * * ?\",\n    enabled=True,\n    exclude_new_repositories=True,\n    excluded_repositories=[],\n    export_mission_control=True,\n    key=\"backup_config_name\",\n    retention_period_hours=1000,\n    send_mail_on_error=True,\n    verify_disk_space=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure Artifactory Backup system config\n    var backupConfigName = new Artifactory.Backup(\"backupConfigName\", new()\n    {\n        CreateArchive = false,\n        CronExp = \"0 0 12 * * ?\",\n        Enabled = true,\n        ExcludeNewRepositories = true,\n        ExcludedRepositories = new[] {},\n        ExportMissionControl = true,\n        Key = \"backup_config_name\",\n        RetentionPeriodHours = 1000,\n        SendMailOnError = true,\n        VerifyDiskSpace = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewBackup(ctx, \"backupConfigName\", \u0026artifactory.BackupArgs{\n\t\t\tCreateArchive:          pulumi.Bool(false),\n\t\t\tCronExp:                pulumi.String(\"0 0 12 * * ?\"),\n\t\t\tEnabled:                pulumi.Bool(true),\n\t\t\tExcludeNewRepositories: pulumi.Bool(true),\n\t\t\tExcludedRepositories:   pulumi.StringArray{},\n\t\t\tExportMissionControl:   pulumi.Bool(true),\n\t\t\tKey:                    pulumi.String(\"backup_config_name\"),\n\t\t\tRetentionPeriodHours:   pulumi.Int(1000),\n\t\t\tSendMailOnError:        pulumi.Bool(true),\n\t\t\tVerifyDiskSpace:        pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Backup;\nimport com.pulumi.artifactory.BackupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var backupConfigName = new Backup(\"backupConfigName\", BackupArgs.builder()        \n            .createArchive(false)\n            .cronExp(\"0 0 12 * * ?\")\n            .enabled(true)\n            .excludeNewRepositories(true)\n            .excludedRepositories()\n            .exportMissionControl(true)\n            .key(\"backup_config_name\")\n            .retentionPeriodHours(1000)\n            .sendMailOnError(true)\n            .verifyDiskSpace(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure Artifactory Backup system config\n  backupConfigName:\n    type: artifactory:Backup\n    properties:\n      createArchive: false\n      cronExp: 0 0 12 * * ?\n      enabled: true\n      excludeNewRepositories: true\n      excludedRepositories: []\n      exportMissionControl: true\n      key: backup_config_name\n      retentionPeriodHours: 1000\n      sendMailOnError: true\n      verifyDiskSpace: true\n```\nNote: `Key` argument has to match to the resource name.   \nReference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBackup config can be imported using the key, e.g.\n\n```sh\n $ pulumi import artifactory:index/backup:Backup backup_name backup_name\n```\n\n ",
             "properties": {
                 "createArchive": {
                     "type": "boolean",
@@ -4773,6 +4773,10 @@
                     },
                     "description": "A list of excluded repositories from the backup. Default is empty list.\n"
                 },
+                "exportMissionControl": {
+                    "type": "boolean",
+                    "description": "When set to true, mission control will not be automatically added to the backup. Default value is 'false'.\n"
+                },
                 "key": {
                     "type": "string",
                     "description": "The unique ID of the artifactory backup config.\n"
@@ -4784,6 +4788,10 @@
                 "sendMailOnError": {
                     "type": "boolean",
                     "description": "If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.\n"
+                },
+                "verifyDiskSpace": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.\n"
                 }
             },
             "required": [
@@ -4814,6 +4822,10 @@
                     },
                     "description": "A list of excluded repositories from the backup. Default is empty list.\n"
                 },
+                "exportMissionControl": {
+                    "type": "boolean",
+                    "description": "When set to true, mission control will not be automatically added to the backup. Default value is 'false'.\n"
+                },
                 "key": {
                     "type": "string",
                     "description": "The unique ID of the artifactory backup config.\n",
@@ -4826,6 +4838,10 @@
                 "sendMailOnError": {
                     "type": "boolean",
                     "description": "If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.\n"
+                },
+                "verifyDiskSpace": {
+                    "type": "boolean",
+                    "description": "If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.\n"
                 }
             },
             "requiredInputs": [
@@ -4858,6 +4874,10 @@
                         },
                         "description": "A list of excluded repositories from the backup. Default is empty list.\n"
                     },
+                    "exportMissionControl": {
+                        "type": "boolean",
+                        "description": "When set to true, mission control will not be automatically added to the backup. Default value is 'false'.\n"
+                    },
                     "key": {
                         "type": "string",
                         "description": "The unique ID of the artifactory backup config.\n",
@@ -4870,6 +4890,10 @@
                     "sendMailOnError": {
                         "type": "boolean",
                         "description": "If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.\n"
+                    },
+                    "verifyDiskSpace": {
+                        "type": "boolean",
+                        "description": "If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.\n"
                     }
                 },
                 "type": "object"
@@ -38404,6 +38428,103 @@
                 "type": "object"
             }
         },
+        "artifactory:index/repositoryLayout:RepositoryLayout": {
+            "properties": {
+                "artifactPathPattern": {
+                    "type": "string",
+                    "description": "Please refer to: [Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)\nin the Artifactory Wiki documentation.\n"
+                },
+                "descriptorPathPattern": {
+                    "type": "string",
+                    "description": "Please refer to: [Descriptor Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in\nthe Artifactory Wiki documentation.\n"
+                },
+                "distinctiveDescriptorPathPattern": {
+                    "type": "boolean",
+                    "description": "When set, 'descriptor_path_pattern' will be used. Default to 'false'.\n"
+                },
+                "fileIntegrationRevisionRegexp": {
+                    "type": "string",
+                    "description": "A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.\nFor example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp\ncapturing groups within this expression. If not applicable use '.*'\n"
+                },
+                "folderIntegrationRevisionRegexp": {
+                    "type": "string",
+                    "description": "A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.\nFor example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.\nIf not applicable use '.*'\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Layout name\n"
+                }
+            },
+            "required": [
+                "artifactPathPattern",
+                "fileIntegrationRevisionRegexp",
+                "folderIntegrationRevisionRegexp",
+                "name"
+            ],
+            "inputProperties": {
+                "artifactPathPattern": {
+                    "type": "string",
+                    "description": "Please refer to: [Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)\nin the Artifactory Wiki documentation.\n"
+                },
+                "descriptorPathPattern": {
+                    "type": "string",
+                    "description": "Please refer to: [Descriptor Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in\nthe Artifactory Wiki documentation.\n"
+                },
+                "distinctiveDescriptorPathPattern": {
+                    "type": "boolean",
+                    "description": "When set, 'descriptor_path_pattern' will be used. Default to 'false'.\n"
+                },
+                "fileIntegrationRevisionRegexp": {
+                    "type": "string",
+                    "description": "A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.\nFor example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp\ncapturing groups within this expression. If not applicable use '.*'\n"
+                },
+                "folderIntegrationRevisionRegexp": {
+                    "type": "string",
+                    "description": "A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.\nFor example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.\nIf not applicable use '.*'\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Layout name\n",
+                    "willReplaceOnChanges": true
+                }
+            },
+            "requiredInputs": [
+                "artifactPathPattern",
+                "fileIntegrationRevisionRegexp",
+                "folderIntegrationRevisionRegexp"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryLayout resources.\n",
+                "properties": {
+                    "artifactPathPattern": {
+                        "type": "string",
+                        "description": "Please refer to: [Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-ModulesandPathPatternsusedbyRepositoryLayouts)\nin the Artifactory Wiki documentation.\n"
+                    },
+                    "descriptorPathPattern": {
+                        "type": "string",
+                        "description": "Please refer to: [Descriptor Path\nPatterns](https://www.jfrog.com/confluence/display/JFROG/Repository+Layouts#RepositoryLayouts-DescriptorPathPatterns) in\nthe Artifactory Wiki documentation.\n"
+                    },
+                    "distinctiveDescriptorPathPattern": {
+                        "type": "boolean",
+                        "description": "When set, 'descriptor_path_pattern' will be used. Default to 'false'.\n"
+                    },
+                    "fileIntegrationRevisionRegexp": {
+                        "type": "string",
+                        "description": "A regular expression matching the integration revision string appearing in a file name as part of the artifact's path.\nFor example, 'SNAPSHOT|(?:(?:[0-9]{8}.[0-9]{6})-(?:[0-9]+))', in Maven. Note! Take care not to introduce any regexp\ncapturing groups within this expression. If not applicable use '.*'\n"
+                    },
+                    "folderIntegrationRevisionRegexp": {
+                        "type": "string",
+                        "description": "A regular expression matching the integration revision string appearing in a folder name as part of the artifact's path.\nFor example, 'SNAPSHOT', in Maven. Note! Take care not to introduce any regexp capturing groups within this expression.\nIf not applicable use '.*'\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Layout name\n",
+                        "willReplaceOnChanges": true
+                    }
+                },
+                "type": "object"
+            }
+        },
         "artifactory:index/samlSettings:SamlSettings": {
             "description": "This resource can be used to manage Artifactory's SAML SSO settings.\n\nOnly a single `artifactory.SamlSettings` resource is meant to be defined.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Configure Artifactory SAML SSO settings\nconst saml = new artifactory.SamlSettings(\"saml\", {\n    allowUserToAccessProfile: true,\n    autoRedirect: true,\n    certificate: \"test-certificate\",\n    emailAttribute: \"email\",\n    enable: true,\n    groupAttribute: \"groups\",\n    loginUrl: \"test-login-url\",\n    logoutUrl: \"test-logout-url\",\n    noAutoUserCreation: false,\n    serviceProviderName: \"okta\",\n    syncGroups: true,\n    useEncryptedAssertion: false,\n    verifyAudienceRestriction: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Configure Artifactory SAML SSO settings\nsaml = artifactory.SamlSettings(\"saml\",\n    allow_user_to_access_profile=True,\n    auto_redirect=True,\n    certificate=\"test-certificate\",\n    email_attribute=\"email\",\n    enable=True,\n    group_attribute=\"groups\",\n    login_url=\"test-login-url\",\n    logout_url=\"test-logout-url\",\n    no_auto_user_creation=False,\n    service_provider_name=\"okta\",\n    sync_groups=True,\n    use_encrypted_assertion=False,\n    verify_audience_restriction=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure Artifactory SAML SSO settings\n    var saml = new Artifactory.SamlSettings(\"saml\", new()\n    {\n        AllowUserToAccessProfile = true,\n        AutoRedirect = true,\n        Certificate = \"test-certificate\",\n        EmailAttribute = \"email\",\n        Enable = true,\n        GroupAttribute = \"groups\",\n        LoginUrl = \"test-login-url\",\n        LogoutUrl = \"test-logout-url\",\n        NoAutoUserCreation = false,\n        ServiceProviderName = \"okta\",\n        SyncGroups = true,\n        UseEncryptedAssertion = false,\n        VerifyAudienceRestriction = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewSamlSettings(ctx, \"saml\", \u0026artifactory.SamlSettingsArgs{\n\t\t\tAllowUserToAccessProfile:  pulumi.Bool(true),\n\t\t\tAutoRedirect:              pulumi.Bool(true),\n\t\t\tCertificate:               pulumi.String(\"test-certificate\"),\n\t\t\tEmailAttribute:            pulumi.String(\"email\"),\n\t\t\tEnable:                    pulumi.Bool(true),\n\t\t\tGroupAttribute:            pulumi.String(\"groups\"),\n\t\t\tLoginUrl:                  pulumi.String(\"test-login-url\"),\n\t\t\tLogoutUrl:                 pulumi.String(\"test-logout-url\"),\n\t\t\tNoAutoUserCreation:        pulumi.Bool(false),\n\t\t\tServiceProviderName:       pulumi.String(\"okta\"),\n\t\t\tSyncGroups:                pulumi.Bool(true),\n\t\t\tUseEncryptedAssertion:     pulumi.Bool(false),\n\t\t\tVerifyAudienceRestriction: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.SamlSettings;\nimport com.pulumi.artifactory.SamlSettingsArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var saml = new SamlSettings(\"saml\", SamlSettingsArgs.builder()        \n            .allowUserToAccessProfile(true)\n            .autoRedirect(true)\n            .certificate(\"test-certificate\")\n            .emailAttribute(\"email\")\n            .enable(true)\n            .groupAttribute(\"groups\")\n            .loginUrl(\"test-login-url\")\n            .logoutUrl(\"test-logout-url\")\n            .noAutoUserCreation(false)\n            .serviceProviderName(\"okta\")\n            .syncGroups(true)\n            .useEncryptedAssertion(false)\n            .verifyAudienceRestriction(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure Artifactory SAML SSO settings\n  saml:\n    type: artifactory:SamlSettings\n    properties:\n      allowUserToAccessProfile: true\n      autoRedirect: true\n      certificate: test-certificate\n      emailAttribute: email\n      enable: true\n      groupAttribute: groups\n      loginUrl: test-login-url\n      logoutUrl: test-logout-url\n      noAutoUserCreation: false\n      serviceProviderName: okta\n      syncGroups: true\n      useEncryptedAssertion: false\n      verifyAudienceRestriction: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCurrent SAML SSO settings can be imported using `saml_settings` as the `ID`, e.g.\n\n```sh\n $ pulumi import artifactory:index/samlSettings:SamlSettings saml saml_settings\n```\n\n ",
             "properties": {
@@ -38617,6 +38738,9 @@
                     "type": "string",
                     "description": "Returns the token issuer\n"
                 },
+                "refreshToken": {
+                    "type": "string"
+                },
                 "refreshable": {
                     "type": "boolean",
                     "description": "(Optional) Is this token refreshable? Defaults to `false`\n"
@@ -38647,6 +38771,7 @@
                 "expiry",
                 "issuedAt",
                 "issuer",
+                "refreshToken",
                 "scopes",
                 "subject",
                 "tokenType"
@@ -38725,6 +38850,9 @@
                     "issuer": {
                         "type": "string",
                         "description": "Returns the token issuer\n"
+                    },
+                    "refreshToken": {
+                        "type": "string"
                     },
                     "refreshable": {
                         "type": "boolean",

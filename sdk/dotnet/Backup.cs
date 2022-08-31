@@ -32,9 +32,11 @@ namespace Pulumi.Artifactory
     ///         Enabled = true,
     ///         ExcludeNewRepositories = true,
     ///         ExcludedRepositories = new[] {},
+    ///         ExportMissionControl = true,
     ///         Key = "backup_config_name",
     ///         RetentionPeriodHours = 1000,
     ///         SendMailOnError = true,
+    ///         VerifyDiskSpace = true,
     ///     });
     /// 
     /// });
@@ -84,6 +86,12 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ExcludedRepositories { get; private set; } = null!;
 
         /// <summary>
+        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// </summary>
+        [Output("exportMissionControl")]
+        public Output<bool?> ExportMissionControl { get; private set; } = null!;
+
+        /// <summary>
         /// The unique ID of the artifactory backup config.
         /// </summary>
         [Output("key")]
@@ -100,6 +108,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("sendMailOnError")]
         public Output<bool?> SendMailOnError { get; private set; } = null!;
+
+        /// <summary>
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        /// </summary>
+        [Output("verifyDiskSpace")]
+        public Output<bool?> VerifyDiskSpace { get; private set; } = null!;
 
 
         /// <summary>
@@ -184,6 +198,12 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// </summary>
+        [Input("exportMissionControl")]
+        public Input<bool>? ExportMissionControl { get; set; }
+
+        /// <summary>
         /// The unique ID of the artifactory backup config.
         /// </summary>
         [Input("key", required: true)]
@@ -200,6 +220,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }
+
+        /// <summary>
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        /// </summary>
+        [Input("verifyDiskSpace")]
+        public Input<bool>? VerifyDiskSpace { get; set; }
 
         public BackupArgs()
         {
@@ -246,6 +272,12 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
+        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// </summary>
+        [Input("exportMissionControl")]
+        public Input<bool>? ExportMissionControl { get; set; }
+
+        /// <summary>
         /// The unique ID of the artifactory backup config.
         /// </summary>
         [Input("key")]
@@ -262,6 +294,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("sendMailOnError")]
         public Input<bool>? SendMailOnError { get; set; }
+
+        /// <summary>
+        /// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        /// </summary>
+        [Input("verifyDiskSpace")]
+        public Input<bool>? VerifyDiskSpace { get; set; }
 
         public BackupState()
         {

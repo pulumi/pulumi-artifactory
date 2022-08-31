@@ -65,6 +65,7 @@ export class ScopedToken extends pulumi.CustomResource {
      * Returns the token issuer
      */
     public /*out*/ readonly issuer!: pulumi.Output<string>;
+    public /*out*/ readonly refreshToken!: pulumi.Output<string>;
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
      */
@@ -106,6 +107,7 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["expiry"] = state ? state.expiry : undefined;
             resourceInputs["issuedAt"] = state ? state.issuedAt : undefined;
             resourceInputs["issuer"] = state ? state.issuer : undefined;
+            resourceInputs["refreshToken"] = state ? state.refreshToken : undefined;
             resourceInputs["refreshable"] = state ? state.refreshable : undefined;
             resourceInputs["scopes"] = state ? state.scopes : undefined;
             resourceInputs["subject"] = state ? state.subject : undefined;
@@ -123,6 +125,7 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["expiry"] = undefined /*out*/;
             resourceInputs["issuedAt"] = undefined /*out*/;
             resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["refreshToken"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["tokenType"] = undefined /*out*/;
         }
@@ -163,6 +166,7 @@ export interface ScopedTokenState {
      * Returns the token issuer
      */
     issuer?: pulumi.Input<string>;
+    refreshToken?: pulumi.Input<string>;
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
      */

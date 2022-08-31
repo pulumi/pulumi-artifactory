@@ -36,9 +36,11 @@ import (
 //				Enabled:                pulumi.Bool(true),
 //				ExcludeNewRepositories: pulumi.Bool(true),
 //				ExcludedRepositories:   pulumi.StringArray{},
+//				ExportMissionControl:   pulumi.Bool(true),
 //				Key:                    pulumi.String("backup_config_name"),
 //				RetentionPeriodHours:   pulumi.Int(1000),
 //				SendMailOnError:        pulumi.Bool(true),
+//				VerifyDiskSpace:        pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -73,12 +75,16 @@ type Backup struct {
 	ExcludeNewRepositories pulumi.BoolPtrOutput `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayOutput `pulumi:"excludedRepositories"`
+	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	ExportMissionControl pulumi.BoolPtrOutput `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringOutput `pulumi:"key"`
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
 	RetentionPeriodHours pulumi.IntPtrOutput `pulumi:"retentionPeriodHours"`
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 	SendMailOnError pulumi.BoolPtrOutput `pulumi:"sendMailOnError"`
+	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+	VerifyDiskSpace pulumi.BoolPtrOutput `pulumi:"verifyDiskSpace"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
@@ -126,12 +132,16 @@ type backupState struct {
 	ExcludeNewRepositories *bool `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories []string `pulumi:"excludedRepositories"`
+	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	ExportMissionControl *bool `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key *string `pulumi:"key"`
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 	SendMailOnError *bool `pulumi:"sendMailOnError"`
+	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+	VerifyDiskSpace *bool `pulumi:"verifyDiskSpace"`
 }
 
 type BackupState struct {
@@ -145,12 +155,16 @@ type BackupState struct {
 	ExcludeNewRepositories pulumi.BoolPtrInput
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayInput
+	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	ExportMissionControl pulumi.BoolPtrInput
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringPtrInput
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
 	RetentionPeriodHours pulumi.IntPtrInput
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 	SendMailOnError pulumi.BoolPtrInput
+	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+	VerifyDiskSpace pulumi.BoolPtrInput
 }
 
 func (BackupState) ElementType() reflect.Type {
@@ -168,12 +182,16 @@ type backupArgs struct {
 	ExcludeNewRepositories *bool `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories []string `pulumi:"excludedRepositories"`
+	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	ExportMissionControl *bool `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key string `pulumi:"key"`
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 	SendMailOnError *bool `pulumi:"sendMailOnError"`
+	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+	VerifyDiskSpace *bool `pulumi:"verifyDiskSpace"`
 }
 
 // The set of arguments for constructing a Backup resource.
@@ -188,12 +206,16 @@ type BackupArgs struct {
 	ExcludeNewRepositories pulumi.BoolPtrInput
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayInput
+	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	ExportMissionControl pulumi.BoolPtrInput
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringInput
 	// The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
 	RetentionPeriodHours pulumi.IntPtrInput
 	// If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 	SendMailOnError pulumi.BoolPtrInput
+	// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+	VerifyDiskSpace pulumi.BoolPtrInput
 }
 
 func (BackupArgs) ElementType() reflect.Type {
@@ -308,6 +330,11 @@ func (o BackupOutput) ExcludedRepositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringArrayOutput { return v.ExcludedRepositories }).(pulumi.StringArrayOutput)
 }
 
+// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+func (o BackupOutput) ExportMissionControl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.ExportMissionControl }).(pulumi.BoolPtrOutput)
+}
+
 // The unique ID of the artifactory backup config.
 func (o BackupOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
@@ -321,6 +348,11 @@ func (o BackupOutput) RetentionPeriodHours() pulumi.IntPtrOutput {
 // If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
 func (o BackupOutput) SendMailOnError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.SendMailOnError }).(pulumi.BoolPtrOutput)
+}
+
+// If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+func (o BackupOutput) VerifyDiskSpace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.VerifyDiskSpace }).(pulumi.BoolPtrOutput)
 }
 
 type BackupArrayOutput struct{ *pulumi.OutputState }
