@@ -94,6 +94,21 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * 
+     */
+    @Import(name="exportMissionControl")
+    private @Nullable Output<Boolean> exportMissionControl;
+
+    /**
+     * @return When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> exportMissionControl() {
+        return Optional.ofNullable(this.exportMissionControl);
+    }
+
+    /**
      * The unique ID of the artifactory backup config.
      * 
      */
@@ -138,6 +153,21 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sendMailOnError);
     }
 
+    /**
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * 
+     */
+    @Import(name="verifyDiskSpace")
+    private @Nullable Output<Boolean> verifyDiskSpace;
+
+    /**
+     * @return If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     * 
+     */
+    public Optional<Output<Boolean>> verifyDiskSpace() {
+        return Optional.ofNullable(this.verifyDiskSpace);
+    }
+
     private BackupState() {}
 
     private BackupState(BackupState $) {
@@ -146,9 +176,11 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         this.enabled = $.enabled;
         this.excludeNewRepositories = $.excludeNewRepositories;
         this.excludedRepositories = $.excludedRepositories;
+        this.exportMissionControl = $.exportMissionControl;
         this.key = $.key;
         this.retentionPeriodHours = $.retentionPeriodHours;
         this.sendMailOnError = $.sendMailOnError;
+        this.verifyDiskSpace = $.verifyDiskSpace;
     }
 
     public static Builder builder() {
@@ -285,6 +317,27 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exportMissionControl(@Nullable Output<Boolean> exportMissionControl) {
+            $.exportMissionControl = exportMissionControl;
+            return this;
+        }
+
+        /**
+         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exportMissionControl(Boolean exportMissionControl) {
+            return exportMissionControl(Output.of(exportMissionControl));
+        }
+
+        /**
          * @param key The unique ID of the artifactory backup config.
          * 
          * @return builder
@@ -345,6 +398,27 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sendMailOnError(Boolean sendMailOnError) {
             return sendMailOnError(Output.of(sendMailOnError));
+        }
+
+        /**
+         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyDiskSpace(@Nullable Output<Boolean> verifyDiskSpace) {
+            $.verifyDiskSpace = verifyDiskSpace;
+            return this;
+        }
+
+        /**
+         * @param verifyDiskSpace If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifyDiskSpace(Boolean verifyDiskSpace) {
+            return verifyDiskSpace(Output.of(verifyDiskSpace));
         }
 
         public BackupState build() {

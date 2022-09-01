@@ -123,6 +123,13 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.issuer);
     }
 
+    @Import(name="refreshToken")
+    private @Nullable Output<String> refreshToken;
+
+    public Optional<Output<String>> refreshToken() {
+        return Optional.ofNullable(this.refreshToken);
+    }
+
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
      * 
@@ -208,6 +215,7 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
         this.expiry = $.expiry;
         this.issuedAt = $.issuedAt;
         this.issuer = $.issuer;
+        this.refreshToken = $.refreshToken;
         this.refreshable = $.refreshable;
         this.scopes = $.scopes;
         this.subject = $.subject;
@@ -388,6 +396,15 @@ public final class ScopedTokenState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
+        }
+
+        public Builder refreshToken(@Nullable Output<String> refreshToken) {
+            $.refreshToken = refreshToken;
+            return this;
+        }
+
+        public Builder refreshToken(String refreshToken) {
+            return refreshToken(Output.of(refreshToken));
         }
 
         /**

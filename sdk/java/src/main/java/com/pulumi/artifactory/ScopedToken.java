@@ -123,6 +123,12 @@ public class ScopedToken extends com.pulumi.resources.CustomResource {
     public Output<String> issuer() {
         return this.issuer;
     }
+    @Export(name="refreshToken", type=String.class, parameters={})
+    private Output<String> refreshToken;
+
+    public Output<String> refreshToken() {
+        return this.refreshToken;
+    }
     /**
      * (Optional) Is this token refreshable? Defaults to `false`
      * 

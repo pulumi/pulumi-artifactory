@@ -23,9 +23,11 @@ import * as utilities from "./utilities";
  *     enabled: true,
  *     excludeNewRepositories: true,
  *     excludedRepositories: [],
+ *     exportMissionControl: true,
  *     key: "backup_config_name",
  *     retentionPeriodHours: 1000,
  *     sendMailOnError: true,
+ *     verifyDiskSpace: true,
  * });
  * ```
  * Note: `Key` argument has to match to the resource name.\
@@ -88,6 +90,10 @@ export class Backup extends pulumi.CustomResource {
      */
     public readonly excludedRepositories!: pulumi.Output<string[] | undefined>;
     /**
+     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     */
+    public readonly exportMissionControl!: pulumi.Output<boolean | undefined>;
+    /**
      * The unique ID of the artifactory backup config.
      */
     public readonly key!: pulumi.Output<string>;
@@ -99,6 +105,10 @@ export class Backup extends pulumi.CustomResource {
      * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
     public readonly sendMailOnError!: pulumi.Output<boolean | undefined>;
+    /**
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     */
+    public readonly verifyDiskSpace!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Backup resource with the given unique name, arguments, and options.
@@ -118,9 +128,11 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["excludeNewRepositories"] = state ? state.excludeNewRepositories : undefined;
             resourceInputs["excludedRepositories"] = state ? state.excludedRepositories : undefined;
+            resourceInputs["exportMissionControl"] = state ? state.exportMissionControl : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["retentionPeriodHours"] = state ? state.retentionPeriodHours : undefined;
             resourceInputs["sendMailOnError"] = state ? state.sendMailOnError : undefined;
+            resourceInputs["verifyDiskSpace"] = state ? state.verifyDiskSpace : undefined;
         } else {
             const args = argsOrState as BackupArgs | undefined;
             if ((!args || args.cronExp === undefined) && !opts.urn) {
@@ -134,9 +146,11 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["excludeNewRepositories"] = args ? args.excludeNewRepositories : undefined;
             resourceInputs["excludedRepositories"] = args ? args.excludedRepositories : undefined;
+            resourceInputs["exportMissionControl"] = args ? args.exportMissionControl : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["retentionPeriodHours"] = args ? args.retentionPeriodHours : undefined;
             resourceInputs["sendMailOnError"] = args ? args.sendMailOnError : undefined;
+            resourceInputs["verifyDiskSpace"] = args ? args.verifyDiskSpace : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Backup.__pulumiType, name, resourceInputs, opts);
@@ -168,6 +182,10 @@ export interface BackupState {
      */
     excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     */
+    exportMissionControl?: pulumi.Input<boolean>;
+    /**
      * The unique ID of the artifactory backup config.
      */
     key?: pulumi.Input<string>;
@@ -179,6 +197,10 @@ export interface BackupState {
      * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
     sendMailOnError?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     */
+    verifyDiskSpace?: pulumi.Input<boolean>;
 }
 
 /**
@@ -206,6 +228,10 @@ export interface BackupArgs {
      */
     excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     */
+    exportMissionControl?: pulumi.Input<boolean>;
+    /**
      * The unique ID of the artifactory backup config.
      */
     key: pulumi.Input<string>;
@@ -217,4 +243,8 @@ export interface BackupArgs {
      * If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
      */
     sendMailOnError?: pulumi.Input<boolean>;
+    /**
+     * If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+     */
+    verifyDiskSpace?: pulumi.Input<boolean>;
 }

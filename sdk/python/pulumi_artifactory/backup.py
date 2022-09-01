@@ -20,8 +20,10 @@ class BackupArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
                  excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 export_mission_control: Optional[pulumi.Input[bool]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[bool]] = None):
+                 send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+                 verify_disk_space: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
@@ -30,8 +32,10 @@ class BackupArgs:
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "key", key)
@@ -43,10 +47,14 @@ class BackupArgs:
             pulumi.set(__self__, "exclude_new_repositories", exclude_new_repositories)
         if excluded_repositories is not None:
             pulumi.set(__self__, "excluded_repositories", excluded_repositories)
+        if export_mission_control is not None:
+            pulumi.set(__self__, "export_mission_control", export_mission_control)
         if retention_period_hours is not None:
             pulumi.set(__self__, "retention_period_hours", retention_period_hours)
         if send_mail_on_error is not None:
             pulumi.set(__self__, "send_mail_on_error", send_mail_on_error)
+        if verify_disk_space is not None:
+            pulumi.set(__self__, "verify_disk_space", verify_disk_space)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -121,6 +129,18 @@ class BackupArgs:
         pulumi.set(self, "excluded_repositories", value)
 
     @property
+    @pulumi.getter(name="exportMissionControl")
+    def export_mission_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        """
+        return pulumi.get(self, "export_mission_control")
+
+    @export_mission_control.setter
+    def export_mission_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_mission_control", value)
+
+    @property
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> Optional[pulumi.Input[int]]:
         """
@@ -144,6 +164,18 @@ class BackupArgs:
     def send_mail_on_error(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "send_mail_on_error", value)
 
+    @property
+    @pulumi.getter(name="verifyDiskSpace")
+    def verify_disk_space(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        """
+        return pulumi.get(self, "verify_disk_space")
+
+    @verify_disk_space.setter
+    def verify_disk_space(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verify_disk_space", value)
+
 
 @pulumi.input_type
 class _BackupState:
@@ -153,9 +185,11 @@ class _BackupState:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
                  excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 export_mission_control: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
-                 send_mail_on_error: Optional[pulumi.Input[bool]] = None):
+                 send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+                 verify_disk_space: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
@@ -163,9 +197,11 @@ class _BackupState:
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
         if create_archive is not None:
             pulumi.set(__self__, "create_archive", create_archive)
@@ -177,12 +213,16 @@ class _BackupState:
             pulumi.set(__self__, "exclude_new_repositories", exclude_new_repositories)
         if excluded_repositories is not None:
             pulumi.set(__self__, "excluded_repositories", excluded_repositories)
+        if export_mission_control is not None:
+            pulumi.set(__self__, "export_mission_control", export_mission_control)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if retention_period_hours is not None:
             pulumi.set(__self__, "retention_period_hours", retention_period_hours)
         if send_mail_on_error is not None:
             pulumi.set(__self__, "send_mail_on_error", send_mail_on_error)
+        if verify_disk_space is not None:
+            pulumi.set(__self__, "verify_disk_space", verify_disk_space)
 
     @property
     @pulumi.getter(name="createArchive")
@@ -245,6 +285,18 @@ class _BackupState:
         pulumi.set(self, "excluded_repositories", value)
 
     @property
+    @pulumi.getter(name="exportMissionControl")
+    def export_mission_control(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        """
+        return pulumi.get(self, "export_mission_control")
+
+    @export_mission_control.setter
+    def export_mission_control(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_mission_control", value)
+
+    @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
@@ -280,6 +332,18 @@ class _BackupState:
     def send_mail_on_error(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "send_mail_on_error", value)
 
+    @property
+    @pulumi.getter(name="verifyDiskSpace")
+    def verify_disk_space(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        """
+        return pulumi.get(self, "verify_disk_space")
+
+    @verify_disk_space.setter
+    def verify_disk_space(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verify_disk_space", value)
+
 
 class Backup(pulumi.CustomResource):
     @overload
@@ -291,9 +355,11 @@ class Backup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
                  excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 export_mission_control: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+                 verify_disk_space: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         This resource can be used to manage the automatic and periodic backups of the entire Artifactory instance.
@@ -314,9 +380,11 @@ class Backup(pulumi.CustomResource):
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
+            export_mission_control=True,
             key="backup_config_name",
             retention_period_hours=1000,
-            send_mail_on_error=True)
+            send_mail_on_error=True,
+            verify_disk_space=True)
         ```
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
@@ -336,9 +404,11 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
         ...
     @overload
@@ -365,9 +435,11 @@ class Backup(pulumi.CustomResource):
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
+            export_mission_control=True,
             key="backup_config_name",
             retention_period_hours=1000,
-            send_mail_on_error=True)
+            send_mail_on_error=True,
+            verify_disk_space=True)
         ```
         Note: `Key` argument has to match to the resource name.\\
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
@@ -400,9 +472,11 @@ class Backup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
                  excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 export_mission_control: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  retention_period_hours: Optional[pulumi.Input[int]] = None,
                  send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+                 verify_disk_space: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -419,11 +493,13 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["exclude_new_repositories"] = exclude_new_repositories
             __props__.__dict__["excluded_repositories"] = excluded_repositories
+            __props__.__dict__["export_mission_control"] = export_mission_control
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["send_mail_on_error"] = send_mail_on_error
+            __props__.__dict__["verify_disk_space"] = verify_disk_space
         super(Backup, __self__).__init__(
             'artifactory:index/backup:Backup',
             resource_name,
@@ -439,9 +515,11 @@ class Backup(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             exclude_new_repositories: Optional[pulumi.Input[bool]] = None,
             excluded_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            export_mission_control: Optional[pulumi.Input[bool]] = None,
             key: Optional[pulumi.Input[str]] = None,
             retention_period_hours: Optional[pulumi.Input[int]] = None,
-            send_mail_on_error: Optional[pulumi.Input[bool]] = None) -> 'Backup':
+            send_mail_on_error: Optional[pulumi.Input[bool]] = None,
+            verify_disk_space: Optional[pulumi.Input[bool]] = None) -> 'Backup':
         """
         Get an existing Backup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -454,9 +532,11 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
+        :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -467,9 +547,11 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["exclude_new_repositories"] = exclude_new_repositories
         __props__.__dict__["excluded_repositories"] = excluded_repositories
+        __props__.__dict__["export_mission_control"] = export_mission_control
         __props__.__dict__["key"] = key
         __props__.__dict__["retention_period_hours"] = retention_period_hours
         __props__.__dict__["send_mail_on_error"] = send_mail_on_error
+        __props__.__dict__["verify_disk_space"] = verify_disk_space
         return Backup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -513,6 +595,14 @@ class Backup(pulumi.CustomResource):
         return pulumi.get(self, "excluded_repositories")
 
     @property
+    @pulumi.getter(name="exportMissionControl")
+    def export_mission_control(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        """
+        return pulumi.get(self, "export_mission_control")
+
+    @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
         """
@@ -535,4 +625,12 @@ class Backup(pulumi.CustomResource):
         If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         """
         return pulumi.get(self, "send_mail_on_error")
+
+    @property
+    @pulumi.getter(name="verifyDiskSpace")
+    def verify_disk_space(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
+        """
+        return pulumi.get(self, "verify_disk_space")
 

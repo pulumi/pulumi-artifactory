@@ -59,6 +59,9 @@ namespace Pulumi.Artifactory
         [Output("issuer")]
         public Output<string> Issuer { get; private set; } = null!;
 
+        [Output("refreshToken")]
+        public Output<string> RefreshToken { get; private set; } = null!;
+
         /// <summary>
         /// (Optional) Is this token refreshable? Defaults to `false`
         /// </summary>
@@ -238,6 +241,9 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
+
+        [Input("refreshToken")]
+        public Input<string>? RefreshToken { get; set; }
 
         /// <summary>
         /// (Optional) Is this token refreshable? Defaults to `false`

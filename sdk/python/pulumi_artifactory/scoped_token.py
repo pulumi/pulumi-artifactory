@@ -125,6 +125,7 @@ class _ScopedTokenState:
                  expiry: Optional[pulumi.Input[int]] = None,
                  issued_at: Optional[pulumi.Input[int]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None,
                  refreshable: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject: Optional[pulumi.Input[str]] = None,
@@ -159,6 +160,8 @@ class _ScopedTokenState:
             pulumi.set(__self__, "issued_at", issued_at)
         if issuer is not None:
             pulumi.set(__self__, "issuer", issuer)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
         if refreshable is not None:
             pulumi.set(__self__, "refreshable", refreshable)
         if scopes is not None:
@@ -253,6 +256,15 @@ class _ScopedTokenState:
     @issuer.setter
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
 
     @property
     @pulumi.getter
@@ -392,6 +404,7 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["expiry"] = None
             __props__.__dict__["issued_at"] = None
             __props__.__dict__["issuer"] = None
+            __props__.__dict__["refresh_token"] = None
             __props__.__dict__["subject"] = None
             __props__.__dict__["token_type"] = None
         super(ScopedToken, __self__).__init__(
@@ -411,6 +424,7 @@ class ScopedToken(pulumi.CustomResource):
             expiry: Optional[pulumi.Input[int]] = None,
             issued_at: Optional[pulumi.Input[int]] = None,
             issuer: Optional[pulumi.Input[str]] = None,
+            refresh_token: Optional[pulumi.Input[str]] = None,
             refreshable: Optional[pulumi.Input[bool]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subject: Optional[pulumi.Input[str]] = None,
@@ -447,6 +461,7 @@ class ScopedToken(pulumi.CustomResource):
         __props__.__dict__["expiry"] = expiry
         __props__.__dict__["issued_at"] = issued_at
         __props__.__dict__["issuer"] = issuer
+        __props__.__dict__["refresh_token"] = refresh_token
         __props__.__dict__["refreshable"] = refreshable
         __props__.__dict__["scopes"] = scopes
         __props__.__dict__["subject"] = subject
@@ -509,6 +524,11 @@ class ScopedToken(pulumi.CustomResource):
         Returns the token issuer
         """
         return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "refresh_token")
 
     @property
     @pulumi.getter

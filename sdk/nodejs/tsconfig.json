@@ -138,6 +138,7 @@
         "remoteTerraformRepository.ts",
         "remoteVcsRepository.ts",
         "replicationConfig.ts",
+        "repositoryLayout.ts",
         "samlSettings.ts",
         "scopedToken.ts",
         "singleReplicationConfig.ts",

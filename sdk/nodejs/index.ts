@@ -127,6 +127,7 @@ export * from "./remoteSwiftRepository";
 export * from "./remoteTerraformRepository";
 export * from "./remoteVcsRepository";
 export * from "./replicationConfig";
+export * from "./repositoryLayout";
 export * from "./samlSettings";
 export * from "./scopedToken";
 export * from "./singleReplicationConfig";
@@ -287,6 +288,7 @@ import { RemoteSwiftRepository } from "./remoteSwiftRepository";
 import { RemoteTerraformRepository } from "./remoteTerraformRepository";
 import { RemoteVcsRepository } from "./remoteVcsRepository";
 import { ReplicationConfig } from "./replicationConfig";
+import { RepositoryLayout } from "./repositoryLayout";
 import { SamlSettings } from "./samlSettings";
 import { ScopedToken } from "./scopedToken";
 import { SingleReplicationConfig } from "./singleReplicationConfig";
@@ -560,6 +562,8 @@ const _module = {
                 return new RemoteVcsRepository(name, <any>undefined, { urn })
             case "artifactory:index/replicationConfig:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
+            case "artifactory:index/repositoryLayout:RepositoryLayout":
+                return new RepositoryLayout(name, <any>undefined, { urn })
             case "artifactory:index/samlSettings:SamlSettings":
                 return new SamlSettings(name, <any>undefined, { urn })
             case "artifactory:index/scopedToken:ScopedToken":
@@ -744,6 +748,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteSwiftRepositor
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteTerraformRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteVcsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/replicationConfig", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/repositoryLayout", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/samlSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/scopedToken", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/singleReplicationConfig", _module)

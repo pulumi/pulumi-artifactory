@@ -258,6 +258,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemoteVcsRepository{}
 	case "artifactory:index/replicationConfig:ReplicationConfig":
 		r = &ReplicationConfig{}
+	case "artifactory:index/repositoryLayout:RepositoryLayout":
+		r = &RepositoryLayout{}
 	case "artifactory:index/samlSettings:SamlSettings":
 		r = &SamlSettings{}
 	case "artifactory:index/scopedToken:ScopedToken":
@@ -939,6 +941,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/replicationConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/repositoryLayout",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
