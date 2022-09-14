@@ -101,6 +101,13 @@ namespace Pulumi.Artifactory
         public Output<string?> DownloadContextPath { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// </summary>
+        [Output("downloadDirect")]
+        public Output<bool?> DownloadDirect { get; private set; } = null!;
+
+        /// <summary>
         /// Enables cookie management if the remote repository uses cookies to manage client state.
         /// </summary>
         [Output("enableCookieManagement")]
@@ -405,6 +412,13 @@ namespace Pulumi.Artifactory
         public Input<string>? DownloadContextPath { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// </summary>
+        [Input("downloadDirect")]
+        public Input<bool>? DownloadDirect { get; set; }
+
+        /// <summary>
         /// Enables cookie management if the remote repository uses cookies to manage client state.
         /// </summary>
         [Input("enableCookieManagement")]
@@ -675,6 +689,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        /// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        /// </summary>
+        [Input("downloadDirect")]
+        public Input<bool>? DownloadDirect { get; set; }
 
         /// <summary>
         /// Enables cookie management if the remote repository uses cookies to manage client state.

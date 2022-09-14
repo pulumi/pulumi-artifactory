@@ -4182,7 +4182,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5204,7 +5205,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -5586,6 +5588,7 @@
                 "key",
                 "maxUniqueTags",
                 "packageType",
+                "projectEnvironments",
                 "tagRetention"
             ],
             "inputProperties": {
@@ -5830,7 +5833,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6202,7 +6206,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6456,7 +6461,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -6700,7 +6706,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "anonymousAccess": {
@@ -6954,7 +6961,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7188,7 +7196,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7422,7 +7431,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7656,7 +7666,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -7890,7 +7901,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8124,7 +8136,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8377,7 +8390,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8667,7 +8681,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -8929,7 +8944,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9163,7 +9179,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9397,7 +9414,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9631,7 +9649,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -9889,7 +9908,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10171,7 +10191,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10429,7 +10450,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -10735,7 +10757,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11017,7 +11040,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11259,7 +11283,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11509,7 +11534,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11743,7 +11769,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -11977,7 +12004,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12233,7 +12261,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12535,7 +12564,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -12817,7 +12847,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13051,7 +13082,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13285,7 +13317,8 @@
                 "includesPattern",
                 "key",
                 "members",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -13537,7 +13570,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -14383,7 +14417,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -14604,7 +14639,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "anonymousAccess": {
@@ -14835,7 +14871,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15046,7 +15083,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15257,7 +15295,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15468,7 +15507,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15679,7 +15719,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -15890,7 +15931,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16101,7 +16143,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16312,7 +16355,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16523,7 +16567,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16734,7 +16779,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -16969,7 +17015,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -17228,7 +17275,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -17463,7 +17511,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -17746,7 +17795,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -18005,7 +18055,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -18224,7 +18275,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -18451,7 +18503,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -18662,7 +18715,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -18873,7 +18927,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -19084,7 +19139,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -19319,7 +19375,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -19602,7 +19659,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -19861,7 +19919,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -20072,7 +20131,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -20283,7 +20343,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -20494,7 +20555,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -20705,7 +20767,8 @@
                 "excludesPattern",
                 "includesPattern",
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "archiveBrowsingEnabled": {
@@ -21052,7 +21115,8 @@
                 "forceMavenAuthentication",
                 "key",
                 "packageType",
-                "pomRepositoryReferencesCleanupPolicy"
+                "pomRepositoryReferencesCleanupPolicy",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -21818,6 +21882,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -21964,6 +22032,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -22003,6 +22072,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -22162,6 +22235,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -22333,6 +22410,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -22487,6 +22568,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -22530,6 +22612,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -22701,6 +22787,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -22880,6 +22970,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -23031,6 +23125,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -23074,6 +23169,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -23242,6 +23341,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -23413,6 +23516,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -23559,6 +23666,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -23598,6 +23706,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -23757,6 +23869,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -23924,6 +24040,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -24082,6 +24202,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -24121,6 +24242,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -24292,6 +24417,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -24475,6 +24604,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -24629,6 +24762,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -24672,6 +24806,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -24843,6 +24981,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -25018,6 +25160,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -25164,6 +25310,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -25203,6 +25350,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -25362,6 +25513,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -25529,6 +25684,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -25675,6 +25834,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -25714,6 +25874,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -25873,6 +26037,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -26040,6 +26208,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -26186,6 +26358,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -26225,6 +26398,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -26384,6 +26561,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -26551,6 +26732,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -26697,6 +26882,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -26736,6 +26922,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -26895,6 +27085,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -27066,6 +27260,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -27230,6 +27428,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -27273,6 +27472,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -27451,6 +27654,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -27633,6 +27840,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -27779,6 +27990,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -27818,6 +28030,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -27977,6 +28193,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -28144,6 +28364,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -28290,6 +28514,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -28329,6 +28554,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -28488,6 +28717,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -28655,6 +28888,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -28801,6 +29038,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -28840,6 +29078,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -28999,6 +29241,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -29166,6 +29412,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -29316,6 +29566,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -29355,6 +29606,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -29518,6 +29773,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -29688,6 +29947,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -29863,6 +30126,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -29902,6 +30166,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -30089,6 +30357,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -30284,6 +30556,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -30445,6 +30721,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -30484,6 +30761,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -30659,6 +30940,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -30842,6 +31127,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -31016,6 +31305,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -31055,6 +31345,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -31242,6 +31536,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -31437,6 +31735,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -31616,6 +31918,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -31655,6 +31958,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -31846,6 +32153,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -32045,6 +32356,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -32191,6 +32506,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -32230,6 +32546,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -32389,6 +32709,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -32560,6 +32884,10 @@
                     "type": "string",
                     "description": "The context path prefix through which NuGet downloads are served.\nFor example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository\nURL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.\n"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -32718,6 +33046,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -32761,6 +33090,10 @@
                 "downloadContextPath": {
                     "type": "string",
                     "description": "The context path prefix through which NuGet downloads are served.\nFor example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository\nURL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.\n"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -32936,6 +33269,10 @@
                     "downloadContextPath": {
                         "type": "string",
                         "description": "The context path prefix through which NuGet downloads are served.\nFor example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository\nURL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.\n"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -33115,6 +33452,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -33261,6 +33602,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -33300,6 +33642,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -33459,6 +33805,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -33626,6 +33976,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -33772,6 +34126,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -33811,6 +34166,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -33970,6 +34329,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -34137,6 +34500,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -34283,6 +34650,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -34322,6 +34690,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -34481,6 +34853,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -34648,6 +35024,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -34794,6 +35174,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -34833,6 +35214,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -34992,6 +35377,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -35159,6 +35548,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -35313,6 +35706,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -35352,6 +35746,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -35519,6 +35917,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -35694,6 +36096,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -35840,6 +36246,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -35879,6 +36286,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -36038,6 +36449,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -36204,6 +36619,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -36379,6 +36798,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -36418,6 +36838,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -36605,6 +37029,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -36800,6 +37228,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -36946,6 +37378,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -36985,6 +37418,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -37144,6 +37581,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -37311,6 +37752,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -37465,6 +37910,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -37504,6 +37950,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -37671,6 +38121,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -37846,6 +38300,10 @@
                 "description": {
                     "type": "string"
                 },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
+                },
                 "enableCookieManagement": {
                     "type": "boolean",
                     "description": "Enables cookie management if the remote repository uses cookies to manage client state.\n"
@@ -38004,6 +38462,7 @@
                 "offline",
                 "packageType",
                 "priorityResolution",
+                "projectEnvironments",
                 "remoteRepoLayoutRef",
                 "retrievalCachePeriodSeconds",
                 "shareConfiguration",
@@ -38043,6 +38502,10 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "downloadDirect": {
+                    "type": "boolean",
+                    "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                 },
                 "enableCookieManagement": {
                     "type": "boolean",
@@ -38214,6 +38677,10 @@
                     },
                     "description": {
                         "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean",
+                        "description": "When set, download requests to this repository will redirect the client to download the artifact directly from the cloud\nstorage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.\n"
                     },
                     "enableCookieManagement": {
                         "type": "boolean",
@@ -39355,7 +39822,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -39571,7 +40039,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -39796,7 +40265,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -39989,7 +40459,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -40182,7 +40653,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -40375,7 +40847,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -40568,7 +41041,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -40781,7 +41255,8 @@
             "required": [
                 "key",
                 "optionalIndexCompressionFormats",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -41012,7 +41487,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -41205,7 +41681,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -41398,7 +41875,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -41591,7 +42069,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -41798,7 +42277,8 @@
                 "forceMavenAuthentication",
                 "key",
                 "packageType",
-                "pomRepositoryReferencesCleanupPolicy"
+                "pomRepositoryReferencesCleanupPolicy",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -42019,7 +42499,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -42234,7 +42715,8 @@
                 "forceMavenAuthentication",
                 "key",
                 "packageType",
-                "pomRepositoryReferencesCleanupPolicy"
+                "pomRepositoryReferencesCleanupPolicy",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -42466,7 +42948,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -42695,7 +43178,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -42896,7 +43380,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -43089,7 +43574,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -43282,7 +43768,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -43475,7 +43962,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -43676,7 +44164,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -43899,7 +44388,8 @@
                 "forceMavenAuthentication",
                 "key",
                 "packageType",
-                "pomRepositoryReferencesCleanupPolicy"
+                "pomRepositoryReferencesCleanupPolicy",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -44116,7 +44606,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
@@ -44309,7 +44800,8 @@
             },
             "required": [
                 "key",
-                "packageType"
+                "packageType",
+                "projectEnvironments"
             ],
             "inputProperties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {

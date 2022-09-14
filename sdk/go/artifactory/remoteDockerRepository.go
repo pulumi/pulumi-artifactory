@@ -84,6 +84,9 @@ type RemoteDockerRepository struct {
 	ClientTlsCertificate   pulumi.StringOutput                                `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                                `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
@@ -224,6 +227,9 @@ type remoteDockerRepositoryState struct {
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                       `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
@@ -330,6 +336,9 @@ type RemoteDockerRepositoryState struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
@@ -440,6 +449,9 @@ type remoteDockerRepositoryArgs struct {
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                       `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// Enable token (Bearer) based authentication.
@@ -544,6 +556,9 @@ type RemoteDockerRepositoryArgs struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// Enable token (Bearer) based authentication.
@@ -760,6 +775,12 @@ func (o RemoteDockerRepositoryOutput) ContentSynchronisation() RemoteDockerRepos
 
 func (o RemoteDockerRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+func (o RemoteDockerRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
 // Enables cookie management if the remote repository uses cookies to manage client state.

@@ -132,6 +132,23 @@ public final class RemoteAlpineRepositoryArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * 
+     */
+    @Import(name="downloadDirect")
+    private @Nullable Output<Boolean> downloadDirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * 
+     */
+    public Optional<Output<Boolean>> downloadDirect() {
+        return Optional.ofNullable(this.downloadDirect);
+    }
+
+    /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
@@ -580,6 +597,7 @@ public final class RemoteAlpineRepositoryArgs extends com.pulumi.resources.Resou
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
+        this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
         this.hardFail = $.hardFail;
@@ -776,6 +794,29 @@ public final class RemoteAlpineRepositoryArgs extends com.pulumi.resources.Resou
 
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+         * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downloadDirect(@Nullable Output<Boolean> downloadDirect) {
+            $.downloadDirect = downloadDirect;
+            return this;
+        }
+
+        /**
+         * @param downloadDirect When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+         * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downloadDirect(Boolean downloadDirect) {
+            return downloadDirect(Output.of(downloadDirect));
         }
 
         /**

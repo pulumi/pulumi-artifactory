@@ -78,6 +78,9 @@ type RemoteGradleRepository struct {
 	ClientTlsCertificate   pulumi.StringOutput                                `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteGradleRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                                `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -222,6 +225,9 @@ type remoteGradleRepositoryState struct {
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGradleRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                       `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -332,6 +338,9 @@ type RemoteGradleRepositoryState struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGradleRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -446,6 +455,9 @@ type remoteGradleRepositoryArgs struct {
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteGradleRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                       `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -554,6 +566,9 @@ type RemoteGradleRepositoryArgs struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteGradleRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -771,6 +786,12 @@ func (o RemoteGradleRepositoryOutput) ContentSynchronisation() RemoteGradleRepos
 
 func (o RemoteGradleRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteGradleRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+func (o RemoteGradleRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteGradleRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
 // Enables cookie management if the remote repository uses cookies to manage client state.

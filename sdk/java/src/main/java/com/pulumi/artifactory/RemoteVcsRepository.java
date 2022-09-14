@@ -171,6 +171,22 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * 
+     */
+    @Export(name="downloadDirect", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> downloadDirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;.
+     * 
+     */
+    public Output<Optional<Boolean>> downloadDirect() {
+        return Codegen.optional(this.downloadDirect);
+    }
+    /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
@@ -391,14 +407,14 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> projectEnvironments;
+    private Output<List<String>> projectEnvironments;
 
     /**
      * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
      * 
      */
-    public Output<Optional<List<String>>> projectEnvironments() {
-        return Codegen.optional(this.projectEnvironments);
+    public Output<List<String>> projectEnvironments() {
+        return this.projectEnvironments;
     }
     /**
      * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When

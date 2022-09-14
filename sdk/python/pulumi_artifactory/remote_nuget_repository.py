@@ -27,6 +27,7 @@ class RemoteNugetRepositoryArgs:
                  content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  feed_context_path: Optional[pulumi.Input[str]] = None,
@@ -79,6 +80,8 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -139,6 +142,8 @@ class RemoteNugetRepositoryArgs:
             pulumi.set(__self__, "description", description)
         if download_context_path is not None:
             pulumi.set(__self__, "download_context_path", download_context_path)
+        if download_direct is not None:
+            pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
@@ -335,6 +340,19 @@ class RemoteNugetRepositoryArgs:
     @download_context_path.setter
     def download_context_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "download_context_path", value)
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
+
+    @download_direct.setter
+    def download_direct(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "download_direct", value)
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -719,6 +737,7 @@ class _RemoteNugetRepositoryState:
                  content_synchronisation: Optional[pulumi.Input['RemoteNugetRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
@@ -772,6 +791,8 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -833,6 +854,8 @@ class _RemoteNugetRepositoryState:
             pulumi.set(__self__, "description", description)
         if download_context_path is not None:
             pulumi.set(__self__, "download_context_path", download_context_path)
+        if download_direct is not None:
+            pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
@@ -1015,6 +1038,19 @@ class _RemoteNugetRepositoryState:
     @download_context_path.setter
     def download_context_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "download_context_path", value)
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
+
+    @download_direct.setter
+    def download_direct(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "download_direct", value)
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -1444,6 +1480,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  feed_context_path: Optional[pulumi.Input[str]] = None,
@@ -1522,6 +1559,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -1621,6 +1660,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_context_path: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  feed_context_path: Optional[pulumi.Input[str]] = None,
@@ -1672,6 +1712,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["download_context_path"] = download_context_path
+            __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["feed_context_path"] = feed_context_path
@@ -1730,6 +1771,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteNugetRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_context_path: Optional[pulumi.Input[str]] = None,
+            download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
@@ -1788,6 +1830,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
                For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
                URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -1844,6 +1888,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
         __props__.__dict__["download_context_path"] = download_context_path
+        __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["failed_retrieval_cache_period_secs"] = failed_retrieval_cache_period_secs
@@ -1953,6 +1998,15 @@ class RemoteNugetRepository(pulumi.CustomResource):
         URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
         """
         return pulumi.get(self, "download_context_path")
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -2087,7 +2141,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
         Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         """

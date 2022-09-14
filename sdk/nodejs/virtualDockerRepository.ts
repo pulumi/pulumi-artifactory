@@ -100,7 +100,7 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
     /**
      * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
      */
-    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.

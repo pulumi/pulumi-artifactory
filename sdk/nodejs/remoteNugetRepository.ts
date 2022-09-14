@@ -98,6 +98,11 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      */
     public readonly downloadContextPath!: pulumi.Output<string | undefined>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean>;
@@ -166,7 +171,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
     /**
      * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
      */
-    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -256,6 +261,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadContextPath"] = state ? state.downloadContextPath : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             resourceInputs["failedRetrievalCachePeriodSecs"] = state ? state.failedRetrievalCachePeriodSecs : undefined;
@@ -308,6 +314,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadContextPath"] = args ? args.downloadContextPath : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             resourceInputs["feedContextPath"] = args ? args.feedContextPath : undefined;
@@ -390,6 +397,11 @@ export interface RemoteNugetRepositoryState {
      * URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
      */
     downloadContextPath?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
@@ -569,6 +581,11 @@ export interface RemoteNugetRepositoryArgs {
      * URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
      */
     downloadContextPath?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */

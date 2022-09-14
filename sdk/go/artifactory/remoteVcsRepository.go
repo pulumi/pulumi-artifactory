@@ -47,6 +47,9 @@ type RemoteVcsRepository struct {
 	ClientTlsCertificate   pulumi.StringOutput                             `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteVcsRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
 	Description            pulumi.StringOutput                             `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolOutput `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -187,6 +190,9 @@ type remoteVcsRepositoryState struct {
 	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteVcsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                    `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -293,6 +299,9 @@ type RemoteVcsRepositoryState struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteVcsRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -403,6 +412,9 @@ type remoteVcsRepositoryArgs struct {
 	ClientTlsCertificate   *string                                    `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteVcsRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
 	Description            *string                                    `pulumi:"description"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -507,6 +519,9 @@ type RemoteVcsRepositoryArgs struct {
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteVcsRepositoryContentSynchronisationPtrInput
 	Description            pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+	// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -720,6 +735,12 @@ func (o RemoteVcsRepositoryOutput) ContentSynchronisation() RemoteVcsRepositoryC
 
 func (o RemoteVcsRepositoryOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteVcsRepository) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+// storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+func (o RemoteVcsRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteVcsRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
 // Enables cookie management if the remote repository uses cookies to manage client state.
