@@ -26,6 +26,7 @@ class RemoteCocoapodsRepositoryArgs:
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteCocoapodsRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -75,6 +76,8 @@ class RemoteCocoapodsRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -134,6 +137,8 @@ class RemoteCocoapodsRepositoryArgs:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if download_direct is not None:
+            pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
@@ -316,6 +321,19 @@ class RemoteCocoapodsRepositoryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
+
+    @download_direct.setter
+    def download_direct(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "download_direct", value)
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -700,6 +718,7 @@ class _RemoteCocoapodsRepositoryState:
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteCocoapodsRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
@@ -750,6 +769,8 @@ class _RemoteCocoapodsRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -810,6 +831,8 @@ class _RemoteCocoapodsRepositoryState:
             pulumi.set(__self__, "content_synchronisation", content_synchronisation)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if download_direct is not None:
+            pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
         if excludes_pattern is not None:
@@ -978,6 +1001,19 @@ class _RemoteCocoapodsRepositoryState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
+
+    @download_direct.setter
+    def download_direct(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "download_direct", value)
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -1407,6 +1443,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCocoapodsRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -1481,6 +1518,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -1579,6 +1618,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCocoapodsRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -1629,6 +1669,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
+            __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["hard_fail"] = hard_fail
@@ -1686,6 +1727,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCocoapodsRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             failed_retrieval_cache_period_secs: Optional[pulumi.Input[int]] = None,
@@ -1741,6 +1783,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+               storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
@@ -1797,6 +1841,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
+        __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["failed_retrieval_cache_period_secs"] = failed_retrieval_cache_period_secs
@@ -1896,6 +1941,15 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="downloadDirect")
+    def download_direct(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+        storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+        """
+        return pulumi.get(self, "download_direct")
 
     @property
     @pulumi.getter(name="enableCookieManagement")
@@ -2022,7 +2076,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
         Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         """

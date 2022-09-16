@@ -88,6 +88,11 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
     public readonly contentSynchronisation!: pulumi.Output<outputs.RemoteTerraformRepositoryContentSynchronisation>;
     public readonly description!: pulumi.Output<string>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean>;
@@ -148,7 +153,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
     /**
      * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
      */
-    public readonly projectEnvironments!: pulumi.Output<string[] | undefined>;
+    public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
      * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
@@ -243,6 +248,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             resourceInputs["failedRetrievalCachePeriodSecs"] = state ? state.failedRetrievalCachePeriodSecs : undefined;
@@ -293,6 +299,7 @@ export class RemoteTerraformRepository extends pulumi.CustomResource {
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             resourceInputs["hardFail"] = args ? args.hardFail : undefined;
@@ -368,6 +375,11 @@ export interface RemoteTerraformRepositoryState {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteTerraformRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
@@ -539,6 +551,11 @@ export interface RemoteTerraformRepositoryArgs {
     clientTlsCertificate?: pulumi.Input<string>;
     contentSynchronisation?: pulumi.Input<inputs.RemoteTerraformRepositoryContentSynchronisation>;
     description?: pulumi.Input<string>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
+     * storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
+     */
+    downloadDirect?: pulumi.Input<boolean>;
     /**
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */

@@ -191,14 +191,14 @@ public class LocalVagrantRepository extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> projectEnvironments;
+    private Output<List<String>> projectEnvironments;
 
     /**
      * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
      * 
      */
-    public Output<Optional<List<String>>> projectEnvironments() {
-        return Codegen.optional(this.projectEnvironments);
+    public Output<List<String>> projectEnvironments() {
+        return this.projectEnvironments;
     }
     /**
      * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed

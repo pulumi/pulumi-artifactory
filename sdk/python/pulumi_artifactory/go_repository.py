@@ -859,7 +859,7 @@ class GoRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="projectEnvironments")
-    def project_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
         Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
         """
