@@ -16,42 +16,29 @@ public final class ArtifactPropertyWebhookCriteria {
      * @return Trigger on any local repo.
      * 
      */
-    private final Boolean anyLocal;
+    private Boolean anyLocal;
     /**
      * @return Trigger on any remote repo.
      * 
      */
-    private final Boolean anyRemote;
+    private Boolean anyRemote;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> excludePatterns;
+    private @Nullable List<String> excludePatterns;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> includePatterns;
+    private @Nullable List<String> includePatterns;
     /**
      * @return Trigger on this list of repo keys.
      * 
      */
-    private final List<String> repoKeys;
+    private List<String> repoKeys;
 
-    @CustomType.Constructor
-    private ArtifactPropertyWebhookCriteria(
-        @CustomType.Parameter("anyLocal") Boolean anyLocal,
-        @CustomType.Parameter("anyRemote") Boolean anyRemote,
-        @CustomType.Parameter("excludePatterns") @Nullable List<String> excludePatterns,
-        @CustomType.Parameter("includePatterns") @Nullable List<String> includePatterns,
-        @CustomType.Parameter("repoKeys") List<String> repoKeys) {
-        this.anyLocal = anyLocal;
-        this.anyRemote = anyRemote;
-        this.excludePatterns = excludePatterns;
-        this.includePatterns = includePatterns;
-        this.repoKeys = repoKeys;
-    }
-
+    private ArtifactPropertyWebhookCriteria() {}
     /**
      * @return Trigger on any local repo.
      * 
@@ -95,18 +82,14 @@ public final class ArtifactPropertyWebhookCriteria {
     public static Builder builder(ArtifactPropertyWebhookCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean anyLocal;
         private Boolean anyRemote;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
         private List<String> repoKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ArtifactPropertyWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.anyLocal = defaults.anyLocal;
@@ -116,14 +99,17 @@ public final class ArtifactPropertyWebhookCriteria {
     	      this.repoKeys = defaults.repoKeys;
         }
 
+        @CustomType.Setter
         public Builder anyLocal(Boolean anyLocal) {
             this.anyLocal = Objects.requireNonNull(anyLocal);
             return this;
         }
+        @CustomType.Setter
         public Builder anyRemote(Boolean anyRemote) {
             this.anyRemote = Objects.requireNonNull(anyRemote);
             return this;
         }
+        @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
             this.excludePatterns = excludePatterns;
             return this;
@@ -131,6 +117,7 @@ public final class ArtifactPropertyWebhookCriteria {
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
+        @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
             this.includePatterns = includePatterns;
             return this;
@@ -138,14 +125,22 @@ public final class ArtifactPropertyWebhookCriteria {
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }
+        @CustomType.Setter
         public Builder repoKeys(List<String> repoKeys) {
             this.repoKeys = Objects.requireNonNull(repoKeys);
             return this;
         }
         public Builder repoKeys(String... repoKeys) {
             return repoKeys(List.of(repoKeys));
-        }        public ArtifactPropertyWebhookCriteria build() {
-            return new ArtifactPropertyWebhookCriteria(anyLocal, anyRemote, excludePatterns, includePatterns, repoKeys);
+        }
+        public ArtifactPropertyWebhookCriteria build() {
+            final var o = new ArtifactPropertyWebhookCriteria();
+            o.anyLocal = anyLocal;
+            o.anyRemote = anyRemote;
+            o.excludePatterns = excludePatterns;
+            o.includePatterns = includePatterns;
+            o.repoKeys = repoKeys;
+            return o;
         }
     }
 }

@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RemotePypiRepositoryContentSynchronisation {
-    private final @Nullable Boolean enabled;
-    private final @Nullable Boolean propertiesEnabled;
-    private final @Nullable Boolean sourceOriginAbsenceDetection;
-    private final @Nullable Boolean statisticsEnabled;
+    private @Nullable Boolean enabled;
+    private @Nullable Boolean propertiesEnabled;
+    private @Nullable Boolean sourceOriginAbsenceDetection;
+    private @Nullable Boolean statisticsEnabled;
 
-    @CustomType.Constructor
-    private RemotePypiRepositoryContentSynchronisation(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("propertiesEnabled") @Nullable Boolean propertiesEnabled,
-        @CustomType.Parameter("sourceOriginAbsenceDetection") @Nullable Boolean sourceOriginAbsenceDetection,
-        @CustomType.Parameter("statisticsEnabled") @Nullable Boolean statisticsEnabled) {
-        this.enabled = enabled;
-        this.propertiesEnabled = propertiesEnabled;
-        this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-        this.statisticsEnabled = statisticsEnabled;
-    }
-
+    private RemotePypiRepositoryContentSynchronisation() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -48,17 +37,13 @@ public final class RemotePypiRepositoryContentSynchronisation {
     public static Builder builder(RemotePypiRepositoryContentSynchronisation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean propertiesEnabled;
         private @Nullable Boolean sourceOriginAbsenceDetection;
         private @Nullable Boolean statisticsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemotePypiRepositoryContentSynchronisation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -67,23 +52,33 @@ public final class RemotePypiRepositoryContentSynchronisation {
     	      this.statisticsEnabled = defaults.statisticsEnabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder propertiesEnabled(@Nullable Boolean propertiesEnabled) {
             this.propertiesEnabled = propertiesEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceOriginAbsenceDetection(@Nullable Boolean sourceOriginAbsenceDetection) {
             this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
             return this;
         }
+        @CustomType.Setter
         public Builder statisticsEnabled(@Nullable Boolean statisticsEnabled) {
             this.statisticsEnabled = statisticsEnabled;
             return this;
-        }        public RemotePypiRepositoryContentSynchronisation build() {
-            return new RemotePypiRepositoryContentSynchronisation(enabled, propertiesEnabled, sourceOriginAbsenceDetection, statisticsEnabled);
+        }
+        public RemotePypiRepositoryContentSynchronisation build() {
+            final var o = new RemotePypiRepositoryContentSynchronisation();
+            o.enabled = enabled;
+            o.propertiesEnabled = propertiesEnabled;
+            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            o.statisticsEnabled = statisticsEnabled;
+            return o;
         }
     }
 }

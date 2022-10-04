@@ -16,35 +16,24 @@ public final class BuildWebhookCriteria {
      * @return Trigger on any build.
      * 
      */
-    private final Boolean anyBuild;
+    private Boolean anyBuild;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> excludePatterns;
+    private @Nullable List<String> excludePatterns;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> includePatterns;
+    private @Nullable List<String> includePatterns;
     /**
      * @return Trigger on this list of build names.
      * 
      */
-    private final List<String> selectedBuilds;
+    private List<String> selectedBuilds;
 
-    @CustomType.Constructor
-    private BuildWebhookCriteria(
-        @CustomType.Parameter("anyBuild") Boolean anyBuild,
-        @CustomType.Parameter("excludePatterns") @Nullable List<String> excludePatterns,
-        @CustomType.Parameter("includePatterns") @Nullable List<String> includePatterns,
-        @CustomType.Parameter("selectedBuilds") List<String> selectedBuilds) {
-        this.anyBuild = anyBuild;
-        this.excludePatterns = excludePatterns;
-        this.includePatterns = includePatterns;
-        this.selectedBuilds = selectedBuilds;
-    }
-
+    private BuildWebhookCriteria() {}
     /**
      * @return Trigger on any build.
      * 
@@ -81,17 +70,13 @@ public final class BuildWebhookCriteria {
     public static Builder builder(BuildWebhookCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean anyBuild;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
         private List<String> selectedBuilds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BuildWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.anyBuild = defaults.anyBuild;
@@ -100,10 +85,12 @@ public final class BuildWebhookCriteria {
     	      this.selectedBuilds = defaults.selectedBuilds;
         }
 
+        @CustomType.Setter
         public Builder anyBuild(Boolean anyBuild) {
             this.anyBuild = Objects.requireNonNull(anyBuild);
             return this;
         }
+        @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
             this.excludePatterns = excludePatterns;
             return this;
@@ -111,6 +98,7 @@ public final class BuildWebhookCriteria {
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
+        @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
             this.includePatterns = includePatterns;
             return this;
@@ -118,14 +106,21 @@ public final class BuildWebhookCriteria {
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }
+        @CustomType.Setter
         public Builder selectedBuilds(List<String> selectedBuilds) {
             this.selectedBuilds = Objects.requireNonNull(selectedBuilds);
             return this;
         }
         public Builder selectedBuilds(String... selectedBuilds) {
             return selectedBuilds(List.of(selectedBuilds));
-        }        public BuildWebhookCriteria build() {
-            return new BuildWebhookCriteria(anyBuild, excludePatterns, includePatterns, selectedBuilds);
+        }
+        public BuildWebhookCriteria build() {
+            final var o = new BuildWebhookCriteria();
+            o.anyBuild = anyBuild;
+            o.excludePatterns = excludePatterns;
+            o.includePatterns = includePatterns;
+            o.selectedBuilds = selectedBuilds;
+            return o;
         }
     }
 }

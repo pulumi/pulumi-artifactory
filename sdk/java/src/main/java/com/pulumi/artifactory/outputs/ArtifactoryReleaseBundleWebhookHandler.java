@@ -16,35 +16,24 @@ public final class ArtifactoryReleaseBundleWebhookHandler {
      * @return Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      * 
      */
-    private final @Nullable Map<String,String> customHttpHeaders;
+    private @Nullable Map<String,String> customHttpHeaders;
     /**
      * @return Proxy key from Artifactory UI (Administration &gt; Proxies &gt; Configuration).
      * 
      */
-    private final @Nullable String proxy;
+    private @Nullable String proxy;
     /**
      * @return Secret authentication token that will be sent to the configured URL. The value will be sent as `x-jfrog-event-auth` header.
      * 
      */
-    private final @Nullable String secret;
+    private @Nullable String secret;
     /**
      * @return Specifies the URL that the Webhook invokes. This will be the URL that Artifactory will send an HTTP POST request to.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private ArtifactoryReleaseBundleWebhookHandler(
-        @CustomType.Parameter("customHttpHeaders") @Nullable Map<String,String> customHttpHeaders,
-        @CustomType.Parameter("proxy") @Nullable String proxy,
-        @CustomType.Parameter("secret") @Nullable String secret,
-        @CustomType.Parameter("url") String url) {
-        this.customHttpHeaders = customHttpHeaders;
-        this.proxy = proxy;
-        this.secret = secret;
-        this.url = url;
-    }
-
+    private ArtifactoryReleaseBundleWebhookHandler() {}
     /**
      * @return Custom HTTP headers you wish to use to invoke the Webhook, comprise of key/value pair.
      * 
@@ -81,17 +70,13 @@ public final class ArtifactoryReleaseBundleWebhookHandler {
     public static Builder builder(ArtifactoryReleaseBundleWebhookHandler defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> customHttpHeaders;
         private @Nullable String proxy;
         private @Nullable String secret;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ArtifactoryReleaseBundleWebhookHandler defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customHttpHeaders = defaults.customHttpHeaders;
@@ -100,23 +85,33 @@ public final class ArtifactoryReleaseBundleWebhookHandler {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder customHttpHeaders(@Nullable Map<String,String> customHttpHeaders) {
             this.customHttpHeaders = customHttpHeaders;
             return this;
         }
+        @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
             this.proxy = proxy;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable String secret) {
             this.secret = secret;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public ArtifactoryReleaseBundleWebhookHandler build() {
-            return new ArtifactoryReleaseBundleWebhookHandler(customHttpHeaders, proxy, secret, url);
+        }
+        public ArtifactoryReleaseBundleWebhookHandler build() {
+            final var o = new ArtifactoryReleaseBundleWebhookHandler();
+            o.customHttpHeaders = customHttpHeaders;
+            o.proxy = proxy;
+            o.secret = secret;
+            o.url = url;
+            return o;
         }
     }
 }

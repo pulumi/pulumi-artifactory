@@ -16,35 +16,24 @@ public final class ReleaseBundleWebhookCriteria {
      * @return Trigger on any release bundle.
      * 
      */
-    private final Boolean anyReleaseBundle;
+    private Boolean anyReleaseBundle;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> excludePatterns;
+    private @Nullable List<String> excludePatterns;
     /**
      * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
      * 
      */
-    private final @Nullable List<String> includePatterns;
+    private @Nullable List<String> includePatterns;
     /**
      * @return Trigger on this list of release bundle names.
      * 
      */
-    private final List<String> registeredReleaseBundleNames;
+    private List<String> registeredReleaseBundleNames;
 
-    @CustomType.Constructor
-    private ReleaseBundleWebhookCriteria(
-        @CustomType.Parameter("anyReleaseBundle") Boolean anyReleaseBundle,
-        @CustomType.Parameter("excludePatterns") @Nullable List<String> excludePatterns,
-        @CustomType.Parameter("includePatterns") @Nullable List<String> includePatterns,
-        @CustomType.Parameter("registeredReleaseBundleNames") List<String> registeredReleaseBundleNames) {
-        this.anyReleaseBundle = anyReleaseBundle;
-        this.excludePatterns = excludePatterns;
-        this.includePatterns = includePatterns;
-        this.registeredReleaseBundleNames = registeredReleaseBundleNames;
-    }
-
+    private ReleaseBundleWebhookCriteria() {}
     /**
      * @return Trigger on any release bundle.
      * 
@@ -81,17 +70,13 @@ public final class ReleaseBundleWebhookCriteria {
     public static Builder builder(ReleaseBundleWebhookCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean anyReleaseBundle;
         private @Nullable List<String> excludePatterns;
         private @Nullable List<String> includePatterns;
         private List<String> registeredReleaseBundleNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReleaseBundleWebhookCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.anyReleaseBundle = defaults.anyReleaseBundle;
@@ -100,10 +85,12 @@ public final class ReleaseBundleWebhookCriteria {
     	      this.registeredReleaseBundleNames = defaults.registeredReleaseBundleNames;
         }
 
+        @CustomType.Setter
         public Builder anyReleaseBundle(Boolean anyReleaseBundle) {
             this.anyReleaseBundle = Objects.requireNonNull(anyReleaseBundle);
             return this;
         }
+        @CustomType.Setter
         public Builder excludePatterns(@Nullable List<String> excludePatterns) {
             this.excludePatterns = excludePatterns;
             return this;
@@ -111,6 +98,7 @@ public final class ReleaseBundleWebhookCriteria {
         public Builder excludePatterns(String... excludePatterns) {
             return excludePatterns(List.of(excludePatterns));
         }
+        @CustomType.Setter
         public Builder includePatterns(@Nullable List<String> includePatterns) {
             this.includePatterns = includePatterns;
             return this;
@@ -118,14 +106,21 @@ public final class ReleaseBundleWebhookCriteria {
         public Builder includePatterns(String... includePatterns) {
             return includePatterns(List.of(includePatterns));
         }
+        @CustomType.Setter
         public Builder registeredReleaseBundleNames(List<String> registeredReleaseBundleNames) {
             this.registeredReleaseBundleNames = Objects.requireNonNull(registeredReleaseBundleNames);
             return this;
         }
         public Builder registeredReleaseBundleNames(String... registeredReleaseBundleNames) {
             return registeredReleaseBundleNames(List.of(registeredReleaseBundleNames));
-        }        public ReleaseBundleWebhookCriteria build() {
-            return new ReleaseBundleWebhookCriteria(anyReleaseBundle, excludePatterns, includePatterns, registeredReleaseBundleNames);
+        }
+        public ReleaseBundleWebhookCriteria build() {
+            final var o = new ReleaseBundleWebhookCriteria();
+            o.anyReleaseBundle = anyReleaseBundle;
+            o.excludePatterns = excludePatterns;
+            o.includePatterns = includePatterns;
+            o.registeredReleaseBundleNames = registeredReleaseBundleNames;
+            return o;
         }
     }
 }

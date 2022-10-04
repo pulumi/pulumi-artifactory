@@ -91,6 +91,7 @@ export * from "./mavenRepository";
 export * from "./oauthSettings";
 export * from "./permissionTarget";
 export * from "./permissionTargets";
+export * from "./propertySet";
 export * from "./provider";
 export * from "./pullReplication";
 export * from "./pushReplication";
@@ -253,6 +254,7 @@ import { MavenRepository } from "./mavenRepository";
 import { OauthSettings } from "./oauthSettings";
 import { PermissionTarget } from "./permissionTarget";
 import { PermissionTargets } from "./permissionTargets";
+import { PropertySet } from "./propertySet";
 import { PullReplication } from "./pullReplication";
 import { PushReplication } from "./pushReplication";
 import { ReleaseBundleWebhook } from "./releaseBundleWebhook";
@@ -492,6 +494,8 @@ const _module = {
                 return new PermissionTarget(name, <any>undefined, { urn })
             case "artifactory:index/permissionTargets:PermissionTargets":
                 return new PermissionTargets(name, <any>undefined, { urn })
+            case "artifactory:index/propertySet:PropertySet":
+                return new PropertySet(name, <any>undefined, { urn })
             case "artifactory:index/pullReplication:PullReplication":
                 return new PullReplication(name, <any>undefined, { urn })
             case "artifactory:index/pushReplication:PushReplication":
@@ -713,6 +717,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/mavenRepository", _m
 pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)

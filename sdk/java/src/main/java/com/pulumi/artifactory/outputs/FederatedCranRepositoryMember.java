@@ -15,21 +15,14 @@ public final class FederatedCranRepositoryMember {
      * status of my own member. The config will be updated on the other federated members automatically.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Full URL to ending with the repository name.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private FederatedCranRepositoryMember(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("url") String url) {
-        this.enabled = enabled;
-        this.url = url;
-    }
-
+    private FederatedCranRepositoryMember() {}
     /**
      * @return Represents the active state of the federated member. It is supported to change the enabled
      * status of my own member. The config will be updated on the other federated members automatically.
@@ -53,30 +46,32 @@ public final class FederatedCranRepositoryMember {
     public static Builder builder(FederatedCranRepositoryMember defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FederatedCranRepositoryMember defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public FederatedCranRepositoryMember build() {
-            return new FederatedCranRepositoryMember(enabled, url);
+        }
+        public FederatedCranRepositoryMember build() {
+            final var o = new FederatedCranRepositoryMember();
+            o.enabled = enabled;
+            o.url = url;
+            return o;
         }
     }
 }

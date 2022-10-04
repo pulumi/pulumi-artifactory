@@ -78,6 +78,8 @@ __all__ = [
     'PermissionTargetsRepoActions',
     'PermissionTargetsRepoActionsGroup',
     'PermissionTargetsRepoActionsUser',
+    'PropertySetProperty',
+    'PropertySetPropertyPredefinedValue',
     'PushReplicationReplication',
     'ReleaseBundleWebhookCriteria',
     'ReleaseBundleWebhookHandler',
@@ -3007,6 +3009,126 @@ class PermissionTargetsRepoActionsUser(dict):
     @pulumi.getter
     def permissions(self) -> Sequence[str]:
         return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class PropertySetProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedValues":
+            suggest = "predefined_values"
+        elif key == "closedPredefinedValues":
+            suggest = "closed_predefined_values"
+        elif key == "multipleChoice":
+            suggest = "multiple_choice"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PropertySetProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PropertySetProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PropertySetProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 predefined_values: Sequence['outputs.PropertySetPropertyPredefinedValue'],
+                 closed_predefined_values: Optional[bool] = None,
+                 multiple_choice: Optional[bool] = None):
+        """
+        :param str name: Predefined property name.
+        :param Sequence['PropertySetPropertyPredefinedValueArgs'] predefined_values: Properties in the property set.
+        :param bool closed_predefined_values: Disables "multiple_choice" if set to "false" at the same time with multiple_choice set to "true". Default value is `false`
+        :param bool multiple_choice: Defines if user can select multiple values. "closed_predefined_values" should be set to `true`. Default value is `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "predefined_values", predefined_values)
+        if closed_predefined_values is not None:
+            pulumi.set(__self__, "closed_predefined_values", closed_predefined_values)
+        if multiple_choice is not None:
+            pulumi.set(__self__, "multiple_choice", multiple_choice)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Predefined property name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="predefinedValues")
+    def predefined_values(self) -> Sequence['outputs.PropertySetPropertyPredefinedValue']:
+        """
+        Properties in the property set.
+        """
+        return pulumi.get(self, "predefined_values")
+
+    @property
+    @pulumi.getter(name="closedPredefinedValues")
+    def closed_predefined_values(self) -> Optional[bool]:
+        """
+        Disables "multiple_choice" if set to "false" at the same time with multiple_choice set to "true". Default value is `false`
+        """
+        return pulumi.get(self, "closed_predefined_values")
+
+    @property
+    @pulumi.getter(name="multipleChoice")
+    def multiple_choice(self) -> Optional[bool]:
+        """
+        Defines if user can select multiple values. "closed_predefined_values" should be set to `true`. Default value is `false`.
+        """
+        return pulumi.get(self, "multiple_choice")
+
+
+@pulumi.output_type
+class PropertySetPropertyPredefinedValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PropertySetPropertyPredefinedValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PropertySetPropertyPredefinedValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PropertySetPropertyPredefinedValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: bool,
+                 name: str):
+        """
+        :param bool default_value: Whether the value is selected by default in the UI.
+        :param str name: Predefined property name.
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> bool:
+        """
+        Whether the value is selected by default in the UI.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Predefined property name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

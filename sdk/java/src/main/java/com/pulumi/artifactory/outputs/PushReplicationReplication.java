@@ -18,85 +18,60 @@ public final class PushReplicationReplication {
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      * 
      */
-    private final @Nullable Boolean checkBinaryExistenceInFilestore;
+    private @Nullable Boolean checkBinaryExistenceInFilestore;
     /**
      * @return When set, this replication will be enabled when saved.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Required for local repository, but not needed for remote repository.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
      * 
      */
-    private final @Nullable String pathPrefix;
+    private @Nullable String pathPrefix;
     /**
      * @return Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
      * 
      */
-    private final @Nullable String proxy;
+    private @Nullable String proxy;
     /**
      * @return The network timeout in milliseconds to use for remote operations.
      * 
      */
-    private final @Nullable Integer socketTimeoutMillis;
+    private @Nullable Integer socketTimeoutMillis;
     /**
      * @return When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
      * Note that enabling this option, will delete artifacts on the target that do not exist in the source repository.
      * 
      */
-    private final @Nullable Boolean syncDeletes;
+    private @Nullable Boolean syncDeletes;
     /**
      * @return When set, the task also synchronizes the properties of replicated artifacts.
      * 
      */
-    private final @Nullable Boolean syncProperties;
+    private @Nullable Boolean syncProperties;
     /**
      * @return When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
      * 
      */
-    private final @Nullable Boolean syncStatistics;
+    private @Nullable Boolean syncStatistics;
     /**
      * @return The URL of the target local repository on a remote Artifactory server. Required for local repository, but not needed for remote repository.
      * 
      */
-    private final String url;
+    private String url;
     /**
      * @return Required for local repository, but not needed for remote repository.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private PushReplicationReplication(
-        @CustomType.Parameter("checkBinaryExistenceInFilestore") @Nullable Boolean checkBinaryExistenceInFilestore,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("pathPrefix") @Nullable String pathPrefix,
-        @CustomType.Parameter("proxy") @Nullable String proxy,
-        @CustomType.Parameter("socketTimeoutMillis") @Nullable Integer socketTimeoutMillis,
-        @CustomType.Parameter("syncDeletes") @Nullable Boolean syncDeletes,
-        @CustomType.Parameter("syncProperties") @Nullable Boolean syncProperties,
-        @CustomType.Parameter("syncStatistics") @Nullable Boolean syncStatistics,
-        @CustomType.Parameter("url") String url,
-        @CustomType.Parameter("username") String username) {
-        this.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
-        this.enabled = enabled;
-        this.password = password;
-        this.pathPrefix = pathPrefix;
-        this.proxy = proxy;
-        this.socketTimeoutMillis = socketTimeoutMillis;
-        this.syncDeletes = syncDeletes;
-        this.syncProperties = syncProperties;
-        this.syncStatistics = syncStatistics;
-        this.url = url;
-        this.username = username;
-    }
-
+    private PushReplicationReplication() {}
     /**
      * @return When true, enables distributed checksum storage. For more information, see
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -184,7 +159,7 @@ public final class PushReplicationReplication {
     public static Builder builder(PushReplicationReplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean checkBinaryExistenceInFilestore;
         private @Nullable Boolean enabled;
@@ -197,11 +172,7 @@ public final class PushReplicationReplication {
         private @Nullable Boolean syncStatistics;
         private String url;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PushReplicationReplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checkBinaryExistenceInFilestore = defaults.checkBinaryExistenceInFilestore;
@@ -217,51 +188,75 @@ public final class PushReplicationReplication {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder checkBinaryExistenceInFilestore(@Nullable Boolean checkBinaryExistenceInFilestore) {
             this.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
             this.pathPrefix = pathPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
             this.proxy = proxy;
             return this;
         }
+        @CustomType.Setter
         public Builder socketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
             this.socketTimeoutMillis = socketTimeoutMillis;
             return this;
         }
+        @CustomType.Setter
         public Builder syncDeletes(@Nullable Boolean syncDeletes) {
             this.syncDeletes = syncDeletes;
             return this;
         }
+        @CustomType.Setter
         public Builder syncProperties(@Nullable Boolean syncProperties) {
             this.syncProperties = syncProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder syncStatistics(@Nullable Boolean syncStatistics) {
             this.syncStatistics = syncStatistics;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public PushReplicationReplication build() {
-            return new PushReplicationReplication(checkBinaryExistenceInFilestore, enabled, password, pathPrefix, proxy, socketTimeoutMillis, syncDeletes, syncProperties, syncStatistics, url, username);
+        }
+        public PushReplicationReplication build() {
+            final var o = new PushReplicationReplication();
+            o.checkBinaryExistenceInFilestore = checkBinaryExistenceInFilestore;
+            o.enabled = enabled;
+            o.password = password;
+            o.pathPrefix = pathPrefix;
+            o.proxy = proxy;
+            o.socketTimeoutMillis = socketTimeoutMillis;
+            o.syncDeletes = syncDeletes;
+            o.syncProperties = syncProperties;
+            o.syncStatistics = syncStatistics;
+            o.url = url;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RemoteP2RepositoryContentSynchronisation {
-    private final @Nullable Boolean enabled;
-    private final @Nullable Boolean propertiesEnabled;
-    private final @Nullable Boolean sourceOriginAbsenceDetection;
-    private final @Nullable Boolean statisticsEnabled;
+    private @Nullable Boolean enabled;
+    private @Nullable Boolean propertiesEnabled;
+    private @Nullable Boolean sourceOriginAbsenceDetection;
+    private @Nullable Boolean statisticsEnabled;
 
-    @CustomType.Constructor
-    private RemoteP2RepositoryContentSynchronisation(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("propertiesEnabled") @Nullable Boolean propertiesEnabled,
-        @CustomType.Parameter("sourceOriginAbsenceDetection") @Nullable Boolean sourceOriginAbsenceDetection,
-        @CustomType.Parameter("statisticsEnabled") @Nullable Boolean statisticsEnabled) {
-        this.enabled = enabled;
-        this.propertiesEnabled = propertiesEnabled;
-        this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-        this.statisticsEnabled = statisticsEnabled;
-    }
-
+    private RemoteP2RepositoryContentSynchronisation() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -48,17 +37,13 @@ public final class RemoteP2RepositoryContentSynchronisation {
     public static Builder builder(RemoteP2RepositoryContentSynchronisation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean propertiesEnabled;
         private @Nullable Boolean sourceOriginAbsenceDetection;
         private @Nullable Boolean statisticsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemoteP2RepositoryContentSynchronisation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -67,23 +52,33 @@ public final class RemoteP2RepositoryContentSynchronisation {
     	      this.statisticsEnabled = defaults.statisticsEnabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder propertiesEnabled(@Nullable Boolean propertiesEnabled) {
             this.propertiesEnabled = propertiesEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceOriginAbsenceDetection(@Nullable Boolean sourceOriginAbsenceDetection) {
             this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
             return this;
         }
+        @CustomType.Setter
         public Builder statisticsEnabled(@Nullable Boolean statisticsEnabled) {
             this.statisticsEnabled = statisticsEnabled;
             return this;
-        }        public RemoteP2RepositoryContentSynchronisation build() {
-            return new RemoteP2RepositoryContentSynchronisation(enabled, propertiesEnabled, sourceOriginAbsenceDetection, statisticsEnabled);
+        }
+        public RemoteP2RepositoryContentSynchronisation build() {
+            final var o = new RemoteP2RepositoryContentSynchronisation();
+            o.enabled = enabled;
+            o.propertiesEnabled = propertiesEnabled;
+            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            o.statisticsEnabled = statisticsEnabled;
+            return o;
         }
     }
 }

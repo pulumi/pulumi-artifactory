@@ -11,23 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RemoteDebianRepositoryContentSynchronisation {
-    private final @Nullable Boolean enabled;
-    private final @Nullable Boolean propertiesEnabled;
-    private final @Nullable Boolean sourceOriginAbsenceDetection;
-    private final @Nullable Boolean statisticsEnabled;
+    private @Nullable Boolean enabled;
+    private @Nullable Boolean propertiesEnabled;
+    private @Nullable Boolean sourceOriginAbsenceDetection;
+    private @Nullable Boolean statisticsEnabled;
 
-    @CustomType.Constructor
-    private RemoteDebianRepositoryContentSynchronisation(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("propertiesEnabled") @Nullable Boolean propertiesEnabled,
-        @CustomType.Parameter("sourceOriginAbsenceDetection") @Nullable Boolean sourceOriginAbsenceDetection,
-        @CustomType.Parameter("statisticsEnabled") @Nullable Boolean statisticsEnabled) {
-        this.enabled = enabled;
-        this.propertiesEnabled = propertiesEnabled;
-        this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
-        this.statisticsEnabled = statisticsEnabled;
-    }
-
+    private RemoteDebianRepositoryContentSynchronisation() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -48,17 +37,13 @@ public final class RemoteDebianRepositoryContentSynchronisation {
     public static Builder builder(RemoteDebianRepositoryContentSynchronisation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean propertiesEnabled;
         private @Nullable Boolean sourceOriginAbsenceDetection;
         private @Nullable Boolean statisticsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RemoteDebianRepositoryContentSynchronisation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -67,23 +52,33 @@ public final class RemoteDebianRepositoryContentSynchronisation {
     	      this.statisticsEnabled = defaults.statisticsEnabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder propertiesEnabled(@Nullable Boolean propertiesEnabled) {
             this.propertiesEnabled = propertiesEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceOriginAbsenceDetection(@Nullable Boolean sourceOriginAbsenceDetection) {
             this.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
             return this;
         }
+        @CustomType.Setter
         public Builder statisticsEnabled(@Nullable Boolean statisticsEnabled) {
             this.statisticsEnabled = statisticsEnabled;
             return this;
-        }        public RemoteDebianRepositoryContentSynchronisation build() {
-            return new RemoteDebianRepositoryContentSynchronisation(enabled, propertiesEnabled, sourceOriginAbsenceDetection, statisticsEnabled);
+        }
+        public RemoteDebianRepositoryContentSynchronisation build() {
+            final var o = new RemoteDebianRepositoryContentSynchronisation();
+            o.enabled = enabled;
+            o.propertiesEnabled = propertiesEnabled;
+            o.sourceOriginAbsenceDetection = sourceOriginAbsenceDetection;
+            o.statisticsEnabled = statisticsEnabled;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class PermissionTargetsReleaseBundle {
      * @return -
      * 
      */
-    private final @Nullable PermissionTargetsReleaseBundleActions actions;
+    private @Nullable PermissionTargetsReleaseBundleActions actions;
     /**
      * @return Pattern of artifacts to exclude.
      * 
      */
-    private final @Nullable List<String> excludesPatterns;
+    private @Nullable List<String> excludesPatterns;
     /**
      * @return Pattern of artifacts to include.
      * 
      */
-    private final @Nullable List<String> includesPatterns;
+    private @Nullable List<String> includesPatterns;
     /**
      * @return List of repositories this permission target is applicable for.
      * 
      */
-    private final List<String> repositories;
+    private List<String> repositories;
 
-    @CustomType.Constructor
-    private PermissionTargetsReleaseBundle(
-        @CustomType.Parameter("actions") @Nullable PermissionTargetsReleaseBundleActions actions,
-        @CustomType.Parameter("excludesPatterns") @Nullable List<String> excludesPatterns,
-        @CustomType.Parameter("includesPatterns") @Nullable List<String> includesPatterns,
-        @CustomType.Parameter("repositories") List<String> repositories) {
-        this.actions = actions;
-        this.excludesPatterns = excludesPatterns;
-        this.includesPatterns = includesPatterns;
-        this.repositories = repositories;
-    }
-
+    private PermissionTargetsReleaseBundle() {}
     /**
      * @return -
      * 
@@ -82,17 +71,13 @@ public final class PermissionTargetsReleaseBundle {
     public static Builder builder(PermissionTargetsReleaseBundle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PermissionTargetsReleaseBundleActions actions;
         private @Nullable List<String> excludesPatterns;
         private @Nullable List<String> includesPatterns;
         private List<String> repositories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionTargetsReleaseBundle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -101,10 +86,12 @@ public final class PermissionTargetsReleaseBundle {
     	      this.repositories = defaults.repositories;
         }
 
+        @CustomType.Setter
         public Builder actions(@Nullable PermissionTargetsReleaseBundleActions actions) {
             this.actions = actions;
             return this;
         }
+        @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {
             this.excludesPatterns = excludesPatterns;
             return this;
@@ -112,6 +99,7 @@ public final class PermissionTargetsReleaseBundle {
         public Builder excludesPatterns(String... excludesPatterns) {
             return excludesPatterns(List.of(excludesPatterns));
         }
+        @CustomType.Setter
         public Builder includesPatterns(@Nullable List<String> includesPatterns) {
             this.includesPatterns = includesPatterns;
             return this;
@@ -119,14 +107,21 @@ public final class PermissionTargetsReleaseBundle {
         public Builder includesPatterns(String... includesPatterns) {
             return includesPatterns(List.of(includesPatterns));
         }
+        @CustomType.Setter
         public Builder repositories(List<String> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
         }
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
-        }        public PermissionTargetsReleaseBundle build() {
-            return new PermissionTargetsReleaseBundle(actions, excludesPatterns, includesPatterns, repositories);
+        }
+        public PermissionTargetsReleaseBundle build() {
+            final var o = new PermissionTargetsReleaseBundle();
+            o.actions = actions;
+            o.excludesPatterns = excludesPatterns;
+            o.includesPatterns = includesPatterns;
+            o.repositories = repositories;
+            return o;
         }
     }
 }

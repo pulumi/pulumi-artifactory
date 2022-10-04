@@ -17,35 +17,24 @@ public final class PermissionTargetBuild {
      * @return -
      * 
      */
-    private final @Nullable PermissionTargetBuildActions actions;
+    private @Nullable PermissionTargetBuildActions actions;
     /**
      * @return Pattern of artifacts to exclude.
      * 
      */
-    private final @Nullable List<String> excludesPatterns;
+    private @Nullable List<String> excludesPatterns;
     /**
      * @return Pattern of artifacts to include.
      * 
      */
-    private final @Nullable List<String> includesPatterns;
+    private @Nullable List<String> includesPatterns;
     /**
      * @return List of repositories this permission target is applicable for.
      * 
      */
-    private final List<String> repositories;
+    private List<String> repositories;
 
-    @CustomType.Constructor
-    private PermissionTargetBuild(
-        @CustomType.Parameter("actions") @Nullable PermissionTargetBuildActions actions,
-        @CustomType.Parameter("excludesPatterns") @Nullable List<String> excludesPatterns,
-        @CustomType.Parameter("includesPatterns") @Nullable List<String> includesPatterns,
-        @CustomType.Parameter("repositories") List<String> repositories) {
-        this.actions = actions;
-        this.excludesPatterns = excludesPatterns;
-        this.includesPatterns = includesPatterns;
-        this.repositories = repositories;
-    }
-
+    private PermissionTargetBuild() {}
     /**
      * @return -
      * 
@@ -82,17 +71,13 @@ public final class PermissionTargetBuild {
     public static Builder builder(PermissionTargetBuild defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PermissionTargetBuildActions actions;
         private @Nullable List<String> excludesPatterns;
         private @Nullable List<String> includesPatterns;
         private List<String> repositories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionTargetBuild defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -101,10 +86,12 @@ public final class PermissionTargetBuild {
     	      this.repositories = defaults.repositories;
         }
 
+        @CustomType.Setter
         public Builder actions(@Nullable PermissionTargetBuildActions actions) {
             this.actions = actions;
             return this;
         }
+        @CustomType.Setter
         public Builder excludesPatterns(@Nullable List<String> excludesPatterns) {
             this.excludesPatterns = excludesPatterns;
             return this;
@@ -112,6 +99,7 @@ public final class PermissionTargetBuild {
         public Builder excludesPatterns(String... excludesPatterns) {
             return excludesPatterns(List.of(excludesPatterns));
         }
+        @CustomType.Setter
         public Builder includesPatterns(@Nullable List<String> includesPatterns) {
             this.includesPatterns = includesPatterns;
             return this;
@@ -119,14 +107,21 @@ public final class PermissionTargetBuild {
         public Builder includesPatterns(String... includesPatterns) {
             return includesPatterns(List.of(includesPatterns));
         }
+        @CustomType.Setter
         public Builder repositories(List<String> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
         }
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
-        }        public PermissionTargetBuild build() {
-            return new PermissionTargetBuild(actions, excludesPatterns, includesPatterns, repositories);
+        }
+        public PermissionTargetBuild build() {
+            final var o = new PermissionTargetBuild();
+            o.actions = actions;
+            o.excludesPatterns = excludesPatterns;
+            o.includesPatterns = includesPatterns;
+            o.repositories = repositories;
+            return o;
         }
     }
 }

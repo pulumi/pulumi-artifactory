@@ -16,21 +16,14 @@ public final class PermissionTargetBuildActions {
      * @return Groups this permission applies for.
      * 
      */
-    private final @Nullable List<PermissionTargetBuildActionsGroup> groups;
+    private @Nullable List<PermissionTargetBuildActionsGroup> groups;
     /**
      * @return Users this permission target applies for.
      * 
      */
-    private final @Nullable List<PermissionTargetBuildActionsUser> users;
+    private @Nullable List<PermissionTargetBuildActionsUser> users;
 
-    @CustomType.Constructor
-    private PermissionTargetBuildActions(
-        @CustomType.Parameter("groups") @Nullable List<PermissionTargetBuildActionsGroup> groups,
-        @CustomType.Parameter("users") @Nullable List<PermissionTargetBuildActionsUser> users) {
-        this.groups = groups;
-        this.users = users;
-    }
-
+    private PermissionTargetBuildActions() {}
     /**
      * @return Groups this permission applies for.
      * 
@@ -53,21 +46,18 @@ public final class PermissionTargetBuildActions {
     public static Builder builder(PermissionTargetBuildActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PermissionTargetBuildActionsGroup> groups;
         private @Nullable List<PermissionTargetBuildActionsUser> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionTargetBuildActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder groups(@Nullable List<PermissionTargetBuildActionsGroup> groups) {
             this.groups = groups;
             return this;
@@ -75,14 +65,19 @@ public final class PermissionTargetBuildActions {
         public Builder groups(PermissionTargetBuildActionsGroup... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder users(@Nullable List<PermissionTargetBuildActionsUser> users) {
             this.users = users;
             return this;
         }
         public Builder users(PermissionTargetBuildActionsUser... users) {
             return users(List.of(users));
-        }        public PermissionTargetBuildActions build() {
-            return new PermissionTargetBuildActions(groups, users);
+        }
+        public PermissionTargetBuildActions build() {
+            final var o = new PermissionTargetBuildActions();
+            o.groups = groups;
+            o.users = users;
+            return o;
         }
     }
 }

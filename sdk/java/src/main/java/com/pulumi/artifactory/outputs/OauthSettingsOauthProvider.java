@@ -16,63 +16,44 @@ public final class OauthSettingsOauthProvider {
      * @return OAuth user info endpoint for the IdP.
      * 
      */
-    private final String apiUrl;
+    private String apiUrl;
     /**
      * @return OAuth authorization endpoint for the IdP.
      * 
      */
-    private final String authUrl;
+    private String authUrl;
     /**
      * @return OAuth client ID configured on the IdP.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return OAuth client secret configured on the IdP.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return Enable the Artifactory OAuth provider.  Default value is `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Name of the Artifactory OAuth provider.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return OAuth token endpoint for the IdP.
      * 
      */
-    private final String tokenUrl;
+    private String tokenUrl;
     /**
      * @return Type of OAuth provider. (e.g., `github`, `google`, `cloudfoundry`, or `openId`)
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private OauthSettingsOauthProvider(
-        @CustomType.Parameter("apiUrl") String apiUrl,
-        @CustomType.Parameter("authUrl") String authUrl,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tokenUrl") String tokenUrl,
-        @CustomType.Parameter("type") String type) {
-        this.apiUrl = apiUrl;
-        this.authUrl = authUrl;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.enabled = enabled;
-        this.name = name;
-        this.tokenUrl = tokenUrl;
-        this.type = type;
-    }
-
+    private OauthSettingsOauthProvider() {}
     /**
      * @return OAuth user info endpoint for the IdP.
      * 
@@ -137,7 +118,7 @@ public final class OauthSettingsOauthProvider {
     public static Builder builder(OauthSettingsOauthProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiUrl;
         private String authUrl;
@@ -147,11 +128,7 @@ public final class OauthSettingsOauthProvider {
         private String name;
         private String tokenUrl;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OauthSettingsOauthProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiUrl = defaults.apiUrl;
@@ -164,39 +141,57 @@ public final class OauthSettingsOauthProvider {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder apiUrl(String apiUrl) {
             this.apiUrl = Objects.requireNonNull(apiUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder authUrl(String authUrl) {
             this.authUrl = Objects.requireNonNull(authUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenUrl(String tokenUrl) {
             this.tokenUrl = Objects.requireNonNull(tokenUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public OauthSettingsOauthProvider build() {
-            return new OauthSettingsOauthProvider(apiUrl, authUrl, clientId, clientSecret, enabled, name, tokenUrl, type);
+        }
+        public OauthSettingsOauthProvider build() {
+            final var o = new OauthSettingsOauthProvider();
+            o.apiUrl = apiUrl;
+            o.authUrl = authUrl;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.enabled = enabled;
+            o.name = name;
+            o.tokenUrl = tokenUrl;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -907,6 +907,36 @@ export interface PermissionTargetsRepoActionsUser {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface PropertySetProperty {
+    /**
+     * Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+     */
+    closedPredefinedValues?: pulumi.Input<boolean>;
+    /**
+     * Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+     */
+    multipleChoice?: pulumi.Input<boolean>;
+    /**
+     * Predefined property name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Properties in the property set.
+     */
+    predefinedValues: pulumi.Input<pulumi.Input<inputs.PropertySetPropertyPredefinedValue>[]>;
+}
+
+export interface PropertySetPropertyPredefinedValue {
+    /**
+     * Whether the value is selected by default in the UI.
+     */
+    defaultValue: pulumi.Input<boolean>;
+    /**
+     * Predefined property name.
+     */
+    name: pulumi.Input<string>;
+}
+
 export interface PushReplicationReplication {
     /**
      * When true, enables distributed checksum storage. For more information, see

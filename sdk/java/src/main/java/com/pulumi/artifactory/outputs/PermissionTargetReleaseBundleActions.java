@@ -16,21 +16,14 @@ public final class PermissionTargetReleaseBundleActions {
      * @return Groups this permission applies for.
      * 
      */
-    private final @Nullable List<PermissionTargetReleaseBundleActionsGroup> groups;
+    private @Nullable List<PermissionTargetReleaseBundleActionsGroup> groups;
     /**
      * @return Users this permission target applies for.
      * 
      */
-    private final @Nullable List<PermissionTargetReleaseBundleActionsUser> users;
+    private @Nullable List<PermissionTargetReleaseBundleActionsUser> users;
 
-    @CustomType.Constructor
-    private PermissionTargetReleaseBundleActions(
-        @CustomType.Parameter("groups") @Nullable List<PermissionTargetReleaseBundleActionsGroup> groups,
-        @CustomType.Parameter("users") @Nullable List<PermissionTargetReleaseBundleActionsUser> users) {
-        this.groups = groups;
-        this.users = users;
-    }
-
+    private PermissionTargetReleaseBundleActions() {}
     /**
      * @return Groups this permission applies for.
      * 
@@ -53,21 +46,18 @@ public final class PermissionTargetReleaseBundleActions {
     public static Builder builder(PermissionTargetReleaseBundleActions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PermissionTargetReleaseBundleActionsGroup> groups;
         private @Nullable List<PermissionTargetReleaseBundleActionsUser> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionTargetReleaseBundleActions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groups = defaults.groups;
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder groups(@Nullable List<PermissionTargetReleaseBundleActionsGroup> groups) {
             this.groups = groups;
             return this;
@@ -75,14 +65,19 @@ public final class PermissionTargetReleaseBundleActions {
         public Builder groups(PermissionTargetReleaseBundleActionsGroup... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder users(@Nullable List<PermissionTargetReleaseBundleActionsUser> users) {
             this.users = users;
             return this;
         }
         public Builder users(PermissionTargetReleaseBundleActionsUser... users) {
             return users(List.of(users));
-        }        public PermissionTargetReleaseBundleActions build() {
-            return new PermissionTargetReleaseBundleActions(groups, users);
+        }
+        public PermissionTargetReleaseBundleActions build() {
+            final var o = new PermissionTargetReleaseBundleActions();
+            o.groups = groups;
+            o.users = users;
+            return o;
         }
     }
 }

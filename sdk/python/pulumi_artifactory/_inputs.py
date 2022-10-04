@@ -77,6 +77,8 @@ __all__ = [
     'PermissionTargetsRepoActionsArgs',
     'PermissionTargetsRepoActionsGroupArgs',
     'PermissionTargetsRepoActionsUserArgs',
+    'PropertySetPropertyArgs',
+    'PropertySetPropertyPredefinedValueArgs',
     'PushReplicationReplicationArgs',
     'ReleaseBundleWebhookCriteriaArgs',
     'ReleaseBundleWebhookHandlerArgs',
@@ -3316,6 +3318,112 @@ class PermissionTargetsRepoActionsUserArgs:
     @permissions.setter
     def permissions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class PropertySetPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 predefined_values: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]],
+                 closed_predefined_values: Optional[pulumi.Input[bool]] = None,
+                 multiple_choice: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] name: Predefined property name.
+        :param pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]] predefined_values: Properties in the property set.
+        :param pulumi.Input[bool] closed_predefined_values: Disables "multiple_choice" if set to "false" at the same time with multiple_choice set to "true". Default value is `false`
+        :param pulumi.Input[bool] multiple_choice: Defines if user can select multiple values. "closed_predefined_values" should be set to `true`. Default value is `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "predefined_values", predefined_values)
+        if closed_predefined_values is not None:
+            pulumi.set(__self__, "closed_predefined_values", closed_predefined_values)
+        if multiple_choice is not None:
+            pulumi.set(__self__, "multiple_choice", multiple_choice)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Predefined property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="predefinedValues")
+    def predefined_values(self) -> pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]]:
+        """
+        Properties in the property set.
+        """
+        return pulumi.get(self, "predefined_values")
+
+    @predefined_values.setter
+    def predefined_values(self, value: pulumi.Input[Sequence[pulumi.Input['PropertySetPropertyPredefinedValueArgs']]]):
+        pulumi.set(self, "predefined_values", value)
+
+    @property
+    @pulumi.getter(name="closedPredefinedValues")
+    def closed_predefined_values(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disables "multiple_choice" if set to "false" at the same time with multiple_choice set to "true". Default value is `false`
+        """
+        return pulumi.get(self, "closed_predefined_values")
+
+    @closed_predefined_values.setter
+    def closed_predefined_values(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "closed_predefined_values", value)
+
+    @property
+    @pulumi.getter(name="multipleChoice")
+    def multiple_choice(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines if user can select multiple values. "closed_predefined_values" should be set to `true`. Default value is `false`.
+        """
+        return pulumi.get(self, "multiple_choice")
+
+    @multiple_choice.setter
+    def multiple_choice(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multiple_choice", value)
+
+
+@pulumi.input_type
+class PropertySetPropertyPredefinedValueArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[bool],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] default_value: Whether the value is selected by default in the UI.
+        :param pulumi.Input[str] name: Predefined property name.
+        """
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[bool]:
+        """
+        Whether the value is selected by default in the UI.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Predefined property name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
