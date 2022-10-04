@@ -91,6 +91,7 @@ from .maven_repository import *
 from .oauth_settings import *
 from .permission_target import *
 from .permission_targets import *
+from .property_set import *
 from .provider import *
 from .pull_replication import *
 from .push_replication import *
@@ -841,6 +842,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/permissionTargets:PermissionTargets": "PermissionTargets"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/propertySet",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/propertySet:PropertySet": "PropertySet"
   }
  },
  {

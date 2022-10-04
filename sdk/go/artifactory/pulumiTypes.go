@@ -8773,6 +8773,236 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 	}).(PermissionTargetsRepoActionsUserOutput)
 }
 
+type PropertySetProperty struct {
+	// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+	ClosedPredefinedValues *bool `pulumi:"closedPredefinedValues"`
+	// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+	MultipleChoice *bool `pulumi:"multipleChoice"`
+	// Predefined property name.
+	Name string `pulumi:"name"`
+	// Properties in the property set.
+	PredefinedValues []PropertySetPropertyPredefinedValue `pulumi:"predefinedValues"`
+}
+
+// PropertySetPropertyInput is an input type that accepts PropertySetPropertyArgs and PropertySetPropertyOutput values.
+// You can construct a concrete instance of `PropertySetPropertyInput` via:
+//
+//	PropertySetPropertyArgs{...}
+type PropertySetPropertyInput interface {
+	pulumi.Input
+
+	ToPropertySetPropertyOutput() PropertySetPropertyOutput
+	ToPropertySetPropertyOutputWithContext(context.Context) PropertySetPropertyOutput
+}
+
+type PropertySetPropertyArgs struct {
+	// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+	ClosedPredefinedValues pulumi.BoolPtrInput `pulumi:"closedPredefinedValues"`
+	// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+	MultipleChoice pulumi.BoolPtrInput `pulumi:"multipleChoice"`
+	// Predefined property name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Properties in the property set.
+	PredefinedValues PropertySetPropertyPredefinedValueArrayInput `pulumi:"predefinedValues"`
+}
+
+func (PropertySetPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertySetProperty)(nil)).Elem()
+}
+
+func (i PropertySetPropertyArgs) ToPropertySetPropertyOutput() PropertySetPropertyOutput {
+	return i.ToPropertySetPropertyOutputWithContext(context.Background())
+}
+
+func (i PropertySetPropertyArgs) ToPropertySetPropertyOutputWithContext(ctx context.Context) PropertySetPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertySetPropertyOutput)
+}
+
+// PropertySetPropertyArrayInput is an input type that accepts PropertySetPropertyArray and PropertySetPropertyArrayOutput values.
+// You can construct a concrete instance of `PropertySetPropertyArrayInput` via:
+//
+//	PropertySetPropertyArray{ PropertySetPropertyArgs{...} }
+type PropertySetPropertyArrayInput interface {
+	pulumi.Input
+
+	ToPropertySetPropertyArrayOutput() PropertySetPropertyArrayOutput
+	ToPropertySetPropertyArrayOutputWithContext(context.Context) PropertySetPropertyArrayOutput
+}
+
+type PropertySetPropertyArray []PropertySetPropertyInput
+
+func (PropertySetPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertySetProperty)(nil)).Elem()
+}
+
+func (i PropertySetPropertyArray) ToPropertySetPropertyArrayOutput() PropertySetPropertyArrayOutput {
+	return i.ToPropertySetPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i PropertySetPropertyArray) ToPropertySetPropertyArrayOutputWithContext(ctx context.Context) PropertySetPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertySetPropertyArrayOutput)
+}
+
+type PropertySetPropertyOutput struct{ *pulumi.OutputState }
+
+func (PropertySetPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertySetProperty)(nil)).Elem()
+}
+
+func (o PropertySetPropertyOutput) ToPropertySetPropertyOutput() PropertySetPropertyOutput {
+	return o
+}
+
+func (o PropertySetPropertyOutput) ToPropertySetPropertyOutputWithContext(ctx context.Context) PropertySetPropertyOutput {
+	return o
+}
+
+// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+func (o PropertySetPropertyOutput) ClosedPredefinedValues() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertySetProperty) *bool { return v.ClosedPredefinedValues }).(pulumi.BoolPtrOutput)
+}
+
+// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+func (o PropertySetPropertyOutput) MultipleChoice() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PropertySetProperty) *bool { return v.MultipleChoice }).(pulumi.BoolPtrOutput)
+}
+
+// Predefined property name.
+func (o PropertySetPropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertySetProperty) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties in the property set.
+func (o PropertySetPropertyOutput) PredefinedValues() PropertySetPropertyPredefinedValueArrayOutput {
+	return o.ApplyT(func(v PropertySetProperty) []PropertySetPropertyPredefinedValue { return v.PredefinedValues }).(PropertySetPropertyPredefinedValueArrayOutput)
+}
+
+type PropertySetPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (PropertySetPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertySetProperty)(nil)).Elem()
+}
+
+func (o PropertySetPropertyArrayOutput) ToPropertySetPropertyArrayOutput() PropertySetPropertyArrayOutput {
+	return o
+}
+
+func (o PropertySetPropertyArrayOutput) ToPropertySetPropertyArrayOutputWithContext(ctx context.Context) PropertySetPropertyArrayOutput {
+	return o
+}
+
+func (o PropertySetPropertyArrayOutput) Index(i pulumi.IntInput) PropertySetPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PropertySetProperty {
+		return vs[0].([]PropertySetProperty)[vs[1].(int)]
+	}).(PropertySetPropertyOutput)
+}
+
+type PropertySetPropertyPredefinedValue struct {
+	// Whether the value is selected by default in the UI.
+	DefaultValue bool `pulumi:"defaultValue"`
+	// Predefined property name.
+	Name string `pulumi:"name"`
+}
+
+// PropertySetPropertyPredefinedValueInput is an input type that accepts PropertySetPropertyPredefinedValueArgs and PropertySetPropertyPredefinedValueOutput values.
+// You can construct a concrete instance of `PropertySetPropertyPredefinedValueInput` via:
+//
+//	PropertySetPropertyPredefinedValueArgs{...}
+type PropertySetPropertyPredefinedValueInput interface {
+	pulumi.Input
+
+	ToPropertySetPropertyPredefinedValueOutput() PropertySetPropertyPredefinedValueOutput
+	ToPropertySetPropertyPredefinedValueOutputWithContext(context.Context) PropertySetPropertyPredefinedValueOutput
+}
+
+type PropertySetPropertyPredefinedValueArgs struct {
+	// Whether the value is selected by default in the UI.
+	DefaultValue pulumi.BoolInput `pulumi:"defaultValue"`
+	// Predefined property name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (PropertySetPropertyPredefinedValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertySetPropertyPredefinedValue)(nil)).Elem()
+}
+
+func (i PropertySetPropertyPredefinedValueArgs) ToPropertySetPropertyPredefinedValueOutput() PropertySetPropertyPredefinedValueOutput {
+	return i.ToPropertySetPropertyPredefinedValueOutputWithContext(context.Background())
+}
+
+func (i PropertySetPropertyPredefinedValueArgs) ToPropertySetPropertyPredefinedValueOutputWithContext(ctx context.Context) PropertySetPropertyPredefinedValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertySetPropertyPredefinedValueOutput)
+}
+
+// PropertySetPropertyPredefinedValueArrayInput is an input type that accepts PropertySetPropertyPredefinedValueArray and PropertySetPropertyPredefinedValueArrayOutput values.
+// You can construct a concrete instance of `PropertySetPropertyPredefinedValueArrayInput` via:
+//
+//	PropertySetPropertyPredefinedValueArray{ PropertySetPropertyPredefinedValueArgs{...} }
+type PropertySetPropertyPredefinedValueArrayInput interface {
+	pulumi.Input
+
+	ToPropertySetPropertyPredefinedValueArrayOutput() PropertySetPropertyPredefinedValueArrayOutput
+	ToPropertySetPropertyPredefinedValueArrayOutputWithContext(context.Context) PropertySetPropertyPredefinedValueArrayOutput
+}
+
+type PropertySetPropertyPredefinedValueArray []PropertySetPropertyPredefinedValueInput
+
+func (PropertySetPropertyPredefinedValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertySetPropertyPredefinedValue)(nil)).Elem()
+}
+
+func (i PropertySetPropertyPredefinedValueArray) ToPropertySetPropertyPredefinedValueArrayOutput() PropertySetPropertyPredefinedValueArrayOutput {
+	return i.ToPropertySetPropertyPredefinedValueArrayOutputWithContext(context.Background())
+}
+
+func (i PropertySetPropertyPredefinedValueArray) ToPropertySetPropertyPredefinedValueArrayOutputWithContext(ctx context.Context) PropertySetPropertyPredefinedValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PropertySetPropertyPredefinedValueArrayOutput)
+}
+
+type PropertySetPropertyPredefinedValueOutput struct{ *pulumi.OutputState }
+
+func (PropertySetPropertyPredefinedValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PropertySetPropertyPredefinedValue)(nil)).Elem()
+}
+
+func (o PropertySetPropertyPredefinedValueOutput) ToPropertySetPropertyPredefinedValueOutput() PropertySetPropertyPredefinedValueOutput {
+	return o
+}
+
+func (o PropertySetPropertyPredefinedValueOutput) ToPropertySetPropertyPredefinedValueOutputWithContext(ctx context.Context) PropertySetPropertyPredefinedValueOutput {
+	return o
+}
+
+// Whether the value is selected by default in the UI.
+func (o PropertySetPropertyPredefinedValueOutput) DefaultValue() pulumi.BoolOutput {
+	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) bool { return v.DefaultValue }).(pulumi.BoolOutput)
+}
+
+// Predefined property name.
+func (o PropertySetPropertyPredefinedValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PropertySetPropertyPredefinedValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PropertySetPropertyPredefinedValueArrayOutput struct{ *pulumi.OutputState }
+
+func (PropertySetPropertyPredefinedValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PropertySetPropertyPredefinedValue)(nil)).Elem()
+}
+
+func (o PropertySetPropertyPredefinedValueArrayOutput) ToPropertySetPropertyPredefinedValueArrayOutput() PropertySetPropertyPredefinedValueArrayOutput {
+	return o
+}
+
+func (o PropertySetPropertyPredefinedValueArrayOutput) ToPropertySetPropertyPredefinedValueArrayOutputWithContext(ctx context.Context) PropertySetPropertyPredefinedValueArrayOutput {
+	return o
+}
+
+func (o PropertySetPropertyPredefinedValueArrayOutput) Index(i pulumi.IntInput) PropertySetPropertyPredefinedValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PropertySetPropertyPredefinedValue {
+		return vs[0].([]PropertySetPropertyPredefinedValue)[vs[1].(int)]
+	}).(PropertySetPropertyPredefinedValueOutput)
+}
+
 type PushReplicationReplication struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
@@ -15091,6 +15321,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsGroupArrayInput)(nil)).Elem(), PermissionTargetsRepoActionsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsUserInput)(nil)).Elem(), PermissionTargetsRepoActionsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetsRepoActionsUserArrayInput)(nil)).Elem(), PermissionTargetsRepoActionsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertySetPropertyInput)(nil)).Elem(), PropertySetPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertySetPropertyArrayInput)(nil)).Elem(), PropertySetPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertySetPropertyPredefinedValueInput)(nil)).Elem(), PropertySetPropertyPredefinedValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PropertySetPropertyPredefinedValueArrayInput)(nil)).Elem(), PropertySetPropertyPredefinedValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationInput)(nil)).Elem(), PushReplicationReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PushReplicationReplicationArrayInput)(nil)).Elem(), PushReplicationReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReleaseBundleWebhookCriteriaInput)(nil)).Elem(), ReleaseBundleWebhookCriteriaArgs{})
@@ -15295,6 +15529,10 @@ func init() {
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsGroupArrayOutput{})
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsUserOutput{})
 	pulumi.RegisterOutputType(PermissionTargetsRepoActionsUserArrayOutput{})
+	pulumi.RegisterOutputType(PropertySetPropertyOutput{})
+	pulumi.RegisterOutputType(PropertySetPropertyArrayOutput{})
+	pulumi.RegisterOutputType(PropertySetPropertyPredefinedValueOutput{})
+	pulumi.RegisterOutputType(PropertySetPropertyPredefinedValueArrayOutput{})
 	pulumi.RegisterOutputType(PushReplicationReplicationOutput{})
 	pulumi.RegisterOutputType(PushReplicationReplicationArrayOutput{})
 	pulumi.RegisterOutputType(ReleaseBundleWebhookCriteriaOutput{})

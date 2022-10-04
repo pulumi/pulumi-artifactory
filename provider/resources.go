@@ -150,6 +150,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "permission_target.md",
 				},
 			},
+			"artifactory_property_set":                       {Tok: makeResource(mainMod, "PropertySet")},
 			"artifactory_pull_replication":                   {Tok: makeResource(mainMod, "PullReplication")},
 			"artifactory_push_replication":                   {Tok: makeResource(mainMod, "PushReplication")},
 			"artifactory_remote_cargo_repository":            {Tok: makeResource(mainMod, "RemoteCargoRepository")},

@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class AccessTokenAdminToken {
-    private final String instanceId;
+    private String instanceId;
 
-    @CustomType.Constructor
-    private AccessTokenAdminToken(@CustomType.Parameter("instanceId") String instanceId) {
-        this.instanceId = instanceId;
-    }
-
+    private AccessTokenAdminToken() {}
     public String instanceId() {
         return this.instanceId;
     }
@@ -27,24 +23,24 @@ public final class AccessTokenAdminToken {
     public static Builder builder(AccessTokenAdminToken defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instanceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccessTokenAdminToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instanceId = defaults.instanceId;
         }
 
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
-        }        public AccessTokenAdminToken build() {
-            return new AccessTokenAdminToken(instanceId);
+        }
+        public AccessTokenAdminToken build() {
+            final var o = new AccessTokenAdminToken();
+            o.instanceId = instanceId;
+            return o;
         }
     }
 }

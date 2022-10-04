@@ -13,49 +13,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationConfigReplication {
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Requires password encryption to be turned off `POST /api/system/decrypt`.
      * 
      */
-    private final @Nullable String password;
-    private final @Nullable String pathPrefix;
+    private @Nullable String password;
+    private @Nullable String pathPrefix;
     /**
      * @return Proxy key from Artifactory Proxies setting
      * 
      */
-    private final @Nullable String proxy;
-    private final @Nullable Integer socketTimeoutMillis;
-    private final @Nullable Boolean syncDeletes;
-    private final @Nullable Boolean syncProperties;
-    private final @Nullable Boolean syncStatistics;
-    private final @Nullable String url;
-    private final @Nullable String username;
+    private @Nullable String proxy;
+    private @Nullable Integer socketTimeoutMillis;
+    private @Nullable Boolean syncDeletes;
+    private @Nullable Boolean syncProperties;
+    private @Nullable Boolean syncStatistics;
+    private @Nullable String url;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private ReplicationConfigReplication(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("pathPrefix") @Nullable String pathPrefix,
-        @CustomType.Parameter("proxy") @Nullable String proxy,
-        @CustomType.Parameter("socketTimeoutMillis") @Nullable Integer socketTimeoutMillis,
-        @CustomType.Parameter("syncDeletes") @Nullable Boolean syncDeletes,
-        @CustomType.Parameter("syncProperties") @Nullable Boolean syncProperties,
-        @CustomType.Parameter("syncStatistics") @Nullable Boolean syncStatistics,
-        @CustomType.Parameter("url") @Nullable String url,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.enabled = enabled;
-        this.password = password;
-        this.pathPrefix = pathPrefix;
-        this.proxy = proxy;
-        this.socketTimeoutMillis = socketTimeoutMillis;
-        this.syncDeletes = syncDeletes;
-        this.syncProperties = syncProperties;
-        this.syncStatistics = syncStatistics;
-        this.url = url;
-        this.username = username;
-    }
-
+    private ReplicationConfigReplication() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -102,7 +79,7 @@ public final class ReplicationConfigReplication {
     public static Builder builder(ReplicationConfigReplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable String password;
@@ -114,11 +91,7 @@ public final class ReplicationConfigReplication {
         private @Nullable Boolean syncStatistics;
         private @Nullable String url;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicationConfigReplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -133,47 +106,69 @@ public final class ReplicationConfigReplication {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder pathPrefix(@Nullable String pathPrefix) {
             this.pathPrefix = pathPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder proxy(@Nullable String proxy) {
             this.proxy = proxy;
             return this;
         }
+        @CustomType.Setter
         public Builder socketTimeoutMillis(@Nullable Integer socketTimeoutMillis) {
             this.socketTimeoutMillis = socketTimeoutMillis;
             return this;
         }
+        @CustomType.Setter
         public Builder syncDeletes(@Nullable Boolean syncDeletes) {
             this.syncDeletes = syncDeletes;
             return this;
         }
+        @CustomType.Setter
         public Builder syncProperties(@Nullable Boolean syncProperties) {
             this.syncProperties = syncProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder syncStatistics(@Nullable Boolean syncStatistics) {
             this.syncStatistics = syncStatistics;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public ReplicationConfigReplication build() {
-            return new ReplicationConfigReplication(enabled, password, pathPrefix, proxy, socketTimeoutMillis, syncDeletes, syncProperties, syncStatistics, url, username);
+        }
+        public ReplicationConfigReplication build() {
+            final var o = new ReplicationConfigReplication();
+            o.enabled = enabled;
+            o.password = password;
+            o.pathPrefix = pathPrefix;
+            o.proxy = proxy;
+            o.socketTimeoutMillis = socketTimeoutMillis;
+            o.syncDeletes = syncDeletes;
+            o.syncProperties = syncProperties;
+            o.syncStatistics = syncStatistics;
+            o.url = url;
+            o.username = username;
+            return o;
         }
     }
 }

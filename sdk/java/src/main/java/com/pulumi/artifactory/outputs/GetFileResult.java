@@ -17,106 +17,69 @@ public final class GetFileResult {
      * @return The time &amp; date when the file was created.
      * 
      */
-    private final String created;
+    private String created;
     /**
      * @return The user who created the file.
      * 
      */
-    private final String createdBy;
+    private String createdBy;
     /**
      * @return The URI that can be used to download the file.
      * 
      */
-    private final String downloadUri;
-    private final @Nullable Boolean forceOverwrite;
+    private String downloadUri;
+    private @Nullable Boolean forceOverwrite;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The time &amp; date when the file was last modified.
      * 
      */
-    private final String lastModified;
+    private String lastModified;
     /**
      * @return The time &amp; date when the file was last updated.
      * 
      */
-    private final String lastUpdated;
+    private String lastUpdated;
     /**
      * @return MD5 checksum of the file.
      * 
      */
-    private final String md5;
+    private String md5;
     /**
      * @return The mimetype of the file.
      * 
      */
-    private final String mimetype;
+    private String mimetype;
     /**
      * @return The user who last modified the file.
      * 
      */
-    private final String modifiedBy;
-    private final String outputPath;
-    private final String path;
-    private final @Nullable Boolean pathIsAliased;
-    private final String repository;
+    private String modifiedBy;
+    private String outputPath;
+    private String path;
+    private @Nullable Boolean pathIsAliased;
+    private String repository;
     /**
      * @return SHA1 checksum of the file.
      * 
      */
-    private final String sha1;
+    private String sha1;
     /**
      * @return SHA256 checksum of the file.
      * 
      */
-    private final String sha256;
+    private String sha256;
     /**
      * @return The size of the file.
      * 
      */
-    private final Integer size;
+    private Integer size;
 
-    @CustomType.Constructor
-    private GetFileResult(
-        @CustomType.Parameter("created") String created,
-        @CustomType.Parameter("createdBy") String createdBy,
-        @CustomType.Parameter("downloadUri") String downloadUri,
-        @CustomType.Parameter("forceOverwrite") @Nullable Boolean forceOverwrite,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModified") String lastModified,
-        @CustomType.Parameter("lastUpdated") String lastUpdated,
-        @CustomType.Parameter("md5") String md5,
-        @CustomType.Parameter("mimetype") String mimetype,
-        @CustomType.Parameter("modifiedBy") String modifiedBy,
-        @CustomType.Parameter("outputPath") String outputPath,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("pathIsAliased") @Nullable Boolean pathIsAliased,
-        @CustomType.Parameter("repository") String repository,
-        @CustomType.Parameter("sha1") String sha1,
-        @CustomType.Parameter("sha256") String sha256,
-        @CustomType.Parameter("size") Integer size) {
-        this.created = created;
-        this.createdBy = createdBy;
-        this.downloadUri = downloadUri;
-        this.forceOverwrite = forceOverwrite;
-        this.id = id;
-        this.lastModified = lastModified;
-        this.lastUpdated = lastUpdated;
-        this.md5 = md5;
-        this.mimetype = mimetype;
-        this.modifiedBy = modifiedBy;
-        this.outputPath = outputPath;
-        this.path = path;
-        this.pathIsAliased = pathIsAliased;
-        this.repository = repository;
-        this.sha1 = sha1;
-        this.sha256 = sha256;
-        this.size = size;
-    }
-
+    private GetFileResult() {}
     /**
      * @return The time &amp; date when the file was created.
      * 
@@ -224,7 +187,7 @@ public final class GetFileResult {
     public static Builder builder(GetFileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String created;
         private String createdBy;
@@ -243,11 +206,7 @@ public final class GetFileResult {
         private String sha1;
         private String sha256;
         private Integer size;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.created = defaults.created;
@@ -269,75 +228,111 @@ public final class GetFileResult {
     	      this.size = defaults.size;
         }
 
+        @CustomType.Setter
         public Builder created(String created) {
             this.created = Objects.requireNonNull(created);
             return this;
         }
+        @CustomType.Setter
         public Builder createdBy(String createdBy) {
             this.createdBy = Objects.requireNonNull(createdBy);
             return this;
         }
+        @CustomType.Setter
         public Builder downloadUri(String downloadUri) {
             this.downloadUri = Objects.requireNonNull(downloadUri);
             return this;
         }
+        @CustomType.Setter
         public Builder forceOverwrite(@Nullable Boolean forceOverwrite) {
             this.forceOverwrite = forceOverwrite;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(String lastModified) {
             this.lastModified = Objects.requireNonNull(lastModified);
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdated(String lastUpdated) {
             this.lastUpdated = Objects.requireNonNull(lastUpdated);
             return this;
         }
+        @CustomType.Setter
         public Builder md5(String md5) {
             this.md5 = Objects.requireNonNull(md5);
             return this;
         }
+        @CustomType.Setter
         public Builder mimetype(String mimetype) {
             this.mimetype = Objects.requireNonNull(mimetype);
             return this;
         }
+        @CustomType.Setter
         public Builder modifiedBy(String modifiedBy) {
             this.modifiedBy = Objects.requireNonNull(modifiedBy);
             return this;
         }
+        @CustomType.Setter
         public Builder outputPath(String outputPath) {
             this.outputPath = Objects.requireNonNull(outputPath);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder pathIsAliased(@Nullable Boolean pathIsAliased) {
             this.pathIsAliased = pathIsAliased;
             return this;
         }
+        @CustomType.Setter
         public Builder repository(String repository) {
             this.repository = Objects.requireNonNull(repository);
             return this;
         }
+        @CustomType.Setter
         public Builder sha1(String sha1) {
             this.sha1 = Objects.requireNonNull(sha1);
             return this;
         }
+        @CustomType.Setter
         public Builder sha256(String sha256) {
             this.sha256 = Objects.requireNonNull(sha256);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
-        }        public GetFileResult build() {
-            return new GetFileResult(created, createdBy, downloadUri, forceOverwrite, id, lastModified, lastUpdated, md5, mimetype, modifiedBy, outputPath, path, pathIsAliased, repository, sha1, sha256, size);
+        }
+        public GetFileResult build() {
+            final var o = new GetFileResult();
+            o.created = created;
+            o.createdBy = createdBy;
+            o.downloadUri = downloadUri;
+            o.forceOverwrite = forceOverwrite;
+            o.id = id;
+            o.lastModified = lastModified;
+            o.lastUpdated = lastUpdated;
+            o.md5 = md5;
+            o.mimetype = mimetype;
+            o.modifiedBy = modifiedBy;
+            o.outputPath = outputPath;
+            o.path = path;
+            o.pathIsAliased = pathIsAliased;
+            o.repository = repository;
+            o.sha1 = sha1;
+            o.sha256 = sha256;
+            o.size = size;
+            return o;
         }
     }
 }

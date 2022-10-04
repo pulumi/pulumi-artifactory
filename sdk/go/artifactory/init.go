@@ -188,6 +188,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionTarget{}
 	case "artifactory:index/permissionTargets:PermissionTargets":
 		r = &PermissionTargets{}
+	case "artifactory:index/propertySet:PropertySet":
+		r = &PropertySet{}
 	case "artifactory:index/pullReplication:PullReplication":
 		r = &PullReplication{}
 	case "artifactory:index/pushReplication:PushReplication":
@@ -766,6 +768,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/permissionTargets",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/propertySet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

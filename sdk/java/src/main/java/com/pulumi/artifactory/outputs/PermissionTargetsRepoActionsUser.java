@@ -14,17 +14,10 @@ public final class PermissionTargetsRepoActionsUser {
      * @return Name of permission.
      * 
      */
-    private final String name;
-    private final List<String> permissions;
+    private String name;
+    private List<String> permissions;
 
-    @CustomType.Constructor
-    private PermissionTargetsRepoActionsUser(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("permissions") List<String> permissions) {
-        this.name = name;
-        this.permissions = permissions;
-    }
-
+    private PermissionTargetsRepoActionsUser() {}
     /**
      * @return Name of permission.
      * 
@@ -43,33 +36,35 @@ public final class PermissionTargetsRepoActionsUser {
     public static Builder builder(PermissionTargetsRepoActionsUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> permissions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PermissionTargetsRepoActionsUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(List<String> permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
         public Builder permissions(String... permissions) {
             return permissions(List.of(permissions));
-        }        public PermissionTargetsRepoActionsUser build() {
-            return new PermissionTargetsRepoActionsUser(name, permissions);
+        }
+        public PermissionTargetsRepoActionsUser build() {
+            final var o = new PermissionTargetsRepoActionsUser();
+            o.name = name;
+            o.permissions = permissions;
+            return o;
         }
     }
 }

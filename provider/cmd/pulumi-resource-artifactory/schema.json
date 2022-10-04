@@ -2432,6 +2432,81 @@
                 "permissions"
             ]
         },
+        "artifactory:index/PropertySetProperty:PropertySetProperty": {
+            "properties": {
+                "closedPredefinedValues": {
+                    "type": "boolean",
+                    "description": "Disables \"multiple_choice\" if set to \"false\" at the same time with multiple_choice set to \"true\". Default value is `false`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "multipleChoice": {
+                    "type": "boolean",
+                    "description": "Defines if user can select multiple values. \"closed_predefined_values\" should be set to `true`. Default value is `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Predefined property name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "predefinedValues": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/PropertySetPropertyPredefinedValue:PropertySetPropertyPredefinedValue"
+                    },
+                    "description": "Properties in the property set.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "predefinedValues"
+            ]
+        },
+        "artifactory:index/PropertySetPropertyPredefinedValue:PropertySetPropertyPredefinedValue": {
+            "properties": {
+                "defaultValue": {
+                    "type": "boolean",
+                    "description": "Whether the value is selected by default in the UI.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Predefined property name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "defaultValue",
+                "name"
+            ]
+        },
         "artifactory:index/PushReplicationReplication:PushReplicationReplication": {
             "properties": {
                 "checkBinaryExistenceInFilestore": {
@@ -21472,6 +21547,71 @@
                     "repo": {
                         "$ref": "#/types/artifactory:index/PermissionTargetsRepo:PermissionTargetsRepo",
                         "description": "Repository permission configuration.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "artifactory:index/propertySet:PropertySet": {
+            "description": "Provides an Artifactory Property Set resource. \nThis resource configuration corresponds to 'propertySets' config block in system configuration XML \n(REST endpoint: artifactory/api/system/configuration).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst foo = new artifactory.PropertySet(\"foo\", {\n    properties: [\n        {\n            closedPredefinedValues: true,\n            multipleChoice: true,\n            name: \"set1property1\",\n            predefinedValues: [\n                {\n                    defaultValue: true,\n                    name: \"passed-QA\",\n                },\n                {\n                    defaultValue: false,\n                    name: \"failed-QA\",\n                },\n            ],\n        },\n        {\n            closedPredefinedValues: false,\n            multipleChoice: false,\n            name: \"set1property2\",\n            predefinedValues: [\n                {\n                    defaultValue: true,\n                    name: \"passed-QA\",\n                },\n                {\n                    defaultValue: false,\n                    name: \"failed-QA\",\n                },\n            ],\n        },\n    ],\n    visible: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nfoo = artifactory.PropertySet(\"foo\",\n    properties=[\n        artifactory.PropertySetPropertyArgs(\n            closed_predefined_values=True,\n            multiple_choice=True,\n            name=\"set1property1\",\n            predefined_values=[\n                artifactory.PropertySetPropertyPredefinedValueArgs(\n                    default_value=True,\n                    name=\"passed-QA\",\n                ),\n                artifactory.PropertySetPropertyPredefinedValueArgs(\n                    default_value=False,\n                    name=\"failed-QA\",\n                ),\n            ],\n        ),\n        artifactory.PropertySetPropertyArgs(\n            closed_predefined_values=False,\n            multiple_choice=False,\n            name=\"set1property2\",\n            predefined_values=[\n                artifactory.PropertySetPropertyPredefinedValueArgs(\n                    default_value=True,\n                    name=\"passed-QA\",\n                ),\n                artifactory.PropertySetPropertyPredefinedValueArgs(\n                    default_value=False,\n                    name=\"failed-QA\",\n                ),\n            ],\n        ),\n    ],\n    visible=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var foo = new Artifactory.PropertySet(\"foo\", new()\n    {\n        Properties = new[]\n        {\n            new Artifactory.Inputs.PropertySetPropertyArgs\n            {\n                ClosedPredefinedValues = true,\n                MultipleChoice = true,\n                Name = \"set1property1\",\n                PredefinedValues = new[]\n                {\n                    new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs\n                    {\n                        DefaultValue = true,\n                        Name = \"passed-QA\",\n                    },\n                    new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs\n                    {\n                        DefaultValue = false,\n                        Name = \"failed-QA\",\n                    },\n                },\n            },\n            new Artifactory.Inputs.PropertySetPropertyArgs\n            {\n                ClosedPredefinedValues = false,\n                MultipleChoice = false,\n                Name = \"set1property2\",\n                PredefinedValues = new[]\n                {\n                    new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs\n                    {\n                        DefaultValue = true,\n                        Name = \"passed-QA\",\n                    },\n                    new Artifactory.Inputs.PropertySetPropertyPredefinedValueArgs\n                    {\n                        DefaultValue = false,\n                        Name = \"failed-QA\",\n                    },\n                },\n            },\n        },\n        Visible = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewPropertySet(ctx, \"foo\", \u0026artifactory.PropertySetArgs{\n\t\t\tProperties: PropertySetPropertyArray{\n\t\t\t\t\u0026PropertySetPropertyArgs{\n\t\t\t\t\tClosedPredefinedValues: pulumi.Bool(true),\n\t\t\t\t\tMultipleChoice:         pulumi.Bool(true),\n\t\t\t\t\tName:                   pulumi.String(\"set1property1\"),\n\t\t\t\t\tPredefinedValues: PropertySetPropertyPredefinedValueArray{\n\t\t\t\t\t\t\u0026PropertySetPropertyPredefinedValueArgs{\n\t\t\t\t\t\t\tDefaultValue: pulumi.Bool(true),\n\t\t\t\t\t\t\tName:         pulumi.String(\"passed-QA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026PropertySetPropertyPredefinedValueArgs{\n\t\t\t\t\t\t\tDefaultValue: pulumi.Bool(false),\n\t\t\t\t\t\t\tName:         pulumi.String(\"failed-QA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t\t\u0026PropertySetPropertyArgs{\n\t\t\t\t\tClosedPredefinedValues: pulumi.Bool(false),\n\t\t\t\t\tMultipleChoice:         pulumi.Bool(false),\n\t\t\t\t\tName:                   pulumi.String(\"set1property2\"),\n\t\t\t\t\tPredefinedValues: PropertySetPropertyPredefinedValueArray{\n\t\t\t\t\t\t\u0026PropertySetPropertyPredefinedValueArgs{\n\t\t\t\t\t\t\tDefaultValue: pulumi.Bool(true),\n\t\t\t\t\t\t\tName:         pulumi.String(\"passed-QA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t\t\u0026PropertySetPropertyPredefinedValueArgs{\n\t\t\t\t\t\t\tDefaultValue: pulumi.Bool(false),\n\t\t\t\t\t\t\tName:         pulumi.String(\"failed-QA\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t\tVisible: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.PropertySet;\nimport com.pulumi.artifactory.PropertySetArgs;\nimport com.pulumi.artifactory.inputs.PropertySetPropertyArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var foo = new PropertySet(\"foo\", PropertySetArgs.builder()        \n            .properties(            \n                PropertySetPropertyArgs.builder()\n                    .closedPredefinedValues(true)\n                    .multipleChoice(true)\n                    .name(\"set1property1\")\n                    .predefinedValues(                    \n                        PropertySetPropertyPredefinedValueArgs.builder()\n                            .defaultValue(true)\n                            .name(\"passed-QA\")\n                            .build(),\n                        PropertySetPropertyPredefinedValueArgs.builder()\n                            .defaultValue(false)\n                            .name(\"failed-QA\")\n                            .build())\n                    .build(),\n                PropertySetPropertyArgs.builder()\n                    .closedPredefinedValues(false)\n                    .multipleChoice(false)\n                    .name(\"set1property2\")\n                    .predefinedValues(                    \n                        PropertySetPropertyPredefinedValueArgs.builder()\n                            .defaultValue(true)\n                            .name(\"passed-QA\")\n                            .build(),\n                        PropertySetPropertyPredefinedValueArgs.builder()\n                            .defaultValue(false)\n                            .name(\"failed-QA\")\n                            .build())\n                    .build())\n            .visible(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  foo:\n    type: artifactory:PropertySet\n    properties:\n      properties:\n        - closedPredefinedValues: true\n          multipleChoice: true\n          name: set1property1\n          predefinedValues:\n            - defaultValue: true\n              name: passed-QA\n            - defaultValue: false\n              name: failed-QA\n        - closedPredefinedValues: false\n          multipleChoice: false\n          name: set1property2\n          predefinedValues:\n            - defaultValue: true\n              name: passed-QA\n            - defaultValue: false\n              name: failed-QA\n      visible: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCurrent Property Set can be imported using `property-set1` as the `ID`, e.g.\n\n```sh\n $ pulumi import artifactory:index/propertySet:PropertySet foo property-set1\n```\n\n ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Predefined property name.\n"
+                },
+                "properties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/PropertySetProperty:PropertySetProperty"
+                    },
+                    "description": "A list of properties that will be part of the property set.\n"
+                },
+                "visible": {
+                    "type": "boolean",
+                    "description": "Defines if the list visible and assignable to the repository or artifact. Default value is `true`.\n"
+                }
+            },
+            "required": [
+                "name",
+                "properties"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Predefined property name.\n"
+                },
+                "properties": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/PropertySetProperty:PropertySetProperty"
+                    },
+                    "description": "A list of properties that will be part of the property set.\n"
+                },
+                "visible": {
+                    "type": "boolean",
+                    "description": "Defines if the list visible and assignable to the repository or artifact. Default value is `true`.\n"
+                }
+            },
+            "requiredInputs": [
+                "properties"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering PropertySet resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Predefined property name.\n"
+                    },
+                    "properties": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/artifactory:index/PropertySetProperty:PropertySetProperty"
+                        },
+                        "description": "A list of properties that will be part of the property set.\n"
+                    },
+                    "visible": {
+                        "type": "boolean",
+                        "description": "Defines if the list visible and assignable to the repository or artifact. Default value is `true`.\n"
                     }
                 },
                 "type": "object"

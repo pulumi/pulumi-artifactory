@@ -907,6 +907,36 @@ export interface PermissionTargetsRepoActionsUser {
     permissions: string[];
 }
 
+export interface PropertySetProperty {
+    /**
+     * Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+     */
+    closedPredefinedValues?: boolean;
+    /**
+     * Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+     */
+    multipleChoice?: boolean;
+    /**
+     * Predefined property name.
+     */
+    name: string;
+    /**
+     * Properties in the property set.
+     */
+    predefinedValues: outputs.PropertySetPropertyPredefinedValue[];
+}
+
+export interface PropertySetPropertyPredefinedValue {
+    /**
+     * Whether the value is selected by default in the UI.
+     */
+    defaultValue: boolean;
+    /**
+     * Predefined property name.
+     */
+    name: string;
+}
+
 export interface PushReplicationReplication {
     /**
      * When true, enables distributed checksum storage. For more information, see
