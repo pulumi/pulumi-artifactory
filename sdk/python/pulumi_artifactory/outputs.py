@@ -35,6 +35,8 @@ __all__ = [
     'FederatedCranRepositoryMember',
     'FederatedDebianRepositoryMember',
     'FederatedDockerRepositoryMember',
+    'FederatedDockerV1RepositoryMember',
+    'FederatedDockerV2RepositoryMember',
     'FederatedGemsRepositoryMember',
     'FederatedGenericRepositoryMember',
     'FederatedGitltfsRepositoryMember',
@@ -50,6 +52,7 @@ __all__ = [
     'FederatedPypiRepositoryMember',
     'FederatedRpmRepositoryMember',
     'FederatedSbtRepositoryMember',
+    'FederatedSwiftRepositoryMember',
     'FederatedTerraformModuleRepositoryMember',
     'FederatedTerraformProviderRepositoryMember',
     'FederatedVagrantRepositoryMember',
@@ -1409,6 +1412,68 @@ class FederatedDockerRepositoryMember(dict):
 
 
 @pulumi.output_type
+class FederatedDockerV1RepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class FederatedDockerV2RepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class FederatedGemsRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
@@ -1874,6 +1939,37 @@ class FederatedSbtRepositoryMember(dict):
 
 
 @pulumi.output_type
+class FederatedSwiftRepositoryMember(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 url: str):
+        """
+        :param bool enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param str url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
 class FederatedTerraformModuleRepositoryMember(dict):
     def __init__(__self__, *,
                  enabled: bool,
@@ -2114,8 +2210,7 @@ class PermissionTargetBuild(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetBuildActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2131,16 +2226,13 @@ class PermissionTargetBuild(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetBuildActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
@@ -2268,8 +2360,7 @@ class PermissionTargetReleaseBundle(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetReleaseBundleActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2285,16 +2376,13 @@ class PermissionTargetReleaseBundle(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetReleaseBundleActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
@@ -2422,8 +2510,7 @@ class PermissionTargetRepo(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetRepoActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2439,16 +2526,13 @@ class PermissionTargetRepo(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetRepoActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
@@ -2576,8 +2660,7 @@ class PermissionTargetsBuild(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetsBuildActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2593,16 +2676,13 @@ class PermissionTargetsBuild(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsBuildActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
@@ -2730,8 +2810,7 @@ class PermissionTargetsReleaseBundle(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetsReleaseBundleActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2747,16 +2826,13 @@ class PermissionTargetsReleaseBundle(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsReleaseBundleActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property
@@ -2884,8 +2960,7 @@ class PermissionTargetsRepo(dict):
                  excludes_patterns: Optional[Sequence[str]] = None,
                  includes_patterns: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] repositories: List of repositories this permission target is applicable for.
-        :param 'PermissionTargetsRepoActionsArgs' actions: -
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
         :param Sequence[str] includes_patterns: Pattern of artifacts to include.
         """
@@ -2901,16 +2976,13 @@ class PermissionTargetsRepo(dict):
     @pulumi.getter
     def repositories(self) -> Sequence[str]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional['outputs.PermissionTargetsRepoActions']:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @property

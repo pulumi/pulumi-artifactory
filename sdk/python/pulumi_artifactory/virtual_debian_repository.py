@@ -42,18 +42,19 @@ class VirtualDebianRepositoryArgs:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         pulumi.set(__self__, "key", key)
@@ -168,8 +169,8 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -217,7 +218,9 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -229,7 +232,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -266,8 +269,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -318,21 +320,22 @@ class _VirtualDebianRepositoryState:
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -437,8 +440,8 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -511,7 +514,9 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -523,7 +528,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -560,8 +565,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 
@@ -646,20 +650,21 @@ class VirtualDebianRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         ...
@@ -801,21 +806,22 @@ class VirtualDebianRepository(pulumi.CustomResource):
                field, clicking the link will prompt the user to confirm that they might be redirected to a new domain.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
                artifacts are excluded.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
+        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         :param pulumi.Input[str] secondary_keypair_ref: Secondary keypair used to sign artifacts. Default is empty.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -888,8 +894,8 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -938,7 +944,9 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -946,7 +954,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -971,8 +979,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="retrievalCachePeriodSeconds")
     def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
         """
         return pulumi.get(self, "retrieval_cache_period_seconds")
 

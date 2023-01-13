@@ -50,6 +50,11 @@ func NewScopedToken(ctx *pulumi.Context,
 		args = &ScopedTokenArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"refreshToken",
+	})
+	opts = append(opts, secrets)
 	var resource ScopedToken
 	err := ctx.RegisterResource("artifactory:index/scopedToken:ScopedToken", name, args, &resource, opts...)
 	if err != nil {

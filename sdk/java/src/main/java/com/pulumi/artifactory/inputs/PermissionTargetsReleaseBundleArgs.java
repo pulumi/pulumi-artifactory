@@ -17,17 +17,9 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
 
     public static final PermissionTargetsReleaseBundleArgs Empty = new PermissionTargetsReleaseBundleArgs();
 
-    /**
-     * - 
-     * 
-     */
     @Import(name="actions")
     private @Nullable Output<PermissionTargetsReleaseBundleActionsArgs> actions;
 
-    /**
-     * @return -
-     * 
-     */
     public Optional<Output<PermissionTargetsReleaseBundleActionsArgs>> actions() {
         return Optional.ofNullable(this.actions);
     }
@@ -63,14 +55,14 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
     }
 
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      * 
      */
     @Import(name="repositories", required=true)
     private Output<List<String>> repositories;
 
     /**
-     * @return List of repositories this permission target is applicable for.
+     * @return List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      * 
      */
     public Output<List<String>> repositories() {
@@ -104,23 +96,11 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
             $ = new PermissionTargetsReleaseBundleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actions -
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(@Nullable Output<PermissionTargetsReleaseBundleActionsArgs> actions) {
             $.actions = actions;
             return this;
         }
 
-        /**
-         * @param actions -
-         * 
-         * @return builder
-         * 
-         */
         public Builder actions(PermissionTargetsReleaseBundleActionsArgs actions) {
             return actions(Output.of(actions));
         }
@@ -188,7 +168,7 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for.
+         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
          * 
          * @return builder
          * 
@@ -199,7 +179,7 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for.
+         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
          * 
          * @return builder
          * 
@@ -209,7 +189,7 @@ public final class PermissionTargetsReleaseBundleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param repositories List of repositories this permission target is applicable for.
+         * @param repositories List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
          * 
          * @return builder
          * 

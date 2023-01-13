@@ -117,6 +117,11 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "content",
+                    "file",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -146,14 +151,33 @@ namespace Pulumi.Artifactory
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// PEM-encoded client certificate and private key.
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("file")]
-        public Input<string>? File { get; set; }
+        private Input<string>? _file;
+        public Input<string>? File
+        {
+            get => _file;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _file = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public CertificateArgs()
         {
@@ -169,14 +193,33 @@ namespace Pulumi.Artifactory
         [Input("alias")]
         public Input<string>? Alias { get; set; }
 
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// PEM-encoded client certificate and private key.
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("file")]
-        public Input<string>? File { get; set; }
+        private Input<string>? _file;
+        public Input<string>? File
+        {
+            get => _file;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _file = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// SHA256 fingerprint of the certificate.

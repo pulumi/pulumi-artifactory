@@ -29,12 +29,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedCargoRepository(ctx, "terraform-federated-test-cargo-repo", &artifactory.FederatedCargoRepositoryArgs{
 //				Key: pulumi.String("terraform-federated-test-cargo-repo"),
-//				Members: FederatedCargoRepositoryMemberArray{
-//					&FederatedCargoRepositoryMemberArgs{
+//				Members: artifactory.FederatedCargoRepositoryMemberArray{
+//					&artifactory.FederatedCargoRepositoryMemberArgs{
 //						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-cargo-repo"),
 //					},
-//					&FederatedCargoRepositoryMemberArgs{
+//					&artifactory.FederatedCargoRepositoryMemberArgs{
 //						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-cargo-repo-2"),
 //					},
@@ -93,10 +93,12 @@ type FederatedCargoRepository struct {
 	PackageType pulumi.StringOutput                       `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -174,10 +176,12 @@ type federatedCargoRepositoryState struct {
 	PackageType *string                          `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -221,10 +225,12 @@ type FederatedCargoRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -271,10 +277,12 @@ type federatedCargoRepositoryArgs struct {
 	Notes   *string                          `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -318,10 +326,12 @@ type FederatedCargoRepositoryArgs struct {
 	Notes   pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -490,13 +500,15 @@ func (o FederatedCargoRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o FederatedCargoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-// with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedCargoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedCargoRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }

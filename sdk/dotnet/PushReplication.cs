@@ -70,6 +70,9 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/pushReplication:PushReplication")]
     public partial class PushReplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
@@ -82,6 +85,9 @@ namespace Pulumi.Artifactory
         [Output("replications")]
         public Output<ImmutableArray<Outputs.PushReplicationReplication>> Replications { get; private set; } = null!;
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Output("repoKey")]
         public Output<string> RepoKey { get; private set; } = null!;
 
@@ -131,6 +137,9 @@ namespace Pulumi.Artifactory
 
     public sealed class PushReplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
@@ -148,6 +157,9 @@ namespace Pulumi.Artifactory
             set => _replications = value;
         }
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Input("repoKey", required: true)]
         public Input<string> RepoKey { get; set; } = null!;
 
@@ -159,6 +171,9 @@ namespace Pulumi.Artifactory
 
     public sealed class PushReplicationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
@@ -176,6 +191,9 @@ namespace Pulumi.Artifactory
             set => _replications = value;
         }
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Input("repoKey")]
         public Input<string>? RepoKey { get; set; }
 

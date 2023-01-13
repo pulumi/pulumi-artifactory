@@ -6,7 +6,6 @@ package com.pulumi.artifactory.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -85,16 +84,16 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Import(name="includesPattern")
     private @Nullable Output<String> includesPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Optional<Output<String>> includesPattern() {
@@ -149,14 +148,18 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Optional<Output<List<String>>> projectEnvironments() {
@@ -164,7 +167,7 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -172,7 +175,7 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -210,23 +213,6 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.repositories);
     }
 
-    /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     * 
-     */
-    @Import(name="retrievalCachePeriodSeconds")
-    private @Nullable Output<Integer> retrievalCachePeriodSeconds;
-
-    /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     * 
-     */
-    public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
-        return Optional.ofNullable(this.retrievalCachePeriodSeconds);
-    }
-
     private VirtualPypiRepositoryState() {}
 
     private VirtualPypiRepositoryState(VirtualPypiRepositoryState $) {
@@ -242,7 +228,6 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         this.projectKey = $.projectKey;
         this.repoLayoutRef = $.repoLayoutRef;
         this.repositories = $.repositories;
-        this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
     }
 
     public static Builder builder() {
@@ -354,8 +339,8 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -366,8 +351,8 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param includesPattern List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-         * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+         * @param includesPattern List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+         * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
          * 
          * @return builder
          * 
@@ -442,7 +427,9 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -453,7 +440,9 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -463,7 +452,9 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -473,7 +464,7 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -485,7 +476,7 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -545,29 +536,6 @@ public final class VirtualPypiRepositoryState extends com.pulumi.resources.Resou
          */
         public Builder repositories(String... repositories) {
             return repositories(List.of(repositories));
-        }
-
-        /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-         * repositories. A value of 0 indicates no caching.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder retrievalCachePeriodSeconds(@Nullable Output<Integer> retrievalCachePeriodSeconds) {
-            $.retrievalCachePeriodSeconds = retrievalCachePeriodSeconds;
-            return this;
-        }
-
-        /**
-         * @param retrievalCachePeriodSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-         * repositories. A value of 0 indicates no caching.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder retrievalCachePeriodSeconds(Integer retrievalCachePeriodSeconds) {
-            return retrievalCachePeriodSeconds(Output.of(retrievalCachePeriodSeconds));
         }
 
         public VirtualPypiRepositoryState build() {

@@ -85,8 +85,8 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -103,11 +103,13 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -119,11 +121,6 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
      * The effective list of actual repositories included in this virtual repository.
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
-    /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     */
-    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
 
     /**
      * Create a VirtualNugetRepository resource with the given unique name, arguments, and options.
@@ -151,7 +148,6 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
         } else {
             const args = argsOrState as VirtualNugetRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -169,7 +165,6 @@ export class VirtualNugetRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
             resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -205,8 +200,8 @@ export interface VirtualNugetRepositoryState {
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -223,11 +218,13 @@ export interface VirtualNugetRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -239,11 +236,6 @@ export interface VirtualNugetRepositoryState {
      * The effective list of actual repositories included in this virtual repository.
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     */
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -274,8 +266,8 @@ export interface VirtualNugetRepositoryArgs {
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -288,11 +280,13 @@ export interface VirtualNugetRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -304,9 +298,4 @@ export interface VirtualNugetRepositoryArgs {
      * The effective list of actual repositories included in this virtual repository.
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     */
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
 }

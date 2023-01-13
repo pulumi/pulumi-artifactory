@@ -71,14 +71,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * When this override is set, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
      * 
      */
     @Export(name="detachAllUsers", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> detachAllUsers;
 
     /**
-     * @return When this override is set, an empty or missing usernames array will detach all users from the group
+     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group
      * 
      */
     public Output<Optional<Boolean>> detachAllUsers() {
@@ -113,14 +113,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     @Export(name="policyManager", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> policyManager;
 
     /**
-     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> policyManager() {
@@ -155,42 +155,34 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.realmAttributes);
     }
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     @Export(name="reportsManager", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> reportsManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> reportsManager() {
         return Codegen.optional(this.reportsManager);
     }
-    /**
-     * List of users assigned to the group. If missing or empty, tf will not manage group membership
-     * 
-     */
     @Export(name="usersNames", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> usersNames;
 
-    /**
-     * @return List of users assigned to the group. If missing or empty, tf will not manage group membership
-     * 
-     */
     public Output<Optional<List<String>>> usersNames() {
         return Codegen.optional(this.usersNames);
     }
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     @Export(name="watchManager", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> watchManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> watchManager() {

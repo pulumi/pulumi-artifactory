@@ -18,16 +18,54 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a federated Gem repository.
+ * Creates a federated Gems repository.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.artifactory.FederatedGemsRepository;
+ * import com.pulumi.artifactory.FederatedGemsRepositoryArgs;
+ * import com.pulumi.artifactory.inputs.FederatedGemsRepositoryMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraform_federated_test_gems_repo = new FederatedGemsRepository(&#34;terraform-federated-test-gems-repo&#34;, FederatedGemsRepositoryArgs.builder()        
+ *             .key(&#34;terraform-federated-test-gems-repo&#34;)
+ *             .members(            
+ *                 FederatedGemsRepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl.org/artifactory/terraform-federated-test-gems-repo&#34;)
+ *                     .build(),
+ *                 FederatedGemsRepositoryMemberArgs.builder()
+ *                     .enabled(true)
+ *                     .url(&#34;http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
  * Federated repositories can be imported using their name, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gem-repo terraform-federated-test-gem-repo
+ *  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gems-repo terraform-federated-test-gems-repo
  * ```
  * 
  */
@@ -180,30 +218,34 @@ public class FederatedGemsRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.priorityResolution);
     }
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
     private Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {

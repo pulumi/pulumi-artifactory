@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -130,16 +129,16 @@ public class VirtualComposerRepository extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     @Export(name="includesPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> includesPattern;
 
     /**
-     * @return List of artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
+     * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
     public Output<Optional<String>> includesPattern() {
@@ -190,21 +189,25 @@ public class VirtualComposerRepository extends com.pulumi.resources.CustomResour
         return this.packageType;
     }
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
     private Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -212,7 +215,7 @@ public class VirtualComposerRepository extends com.pulumi.resources.CustomResour
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -246,22 +249,6 @@ public class VirtualComposerRepository extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<List<String>>> repositories() {
         return Codegen.optional(this.repositories);
-    }
-    /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     * 
-     */
-    @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
-
-    /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
-     * 
-     */
-    public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
-        return Codegen.optional(this.retrievalCachePeriodSeconds);
     }
 
     /**

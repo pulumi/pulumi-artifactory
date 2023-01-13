@@ -20,16 +20,16 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     public static final RemoteTerraformRepositoryState Empty = new RemoteTerraformRepositoryState();
 
     /**
-     * Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+     * other host.
      * 
      */
     @Import(name="allowAnyHostAuth")
     private @Nullable Output<Boolean> allowAnyHostAuth;
 
     /**
-     * @return Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * @return &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+     * other host.
      * 
      */
     public Optional<Output<Boolean>> allowAnyHostAuth() {
@@ -39,7 +39,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * offline.
      * 
      */
     @Import(name="assumedOfflinePeriodSecs")
@@ -48,7 +48,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     /**
      * @return The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * offline.
      * 
      */
     public Optional<Output<Integer>> assumedOfflinePeriodSecs() {
@@ -73,18 +73,18 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+     * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
     @Import(name="blockMismatchingMimeTypes")
     private @Nullable Output<Boolean> blockMismatchingMimeTypes;
 
     /**
-     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * @return If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+     * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
     public Optional<Output<Boolean>> blockMismatchingMimeTypes() {
@@ -110,9 +110,17 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.bypassHeadRequests);
     }
 
+    /**
+     * Client TLS certificate name.
+     * 
+     */
     @Import(name="clientTlsCertificate")
     private @Nullable Output<String> clientTlsCertificate;
 
+    /**
+     * @return Client TLS certificate name.
+     * 
+     */
     public Optional<Output<String>> clientTlsCertificate() {
         return Optional.ofNullable(this.clientTlsCertificate);
     }
@@ -124,9 +132,17 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.contentSynchronisation);
     }
 
+    /**
+     * Public description.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Public description.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -178,25 +194,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
      */
     public Optional<Output<String>> excludesPattern() {
         return Optional.ofNullable(this.excludesPattern);
-    }
-
-    /**
-     * @deprecated
-     * This field is not returned in a get payload but is offered on the UI. It&#39;s inserted here for inclusive and informational reasons. It does not function
-     * 
-     */
-    @Deprecated /* This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function */
-    @Import(name="failedRetrievalCachePeriodSecs")
-    private @Nullable Output<Integer> failedRetrievalCachePeriodSecs;
-
-    /**
-     * @deprecated
-     * This field is not returned in a get payload but is offered on the UI. It&#39;s inserted here for inclusive and informational reasons. It does not function
-     * 
-     */
-    @Deprecated /* This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function */
-    public Optional<Output<Integer>> failedRetrievalCachePeriodSecs() {
-        return Optional.ofNullable(this.failedRetrievalCachePeriodSecs);
     }
 
     /**
@@ -252,7 +249,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
     @Import(name="listRemoteFolderItems")
@@ -260,7 +257,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
     /**
      * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
     public Optional<Output<Boolean>> listRemoteFolderItems() {
@@ -285,8 +282,25 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
+     * 
+     */
+    @Import(name="metadataRetrievalTimeoutSecs")
+    private @Nullable Output<Integer> metadataRetrievalTimeoutSecs;
+
+    /**
+     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
+     * 
+     */
+    public Optional<Output<Integer>> metadataRetrievalTimeoutSecs() {
+        return Optional.ofNullable(this.metadataRetrievalTimeoutSecs);
+    }
+
+    /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#34;application/json,application/xml&#34;. Default value is empty.
+     * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     @Import(name="mismatchingMimeTypesOverrideList")
@@ -294,7 +308,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
     /**
      * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#34;application/json,application/xml&#34;. Default value is empty.
+     * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     public Optional<Output<String>> mismatchingMimeTypesOverrideList() {
@@ -302,23 +316,33 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+     * found). A value of 0 indicates no caching.
      * 
      */
     @Import(name="missedCachePeriodSeconds")
     private @Nullable Output<Integer> missedCachePeriodSeconds;
 
     /**
-     * @return The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+     * @return Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+     * found). A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> missedCachePeriodSeconds() {
         return Optional.ofNullable(this.missedCachePeriodSeconds);
     }
 
+    /**
+     * Internal description.
+     * 
+     */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
+    /**
+     * @return Internal description.
+     * 
+     */
     public Optional<Output<String>> notes() {
         return Optional.ofNullable(this.notes);
     }
@@ -353,14 +377,18 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
     @Import(name="priorityResolution")
     private @Nullable Output<Boolean> priorityResolution;
 
     /**
-     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * @return Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
     public Optional<Output<Boolean>> priorityResolution() {
@@ -368,14 +396,18 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Optional<Output<List<String>>> projectEnvironments() {
@@ -383,7 +415,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -391,7 +423,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -445,14 +477,31 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Repository layout key for the remote layout mapping
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * 
+     */
+    @Import(name="queryParams")
+    private @Nullable Output<String> queryParams;
+
+    /**
+     * @return Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * 
+     */
+    public Optional<Output<String>> queryParams() {
+        return Optional.ofNullable(this.queryParams);
+    }
+
+    /**
+     * Repository layout key for the remote layout mapping.
      * 
      */
     @Import(name="remoteRepoLayoutRef")
     private @Nullable Output<String> remoteRepoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote layout mapping
+     * @return Repository layout key for the remote layout mapping.
      * 
      */
     public Optional<Output<String>> remoteRepoLayoutRef() {
@@ -475,14 +524,16 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+     * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
     @Import(name="retrievalCachePeriodSeconds")
     private @Nullable Output<Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+     * @return Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+     * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
     public Optional<Output<Integer>> retrievalCachePeriodSeconds() {
@@ -583,24 +634,17 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         return Optional.ofNullable(this.terraformRegistryUrl);
     }
 
-    @Import(name="unusedArtifactsCleanupPeriodEnabled")
-    private @Nullable Output<Boolean> unusedArtifactsCleanupPeriodEnabled;
-
-    public Optional<Output<Boolean>> unusedArtifactsCleanupPeriodEnabled() {
-        return Optional.ofNullable(this.unusedArtifactsCleanupPeriodEnabled);
-    }
-
     /**
-     * The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-     * of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
     @Import(name="unusedArtifactsCleanupPeriodHours")
     private @Nullable Output<Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
-     * @return The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-     * of 0 means automatic cleanup of cached artifacts is disabled.
+     * @return Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
     public Optional<Output<Integer>> unusedArtifactsCleanupPeriodHours() {
@@ -660,12 +704,12 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
         this.excludesPattern = $.excludesPattern;
-        this.failedRetrievalCachePeriodSecs = $.failedRetrievalCachePeriodSecs;
         this.hardFail = $.hardFail;
         this.includesPattern = $.includesPattern;
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
+        this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
         this.notes = $.notes;
@@ -678,6 +722,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         this.propagateQueryParams = $.propagateQueryParams;
         this.propertySets = $.propertySets;
         this.proxy = $.proxy;
+        this.queryParams = $.queryParams;
         this.remoteRepoLayoutRef = $.remoteRepoLayoutRef;
         this.repoLayoutRef = $.repoLayoutRef;
         this.retrievalCachePeriodSeconds = $.retrievalCachePeriodSeconds;
@@ -687,7 +732,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         this.synchronizeProperties = $.synchronizeProperties;
         this.terraformProvidersUrl = $.terraformProvidersUrl;
         this.terraformRegistryUrl = $.terraformRegistryUrl;
-        this.unusedArtifactsCleanupPeriodEnabled = $.unusedArtifactsCleanupPeriodEnabled;
         this.unusedArtifactsCleanupPeriodHours = $.unusedArtifactsCleanupPeriodHours;
         this.url = $.url;
         this.username = $.username;
@@ -713,8 +757,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param allowAnyHostAuth Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-         * any other host.
+         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+         * other host.
          * 
          * @return builder
          * 
@@ -725,8 +769,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param allowAnyHostAuth Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-         * any other host.
+         * @param allowAnyHostAuth &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+         * other host.
          * 
          * @return builder
          * 
@@ -738,7 +782,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         /**
          * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
          * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-         * offline. Default to 300.
+         * offline.
          * 
          * @return builder
          * 
@@ -751,7 +795,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         /**
          * @param assumedOfflinePeriodSecs The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
          * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-         * offline. Default to 300.
+         * offline.
          * 
          * @return builder
          * 
@@ -784,9 +828,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param blockMismatchingMimeTypes Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-         * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-         * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+         * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+         * to the override list &#39;mismatching_mime_types_override_list&#39;.
          * 
          * @return builder
          * 
@@ -797,9 +841,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param blockMismatchingMimeTypes Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-         * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-         * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+         * @param blockMismatchingMimeTypes If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+         * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+         * to the override list &#39;mismatching_mime_types_override_list&#39;.
          * 
          * @return builder
          * 
@@ -833,11 +877,23 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return bypassHeadRequests(Output.of(bypassHeadRequests));
         }
 
+        /**
+         * @param clientTlsCertificate Client TLS certificate name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientTlsCertificate(@Nullable Output<String> clientTlsCertificate) {
             $.clientTlsCertificate = clientTlsCertificate;
             return this;
         }
 
+        /**
+         * @param clientTlsCertificate Client TLS certificate name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientTlsCertificate(String clientTlsCertificate) {
             return clientTlsCertificate(Output.of(clientTlsCertificate));
         }
@@ -851,11 +907,23 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return contentSynchronisation(Output.of(contentSynchronisation));
         }
 
+        /**
+         * @param description Public description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Public description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -925,31 +993,6 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
          */
         public Builder excludesPattern(String excludesPattern) {
             return excludesPattern(Output.of(excludesPattern));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is not returned in a get payload but is offered on the UI. It&#39;s inserted here for inclusive and informational reasons. It does not function
-         * 
-         */
-        @Deprecated /* This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function */
-        public Builder failedRetrievalCachePeriodSecs(@Nullable Output<Integer> failedRetrievalCachePeriodSecs) {
-            $.failedRetrievalCachePeriodSecs = failedRetrievalCachePeriodSecs;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is not returned in a get payload but is offered on the UI. It&#39;s inserted here for inclusive and informational reasons. It does not function
-         * 
-         */
-        @Deprecated /* This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function */
-        public Builder failedRetrievalCachePeriodSecs(Integer failedRetrievalCachePeriodSecs) {
-            return failedRetrievalCachePeriodSecs(Output.of(failedRetrievalCachePeriodSecs));
         }
 
         /**
@@ -1023,7 +1066,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
         /**
          * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1035,7 +1078,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
         /**
          * @param listRemoteFolderItems Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+         * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
          * 
          * @return builder
          * 
@@ -1068,8 +1111,31 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
+         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+         * the remote before serving locally cached artifact or fail the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataRetrievalTimeoutSecs(@Nullable Output<Integer> metadataRetrievalTimeoutSecs) {
+            $.metadataRetrievalTimeoutSecs = metadataRetrievalTimeoutSecs;
+            return this;
+        }
+
+        /**
+         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+         * the remote before serving locally cached artifact or fail the request.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadataRetrievalTimeoutSecs(Integer metadataRetrievalTimeoutSecs) {
+            return metadataRetrievalTimeoutSecs(Output.of(metadataRetrievalTimeoutSecs));
+        }
+
+        /**
          * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-         * &#34;application/json,application/xml&#34;. Default value is empty.
+         * &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1081,7 +1147,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
 
         /**
          * @param mismatchingMimeTypesOverrideList The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-         * &#34;application/json,application/xml&#34;. Default value is empty.
+         * &#39;application/json,application/xml&#39;. Default value is empty.
          * 
          * @return builder
          * 
@@ -1091,7 +1157,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param missedCachePeriodSeconds The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+         * found). A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1102,7 +1169,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param missedCachePeriodSeconds The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+         * @param missedCachePeriodSeconds Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+         * found). A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1111,11 +1179,23 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return missedCachePeriodSeconds(Output.of(missedCachePeriodSeconds));
         }
 
+        /**
+         * @param notes Internal description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notes(@Nullable Output<String> notes) {
             $.notes = notes;
             return this;
         }
 
+        /**
+         * @param notes Internal description.
+         * 
+         * @return builder
+         * 
+         */
         public Builder notes(String notes) {
             return notes(Output.of(notes));
         }
@@ -1160,7 +1240,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
          * 
          * @return builder
          * 
@@ -1171,7 +1253,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param priorityResolution Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+         * @param priorityResolution Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+         * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+         * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
          * 
          * @return builder
          * 
@@ -1181,7 +1265,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -1192,7 +1278,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -1202,7 +1290,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -1212,7 +1302,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -1224,7 +1314,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -1308,7 +1398,30 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping
+         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+         * `param1=val1&amp;param2=val2&amp;param3=val3`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParams(@Nullable Output<String> queryParams) {
+            $.queryParams = queryParams;
+            return this;
+        }
+
+        /**
+         * @param queryParams Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+         * `param1=val1&amp;param2=val2&amp;param3=val3`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder queryParams(String queryParams) {
+            return queryParams(Output.of(queryParams));
+        }
+
+        /**
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping.
          * 
          * @return builder
          * 
@@ -1319,7 +1432,7 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping
+         * @param remoteRepoLayoutRef Repository layout key for the remote layout mapping.
          * 
          * @return builder
          * 
@@ -1350,7 +1463,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param retrievalCachePeriodSeconds The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+         * before checking for newer versions on remote server. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1361,7 +1475,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param retrievalCachePeriodSeconds The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+         * @param retrievalCachePeriodSeconds Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+         * before checking for newer versions on remote server. A value of 0 indicates no caching.
          * 
          * @return builder
          * 
@@ -1496,18 +1611,9 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
             return terraformRegistryUrl(Output.of(terraformRegistryUrl));
         }
 
-        public Builder unusedArtifactsCleanupPeriodEnabled(@Nullable Output<Boolean> unusedArtifactsCleanupPeriodEnabled) {
-            $.unusedArtifactsCleanupPeriodEnabled = unusedArtifactsCleanupPeriodEnabled;
-            return this;
-        }
-
-        public Builder unusedArtifactsCleanupPeriodEnabled(Boolean unusedArtifactsCleanupPeriodEnabled) {
-            return unusedArtifactsCleanupPeriodEnabled(Output.of(unusedArtifactsCleanupPeriodEnabled));
-        }
-
         /**
-         * @param unusedArtifactsCleanupPeriodHours The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-         * of 0 means automatic cleanup of cached artifacts is disabled.
+         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+         * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
          * 
          * @return builder
          * 
@@ -1518,8 +1624,8 @@ public final class RemoteTerraformRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param unusedArtifactsCleanupPeriodHours The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-         * of 0 means automatic cleanup of cached artifacts is disabled.
+         * @param unusedArtifactsCleanupPeriodHours Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+         * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
          * 
          * @return builder
          * 

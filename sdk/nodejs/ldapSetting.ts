@@ -10,6 +10,8 @@ import * as utilities from "./utilities";
  * When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server.
  * If LDAP authentication fails, it then tries to authenticate via its internal database.
  *
+ * ~>The `artifactory.LdapSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -17,7 +19,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory LDAP setting
- * const ldapName = new artifactory.LdapSetting("ldap_name", {
+ * const ldapName = new artifactory.LdapSetting("ldapName", {
  *     allowUserToAccessProfile: false,
  *     autoCreateUser: true,
  *     emailAttribute: "mail",
@@ -119,7 +121,7 @@ export class LdapSetting extends pulumi.CustomResource {
      */
     public readonly searchBase!: pulumi.Output<string | undefined>;
     /**
-     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
      * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
      */
     public readonly searchFilter!: pulumi.Output<string | undefined>;
@@ -176,7 +178,7 @@ export class LdapSetting extends pulumi.CustomResource {
             resourceInputs["ldapPoisoningProtection"] = args ? args.ldapPoisoningProtection : undefined;
             resourceInputs["ldapUrl"] = args ? args.ldapUrl : undefined;
             resourceInputs["managerDn"] = args ? args.managerDn : undefined;
-            resourceInputs["managerPassword"] = args ? args.managerPassword : undefined;
+            resourceInputs["managerPassword"] = args?.managerPassword ? pulumi.secret(args.managerPassword) : undefined;
             resourceInputs["pagingSupportEnabled"] = args ? args.pagingSupportEnabled : undefined;
             resourceInputs["searchBase"] = args ? args.searchBase : undefined;
             resourceInputs["searchFilter"] = args ? args.searchFilter : undefined;
@@ -184,6 +186,8 @@ export class LdapSetting extends pulumi.CustomResource {
             resourceInputs["userDnPattern"] = args ? args.userDnPattern : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["managerPassword"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LdapSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -238,7 +242,7 @@ export interface LdapSettingState {
      */
     searchBase?: pulumi.Input<string>;
     /**
-     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
      * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
      */
     searchFilter?: pulumi.Input<string>;
@@ -303,7 +307,7 @@ export interface LdapSettingArgs {
      */
     searchBase?: pulumi.Input<string>;
     /**
-     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty. 
+     * A filter expression used to search for the user DN that is used in LDAP authentication. This is an LDAP search filter (as defined in 'RFC 2254') with optional arguments. In this case, the username is the only argument, denoted by '{0}'. Possible examples are: uid={0}) - this would search for a username match on the uid attribute. Authentication using LDAP is performed from the DN found if successful. Default value is blank/empty.
      * - Note: LDAP settings should provide a userDnPattern or a searchFilter (or both)
      */
     searchFilter?: pulumi.Input<string>;

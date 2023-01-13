@@ -153,7 +153,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             if api_key is not None and not opts.urn:
                 warnings.warn("""An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
@@ -161,11 +161,13 @@ In January 2023, API Keys will be deprecated all together and the option to use 
                 pulumi.log.warn("""api_key is deprecated: An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
 In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
 In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.""")
-            __props__.__dict__["api_key"] = api_key
+            __props__.__dict__["api_key"] = None if api_key is None else pulumi.Output.secret(api_key)
             if check_license is None:
                 check_license = False
             __props__.__dict__["check_license"] = pulumi.Output.from_input(check_license).apply(pulumi.runtime.to_json) if check_license is not None else None
             __props__.__dict__["url"] = url
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "apiKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'artifactory',
             resource_name,

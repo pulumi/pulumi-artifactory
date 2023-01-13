@@ -98,8 +98,8 @@ type VirtualRpmRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -110,18 +110,17 @@ type VirtualRpmRepository struct {
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
 	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
 }
@@ -169,8 +168,8 @@ type virtualRpmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -181,18 +180,17 @@ type virtualRpmRepositoryState struct {
 	PackageType *string `pulumi:"packageType"`
 	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
@@ -209,8 +207,8 @@ type VirtualRpmRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -221,18 +219,17 @@ type VirtualRpmRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
@@ -253,8 +250,8 @@ type virtualRpmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -263,18 +260,17 @@ type virtualRpmRepositoryArgs struct {
 	Notes *string `pulumi:"notes"`
 	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
 }
@@ -292,8 +288,8 @@ type VirtualRpmRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -302,18 +298,17 @@ type VirtualRpmRepositoryArgs struct {
 	Notes pulumi.StringPtrInput
 	// The primary GPG key to be used to sign packages.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// The secondary GPG key to be used to sign packages.
 	SecondaryKeypairRef pulumi.StringPtrInput
 }
@@ -430,8 +425,8 @@ func (o VirtualRpmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o VirtualRpmRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -457,12 +452,14 @@ func (o VirtualRpmRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualRpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualRpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
@@ -476,12 +473,6 @@ func (o VirtualRpmRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 // The effective list of actual repositories included in this virtual repository.
 func (o VirtualRpmRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
-}
-
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-// repositories. A value of 0 indicates no caching.
-func (o VirtualRpmRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualRpmRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // The secondary GPG key to be used to sign packages.

@@ -63,16 +63,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of groups this user is a part of.
-     * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
-     * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -110,14 +108,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     public Optional<Output<String>> password() {
@@ -234,8 +232,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
-         * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 
@@ -246,8 +243,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
-         * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 
@@ -257,8 +253,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
-         * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 
@@ -310,7 +305,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
          * 
          * @return builder
          * 
@@ -321,7 +316,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
          * 
          * @return builder
          * 

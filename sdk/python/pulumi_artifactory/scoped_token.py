@@ -407,6 +407,8 @@ class ScopedToken(pulumi.CustomResource):
             __props__.__dict__["refresh_token"] = None
             __props__.__dict__["subject"] = None
             __props__.__dict__["token_type"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "refreshToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ScopedToken, __self__).__init__(
             'artifactory:index/scopedToken:ScopedToken',
             resource_name,

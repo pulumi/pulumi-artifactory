@@ -22,6 +22,7 @@ class ReplicationConfigArgs:
                  replications: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -33,6 +34,9 @@ class ReplicationConfigArgs:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
+        """
+        Cron expression to control the operation frequency.
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -76,6 +80,7 @@ class _ReplicationConfigState:
                  repo_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationConfig resources.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -89,6 +94,9 @@ class _ReplicationConfigState:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cron expression to control the operation frequency.
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -168,6 +176,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
         ...
     @overload
@@ -265,6 +274,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cron_exp: Cron expression to control the operation frequency.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,6 +289,9 @@ class ReplicationConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
+        """
+        Cron expression to control the operation frequency.
+        """
         return pulumi.get(self, "cron_exp")
 
     @property

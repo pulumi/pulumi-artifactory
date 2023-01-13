@@ -15,19 +15,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * // 
- * const my_file = pulumi.output(artifactory.getFileinfo({
+ * const my-file = artifactory.getFileinfo({
  *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
- * }));
+ * });
  * ```
  */
 export function getFileinfo(args: GetFileinfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFileinfoResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFileinfo:getFileinfo", {
         "path": args.path,
         "repository": args.repository,
@@ -103,9 +99,25 @@ export interface GetFileinfoResult {
      */
     readonly size: number;
 }
-
+/**
+ * ## # Artifactory File Info Data Source
+ *
+ * Provides an Artifactory fileinfo datasource. This can be used to read metadata of files stored in Artifactory repositories.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my-file = artifactory.getFileinfo({
+ *     path: "/path/to/the/artifact.zip",
+ *     repository: "repo-key",
+ * });
+ * ```
+ */
 export function getFileinfoOutput(args: GetFileinfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileinfoResult> {
-    return pulumi.output(args).apply(a => getFileinfo(a, opts))
+    return pulumi.output(args).apply((a: any) => getFileinfo(a, opts))
 }
 
 /**

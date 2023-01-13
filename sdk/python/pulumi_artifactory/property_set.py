@@ -138,6 +138,8 @@ class PropertySet(pulumi.CustomResource):
         This resource configuration corresponds to 'propertySets' config block in system configuration XML
         (REST endpoint: artifactory/api/system/configuration).
 
+        ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
         ## Example Usage
 
         ```python
@@ -204,6 +206,8 @@ class PropertySet(pulumi.CustomResource):
         Provides an Artifactory Property Set resource.
         This resource configuration corresponds to 'propertySets' config block in system configuration XML
         (REST endpoint: artifactory/api/system/configuration).
+
+        ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 
         ## Example Usage
 

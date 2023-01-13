@@ -16,7 +16,6 @@ import (
 // RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
 // pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
 // through the Keys Management UI and REST API.
-// Passphrases are not currently supported, though they exist in the API.
 //
 // ## Example Usage
 //
@@ -48,6 +47,7 @@ import (
 //				Alias:      pulumi.String("foo-alias6543461672124900137"),
 //				PrivateKey: readFileOrPanic("samples/rsa.priv"),
 //				PublicKey:  readFileOrPanic("samples/rsa.pub"),
+//				Passphrase: pulumi.String("PASSPHRASE"),
 //			})
 //			if err != nil {
 //				return err
@@ -78,7 +78,7 @@ type Keypair struct {
 	PairType pulumi.StringOutput `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
-	// - Private key. PEM format will be validated.
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringOutput `pulumi:"privateKey"`
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
@@ -108,6 +108,17 @@ func NewKeypair(ctx *pulumi.Context,
 	if args.PublicKey == nil {
 		return nil, errors.New("invalid value for required argument 'PublicKey'")
 	}
+	if args.Passphrase != nil {
+		args.Passphrase = pulumi.ToSecret(args.Passphrase).(pulumi.StringPtrInput)
+	}
+	if args.PrivateKey != nil {
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"passphrase",
+		"privateKey",
+	})
+	opts = append(opts, secrets)
 	var resource Keypair
 	err := ctx.RegisterResource("artifactory:index/keypair:Keypair", name, args, &resource, opts...)
 	if err != nil {
@@ -138,7 +149,7 @@ type keypairState struct {
 	PairType *string `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
-	// - Private key. PEM format will be validated.
+	// Private key. PEM format will be validated.
 	PrivateKey *string `pulumi:"privateKey"`
 	// Public key. PEM format will be validated.
 	PublicKey *string `pulumi:"publicKey"`
@@ -155,7 +166,7 @@ type KeypairState struct {
 	PairType pulumi.StringPtrInput
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
-	// - Private key. PEM format will be validated.
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringPtrInput
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringPtrInput
@@ -176,7 +187,7 @@ type keypairArgs struct {
 	PairType string `pulumi:"pairType"`
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase *string `pulumi:"passphrase"`
-	// - Private key. PEM format will be validated.
+	// Private key. PEM format will be validated.
 	PrivateKey string `pulumi:"privateKey"`
 	// Public key. PEM format will be validated.
 	PublicKey string `pulumi:"publicKey"`
@@ -192,7 +203,7 @@ type KeypairArgs struct {
 	PairType pulumi.StringInput
 	// Passphrase will be used to decrypt the private key. Validated server side.
 	Passphrase pulumi.StringPtrInput
-	// - Private key. PEM format will be validated.
+	// Private key. PEM format will be validated.
 	PrivateKey pulumi.StringInput
 	// Public key. PEM format will be validated.
 	PublicKey pulumi.StringInput
@@ -305,7 +316,7 @@ func (o KeypairOutput) Passphrase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringPtrOutput { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
 
-// - Private key. PEM format will be validated.
+// Private key. PEM format will be validated.
 func (o KeypairOutput) PrivateKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keypair) pulumi.StringOutput { return v.PrivateKey }).(pulumi.StringOutput)
 }

@@ -3307,6 +3307,224 @@ func (o FederatedDockerRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fed
 	}).(FederatedDockerRepositoryMemberOutput)
 }
 
+type FederatedDockerV1RepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedDockerV1RepositoryMemberInput is an input type that accepts FederatedDockerV1RepositoryMemberArgs and FederatedDockerV1RepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedDockerV1RepositoryMemberInput` via:
+//
+//	FederatedDockerV1RepositoryMemberArgs{...}
+type FederatedDockerV1RepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedDockerV1RepositoryMemberOutput() FederatedDockerV1RepositoryMemberOutput
+	ToFederatedDockerV1RepositoryMemberOutputWithContext(context.Context) FederatedDockerV1RepositoryMemberOutput
+}
+
+type FederatedDockerV1RepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedDockerV1RepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedDockerV1RepositoryMemberArgs) ToFederatedDockerV1RepositoryMemberOutput() FederatedDockerV1RepositoryMemberOutput {
+	return i.ToFederatedDockerV1RepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedDockerV1RepositoryMemberArgs) ToFederatedDockerV1RepositoryMemberOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV1RepositoryMemberOutput)
+}
+
+// FederatedDockerV1RepositoryMemberArrayInput is an input type that accepts FederatedDockerV1RepositoryMemberArray and FederatedDockerV1RepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedDockerV1RepositoryMemberArrayInput` via:
+//
+//	FederatedDockerV1RepositoryMemberArray{ FederatedDockerV1RepositoryMemberArgs{...} }
+type FederatedDockerV1RepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedDockerV1RepositoryMemberArrayOutput() FederatedDockerV1RepositoryMemberArrayOutput
+	ToFederatedDockerV1RepositoryMemberArrayOutputWithContext(context.Context) FederatedDockerV1RepositoryMemberArrayOutput
+}
+
+type FederatedDockerV1RepositoryMemberArray []FederatedDockerV1RepositoryMemberInput
+
+func (FederatedDockerV1RepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedDockerV1RepositoryMemberArray) ToFederatedDockerV1RepositoryMemberArrayOutput() FederatedDockerV1RepositoryMemberArrayOutput {
+	return i.ToFederatedDockerV1RepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedDockerV1RepositoryMemberArray) ToFederatedDockerV1RepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV1RepositoryMemberArrayOutput)
+}
+
+type FederatedDockerV1RepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedDockerV1RepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedDockerV1RepositoryMemberOutput) ToFederatedDockerV1RepositoryMemberOutput() FederatedDockerV1RepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedDockerV1RepositoryMemberOutput) ToFederatedDockerV1RepositoryMemberOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedDockerV1RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedDockerV1RepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedDockerV1RepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedDockerV1RepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedDockerV1RepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedDockerV1RepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedDockerV1RepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedDockerV1RepositoryMemberArrayOutput) ToFederatedDockerV1RepositoryMemberArrayOutput() FederatedDockerV1RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedDockerV1RepositoryMemberArrayOutput) ToFederatedDockerV1RepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedDockerV1RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedDockerV1RepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedDockerV1RepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedDockerV1RepositoryMember {
+		return vs[0].([]FederatedDockerV1RepositoryMember)[vs[1].(int)]
+	}).(FederatedDockerV1RepositoryMemberOutput)
+}
+
+type FederatedDockerV2RepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedDockerV2RepositoryMemberInput is an input type that accepts FederatedDockerV2RepositoryMemberArgs and FederatedDockerV2RepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedDockerV2RepositoryMemberInput` via:
+//
+//	FederatedDockerV2RepositoryMemberArgs{...}
+type FederatedDockerV2RepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedDockerV2RepositoryMemberOutput() FederatedDockerV2RepositoryMemberOutput
+	ToFederatedDockerV2RepositoryMemberOutputWithContext(context.Context) FederatedDockerV2RepositoryMemberOutput
+}
+
+type FederatedDockerV2RepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedDockerV2RepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedDockerV2RepositoryMemberArgs) ToFederatedDockerV2RepositoryMemberOutput() FederatedDockerV2RepositoryMemberOutput {
+	return i.ToFederatedDockerV2RepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedDockerV2RepositoryMemberArgs) ToFederatedDockerV2RepositoryMemberOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV2RepositoryMemberOutput)
+}
+
+// FederatedDockerV2RepositoryMemberArrayInput is an input type that accepts FederatedDockerV2RepositoryMemberArray and FederatedDockerV2RepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedDockerV2RepositoryMemberArrayInput` via:
+//
+//	FederatedDockerV2RepositoryMemberArray{ FederatedDockerV2RepositoryMemberArgs{...} }
+type FederatedDockerV2RepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedDockerV2RepositoryMemberArrayOutput() FederatedDockerV2RepositoryMemberArrayOutput
+	ToFederatedDockerV2RepositoryMemberArrayOutputWithContext(context.Context) FederatedDockerV2RepositoryMemberArrayOutput
+}
+
+type FederatedDockerV2RepositoryMemberArray []FederatedDockerV2RepositoryMemberInput
+
+func (FederatedDockerV2RepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedDockerV2RepositoryMemberArray) ToFederatedDockerV2RepositoryMemberArrayOutput() FederatedDockerV2RepositoryMemberArrayOutput {
+	return i.ToFederatedDockerV2RepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedDockerV2RepositoryMemberArray) ToFederatedDockerV2RepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedDockerV2RepositoryMemberArrayOutput)
+}
+
+type FederatedDockerV2RepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedDockerV2RepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedDockerV2RepositoryMemberOutput) ToFederatedDockerV2RepositoryMemberOutput() FederatedDockerV2RepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedDockerV2RepositoryMemberOutput) ToFederatedDockerV2RepositoryMemberOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedDockerV2RepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedDockerV2RepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedDockerV2RepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedDockerV2RepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedDockerV2RepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedDockerV2RepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedDockerV2RepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedDockerV2RepositoryMemberArrayOutput) ToFederatedDockerV2RepositoryMemberArrayOutput() FederatedDockerV2RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedDockerV2RepositoryMemberArrayOutput) ToFederatedDockerV2RepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedDockerV2RepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedDockerV2RepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedDockerV2RepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedDockerV2RepositoryMember {
+		return vs[0].([]FederatedDockerV2RepositoryMember)[vs[1].(int)]
+	}).(FederatedDockerV2RepositoryMemberOutput)
+}
+
 type FederatedGemsRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -4942,6 +5160,115 @@ func (o FederatedSbtRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Federa
 	}).(FederatedSbtRepositoryMemberOutput)
 }
 
+type FederatedSwiftRepositoryMember struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled bool `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url string `pulumi:"url"`
+}
+
+// FederatedSwiftRepositoryMemberInput is an input type that accepts FederatedSwiftRepositoryMemberArgs and FederatedSwiftRepositoryMemberOutput values.
+// You can construct a concrete instance of `FederatedSwiftRepositoryMemberInput` via:
+//
+//	FederatedSwiftRepositoryMemberArgs{...}
+type FederatedSwiftRepositoryMemberInput interface {
+	pulumi.Input
+
+	ToFederatedSwiftRepositoryMemberOutput() FederatedSwiftRepositoryMemberOutput
+	ToFederatedSwiftRepositoryMemberOutputWithContext(context.Context) FederatedSwiftRepositoryMemberOutput
+}
+
+type FederatedSwiftRepositoryMemberArgs struct {
+	// Represents the active state of the federated member. It is supported to change the enabled
+	// status of my own member. The config will be updated on the other federated members automatically.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Full URL to ending with the repository name.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (FederatedSwiftRepositoryMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedSwiftRepositoryMemberArgs) ToFederatedSwiftRepositoryMemberOutput() FederatedSwiftRepositoryMemberOutput {
+	return i.ToFederatedSwiftRepositoryMemberOutputWithContext(context.Background())
+}
+
+func (i FederatedSwiftRepositoryMemberArgs) ToFederatedSwiftRepositoryMemberOutputWithContext(ctx context.Context) FederatedSwiftRepositoryMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedSwiftRepositoryMemberOutput)
+}
+
+// FederatedSwiftRepositoryMemberArrayInput is an input type that accepts FederatedSwiftRepositoryMemberArray and FederatedSwiftRepositoryMemberArrayOutput values.
+// You can construct a concrete instance of `FederatedSwiftRepositoryMemberArrayInput` via:
+//
+//	FederatedSwiftRepositoryMemberArray{ FederatedSwiftRepositoryMemberArgs{...} }
+type FederatedSwiftRepositoryMemberArrayInput interface {
+	pulumi.Input
+
+	ToFederatedSwiftRepositoryMemberArrayOutput() FederatedSwiftRepositoryMemberArrayOutput
+	ToFederatedSwiftRepositoryMemberArrayOutputWithContext(context.Context) FederatedSwiftRepositoryMemberArrayOutput
+}
+
+type FederatedSwiftRepositoryMemberArray []FederatedSwiftRepositoryMemberInput
+
+func (FederatedSwiftRepositoryMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (i FederatedSwiftRepositoryMemberArray) ToFederatedSwiftRepositoryMemberArrayOutput() FederatedSwiftRepositoryMemberArrayOutput {
+	return i.ToFederatedSwiftRepositoryMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FederatedSwiftRepositoryMemberArray) ToFederatedSwiftRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedSwiftRepositoryMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FederatedSwiftRepositoryMemberArrayOutput)
+}
+
+type FederatedSwiftRepositoryMemberOutput struct{ *pulumi.OutputState }
+
+func (FederatedSwiftRepositoryMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedSwiftRepositoryMemberOutput) ToFederatedSwiftRepositoryMemberOutput() FederatedSwiftRepositoryMemberOutput {
+	return o
+}
+
+func (o FederatedSwiftRepositoryMemberOutput) ToFederatedSwiftRepositoryMemberOutputWithContext(ctx context.Context) FederatedSwiftRepositoryMemberOutput {
+	return o
+}
+
+// Represents the active state of the federated member. It is supported to change the enabled
+// status of my own member. The config will be updated on the other federated members automatically.
+func (o FederatedSwiftRepositoryMemberOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v FederatedSwiftRepositoryMember) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Full URL to ending with the repository name.
+func (o FederatedSwiftRepositoryMemberOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v FederatedSwiftRepositoryMember) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type FederatedSwiftRepositoryMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FederatedSwiftRepositoryMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FederatedSwiftRepositoryMember)(nil)).Elem()
+}
+
+func (o FederatedSwiftRepositoryMemberArrayOutput) ToFederatedSwiftRepositoryMemberArrayOutput() FederatedSwiftRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedSwiftRepositoryMemberArrayOutput) ToFederatedSwiftRepositoryMemberArrayOutputWithContext(ctx context.Context) FederatedSwiftRepositoryMemberArrayOutput {
+	return o
+}
+
+func (o FederatedSwiftRepositoryMemberArrayOutput) Index(i pulumi.IntInput) FederatedSwiftRepositoryMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FederatedSwiftRepositoryMember {
+		return vs[0].([]FederatedSwiftRepositoryMember)[vs[1].(int)]
+	}).(FederatedSwiftRepositoryMemberOutput)
+}
+
 type FederatedTerraformModuleRepositoryMember struct {
 	// Represents the active state of the federated member. It is supported to change the enabled
 	// status of my own member. The config will be updated on the other federated members automatically.
@@ -5430,13 +5757,12 @@ func (o OauthSettingsOauthProviderArrayOutput) Index(i pulumi.IntInput) OauthSet
 }
 
 type PermissionTargetBuild struct {
-	// -
 	Actions *PermissionTargetBuildActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -5452,13 +5778,12 @@ type PermissionTargetBuildInput interface {
 }
 
 type PermissionTargetBuildArgs struct {
-	// -
 	Actions PermissionTargetBuildActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -5539,7 +5864,6 @@ func (o PermissionTargetBuildOutput) ToPermissionTargetBuildPtrOutputWithContext
 	}).(PermissionTargetBuildPtrOutput)
 }
 
-// -
 func (o PermissionTargetBuildOutput) Actions() PermissionTargetBuildActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) *PermissionTargetBuildActions { return v.Actions }).(PermissionTargetBuildActionsPtrOutput)
 }
@@ -5554,7 +5878,7 @@ func (o PermissionTargetBuildOutput) IncludesPatterns() pulumi.StringArrayOutput
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -5583,7 +5907,6 @@ func (o PermissionTargetBuildPtrOutput) Elem() PermissionTargetBuildOutput {
 	}).(PermissionTargetBuildOutput)
 }
 
-// -
 func (o PermissionTargetBuildPtrOutput) Actions() PermissionTargetBuildActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) *PermissionTargetBuildActions {
 		if v == nil {
@@ -5613,7 +5936,7 @@ func (o PermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetBuild) []string {
 		if v == nil {
@@ -5986,13 +6309,12 @@ func (o PermissionTargetBuildActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PermissionTargetReleaseBundle struct {
-	// -
 	Actions *PermissionTargetReleaseBundleActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -6008,13 +6330,12 @@ type PermissionTargetReleaseBundleInput interface {
 }
 
 type PermissionTargetReleaseBundleArgs struct {
-	// -
 	Actions PermissionTargetReleaseBundleActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -6095,7 +6416,6 @@ func (o PermissionTargetReleaseBundleOutput) ToPermissionTargetReleaseBundlePtrO
 	}).(PermissionTargetReleaseBundlePtrOutput)
 }
 
-// -
 func (o PermissionTargetReleaseBundleOutput) Actions() PermissionTargetReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) *PermissionTargetReleaseBundleActions { return v.Actions }).(PermissionTargetReleaseBundleActionsPtrOutput)
 }
@@ -6110,7 +6430,7 @@ func (o PermissionTargetReleaseBundleOutput) IncludesPatterns() pulumi.StringArr
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6139,7 +6459,6 @@ func (o PermissionTargetReleaseBundlePtrOutput) Elem() PermissionTargetReleaseBu
 	}).(PermissionTargetReleaseBundleOutput)
 }
 
-// -
 func (o PermissionTargetReleaseBundlePtrOutput) Actions() PermissionTargetReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) *PermissionTargetReleaseBundleActions {
 		if v == nil {
@@ -6169,7 +6488,7 @@ func (o PermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetReleaseBundle) []string {
 		if v == nil {
@@ -6546,13 +6865,12 @@ func (o PermissionTargetReleaseBundleActionsUserArrayOutput) Index(i pulumi.IntI
 }
 
 type PermissionTargetRepo struct {
-	// -
 	Actions *PermissionTargetRepoActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -6568,13 +6886,12 @@ type PermissionTargetRepoInput interface {
 }
 
 type PermissionTargetRepoArgs struct {
-	// -
 	Actions PermissionTargetRepoActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -6655,7 +6972,6 @@ func (o PermissionTargetRepoOutput) ToPermissionTargetRepoPtrOutputWithContext(c
 	}).(PermissionTargetRepoPtrOutput)
 }
 
-// -
 func (o PermissionTargetRepoOutput) Actions() PermissionTargetRepoActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) *PermissionTargetRepoActions { return v.Actions }).(PermissionTargetRepoActionsPtrOutput)
 }
@@ -6670,7 +6986,7 @@ func (o PermissionTargetRepoOutput) IncludesPatterns() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v PermissionTargetRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetRepoOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -6699,7 +7015,6 @@ func (o PermissionTargetRepoPtrOutput) Elem() PermissionTargetRepoOutput {
 	}).(PermissionTargetRepoOutput)
 }
 
-// -
 func (o PermissionTargetRepoPtrOutput) Actions() PermissionTargetRepoActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) *PermissionTargetRepoActions {
 		if v == nil {
@@ -6729,7 +7044,7 @@ func (o PermissionTargetRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetRepo) []string {
 		if v == nil {
@@ -7102,13 +7417,12 @@ func (o PermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Per
 }
 
 type PermissionTargetsBuild struct {
-	// -
 	Actions *PermissionTargetsBuildActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -7124,13 +7438,12 @@ type PermissionTargetsBuildInput interface {
 }
 
 type PermissionTargetsBuildArgs struct {
-	// -
 	Actions PermissionTargetsBuildActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -7211,7 +7524,6 @@ func (o PermissionTargetsBuildOutput) ToPermissionTargetsBuildPtrOutputWithConte
 	}).(PermissionTargetsBuildPtrOutput)
 }
 
-// -
 func (o PermissionTargetsBuildOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) *PermissionTargetsBuildActions { return v.Actions }).(PermissionTargetsBuildActionsPtrOutput)
 }
@@ -7226,7 +7538,7 @@ func (o PermissionTargetsBuildOutput) IncludesPatterns() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsBuildOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -7255,7 +7567,6 @@ func (o PermissionTargetsBuildPtrOutput) Elem() PermissionTargetsBuildOutput {
 	}).(PermissionTargetsBuildOutput)
 }
 
-// -
 func (o PermissionTargetsBuildPtrOutput) Actions() PermissionTargetsBuildActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) *PermissionTargetsBuildActions {
 		if v == nil {
@@ -7285,7 +7596,7 @@ func (o PermissionTargetsBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsBuild) []string {
 		if v == nil {
@@ -7658,13 +7969,12 @@ func (o PermissionTargetsBuildActionsUserArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type PermissionTargetsReleaseBundle struct {
-	// -
 	Actions *PermissionTargetsReleaseBundleActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -7680,13 +7990,12 @@ type PermissionTargetsReleaseBundleInput interface {
 }
 
 type PermissionTargetsReleaseBundleArgs struct {
-	// -
 	Actions PermissionTargetsReleaseBundleActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -7767,7 +8076,6 @@ func (o PermissionTargetsReleaseBundleOutput) ToPermissionTargetsReleaseBundlePt
 	}).(PermissionTargetsReleaseBundlePtrOutput)
 }
 
-// -
 func (o PermissionTargetsReleaseBundleOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions { return v.Actions }).(PermissionTargetsReleaseBundleActionsPtrOutput)
 }
@@ -7782,7 +8090,7 @@ func (o PermissionTargetsReleaseBundleOutput) IncludesPatterns() pulumi.StringAr
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -7811,7 +8119,6 @@ func (o PermissionTargetsReleaseBundlePtrOutput) Elem() PermissionTargetsRelease
 	}).(PermissionTargetsReleaseBundleOutput)
 }
 
-// -
 func (o PermissionTargetsReleaseBundlePtrOutput) Actions() PermissionTargetsReleaseBundleActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) *PermissionTargetsReleaseBundleActions {
 		if v == nil {
@@ -7841,7 +8148,7 @@ func (o PermissionTargetsReleaseBundlePtrOutput) IncludesPatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsReleaseBundle) []string {
 		if v == nil {
@@ -8218,13 +8525,12 @@ func (o PermissionTargetsReleaseBundleActionsUserArrayOutput) Index(i pulumi.Int
 }
 
 type PermissionTargetsRepo struct {
-	// -
 	Actions *PermissionTargetsRepoActions `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns []string `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns []string `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories []string `pulumi:"repositories"`
 }
 
@@ -8240,13 +8546,12 @@ type PermissionTargetsRepoInput interface {
 }
 
 type PermissionTargetsRepoArgs struct {
-	// -
 	Actions PermissionTargetsRepoActionsPtrInput `pulumi:"actions"`
 	// Pattern of artifacts to exclude.
 	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
 	// Pattern of artifacts to include.
 	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
-	// List of repositories this permission target is applicable for.
+	// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
 }
 
@@ -8327,7 +8632,6 @@ func (o PermissionTargetsRepoOutput) ToPermissionTargetsRepoPtrOutputWithContext
 	}).(PermissionTargetsRepoPtrOutput)
 }
 
-// -
 func (o PermissionTargetsRepoOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) *PermissionTargetsRepoActions { return v.Actions }).(PermissionTargetsRepoActionsPtrOutput)
 }
@@ -8342,7 +8646,7 @@ func (o PermissionTargetsRepoOutput) IncludesPatterns() pulumi.StringArrayOutput
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsRepoOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionTargetsRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
 }
@@ -8371,7 +8675,6 @@ func (o PermissionTargetsRepoPtrOutput) Elem() PermissionTargetsRepoOutput {
 	}).(PermissionTargetsRepoOutput)
 }
 
-// -
 func (o PermissionTargetsRepoPtrOutput) Actions() PermissionTargetsRepoActionsPtrOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) *PermissionTargetsRepoActions {
 		if v == nil {
@@ -8401,7 +8704,7 @@ func (o PermissionTargetsRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of repositories this permission target is applicable for.
+// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
 func (o PermissionTargetsRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionTargetsRepo) []string {
 		if v == nil {
@@ -15235,6 +15538,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDebianRepositoryMemberArrayInput)(nil)).Elem(), FederatedDebianRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryMemberInput)(nil)).Elem(), FederatedDockerRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerRepositoryMemberArrayInput)(nil)).Elem(), FederatedDockerRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerV1RepositoryMemberInput)(nil)).Elem(), FederatedDockerV1RepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerV1RepositoryMemberArrayInput)(nil)).Elem(), FederatedDockerV1RepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerV2RepositoryMemberInput)(nil)).Elem(), FederatedDockerV2RepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedDockerV2RepositoryMemberArrayInput)(nil)).Elem(), FederatedDockerV2RepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryMemberInput)(nil)).Elem(), FederatedGemsRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGemsRepositoryMemberArrayInput)(nil)).Elem(), FederatedGemsRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedGenericRepositoryMemberInput)(nil)).Elem(), FederatedGenericRepositoryMemberArgs{})
@@ -15265,6 +15572,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedRpmRepositoryMemberArrayInput)(nil)).Elem(), FederatedRpmRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMemberInput)(nil)).Elem(), FederatedSbtRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSbtRepositoryMemberArrayInput)(nil)).Elem(), FederatedSbtRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSwiftRepositoryMemberInput)(nil)).Elem(), FederatedSwiftRepositoryMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FederatedSwiftRepositoryMemberArrayInput)(nil)).Elem(), FederatedSwiftRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformModuleRepositoryMemberInput)(nil)).Elem(), FederatedTerraformModuleRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformModuleRepositoryMemberArrayInput)(nil)).Elem(), FederatedTerraformModuleRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformProviderRepositoryMemberInput)(nil)).Elem(), FederatedTerraformProviderRepositoryMemberArgs{})
@@ -15443,6 +15752,10 @@ func init() {
 	pulumi.RegisterOutputType(FederatedDebianRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedDockerRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedDockerRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedDockerV1RepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedDockerV1RepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedDockerV2RepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedDockerV2RepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGemsRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedGemsRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedGenericRepositoryMemberOutput{})
@@ -15473,6 +15786,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedRpmRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedSbtRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(FederatedSwiftRepositoryMemberOutput{})
+	pulumi.RegisterOutputType(FederatedSwiftRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedTerraformModuleRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedTerraformModuleRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedTerraformProviderRepositoryMemberOutput{})

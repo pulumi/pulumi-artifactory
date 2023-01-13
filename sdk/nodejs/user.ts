@@ -25,6 +25,9 @@ import * as utilities from "./utilities";
  *     password: "my super secret password",
  * });
  * ```
+ * ## Managing groups relationship
+ *
+ * See our recommendation on how to manage user-group relationship.
  *
  * ## Import
  *
@@ -75,8 +78,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * List of groups this user is a part of.
-     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -88,7 +90,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -128,10 +130,12 @@ export class User extends pulumi.CustomResource {
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -153,8 +157,7 @@ export interface UserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of.
-     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -166,7 +169,7 @@ export interface UserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**
@@ -192,8 +195,7 @@ export interface UserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of.
-     * - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -205,7 +207,7 @@ export interface UserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**

@@ -14,6 +14,8 @@ namespace Pulumi.Artifactory
     /// 
     /// Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
     /// 
+    /// ~&gt;The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -40,7 +42,7 @@ namespace Pulumi.Artifactory
     ///  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
     /// ```
     /// 
-    ///  environments, or may change without notice.
+    ///  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/generalSecurity:GeneralSecurity")]
     public partial class GeneralSecurity : global::Pulumi.CustomResource

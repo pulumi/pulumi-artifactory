@@ -31,6 +31,8 @@ from .federated_conda_repository import *
 from .federated_cran_repository import *
 from .federated_debian_repository import *
 from .federated_docker_repository import *
+from .federated_docker_v1_repository import *
+from .federated_docker_v2_repository import *
 from .federated_gems_repository import *
 from .federated_generic_repository import *
 from .federated_gitltfs_repository import *
@@ -46,6 +48,7 @@ from .federated_puppet_repository import *
 from .federated_pypi_repository import *
 from .federated_rpm_repository import *
 from .federated_sbt_repository import *
+from .federated_swift_repository import *
 from .federated_terraform_module_repository import *
 from .federated_terraform_provider_repository import *
 from .federated_vagrant_repository import *
@@ -93,6 +96,7 @@ from .permission_target import *
 from .permission_targets import *
 from .property_set import *
 from .provider import *
+from .proxy import *
 from .pull_replication import *
 from .push_replication import *
 from .release_bundle_webhook import *
@@ -382,6 +386,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/federatedDockerV1Repository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository": "FederatedDockerV1Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedDockerV2Repository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository": "FederatedDockerV2Repository"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/federatedGemsRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -498,6 +518,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/federatedSbtRepository:FederatedSbtRepository": "FederatedSbtRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/federatedSwiftRepository",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository": "FederatedSwiftRepository"
   }
  },
  {
@@ -850,6 +878,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/propertySet:PropertySet": "PropertySet"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/proxy",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/proxy:Proxy": "Proxy"
   }
  },
  {

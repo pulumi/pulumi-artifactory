@@ -39,6 +39,17 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.CheckLicense) {
 		args.CheckLicense = pulumi.BoolPtr(false)
 	}
+	if args.AccessToken != nil {
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringPtrInput)
+	}
+	if args.ApiKey != nil {
+		args.ApiKey = pulumi.ToSecret(args.ApiKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:artifactory", name, args, &resource, opts...)
 	if err != nil {

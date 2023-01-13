@@ -77,14 +77,14 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * - Private key. PEM format will be validated.
+     * Private key. PEM format will be validated.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return - Private key. PEM format will be validated.
+     * @return Private key. PEM format will be validated.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -236,7 +236,7 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey - Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class KeypairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey - Private key. PEM format will be validated.
+         * @param privateKey Private key. PEM format will be validated.
          * 
          * @return builder
          * 

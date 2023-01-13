@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewArtifactoryReleaseBundleWebhook(ctx, "artifactory-release-bundle-webhook", &artifactory.ArtifactoryReleaseBundleWebhookArgs{
-//				Criteria: &ArtifactoryReleaseBundleWebhookCriteriaArgs{
+//				Criteria: &artifactory.ArtifactoryReleaseBundleWebhookCriteriaArgs{
 //					AnyReleaseBundle: pulumi.Bool(false),
 //					ExcludePatterns: pulumi.StringArray{
 //						pulumi.String("bar/**"),
@@ -47,8 +47,8 @@ import (
 //					pulumi.String("delete_completed"),
 //					pulumi.String("delete_failed"),
 //				},
-//				Handlers: ArtifactoryReleaseBundleWebhookHandlerArray{
-//					&ArtifactoryReleaseBundleWebhookHandlerArgs{
+//				Handlers: artifactory.ArtifactoryReleaseBundleWebhookHandlerArray{
+//					&artifactory.ArtifactoryReleaseBundleWebhookHandlerArgs{
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),

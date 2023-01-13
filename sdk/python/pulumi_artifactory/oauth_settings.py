@@ -171,6 +171,8 @@ class OauthSettings(pulumi.CustomResource):
 
         Only a single `OauthSettings` resource is meant to be defined.
 
+        ~>The `OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
         ## Example Usage
 
         ```python
@@ -219,6 +221,8 @@ class OauthSettings(pulumi.CustomResource):
         This resource can be used to manage Artifactory's OAuth SSO settings.
 
         Only a single `OauthSettings` resource is meant to be defined.
+
+        ~>The `OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 
         ## Example Usage
 

@@ -130,10 +130,12 @@ export class ManagedUser extends pulumi.CustomResource {
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ManagedUser.__pulumiType, name, resourceInputs, opts);
     }
 }

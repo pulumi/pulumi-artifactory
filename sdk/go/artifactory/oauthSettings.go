@@ -15,6 +15,8 @@ import (
 //
 // Only a single `OauthSettings` resource is meant to be defined.
 //
+// ~>The `OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
 // ## Example Usage
 //
 // ```go
@@ -32,8 +34,8 @@ import (
 //			_, err := artifactory.NewOauthSettings(ctx, "oauth", &artifactory.OauthSettingsArgs{
 //				AllowUserToAccessProfile: pulumi.Bool(true),
 //				Enable:                   pulumi.Bool(true),
-//				OauthProviders: OauthSettingsOauthProviderArray{
-//					&OauthSettingsOauthProviderArgs{
+//				OauthProviders: artifactory.OauthSettingsOauthProviderArray{
+//					&artifactory.OauthSettingsOauthProviderArgs{
 //						ApiUrl:       pulumi.String("https://organization.okta.com/oauth2/v1/userinfo"),
 //						AuthUrl:      pulumi.String("https://organization.okta.com/oauth2/v1/authorize"),
 //						ClientId:     pulumi.String("foo"),

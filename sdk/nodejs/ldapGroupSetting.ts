@@ -10,26 +10,7 @@ import * as utilities from "./utilities";
  * LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational
  * structure for managing group-based permissions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * // Configure Artifactory LDAP setting
- * const ldapGroupName = new artifactory.LdapGroupSetting("ldap_group_name", {
- *     descriptionAttribute: "description",
- *     enabledLdap: "ldap_name",
- *     filter: "(objectClass=groupOfNames)",
- *     groupBaseDn: "",
- *     groupMemberAttribute: "uniqueMember",
- *     groupNameAttribute: "cn",
- *     strategy: "STATIC",
- *     subTree: true,
- * });
- * ```
- * Note: `Name` argument has to match to the resource name.\
- * Reference Link: [JFrog LDAP](https://www.jfrog.com/confluence/display/JFROG/LDAP)
+ * ~>The `artifactory.LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  *
  * ## Import
  *

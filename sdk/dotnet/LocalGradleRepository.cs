@@ -132,14 +132,16 @@ namespace Pulumi.Artifactory
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
@@ -159,9 +161,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// * `unique`: Version number is based on a time-stamp (default)
-        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Output("snapshotVersionBehavior")]
         public Output<string?> SnapshotVersionBehavior { get; private set; } = null!;
@@ -313,7 +312,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -322,8 +323,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -349,9 +350,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// * `unique`: Version number is based on a time-stamp (default)
-        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }
@@ -468,7 +466,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -477,8 +477,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -504,9 +504,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// Specifies the naming convention for Maven SNAPSHOT versions.
         /// The options are -
-        /// * `unique`: Version number is based on a time-stamp (default)
-        /// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        /// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         /// </summary>
         [Input("snapshotVersionBehavior")]
         public Input<string>? SnapshotVersionBehavior { get; set; }

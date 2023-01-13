@@ -92,10 +92,12 @@ type LocalGradleRepository struct {
 	PackageType        pulumi.StringOutput    `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -103,9 +105,6 @@ type LocalGradleRepository struct {
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
-	// * `unique`: Version number is based on a time-stamp (default)
-	// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-	// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrOutput `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -183,10 +182,12 @@ type localGradleRepositoryState struct {
 	PackageType        *string `pulumi:"packageType"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -194,9 +195,6 @@ type localGradleRepositoryState struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
-	// * `unique`: Version number is based on a time-stamp (default)
-	// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-	// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -243,10 +241,12 @@ type LocalGradleRepositoryState struct {
 	PackageType        pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -254,9 +254,6 @@ type LocalGradleRepositoryState struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
-	// * `unique`: Version number is based on a time-stamp (default)
-	// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-	// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -306,10 +303,12 @@ type localGradleRepositoryArgs struct {
 	Notes              *string `pulumi:"notes"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -317,9 +316,6 @@ type localGradleRepositoryArgs struct {
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
-	// * `unique`: Version number is based on a time-stamp (default)
-	// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-	// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior *string `pulumi:"snapshotVersionBehavior"`
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -366,10 +362,12 @@ type LocalGradleRepositoryArgs struct {
 	Notes              pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -377,9 +375,6 @@ type LocalGradleRepositoryArgs struct {
 	RepoLayoutRef pulumi.StringPtrInput
 	// Specifies the naming convention for Maven SNAPSHOT versions.
 	// The options are -
-	// * `unique`: Version number is based on a time-stamp (default)
-	// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-	// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 	SnapshotVersionBehavior pulumi.StringPtrInput
 	// By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
 	// If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
@@ -554,13 +549,15 @@ func (o LocalGradleRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o LocalGradleRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-// with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalGradleRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }
@@ -577,9 +574,6 @@ func (o LocalGradleRepositoryOutput) RepoLayoutRef() pulumi.StringPtrOutput {
 
 // Specifies the naming convention for Maven SNAPSHOT versions.
 // The options are -
-// * `unique`: Version number is based on a time-stamp (default)
-// * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-// * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
 func (o LocalGradleRepositoryOutput) SnapshotVersionBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalGradleRepository) pulumi.StringPtrOutput { return v.SnapshotVersionBehavior }).(pulumi.StringPtrOutput)
 }

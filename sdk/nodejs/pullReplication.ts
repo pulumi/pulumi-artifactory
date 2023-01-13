@@ -17,13 +17,11 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
- *     key: "provider_test_source",
- * });
- * const providerTestDest = new artifactory.RemoteMavenRepository("provider_test_dest", {
+ * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.RemoteMavenRepository("providerTestDest", {
  *     key: "provider_test_dest",
  *     password: "bar",
- *     url: pulumi.interpolate`https://example.com/artifactory/${artifactory_local_maven_repository_artifactory_local_maven_repository.key}`,
+ *     url: `https://example.com/artifactory/${artifactory_local_maven_repository.artifactory_local_maven_repository.key}`,
  *     username: "foo",
  * });
  * const remote_rep = new artifactory.PullReplication("remote-rep", {
@@ -74,6 +72,9 @@ export class PullReplication extends pulumi.CustomResource {
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
     public readonly checkBinaryExistenceInFilestore!: pulumi.Output<boolean | undefined>;
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     public readonly cronExp!: pulumi.Output<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
@@ -95,6 +96,9 @@ export class PullReplication extends pulumi.CustomResource {
      * Proxy key from Artifactory Proxies setting
      */
     public readonly proxy!: pulumi.Output<string | undefined>;
+    /**
+     * Repository name.
+     */
     public readonly repoKey!: pulumi.Output<string>;
     public readonly socketTimeoutMillis!: pulumi.Output<number>;
     /**
@@ -159,7 +163,7 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["cronExp"] = args ? args.cronExp : undefined;
             resourceInputs["enableEventReplication"] = args ? args.enableEventReplication : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["pathPrefix"] = args ? args.pathPrefix : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["repoKey"] = args ? args.repoKey : undefined;
@@ -171,6 +175,8 @@ export class PullReplication extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(PullReplication.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -184,6 +190,9 @@ export interface PullReplicationState {
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
     checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     cronExp?: pulumi.Input<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
@@ -205,6 +214,9 @@ export interface PullReplicationState {
      * Proxy key from Artifactory Proxies setting
      */
     proxy?: pulumi.Input<string>;
+    /**
+     * Repository name.
+     */
     repoKey?: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     /**
@@ -240,6 +252,9 @@ export interface PullReplicationArgs {
      * [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
      */
     checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     cronExp: pulumi.Input<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
@@ -261,6 +276,9 @@ export interface PullReplicationArgs {
      * Proxy key from Artifactory Proxies setting
      */
     proxy?: pulumi.Input<string>;
+    /**
+     * Repository name.
+     */
     repoKey: pulumi.Input<string>;
     socketTimeoutMillis?: pulumi.Input<number>;
     /**

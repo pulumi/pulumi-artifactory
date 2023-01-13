@@ -46,7 +46,11 @@ import (
 type ApiKey struct {
 	pulumi.CustomResourceState
 
-	// The API key.
+	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
+	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 }
 
@@ -57,6 +61,10 @@ func NewApiKey(ctx *pulumi.Context,
 		args = &ApiKeyArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKey",
+	})
+	opts = append(opts, secrets)
 	var resource ApiKey
 	err := ctx.RegisterResource("artifactory:index/apiKey:ApiKey", name, args, &resource, opts...)
 	if err != nil {
@@ -79,12 +87,20 @@ func GetApiKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiKey resources.
 type apiKeyState struct {
-	// The API key.
+	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
+	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey *string `pulumi:"apiKey"`
 }
 
 type ApiKeyState struct {
-	// The API key.
+	// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+	// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+	// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+	// It is recommended to use scoped tokens instead - `ScopedToken` resource.
+	// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 	ApiKey pulumi.StringPtrInput
 }
 
@@ -186,7 +202,11 @@ func (o ApiKeyOutput) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutpu
 	return o
 }
 
-// The API key.
+// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+// It is recommended to use scoped tokens instead - `ScopedToken` resource.
+// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
 func (o ApiKeyOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }

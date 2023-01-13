@@ -64,6 +64,9 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/replicationConfig:ReplicationConfig")]
     public partial class ReplicationConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
@@ -122,6 +125,9 @@ namespace Pulumi.Artifactory
 
     public sealed class ReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
@@ -147,6 +153,9 @@ namespace Pulumi.Artifactory
 
     public sealed class ReplicationConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 

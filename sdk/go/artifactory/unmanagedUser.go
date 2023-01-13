@@ -70,7 +70,7 @@ type UnmanagedUser struct {
 	InternalPasswordDisabled pulumi.BoolPtrOutput `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrOutput `pulumi:"profileUpdatable"`
@@ -86,6 +86,13 @@ func NewUnmanagedUser(ctx *pulumi.Context,
 	if args.Email == nil {
 		return nil, errors.New("invalid value for required argument 'Email'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource UnmanagedUser
 	err := ctx.RegisterResource("artifactory:index/unmanagedUser:UnmanagedUser", name, args, &resource, opts...)
 	if err != nil {
@@ -120,7 +127,7 @@ type unmanagedUserState struct {
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name *string `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
@@ -139,7 +146,7 @@ type UnmanagedUserState struct {
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
 	Name pulumi.StringPtrInput
-	// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrInput
@@ -162,7 +169,7 @@ type unmanagedUserArgs struct {
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
 	// Username for user.
 	Name *string `pulumi:"name"`
-	// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password *string `pulumi:"password"`
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable *bool `pulumi:"profileUpdatable"`
@@ -182,7 +189,7 @@ type UnmanagedUserArgs struct {
 	InternalPasswordDisabled pulumi.BoolPtrInput
 	// Username for user.
 	Name pulumi.StringPtrInput
-	// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+	// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 	Password pulumi.StringPtrInput
 	// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
 	ProfileUpdatable pulumi.BoolPtrInput
@@ -305,7 +312,7 @@ func (o UnmanagedUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
 func (o UnmanagedUserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

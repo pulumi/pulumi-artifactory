@@ -17,13 +17,10 @@ import * as utilities from "./utilities";
  * // Create a new Artifactory certificate called my-cert
  * const my_cert = new artifactory.Certificate("my-cert", {
  *     alias: "my-cert",
- *     content: fs.readFileSync("/path/to/bundle.pem", "utf-8"),
+ *     content: fs.readFileSync("/path/to/bundle.pem"),
  * });
  * // This can then be used by a remote repository
- * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {
- *     // more code
- *     clientTlsCertificate: my_cert.alias,
- * });
+ * const my_remote = new artifactory.RemoteMavenRepository("my-remote", {clientTlsCertificate: my_cert.alias});
  * ```
  *
  * ## Import
@@ -119,8 +116,8 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'alias'");
             }
             resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["file"] = args ? args.file : undefined;
+            resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
+            resourceInputs["file"] = args?.file ? pulumi.secret(args.file) : undefined;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["issuedBy"] = undefined /*out*/;
             resourceInputs["issuedOn"] = undefined /*out*/;
@@ -128,6 +125,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validUntil"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["content", "file"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

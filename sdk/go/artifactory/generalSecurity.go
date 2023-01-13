@@ -14,6 +14,8 @@ import (
 //
 // Only a single `GeneralSecurity` resource is meant to be defined.
 //
+// ~>The `GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
 // ## Example Usage
 //
 // ```go
@@ -50,7 +52,7 @@ import (
 //
 // ```
 //
-//	environments, or may change without notice.
+//	~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
 type GeneralSecurity struct {
 	pulumi.CustomResourceState
 

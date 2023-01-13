@@ -15,7 +15,6 @@ namespace Pulumi.Artifactory
     /// RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
     /// pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
     /// through the Keys Management UI and REST API.
-    /// Passphrases are not currently supported, though they exist in the API.
     /// 
     /// ## Example Usage
     /// 
@@ -34,6 +33,7 @@ namespace Pulumi.Artifactory
     ///         Alias = "foo-alias6543461672124900137",
     ///         PrivateKey = File.ReadAllText("samples/rsa.priv"),
     ///         PublicKey = File.ReadAllText("samples/rsa.pub"),
+    ///         Passphrase = "PASSPHRASE",
     ///     });
     /// 
     /// });
@@ -75,7 +75,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Passphrase { get; private set; } = null!;
 
         /// <summary>
-        /// - Private key. PEM format will be validated.
+        /// Private key. PEM format will be validated.
         /// </summary>
         [Output("privateKey")]
         public Output<string> PrivateKey { get; private set; } = null!;
@@ -115,6 +115,11 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "passphrase",
+                    "privateKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -156,17 +161,37 @@ namespace Pulumi.Artifactory
         [Input("pairType", required: true)]
         public Input<string> PairType { get; set; } = null!;
 
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
         /// <summary>
         /// Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKey", required: true)]
+        private Input<string>? _privateKey;
 
         /// <summary>
-        /// - Private key. PEM format will be validated.
+        /// Private key. PEM format will be validated.
         /// </summary>
-        [Input("privateKey", required: true)]
-        public Input<string> PrivateKey { get; set; } = null!;
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Public key. PEM format will be validated.
@@ -200,17 +225,37 @@ namespace Pulumi.Artifactory
         [Input("pairType")]
         public Input<string>? PairType { get; set; }
 
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
         /// <summary>
         /// Passphrase will be used to decrypt the private key. Validated server side.
         /// </summary>
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
 
         /// <summary>
-        /// - Private key. PEM format will be validated.
+        /// Private key. PEM format will be validated.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Public key. PEM format will be validated.

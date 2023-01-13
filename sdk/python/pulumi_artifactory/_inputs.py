@@ -34,6 +34,8 @@ __all__ = [
     'FederatedCranRepositoryMemberArgs',
     'FederatedDebianRepositoryMemberArgs',
     'FederatedDockerRepositoryMemberArgs',
+    'FederatedDockerV1RepositoryMemberArgs',
+    'FederatedDockerV2RepositoryMemberArgs',
     'FederatedGemsRepositoryMemberArgs',
     'FederatedGenericRepositoryMemberArgs',
     'FederatedGitltfsRepositoryMemberArgs',
@@ -49,6 +51,7 @@ __all__ = [
     'FederatedPypiRepositoryMemberArgs',
     'FederatedRpmRepositoryMemberArgs',
     'FederatedSbtRepositoryMemberArgs',
+    'FederatedSwiftRepositoryMemberArgs',
     'FederatedTerraformModuleRepositoryMemberArgs',
     'FederatedTerraformProviderRepositoryMemberArgs',
     'FederatedVagrantRepositoryMemberArgs',
@@ -1441,6 +1444,84 @@ class FederatedDockerRepositoryMemberArgs:
 
 
 @pulumi.input_type
+class FederatedDockerV1RepositoryMemberArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class FederatedDockerV2RepositoryMemberArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
 class FederatedGemsRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -2026,6 +2107,45 @@ class FederatedSbtRepositoryMemberArgs:
 
 
 @pulumi.input_type
+class FederatedSwiftRepositoryMemberArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] enabled: Represents the active state of the federated member. It is supported to change the enabled
+               status of my own member. The config will be updated on the other federated members automatically.
+        :param pulumi.Input[str] url: Full URL to ending with the repository name.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Represents the active state of the federated member. It is supported to change the enabled
+        status of my own member. The config will be updated on the other federated members automatically.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        Full URL to ending with the repository name.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
 class FederatedTerraformModuleRepositoryMemberArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
@@ -2278,8 +2398,7 @@ class PermissionTargetBuildArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetBuildActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -2295,7 +2414,7 @@ class PermissionTargetBuildArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -2306,9 +2425,6 @@ class PermissionTargetBuildArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetBuildActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2453,8 +2569,7 @@ class PermissionTargetReleaseBundleArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetReleaseBundleActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -2470,7 +2585,7 @@ class PermissionTargetReleaseBundleArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -2481,9 +2596,6 @@ class PermissionTargetReleaseBundleArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetReleaseBundleActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2628,8 +2740,7 @@ class PermissionTargetRepoArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetRepoActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -2645,7 +2756,7 @@ class PermissionTargetRepoArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -2656,9 +2767,6 @@ class PermissionTargetRepoArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetRepoActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2803,8 +2911,7 @@ class PermissionTargetsBuildArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetsBuildActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -2820,7 +2927,7 @@ class PermissionTargetsBuildArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -2831,9 +2938,6 @@ class PermissionTargetsBuildArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsBuildActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -2978,8 +3082,7 @@ class PermissionTargetsReleaseBundleArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetsReleaseBundleActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -2995,7 +3098,7 @@ class PermissionTargetsReleaseBundleArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -3006,9 +3109,6 @@ class PermissionTargetsReleaseBundleArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsReleaseBundleActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -3153,8 +3253,7 @@ class PermissionTargetsRepoArgs:
                  excludes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for.
-        :param pulumi.Input['PermissionTargetsRepoActionsArgs'] actions: -
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes_patterns: Pattern of artifacts to exclude.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] includes_patterns: Pattern of artifacts to include.
         """
@@ -3170,7 +3269,7 @@ class PermissionTargetsRepoArgs:
     @pulumi.getter
     def repositories(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of repositories this permission target is applicable for.
+        List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         """
         return pulumi.get(self, "repositories")
 
@@ -3181,9 +3280,6 @@ class PermissionTargetsRepoArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input['PermissionTargetsRepoActionsArgs']]:
-        """
-        -
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter

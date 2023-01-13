@@ -154,7 +154,7 @@ namespace Pulumi.Artifactory
     public partial class PermissionTargets : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// As for repo but for artifactory-build-info permssions.
+        /// As for repo but for artifactory-build-info permissions.
         /// </summary>
         [Output("build")]
         public Output<Outputs.PermissionTargetsBuild?> Build { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Artifactory
     public sealed class PermissionTargetsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// As for repo but for artifactory-build-info permssions.
+        /// As for repo but for artifactory-build-info permissions.
         /// </summary>
         [Input("build")]
         public Input<Inputs.PermissionTargetsBuildArgs>? Build { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Artifactory
     public sealed class PermissionTargetsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// As for repo but for artifactory-build-info permssions.
+        /// As for repo but for artifactory-build-info permissions.
         /// </summary>
         [Input("build")]
         public Input<Inputs.PermissionTargetsBuildGetArgs>? Build { get; set; }

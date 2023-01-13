@@ -89,8 +89,8 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -115,11 +115,13 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly primaryKeypairRef!: pulumi.Output<string | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -132,8 +134,7 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -227,8 +228,8 @@ export interface VirtualDebianRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -253,11 +254,13 @@ export interface VirtualDebianRepositoryState {
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -270,8 +273,7 @@ export interface VirtualDebianRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**
@@ -308,8 +310,8 @@ export interface VirtualDebianRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -330,11 +332,13 @@ export interface VirtualDebianRepositoryArgs {
      */
     primaryKeypairRef?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -347,8 +351,7 @@ export interface VirtualDebianRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
      */
     retrievalCachePeriodSeconds?: pulumi.Input<number>;
     /**

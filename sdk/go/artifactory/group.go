@@ -28,23 +28,22 @@ type Group struct {
 	AutoJoin pulumi.BoolOutput `pulumi:"autoJoin"`
 	// A description for the group
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// When this override is set, an empty or missing usernames array will detach all users from the group
+	// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 	DetachAllUsers pulumi.BoolPtrOutput `pulumi:"detachAllUsers"`
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// Name of the group
 	Name pulumi.StringOutput `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager pulumi.BoolPtrOutput `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm pulumi.StringOutput `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes pulumi.StringPtrOutput `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-	ReportsManager pulumi.BoolPtrOutput `pulumi:"reportsManager"`
-	// List of users assigned to the group. If missing or empty, tf will not manage group membership
-	UsersNames pulumi.StringArrayOutput `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+	ReportsManager pulumi.BoolPtrOutput     `pulumi:"reportsManager"`
+	UsersNames     pulumi.StringArrayOutput `pulumi:"usersNames"`
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrOutput `pulumi:"watchManager"`
 }
 
@@ -83,23 +82,22 @@ type groupState struct {
 	AutoJoin *bool `pulumi:"autoJoin"`
 	// A description for the group
 	Description *string `pulumi:"description"`
-	// When this override is set, an empty or missing usernames array will detach all users from the group
+	// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 	DetachAllUsers *bool `pulumi:"detachAllUsers"`
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId *string `pulumi:"externalId"`
 	// Name of the group
 	Name *string `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager *bool `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm *string `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-	ReportsManager *bool `pulumi:"reportsManager"`
-	// List of users assigned to the group. If missing or empty, tf will not manage group membership
-	UsersNames []string `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+	ReportsManager *bool    `pulumi:"reportsManager"`
+	UsersNames     []string `pulumi:"usersNames"`
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
 
@@ -110,23 +108,22 @@ type GroupState struct {
 	AutoJoin pulumi.BoolPtrInput
 	// A description for the group
 	Description pulumi.StringPtrInput
-	// When this override is set, an empty or missing usernames array will detach all users from the group
+	// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 	DetachAllUsers pulumi.BoolPtrInput
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId pulumi.StringPtrInput
 	// Name of the group
 	Name pulumi.StringPtrInput
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager pulumi.BoolPtrInput
 	// The realm for the group.
 	Realm pulumi.StringPtrInput
 	// The realm attributes for the group.
 	RealmAttributes pulumi.StringPtrInput
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolPtrInput
-	// List of users assigned to the group. If missing or empty, tf will not manage group membership
-	UsersNames pulumi.StringArrayInput
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	UsersNames     pulumi.StringArrayInput
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrInput
 }
 
@@ -141,23 +138,22 @@ type groupArgs struct {
 	AutoJoin *bool `pulumi:"autoJoin"`
 	// A description for the group
 	Description *string `pulumi:"description"`
-	// When this override is set, an empty or missing usernames array will detach all users from the group
+	// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 	DetachAllUsers *bool `pulumi:"detachAllUsers"`
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId *string `pulumi:"externalId"`
 	// Name of the group
 	Name *string `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager *bool `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm *string `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-	ReportsManager *bool `pulumi:"reportsManager"`
-	// List of users assigned to the group. If missing or empty, tf will not manage group membership
-	UsersNames []string `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+	ReportsManager *bool    `pulumi:"reportsManager"`
+	UsersNames     []string `pulumi:"usersNames"`
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
 
@@ -169,23 +165,22 @@ type GroupArgs struct {
 	AutoJoin pulumi.BoolPtrInput
 	// A description for the group
 	Description pulumi.StringPtrInput
-	// When this override is set, an empty or missing usernames array will detach all users from the group
+	// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 	DetachAllUsers pulumi.BoolPtrInput
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId pulumi.StringPtrInput
 	// Name of the group
 	Name pulumi.StringPtrInput
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager pulumi.BoolPtrInput
 	// The realm for the group.
 	Realm pulumi.StringPtrInput
 	// The realm attributes for the group.
 	RealmAttributes pulumi.StringPtrInput
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolPtrInput
-	// List of users assigned to the group. If missing or empty, tf will not manage group membership
-	UsersNames pulumi.StringArrayInput
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	UsersNames     pulumi.StringArrayInput
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrInput
 }
 
@@ -291,7 +286,7 @@ func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// When this override is set, an empty or missing usernames array will detach all users from the group
+// When this is set to `true`, an empty or missing usernames array will detach all users from the group
 func (o GroupOutput) DetachAllUsers() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.DetachAllUsers }).(pulumi.BoolPtrOutput)
 }
@@ -306,7 +301,7 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 func (o GroupOutput) PolicyManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.PolicyManager }).(pulumi.BoolPtrOutput)
 }
@@ -321,17 +316,16 @@ func (o GroupOutput) RealmAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.RealmAttributes }).(pulumi.StringPtrOutput)
 }
 
-// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 func (o GroupOutput) ReportsManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.ReportsManager }).(pulumi.BoolPtrOutput)
 }
 
-// List of users assigned to the group. If missing or empty, tf will not manage group membership
 func (o GroupOutput) UsersNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.UsersNames }).(pulumi.StringArrayOutput)
 }
 
-// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 func (o GroupOutput) WatchManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.WatchManager }).(pulumi.BoolPtrOutput)
 }

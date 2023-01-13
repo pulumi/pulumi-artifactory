@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewDistributionWebhook(ctx, "distribution-webhook", &artifactory.DistributionWebhookArgs{
-//				Criteria: &DistributionWebhookCriteriaArgs{
+//				Criteria: &artifactory.DistributionWebhookCriteriaArgs{
 //					AnyReleaseBundle: pulumi.Bool(false),
 //					ExcludePatterns: pulumi.StringArray{
 //						pulumi.String("bar/**"),
@@ -50,8 +50,8 @@ import (
 //					pulumi.String("delete_completed"),
 //					pulumi.String("delete_failed"),
 //				},
-//				Handlers: DistributionWebhookHandlerArray{
-//					&DistributionWebhookHandlerArgs{
+//				Handlers: artifactory.DistributionWebhookHandlerArray{
+//					&artifactory.DistributionWebhookHandlerArgs{
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),

@@ -22,7 +22,7 @@ class PermissionTargetsArgs:
                  repo: Optional[pulumi.Input['PermissionTargetsRepoArgs']] = None):
         """
         The set of arguments for constructing a PermissionTargets resource.
-        :param pulumi.Input['PermissionTargetsBuildArgs'] build: As for repo but for artifactory-build-info permssions.
+        :param pulumi.Input['PermissionTargetsBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
         :param pulumi.Input['PermissionTargetsReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
         :param pulumi.Input['PermissionTargetsRepoArgs'] repo: Repository permission configuration.
@@ -40,7 +40,7 @@ class PermissionTargetsArgs:
     @pulumi.getter
     def build(self) -> Optional[pulumi.Input['PermissionTargetsBuildArgs']]:
         """
-        As for repo but for artifactory-build-info permssions.
+        As for repo but for artifactory-build-info permissions.
         """
         return pulumi.get(self, "build")
 
@@ -94,7 +94,7 @@ class _PermissionTargetsState:
                  repo: Optional[pulumi.Input['PermissionTargetsRepoArgs']] = None):
         """
         Input properties used for looking up and filtering PermissionTargets resources.
-        :param pulumi.Input['PermissionTargetsBuildArgs'] build: As for repo but for artifactory-build-info permssions.
+        :param pulumi.Input['PermissionTargetsBuildArgs'] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
         :param pulumi.Input['PermissionTargetsReleaseBundleArgs'] release_bundle: As for repo for for release-bundles permissions.
         :param pulumi.Input['PermissionTargetsRepoArgs'] repo: Repository permission configuration.
@@ -112,7 +112,7 @@ class _PermissionTargetsState:
     @pulumi.getter
     def build(self) -> Optional[pulumi.Input['PermissionTargetsBuildArgs']]:
         """
-        As for repo but for artifactory-build-info permssions.
+        As for repo but for artifactory-build-info permissions.
         """
         return pulumi.get(self, "build")
 
@@ -252,7 +252,7 @@ class PermissionTargets(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetsBuildArgs']] build: As for repo but for artifactory-build-info permssions.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetsBuildArgs']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
         :param pulumi.Input[pulumi.InputType['PermissionTargetsReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
         :param pulumi.Input[pulumi.InputType['PermissionTargetsRepoArgs']] repo: Repository permission configuration.
@@ -399,7 +399,7 @@ class PermissionTargets(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PermissionTargetsBuildArgs']] build: As for repo but for artifactory-build-info permssions.
+        :param pulumi.Input[pulumi.InputType['PermissionTargetsBuildArgs']] build: As for repo but for artifactory-build-info permissions.
         :param pulumi.Input[str] name: Name of permission.
         :param pulumi.Input[pulumi.InputType['PermissionTargetsReleaseBundleArgs']] release_bundle: As for repo for for release-bundles permissions.
         :param pulumi.Input[pulumi.InputType['PermissionTargetsRepoArgs']] repo: Repository permission configuration.
@@ -418,7 +418,7 @@ class PermissionTargets(pulumi.CustomResource):
     @pulumi.getter
     def build(self) -> pulumi.Output[Optional['outputs.PermissionTargetsBuild']]:
         """
-        As for repo but for artifactory-build-info permssions.
+        As for repo but for artifactory-build-info permissions.
         """
         return pulumi.get(self, "build")
 

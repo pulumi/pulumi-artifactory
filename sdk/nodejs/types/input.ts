@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface AccessTokenAdminToken {
     instanceId: pulumi.Input<string>;
@@ -380,6 +381,30 @@ export interface FederatedDockerRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface FederatedDockerV1RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
+export interface FederatedDockerV2RepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface FederatedGemsRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -560,6 +585,18 @@ export interface FederatedSbtRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface FederatedSwiftRepositoryMember {
+    /**
+     * Represents the active state of the federated member. It is supported to change the enabled
+     * status of my own member. The config will be updated on the other federated members automatically.
+     */
+    enabled: pulumi.Input<boolean>;
+    /**
+     * Full URL to ending with the repository name.
+     */
+    url: pulumi.Input<string>;
+}
+
 export interface FederatedTerraformModuleRepositoryMember {
     /**
      * Represents the active state of the federated member. It is supported to change the enabled
@@ -632,9 +669,6 @@ export interface OauthSettingsOauthProvider {
 }
 
 export interface PermissionTargetBuild {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetBuildActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -645,7 +679,7 @@ export interface PermissionTargetBuild {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -678,9 +712,6 @@ export interface PermissionTargetBuildActionsUser {
 }
 
 export interface PermissionTargetReleaseBundle {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetReleaseBundleActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -691,7 +722,7 @@ export interface PermissionTargetReleaseBundle {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -724,9 +755,6 @@ export interface PermissionTargetReleaseBundleActionsUser {
 }
 
 export interface PermissionTargetRepo {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetRepoActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -737,7 +765,7 @@ export interface PermissionTargetRepo {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -770,9 +798,6 @@ export interface PermissionTargetRepoActionsUser {
 }
 
 export interface PermissionTargetsBuild {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetsBuildActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -783,7 +808,7 @@ export interface PermissionTargetsBuild {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -816,9 +841,6 @@ export interface PermissionTargetsBuildActionsUser {
 }
 
 export interface PermissionTargetsReleaseBundle {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetsReleaseBundleActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -829,7 +851,7 @@ export interface PermissionTargetsReleaseBundle {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -862,9 +884,6 @@ export interface PermissionTargetsReleaseBundleActionsUser {
 }
 
 export interface PermissionTargetsRepo {
-    /**
-     * -
-     */
     actions?: pulumi.Input<inputs.PermissionTargetsRepoActions>;
     /**
      * Pattern of artifacts to exclude.
@@ -875,7 +894,7 @@ export interface PermissionTargetsRepo {
      */
     includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of repositories this permission target is applicable for.
+     * List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
      */
     repositories: pulumi.Input<pulumi.Input<string>[]>;
 }

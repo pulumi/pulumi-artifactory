@@ -27,8 +27,7 @@ class VirtualGradleRepositoryArgs:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VirtualGradleRepository resource.
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -42,20 +41,20 @@ class VirtualGradleRepositoryArgs:
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
                is also enforced when aggregated repositories support anonymous requests.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
         """
         pulumi.set(__self__, "key", key)
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
@@ -84,8 +83,6 @@ class VirtualGradleRepositoryArgs:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
-        if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
 
     @property
     @pulumi.getter
@@ -168,8 +165,8 @@ class VirtualGradleRepositoryArgs:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -219,7 +216,9 @@ class VirtualGradleRepositoryArgs:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -231,7 +230,7 @@ class VirtualGradleRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -264,19 +263,6 @@ class VirtualGradleRepositoryArgs:
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
-    @property
-    @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
-        """
-        return pulumi.get(self, "retrieval_cache_period_seconds")
-
-    @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retrieval_cache_period_seconds", value)
-
 
 @pulumi.input_type
 class _VirtualGradleRepositoryState:
@@ -295,8 +281,7 @@ class _VirtualGradleRepositoryState:
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VirtualGradleRepository resources.
         :param pulumi.Input[bool] artifactory_requests_can_retrieve_remote_artifacts: Whether the virtual repository should search through remote repositories when trying to resolve an artifact requested by
@@ -308,8 +293,8 @@ class _VirtualGradleRepositoryState:
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
                is also enforced when aggregated repositories support anonymous requests.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
@@ -318,13 +303,13 @@ class _VirtualGradleRepositoryState:
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
         """
         if artifactory_requests_can_retrieve_remote_artifacts is not None:
             pulumi.set(__self__, "artifactory_requests_can_retrieve_remote_artifacts", artifactory_requests_can_retrieve_remote_artifacts)
@@ -356,8 +341,6 @@ class _VirtualGradleRepositoryState:
             pulumi.set(__self__, "repo_layout_ref", repo_layout_ref)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
-        if retrieval_cache_period_seconds is not None:
-            pulumi.set(__self__, "retrieval_cache_period_seconds", retrieval_cache_period_seconds)
 
     @property
     @pulumi.getter(name="artifactoryRequestsCanRetrieveRemoteArtifacts")
@@ -427,8 +410,8 @@ class _VirtualGradleRepositoryState:
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> Optional[pulumi.Input[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -503,7 +486,9 @@ class _VirtualGradleRepositoryState:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -515,7 +500,7 @@ class _VirtualGradleRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -548,19 +533,6 @@ class _VirtualGradleRepositoryState:
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
 
-    @property
-    @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
-        """
-        return pulumi.get(self, "retrieval_cache_period_seconds")
-
-    @retrieval_cache_period_seconds.setter
-    def retrieval_cache_period_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retrieval_cache_period_seconds", value)
-
 
 class VirtualGradleRepository(pulumi.CustomResource):
     @overload
@@ -581,7 +553,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
                  project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
         Creates a virtual Gradle repository.
@@ -622,8 +593,8 @@ class VirtualGradleRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
                is also enforced when aggregated repositories support anonymous requests.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
@@ -631,13 +602,13 @@ class VirtualGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
         """
         ...
     @overload
@@ -702,7 +673,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
                  project_key: Optional[pulumi.Input[str]] = None,
                  repo_layout_ref: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -728,7 +698,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
             __props__.__dict__["project_key"] = project_key
             __props__.__dict__["repo_layout_ref"] = repo_layout_ref
             __props__.__dict__["repositories"] = repositories
-            __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
             __props__.__dict__["package_type"] = None
         super(VirtualGradleRepository, __self__).__init__(
             'artifactory:index/virtualGradleRepository:VirtualGradleRepository',
@@ -754,8 +723,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
             repo_layout_ref: Optional[pulumi.Input[str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            retrieval_cache_period_seconds: Optional[pulumi.Input[int]] = None) -> 'VirtualGradleRepository':
+            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'VirtualGradleRepository':
         """
         Get an existing VirtualGradleRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -772,8 +740,8 @@ class VirtualGradleRepository(pulumi.CustomResource):
                artifacts are excluded.
         :param pulumi.Input[bool] force_maven_authentication: User authentication is required when accessing the repository. An anonymous request will display an HTTP 401 error. This
                is also enforced when aggregated repositories support anonymous requests.
-        :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-               artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+               used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] key_pair: The keypair used to sign artifacts.
@@ -782,13 +750,13 @@ class VirtualGradleRepository(pulumi.CustomResource):
         :param pulumi.Input[str] pom_repository_references_cleanup_policy: - (1: discard_active_reference) Discard Active References - Removes repository elements that are declared directly under project or under a profile in the same POM that is activeByDefault.
                - (2: discard_any_reference) Discard Any References - Removes all repository elements regardless of whether they are included in an active profile or not.
                - (3: nothing) Nothing - Does not remove any repository elements declared in the POM.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: The effective list of actual repositories included in this virtual repository.
-        :param pulumi.Input[int] retrieval_cache_period_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-               repositories. A value of 0 indicates no caching.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -809,7 +777,6 @@ class VirtualGradleRepository(pulumi.CustomResource):
         __props__.__dict__["project_key"] = project_key
         __props__.__dict__["repo_layout_ref"] = repo_layout_ref
         __props__.__dict__["repositories"] = repositories
-        __props__.__dict__["retrieval_cache_period_seconds"] = retrieval_cache_period_seconds
         return VirtualGradleRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -860,8 +827,8 @@ class VirtualGradleRepository(pulumi.CustomResource):
     @pulumi.getter(name="includesPattern")
     def includes_pattern(self) -> pulumi.Output[Optional[str]]:
         """
-        List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         """
         return pulumi.get(self, "includes_pattern")
 
@@ -912,7 +879,9 @@ class VirtualGradleRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -920,7 +889,7 @@ class VirtualGradleRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -940,13 +909,4 @@ class VirtualGradleRepository(pulumi.CustomResource):
         The effective list of actual repositories included in this virtual repository.
         """
         return pulumi.get(self, "repositories")
-
-    @property
-    @pulumi.getter(name="retrievalCachePeriodSeconds")
-    def retrieval_cache_period_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        repositories. A value of 0 indicates no caching.
-        """
-        return pulumi.get(self, "retrieval_cache_period_seconds")
 

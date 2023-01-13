@@ -76,7 +76,8 @@ type PullReplication struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrOutput `pulumi:"checkBinaryExistenceInFilestore"`
-	CronExp                         pulumi.StringOutput  `pulumi:"cronExp"`
+	// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+	CronExp pulumi.StringOutput `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolOutput `pulumi:"enableEventReplication"`
 	// When set, this replication will be enabled when saved.
@@ -86,9 +87,10 @@ type PullReplication struct {
 	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix pulumi.StringPtrOutput `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
-	Proxy               pulumi.StringPtrOutput `pulumi:"proxy"`
-	RepoKey             pulumi.StringOutput    `pulumi:"repoKey"`
-	SocketTimeoutMillis pulumi.IntOutput       `pulumi:"socketTimeoutMillis"`
+	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
+	// Repository name.
+	RepoKey             pulumi.StringOutput `pulumi:"repoKey"`
+	SocketTimeoutMillis pulumi.IntOutput    `pulumi:"socketTimeoutMillis"`
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
 	SyncDeletes pulumi.BoolOutput `pulumi:"syncDeletes"`
 	// When set, the task also synchronizes the properties of replicated artifacts.
@@ -116,6 +118,13 @@ func NewPullReplication(ctx *pulumi.Context,
 	if args.RepoKey == nil {
 		return nil, errors.New("invalid value for required argument 'RepoKey'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource PullReplication
 	err := ctx.RegisterResource("artifactory:index/pullReplication:PullReplication", name, args, &resource, opts...)
 	if err != nil {
@@ -140,8 +149,9 @@ func GetPullReplication(ctx *pulumi.Context,
 type pullReplicationState struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-	CheckBinaryExistenceInFilestore *bool   `pulumi:"checkBinaryExistenceInFilestore"`
-	CronExp                         *string `pulumi:"cronExp"`
+	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
+	// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+	CronExp *string `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool `pulumi:"enableEventReplication"`
 	// When set, this replication will be enabled when saved.
@@ -151,7 +161,8 @@ type pullReplicationState struct {
 	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix *string `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
-	Proxy               *string `pulumi:"proxy"`
+	Proxy *string `pulumi:"proxy"`
+	// Repository name.
 	RepoKey             *string `pulumi:"repoKey"`
 	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
@@ -172,7 +183,8 @@ type PullReplicationState struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput
-	CronExp                         pulumi.StringPtrInput
+	// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+	CronExp pulumi.StringPtrInput
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	// When set, this replication will be enabled when saved.
@@ -182,7 +194,8 @@ type PullReplicationState struct {
 	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
-	Proxy               pulumi.StringPtrInput
+	Proxy pulumi.StringPtrInput
+	// Repository name.
 	RepoKey             pulumi.StringPtrInput
 	SocketTimeoutMillis pulumi.IntPtrInput
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
@@ -206,8 +219,9 @@ func (PullReplicationState) ElementType() reflect.Type {
 type pullReplicationArgs struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
-	CheckBinaryExistenceInFilestore *bool  `pulumi:"checkBinaryExistenceInFilestore"`
-	CronExp                         string `pulumi:"cronExp"`
+	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
+	// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+	CronExp string `pulumi:"cronExp"`
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication *bool `pulumi:"enableEventReplication"`
 	// When set, this replication will be enabled when saved.
@@ -217,9 +231,10 @@ type pullReplicationArgs struct {
 	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix *string `pulumi:"pathPrefix"`
 	// Proxy key from Artifactory Proxies setting
-	Proxy               *string `pulumi:"proxy"`
-	RepoKey             string  `pulumi:"repoKey"`
-	SocketTimeoutMillis *int    `pulumi:"socketTimeoutMillis"`
+	Proxy *string `pulumi:"proxy"`
+	// Repository name.
+	RepoKey             string `pulumi:"repoKey"`
+	SocketTimeoutMillis *int   `pulumi:"socketTimeoutMillis"`
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
 	SyncDeletes *bool `pulumi:"syncDeletes"`
 	// When set, the task also synchronizes the properties of replicated artifacts.
@@ -239,7 +254,8 @@ type PullReplicationArgs struct {
 	// When true, enables distributed checksum storage. For more information, see
 	// [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
 	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput
-	CronExp                         pulumi.StringInput
+	// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+	CronExp pulumi.StringInput
 	// When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
 	EnableEventReplication pulumi.BoolPtrInput
 	// When set, this replication will be enabled when saved.
@@ -249,7 +265,8 @@ type PullReplicationArgs struct {
 	// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
 	PathPrefix pulumi.StringPtrInput
 	// Proxy key from Artifactory Proxies setting
-	Proxy               pulumi.StringPtrInput
+	Proxy pulumi.StringPtrInput
+	// Repository name.
 	RepoKey             pulumi.StringInput
 	SocketTimeoutMillis pulumi.IntPtrInput
 	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
@@ -359,6 +376,7 @@ func (o PullReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolPtrO
 	return o.ApplyT(func(v *PullReplication) pulumi.BoolPtrOutput { return v.CheckBinaryExistenceInFilestore }).(pulumi.BoolPtrOutput)
 }
 
+// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
 func (o PullReplicationOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullReplication) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }
@@ -388,6 +406,7 @@ func (o PullReplicationOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PullReplication) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
+// Repository name.
 func (o PullReplicationOutput) RepoKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullReplication) pulumi.StringOutput { return v.RepoKey }).(pulumi.StringOutput)
 }

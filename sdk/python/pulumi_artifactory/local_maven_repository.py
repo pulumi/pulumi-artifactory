@@ -57,16 +57,15 @@ class LocalMavenRepositoryArgs:
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
-               * `unique`: Version number is based on a time-stamp (default)
-               * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-               * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
@@ -277,7 +276,9 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -289,8 +290,8 @@ class LocalMavenRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -328,9 +329,6 @@ class LocalMavenRepositoryArgs:
         """
         Specifies the naming convention for Maven SNAPSHOT versions.
         The options are -
-        * `unique`: Version number is based on a time-stamp (default)
-        * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -413,16 +411,15 @@ class _LocalMavenRepositoryState:
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
-               * `unique`: Version number is based on a time-stamp (default)
-               * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-               * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
@@ -645,7 +642,9 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -657,8 +656,8 @@ class _LocalMavenRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -696,9 +695,6 @@ class _LocalMavenRepositoryState:
         """
         Specifies the naming convention for Maven SNAPSHOT versions.
         The options are -
-        * `unique`: Version number is based on a time-stamp (default)
-        * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 
@@ -810,16 +806,15 @@ class LocalMavenRepository(pulumi.CustomResource):
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
-               * `unique`: Version number is based on a time-stamp (default)
-               * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-               * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
@@ -985,16 +980,15 @@ class LocalMavenRepository(pulumi.CustomResource):
                Once the number of snapshots exceeds this setting, older versions are removed.
                A value of 0 (default) indicates there is no limit, and unique snapshots are not cleaned up.
         :param pulumi.Input[bool] priority_resolution: Setting repositories with priority will cause metadata to be merged only from repositories set with this field
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-               with project key, separated by a dash.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+               if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+               will remain in the Terraform state, which will create state drift during the update.
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+               assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[str] snapshot_version_behavior: Specifies the naming convention for Maven SNAPSHOT versions.
                The options are -
-               * `unique`: Version number is based on a time-stamp (default)
-               * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-               * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, Artifactory keeps your repositories healthy by refusing POMs with incorrect coordinates (path).
                If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error.
                You can disable this behavior by setting the Suppress POM Consistency Checks checkbox. False by default for Maven repository.
@@ -1145,7 +1139,9 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectEnvironments")
     def project_environments(self) -> pulumi.Output[Sequence[str]]:
         """
-        Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        will remain in the Terraform state, which will create state drift during the update.
         """
         return pulumi.get(self, "project_environments")
 
@@ -1153,8 +1149,8 @@ class LocalMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        with project key, separated by a dash.
+        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
 
@@ -1180,9 +1176,6 @@ class LocalMavenRepository(pulumi.CustomResource):
         """
         Specifies the naming convention for Maven SNAPSHOT versions.
         The options are -
-        * `unique`: Version number is based on a time-stamp (default)
-        * `non-unique`: Version number uses a self-overriding naming pattern of artifactId-version-SNAPSHOT.type
-        * `deployer`: Respects the settings in the Maven client that is deploying the artifact.
         """
         return pulumi.get(self, "snapshot_version_behavior")
 

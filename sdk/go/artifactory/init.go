@@ -72,6 +72,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedDebianRepository{}
 	case "artifactory:index/federatedDockerRepository:FederatedDockerRepository":
 		r = &FederatedDockerRepository{}
+	case "artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository":
+		r = &FederatedDockerV1Repository{}
+	case "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository":
+		r = &FederatedDockerV2Repository{}
 	case "artifactory:index/federatedGemsRepository:FederatedGemsRepository":
 		r = &FederatedGemsRepository{}
 	case "artifactory:index/federatedGenericRepository:FederatedGenericRepository":
@@ -102,6 +106,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FederatedRpmRepository{}
 	case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
 		r = &FederatedSbtRepository{}
+	case "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository":
+		r = &FederatedSwiftRepository{}
 	case "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository":
 		r = &FederatedTerraformModuleRepository{}
 	case "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository":
@@ -190,6 +196,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PermissionTargets{}
 	case "artifactory:index/propertySet:PropertySet":
 		r = &PropertySet{}
+	case "artifactory:index/proxy:Proxy":
+		r = &Proxy{}
 	case "artifactory:index/pullReplication:PullReplication":
 		r = &PullReplication{}
 	case "artifactory:index/pushReplication:PushReplication":
@@ -482,6 +490,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/federatedDockerV1Repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedDockerV2Repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/federatedGemsRepository",
 		&module{version},
 	)
@@ -553,6 +571,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/federatedSbtRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/federatedSwiftRepository",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -773,6 +796,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/propertySet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/proxy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

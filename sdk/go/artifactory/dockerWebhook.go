@@ -41,7 +41,7 @@ import (
 //					pulumi.String("deleted"),
 //					pulumi.String("promoted"),
 //				},
-//				Criteria: &DockerWebhookCriteriaArgs{
+//				Criteria: &artifactory.DockerWebhookCriteriaArgs{
 //					AnyLocal:  pulumi.Bool(true),
 //					AnyRemote: pulumi.Bool(false),
 //					RepoKeys: pulumi.StringArray{
@@ -54,8 +54,8 @@ import (
 //						pulumi.String("bar/**"),
 //					},
 //				},
-//				Handlers: DockerWebhookHandlerArray{
-//					&DockerWebhookHandlerArgs{
+//				Handlers: artifactory.DockerWebhookHandlerArray{
+//					&artifactory.DockerWebhookHandlerArgs{
 //						Url:    pulumi.String("http://tempurl.org/webhook"),
 //						Secret: pulumi.String("some-secret"),
 //						Proxy:  pulumi.String("proxy-key"),

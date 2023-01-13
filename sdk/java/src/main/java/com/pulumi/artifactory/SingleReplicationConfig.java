@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -26,6 +27,7 @@ import javax.annotation.Nullable;
  * unexpected behaviour and will almost certainly cause your replications to break.**
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
@@ -81,9 +83,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/singleReplicationConfig:SingleReplicationConfig")
 public class SingleReplicationConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * Cron expression to control the operation frequency.
+     * 
+     */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
+    /**
+     * @return Cron expression to control the operation frequency.
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }
@@ -208,6 +218,9 @@ public class SingleReplicationConfig extends com.pulumi.resources.CustomResource
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "password"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

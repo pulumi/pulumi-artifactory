@@ -13,9 +13,6 @@ namespace Pulumi.Artifactory.Outputs
     [OutputType]
     public sealed class PermissionTargetReleaseBundle
     {
-        /// <summary>
-        /// -
-        /// </summary>
         public readonly Outputs.PermissionTargetReleaseBundleActions? Actions;
         /// <summary>
         /// Pattern of artifacts to exclude.
@@ -26,7 +23,7 @@ namespace Pulumi.Artifactory.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludesPatterns;
         /// <summary>
-        /// List of repositories this permission target is applicable for.
+        /// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         /// </summary>
         public readonly ImmutableArray<string> Repositories;
 

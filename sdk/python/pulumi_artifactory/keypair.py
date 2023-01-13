@@ -25,7 +25,7 @@ class KeypairArgs:
         :param pulumi.Input[str] alias: Will be used as a filename when retrieving the public key via REST API.
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
-        :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
+        :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
         """
@@ -77,7 +77,7 @@ class KeypairArgs:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Input[str]:
         """
-        - Private key. PEM format will be validated.
+        Private key. PEM format will be validated.
         """
         return pulumi.get(self, "private_key")
 
@@ -126,7 +126,7 @@ class _KeypairState:
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
         :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
-        :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
+        :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
         """
@@ -197,7 +197,7 @@ class _KeypairState:
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[str]]:
         """
-        - Private key. PEM format will be validated.
+        Private key. PEM format will be validated.
         """
         return pulumi.get(self, "private_key")
 
@@ -248,7 +248,6 @@ class Keypair(pulumi.CustomResource):
         RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
         pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
         through the Keys Management UI and REST API.
-        Passphrases are not currently supported, though they exist in the API.
 
         ## Example Usage
 
@@ -261,7 +260,8 @@ class Keypair(pulumi.CustomResource):
             pair_type="RSA",
             alias="foo-alias6543461672124900137",
             private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
+            passphrase="PASSPHRASE")
         ```
 
         ## Import
@@ -278,7 +278,7 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
         :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
-        :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
+        :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         """
         ...
@@ -293,7 +293,6 @@ class Keypair(pulumi.CustomResource):
         RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
         pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
         through the Keys Management UI and REST API.
-        Passphrases are not currently supported, though they exist in the API.
 
         ## Example Usage
 
@@ -306,7 +305,8 @@ class Keypair(pulumi.CustomResource):
             pair_type="RSA",
             alias="foo-alias6543461672124900137",
             private_key=(lambda path: open(path).read())("samples/rsa.priv"),
-            public_key=(lambda path: open(path).read())("samples/rsa.pub"))
+            public_key=(lambda path: open(path).read())("samples/rsa.pub"),
+            passphrase="PASSPHRASE")
         ```
 
         ## Import
@@ -356,14 +356,16 @@ class Keypair(pulumi.CustomResource):
             if pair_type is None and not opts.urn:
                 raise TypeError("Missing required property 'pair_type'")
             __props__.__dict__["pair_type"] = pair_type
-            __props__.__dict__["passphrase"] = passphrase
+            __props__.__dict__["passphrase"] = None if passphrase is None else pulumi.Output.secret(passphrase)
             if private_key is None and not opts.urn:
                 raise TypeError("Missing required property 'private_key'")
-            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             if public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key'")
             __props__.__dict__["public_key"] = public_key
             __props__.__dict__["unavailable"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passphrase", "privateKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Keypair, __self__).__init__(
             'artifactory:index/keypair:Keypair',
             resource_name,
@@ -392,7 +394,7 @@ class Keypair(pulumi.CustomResource):
         :param pulumi.Input[str] pair_name: A unique identifier for the Key Pair record.
         :param pulumi.Input[str] pair_type: Key Pair type. Supported types - GPG and RSA.
         :param pulumi.Input[str] passphrase: Passphrase will be used to decrypt the private key. Validated server side.
-        :param pulumi.Input[str] private_key: - Private key. PEM format will be validated.
+        :param pulumi.Input[str] private_key: Private key. PEM format will be validated.
         :param pulumi.Input[str] public_key: Public key. PEM format will be validated.
         :param pulumi.Input[bool] unavailable: Unknown usage. Returned in the json payload and cannot be set.
         """
@@ -445,7 +447,7 @@ class Keypair(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[str]:
         """
-        - Private key. PEM format will be validated.
+        Private key. PEM format will be validated.
         """
         return pulumi.get(self, "private_key")
 

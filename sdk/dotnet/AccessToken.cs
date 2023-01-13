@@ -94,6 +94,11 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "refreshToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -173,11 +178,21 @@ namespace Pulumi.Artifactory
 
     public sealed class AccessTokenState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Returns the access token to authenciate to Artifactory
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? Details { get; set; }
+        public Input<string>? Details
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Optional) Specify the `instance_id` in this block to grant this token admin privileges. This can only be created when the authenticated user is an admin. `admin_token` cannot be specified with `groups`.
@@ -215,11 +230,21 @@ namespace Pulumi.Artifactory
             set => _groups = value;
         }
 
+        [Input("refreshToken")]
+        private Input<string>? _refreshToken;
+
         /// <summary>
         /// Returns the refresh token when `refreshable` is true, or an empty string when `refreshable` is false.
         /// </summary>
-        [Input("refreshToken")]
-        public Input<string>? RefreshToken { get; set; }
+        public Input<string>? RefreshToken
+        {
+            get => _refreshToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _refreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Optional) Is this token refreshable? Defaults to `false`

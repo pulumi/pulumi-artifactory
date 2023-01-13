@@ -22,6 +22,8 @@ class PushReplicationArgs:
                  replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None):
         """
         The set of arguments for constructing a PushReplication resource.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[str] repo_key: Repository name.
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
@@ -34,6 +36,9 @@ class PushReplicationArgs:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -43,6 +48,9 @@ class PushReplicationArgs:
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> pulumi.Input[str]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
@@ -80,7 +88,9 @@ class _PushReplicationState:
                  repo_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PushReplication resources.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[str] repo_key: Repository name.
         """
         if cron_exp is not None:
             pulumi.set(__self__, "cron_exp", cron_exp)
@@ -94,6 +104,9 @@ class _PushReplicationState:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -124,6 +137,9 @@ class _PushReplicationState:
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
@@ -182,7 +198,9 @@ class PushReplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[str] repo_key: Repository name.
         """
         ...
     @overload
@@ -286,7 +304,9 @@ class PushReplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[str] repo_key: Repository name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -301,6 +321,9 @@ class PushReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @property
@@ -319,5 +342,8 @@ class PushReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> pulumi.Output[str]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 

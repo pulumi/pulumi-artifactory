@@ -17,9 +17,17 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
 
     public static final SingleReplicationConfigArgs Empty = new SingleReplicationConfigArgs();
 
+    /**
+     * Cron expression to control the operation frequency.
+     * 
+     */
     @Import(name="cronExp", required=true)
     private Output<String> cronExp;
 
+    /**
+     * @return Cron expression to control the operation frequency.
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }
@@ -144,11 +152,23 @@ public final class SingleReplicationConfigArgs extends com.pulumi.resources.Reso
             $ = new SingleReplicationConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(Output<String> cronExp) {
             $.cronExp = cronExp;
             return this;
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(String cronExp) {
             return cronExp(Output.of(cronExp));
         }

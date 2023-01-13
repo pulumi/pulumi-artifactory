@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Provides an Artifactory Property Set resource.
  * This resource configuration corresponds to 'propertySets' config block in system configuration XML
  * (REST endpoint: artifactory/api/system/configuration).
+ *
+ * ~>The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
  *
  * ## Example Usage
  *

@@ -15,6 +15,8 @@ namespace Pulumi.Artifactory
     /// LDAP Groups Add-on allows you to synchronize your LDAP groups with the system and leverage your existing organizational
     /// structure for managing group-based permissions.
     /// 
+    /// ~&gt;The `artifactory.LdapGroupSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
     /// ## Import
     /// 
     /// LDAP Group setting can be imported using the key, e.g.

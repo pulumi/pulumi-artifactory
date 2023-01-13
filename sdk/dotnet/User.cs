@@ -37,6 +37,9 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
+    /// ## Managing groups relationship
+    /// 
+    /// See our recommendation on how to manage user-group relationship.
     /// 
     /// ## Import
     /// 
@@ -68,8 +71,7 @@ namespace Pulumi.Artifactory
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// List of groups this user is a part of.
-        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -87,7 +89,7 @@ namespace Pulumi.Artifactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -121,6 +123,10 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -166,8 +172,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of.
-        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {
@@ -187,11 +192,21 @@ namespace Pulumi.Artifactory
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
-        /// </summary>
         [Input("password")]
-        public Input<string>? Password { get; set; }
+        private Input<string>? _password;
+
+        /// <summary>
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -229,8 +244,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of.
-        /// - Note: If "groups" attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {
@@ -250,11 +264,21 @@ namespace Pulumi.Artifactory
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
-        /// </summary>
         [Input("password")]
-        public Input<string>? Password { get; set; }
+        private Input<string>? _password;
+
+        /// <summary>
+        /// Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
