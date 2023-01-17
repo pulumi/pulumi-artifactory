@@ -10,14 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// Creates a federated Gem repository.
+    /// Creates a federated Gems repository.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var terraform_federated_test_gems_repo = new Artifactory.FederatedGemsRepository("terraform-federated-test-gems-repo", new()
+    ///     {
+    ///         Key = "terraform-federated-test-gems-repo",
+    ///         Members = new[]
+    ///         {
+    ///             new Artifactory.Inputs.FederatedGemsRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
+    ///             },
+    ///             new Artifactory.Inputs.FederatedGemsRepositoryMemberArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 Url = "http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
     /// Federated repositories can be imported using their name, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gem-repo terraform-federated-test-gem-repo
+    ///  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gems-repo terraform-federated-test-gems-repo
     /// ```
     /// </summary>
     [ArtifactoryResourceType("artifactory:index/federatedGemsRepository:FederatedGemsRepository")]
@@ -89,14 +119,16 @@ namespace Pulumi.Artifactory
         public Output<bool?> PriorityResolution { get; private set; } = null!;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
         public Output<string?> ProjectKey { get; private set; } = null!;
@@ -238,7 +270,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -247,8 +281,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
@@ -361,7 +395,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -370,8 +406,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-        /// with project key, separated by a dash.
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }

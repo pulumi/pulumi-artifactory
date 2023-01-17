@@ -47,6 +47,11 @@ func NewAccessToken(ctx *pulumi.Context,
 	if args.Username == nil {
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"accessToken",
+		"refreshToken",
+	})
+	opts = append(opts, secrets)
 	var resource AccessToken
 	err := ctx.RegisterResource("artifactory:index/accessToken:AccessToken", name, args, &resource, opts...)
 	if err != nil {

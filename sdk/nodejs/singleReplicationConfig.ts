@@ -13,29 +13,6 @@ import * as utilities from "./utilities";
  * **WARNING: This should not be used on a repository with `artifactory.ReplicationConfig`. Using both together will cause
  * unexpected behaviour and will almost certainly cause your replications to break.**
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as artifactory from "@pulumi/artifactory";
- *
- * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
- *     key: "provider_test_source",
- * });
- * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {
- *     key: "provider_test_dest",
- * });
- * const foo_rep = new artifactory.SingleReplicationConfig("foo-rep", {
- *     cronExp: "0 0 * * * ?",
- *     enableEventReplication: true,
- *     password: var_artifactory_password,
- *     repoKey: providerTestSource.key,
- *     url: var_artifactory_url,
- *     username: var_artifactory_username,
- * });
- * ```
- *
  * ## Import
  *
  * Replication configs can be imported using their repo key, e.g.
@@ -72,6 +49,9 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === SingleReplicationConfig.__pulumiType;
     }
 
+    /**
+     * Cron expression to control the operation frequency.
+     */
     public readonly cronExp!: pulumi.Output<string>;
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly enabled!: pulumi.Output<boolean>;
@@ -141,6 +121,8 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
             resourceInputs["password"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(SingleReplicationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -149,6 +131,9 @@ export class SingleReplicationConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SingleReplicationConfig resources.
  */
 export interface SingleReplicationConfigState {
+    /**
+     * Cron expression to control the operation frequency.
+     */
     cronExp?: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;
@@ -174,6 +159,9 @@ export interface SingleReplicationConfigState {
  * The set of arguments for constructing a SingleReplicationConfig resource.
  */
 export interface SingleReplicationConfigArgs {
+    /**
+     * Cron expression to control the operation frequency.
+     */
     cronExp: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     enabled?: pulumi.Input<boolean>;

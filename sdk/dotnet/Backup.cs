@@ -15,6 +15,8 @@ namespace Pulumi.Artifactory
     /// When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
     /// The backup process creates a time-stamped directory in the target backup directory.
     /// 
+    /// ~&gt;The `artifactory.Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -28,7 +30,7 @@ namespace Pulumi.Artifactory
     ///     var backupConfigName = new Artifactory.Backup("backupConfigName", new()
     ///     {
     ///         CreateArchive = false,
-    ///         CronExp = "0 0 12 * * ?",
+    ///         CronExp = "0 0 12 * * ? *",
     ///         Enabled = true,
     ///         ExcludeNewRepositories = true,
     ///         ExcludedRepositories = new[] {},
@@ -41,7 +43,7 @@ namespace Pulumi.Artifactory
     /// 
     /// });
     /// ```
-    /// Note: `Key` argument has to match to the resource name.\
+    /// Note: `Key` argument has to match to the resource name.
     /// Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
     /// 
     /// ## Import
@@ -62,7 +64,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> CreateArchive { get; private set; } = null!;
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
@@ -168,7 +170,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
@@ -242,7 +244,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? CreateArchive { get; set; }
 
         /// <summary>
-        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        /// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }

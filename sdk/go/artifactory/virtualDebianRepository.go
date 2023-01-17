@@ -75,8 +75,8 @@ type VirtualDebianRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -89,17 +89,18 @@ type VirtualDebianRepository struct {
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrOutput `pulumi:"secondaryKeypairRef"`
@@ -150,8 +151,8 @@ type virtualDebianRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -164,17 +165,18 @@ type virtualDebianRepositoryState struct {
 	PackageType *string `pulumi:"packageType"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -194,8 +196,8 @@ type VirtualDebianRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -208,17 +210,18 @@ type VirtualDebianRepositoryState struct {
 	PackageType pulumi.StringPtrInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -242,8 +245,8 @@ type virtualDebianRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -254,17 +257,18 @@ type virtualDebianRepositoryArgs struct {
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef *string `pulumi:"secondaryKeypairRef"`
@@ -285,8 +289,8 @@ type VirtualDebianRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -297,17 +301,18 @@ type VirtualDebianRepositoryArgs struct {
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
+	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 	RetrievalCachePeriodSeconds pulumi.IntPtrInput
 	// Secondary keypair used to sign artifacts. Default is empty.
 	SecondaryKeypairRef pulumi.StringPtrInput
@@ -430,8 +435,8 @@ func (o VirtualDebianRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o VirtualDebianRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -462,12 +467,14 @@ func (o VirtualDebianRepositoryOutput) PrimaryKeypairRef() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.PrimaryKeypairRef }).(pulumi.StringPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualDebianRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualDebianRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
@@ -483,8 +490,7 @@ func (o VirtualDebianRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-// repositories. A value of 0 indicates no caching.
+// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated repositories. A value of 0 indicates no caching.
 func (o VirtualDebianRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
 }

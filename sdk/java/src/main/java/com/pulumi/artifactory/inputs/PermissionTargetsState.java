@@ -19,14 +19,14 @@ public final class PermissionTargetsState extends com.pulumi.resources.ResourceA
     public static final PermissionTargetsState Empty = new PermissionTargetsState();
 
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      * 
      */
     @Import(name="build")
     private @Nullable Output<PermissionTargetsBuildArgs> build;
 
     /**
-     * @return As for repo but for artifactory-build-info permssions.
+     * @return As for repo but for artifactory-build-info permissions.
      * 
      */
     public Optional<Output<PermissionTargetsBuildArgs>> build() {
@@ -106,7 +106,7 @@ public final class PermissionTargetsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param build As for repo but for artifactory-build-info permssions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PermissionTargetsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param build As for repo but for artifactory-build-info permssions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 

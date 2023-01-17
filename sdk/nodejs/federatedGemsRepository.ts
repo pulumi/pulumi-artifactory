@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Creates a federated Gem repository.
+ * Creates a federated Gems repository.
  *
  * ## Example Usage
  *
@@ -14,16 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * const terraform_federated_test_gem_repo = new artifactory.FederatedGemRepository("terraform-federated-test-gem-repo", {
- *     key: "terraform-federated-test-gem-repo",
- *     member: [
+ * const terraform_federated_test_gems_repo = new artifactory.FederatedGemsRepository("terraform-federated-test-gems-repo", {
+ *     key: "terraform-federated-test-gems-repo",
+ *     members: [
  *         {
  *             enabled: true,
- *             url: "http://tempurl.org/artifactory/terraform-federated-test-gem-repo",
+ *             url: "http://tempurl.org/artifactory/terraform-federated-test-gems-repo",
  *         },
  *         {
  *             enabled: true,
- *             url: "http://tempurl2.org/artifactory/terraform-federated-test-gem-repo-2",
+ *             url: "http://tempurl2.org/artifactory/terraform-federated-test-gems-repo-2",
  *         },
  *     ],
  * });
@@ -34,7 +35,7 @@ import * as utilities from "./utilities";
  * Federated repositories can be imported using their name, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gem-repo terraform-federated-test-gem-repo
+ *  $ pulumi import artifactory:index/federatedGemsRepository:FederatedGemsRepository terraform-federated-test-gems-repo terraform-federated-test-gems-repo
  * ```
  */
 export class FederatedGemsRepository extends pulumi.CustomResource {
@@ -109,12 +110,14 @@ export class FederatedGemsRepository extends pulumi.CustomResource {
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
@@ -238,12 +241,14 @@ export interface FederatedGemsRepositoryState {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -308,12 +313,14 @@ export interface FederatedGemsRepositoryArgs {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**

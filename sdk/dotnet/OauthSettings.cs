@@ -14,6 +14,8 @@ namespace Pulumi.Artifactory
     /// 
     /// Only a single `artifactory.OauthSettings` resource is meant to be defined.
     /// 
+    /// ~&gt;The `artifactory.OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

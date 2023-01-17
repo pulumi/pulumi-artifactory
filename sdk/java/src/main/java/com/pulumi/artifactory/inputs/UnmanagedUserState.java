@@ -108,14 +108,14 @@ public final class UnmanagedUserState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     public Optional<Output<String>> password() {
@@ -305,7 +305,7 @@ public final class UnmanagedUserState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class UnmanagedUserState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+         * @param password Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
          * 
          * @return builder
          * 

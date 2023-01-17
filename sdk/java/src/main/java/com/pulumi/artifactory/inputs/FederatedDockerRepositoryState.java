@@ -226,14 +226,18 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Import(name="projectEnvironments")
     private @Nullable Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Optional<Output<List<String>>> projectEnvironments() {
@@ -241,16 +245,16 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
     }
 
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Import(name="projectKey")
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Optional<Output<String>> projectKey() {
@@ -656,7 +660,9 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -667,7 +673,9 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -677,7 +685,9 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+         * @param projectEnvironments Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+         * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+         * will remain in the Terraform state, which will create state drift during the update.
          * 
          * @return builder
          * 
@@ -687,8 +697,8 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-         * with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 
@@ -699,8 +709,8 @@ public final class FederatedDockerRepositoryState extends com.pulumi.resources.R
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-         * with project key, separated by a dash.
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
          * 

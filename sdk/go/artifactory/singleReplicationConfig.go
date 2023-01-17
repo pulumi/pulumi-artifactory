@@ -31,6 +31,7 @@ import (
 type SingleReplicationConfig struct {
 	pulumi.CustomResourceState
 
+	// Cron expression to control the operation frequency.
 	CronExp                pulumi.StringOutput `pulumi:"cronExp"`
 	EnableEventReplication pulumi.BoolOutput   `pulumi:"enableEventReplication"`
 	Enabled                pulumi.BoolOutput   `pulumi:"enabled"`
@@ -61,6 +62,10 @@ func NewSingleReplicationConfig(ctx *pulumi.Context,
 	if args.RepoKey == nil {
 		return nil, errors.New("invalid value for required argument 'RepoKey'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource SingleReplicationConfig
 	err := ctx.RegisterResource("artifactory:index/singleReplicationConfig:SingleReplicationConfig", name, args, &resource, opts...)
 	if err != nil {
@@ -83,6 +88,7 @@ func GetSingleReplicationConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SingleReplicationConfig resources.
 type singleReplicationConfigState struct {
+	// Cron expression to control the operation frequency.
 	CronExp                *string `pulumi:"cronExp"`
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
@@ -101,6 +107,7 @@ type singleReplicationConfigState struct {
 }
 
 type SingleReplicationConfigState struct {
+	// Cron expression to control the operation frequency.
 	CronExp                pulumi.StringPtrInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
@@ -123,6 +130,7 @@ func (SingleReplicationConfigState) ElementType() reflect.Type {
 }
 
 type singleReplicationConfigArgs struct {
+	// Cron expression to control the operation frequency.
 	CronExp                string  `pulumi:"cronExp"`
 	EnableEventReplication *bool   `pulumi:"enableEventReplication"`
 	Enabled                *bool   `pulumi:"enabled"`
@@ -140,6 +148,7 @@ type singleReplicationConfigArgs struct {
 
 // The set of arguments for constructing a SingleReplicationConfig resource.
 type SingleReplicationConfigArgs struct {
+	// Cron expression to control the operation frequency.
 	CronExp                pulumi.StringInput
 	EnableEventReplication pulumi.BoolPtrInput
 	Enabled                pulumi.BoolPtrInput
@@ -242,6 +251,7 @@ func (o SingleReplicationConfigOutput) ToSingleReplicationConfigOutputWithContex
 	return o
 }
 
+// Cron expression to control the operation frequency.
 func (o SingleReplicationConfigOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *SingleReplicationConfig) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }

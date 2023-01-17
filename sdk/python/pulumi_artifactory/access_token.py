@@ -365,6 +365,8 @@ class AccessToken(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["access_token"] = None
             __props__.__dict__["refresh_token"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "refreshToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(AccessToken, __self__).__init__(
             'artifactory:index/accessToken:AccessToken',
             resource_name,

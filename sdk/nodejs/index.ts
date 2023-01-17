@@ -5,160 +5,796 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./accessToken";
-export * from "./alpineRepository";
-export * from "./anonymousUser";
-export * from "./apiKey";
-export * from "./artifactPropertyWebhook";
-export * from "./artifactWebhook";
-export * from "./artifactoryReleaseBundleWebhook";
-export * from "./backup";
-export * from "./buildWebhook";
-export * from "./certificate";
-export * from "./debianRepository";
-export * from "./distributionWebhook";
-export * from "./dockerV1Repository";
-export * from "./dockerV2Repository";
-export * from "./dockerWebhook";
-export * from "./federatedAlpineRepository";
-export * from "./federatedBowerRepository";
-export * from "./federatedCargoRepository";
-export * from "./federatedChefRepository";
-export * from "./federatedCocoapodsRepository";
-export * from "./federatedComposerRepository";
-export * from "./federatedConanRepository";
-export * from "./federatedCondaRepository";
-export * from "./federatedCranRepository";
-export * from "./federatedDebianRepository";
-export * from "./federatedDockerRepository";
-export * from "./federatedGemsRepository";
-export * from "./federatedGenericRepository";
-export * from "./federatedGitltfsRepository";
-export * from "./federatedGoRepository";
-export * from "./federatedGradleRepository";
-export * from "./federatedHelmRepository";
-export * from "./federatedIvyRepository";
-export * from "./federatedMavenRepository";
-export * from "./federatedNpmRepository";
-export * from "./federatedNugetRepository";
-export * from "./federatedOpkgRepository";
-export * from "./federatedPuppetRepository";
-export * from "./federatedPypiRepository";
-export * from "./federatedRpmRepository";
-export * from "./federatedSbtRepository";
-export * from "./federatedTerraformModuleRepository";
-export * from "./federatedTerraformProviderRepository";
-export * from "./federatedVagrantRepository";
-export * from "./generalSecurity";
-export * from "./getFile";
-export * from "./getFileinfo";
-export * from "./goRepository";
-export * from "./group";
-export * from "./keypair";
-export * from "./ldapGroupSetting";
-export * from "./ldapSetting";
-export * from "./localBowerRepository";
-export * from "./localCargoRepository";
-export * from "./localChefRepository";
-export * from "./localCocoapodsRepository";
-export * from "./localComposerRepository";
-export * from "./localConanRepository";
-export * from "./localCondaRepository";
-export * from "./localCranRepository";
-export * from "./localGemsRepository";
-export * from "./localGenericRepository";
-export * from "./localGitltfsRepository";
-export * from "./localGoRepository";
-export * from "./localGradleRepository";
-export * from "./localHelmRepository";
-export * from "./localIvyRepository";
-export * from "./localMavenRepository";
-export * from "./localNpmRepository";
-export * from "./localNugetRepository";
-export * from "./localOpkgRepository";
-export * from "./localPubRepository";
-export * from "./localPuppetRepository";
-export * from "./localPypiRepository";
-export * from "./localRpmRepository";
-export * from "./localSbtRepository";
-export * from "./localSwiftRepository";
-export * from "./localTerraformBackendRepository";
-export * from "./localTerraformModuleRepository";
-export * from "./localTerraformProviderRepository";
-export * from "./localVagrantRepository";
-export * from "./managedUser";
-export * from "./mavenRepository";
-export * from "./oauthSettings";
-export * from "./permissionTarget";
-export * from "./permissionTargets";
-export * from "./propertySet";
-export * from "./provider";
-export * from "./pullReplication";
-export * from "./pushReplication";
-export * from "./releaseBundleWebhook";
-export * from "./remoteAlpineRepository";
-export * from "./remoteBowerRepository";
-export * from "./remoteCargoRepository";
-export * from "./remoteChefRepository";
-export * from "./remoteCocoapodsRepository";
-export * from "./remoteComposerRepository";
-export * from "./remoteConanRepository";
-export * from "./remoteCondaRepository";
-export * from "./remoteCranRepository";
-export * from "./remoteDebianRepository";
-export * from "./remoteDockerRepository";
-export * from "./remoteGemsRepository";
-export * from "./remoteGenericRepository";
-export * from "./remoteGitlfsRepository";
-export * from "./remoteGoRepository";
-export * from "./remoteGradleRepository";
-export * from "./remoteHelmRepository";
-export * from "./remoteIvyRepository";
-export * from "./remoteMavenRepository";
-export * from "./remoteNpmRepository";
-export * from "./remoteNugetRepository";
-export * from "./remoteOpkgRepository";
-export * from "./remoteP2Repository";
-export * from "./remotePubRepository";
-export * from "./remotePuppetRepository";
-export * from "./remotePypiRepository";
-export * from "./remoteRpmRepository";
-export * from "./remoteSbtRepository";
-export * from "./remoteSwiftRepository";
-export * from "./remoteTerraformRepository";
-export * from "./remoteVcsRepository";
-export * from "./replicationConfig";
-export * from "./repositoryLayout";
-export * from "./samlSettings";
-export * from "./scopedToken";
-export * from "./singleReplicationConfig";
-export * from "./unmanagedUser";
-export * from "./user";
-export * from "./virtualAlpineRepository";
-export * from "./virtualBowerRepository";
-export * from "./virtualChefRepository";
-export * from "./virtualComposerRepository";
-export * from "./virtualConanRepository";
-export * from "./virtualCondaRepository";
-export * from "./virtualCranRepository";
-export * from "./virtualDebianRepository";
-export * from "./virtualDockerRepository";
-export * from "./virtualGemsRepository";
-export * from "./virtualGenericRepository";
-export * from "./virtualGitlfsRepository";
-export * from "./virtualGradleRepository";
-export * from "./virtualHelmRepository";
-export * from "./virtualIvyRepository";
-export * from "./virtualNpmRepository";
-export * from "./virtualNugetRepository";
-export * from "./virtualP2Repository";
-export * from "./virtualPubRepository";
-export * from "./virtualPuppetRepository";
-export * from "./virtualPypiRepository";
-export * from "./virtualRpmRepository";
-export * from "./virtualSbtRepository";
-export * from "./virtualSwiftRepository";
-export * from "./virtualTerraformRepository";
+export { AccessTokenArgs, AccessTokenState } from "./accessToken";
+export type AccessToken = import("./accessToken").AccessToken;
+export const AccessToken: typeof import("./accessToken").AccessToken = null as any;
+utilities.lazyLoad(exports, ["AccessToken"], () => require("./accessToken"));
+
+export { AlpineRepositoryArgs, AlpineRepositoryState } from "./alpineRepository";
+export type AlpineRepository = import("./alpineRepository").AlpineRepository;
+export const AlpineRepository: typeof import("./alpineRepository").AlpineRepository = null as any;
+utilities.lazyLoad(exports, ["AlpineRepository"], () => require("./alpineRepository"));
+
+export { AnonymousUserArgs, AnonymousUserState } from "./anonymousUser";
+export type AnonymousUser = import("./anonymousUser").AnonymousUser;
+export const AnonymousUser: typeof import("./anonymousUser").AnonymousUser = null as any;
+utilities.lazyLoad(exports, ["AnonymousUser"], () => require("./anonymousUser"));
+
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
+export { ArtifactPropertyWebhookArgs, ArtifactPropertyWebhookState } from "./artifactPropertyWebhook";
+export type ArtifactPropertyWebhook = import("./artifactPropertyWebhook").ArtifactPropertyWebhook;
+export const ArtifactPropertyWebhook: typeof import("./artifactPropertyWebhook").ArtifactPropertyWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactPropertyWebhook"], () => require("./artifactPropertyWebhook"));
+
+export { ArtifactWebhookArgs, ArtifactWebhookState } from "./artifactWebhook";
+export type ArtifactWebhook = import("./artifactWebhook").ArtifactWebhook;
+export const ArtifactWebhook: typeof import("./artifactWebhook").ArtifactWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactWebhook"], () => require("./artifactWebhook"));
+
+export { ArtifactoryReleaseBundleWebhookArgs, ArtifactoryReleaseBundleWebhookState } from "./artifactoryReleaseBundleWebhook";
+export type ArtifactoryReleaseBundleWebhook = import("./artifactoryReleaseBundleWebhook").ArtifactoryReleaseBundleWebhook;
+export const ArtifactoryReleaseBundleWebhook: typeof import("./artifactoryReleaseBundleWebhook").ArtifactoryReleaseBundleWebhook = null as any;
+utilities.lazyLoad(exports, ["ArtifactoryReleaseBundleWebhook"], () => require("./artifactoryReleaseBundleWebhook"));
+
+export { BackupArgs, BackupState } from "./backup";
+export type Backup = import("./backup").Backup;
+export const Backup: typeof import("./backup").Backup = null as any;
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+
+export { BuildWebhookArgs, BuildWebhookState } from "./buildWebhook";
+export type BuildWebhook = import("./buildWebhook").BuildWebhook;
+export const BuildWebhook: typeof import("./buildWebhook").BuildWebhook = null as any;
+utilities.lazyLoad(exports, ["BuildWebhook"], () => require("./buildWebhook"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { DebianRepositoryArgs, DebianRepositoryState } from "./debianRepository";
+export type DebianRepository = import("./debianRepository").DebianRepository;
+export const DebianRepository: typeof import("./debianRepository").DebianRepository = null as any;
+utilities.lazyLoad(exports, ["DebianRepository"], () => require("./debianRepository"));
+
+export { DistributionWebhookArgs, DistributionWebhookState } from "./distributionWebhook";
+export type DistributionWebhook = import("./distributionWebhook").DistributionWebhook;
+export const DistributionWebhook: typeof import("./distributionWebhook").DistributionWebhook = null as any;
+utilities.lazyLoad(exports, ["DistributionWebhook"], () => require("./distributionWebhook"));
+
+export { DockerV1RepositoryArgs, DockerV1RepositoryState } from "./dockerV1Repository";
+export type DockerV1Repository = import("./dockerV1Repository").DockerV1Repository;
+export const DockerV1Repository: typeof import("./dockerV1Repository").DockerV1Repository = null as any;
+utilities.lazyLoad(exports, ["DockerV1Repository"], () => require("./dockerV1Repository"));
+
+export { DockerV2RepositoryArgs, DockerV2RepositoryState } from "./dockerV2Repository";
+export type DockerV2Repository = import("./dockerV2Repository").DockerV2Repository;
+export const DockerV2Repository: typeof import("./dockerV2Repository").DockerV2Repository = null as any;
+utilities.lazyLoad(exports, ["DockerV2Repository"], () => require("./dockerV2Repository"));
+
+export { DockerWebhookArgs, DockerWebhookState } from "./dockerWebhook";
+export type DockerWebhook = import("./dockerWebhook").DockerWebhook;
+export const DockerWebhook: typeof import("./dockerWebhook").DockerWebhook = null as any;
+utilities.lazyLoad(exports, ["DockerWebhook"], () => require("./dockerWebhook"));
+
+export { FederatedAlpineRepositoryArgs, FederatedAlpineRepositoryState } from "./federatedAlpineRepository";
+export type FederatedAlpineRepository = import("./federatedAlpineRepository").FederatedAlpineRepository;
+export const FederatedAlpineRepository: typeof import("./federatedAlpineRepository").FederatedAlpineRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedAlpineRepository"], () => require("./federatedAlpineRepository"));
+
+export { FederatedBowerRepositoryArgs, FederatedBowerRepositoryState } from "./federatedBowerRepository";
+export type FederatedBowerRepository = import("./federatedBowerRepository").FederatedBowerRepository;
+export const FederatedBowerRepository: typeof import("./federatedBowerRepository").FederatedBowerRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedBowerRepository"], () => require("./federatedBowerRepository"));
+
+export { FederatedCargoRepositoryArgs, FederatedCargoRepositoryState } from "./federatedCargoRepository";
+export type FederatedCargoRepository = import("./federatedCargoRepository").FederatedCargoRepository;
+export const FederatedCargoRepository: typeof import("./federatedCargoRepository").FederatedCargoRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedCargoRepository"], () => require("./federatedCargoRepository"));
+
+export { FederatedChefRepositoryArgs, FederatedChefRepositoryState } from "./federatedChefRepository";
+export type FederatedChefRepository = import("./federatedChefRepository").FederatedChefRepository;
+export const FederatedChefRepository: typeof import("./federatedChefRepository").FederatedChefRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedChefRepository"], () => require("./federatedChefRepository"));
+
+export { FederatedCocoapodsRepositoryArgs, FederatedCocoapodsRepositoryState } from "./federatedCocoapodsRepository";
+export type FederatedCocoapodsRepository = import("./federatedCocoapodsRepository").FederatedCocoapodsRepository;
+export const FederatedCocoapodsRepository: typeof import("./federatedCocoapodsRepository").FederatedCocoapodsRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedCocoapodsRepository"], () => require("./federatedCocoapodsRepository"));
+
+export { FederatedComposerRepositoryArgs, FederatedComposerRepositoryState } from "./federatedComposerRepository";
+export type FederatedComposerRepository = import("./federatedComposerRepository").FederatedComposerRepository;
+export const FederatedComposerRepository: typeof import("./federatedComposerRepository").FederatedComposerRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedComposerRepository"], () => require("./federatedComposerRepository"));
+
+export { FederatedConanRepositoryArgs, FederatedConanRepositoryState } from "./federatedConanRepository";
+export type FederatedConanRepository = import("./federatedConanRepository").FederatedConanRepository;
+export const FederatedConanRepository: typeof import("./federatedConanRepository").FederatedConanRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedConanRepository"], () => require("./federatedConanRepository"));
+
+export { FederatedCondaRepositoryArgs, FederatedCondaRepositoryState } from "./federatedCondaRepository";
+export type FederatedCondaRepository = import("./federatedCondaRepository").FederatedCondaRepository;
+export const FederatedCondaRepository: typeof import("./federatedCondaRepository").FederatedCondaRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedCondaRepository"], () => require("./federatedCondaRepository"));
+
+export { FederatedCranRepositoryArgs, FederatedCranRepositoryState } from "./federatedCranRepository";
+export type FederatedCranRepository = import("./federatedCranRepository").FederatedCranRepository;
+export const FederatedCranRepository: typeof import("./federatedCranRepository").FederatedCranRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedCranRepository"], () => require("./federatedCranRepository"));
+
+export { FederatedDebianRepositoryArgs, FederatedDebianRepositoryState } from "./federatedDebianRepository";
+export type FederatedDebianRepository = import("./federatedDebianRepository").FederatedDebianRepository;
+export const FederatedDebianRepository: typeof import("./federatedDebianRepository").FederatedDebianRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedDebianRepository"], () => require("./federatedDebianRepository"));
+
+export { FederatedDockerRepositoryArgs, FederatedDockerRepositoryState } from "./federatedDockerRepository";
+export type FederatedDockerRepository = import("./federatedDockerRepository").FederatedDockerRepository;
+export const FederatedDockerRepository: typeof import("./federatedDockerRepository").FederatedDockerRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedDockerRepository"], () => require("./federatedDockerRepository"));
+
+export { FederatedDockerV1RepositoryArgs, FederatedDockerV1RepositoryState } from "./federatedDockerV1Repository";
+export type FederatedDockerV1Repository = import("./federatedDockerV1Repository").FederatedDockerV1Repository;
+export const FederatedDockerV1Repository: typeof import("./federatedDockerV1Repository").FederatedDockerV1Repository = null as any;
+utilities.lazyLoad(exports, ["FederatedDockerV1Repository"], () => require("./federatedDockerV1Repository"));
+
+export { FederatedDockerV2RepositoryArgs, FederatedDockerV2RepositoryState } from "./federatedDockerV2Repository";
+export type FederatedDockerV2Repository = import("./federatedDockerV2Repository").FederatedDockerV2Repository;
+export const FederatedDockerV2Repository: typeof import("./federatedDockerV2Repository").FederatedDockerV2Repository = null as any;
+utilities.lazyLoad(exports, ["FederatedDockerV2Repository"], () => require("./federatedDockerV2Repository"));
+
+export { FederatedGemsRepositoryArgs, FederatedGemsRepositoryState } from "./federatedGemsRepository";
+export type FederatedGemsRepository = import("./federatedGemsRepository").FederatedGemsRepository;
+export const FederatedGemsRepository: typeof import("./federatedGemsRepository").FederatedGemsRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedGemsRepository"], () => require("./federatedGemsRepository"));
+
+export { FederatedGenericRepositoryArgs, FederatedGenericRepositoryState } from "./federatedGenericRepository";
+export type FederatedGenericRepository = import("./federatedGenericRepository").FederatedGenericRepository;
+export const FederatedGenericRepository: typeof import("./federatedGenericRepository").FederatedGenericRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedGenericRepository"], () => require("./federatedGenericRepository"));
+
+export { FederatedGitltfsRepositoryArgs, FederatedGitltfsRepositoryState } from "./federatedGitltfsRepository";
+export type FederatedGitltfsRepository = import("./federatedGitltfsRepository").FederatedGitltfsRepository;
+export const FederatedGitltfsRepository: typeof import("./federatedGitltfsRepository").FederatedGitltfsRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedGitltfsRepository"], () => require("./federatedGitltfsRepository"));
+
+export { FederatedGoRepositoryArgs, FederatedGoRepositoryState } from "./federatedGoRepository";
+export type FederatedGoRepository = import("./federatedGoRepository").FederatedGoRepository;
+export const FederatedGoRepository: typeof import("./federatedGoRepository").FederatedGoRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedGoRepository"], () => require("./federatedGoRepository"));
+
+export { FederatedGradleRepositoryArgs, FederatedGradleRepositoryState } from "./federatedGradleRepository";
+export type FederatedGradleRepository = import("./federatedGradleRepository").FederatedGradleRepository;
+export const FederatedGradleRepository: typeof import("./federatedGradleRepository").FederatedGradleRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedGradleRepository"], () => require("./federatedGradleRepository"));
+
+export { FederatedHelmRepositoryArgs, FederatedHelmRepositoryState } from "./federatedHelmRepository";
+export type FederatedHelmRepository = import("./federatedHelmRepository").FederatedHelmRepository;
+export const FederatedHelmRepository: typeof import("./federatedHelmRepository").FederatedHelmRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedHelmRepository"], () => require("./federatedHelmRepository"));
+
+export { FederatedIvyRepositoryArgs, FederatedIvyRepositoryState } from "./federatedIvyRepository";
+export type FederatedIvyRepository = import("./federatedIvyRepository").FederatedIvyRepository;
+export const FederatedIvyRepository: typeof import("./federatedIvyRepository").FederatedIvyRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedIvyRepository"], () => require("./federatedIvyRepository"));
+
+export { FederatedMavenRepositoryArgs, FederatedMavenRepositoryState } from "./federatedMavenRepository";
+export type FederatedMavenRepository = import("./federatedMavenRepository").FederatedMavenRepository;
+export const FederatedMavenRepository: typeof import("./federatedMavenRepository").FederatedMavenRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedMavenRepository"], () => require("./federatedMavenRepository"));
+
+export { FederatedNpmRepositoryArgs, FederatedNpmRepositoryState } from "./federatedNpmRepository";
+export type FederatedNpmRepository = import("./federatedNpmRepository").FederatedNpmRepository;
+export const FederatedNpmRepository: typeof import("./federatedNpmRepository").FederatedNpmRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedNpmRepository"], () => require("./federatedNpmRepository"));
+
+export { FederatedNugetRepositoryArgs, FederatedNugetRepositoryState } from "./federatedNugetRepository";
+export type FederatedNugetRepository = import("./federatedNugetRepository").FederatedNugetRepository;
+export const FederatedNugetRepository: typeof import("./federatedNugetRepository").FederatedNugetRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedNugetRepository"], () => require("./federatedNugetRepository"));
+
+export { FederatedOpkgRepositoryArgs, FederatedOpkgRepositoryState } from "./federatedOpkgRepository";
+export type FederatedOpkgRepository = import("./federatedOpkgRepository").FederatedOpkgRepository;
+export const FederatedOpkgRepository: typeof import("./federatedOpkgRepository").FederatedOpkgRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedOpkgRepository"], () => require("./federatedOpkgRepository"));
+
+export { FederatedPuppetRepositoryArgs, FederatedPuppetRepositoryState } from "./federatedPuppetRepository";
+export type FederatedPuppetRepository = import("./federatedPuppetRepository").FederatedPuppetRepository;
+export const FederatedPuppetRepository: typeof import("./federatedPuppetRepository").FederatedPuppetRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedPuppetRepository"], () => require("./federatedPuppetRepository"));
+
+export { FederatedPypiRepositoryArgs, FederatedPypiRepositoryState } from "./federatedPypiRepository";
+export type FederatedPypiRepository = import("./federatedPypiRepository").FederatedPypiRepository;
+export const FederatedPypiRepository: typeof import("./federatedPypiRepository").FederatedPypiRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedPypiRepository"], () => require("./federatedPypiRepository"));
+
+export { FederatedRpmRepositoryArgs, FederatedRpmRepositoryState } from "./federatedRpmRepository";
+export type FederatedRpmRepository = import("./federatedRpmRepository").FederatedRpmRepository;
+export const FederatedRpmRepository: typeof import("./federatedRpmRepository").FederatedRpmRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedRpmRepository"], () => require("./federatedRpmRepository"));
+
+export { FederatedSbtRepositoryArgs, FederatedSbtRepositoryState } from "./federatedSbtRepository";
+export type FederatedSbtRepository = import("./federatedSbtRepository").FederatedSbtRepository;
+export const FederatedSbtRepository: typeof import("./federatedSbtRepository").FederatedSbtRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedSbtRepository"], () => require("./federatedSbtRepository"));
+
+export { FederatedSwiftRepositoryArgs, FederatedSwiftRepositoryState } from "./federatedSwiftRepository";
+export type FederatedSwiftRepository = import("./federatedSwiftRepository").FederatedSwiftRepository;
+export const FederatedSwiftRepository: typeof import("./federatedSwiftRepository").FederatedSwiftRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedSwiftRepository"], () => require("./federatedSwiftRepository"));
+
+export { FederatedTerraformModuleRepositoryArgs, FederatedTerraformModuleRepositoryState } from "./federatedTerraformModuleRepository";
+export type FederatedTerraformModuleRepository = import("./federatedTerraformModuleRepository").FederatedTerraformModuleRepository;
+export const FederatedTerraformModuleRepository: typeof import("./federatedTerraformModuleRepository").FederatedTerraformModuleRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedTerraformModuleRepository"], () => require("./federatedTerraformModuleRepository"));
+
+export { FederatedTerraformProviderRepositoryArgs, FederatedTerraformProviderRepositoryState } from "./federatedTerraformProviderRepository";
+export type FederatedTerraformProviderRepository = import("./federatedTerraformProviderRepository").FederatedTerraformProviderRepository;
+export const FederatedTerraformProviderRepository: typeof import("./federatedTerraformProviderRepository").FederatedTerraformProviderRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedTerraformProviderRepository"], () => require("./federatedTerraformProviderRepository"));
+
+export { FederatedVagrantRepositoryArgs, FederatedVagrantRepositoryState } from "./federatedVagrantRepository";
+export type FederatedVagrantRepository = import("./federatedVagrantRepository").FederatedVagrantRepository;
+export const FederatedVagrantRepository: typeof import("./federatedVagrantRepository").FederatedVagrantRepository = null as any;
+utilities.lazyLoad(exports, ["FederatedVagrantRepository"], () => require("./federatedVagrantRepository"));
+
+export { GeneralSecurityArgs, GeneralSecurityState } from "./generalSecurity";
+export type GeneralSecurity = import("./generalSecurity").GeneralSecurity;
+export const GeneralSecurity: typeof import("./generalSecurity").GeneralSecurity = null as any;
+utilities.lazyLoad(exports, ["GeneralSecurity"], () => require("./generalSecurity"));
+
+export { GetFileArgs, GetFileResult, GetFileOutputArgs } from "./getFile";
+export const getFile: typeof import("./getFile").getFile = null as any;
+export const getFileOutput: typeof import("./getFile").getFileOutput = null as any;
+utilities.lazyLoad(exports, ["getFile","getFileOutput"], () => require("./getFile"));
+
+export { GetFileinfoArgs, GetFileinfoResult, GetFileinfoOutputArgs } from "./getFileinfo";
+export const getFileinfo: typeof import("./getFileinfo").getFileinfo = null as any;
+export const getFileinfoOutput: typeof import("./getFileinfo").getFileinfoOutput = null as any;
+utilities.lazyLoad(exports, ["getFileinfo","getFileinfoOutput"], () => require("./getFileinfo"));
+
+export { GoRepositoryArgs, GoRepositoryState } from "./goRepository";
+export type GoRepository = import("./goRepository").GoRepository;
+export const GoRepository: typeof import("./goRepository").GoRepository = null as any;
+utilities.lazyLoad(exports, ["GoRepository"], () => require("./goRepository"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { KeypairArgs, KeypairState } from "./keypair";
+export type Keypair = import("./keypair").Keypair;
+export const Keypair: typeof import("./keypair").Keypair = null as any;
+utilities.lazyLoad(exports, ["Keypair"], () => require("./keypair"));
+
+export { LdapGroupSettingArgs, LdapGroupSettingState } from "./ldapGroupSetting";
+export type LdapGroupSetting = import("./ldapGroupSetting").LdapGroupSetting;
+export const LdapGroupSetting: typeof import("./ldapGroupSetting").LdapGroupSetting = null as any;
+utilities.lazyLoad(exports, ["LdapGroupSetting"], () => require("./ldapGroupSetting"));
+
+export { LdapSettingArgs, LdapSettingState } from "./ldapSetting";
+export type LdapSetting = import("./ldapSetting").LdapSetting;
+export const LdapSetting: typeof import("./ldapSetting").LdapSetting = null as any;
+utilities.lazyLoad(exports, ["LdapSetting"], () => require("./ldapSetting"));
+
+export { LocalBowerRepositoryArgs, LocalBowerRepositoryState } from "./localBowerRepository";
+export type LocalBowerRepository = import("./localBowerRepository").LocalBowerRepository;
+export const LocalBowerRepository: typeof import("./localBowerRepository").LocalBowerRepository = null as any;
+utilities.lazyLoad(exports, ["LocalBowerRepository"], () => require("./localBowerRepository"));
+
+export { LocalCargoRepositoryArgs, LocalCargoRepositoryState } from "./localCargoRepository";
+export type LocalCargoRepository = import("./localCargoRepository").LocalCargoRepository;
+export const LocalCargoRepository: typeof import("./localCargoRepository").LocalCargoRepository = null as any;
+utilities.lazyLoad(exports, ["LocalCargoRepository"], () => require("./localCargoRepository"));
+
+export { LocalChefRepositoryArgs, LocalChefRepositoryState } from "./localChefRepository";
+export type LocalChefRepository = import("./localChefRepository").LocalChefRepository;
+export const LocalChefRepository: typeof import("./localChefRepository").LocalChefRepository = null as any;
+utilities.lazyLoad(exports, ["LocalChefRepository"], () => require("./localChefRepository"));
+
+export { LocalCocoapodsRepositoryArgs, LocalCocoapodsRepositoryState } from "./localCocoapodsRepository";
+export type LocalCocoapodsRepository = import("./localCocoapodsRepository").LocalCocoapodsRepository;
+export const LocalCocoapodsRepository: typeof import("./localCocoapodsRepository").LocalCocoapodsRepository = null as any;
+utilities.lazyLoad(exports, ["LocalCocoapodsRepository"], () => require("./localCocoapodsRepository"));
+
+export { LocalComposerRepositoryArgs, LocalComposerRepositoryState } from "./localComposerRepository";
+export type LocalComposerRepository = import("./localComposerRepository").LocalComposerRepository;
+export const LocalComposerRepository: typeof import("./localComposerRepository").LocalComposerRepository = null as any;
+utilities.lazyLoad(exports, ["LocalComposerRepository"], () => require("./localComposerRepository"));
+
+export { LocalConanRepositoryArgs, LocalConanRepositoryState } from "./localConanRepository";
+export type LocalConanRepository = import("./localConanRepository").LocalConanRepository;
+export const LocalConanRepository: typeof import("./localConanRepository").LocalConanRepository = null as any;
+utilities.lazyLoad(exports, ["LocalConanRepository"], () => require("./localConanRepository"));
+
+export { LocalCondaRepositoryArgs, LocalCondaRepositoryState } from "./localCondaRepository";
+export type LocalCondaRepository = import("./localCondaRepository").LocalCondaRepository;
+export const LocalCondaRepository: typeof import("./localCondaRepository").LocalCondaRepository = null as any;
+utilities.lazyLoad(exports, ["LocalCondaRepository"], () => require("./localCondaRepository"));
+
+export { LocalCranRepositoryArgs, LocalCranRepositoryState } from "./localCranRepository";
+export type LocalCranRepository = import("./localCranRepository").LocalCranRepository;
+export const LocalCranRepository: typeof import("./localCranRepository").LocalCranRepository = null as any;
+utilities.lazyLoad(exports, ["LocalCranRepository"], () => require("./localCranRepository"));
+
+export { LocalGemsRepositoryArgs, LocalGemsRepositoryState } from "./localGemsRepository";
+export type LocalGemsRepository = import("./localGemsRepository").LocalGemsRepository;
+export const LocalGemsRepository: typeof import("./localGemsRepository").LocalGemsRepository = null as any;
+utilities.lazyLoad(exports, ["LocalGemsRepository"], () => require("./localGemsRepository"));
+
+export { LocalGenericRepositoryArgs, LocalGenericRepositoryState } from "./localGenericRepository";
+export type LocalGenericRepository = import("./localGenericRepository").LocalGenericRepository;
+export const LocalGenericRepository: typeof import("./localGenericRepository").LocalGenericRepository = null as any;
+utilities.lazyLoad(exports, ["LocalGenericRepository"], () => require("./localGenericRepository"));
+
+export { LocalGitltfsRepositoryArgs, LocalGitltfsRepositoryState } from "./localGitltfsRepository";
+export type LocalGitltfsRepository = import("./localGitltfsRepository").LocalGitltfsRepository;
+export const LocalGitltfsRepository: typeof import("./localGitltfsRepository").LocalGitltfsRepository = null as any;
+utilities.lazyLoad(exports, ["LocalGitltfsRepository"], () => require("./localGitltfsRepository"));
+
+export { LocalGoRepositoryArgs, LocalGoRepositoryState } from "./localGoRepository";
+export type LocalGoRepository = import("./localGoRepository").LocalGoRepository;
+export const LocalGoRepository: typeof import("./localGoRepository").LocalGoRepository = null as any;
+utilities.lazyLoad(exports, ["LocalGoRepository"], () => require("./localGoRepository"));
+
+export { LocalGradleRepositoryArgs, LocalGradleRepositoryState } from "./localGradleRepository";
+export type LocalGradleRepository = import("./localGradleRepository").LocalGradleRepository;
+export const LocalGradleRepository: typeof import("./localGradleRepository").LocalGradleRepository = null as any;
+utilities.lazyLoad(exports, ["LocalGradleRepository"], () => require("./localGradleRepository"));
+
+export { LocalHelmRepositoryArgs, LocalHelmRepositoryState } from "./localHelmRepository";
+export type LocalHelmRepository = import("./localHelmRepository").LocalHelmRepository;
+export const LocalHelmRepository: typeof import("./localHelmRepository").LocalHelmRepository = null as any;
+utilities.lazyLoad(exports, ["LocalHelmRepository"], () => require("./localHelmRepository"));
+
+export { LocalIvyRepositoryArgs, LocalIvyRepositoryState } from "./localIvyRepository";
+export type LocalIvyRepository = import("./localIvyRepository").LocalIvyRepository;
+export const LocalIvyRepository: typeof import("./localIvyRepository").LocalIvyRepository = null as any;
+utilities.lazyLoad(exports, ["LocalIvyRepository"], () => require("./localIvyRepository"));
+
+export { LocalMavenRepositoryArgs, LocalMavenRepositoryState } from "./localMavenRepository";
+export type LocalMavenRepository = import("./localMavenRepository").LocalMavenRepository;
+export const LocalMavenRepository: typeof import("./localMavenRepository").LocalMavenRepository = null as any;
+utilities.lazyLoad(exports, ["LocalMavenRepository"], () => require("./localMavenRepository"));
+
+export { LocalNpmRepositoryArgs, LocalNpmRepositoryState } from "./localNpmRepository";
+export type LocalNpmRepository = import("./localNpmRepository").LocalNpmRepository;
+export const LocalNpmRepository: typeof import("./localNpmRepository").LocalNpmRepository = null as any;
+utilities.lazyLoad(exports, ["LocalNpmRepository"], () => require("./localNpmRepository"));
+
+export { LocalNugetRepositoryArgs, LocalNugetRepositoryState } from "./localNugetRepository";
+export type LocalNugetRepository = import("./localNugetRepository").LocalNugetRepository;
+export const LocalNugetRepository: typeof import("./localNugetRepository").LocalNugetRepository = null as any;
+utilities.lazyLoad(exports, ["LocalNugetRepository"], () => require("./localNugetRepository"));
+
+export { LocalOpkgRepositoryArgs, LocalOpkgRepositoryState } from "./localOpkgRepository";
+export type LocalOpkgRepository = import("./localOpkgRepository").LocalOpkgRepository;
+export const LocalOpkgRepository: typeof import("./localOpkgRepository").LocalOpkgRepository = null as any;
+utilities.lazyLoad(exports, ["LocalOpkgRepository"], () => require("./localOpkgRepository"));
+
+export { LocalPubRepositoryArgs, LocalPubRepositoryState } from "./localPubRepository";
+export type LocalPubRepository = import("./localPubRepository").LocalPubRepository;
+export const LocalPubRepository: typeof import("./localPubRepository").LocalPubRepository = null as any;
+utilities.lazyLoad(exports, ["LocalPubRepository"], () => require("./localPubRepository"));
+
+export { LocalPuppetRepositoryArgs, LocalPuppetRepositoryState } from "./localPuppetRepository";
+export type LocalPuppetRepository = import("./localPuppetRepository").LocalPuppetRepository;
+export const LocalPuppetRepository: typeof import("./localPuppetRepository").LocalPuppetRepository = null as any;
+utilities.lazyLoad(exports, ["LocalPuppetRepository"], () => require("./localPuppetRepository"));
+
+export { LocalPypiRepositoryArgs, LocalPypiRepositoryState } from "./localPypiRepository";
+export type LocalPypiRepository = import("./localPypiRepository").LocalPypiRepository;
+export const LocalPypiRepository: typeof import("./localPypiRepository").LocalPypiRepository = null as any;
+utilities.lazyLoad(exports, ["LocalPypiRepository"], () => require("./localPypiRepository"));
+
+export { LocalRpmRepositoryArgs, LocalRpmRepositoryState } from "./localRpmRepository";
+export type LocalRpmRepository = import("./localRpmRepository").LocalRpmRepository;
+export const LocalRpmRepository: typeof import("./localRpmRepository").LocalRpmRepository = null as any;
+utilities.lazyLoad(exports, ["LocalRpmRepository"], () => require("./localRpmRepository"));
+
+export { LocalSbtRepositoryArgs, LocalSbtRepositoryState } from "./localSbtRepository";
+export type LocalSbtRepository = import("./localSbtRepository").LocalSbtRepository;
+export const LocalSbtRepository: typeof import("./localSbtRepository").LocalSbtRepository = null as any;
+utilities.lazyLoad(exports, ["LocalSbtRepository"], () => require("./localSbtRepository"));
+
+export { LocalSwiftRepositoryArgs, LocalSwiftRepositoryState } from "./localSwiftRepository";
+export type LocalSwiftRepository = import("./localSwiftRepository").LocalSwiftRepository;
+export const LocalSwiftRepository: typeof import("./localSwiftRepository").LocalSwiftRepository = null as any;
+utilities.lazyLoad(exports, ["LocalSwiftRepository"], () => require("./localSwiftRepository"));
+
+export { LocalTerraformBackendRepositoryArgs, LocalTerraformBackendRepositoryState } from "./localTerraformBackendRepository";
+export type LocalTerraformBackendRepository = import("./localTerraformBackendRepository").LocalTerraformBackendRepository;
+export const LocalTerraformBackendRepository: typeof import("./localTerraformBackendRepository").LocalTerraformBackendRepository = null as any;
+utilities.lazyLoad(exports, ["LocalTerraformBackendRepository"], () => require("./localTerraformBackendRepository"));
+
+export { LocalTerraformModuleRepositoryArgs, LocalTerraformModuleRepositoryState } from "./localTerraformModuleRepository";
+export type LocalTerraformModuleRepository = import("./localTerraformModuleRepository").LocalTerraformModuleRepository;
+export const LocalTerraformModuleRepository: typeof import("./localTerraformModuleRepository").LocalTerraformModuleRepository = null as any;
+utilities.lazyLoad(exports, ["LocalTerraformModuleRepository"], () => require("./localTerraformModuleRepository"));
+
+export { LocalTerraformProviderRepositoryArgs, LocalTerraformProviderRepositoryState } from "./localTerraformProviderRepository";
+export type LocalTerraformProviderRepository = import("./localTerraformProviderRepository").LocalTerraformProviderRepository;
+export const LocalTerraformProviderRepository: typeof import("./localTerraformProviderRepository").LocalTerraformProviderRepository = null as any;
+utilities.lazyLoad(exports, ["LocalTerraformProviderRepository"], () => require("./localTerraformProviderRepository"));
+
+export { LocalVagrantRepositoryArgs, LocalVagrantRepositoryState } from "./localVagrantRepository";
+export type LocalVagrantRepository = import("./localVagrantRepository").LocalVagrantRepository;
+export const LocalVagrantRepository: typeof import("./localVagrantRepository").LocalVagrantRepository = null as any;
+utilities.lazyLoad(exports, ["LocalVagrantRepository"], () => require("./localVagrantRepository"));
+
+export { ManagedUserArgs, ManagedUserState } from "./managedUser";
+export type ManagedUser = import("./managedUser").ManagedUser;
+export const ManagedUser: typeof import("./managedUser").ManagedUser = null as any;
+utilities.lazyLoad(exports, ["ManagedUser"], () => require("./managedUser"));
+
+export { MavenRepositoryArgs, MavenRepositoryState } from "./mavenRepository";
+export type MavenRepository = import("./mavenRepository").MavenRepository;
+export const MavenRepository: typeof import("./mavenRepository").MavenRepository = null as any;
+utilities.lazyLoad(exports, ["MavenRepository"], () => require("./mavenRepository"));
+
+export { OauthSettingsArgs, OauthSettingsState } from "./oauthSettings";
+export type OauthSettings = import("./oauthSettings").OauthSettings;
+export const OauthSettings: typeof import("./oauthSettings").OauthSettings = null as any;
+utilities.lazyLoad(exports, ["OauthSettings"], () => require("./oauthSettings"));
+
+export { PermissionTargetArgs, PermissionTargetState } from "./permissionTarget";
+export type PermissionTarget = import("./permissionTarget").PermissionTarget;
+export const PermissionTarget: typeof import("./permissionTarget").PermissionTarget = null as any;
+utilities.lazyLoad(exports, ["PermissionTarget"], () => require("./permissionTarget"));
+
+export { PermissionTargetsArgs, PermissionTargetsState } from "./permissionTargets";
+export type PermissionTargets = import("./permissionTargets").PermissionTargets;
+export const PermissionTargets: typeof import("./permissionTargets").PermissionTargets = null as any;
+utilities.lazyLoad(exports, ["PermissionTargets"], () => require("./permissionTargets"));
+
+export { PropertySetArgs, PropertySetState } from "./propertySet";
+export type PropertySet = import("./propertySet").PropertySet;
+export const PropertySet: typeof import("./propertySet").PropertySet = null as any;
+utilities.lazyLoad(exports, ["PropertySet"], () => require("./propertySet"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { ProxyArgs, ProxyState } from "./proxy";
+export type Proxy = import("./proxy").Proxy;
+export const Proxy: typeof import("./proxy").Proxy = null as any;
+utilities.lazyLoad(exports, ["Proxy"], () => require("./proxy"));
+
+export { PullReplicationArgs, PullReplicationState } from "./pullReplication";
+export type PullReplication = import("./pullReplication").PullReplication;
+export const PullReplication: typeof import("./pullReplication").PullReplication = null as any;
+utilities.lazyLoad(exports, ["PullReplication"], () => require("./pullReplication"));
+
+export { PushReplicationArgs, PushReplicationState } from "./pushReplication";
+export type PushReplication = import("./pushReplication").PushReplication;
+export const PushReplication: typeof import("./pushReplication").PushReplication = null as any;
+utilities.lazyLoad(exports, ["PushReplication"], () => require("./pushReplication"));
+
+export { ReleaseBundleWebhookArgs, ReleaseBundleWebhookState } from "./releaseBundleWebhook";
+export type ReleaseBundleWebhook = import("./releaseBundleWebhook").ReleaseBundleWebhook;
+export const ReleaseBundleWebhook: typeof import("./releaseBundleWebhook").ReleaseBundleWebhook = null as any;
+utilities.lazyLoad(exports, ["ReleaseBundleWebhook"], () => require("./releaseBundleWebhook"));
+
+export { RemoteAlpineRepositoryArgs, RemoteAlpineRepositoryState } from "./remoteAlpineRepository";
+export type RemoteAlpineRepository = import("./remoteAlpineRepository").RemoteAlpineRepository;
+export const RemoteAlpineRepository: typeof import("./remoteAlpineRepository").RemoteAlpineRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteAlpineRepository"], () => require("./remoteAlpineRepository"));
+
+export { RemoteBowerRepositoryArgs, RemoteBowerRepositoryState } from "./remoteBowerRepository";
+export type RemoteBowerRepository = import("./remoteBowerRepository").RemoteBowerRepository;
+export const RemoteBowerRepository: typeof import("./remoteBowerRepository").RemoteBowerRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteBowerRepository"], () => require("./remoteBowerRepository"));
+
+export { RemoteCargoRepositoryArgs, RemoteCargoRepositoryState } from "./remoteCargoRepository";
+export type RemoteCargoRepository = import("./remoteCargoRepository").RemoteCargoRepository;
+export const RemoteCargoRepository: typeof import("./remoteCargoRepository").RemoteCargoRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteCargoRepository"], () => require("./remoteCargoRepository"));
+
+export { RemoteChefRepositoryArgs, RemoteChefRepositoryState } from "./remoteChefRepository";
+export type RemoteChefRepository = import("./remoteChefRepository").RemoteChefRepository;
+export const RemoteChefRepository: typeof import("./remoteChefRepository").RemoteChefRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteChefRepository"], () => require("./remoteChefRepository"));
+
+export { RemoteCocoapodsRepositoryArgs, RemoteCocoapodsRepositoryState } from "./remoteCocoapodsRepository";
+export type RemoteCocoapodsRepository = import("./remoteCocoapodsRepository").RemoteCocoapodsRepository;
+export const RemoteCocoapodsRepository: typeof import("./remoteCocoapodsRepository").RemoteCocoapodsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteCocoapodsRepository"], () => require("./remoteCocoapodsRepository"));
+
+export { RemoteComposerRepositoryArgs, RemoteComposerRepositoryState } from "./remoteComposerRepository";
+export type RemoteComposerRepository = import("./remoteComposerRepository").RemoteComposerRepository;
+export const RemoteComposerRepository: typeof import("./remoteComposerRepository").RemoteComposerRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteComposerRepository"], () => require("./remoteComposerRepository"));
+
+export { RemoteConanRepositoryArgs, RemoteConanRepositoryState } from "./remoteConanRepository";
+export type RemoteConanRepository = import("./remoteConanRepository").RemoteConanRepository;
+export const RemoteConanRepository: typeof import("./remoteConanRepository").RemoteConanRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteConanRepository"], () => require("./remoteConanRepository"));
+
+export { RemoteCondaRepositoryArgs, RemoteCondaRepositoryState } from "./remoteCondaRepository";
+export type RemoteCondaRepository = import("./remoteCondaRepository").RemoteCondaRepository;
+export const RemoteCondaRepository: typeof import("./remoteCondaRepository").RemoteCondaRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteCondaRepository"], () => require("./remoteCondaRepository"));
+
+export { RemoteCranRepositoryArgs, RemoteCranRepositoryState } from "./remoteCranRepository";
+export type RemoteCranRepository = import("./remoteCranRepository").RemoteCranRepository;
+export const RemoteCranRepository: typeof import("./remoteCranRepository").RemoteCranRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteCranRepository"], () => require("./remoteCranRepository"));
+
+export { RemoteDebianRepositoryArgs, RemoteDebianRepositoryState } from "./remoteDebianRepository";
+export type RemoteDebianRepository = import("./remoteDebianRepository").RemoteDebianRepository;
+export const RemoteDebianRepository: typeof import("./remoteDebianRepository").RemoteDebianRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteDebianRepository"], () => require("./remoteDebianRepository"));
+
+export { RemoteDockerRepositoryArgs, RemoteDockerRepositoryState } from "./remoteDockerRepository";
+export type RemoteDockerRepository = import("./remoteDockerRepository").RemoteDockerRepository;
+export const RemoteDockerRepository: typeof import("./remoteDockerRepository").RemoteDockerRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteDockerRepository"], () => require("./remoteDockerRepository"));
+
+export { RemoteGemsRepositoryArgs, RemoteGemsRepositoryState } from "./remoteGemsRepository";
+export type RemoteGemsRepository = import("./remoteGemsRepository").RemoteGemsRepository;
+export const RemoteGemsRepository: typeof import("./remoteGemsRepository").RemoteGemsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteGemsRepository"], () => require("./remoteGemsRepository"));
+
+export { RemoteGenericRepositoryArgs, RemoteGenericRepositoryState } from "./remoteGenericRepository";
+export type RemoteGenericRepository = import("./remoteGenericRepository").RemoteGenericRepository;
+export const RemoteGenericRepository: typeof import("./remoteGenericRepository").RemoteGenericRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteGenericRepository"], () => require("./remoteGenericRepository"));
+
+export { RemoteGitlfsRepositoryArgs, RemoteGitlfsRepositoryState } from "./remoteGitlfsRepository";
+export type RemoteGitlfsRepository = import("./remoteGitlfsRepository").RemoteGitlfsRepository;
+export const RemoteGitlfsRepository: typeof import("./remoteGitlfsRepository").RemoteGitlfsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteGitlfsRepository"], () => require("./remoteGitlfsRepository"));
+
+export { RemoteGoRepositoryArgs, RemoteGoRepositoryState } from "./remoteGoRepository";
+export type RemoteGoRepository = import("./remoteGoRepository").RemoteGoRepository;
+export const RemoteGoRepository: typeof import("./remoteGoRepository").RemoteGoRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteGoRepository"], () => require("./remoteGoRepository"));
+
+export { RemoteGradleRepositoryArgs, RemoteGradleRepositoryState } from "./remoteGradleRepository";
+export type RemoteGradleRepository = import("./remoteGradleRepository").RemoteGradleRepository;
+export const RemoteGradleRepository: typeof import("./remoteGradleRepository").RemoteGradleRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteGradleRepository"], () => require("./remoteGradleRepository"));
+
+export { RemoteHelmRepositoryArgs, RemoteHelmRepositoryState } from "./remoteHelmRepository";
+export type RemoteHelmRepository = import("./remoteHelmRepository").RemoteHelmRepository;
+export const RemoteHelmRepository: typeof import("./remoteHelmRepository").RemoteHelmRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteHelmRepository"], () => require("./remoteHelmRepository"));
+
+export { RemoteIvyRepositoryArgs, RemoteIvyRepositoryState } from "./remoteIvyRepository";
+export type RemoteIvyRepository = import("./remoteIvyRepository").RemoteIvyRepository;
+export const RemoteIvyRepository: typeof import("./remoteIvyRepository").RemoteIvyRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteIvyRepository"], () => require("./remoteIvyRepository"));
+
+export { RemoteMavenRepositoryArgs, RemoteMavenRepositoryState } from "./remoteMavenRepository";
+export type RemoteMavenRepository = import("./remoteMavenRepository").RemoteMavenRepository;
+export const RemoteMavenRepository: typeof import("./remoteMavenRepository").RemoteMavenRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteMavenRepository"], () => require("./remoteMavenRepository"));
+
+export { RemoteNpmRepositoryArgs, RemoteNpmRepositoryState } from "./remoteNpmRepository";
+export type RemoteNpmRepository = import("./remoteNpmRepository").RemoteNpmRepository;
+export const RemoteNpmRepository: typeof import("./remoteNpmRepository").RemoteNpmRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteNpmRepository"], () => require("./remoteNpmRepository"));
+
+export { RemoteNugetRepositoryArgs, RemoteNugetRepositoryState } from "./remoteNugetRepository";
+export type RemoteNugetRepository = import("./remoteNugetRepository").RemoteNugetRepository;
+export const RemoteNugetRepository: typeof import("./remoteNugetRepository").RemoteNugetRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteNugetRepository"], () => require("./remoteNugetRepository"));
+
+export { RemoteOpkgRepositoryArgs, RemoteOpkgRepositoryState } from "./remoteOpkgRepository";
+export type RemoteOpkgRepository = import("./remoteOpkgRepository").RemoteOpkgRepository;
+export const RemoteOpkgRepository: typeof import("./remoteOpkgRepository").RemoteOpkgRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteOpkgRepository"], () => require("./remoteOpkgRepository"));
+
+export { RemoteP2RepositoryArgs, RemoteP2RepositoryState } from "./remoteP2Repository";
+export type RemoteP2Repository = import("./remoteP2Repository").RemoteP2Repository;
+export const RemoteP2Repository: typeof import("./remoteP2Repository").RemoteP2Repository = null as any;
+utilities.lazyLoad(exports, ["RemoteP2Repository"], () => require("./remoteP2Repository"));
+
+export { RemotePubRepositoryArgs, RemotePubRepositoryState } from "./remotePubRepository";
+export type RemotePubRepository = import("./remotePubRepository").RemotePubRepository;
+export const RemotePubRepository: typeof import("./remotePubRepository").RemotePubRepository = null as any;
+utilities.lazyLoad(exports, ["RemotePubRepository"], () => require("./remotePubRepository"));
+
+export { RemotePuppetRepositoryArgs, RemotePuppetRepositoryState } from "./remotePuppetRepository";
+export type RemotePuppetRepository = import("./remotePuppetRepository").RemotePuppetRepository;
+export const RemotePuppetRepository: typeof import("./remotePuppetRepository").RemotePuppetRepository = null as any;
+utilities.lazyLoad(exports, ["RemotePuppetRepository"], () => require("./remotePuppetRepository"));
+
+export { RemotePypiRepositoryArgs, RemotePypiRepositoryState } from "./remotePypiRepository";
+export type RemotePypiRepository = import("./remotePypiRepository").RemotePypiRepository;
+export const RemotePypiRepository: typeof import("./remotePypiRepository").RemotePypiRepository = null as any;
+utilities.lazyLoad(exports, ["RemotePypiRepository"], () => require("./remotePypiRepository"));
+
+export { RemoteRpmRepositoryArgs, RemoteRpmRepositoryState } from "./remoteRpmRepository";
+export type RemoteRpmRepository = import("./remoteRpmRepository").RemoteRpmRepository;
+export const RemoteRpmRepository: typeof import("./remoteRpmRepository").RemoteRpmRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteRpmRepository"], () => require("./remoteRpmRepository"));
+
+export { RemoteSbtRepositoryArgs, RemoteSbtRepositoryState } from "./remoteSbtRepository";
+export type RemoteSbtRepository = import("./remoteSbtRepository").RemoteSbtRepository;
+export const RemoteSbtRepository: typeof import("./remoteSbtRepository").RemoteSbtRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteSbtRepository"], () => require("./remoteSbtRepository"));
+
+export { RemoteSwiftRepositoryArgs, RemoteSwiftRepositoryState } from "./remoteSwiftRepository";
+export type RemoteSwiftRepository = import("./remoteSwiftRepository").RemoteSwiftRepository;
+export const RemoteSwiftRepository: typeof import("./remoteSwiftRepository").RemoteSwiftRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteSwiftRepository"], () => require("./remoteSwiftRepository"));
+
+export { RemoteTerraformRepositoryArgs, RemoteTerraformRepositoryState } from "./remoteTerraformRepository";
+export type RemoteTerraformRepository = import("./remoteTerraformRepository").RemoteTerraformRepository;
+export const RemoteTerraformRepository: typeof import("./remoteTerraformRepository").RemoteTerraformRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteTerraformRepository"], () => require("./remoteTerraformRepository"));
+
+export { RemoteVcsRepositoryArgs, RemoteVcsRepositoryState } from "./remoteVcsRepository";
+export type RemoteVcsRepository = import("./remoteVcsRepository").RemoteVcsRepository;
+export const RemoteVcsRepository: typeof import("./remoteVcsRepository").RemoteVcsRepository = null as any;
+utilities.lazyLoad(exports, ["RemoteVcsRepository"], () => require("./remoteVcsRepository"));
+
+export { ReplicationConfigArgs, ReplicationConfigState } from "./replicationConfig";
+export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
+export const ReplicationConfig: typeof import("./replicationConfig").ReplicationConfig = null as any;
+utilities.lazyLoad(exports, ["ReplicationConfig"], () => require("./replicationConfig"));
+
+export { RepositoryLayoutArgs, RepositoryLayoutState } from "./repositoryLayout";
+export type RepositoryLayout = import("./repositoryLayout").RepositoryLayout;
+export const RepositoryLayout: typeof import("./repositoryLayout").RepositoryLayout = null as any;
+utilities.lazyLoad(exports, ["RepositoryLayout"], () => require("./repositoryLayout"));
+
+export { SamlSettingsArgs, SamlSettingsState } from "./samlSettings";
+export type SamlSettings = import("./samlSettings").SamlSettings;
+export const SamlSettings: typeof import("./samlSettings").SamlSettings = null as any;
+utilities.lazyLoad(exports, ["SamlSettings"], () => require("./samlSettings"));
+
+export { ScopedTokenArgs, ScopedTokenState } from "./scopedToken";
+export type ScopedToken = import("./scopedToken").ScopedToken;
+export const ScopedToken: typeof import("./scopedToken").ScopedToken = null as any;
+utilities.lazyLoad(exports, ["ScopedToken"], () => require("./scopedToken"));
+
+export { SingleReplicationConfigArgs, SingleReplicationConfigState } from "./singleReplicationConfig";
+export type SingleReplicationConfig = import("./singleReplicationConfig").SingleReplicationConfig;
+export const SingleReplicationConfig: typeof import("./singleReplicationConfig").SingleReplicationConfig = null as any;
+utilities.lazyLoad(exports, ["SingleReplicationConfig"], () => require("./singleReplicationConfig"));
+
+export { UnmanagedUserArgs, UnmanagedUserState } from "./unmanagedUser";
+export type UnmanagedUser = import("./unmanagedUser").UnmanagedUser;
+export const UnmanagedUser: typeof import("./unmanagedUser").UnmanagedUser = null as any;
+utilities.lazyLoad(exports, ["UnmanagedUser"], () => require("./unmanagedUser"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { VirtualAlpineRepositoryArgs, VirtualAlpineRepositoryState } from "./virtualAlpineRepository";
+export type VirtualAlpineRepository = import("./virtualAlpineRepository").VirtualAlpineRepository;
+export const VirtualAlpineRepository: typeof import("./virtualAlpineRepository").VirtualAlpineRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualAlpineRepository"], () => require("./virtualAlpineRepository"));
+
+export { VirtualBowerRepositoryArgs, VirtualBowerRepositoryState } from "./virtualBowerRepository";
+export type VirtualBowerRepository = import("./virtualBowerRepository").VirtualBowerRepository;
+export const VirtualBowerRepository: typeof import("./virtualBowerRepository").VirtualBowerRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualBowerRepository"], () => require("./virtualBowerRepository"));
+
+export { VirtualChefRepositoryArgs, VirtualChefRepositoryState } from "./virtualChefRepository";
+export type VirtualChefRepository = import("./virtualChefRepository").VirtualChefRepository;
+export const VirtualChefRepository: typeof import("./virtualChefRepository").VirtualChefRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualChefRepository"], () => require("./virtualChefRepository"));
+
+export { VirtualComposerRepositoryArgs, VirtualComposerRepositoryState } from "./virtualComposerRepository";
+export type VirtualComposerRepository = import("./virtualComposerRepository").VirtualComposerRepository;
+export const VirtualComposerRepository: typeof import("./virtualComposerRepository").VirtualComposerRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualComposerRepository"], () => require("./virtualComposerRepository"));
+
+export { VirtualConanRepositoryArgs, VirtualConanRepositoryState } from "./virtualConanRepository";
+export type VirtualConanRepository = import("./virtualConanRepository").VirtualConanRepository;
+export const VirtualConanRepository: typeof import("./virtualConanRepository").VirtualConanRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualConanRepository"], () => require("./virtualConanRepository"));
+
+export { VirtualCondaRepositoryArgs, VirtualCondaRepositoryState } from "./virtualCondaRepository";
+export type VirtualCondaRepository = import("./virtualCondaRepository").VirtualCondaRepository;
+export const VirtualCondaRepository: typeof import("./virtualCondaRepository").VirtualCondaRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualCondaRepository"], () => require("./virtualCondaRepository"));
+
+export { VirtualCranRepositoryArgs, VirtualCranRepositoryState } from "./virtualCranRepository";
+export type VirtualCranRepository = import("./virtualCranRepository").VirtualCranRepository;
+export const VirtualCranRepository: typeof import("./virtualCranRepository").VirtualCranRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualCranRepository"], () => require("./virtualCranRepository"));
+
+export { VirtualDebianRepositoryArgs, VirtualDebianRepositoryState } from "./virtualDebianRepository";
+export type VirtualDebianRepository = import("./virtualDebianRepository").VirtualDebianRepository;
+export const VirtualDebianRepository: typeof import("./virtualDebianRepository").VirtualDebianRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualDebianRepository"], () => require("./virtualDebianRepository"));
+
+export { VirtualDockerRepositoryArgs, VirtualDockerRepositoryState } from "./virtualDockerRepository";
+export type VirtualDockerRepository = import("./virtualDockerRepository").VirtualDockerRepository;
+export const VirtualDockerRepository: typeof import("./virtualDockerRepository").VirtualDockerRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualDockerRepository"], () => require("./virtualDockerRepository"));
+
+export { VirtualGemsRepositoryArgs, VirtualGemsRepositoryState } from "./virtualGemsRepository";
+export type VirtualGemsRepository = import("./virtualGemsRepository").VirtualGemsRepository;
+export const VirtualGemsRepository: typeof import("./virtualGemsRepository").VirtualGemsRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualGemsRepository"], () => require("./virtualGemsRepository"));
+
+export { VirtualGenericRepositoryArgs, VirtualGenericRepositoryState } from "./virtualGenericRepository";
+export type VirtualGenericRepository = import("./virtualGenericRepository").VirtualGenericRepository;
+export const VirtualGenericRepository: typeof import("./virtualGenericRepository").VirtualGenericRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualGenericRepository"], () => require("./virtualGenericRepository"));
+
+export { VirtualGitlfsRepositoryArgs, VirtualGitlfsRepositoryState } from "./virtualGitlfsRepository";
+export type VirtualGitlfsRepository = import("./virtualGitlfsRepository").VirtualGitlfsRepository;
+export const VirtualGitlfsRepository: typeof import("./virtualGitlfsRepository").VirtualGitlfsRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualGitlfsRepository"], () => require("./virtualGitlfsRepository"));
+
+export { VirtualGradleRepositoryArgs, VirtualGradleRepositoryState } from "./virtualGradleRepository";
+export type VirtualGradleRepository = import("./virtualGradleRepository").VirtualGradleRepository;
+export const VirtualGradleRepository: typeof import("./virtualGradleRepository").VirtualGradleRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualGradleRepository"], () => require("./virtualGradleRepository"));
+
+export { VirtualHelmRepositoryArgs, VirtualHelmRepositoryState } from "./virtualHelmRepository";
+export type VirtualHelmRepository = import("./virtualHelmRepository").VirtualHelmRepository;
+export const VirtualHelmRepository: typeof import("./virtualHelmRepository").VirtualHelmRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualHelmRepository"], () => require("./virtualHelmRepository"));
+
+export { VirtualIvyRepositoryArgs, VirtualIvyRepositoryState } from "./virtualIvyRepository";
+export type VirtualIvyRepository = import("./virtualIvyRepository").VirtualIvyRepository;
+export const VirtualIvyRepository: typeof import("./virtualIvyRepository").VirtualIvyRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualIvyRepository"], () => require("./virtualIvyRepository"));
+
+export { VirtualNpmRepositoryArgs, VirtualNpmRepositoryState } from "./virtualNpmRepository";
+export type VirtualNpmRepository = import("./virtualNpmRepository").VirtualNpmRepository;
+export const VirtualNpmRepository: typeof import("./virtualNpmRepository").VirtualNpmRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualNpmRepository"], () => require("./virtualNpmRepository"));
+
+export { VirtualNugetRepositoryArgs, VirtualNugetRepositoryState } from "./virtualNugetRepository";
+export type VirtualNugetRepository = import("./virtualNugetRepository").VirtualNugetRepository;
+export const VirtualNugetRepository: typeof import("./virtualNugetRepository").VirtualNugetRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualNugetRepository"], () => require("./virtualNugetRepository"));
+
+export { VirtualP2RepositoryArgs, VirtualP2RepositoryState } from "./virtualP2Repository";
+export type VirtualP2Repository = import("./virtualP2Repository").VirtualP2Repository;
+export const VirtualP2Repository: typeof import("./virtualP2Repository").VirtualP2Repository = null as any;
+utilities.lazyLoad(exports, ["VirtualP2Repository"], () => require("./virtualP2Repository"));
+
+export { VirtualPubRepositoryArgs, VirtualPubRepositoryState } from "./virtualPubRepository";
+export type VirtualPubRepository = import("./virtualPubRepository").VirtualPubRepository;
+export const VirtualPubRepository: typeof import("./virtualPubRepository").VirtualPubRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualPubRepository"], () => require("./virtualPubRepository"));
+
+export { VirtualPuppetRepositoryArgs, VirtualPuppetRepositoryState } from "./virtualPuppetRepository";
+export type VirtualPuppetRepository = import("./virtualPuppetRepository").VirtualPuppetRepository;
+export const VirtualPuppetRepository: typeof import("./virtualPuppetRepository").VirtualPuppetRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualPuppetRepository"], () => require("./virtualPuppetRepository"));
+
+export { VirtualPypiRepositoryArgs, VirtualPypiRepositoryState } from "./virtualPypiRepository";
+export type VirtualPypiRepository = import("./virtualPypiRepository").VirtualPypiRepository;
+export const VirtualPypiRepository: typeof import("./virtualPypiRepository").VirtualPypiRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualPypiRepository"], () => require("./virtualPypiRepository"));
+
+export { VirtualRpmRepositoryArgs, VirtualRpmRepositoryState } from "./virtualRpmRepository";
+export type VirtualRpmRepository = import("./virtualRpmRepository").VirtualRpmRepository;
+export const VirtualRpmRepository: typeof import("./virtualRpmRepository").VirtualRpmRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualRpmRepository"], () => require("./virtualRpmRepository"));
+
+export { VirtualSbtRepositoryArgs, VirtualSbtRepositoryState } from "./virtualSbtRepository";
+export type VirtualSbtRepository = import("./virtualSbtRepository").VirtualSbtRepository;
+export const VirtualSbtRepository: typeof import("./virtualSbtRepository").VirtualSbtRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualSbtRepository"], () => require("./virtualSbtRepository"));
+
+export { VirtualSwiftRepositoryArgs, VirtualSwiftRepositoryState } from "./virtualSwiftRepository";
+export type VirtualSwiftRepository = import("./virtualSwiftRepository").VirtualSwiftRepository;
+export const VirtualSwiftRepository: typeof import("./virtualSwiftRepository").VirtualSwiftRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualSwiftRepository"], () => require("./virtualSwiftRepository"));
+
+export { VirtualTerraformRepositoryArgs, VirtualTerraformRepositoryState } from "./virtualTerraformRepository";
+export type VirtualTerraformRepository = import("./virtualTerraformRepository").VirtualTerraformRepository;
+export const VirtualTerraformRepository: typeof import("./virtualTerraformRepository").VirtualTerraformRepository = null as any;
+utilities.lazyLoad(exports, ["VirtualTerraformRepository"], () => require("./virtualTerraformRepository"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -168,159 +804,6 @@ export {
     config,
     types,
 };
-
-// Import resources to register:
-import { AccessToken } from "./accessToken";
-import { AlpineRepository } from "./alpineRepository";
-import { AnonymousUser } from "./anonymousUser";
-import { ApiKey } from "./apiKey";
-import { ArtifactPropertyWebhook } from "./artifactPropertyWebhook";
-import { ArtifactWebhook } from "./artifactWebhook";
-import { ArtifactoryReleaseBundleWebhook } from "./artifactoryReleaseBundleWebhook";
-import { Backup } from "./backup";
-import { BuildWebhook } from "./buildWebhook";
-import { Certificate } from "./certificate";
-import { DebianRepository } from "./debianRepository";
-import { DistributionWebhook } from "./distributionWebhook";
-import { DockerV1Repository } from "./dockerV1Repository";
-import { DockerV2Repository } from "./dockerV2Repository";
-import { DockerWebhook } from "./dockerWebhook";
-import { FederatedAlpineRepository } from "./federatedAlpineRepository";
-import { FederatedBowerRepository } from "./federatedBowerRepository";
-import { FederatedCargoRepository } from "./federatedCargoRepository";
-import { FederatedChefRepository } from "./federatedChefRepository";
-import { FederatedCocoapodsRepository } from "./federatedCocoapodsRepository";
-import { FederatedComposerRepository } from "./federatedComposerRepository";
-import { FederatedConanRepository } from "./federatedConanRepository";
-import { FederatedCondaRepository } from "./federatedCondaRepository";
-import { FederatedCranRepository } from "./federatedCranRepository";
-import { FederatedDebianRepository } from "./federatedDebianRepository";
-import { FederatedDockerRepository } from "./federatedDockerRepository";
-import { FederatedGemsRepository } from "./federatedGemsRepository";
-import { FederatedGenericRepository } from "./federatedGenericRepository";
-import { FederatedGitltfsRepository } from "./federatedGitltfsRepository";
-import { FederatedGoRepository } from "./federatedGoRepository";
-import { FederatedGradleRepository } from "./federatedGradleRepository";
-import { FederatedHelmRepository } from "./federatedHelmRepository";
-import { FederatedIvyRepository } from "./federatedIvyRepository";
-import { FederatedMavenRepository } from "./federatedMavenRepository";
-import { FederatedNpmRepository } from "./federatedNpmRepository";
-import { FederatedNugetRepository } from "./federatedNugetRepository";
-import { FederatedOpkgRepository } from "./federatedOpkgRepository";
-import { FederatedPuppetRepository } from "./federatedPuppetRepository";
-import { FederatedPypiRepository } from "./federatedPypiRepository";
-import { FederatedRpmRepository } from "./federatedRpmRepository";
-import { FederatedSbtRepository } from "./federatedSbtRepository";
-import { FederatedTerraformModuleRepository } from "./federatedTerraformModuleRepository";
-import { FederatedTerraformProviderRepository } from "./federatedTerraformProviderRepository";
-import { FederatedVagrantRepository } from "./federatedVagrantRepository";
-import { GeneralSecurity } from "./generalSecurity";
-import { GoRepository } from "./goRepository";
-import { Group } from "./group";
-import { Keypair } from "./keypair";
-import { LdapGroupSetting } from "./ldapGroupSetting";
-import { LdapSetting } from "./ldapSetting";
-import { LocalBowerRepository } from "./localBowerRepository";
-import { LocalCargoRepository } from "./localCargoRepository";
-import { LocalChefRepository } from "./localChefRepository";
-import { LocalCocoapodsRepository } from "./localCocoapodsRepository";
-import { LocalComposerRepository } from "./localComposerRepository";
-import { LocalConanRepository } from "./localConanRepository";
-import { LocalCondaRepository } from "./localCondaRepository";
-import { LocalCranRepository } from "./localCranRepository";
-import { LocalGemsRepository } from "./localGemsRepository";
-import { LocalGenericRepository } from "./localGenericRepository";
-import { LocalGitltfsRepository } from "./localGitltfsRepository";
-import { LocalGoRepository } from "./localGoRepository";
-import { LocalGradleRepository } from "./localGradleRepository";
-import { LocalHelmRepository } from "./localHelmRepository";
-import { LocalIvyRepository } from "./localIvyRepository";
-import { LocalMavenRepository } from "./localMavenRepository";
-import { LocalNpmRepository } from "./localNpmRepository";
-import { LocalNugetRepository } from "./localNugetRepository";
-import { LocalOpkgRepository } from "./localOpkgRepository";
-import { LocalPubRepository } from "./localPubRepository";
-import { LocalPuppetRepository } from "./localPuppetRepository";
-import { LocalPypiRepository } from "./localPypiRepository";
-import { LocalRpmRepository } from "./localRpmRepository";
-import { LocalSbtRepository } from "./localSbtRepository";
-import { LocalSwiftRepository } from "./localSwiftRepository";
-import { LocalTerraformBackendRepository } from "./localTerraformBackendRepository";
-import { LocalTerraformModuleRepository } from "./localTerraformModuleRepository";
-import { LocalTerraformProviderRepository } from "./localTerraformProviderRepository";
-import { LocalVagrantRepository } from "./localVagrantRepository";
-import { ManagedUser } from "./managedUser";
-import { MavenRepository } from "./mavenRepository";
-import { OauthSettings } from "./oauthSettings";
-import { PermissionTarget } from "./permissionTarget";
-import { PermissionTargets } from "./permissionTargets";
-import { PropertySet } from "./propertySet";
-import { PullReplication } from "./pullReplication";
-import { PushReplication } from "./pushReplication";
-import { ReleaseBundleWebhook } from "./releaseBundleWebhook";
-import { RemoteAlpineRepository } from "./remoteAlpineRepository";
-import { RemoteBowerRepository } from "./remoteBowerRepository";
-import { RemoteCargoRepository } from "./remoteCargoRepository";
-import { RemoteChefRepository } from "./remoteChefRepository";
-import { RemoteCocoapodsRepository } from "./remoteCocoapodsRepository";
-import { RemoteComposerRepository } from "./remoteComposerRepository";
-import { RemoteConanRepository } from "./remoteConanRepository";
-import { RemoteCondaRepository } from "./remoteCondaRepository";
-import { RemoteCranRepository } from "./remoteCranRepository";
-import { RemoteDebianRepository } from "./remoteDebianRepository";
-import { RemoteDockerRepository } from "./remoteDockerRepository";
-import { RemoteGemsRepository } from "./remoteGemsRepository";
-import { RemoteGenericRepository } from "./remoteGenericRepository";
-import { RemoteGitlfsRepository } from "./remoteGitlfsRepository";
-import { RemoteGoRepository } from "./remoteGoRepository";
-import { RemoteGradleRepository } from "./remoteGradleRepository";
-import { RemoteHelmRepository } from "./remoteHelmRepository";
-import { RemoteIvyRepository } from "./remoteIvyRepository";
-import { RemoteMavenRepository } from "./remoteMavenRepository";
-import { RemoteNpmRepository } from "./remoteNpmRepository";
-import { RemoteNugetRepository } from "./remoteNugetRepository";
-import { RemoteOpkgRepository } from "./remoteOpkgRepository";
-import { RemoteP2Repository } from "./remoteP2Repository";
-import { RemotePubRepository } from "./remotePubRepository";
-import { RemotePuppetRepository } from "./remotePuppetRepository";
-import { RemotePypiRepository } from "./remotePypiRepository";
-import { RemoteRpmRepository } from "./remoteRpmRepository";
-import { RemoteSbtRepository } from "./remoteSbtRepository";
-import { RemoteSwiftRepository } from "./remoteSwiftRepository";
-import { RemoteTerraformRepository } from "./remoteTerraformRepository";
-import { RemoteVcsRepository } from "./remoteVcsRepository";
-import { ReplicationConfig } from "./replicationConfig";
-import { RepositoryLayout } from "./repositoryLayout";
-import { SamlSettings } from "./samlSettings";
-import { ScopedToken } from "./scopedToken";
-import { SingleReplicationConfig } from "./singleReplicationConfig";
-import { UnmanagedUser } from "./unmanagedUser";
-import { User } from "./user";
-import { VirtualAlpineRepository } from "./virtualAlpineRepository";
-import { VirtualBowerRepository } from "./virtualBowerRepository";
-import { VirtualChefRepository } from "./virtualChefRepository";
-import { VirtualComposerRepository } from "./virtualComposerRepository";
-import { VirtualConanRepository } from "./virtualConanRepository";
-import { VirtualCondaRepository } from "./virtualCondaRepository";
-import { VirtualCranRepository } from "./virtualCranRepository";
-import { VirtualDebianRepository } from "./virtualDebianRepository";
-import { VirtualDockerRepository } from "./virtualDockerRepository";
-import { VirtualGemsRepository } from "./virtualGemsRepository";
-import { VirtualGenericRepository } from "./virtualGenericRepository";
-import { VirtualGitlfsRepository } from "./virtualGitlfsRepository";
-import { VirtualGradleRepository } from "./virtualGradleRepository";
-import { VirtualHelmRepository } from "./virtualHelmRepository";
-import { VirtualIvyRepository } from "./virtualIvyRepository";
-import { VirtualNpmRepository } from "./virtualNpmRepository";
-import { VirtualNugetRepository } from "./virtualNugetRepository";
-import { VirtualP2Repository } from "./virtualP2Repository";
-import { VirtualPubRepository } from "./virtualPubRepository";
-import { VirtualPuppetRepository } from "./virtualPuppetRepository";
-import { VirtualPypiRepository } from "./virtualPypiRepository";
-import { VirtualRpmRepository } from "./virtualRpmRepository";
-import { VirtualSbtRepository } from "./virtualSbtRepository";
-import { VirtualSwiftRepository } from "./virtualSwiftRepository";
-import { VirtualTerraformRepository } from "./virtualTerraformRepository";
 
 const _module = {
     version: utilities.getVersion(),
@@ -378,6 +861,10 @@ const _module = {
                 return new FederatedDebianRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedDockerRepository:FederatedDockerRepository":
                 return new FederatedDockerRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedDockerV1Repository:FederatedDockerV1Repository":
+                return new FederatedDockerV1Repository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedDockerV2Repository:FederatedDockerV2Repository":
+                return new FederatedDockerV2Repository(name, <any>undefined, { urn })
             case "artifactory:index/federatedGemsRepository:FederatedGemsRepository":
                 return new FederatedGemsRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedGenericRepository:FederatedGenericRepository":
@@ -408,6 +895,8 @@ const _module = {
                 return new FederatedRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedSbtRepository:FederatedSbtRepository":
                 return new FederatedSbtRepository(name, <any>undefined, { urn })
+            case "artifactory:index/federatedSwiftRepository:FederatedSwiftRepository":
+                return new FederatedSwiftRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedTerraformModuleRepository:FederatedTerraformModuleRepository":
                 return new FederatedTerraformModuleRepository(name, <any>undefined, { urn })
             case "artifactory:index/federatedTerraformProviderRepository:FederatedTerraformProviderRepository":
@@ -496,6 +985,8 @@ const _module = {
                 return new PermissionTargets(name, <any>undefined, { urn })
             case "artifactory:index/propertySet:PropertySet":
                 return new PropertySet(name, <any>undefined, { urn })
+            case "artifactory:index/proxy:Proxy":
+                return new Proxy(name, <any>undefined, { urn })
             case "artifactory:index/pullReplication:PullReplication":
                 return new PullReplication(name, <any>undefined, { urn })
             case "artifactory:index/pushReplication:PushReplication":
@@ -659,6 +1150,8 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedCondaReposi
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedCranRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedDebianRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedDockerRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedDockerV1Repository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedDockerV2Repository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGemsRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGenericRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedGitltfsRepository", _module)
@@ -674,6 +1167,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/federatedPuppetRepos
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedPypiRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedSbtRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/federatedSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformModuleRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedTerraformProviderRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/federatedVagrantRepository", _module)
@@ -718,6 +1212,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/oauthSettings", _mod
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTarget", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/permissionTargets", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/propertySet", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/proxy", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pullReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/pushReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/releaseBundleWebhook", _module)
@@ -784,9 +1279,6 @@ pulumi.runtime.registerResourceModule("artifactory", "index/virtualRpmRepository
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualSwiftRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/virtualTerraformRepository", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("artifactory", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * 
  * Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
  * 
+ * ~&gt;The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -57,7 +59,7 @@ import javax.annotation.Nullable;
  *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
  * 
- *  environments, or may change without notice.
+ *  ~&gt;The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
  * 
  */
 @ResourceType(type="artifactory:index/generalSecurity:GeneralSecurity")

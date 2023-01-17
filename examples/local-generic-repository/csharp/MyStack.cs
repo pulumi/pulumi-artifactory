@@ -8,6 +8,7 @@ class MyStack : Stack
         var repository = new LocalGenericRepository("csharp-repo", new LocalGenericRepositoryArgs
         {
             Key = "pulumipusdotnet",
+            ProjectKey = "default"
         });
     }
 }

@@ -30,6 +30,8 @@ class PullReplicationArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PullReplication resource.
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        :param pulumi.Input[str] repo_key: Repository name.
         :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
@@ -75,6 +77,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -84,6 +89,9 @@ class PullReplicationArgs:
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> pulumi.Input[str]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
@@ -256,11 +264,13 @@ class _PullReplicationState:
         Input properties used for looking up and filtering PullReplication resources.
         :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] repo_key: Repository name.
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
@@ -314,6 +324,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @cron_exp.setter
@@ -383,6 +396,9 @@ class _PullReplicationState:
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 
     @repo_key.setter
@@ -518,11 +534,13 @@ class PullReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] repo_key: Repository name.
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
@@ -614,7 +632,7 @@ class PullReplication(pulumi.CustomResource):
             __props__.__dict__["cron_exp"] = cron_exp
             __props__.__dict__["enable_event_replication"] = enable_event_replication
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["path_prefix"] = path_prefix
             __props__.__dict__["proxy"] = proxy
             if repo_key is None and not opts.urn:
@@ -626,6 +644,8 @@ class PullReplication(pulumi.CustomResource):
             __props__.__dict__["sync_statistics"] = sync_statistics
             __props__.__dict__["url"] = url
             __props__.__dict__["username"] = username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(PullReplication, __self__).__init__(
             'artifactory:index/pullReplication:PullReplication',
             resource_name,
@@ -659,11 +679,13 @@ class PullReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] check_binary_existence_in_filestore: When true, enables distributed checksum storage. For more information, see
                [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
         :param pulumi.Input[bool] enabled: When set, this replication will be enabled when saved.
         :param pulumi.Input[str] password: Required for local repository, but not needed for remote repository.
         :param pulumi.Input[str] path_prefix: Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies setting
+        :param pulumi.Input[str] repo_key: Repository name.
         :param pulumi.Input[bool] sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata).
         :param pulumi.Input[bool] sync_properties: When set, the task also synchronizes the properties of replicated artifacts.
         :param pulumi.Input[bool] sync_statistics: When set, artifact download statistics will also be replicated. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery.
@@ -704,6 +726,9 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
+        """
+        A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        """
         return pulumi.get(self, "cron_exp")
 
     @property
@@ -749,6 +774,9 @@ class PullReplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="repoKey")
     def repo_key(self) -> pulumi.Output[str]:
+        """
+        Repository name.
+        """
         return pulumi.get(self, "repo_key")
 
     @property

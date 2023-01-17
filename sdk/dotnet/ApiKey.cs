@@ -37,7 +37,11 @@ namespace Pulumi.Artifactory
     public partial class ApiKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API key.
+        /// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+        /// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+        /// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+        /// It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
+        /// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
         /// </summary>
         [Output("apiKey")]
         public Output<string> Key { get; private set; } = null!;
@@ -65,6 +69,10 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -96,11 +104,25 @@ namespace Pulumi.Artifactory
 
     public sealed class ApiKeyState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The API key.
-        /// </summary>
         [Input("apiKey")]
-        public Input<string>? Key { get; set; }
+        private Input<string>? _apiKey;
+
+        /// <summary>
+        /// The API key. Deprecated. An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+        /// In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+        /// In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.
+        /// It is recommended to use scoped tokens instead - `artifactory.ScopedToken` resource.
+        /// Please check the [release notes](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Release+Notes#ArtifactoryReleaseNotes-Artifactory7.38.4).
+        /// </summary>
+        public Input<string>? Key
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ApiKeyState()
         {

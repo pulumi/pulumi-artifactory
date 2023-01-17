@@ -54,7 +54,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * When this override is set, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
      */
     public readonly detachAllUsers!: pulumi.Output<boolean | undefined>;
     /**
@@ -66,7 +66,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     public readonly policyManager!: pulumi.Output<boolean | undefined>;
     /**
@@ -78,15 +78,12 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly realmAttributes!: pulumi.Output<string | undefined>;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     public readonly reportsManager!: pulumi.Output<boolean | undefined>;
-    /**
-     * List of users assigned to the group. If missing or empty, tf will not manage group membership
-     */
     public readonly usersNames!: pulumi.Output<string[] | undefined>;
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     public readonly watchManager!: pulumi.Output<boolean | undefined>;
 
@@ -152,7 +149,7 @@ export interface GroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * When this override is set, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
      */
     detachAllUsers?: pulumi.Input<boolean>;
     /**
@@ -164,7 +161,7 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     policyManager?: pulumi.Input<boolean>;
     /**
@@ -176,15 +173,12 @@ export interface GroupState {
      */
     realmAttributes?: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
-    /**
-     * List of users assigned to the group. If missing or empty, tf will not manage group membership
-     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     watchManager?: pulumi.Input<boolean>;
 }
@@ -206,7 +200,7 @@ export interface GroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * When this override is set, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
      */
     detachAllUsers?: pulumi.Input<boolean>;
     /**
@@ -218,7 +212,7 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     policyManager?: pulumi.Input<boolean>;
     /**
@@ -230,15 +224,12 @@ export interface GroupArgs {
      */
     realmAttributes?: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
-    /**
-     * List of users assigned to the group. If missing or empty, tf will not manage group membership
-     */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     watchManager?: pulumi.Input<boolean>;
 }

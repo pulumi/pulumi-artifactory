@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewReleaseBundleWebhook(ctx, "release-bundle-webhook", &artifactory.ReleaseBundleWebhookArgs{
-//				Criteria: &ReleaseBundleWebhookCriteriaArgs{
+//				Criteria: &artifactory.ReleaseBundleWebhookCriteriaArgs{
 //					AnyReleaseBundle: pulumi.Bool(false),
 //					ExcludePatterns: pulumi.StringArray{
 //						pulumi.String("bar/**"),
@@ -46,8 +46,8 @@ import (
 //					pulumi.String("signed"),
 //					pulumi.String("deleted"),
 //				},
-//				Handlers: ReleaseBundleWebhookHandlerArray{
-//					&ReleaseBundleWebhookHandlerArgs{
+//				Handlers: artifactory.ReleaseBundleWebhookHandlerArray{
+//					&artifactory.ReleaseBundleWebhookHandlerArgs{
 //						CustomHttpHeaders: pulumi.StringMap{
 //							"header-1": pulumi.String("value-1"),
 //							"header-2": pulumi.String("value-2"),

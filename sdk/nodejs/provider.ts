@@ -51,12 +51,14 @@ In January 2023, API Keys will be deprecated all together and the option to use 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
-            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
+            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
             resourceInputs["checkLicense"] = pulumi.output((args ? args.checkLicense : undefined) ?? false).apply(JSON.stringify);
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "apiKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

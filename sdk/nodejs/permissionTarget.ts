@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -118,7 +119,7 @@ export class PermissionTarget extends pulumi.CustomResource {
     }
 
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      */
     public readonly build!: pulumi.Output<outputs.PermissionTargetBuild | undefined>;
     /**
@@ -168,7 +169,7 @@ export class PermissionTarget extends pulumi.CustomResource {
  */
 export interface PermissionTargetState {
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
     /**
@@ -190,7 +191,7 @@ export interface PermissionTargetState {
  */
 export interface PermissionTargetArgs {
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      */
     build?: pulumi.Input<inputs.PermissionTargetBuild>;
     /**

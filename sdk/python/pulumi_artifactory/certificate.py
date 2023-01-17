@@ -294,13 +294,15 @@ class Certificate(pulumi.CustomResource):
             if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
             __props__.__dict__["alias"] = alias
-            __props__.__dict__["content"] = content
-            __props__.__dict__["file"] = file
+            __props__.__dict__["content"] = None if content is None else pulumi.Output.secret(content)
+            __props__.__dict__["file"] = None if file is None else pulumi.Output.secret(file)
             __props__.__dict__["fingerprint"] = None
             __props__.__dict__["issued_by"] = None
             __props__.__dict__["issued_on"] = None
             __props__.__dict__["issued_to"] = None
             __props__.__dict__["valid_until"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content", "file"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'artifactory:index/certificate:Certificate',
             resource_name,

@@ -89,6 +89,13 @@ func NewManagedUser(ctx *pulumi.Context,
 	if args.Password == nil {
 		return nil, errors.New("invalid value for required argument 'Password'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource ManagedUser
 	err := ctx.RegisterResource("artifactory:index/managedUser:ManagedUser", name, args, &resource, opts...)
 	if err != nil {

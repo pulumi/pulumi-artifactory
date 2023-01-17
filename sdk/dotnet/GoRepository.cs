@@ -94,8 +94,8 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Output("includesPattern")]
         public Output<string?> IncludesPattern { get; private set; } = null!;
@@ -120,13 +120,15 @@ namespace Pulumi.Artifactory
         public Output<string> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         [Output("projectEnvironments")]
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
@@ -143,13 +145,6 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("repositories")]
         public Output<ImmutableArray<string>> Repositories { get; private set; } = null!;
-
-        /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
-        /// </summary>
-        [Output("retrievalCachePeriodSeconds")]
-        public Output<int?> RetrievalCachePeriodSeconds { get; private set; } = null!;
 
 
         /// <summary>
@@ -244,8 +239,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -267,7 +262,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -276,7 +273,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
@@ -299,13 +296,6 @@ namespace Pulumi.Artifactory
             get => _repositories ?? (_repositories = new InputList<string>());
             set => _repositories = value;
         }
-
-        /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
-        /// </summary>
-        [Input("retrievalCachePeriodSeconds")]
-        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         public GoRepositoryArgs()
         {
@@ -362,8 +352,8 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-        /// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+        /// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+        /// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         /// </summary>
         [Input("includesPattern")]
         public Input<string>? IncludesPattern { get; set; }
@@ -391,7 +381,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _projectEnvironments;
 
         /// <summary>
-        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+        /// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+        /// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+        /// will remain in the Terraform state, which will create state drift during the update.
         /// </summary>
         public InputList<string> ProjectEnvironments
         {
@@ -400,7 +392,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
@@ -423,13 +415,6 @@ namespace Pulumi.Artifactory
             get => _repositories ?? (_repositories = new InputList<string>());
             set => _repositories = value;
         }
-
-        /// <summary>
-        /// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-        /// repositories. A value of 0 indicates no caching.
-        /// </summary>
-        [Input("retrievalCachePeriodSeconds")]
-        public Input<int>? RetrievalCachePeriodSeconds { get; set; }
 
         public GoRepositoryState()
         {

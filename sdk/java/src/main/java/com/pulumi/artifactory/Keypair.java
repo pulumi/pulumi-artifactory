@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -21,7 +22,6 @@ import javax.annotation.Nullable;
  * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
  * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
  * through the Keys Management UI and REST API.
- * Passphrases are not currently supported, though they exist in the API.
  * 
  * ## Example Usage
  * ```java
@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *             .alias(&#34;foo-alias6543461672124900137&#34;)
  *             .privateKey(Files.readString(Paths.get(&#34;samples/rsa.priv&#34;)))
  *             .publicKey(Files.readString(Paths.get(&#34;samples/rsa.pub&#34;)))
+ *             .passphrase(&#34;PASSPHRASE&#34;)
  *             .build());
  * 
  *     }
@@ -125,14 +126,14 @@ public class Keypair extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.passphrase);
     }
     /**
-     * - Private key. PEM format will be validated.
+     * Private key. PEM format will be validated.
      * 
      */
     @Export(name="privateKey", type=String.class, parameters={})
     private Output<String> privateKey;
 
     /**
-     * @return - Private key. PEM format will be validated.
+     * @return Private key. PEM format will be validated.
      * 
      */
     public Output<String> privateKey() {
@@ -199,6 +200,10 @@ public class Keypair extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "passphrase",
+                "privateKey"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

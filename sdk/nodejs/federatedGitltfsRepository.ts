@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -109,12 +110,14 @@ export class FederatedGitltfsRepository extends pulumi.CustomResource {
      */
     public readonly priorityResolution!: pulumi.Output<boolean | undefined>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
@@ -238,12 +241,14 @@ export interface FederatedGitltfsRepositoryState {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**
@@ -308,12 +313,14 @@ export interface FederatedGitltfsRepositoryArgs {
      */
     priorityResolution?: pulumi.Input<boolean>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
     /**

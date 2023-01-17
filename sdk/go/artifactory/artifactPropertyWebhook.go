@@ -40,7 +40,7 @@ import (
 //					pulumi.String("added"),
 //					pulumi.String("deleted"),
 //				},
-//				Criteria: &ArtifactPropertyWebhookCriteriaArgs{
+//				Criteria: &artifactory.ArtifactPropertyWebhookCriteriaArgs{
 //					AnyLocal:  pulumi.Bool(true),
 //					AnyRemote: pulumi.Bool(false),
 //					RepoKeys: pulumi.StringArray{
@@ -53,8 +53,8 @@ import (
 //						pulumi.String("bar/**"),
 //					},
 //				},
-//				Handlers: ArtifactPropertyWebhookHandlerArray{
-//					&ArtifactPropertyWebhookHandlerArgs{
+//				Handlers: artifactory.ArtifactPropertyWebhookHandlerArray{
+//					&artifactory.ArtifactPropertyWebhookHandlerArgs{
 //						Url:    pulumi.String("http://tempurl.org/webhook"),
 //						Secret: pulumi.String("some-secret"),
 //						Proxy:  pulumi.String("proxy-key"),

@@ -16,6 +16,8 @@ import (
 // When specified LDAP setting is active, Artifactory first attempts to authenticate the user against the LDAP server.
 // If LDAP authentication fails, it then tries to authenticate via its internal database.
 //
+// ~>The `LdapSetting` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
 // ## Example Usage
 //
 // ```go
@@ -115,6 +117,13 @@ func NewLdapSetting(ctx *pulumi.Context,
 	if args.LdapUrl == nil {
 		return nil, errors.New("invalid value for required argument 'LdapUrl'")
 	}
+	if args.ManagerPassword != nil {
+		args.ManagerPassword = pulumi.ToSecret(args.ManagerPassword).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"managerPassword",
+	})
+	opts = append(opts, secrets)
 	var resource LdapSetting
 	err := ctx.RegisterResource("artifactory:index/ldapSetting:LdapSetting", name, args, &resource, opts...)
 	if err != nil {

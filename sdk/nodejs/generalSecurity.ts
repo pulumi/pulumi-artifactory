@@ -9,6 +9,8 @@ import * as utilities from "./utilities";
  *
  * Only a single `artifactory.GeneralSecurity` resource is meant to be defined.
  *
+ * ~>The `artifactory.GeneralSecurity` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -16,9 +18,7 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory general security settings
- * const security = new artifactory.GeneralSecurity("security", {
- *     enableAnonymousAccess: true,
- * });
+ * const security = new artifactory.GeneralSecurity("security", {enableAnonymousAccess: true});
  * ```
  *
  * ## Import
@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  *  $ pulumi import artifactory:index/generalSecurity:GeneralSecurity security security
  * ```
  *
- *  environments, or may change without notice.
+ *  ~>The `artifactory_general_security` resource uses endpoints that are undocumented and may not work with SaaS environments, or may change without notice.
  */
 export class GeneralSecurity extends pulumi.CustomResource {
     /**

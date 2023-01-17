@@ -27,10 +27,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPermissionTarget(ctx, "test-perm", &artifactory.PermissionTargetArgs{
-//				Build: &PermissionTargetBuildArgs{
-//					Actions: &PermissionTargetBuildActionsArgs{
-//						Users: PermissionTargetBuildActionsUserArray{
-//							&PermissionTargetBuildActionsUserArgs{
+//				Build: &artifactory.PermissionTargetBuildArgs{
+//					Actions: &artifactory.PermissionTargetBuildActionsArgs{
+//						Users: artifactory.PermissionTargetBuildActionsUserArray{
+//							&artifactory.PermissionTargetBuildActionsUserArgs{
 //								Name: pulumi.String("anonymous"),
 //								Permissions: pulumi.StringArray{
 //									pulumi.String("read"),
@@ -46,10 +46,10 @@ import (
 //						pulumi.String("artifactory-build-info"),
 //					},
 //				},
-//				ReleaseBundle: &PermissionTargetReleaseBundleArgs{
-//					Actions: &PermissionTargetReleaseBundleActionsArgs{
-//						Users: PermissionTargetReleaseBundleActionsUserArray{
-//							&PermissionTargetReleaseBundleActionsUserArgs{
+//				ReleaseBundle: &artifactory.PermissionTargetReleaseBundleArgs{
+//					Actions: &artifactory.PermissionTargetReleaseBundleActionsArgs{
+//						Users: artifactory.PermissionTargetReleaseBundleActionsUserArray{
+//							&artifactory.PermissionTargetReleaseBundleActionsUserArgs{
 //								Name: pulumi.String("anonymous"),
 //								Permissions: pulumi.StringArray{
 //									pulumi.String("read"),
@@ -64,18 +64,18 @@ import (
 //						pulumi.String("release-bundles"),
 //					},
 //				},
-//				Repo: &PermissionTargetRepoArgs{
-//					Actions: &PermissionTargetRepoActionsArgs{
-//						Groups: PermissionTargetRepoActionsGroupArray{
-//							&PermissionTargetRepoActionsGroupArgs{
+//				Repo: &artifactory.PermissionTargetRepoArgs{
+//					Actions: &artifactory.PermissionTargetRepoActionsArgs{
+//						Groups: artifactory.PermissionTargetRepoActionsGroupArray{
+//							&artifactory.PermissionTargetRepoActionsGroupArgs{
 //								Name: pulumi.String("readers"),
 //								Permissions: pulumi.StringArray{
 //									pulumi.String("read"),
 //								},
 //							},
 //						},
-//						Users: PermissionTargetRepoActionsUserArray{
-//							&PermissionTargetRepoActionsUserArgs{
+//						Users: artifactory.PermissionTargetRepoActionsUserArray{
+//							&artifactory.PermissionTargetRepoActionsUserArgs{
 //								Name: pulumi.String("anonymous"),
 //								Permissions: pulumi.StringArray{
 //									pulumi.String("read"),
@@ -137,7 +137,7 @@ import (
 type PermissionTargets struct {
 	pulumi.CustomResourceState
 
-	// As for repo but for artifactory-build-info permssions.
+	// As for repo but for artifactory-build-info permissions.
 	Build PermissionTargetsBuildPtrOutput `pulumi:"build"`
 	// Name of permission.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -176,7 +176,7 @@ func GetPermissionTargets(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PermissionTargets resources.
 type permissionTargetsState struct {
-	// As for repo but for artifactory-build-info permssions.
+	// As for repo but for artifactory-build-info permissions.
 	Build *PermissionTargetsBuild `pulumi:"build"`
 	// Name of permission.
 	Name *string `pulumi:"name"`
@@ -187,7 +187,7 @@ type permissionTargetsState struct {
 }
 
 type PermissionTargetsState struct {
-	// As for repo but for artifactory-build-info permssions.
+	// As for repo but for artifactory-build-info permissions.
 	Build PermissionTargetsBuildPtrInput
 	// Name of permission.
 	Name pulumi.StringPtrInput
@@ -202,7 +202,7 @@ func (PermissionTargetsState) ElementType() reflect.Type {
 }
 
 type permissionTargetsArgs struct {
-	// As for repo but for artifactory-build-info permssions.
+	// As for repo but for artifactory-build-info permissions.
 	Build *PermissionTargetsBuild `pulumi:"build"`
 	// Name of permission.
 	Name *string `pulumi:"name"`
@@ -214,7 +214,7 @@ type permissionTargetsArgs struct {
 
 // The set of arguments for constructing a PermissionTargets resource.
 type PermissionTargetsArgs struct {
-	// As for repo but for artifactory-build-info permssions.
+	// As for repo but for artifactory-build-info permissions.
 	Build PermissionTargetsBuildPtrInput
 	// Name of permission.
 	Name pulumi.StringPtrInput
@@ -311,7 +311,7 @@ func (o PermissionTargetsOutput) ToPermissionTargetsOutputWithContext(ctx contex
 	return o
 }
 
-// As for repo but for artifactory-build-info permssions.
+// As for repo but for artifactory-build-info permissions.
 func (o PermissionTargetsOutput) Build() PermissionTargetsBuildPtrOutput {
 	return o.ApplyT(func(v *PermissionTargets) PermissionTargetsBuildPtrOutput { return v.Build }).(PermissionTargetsBuildPtrOutput)
 }

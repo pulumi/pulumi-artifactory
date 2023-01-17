@@ -29,12 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewVirtualDockerRepository(ctx, "foo-docker", &artifactory.VirtualDockerRepositoryArgs{
-//				Description:     pulumi.String("A test virtual repo"),
-//				ExcludesPattern: pulumi.String("com/google/**"),
-//				IncludesPattern: pulumi.String("com/jfrog/**,cloud/jfrog/**"),
-//				Key:             pulumi.String("foo-docker"),
-//				Notes:           pulumi.String("Internal description"),
-//				Repositories:    pulumi.StringArray{},
+//				Description:                  pulumi.String("A test virtual repo"),
+//				ExcludesPattern:              pulumi.String("com/google/**"),
+//				IncludesPattern:              pulumi.String("com/jfrog/**,cloud/jfrog/**"),
+//				Key:                          pulumi.String("foo-docker"),
+//				Notes:                        pulumi.String("Internal description"),
+//				Repositories:                 pulumi.StringArray{},
+//				ResolveDockerTagsByTimestamp: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -68,8 +69,8 @@ type VirtualDockerRepository struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrOutput `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -78,18 +79,19 @@ type VirtualDockerRepository struct {
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrOutput `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayOutput `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrOutput `pulumi:"retrievalCachePeriodSeconds"`
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+	ResolveDockerTagsByTimestamp pulumi.BoolPtrOutput `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 // NewVirtualDockerRepository registers a new resource with the given unique name, arguments, and options.
@@ -135,8 +137,8 @@ type virtualDockerRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -145,18 +147,19 @@ type virtualDockerRepositoryState struct {
 	Notes *string `pulumi:"notes"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 type VirtualDockerRepositoryState struct {
@@ -171,8 +174,8 @@ type VirtualDockerRepositoryState struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
@@ -181,18 +184,19 @@ type VirtualDockerRepositoryState struct {
 	Notes pulumi.StringPtrInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrInput
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+	ResolveDockerTagsByTimestamp pulumi.BoolPtrInput
 }
 
 func (VirtualDockerRepositoryState) ElementType() reflect.Type {
@@ -211,26 +215,27 @@ type virtualDockerRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern *string `pulumi:"includesPattern"`
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
 	RepoLayoutRef *string `pulumi:"repoLayoutRef"`
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories []string `pulumi:"repositories"`
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds *int `pulumi:"retrievalCachePeriodSeconds"`
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+	ResolveDockerTagsByTimestamp *bool `pulumi:"resolveDockerTagsByTimestamp"`
 }
 
 // The set of arguments for constructing a VirtualDockerRepository resource.
@@ -246,26 +251,27 @@ type VirtualDockerRepositoryArgs struct {
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*.By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-	// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+	// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+	// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 	IncludesPattern pulumi.StringPtrInput
 	// A mandatory identifier for the repository that must be unique. It cannot begin with a number or
 	// contain spaces or special characters.
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
 	RepoLayoutRef pulumi.StringPtrInput
 	// The effective list of actual repositories included in this virtual repository.
 	Repositories pulumi.StringArrayInput
-	// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-	// repositories. A value of 0 indicates no caching.
-	RetrievalCachePeriodSeconds pulumi.IntPtrInput
+	// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+	ResolveDockerTagsByTimestamp pulumi.BoolPtrInput
 }
 
 func (VirtualDockerRepositoryArgs) ElementType() reflect.Type {
@@ -380,8 +386,8 @@ func (o VirtualDockerRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
-// artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
+// List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
+// used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
 func (o VirtualDockerRepositoryOutput) IncludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringPtrOutput { return v.IncludesPattern }).(pulumi.StringPtrOutput)
 }
@@ -402,12 +408,14 @@ func (o VirtualDockerRepositoryOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o VirtualDockerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualDockerRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
@@ -423,10 +431,9 @@ func (o VirtualDockerRepositoryOutput) Repositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.StringArrayOutput { return v.Repositories }).(pulumi.StringArrayOutput)
 }
 
-// This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-// repositories. A value of 0 indicates no caching.
-func (o VirtualDockerRepositoryOutput) RetrievalCachePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.IntPtrOutput { return v.RetrievalCachePeriodSeconds }).(pulumi.IntPtrOutput)
+// When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
+func (o VirtualDockerRepositoryOutput) ResolveDockerTagsByTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualDockerRepository) pulumi.BoolPtrOutput { return v.ResolveDockerTagsByTimestamp }).(pulumi.BoolPtrOutput)
 }
 
 type VirtualDockerRepositoryArrayOutput struct{ *pulumi.OutputState }

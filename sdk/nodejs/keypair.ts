@@ -10,7 +10,6 @@ import * as utilities from "./utilities";
  * RSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple
  * pairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM
  * through the Keys Management UI and REST API.
- * Passphrases are not currently supported, though they exist in the API.
  *
  * ## Example Usage
  *
@@ -25,6 +24,7 @@ import * as utilities from "./utilities";
  *     alias: "foo-alias6543461672124900137",
  *     privateKey: fs.readFileSync("samples/rsa.priv"),
  *     publicKey: fs.readFileSync("samples/rsa.pub"),
+ *     passphrase: "PASSPHRASE",
  * });
  * ```
  *
@@ -81,7 +81,7 @@ export class Keypair extends pulumi.CustomResource {
      */
     public readonly passphrase!: pulumi.Output<string | undefined>;
     /**
-     * - Private key. PEM format will be validated.
+     * Private key. PEM format will be validated.
      */
     public readonly privateKey!: pulumi.Output<string>;
     /**
@@ -133,12 +133,14 @@ export class Keypair extends pulumi.CustomResource {
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["pairName"] = args ? args.pairName : undefined;
             resourceInputs["pairType"] = args ? args.pairType : undefined;
-            resourceInputs["passphrase"] = args ? args.passphrase : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["publicKey"] = args ? args.publicKey : undefined;
             resourceInputs["unavailable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["passphrase", "privateKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Keypair.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -164,7 +166,7 @@ export interface KeypairState {
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * - Private key. PEM format will be validated.
+     * Private key. PEM format will be validated.
      */
     privateKey?: pulumi.Input<string>;
     /**
@@ -198,7 +200,7 @@ export interface KeypairArgs {
      */
     passphrase?: pulumi.Input<string>;
     /**
-     * - Private key. PEM format will be validated.
+     * Private key. PEM format will be validated.
      */
     privateKey: pulumi.Input<string>;
     /**

@@ -127,14 +127,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/permissionTargets:PermissionTargets")
 public class PermissionTargets extends com.pulumi.resources.CustomResource {
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      * 
      */
     @Export(name="build", type=PermissionTargetsBuild.class, parameters={})
     private Output</* @Nullable */ PermissionTargetsBuild> build;
 
     /**
-     * @return As for repo but for artifactory-build-info permssions.
+     * @return As for repo but for artifactory-build-info permissions.
      * 
      */
     public Output<Optional<PermissionTargetsBuild>> build() {

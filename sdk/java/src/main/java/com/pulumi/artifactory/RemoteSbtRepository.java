@@ -69,25 +69,25 @@ import javax.annotation.Nullable;
 @ResourceType(type="artifactory:index/remoteSbtRepository:RemoteSbtRepository")
 public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     /**
-     * Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+     * other host.
      * 
      */
     @Export(name="allowAnyHostAuth", type=Boolean.class, parameters={})
-    private Output<Boolean> allowAnyHostAuth;
+    private Output</* @Nullable */ Boolean> allowAnyHostAuth;
 
     /**
-     * @return Also known as &#39;Lenient Host Authentication&#39;, Allow credentials of this repository to be used on requests redirected to
-     * any other host.
+     * @return &#39;Lenient Host Authentication&#39; in the UI. Allow credentials of this repository to be used on requests redirected to any
+     * other host.
      * 
      */
-    public Output<Boolean> allowAnyHostAuth() {
-        return this.allowAnyHostAuth;
+    public Output<Optional<Boolean>> allowAnyHostAuth() {
+        return Codegen.optional(this.allowAnyHostAuth);
     }
     /**
      * The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * offline.
      * 
      */
     @Export(name="assumedOfflinePeriodSecs", type=Integer.class, parameters={})
@@ -96,7 +96,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
      * an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
-     * offline. Default to 300.
+     * offline.
      * 
      */
     public Output<Optional<Integer>> assumedOfflinePeriodSecs() {
@@ -108,33 +108,33 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="blackedOut", type=Boolean.class, parameters={})
-    private Output<Boolean> blackedOut;
+    private Output</* @Nullable */ Boolean> blackedOut;
 
     /**
      * @return (A.K.A &#39;Ignore Repository&#39; on the UI) When set, the repository or its local cache do not participate in artifact
      * resolution.
      * 
      */
-    public Output<Boolean> blackedOut() {
-        return this.blackedOut;
+    public Output<Optional<Boolean>> blackedOut() {
+        return Codegen.optional(this.blackedOut);
     }
     /**
-     * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+     * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
     @Export(name="blockMismatchingMimeTypes", type=Boolean.class, parameters={})
-    private Output<Boolean> blockMismatchingMimeTypes;
+    private Output</* @Nullable */ Boolean> blockMismatchingMimeTypes;
 
     /**
-     * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
-     * HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
-     * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+     * @return If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
+     * the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
+     * to the override list &#39;mismatching_mime_types_override_list&#39;.
      * 
      */
-    public Output<Boolean> blockMismatchingMimeTypes() {
-        return this.blockMismatchingMimeTypes;
+    public Output<Optional<Boolean>> blockMismatchingMimeTypes() {
+        return Codegen.optional(this.blockMismatchingMimeTypes);
     }
     /**
      * Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -143,7 +143,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bypassHeadRequests", type=Boolean.class, parameters={})
-    private Output<Boolean> bypassHeadRequests;
+    private Output</* @Nullable */ Boolean> bypassHeadRequests;
 
     /**
      * @return Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
@@ -151,12 +151,20 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      * 
      */
-    public Output<Boolean> bypassHeadRequests() {
-        return this.bypassHeadRequests;
+    public Output<Optional<Boolean>> bypassHeadRequests() {
+        return Codegen.optional(this.bypassHeadRequests);
     }
+    /**
+     * Client TLS certificate name.
+     * 
+     */
     @Export(name="clientTlsCertificate", type=String.class, parameters={})
     private Output<String> clientTlsCertificate;
 
+    /**
+     * @return Client TLS certificate name.
+     * 
+     */
     public Output<String> clientTlsCertificate() {
         return this.clientTlsCertificate;
     }
@@ -166,11 +174,19 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     public Output<RemoteSbtRepositoryContentSynchronisation> contentSynchronisation() {
         return this.contentSynchronisation;
     }
+    /**
+     * Public description.
+     * 
+     */
     @Export(name="description", type=String.class, parameters={})
-    private Output<String> description;
+    private Output</* @Nullable */ String> description;
 
-    public Output<String> description() {
-        return this.description;
+    /**
+     * @return Public description.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
     }
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -193,14 +209,14 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enableCookieManagement", type=Boolean.class, parameters={})
-    private Output<Boolean> enableCookieManagement;
+    private Output</* @Nullable */ Boolean> enableCookieManagement;
 
     /**
      * @return Enables cookie management if the remote repository uses cookies to manage client state.
      * 
      */
-    public Output<Boolean> enableCookieManagement() {
-        return this.enableCookieManagement;
+    public Output<Optional<Boolean>> enableCookieManagement() {
+        return Codegen.optional(this.enableCookieManagement);
     }
     /**
      * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By
@@ -219,18 +235,6 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * @deprecated
-     * This field is not returned in a get payload but is offered on the UI. It&#39;s inserted here for inclusive and informational reasons. It does not function
-     * 
-     */
-    @Deprecated /* This field is not returned in a get payload but is offered on the UI. It's inserted here for inclusive and informational reasons. It does not function */
-    @Export(name="failedRetrievalCachePeriodSecs", type=Integer.class, parameters={})
-    private Output<Integer> failedRetrievalCachePeriodSecs;
-
-    public Output<Integer> failedRetrievalCachePeriodSecs() {
-        return this.failedRetrievalCachePeriodSecs;
-    }
-    /**
      * When set, if a POM is requested, Artifactory attempts to fetch the corresponding jar in the background. This will accelerate first access time to the jar when it is subsequently requested.
      * 
      */
@@ -245,14 +249,14 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fetchJarsEagerly);
     }
     /**
-     * - When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
      * 
      */
     @Export(name="fetchSourcesEagerly", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> fetchSourcesEagerly;
 
     /**
-     * @return - When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
+     * @return When set, if a binaries jar is requested, Artifactory attempts to fetch the corresponding source jar in the background. This will accelerate first access time to the source jar when it is subsequently requested.
      * 
      */
     public Output<Optional<Boolean>> fetchSourcesEagerly() {
@@ -292,15 +296,15 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hardFail", type=Boolean.class, parameters={})
-    private Output<Boolean> hardFail;
+    private Output</* @Nullable */ Boolean> hardFail;
 
     /**
      * @return When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
      * communicate with this repository.
      * 
      */
-    public Output<Boolean> hardFail() {
-        return this.hardFail;
+    public Output<Optional<Boolean>> hardFail() {
+        return Codegen.optional(this.hardFail);
     }
     /**
      * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
@@ -308,15 +312,15 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="includesPattern", type=String.class, parameters={})
-    private Output<String> includesPattern;
+    private Output</* @Nullable */ String> includesPattern;
 
     /**
      * @return List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**{@literal /}z/*. When
      * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**{@literal /}*).
      * 
      */
-    public Output<String> includesPattern() {
-        return this.includesPattern;
+    public Output<Optional<String>> includesPattern() {
+        return Codegen.optional(this.includesPattern);
     }
     /**
      * A mandatory identifier for the repository that must be unique. It cannot begin with a number or
@@ -336,7 +340,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
     @Export(name="listRemoteFolderItems", type=Boolean.class, parameters={})
@@ -344,7 +348,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Lists the items of remote folders in simple and list browsing. The remote content is cached according to the value of
-     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;false&#39;.
+     * the &#39;Retrieval Cache Period&#39;. Default value is &#39;true&#39;.
      * 
      */
     public Output<Optional<Boolean>> listRemoteFolderItems() {
@@ -367,8 +371,24 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.localAddress);
     }
     /**
+     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
+     * 
+     */
+    @Export(name="metadataRetrievalTimeoutSecs", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
+
+    /**
+     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
+     * the remote before serving locally cached artifact or fail the request.
+     * 
+     */
+    public Output<Optional<Integer>> metadataRetrievalTimeoutSecs() {
+        return Codegen.optional(this.metadataRetrievalTimeoutSecs);
+    }
+    /**
      * The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#34;application/json,application/xml&#34;. Default value is empty.
+     * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     @Export(name="mismatchingMimeTypesOverrideList", type=String.class, parameters={})
@@ -376,29 +396,39 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The set of mime types that should override the block_mismatching_mime_types setting. Eg:
-     * &#34;application/json,application/xml&#34;. Default value is empty.
+     * &#39;application/json,application/xml&#39;. Default value is empty.
      * 
      */
     public Output<Optional<String>> mismatchingMimeTypesOverrideList() {
         return Codegen.optional(this.mismatchingMimeTypesOverrideList);
     }
     /**
-     * The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+     * Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+     * found). A value of 0 indicates no caching.
      * 
      */
     @Export(name="missedCachePeriodSeconds", type=Integer.class, parameters={})
-    private Output<Integer> missedCachePeriodSeconds;
+    private Output</* @Nullable */ Integer> missedCachePeriodSeconds;
 
     /**
-     * @return The number of seconds to cache artifact retrieval misses (artifact not found). A value of 0 indicates no caching.
+     * @return Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
+     * found). A value of 0 indicates no caching.
      * 
      */
-    public Output<Integer> missedCachePeriodSeconds() {
-        return this.missedCachePeriodSeconds;
+    public Output<Optional<Integer>> missedCachePeriodSeconds() {
+        return Codegen.optional(this.missedCachePeriodSeconds);
     }
+    /**
+     * Internal description.
+     * 
+     */
     @Export(name="notes", type=String.class, parameters={})
     private Output</* @Nullable */ String> notes;
 
+    /**
+     * @return Internal description.
+     * 
+     */
     public Output<Optional<String>> notes() {
         return Codegen.optional(this.notes);
     }
@@ -407,14 +437,14 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="offline", type=Boolean.class, parameters={})
-    private Output<Boolean> offline;
+    private Output</* @Nullable */ Boolean> offline;
 
     /**
      * @return If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
      * 
      */
-    public Output<Boolean> offline() {
-        return this.offline;
+    public Output<Optional<Boolean>> offline() {
+        return Codegen.optional(this.offline);
     }
     @Export(name="packageType", type=String.class, parameters={})
     private Output<String> packageType;
@@ -429,35 +459,43 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
     @Export(name="priorityResolution", type=Boolean.class, parameters={})
-    private Output<Boolean> priorityResolution;
+    private Output</* @Nullable */ Boolean> priorityResolution;
 
     /**
-     * @return Setting repositories with priority will cause metadata to be merged only from repositories set with this field
+     * @return Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
+     * repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
+     * not found in those repositories, Artifactory will merge from repositories marked as non-priority.
      * 
      */
-    public Output<Boolean> priorityResolution() {
-        return this.priorityResolution;
+    public Output<Optional<Boolean>> priorityResolution() {
+        return Codegen.optional(this.priorityResolution);
     }
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
     private Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -465,7 +503,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -515,6 +553,22 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.proxy);
     }
     /**
+     * Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * 
+     */
+    @Export(name="queryParams", type=String.class, parameters={})
+    private Output</* @Nullable */ String> queryParams;
+
+    /**
+     * @return Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
+     * `param1=val1&amp;param2=val2&amp;param3=val3`
+     * 
+     */
+    public Output<Optional<String>> queryParams() {
+        return Codegen.optional(this.queryParams);
+    }
+    /**
      * Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a &#34;captive portal&#34;.
      * 
      */
@@ -543,18 +597,18 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.remoteRepoChecksumPolicyType);
     }
     /**
-     * Repository layout key for the remote layout mapping
+     * Repository layout key for the remote layout mapping.
      * 
      */
     @Export(name="remoteRepoLayoutRef", type=String.class, parameters={})
-    private Output<String> remoteRepoLayoutRef;
+    private Output</* @Nullable */ String> remoteRepoLayoutRef;
 
     /**
-     * @return Repository layout key for the remote layout mapping
+     * @return Repository layout key for the remote layout mapping.
      * 
      */
-    public Output<String> remoteRepoLayoutRef() {
-        return this.remoteRepoLayoutRef;
+    public Output<Optional<String>> remoteRepoLayoutRef() {
+        return Codegen.optional(this.remoteRepoLayoutRef);
     }
     /**
      * Repository layout key for the local repository
@@ -571,18 +625,20 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.repoLayoutRef);
     }
     /**
-     * The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+     * Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+     * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
     @Export(name="retrievalCachePeriodSeconds", type=Integer.class, parameters={})
-    private Output<Integer> retrievalCachePeriodSeconds;
+    private Output</* @Nullable */ Integer> retrievalCachePeriodSeconds;
 
     /**
-     * @return The metadataRetrievalTimeoutSecs field not allowed to be bigger then retrievalCachePeriodSecs field.
+     * @return Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
+     * before checking for newer versions on remote server. A value of 0 indicates no caching.
      * 
      */
-    public Output<Integer> retrievalCachePeriodSeconds() {
-        return this.retrievalCachePeriodSeconds;
+    public Output<Optional<Integer>> retrievalCachePeriodSeconds() {
+        return Codegen.optional(this.retrievalCachePeriodSeconds);
     }
     @Export(name="shareConfiguration", type=Boolean.class, parameters={})
     private Output<Boolean> shareConfiguration;
@@ -596,15 +652,15 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="socketTimeoutMillis", type=Integer.class, parameters={})
-    private Output<Integer> socketTimeoutMillis;
+    private Output</* @Nullable */ Integer> socketTimeoutMillis;
 
     /**
      * @return Network timeout (in ms) to use when establishing a connection and for unanswered requests. Timing out on a network
      * operation is considered a retrieval failure.
      * 
      */
-    public Output<Integer> socketTimeoutMillis() {
-        return this.socketTimeoutMillis;
+    public Output<Optional<Integer>> socketTimeoutMillis() {
+        return Codegen.optional(this.socketTimeoutMillis);
     }
     /**
      * When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -614,7 +670,7 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storeArtifactsLocally", type=Boolean.class, parameters={})
-    private Output<Boolean> storeArtifactsLocally;
+    private Output</* @Nullable */ Boolean> storeArtifactsLocally;
 
     /**
      * @return When set, the repository should store cached artifacts locally. When not set, artifacts are not stored locally, and
@@ -623,8 +679,8 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * servers.
      * 
      */
-    public Output<Boolean> storeArtifactsLocally() {
-        return this.storeArtifactsLocally;
+    public Output<Optional<Boolean>> storeArtifactsLocally() {
+        return Codegen.optional(this.storeArtifactsLocally);
     }
     /**
      * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;.
@@ -645,36 +701,30 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="synchronizeProperties", type=Boolean.class, parameters={})
-    private Output<Boolean> synchronizeProperties;
+    private Output</* @Nullable */ Boolean> synchronizeProperties;
 
     /**
      * @return When set, remote artifacts are fetched along with their properties.
      * 
      */
-    public Output<Boolean> synchronizeProperties() {
-        return this.synchronizeProperties;
-    }
-    @Export(name="unusedArtifactsCleanupPeriodEnabled", type=Boolean.class, parameters={})
-    private Output<Boolean> unusedArtifactsCleanupPeriodEnabled;
-
-    public Output<Boolean> unusedArtifactsCleanupPeriodEnabled() {
-        return this.unusedArtifactsCleanupPeriodEnabled;
+    public Output<Optional<Boolean>> synchronizeProperties() {
+        return Codegen.optional(this.synchronizeProperties);
     }
     /**
-     * The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-     * of 0 means automatic cleanup of cached artifacts is disabled.
+     * Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
     @Export(name="unusedArtifactsCleanupPeriodHours", type=Integer.class, parameters={})
-    private Output<Integer> unusedArtifactsCleanupPeriodHours;
+    private Output</* @Nullable */ Integer> unusedArtifactsCleanupPeriodHours;
 
     /**
-     * @return The number of hours to wait before an artifact is deemed &#34;unused&#34; and eligible for cleanup from the repository. A value
-     * of 0 means automatic cleanup of cached artifacts is disabled.
+     * @return Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed &#39;unused&#39; and
+     * eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
      * 
      */
-    public Output<Integer> unusedArtifactsCleanupPeriodHours() {
-        return this.unusedArtifactsCleanupPeriodHours;
+    public Output<Optional<Integer>> unusedArtifactsCleanupPeriodHours() {
+        return Codegen.optional(this.unusedArtifactsCleanupPeriodHours);
     }
     /**
      * The remote repo URL.
@@ -745,6 +795,9 @@ public class RemoteSbtRepository extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "password"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

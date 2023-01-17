@@ -66,6 +66,9 @@ namespace Pulumi.Artifactory
         [Output("checkBinaryExistenceInFilestore")]
         public Output<bool?> CheckBinaryExistenceInFilestore { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
@@ -99,6 +102,9 @@ namespace Pulumi.Artifactory
         [Output("proxy")]
         public Output<string?> Proxy { get; private set; } = null!;
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Output("repoKey")]
         public Output<string> RepoKey { get; private set; } = null!;
 
@@ -160,6 +166,10 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -190,6 +200,9 @@ namespace Pulumi.Artifactory
         [Input("checkBinaryExistenceInFilestore")]
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
@@ -205,11 +218,21 @@ namespace Pulumi.Artifactory
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Required for local repository, but not needed for remote repository.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
@@ -223,6 +246,9 @@ namespace Pulumi.Artifactory
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Input("repoKey", required: true)]
         public Input<string> RepoKey { get; set; } = null!;
 
@@ -276,6 +302,9 @@ namespace Pulumi.Artifactory
         [Input("checkBinaryExistenceInFilestore")]
         public Input<bool>? CheckBinaryExistenceInFilestore { get; set; }
 
+        /// <summary>
+        /// A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+        /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
@@ -291,11 +320,21 @@ namespace Pulumi.Artifactory
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Required for local repository, but not needed for remote repository.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Only artifacts that located in path that matches the subpath within the remote repository will be replicated.
@@ -309,6 +348,9 @@ namespace Pulumi.Artifactory
         [Input("proxy")]
         public Input<string>? Proxy { get; set; }
 
+        /// <summary>
+        /// Repository name.
+        /// </summary>
         [Input("repoKey")]
         public Input<string>? RepoKey { get; set; }
 

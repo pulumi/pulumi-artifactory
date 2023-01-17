@@ -29,6 +29,9 @@ namespace Pulumi.Artifactory
     [ArtifactoryResourceType("artifactory:index/singleReplicationConfig:SingleReplicationConfig")]
     public partial class SingleReplicationConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Output("cronExp")]
         public Output<string> CronExp { get; private set; } = null!;
 
@@ -97,6 +100,10 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -120,6 +127,9 @@ namespace Pulumi.Artifactory
 
     public sealed class SingleReplicationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Input("cronExp", required: true)]
         public Input<string> CronExp { get; set; } = null!;
 
@@ -167,6 +177,9 @@ namespace Pulumi.Artifactory
 
     public sealed class SingleReplicationConfigState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Cron expression to control the operation frequency.
+        /// </summary>
         [Input("cronExp")]
         public Input<string>? CronExp { get; set; }
 
@@ -176,11 +189,21 @@ namespace Pulumi.Artifactory
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Requires password encryption to be turned off `POST /api/system/decrypt`.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }

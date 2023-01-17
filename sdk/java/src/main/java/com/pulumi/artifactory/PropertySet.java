@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * This resource configuration corresponds to &#39;propertySets&#39; config block in system configuration XML
  * (REST endpoint: artifactory/api/system/configuration).
  * 
+ * ~&gt;The `artifactory.PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

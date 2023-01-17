@@ -34,14 +34,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     public Optional<Output<String>> cronExp() {
@@ -223,7 +223,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+         * @param cronExp A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
          * 
          * @return builder
          * 

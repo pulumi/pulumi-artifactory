@@ -87,9 +87,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/pushReplication:PushReplication")
 public class PushReplication extends com.pulumi.resources.CustomResource {
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
+    /**
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }
@@ -113,9 +121,17 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<PushReplicationReplication>>> replications() {
         return Codegen.optional(this.replications);
     }
+    /**
+     * Repository name.
+     * 
+     */
     @Export(name="repoKey", type=String.class, parameters={})
     private Output<String> repoKey;
 
+    /**
+     * @return Repository name.
+     * 
+     */
     public Output<String> repoKey() {
         return this.repoKey;
     }

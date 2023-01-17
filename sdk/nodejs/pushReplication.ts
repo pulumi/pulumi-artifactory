@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -73,12 +74,18 @@ export class PushReplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === PushReplication.__pulumiType;
     }
 
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     public readonly cronExp!: pulumi.Output<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly replications!: pulumi.Output<outputs.PushReplicationReplication[] | undefined>;
+    /**
+     * Repository name.
+     */
     public readonly repoKey!: pulumi.Output<string>;
 
     /**
@@ -120,12 +127,18 @@ export class PushReplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PushReplication resources.
  */
 export interface PushReplicationState {
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     cronExp?: pulumi.Input<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
+    /**
+     * Repository name.
+     */
     repoKey?: pulumi.Input<string>;
 }
 
@@ -133,11 +146,17 @@ export interface PushReplicationState {
  * The set of arguments for constructing a PushReplication resource.
  */
 export interface PushReplicationArgs {
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     */
     cronExp: pulumi.Input<string>;
     /**
      * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
      */
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
+    /**
+     * Repository name.
+     */
     repoKey: pulumi.Input<string>;
 }

@@ -15,6 +15,8 @@ import (
 // This resource configuration corresponds to 'propertySets' config block in system configuration XML
 // (REST endpoint: artifactory/api/system/configuration).
 //
+// ~>The `PropertySet` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
 // ## Example Usage
 //
 // ```go
@@ -30,32 +32,32 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewPropertySet(ctx, "foo", &artifactory.PropertySetArgs{
-//				Properties: PropertySetPropertyArray{
-//					&PropertySetPropertyArgs{
+//				Properties: artifactory.PropertySetPropertyArray{
+//					&artifactory.PropertySetPropertyArgs{
 //						ClosedPredefinedValues: pulumi.Bool(true),
 //						MultipleChoice:         pulumi.Bool(true),
 //						Name:                   pulumi.String("set1property1"),
-//						PredefinedValues: PropertySetPropertyPredefinedValueArray{
-//							&PropertySetPropertyPredefinedValueArgs{
+//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
 //								DefaultValue: pulumi.Bool(true),
 //								Name:         pulumi.String("passed-QA"),
 //							},
-//							&PropertySetPropertyPredefinedValueArgs{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
 //								DefaultValue: pulumi.Bool(false),
 //								Name:         pulumi.String("failed-QA"),
 //							},
 //						},
 //					},
-//					&PropertySetPropertyArgs{
+//					&artifactory.PropertySetPropertyArgs{
 //						ClosedPredefinedValues: pulumi.Bool(false),
 //						MultipleChoice:         pulumi.Bool(false),
 //						Name:                   pulumi.String("set1property2"),
-//						PredefinedValues: PropertySetPropertyPredefinedValueArray{
-//							&PropertySetPropertyPredefinedValueArgs{
+//						PredefinedValues: artifactory.PropertySetPropertyPredefinedValueArray{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
 //								DefaultValue: pulumi.Bool(true),
 //								Name:         pulumi.String("passed-QA"),
 //							},
-//							&PropertySetPropertyPredefinedValueArgs{
+//							&artifactory.PropertySetPropertyPredefinedValueArgs{
 //								DefaultValue: pulumi.Bool(false),
 //								Name:         pulumi.String("failed-QA"),
 //							},

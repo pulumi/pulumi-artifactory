@@ -21,6 +21,7 @@ import * as utilities from "./utilities";
  *     key: "foo-docker",
  *     notes: "Internal description",
  *     repositories: [],
+ *     resolveDockerTagsByTimestamp: true,
  * });
  * ```
  *
@@ -80,8 +81,8 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     public readonly includesPattern!: pulumi.Output<string | undefined>;
     /**
@@ -98,11 +99,13 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -115,10 +118,9 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
      */
     public readonly repositories!: pulumi.Output<string[] | undefined>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
-    public readonly retrievalCachePeriodSeconds!: pulumi.Output<number | undefined>;
+    public readonly resolveDockerTagsByTimestamp!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualDockerRepository resource with the given unique name, arguments, and options.
@@ -145,7 +147,7 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = state ? state.repoLayoutRef : undefined;
             resourceInputs["repositories"] = state ? state.repositories : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = state ? state.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["resolveDockerTagsByTimestamp"] = state ? state.resolveDockerTagsByTimestamp : undefined;
         } else {
             const args = argsOrState as VirtualDockerRepositoryArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -162,7 +164,7 @@ export class VirtualDockerRepository extends pulumi.CustomResource {
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
             resourceInputs["repoLayoutRef"] = args ? args.repoLayoutRef : undefined;
             resourceInputs["repositories"] = args ? args.repositories : undefined;
-            resourceInputs["retrievalCachePeriodSeconds"] = args ? args.retrievalCachePeriodSeconds : undefined;
+            resourceInputs["resolveDockerTagsByTimestamp"] = args ? args.resolveDockerTagsByTimestamp : undefined;
             resourceInputs["packageType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,8 +196,8 @@ export interface VirtualDockerRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -212,11 +214,13 @@ export interface VirtualDockerRepositoryState {
      */
     packageType?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -229,10 +233,9 @@ export interface VirtualDockerRepositoryState {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    resolveDockerTagsByTimestamp?: pulumi.Input<boolean>;
 }
 
 /**
@@ -259,8 +262,8 @@ export interface VirtualDockerRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * List of artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When used, only
-     * artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
+     * List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**&#47;z/*. When
+     * used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**&#47;*).
      */
     includesPattern?: pulumi.Input<string>;
     /**
@@ -273,11 +276,13 @@ export interface VirtualDockerRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+     * Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 3 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -290,8 +295,7 @@ export interface VirtualDockerRepositoryArgs {
      */
     repositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * This value refers to the number of seconds to cache metadata files before checking for newer versions on aggregated
-     * repositories. A value of 0 indicates no caching.
+     * When enabled, in cases where the same Docker tag exists in two or more of the aggregated repositories, Artifactory will return the tag that has the latest timestamp. Default values is `false`.
      */
-    retrievalCachePeriodSeconds?: pulumi.Input<number>;
+    resolveDockerTagsByTimestamp?: pulumi.Input<boolean>;
 }

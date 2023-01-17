@@ -63,14 +63,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this override is set, an empty or missing usernames array will detach all users from the group
+     * When this is set to `true`, an empty or missing usernames array will detach all users from the group
      * 
      */
     @Import(name="detachAllUsers")
     private @Nullable Output<Boolean> detachAllUsers;
 
     /**
-     * @return When this override is set, an empty or missing usernames array will detach all users from the group
+     * @return When this is set to `true`, an empty or missing usernames array will detach all users from the group
      * 
      */
     public Optional<Output<Boolean>> detachAllUsers() {
@@ -108,14 +108,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     @Import(name="policyManager")
     private @Nullable Output<Boolean> policyManager;
 
     /**
-     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> policyManager() {
@@ -153,44 +153,36 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     @Import(name="reportsManager")
     private @Nullable Output<Boolean> reportsManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> reportsManager() {
         return Optional.ofNullable(this.reportsManager);
     }
 
-    /**
-     * List of users assigned to the group. If missing or empty, tf will not manage group membership
-     * 
-     */
     @Import(name="usersNames")
     private @Nullable Output<List<String>> usersNames;
 
-    /**
-     * @return List of users assigned to the group. If missing or empty, tf will not manage group membership
-     * 
-     */
     public Optional<Output<List<String>>> usersNames() {
         return Optional.ofNullable(this.usersNames);
     }
 
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     @Import(name="watchManager")
     private @Nullable Output<Boolean> watchManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> watchManager() {
@@ -296,7 +288,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detachAllUsers When this override is set, an empty or missing usernames array will detach all users from the group
+         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group
          * 
          * @return builder
          * 
@@ -307,7 +299,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param detachAllUsers When this override is set, an empty or missing usernames array will detach all users from the group
+         * @param detachAllUsers When this is set to `true`, an empty or missing usernames array will detach all users from the group
          * 
          * @return builder
          * 
@@ -359,7 +351,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
          * 
          * @return builder
          * 
@@ -370,7 +362,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
          * 
          * @return builder
          * 
@@ -422,7 +414,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
          * 
          * @return builder
          * 
@@ -433,7 +425,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
          * 
          * @return builder
          * 
@@ -442,39 +434,21 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return reportsManager(Output.of(reportsManager));
         }
 
-        /**
-         * @param usersNames List of users assigned to the group. If missing or empty, tf will not manage group membership
-         * 
-         * @return builder
-         * 
-         */
         public Builder usersNames(@Nullable Output<List<String>> usersNames) {
             $.usersNames = usersNames;
             return this;
         }
 
-        /**
-         * @param usersNames List of users assigned to the group. If missing or empty, tf will not manage group membership
-         * 
-         * @return builder
-         * 
-         */
         public Builder usersNames(List<String> usersNames) {
             return usersNames(Output.of(usersNames));
         }
 
-        /**
-         * @param usersNames List of users assigned to the group. If missing or empty, tf will not manage group membership
-         * 
-         * @return builder
-         * 
-         */
         public Builder usersNames(String... usersNames) {
             return usersNames(List.of(usersNames));
         }
 
         /**
-         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
          * 
          * @return builder
          * 
@@ -485,7 +459,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
          * 
          * @return builder
          * 

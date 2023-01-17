@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
  * The backup process creates a time-stamped directory in the target backup directory.
  * 
+ * ~&gt;The `artifactory.Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -47,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var backupConfigName = new Backup(&#34;backupConfigName&#34;, BackupArgs.builder()        
  *             .createArchive(false)
- *             .cronExp(&#34;0 0 12 * * ?&#34;)
+ *             .cronExp(&#34;0 0 12 * * ? *&#34;)
  *             .enabled(true)
  *             .excludeNewRepositories(true)
  *             .excludedRepositories()
@@ -61,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * Note: `Key` argument has to match to the resource name.\
+ * Note: `Key` argument has to match to the resource name.
  * Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
  * 
  * ## Import
@@ -90,14 +92,14 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.createArchive);
     }
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+     * A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
     /**
-     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? &#34;.
+     * @return A valid CRON expression that you can use to control backup frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      * 
      */
     public Output<String> cronExp() {

@@ -17,9 +17,17 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
 
     public static final SingleReplicationConfigState Empty = new SingleReplicationConfigState();
 
+    /**
+     * Cron expression to control the operation frequency.
+     * 
+     */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
+    /**
+     * @return Cron expression to control the operation frequency.
+     * 
+     */
     public Optional<Output<String>> cronExp() {
         return Optional.ofNullable(this.cronExp);
     }
@@ -160,11 +168,23 @@ public final class SingleReplicationConfigState extends com.pulumi.resources.Res
             $ = new SingleReplicationConfigState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(@Nullable Output<String> cronExp) {
             $.cronExp = cronExp;
             return this;
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(String cronExp) {
             return cronExp(Output.of(cronExp));
         }

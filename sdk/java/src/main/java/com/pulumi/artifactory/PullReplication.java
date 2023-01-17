@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -96,9 +97,17 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> checkBinaryExistenceInFilestore() {
         return Codegen.optional(this.checkBinaryExistenceInFilestore);
     }
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
+    /**
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }
@@ -172,9 +181,17 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> proxy() {
         return Codegen.optional(this.proxy);
     }
+    /**
+     * Repository name.
+     * 
+     */
     @Export(name="repoKey", type=String.class, parameters={})
     private Output<String> repoKey;
 
+    /**
+     * @return Repository name.
+     * 
+     */
     public Output<String> repoKey() {
         return this.repoKey;
     }
@@ -291,6 +308,9 @@ public class PullReplication extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "password"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

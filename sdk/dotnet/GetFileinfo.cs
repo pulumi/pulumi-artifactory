@@ -39,7 +39,7 @@ namespace Pulumi.Artifactory
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFileinfoResult> InvokeAsync(GetFileinfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// ## # Artifactory File Info Data Source
@@ -69,7 +69,7 @@ namespace Pulumi.Artifactory
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFileinfoResult> Invoke(GetFileinfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileinfoResult>("artifactory:index/getFileinfo:getFileinfo", args ?? new GetFileinfoInvokeArgs(), options.WithDefaults());
     }
 
 

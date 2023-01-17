@@ -130,6 +130,8 @@ export class ScopedToken extends pulumi.CustomResource {
             resourceInputs["tokenType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "refreshToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ScopedToken.__pulumiType, name, resourceInputs, opts);
     }
 }

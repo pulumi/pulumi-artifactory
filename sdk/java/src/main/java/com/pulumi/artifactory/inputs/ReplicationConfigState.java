@@ -18,9 +18,17 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
 
     public static final ReplicationConfigState Empty = new ReplicationConfigState();
 
+    /**
+     * Cron expression to control the operation frequency.
+     * 
+     */
     @Import(name="cronExp")
     private @Nullable Output<String> cronExp;
 
+    /**
+     * @return Cron expression to control the operation frequency.
+     * 
+     */
     public Optional<Output<String>> cronExp() {
         return Optional.ofNullable(this.cronExp);
     }
@@ -73,11 +81,23 @@ public final class ReplicationConfigState extends com.pulumi.resources.ResourceA
             $ = new ReplicationConfigState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(@Nullable Output<String> cronExp) {
             $.cronExp = cronExp;
             return this;
         }
 
+        /**
+         * @param cronExp Cron expression to control the operation frequency.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(String cronExp) {
             return cronExp(Output.of(cronExp));
         }

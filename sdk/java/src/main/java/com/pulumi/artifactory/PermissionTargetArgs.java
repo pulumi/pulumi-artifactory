@@ -19,14 +19,14 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
     public static final PermissionTargetArgs Empty = new PermissionTargetArgs();
 
     /**
-     * As for repo but for artifactory-build-info permssions.
+     * As for repo but for artifactory-build-info permissions.
      * 
      */
     @Import(name="build")
     private @Nullable Output<PermissionTargetBuildArgs> build;
 
     /**
-     * @return As for repo but for artifactory-build-info permssions.
+     * @return As for repo but for artifactory-build-info permissions.
      * 
      */
     public Optional<Output<PermissionTargetBuildArgs>> build() {
@@ -106,7 +106,7 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param build As for repo but for artifactory-build-info permssions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PermissionTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param build As for repo but for artifactory-build-info permssions.
+         * @param build As for repo but for artifactory-build-info permissions.
          * 
          * @return builder
          * 

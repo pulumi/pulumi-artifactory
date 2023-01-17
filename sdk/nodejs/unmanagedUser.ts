@@ -87,7 +87,7 @@ export class UnmanagedUser extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -127,10 +127,12 @@ export class UnmanagedUser extends pulumi.CustomResource {
             resourceInputs["groups"] = args ? args.groups : undefined;
             resourceInputs["internalPasswordDisabled"] = args ? args.internalPasswordDisabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["profileUpdatable"] = args ? args.profileUpdatable : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(UnmanagedUser.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -164,7 +166,7 @@ export interface UnmanagedUserState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**
@@ -202,7 +204,7 @@ export interface UnmanagedUserArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      */
     password?: pulumi.Input<string>;
     /**

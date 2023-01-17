@@ -52,6 +52,11 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "apiKey",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -62,18 +67,41 @@ namespace Pulumi.Artifactory
 
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// This is a access token that can be given to you by your admin under `Identity and Access`. If not set, the 'api_key'
         /// attribute value will be used.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("apiKey")]
+        private Input<string>? _apiKey;
 
         /// <summary>
         /// API token. Projects functionality will not work with any auth method other than access tokens
         /// </summary>
-        [Input("apiKey")]
-        public Input<string>? ApiKey { get; set; }
+        [Obsolete(@"An upcoming version will support the option to block the usage/creation of API Keys (for admins to set on their platform).
+In September 2022, the option to block the usage/creation of API Keys will be enabled by default, with the option for admins to change it back to enable API Keys.
+In January 2023, API Keys will be deprecated all together and the option to use them will no longer be available.")]
+        public Input<string>? ApiKey
+        {
+            get => _apiKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Toggle for pre-flight checking of Artifactory Pro and Enterprise license. Default to `true`.

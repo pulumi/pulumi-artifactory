@@ -31,15 +31,14 @@ class GroupArgs:
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
-        :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[bool] detach_all_users: When this is set to `true`, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
-        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
-        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
-        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
             pulumi.set(__self__, "admin_privileges", admin_privileges)
@@ -106,7 +105,7 @@ class GroupArgs:
     @pulumi.getter(name="detachAllUsers")
     def detach_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, an empty or missing usernames array will detach all users from the group
+        When this is set to `true`, an empty or missing usernames array will detach all users from the group
         """
         return pulumi.get(self, "detach_all_users")
 
@@ -142,7 +141,7 @@ class GroupArgs:
     @pulumi.getter(name="policyManager")
     def policy_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         """
         return pulumi.get(self, "policy_manager")
 
@@ -178,7 +177,7 @@ class GroupArgs:
     @pulumi.getter(name="reportsManager")
     def reports_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "reports_manager")
 
@@ -189,9 +188,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of users assigned to the group. If missing or empty, tf will not manage group membership
-        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -202,7 +198,7 @@ class GroupArgs:
     @pulumi.getter(name="watchManager")
     def watch_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "watch_manager")
 
@@ -231,15 +227,14 @@ class _GroupState:
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
-        :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[bool] detach_all_users: When this is set to `true`, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
-        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
-        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
-        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         if admin_privileges is not None:
             pulumi.set(__self__, "admin_privileges", admin_privileges)
@@ -306,7 +301,7 @@ class _GroupState:
     @pulumi.getter(name="detachAllUsers")
     def detach_all_users(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, an empty or missing usernames array will detach all users from the group
+        When this is set to `true`, an empty or missing usernames array will detach all users from the group
         """
         return pulumi.get(self, "detach_all_users")
 
@@ -342,7 +337,7 @@ class _GroupState:
     @pulumi.getter(name="policyManager")
     def policy_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         """
         return pulumi.get(self, "policy_manager")
 
@@ -378,7 +373,7 @@ class _GroupState:
     @pulumi.getter(name="reportsManager")
     def reports_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "reports_manager")
 
@@ -389,9 +384,6 @@ class _GroupState:
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of users assigned to the group. If missing or empty, tf will not manage group membership
-        """
         return pulumi.get(self, "users_names")
 
     @users_names.setter
@@ -402,7 +394,7 @@ class _GroupState:
     @pulumi.getter(name="watchManager")
     def watch_manager(self) -> Optional[pulumi.Input[bool]]:
         """
-        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "watch_manager")
 
@@ -443,15 +435,14 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
-        :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[bool] detach_all_users: When this is set to `true`, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
-        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
-        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
-        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         ...
     @overload
@@ -548,15 +539,14 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] admin_privileges: Any users added to this group will automatically be assigned with admin privileges in the system.
         :param pulumi.Input[bool] auto_join: When this parameter is set, any new users defined in the system are automatically assigned to this group.
         :param pulumi.Input[str] description: A description for the group
-        :param pulumi.Input[bool] detach_all_users: When this override is set, an empty or missing usernames array will detach all users from the group
+        :param pulumi.Input[bool] detach_all_users: When this is set to `true`, an empty or missing usernames array will detach all users from the group
         :param pulumi.Input[str] external_id: New external group ID used to configure the corresponding group in Azure AD.
         :param pulumi.Input[str] name: Name of the group
-        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        :param pulumi.Input[bool] policy_manager: When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         :param pulumi.Input[str] realm: The realm for the group.
         :param pulumi.Input[str] realm_attributes: The realm attributes for the group.
-        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] users_names: List of users assigned to the group. If missing or empty, tf will not manage group membership
-        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        :param pulumi.Input[bool] reports_manager: When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
+        :param pulumi.Input[bool] watch_manager: When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -604,7 +594,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="detachAllUsers")
     def detach_all_users(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this override is set, an empty or missing usernames array will detach all users from the group
+        When this is set to `true`, an empty or missing usernames array will detach all users from the group
         """
         return pulumi.get(self, "detach_all_users")
 
@@ -628,7 +618,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="policyManager")
     def policy_manager(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         """
         return pulumi.get(self, "policy_manager")
 
@@ -652,23 +642,20 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="reportsManager")
     def reports_manager(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "reports_manager")
 
     @property
     @pulumi.getter(name="usersNames")
     def users_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of users assigned to the group. If missing or empty, tf will not manage group membership
-        """
         return pulumi.get(self, "users_names")
 
     @property
     @pulumi.getter(name="watchManager")
     def watch_manager(self) -> pulumi.Output[Optional[bool]]:
         """
-        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         """
         return pulumi.get(self, "watch_manager")
 

@@ -187,30 +187,34 @@ public class LocalComposerRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.priorityResolution);
     }
     /**
-     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     @Export(name="projectEnvironments", type=List.class, parameters={String.class})
     private Output<List<String>> projectEnvironments;
 
     /**
-     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;
+     * @return Project environment for assigning this repository to. Allow values: &#34;DEV&#34; or &#34;PROD&#34;. The attribute should only be used
+     * if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+     * will remain in the Terraform state, which will create state drift during the update.
      * 
      */
     public Output<List<String>> projectEnvironments() {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     @Export(name="projectKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-     * with project key, separated by a dash.
+     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
     public Output<Optional<String>> projectKey() {

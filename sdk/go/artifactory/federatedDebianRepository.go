@@ -29,12 +29,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewFederatedDebianRepository(ctx, "terraform-federated-test-debian-repo", &artifactory.FederatedDebianRepositoryArgs{
 //				Key: pulumi.String("terraform-federated-test-debian-repo"),
-//				Members: FederatedDebianRepositoryMemberArray{
-//					&FederatedDebianRepositoryMemberArgs{
+//				Members: artifactory.FederatedDebianRepositoryMemberArray{
+//					&artifactory.FederatedDebianRepositoryMemberArgs{
 //						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl.org/artifactory/terraform-federated-test-debian-repo"),
 //					},
-//					&FederatedDebianRepositoryMemberArgs{
+//					&artifactory.FederatedDebianRepositoryMemberArgs{
 //						Enabled: pulumi.Bool(true),
 //						Url:     pulumi.String("http://tempurl2.org/artifactory/terraform-federated-test-debian-repo-2"),
 //					},
@@ -91,10 +91,12 @@ type FederatedDebianRepository struct {
 	PrimaryKeypairRef pulumi.StringPtrOutput `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrOutput `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
@@ -176,10 +178,12 @@ type federatedDebianRepositoryState struct {
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -227,10 +231,12 @@ type FederatedDebianRepositoryState struct {
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -281,10 +287,12 @@ type federatedDebianRepositoryArgs struct {
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution *bool `pulumi:"priorityResolution"`
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
 	PropertySets []string `pulumi:"propertySets"`
@@ -332,10 +340,12 @@ type FederatedDebianRepositoryArgs struct {
 	PrimaryKeypairRef pulumi.StringPtrInput
 	// Setting repositories with priority will cause metadata to be merged only from repositories set with this field
 	PriorityResolution pulumi.BoolPtrInput
-	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+	// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-	// with project key, separated by a dash.
+	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
 	PropertySets pulumi.StringArrayInput
@@ -508,13 +518,15 @@ func (o FederatedDebianRepositoryOutput) PriorityResolution() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.BoolPtrOutput { return v.PriorityResolution }).(pulumi.BoolPtrOutput)
 }
 
-// Project environment for assigning this repository to. Allow values: "DEV" or "PROD"
+// Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
+// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
+// will remain in the Terraform state, which will create state drift during the update.
 func (o FederatedDebianRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. When assigning repository to a project, repository key must be prefixed
-// with project key, separated by a dash.
+// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedDebianRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDebianRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
 }

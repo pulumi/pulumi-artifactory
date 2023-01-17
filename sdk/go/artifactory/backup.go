@@ -16,6 +16,8 @@ import (
 // When an `Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
 // The backup process creates a time-stamped directory in the target backup directory.
 //
+// ~>The `Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+//
 // ## Example Usage
 //
 // ```go
@@ -32,7 +34,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewBackup(ctx, "backupConfigName", &artifactory.BackupArgs{
 //				CreateArchive:          pulumi.Bool(false),
-//				CronExp:                pulumi.String("0 0 12 * * ?"),
+//				CronExp:                pulumi.String("0 0 12 * * ? *"),
 //				Enabled:                pulumi.Bool(true),
 //				ExcludeNewRepositories: pulumi.Bool(true),
 //				ExcludedRepositories:   pulumi.StringArray{},
@@ -50,7 +52,7 @@ import (
 //	}
 //
 // ```
-// Note: `Key` argument has to match to the resource name.\
+// Note: `Key` argument has to match to the resource name.
 // Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
 //
 // ## Import
@@ -67,7 +69,7 @@ type Backup struct {
 
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
 	CreateArchive pulumi.BoolPtrOutput `pulumi:"createArchive"`
-	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp pulumi.StringOutput `pulumi:"cronExp"`
 	// Flag to enable or disable the backup config. Default value is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -124,7 +126,7 @@ func GetBackup(ctx *pulumi.Context,
 type backupState struct {
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
 	CreateArchive *bool `pulumi:"createArchive"`
-	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp *string `pulumi:"cronExp"`
 	// Flag to enable or disable the backup config. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -147,7 +149,7 @@ type backupState struct {
 type BackupState struct {
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
 	CreateArchive pulumi.BoolPtrInput
-	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp pulumi.StringPtrInput
 	// Flag to enable or disable the backup config. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
@@ -174,7 +176,7 @@ func (BackupState) ElementType() reflect.Type {
 type backupArgs struct {
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
 	CreateArchive *bool `pulumi:"createArchive"`
-	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp string `pulumi:"cronExp"`
 	// Flag to enable or disable the backup config. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -198,7 +200,7 @@ type backupArgs struct {
 type BackupArgs struct {
 	// If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
 	CreateArchive pulumi.BoolPtrInput
-	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+	// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 	CronExp pulumi.StringInput
 	// Flag to enable or disable the backup config. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
@@ -310,7 +312,7 @@ func (o BackupOutput) CreateArchive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.CreateArchive }).(pulumi.BoolPtrOutput)
 }
 
-// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+// A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
 func (o BackupOutput) CronExp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.CronExp }).(pulumi.StringOutput)
 }

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -17,19 +18,15 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Create a replication between two artifactory local repositories
- * const providerTestSource = new artifactory.LocalMavenRepository("provider_test_source", {
- *     key: "provider_test_source",
- * });
- * const providerTestDest = new artifactory.LocalMavenRepository("provider_test_dest", {
- *     key: "provider_test_dest",
- * });
+ * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
+ * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
  * const foo_rep = new artifactory.ReplicationConfig("foo-rep", {
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [{
- *         password: "$var.artifactory_password",
- *         url: "$var.artifactory_url",
- *         username: "$var.artifactory_username",
+ *         password: `$var.artifactory_password`,
+ *         url: `$var.artifactory_url`,
+ *         username: `$var.artifactory_username`,
  *     }],
  *     repoKey: providerTestSource.key,
  * });
@@ -71,6 +68,9 @@ export class ReplicationConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfig.__pulumiType;
     }
 
+    /**
+     * Cron expression to control the operation frequency.
+     */
     public readonly cronExp!: pulumi.Output<string>;
     public readonly enableEventReplication!: pulumi.Output<boolean>;
     public readonly replications!: pulumi.Output<outputs.ReplicationConfigReplication[] | undefined>;
@@ -115,6 +115,9 @@ export class ReplicationConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfig resources.
  */
 export interface ReplicationConfigState {
+    /**
+     * Cron expression to control the operation frequency.
+     */
     cronExp?: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.ReplicationConfigReplication>[]>;
@@ -125,6 +128,9 @@ export interface ReplicationConfigState {
  * The set of arguments for constructing a ReplicationConfig resource.
  */
 export interface ReplicationConfigArgs {
+    /**
+     * Cron expression to control the operation frequency.
+     */
     cronExp: pulumi.Input<string>;
     enableEventReplication?: pulumi.Input<boolean>;
     replications?: pulumi.Input<pulumi.Input<inputs.ReplicationConfigReplication>[]>;

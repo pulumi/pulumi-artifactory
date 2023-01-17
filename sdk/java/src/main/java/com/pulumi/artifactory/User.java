@@ -54,6 +54,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Managing groups relationship
+ * 
+ * See our recommendation on how to manage user-group relationship.
  * 
  * ## Import
  * 
@@ -109,16 +112,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of.
-     * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
-     * - Note: If &#34;groups&#34; attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Output<Optional<List<String>>> groups() {
@@ -153,14 +154,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output</* @Nullable */ String> password;
 
     /**
-     * @return Password for the user. When omitted, a random password is generated using the following password policy: 10 characters with 1 digit, 1 symbol, with upper and lower case letters.
+     * @return Password for the user. When omitted, a random password is generated using the following password policy: 12 characters with 1 digit, 1 symbol, with upper and lower case letters.
      * 
      */
     public Output<Optional<String>> password() {
@@ -213,6 +214,9 @@ public class User extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "password"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

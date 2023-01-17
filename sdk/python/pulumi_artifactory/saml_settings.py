@@ -464,6 +464,8 @@ class SamlSettings(pulumi.CustomResource):
 
         Only a single `SamlSettings` resource is meant to be defined.
 
+        ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
         ## Example Usage
 
         ```python
@@ -521,6 +523,8 @@ class SamlSettings(pulumi.CustomResource):
         This resource can be used to manage Artifactory's SAML SSO settings.
 
         Only a single `SamlSettings` resource is meant to be defined.
+
+        ~>The `SamlSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
 
         ## Example Usage
 

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := artifactory.GetFile(ctx, &GetFileArgs{
+//			_, err := artifactory.GetFile(ctx, &artifactory.GetFileArgs{
 //				OutputPath: "tmp/artifact.zip",
 //				Path:       "/path/to/the/artifact.zip",
 //				Repository: "repo-key",

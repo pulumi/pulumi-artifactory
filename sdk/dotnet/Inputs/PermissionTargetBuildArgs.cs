@@ -12,9 +12,6 @@ namespace Pulumi.Artifactory.Inputs
 
     public sealed class PermissionTargetBuildArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// -
-        /// </summary>
         [Input("actions")]
         public Input<Inputs.PermissionTargetBuildActionsArgs>? Actions { get; set; }
 
@@ -46,7 +43,7 @@ namespace Pulumi.Artifactory.Inputs
         private InputList<string>? _repositories;
 
         /// <summary>
-        /// List of repositories this permission target is applicable for.
+        /// List of repositories this permission target is applicable for. You can specify the name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
         /// </summary>
         public InputList<string> Repositories
         {

@@ -34,9 +34,17 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.checkBinaryExistenceInFilestore);
     }
 
+    /**
+     * A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     @Import(name="cronExp", required=true)
     private Output<String> cronExp;
 
+    /**
+     * @return A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }
@@ -116,9 +124,17 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.proxy);
     }
 
+    /**
+     * Repository name.
+     * 
+     */
     @Import(name="repoKey", required=true)
     private Output<String> repoKey;
 
+    /**
+     * @return Repository name.
+     * 
+     */
     public Output<String> repoKey() {
         return this.repoKey;
     }
@@ -269,11 +285,23 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
             return checkBinaryExistenceInFilestore(Output.of(checkBinaryExistenceInFilestore));
         }
 
+        /**
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(Output<String> cronExp) {
             $.cronExp = cronExp;
             return this;
         }
 
+        /**
+         * @param cronExp A valid CRON expression that you can use to control replication frequency. Eg: &#34;0 0 12 * * ? *&#34;, &#34;0 0 2 ? * MON-SAT *&#34;. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder cronExp(String cronExp) {
             return cronExp(Output.of(cronExp));
         }
@@ -383,11 +411,23 @@ public final class PullReplicationArgs extends com.pulumi.resources.ResourceArgs
             return proxy(Output.of(proxy));
         }
 
+        /**
+         * @param repoKey Repository name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repoKey(Output<String> repoKey) {
             $.repoKey = repoKey;
             return this;
         }
 
+        /**
+         * @param repoKey Repository name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repoKey(String repoKey) {
             return repoKey(Output.of(repoKey));
         }

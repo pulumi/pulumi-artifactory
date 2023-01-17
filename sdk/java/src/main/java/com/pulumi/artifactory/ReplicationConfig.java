@@ -81,9 +81,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="artifactory:index/replicationConfig:ReplicationConfig")
 public class ReplicationConfig extends com.pulumi.resources.CustomResource {
+    /**
+     * Cron expression to control the operation frequency.
+     * 
+     */
     @Export(name="cronExp", type=String.class, parameters={})
     private Output<String> cronExp;
 
+    /**
+     * @return Cron expression to control the operation frequency.
+     * 
+     */
     public Output<String> cronExp() {
         return this.cronExp;
     }

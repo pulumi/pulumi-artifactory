@@ -15,20 +15,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as artifactory from "@pulumi/artifactory";
  *
- * // 
- * const my_file = pulumi.output(artifactory.getFile({
+ * const my-file = artifactory.getFile({
  *     outputPath: "tmp/artifact.zip",
  *     path: "/path/to/the/artifact.zip",
  *     repository: "repo-key",
- * }));
+ * });
  * ```
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("artifactory:index/getFile:getFile", {
         "forceOverwrite": args.forceOverwrite,
         "outputPath": args.outputPath,
@@ -123,9 +119,26 @@ export interface GetFileResult {
      */
     readonly size: number;
 }
-
+/**
+ * ## # Artifactory File Data Source
+ *
+ * Provides an Artifactory file datasource. This can be used to download a file from a given Artifactory repository.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const my-file = artifactory.getFile({
+ *     outputPath: "tmp/artifact.zip",
+ *     path: "/path/to/the/artifact.zip",
+ *     repository: "repo-key",
+ * });
+ * ```
+ */
 export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
-    return pulumi.output(args).apply(a => getFile(a, opts))
+    return pulumi.output(args).apply((a: any) => getFile(a, opts))
 }
 
 /**

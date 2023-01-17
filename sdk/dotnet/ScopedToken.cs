@@ -115,6 +115,11 @@ namespace Pulumi.Artifactory
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "refreshToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -194,11 +199,21 @@ namespace Pulumi.Artifactory
 
     public sealed class ScopedTokenState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// Returns the access token to authenticate to Artifactory
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("audiences")]
         private InputList<string>? _audiences;
@@ -243,7 +258,16 @@ namespace Pulumi.Artifactory
         public Input<string>? Issuer { get; set; }
 
         [Input("refreshToken")]
-        public Input<string>? RefreshToken { get; set; }
+        private Input<string>? _refreshToken;
+        public Input<string>? RefreshToken
+        {
+            get => _refreshToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _refreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Optional) Is this token refreshable? Defaults to `false`

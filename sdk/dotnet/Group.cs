@@ -40,7 +40,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// When this override is set, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
         /// </summary>
         [Output("detachAllUsers")]
         public Output<bool?> DetachAllUsers { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Artifactory
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         /// </summary>
         [Output("policyManager")]
         public Output<bool?> PolicyManager { get; private set; } = null!;
@@ -76,19 +76,16 @@ namespace Pulumi.Artifactory
         public Output<string?> RealmAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         /// </summary>
         [Output("reportsManager")]
         public Output<bool?> ReportsManager { get; private set; } = null!;
 
-        /// <summary>
-        /// List of users assigned to the group. If missing or empty, tf will not manage group membership
-        /// </summary>
         [Output("usersNames")]
         public Output<ImmutableArray<string>> UsersNames { get; private set; } = null!;
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         /// </summary>
         [Output("watchManager")]
         public Output<bool?> WatchManager { get; private set; } = null!;
@@ -158,7 +155,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When this override is set, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
         /// </summary>
         [Input("detachAllUsers")]
         public Input<bool>? DetachAllUsers { get; set; }
@@ -176,7 +173,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         /// </summary>
         [Input("policyManager")]
         public Input<bool>? PolicyManager { get; set; }
@@ -194,17 +191,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RealmAttributes { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         /// </summary>
         [Input("reportsManager")]
         public Input<bool>? ReportsManager { get; set; }
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
-
-        /// <summary>
-        /// List of users assigned to the group. If missing or empty, tf will not manage group membership
-        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
@@ -212,7 +205,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         /// </summary>
         [Input("watchManager")]
         public Input<bool>? WatchManager { get; set; }
@@ -244,7 +237,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// When this override is set, an empty or missing usernames array will detach all users from the group
+        /// When this is set to `true`, an empty or missing usernames array will detach all users from the group
         /// </summary>
         [Input("detachAllUsers")]
         public Input<bool>? DetachAllUsers { get; set; }
@@ -262,7 +255,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+        /// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
         /// </summary>
         [Input("policyManager")]
         public Input<bool>? PolicyManager { get; set; }
@@ -280,17 +273,13 @@ namespace Pulumi.Artifactory
         public Input<string>? RealmAttributes { get; set; }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
         /// </summary>
         [Input("reportsManager")]
         public Input<bool>? ReportsManager { get; set; }
 
         [Input("usersNames")]
         private InputList<string>? _usersNames;
-
-        /// <summary>
-        /// List of users assigned to the group. If missing or empty, tf will not manage group membership
-        /// </summary>
         public InputList<string> UsersNames
         {
             get => _usersNames ?? (_usersNames = new InputList<string>());
@@ -298,7 +287,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+        /// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
         /// </summary>
         [Input("watchManager")]
         public Input<bool>? WatchManager { get; set; }

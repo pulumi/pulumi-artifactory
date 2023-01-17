@@ -26,7 +26,7 @@ class BackupArgs:
                  verify_disk_space: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
@@ -60,7 +60,7 @@ class BackupArgs:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Input[str]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         """
         return pulumi.get(self, "cron_exp")
 
@@ -193,7 +193,7 @@ class _BackupState:
         """
         Input properties used for looking up and filtering Backup resources.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -240,7 +240,7 @@ class _BackupState:
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         """
         return pulumi.get(self, "cron_exp")
 
@@ -367,6 +367,8 @@ class Backup(pulumi.CustomResource):
         When an `Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
         The backup process creates a time-stamped directory in the target backup directory.
 
+        ~>The `Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
         ## Example Usage
 
         ```python
@@ -376,7 +378,7 @@ class Backup(pulumi.CustomResource):
         # Configure Artifactory Backup system config
         backup_config_name = artifactory.Backup("backupConfigName",
             create_archive=False,
-            cron_exp="0 0 12 * * ?",
+            cron_exp="0 0 12 * * ? *",
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
@@ -386,7 +388,7 @@ class Backup(pulumi.CustomResource):
             send_mail_on_error=True,
             verify_disk_space=True)
         ```
-        Note: `Key` argument has to match to the resource name.\\
+        Note: `Key` argument has to match to the resource name.
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
 
         ## Import
@@ -400,7 +402,7 @@ class Backup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -422,6 +424,8 @@ class Backup(pulumi.CustomResource):
         When an `Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
         The backup process creates a time-stamped directory in the target backup directory.
 
+        ~>The `Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+
         ## Example Usage
 
         ```python
@@ -431,7 +435,7 @@ class Backup(pulumi.CustomResource):
         # Configure Artifactory Backup system config
         backup_config_name = artifactory.Backup("backupConfigName",
             create_archive=False,
-            cron_exp="0 0 12 * * ?",
+            cron_exp="0 0 12 * * ? *",
             enabled=True,
             exclude_new_repositories=True,
             excluded_repositories=[],
@@ -441,7 +445,7 @@ class Backup(pulumi.CustomResource):
             send_mail_on_error=True,
             verify_disk_space=True)
         ```
-        Note: `Key` argument has to match to the resource name.\\
+        Note: `Key` argument has to match to the resource name.
         Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
 
         ## Import
@@ -528,7 +532,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_archive: If set, backups will be created within a Zip archive (Slow and CPU intensive). Default value is `false`.
-        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
@@ -566,7 +570,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="cronExp")
     def cron_exp(self) -> pulumi.Output[str]:
         """
-        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+        A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
         """
         return pulumi.get(self, "cron_exp")
 

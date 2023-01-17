@@ -10,6 +10,8 @@ import * as utilities from "./utilities";
  * When an `artifactory.Backup` resource is configured and enabled to true, backup of the entire Artifactory system will be done automatically and periodically.
  * The backup process creates a time-stamped directory in the target backup directory.
  *
+ * ~>The `artifactory.Backup` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -17,9 +19,9 @@ import * as utilities from "./utilities";
  * import * as artifactory from "@pulumi/artifactory";
  *
  * // Configure Artifactory Backup system config
- * const backupConfigName = new artifactory.Backup("backup_config_name", {
+ * const backupConfigName = new artifactory.Backup("backupConfigName", {
  *     createArchive: false,
- *     cronExp: "0 0 12 * * ?",
+ *     cronExp: "0 0 12 * * ? *",
  *     enabled: true,
  *     excludeNewRepositories: true,
  *     excludedRepositories: [],
@@ -30,7 +32,7 @@ import * as utilities from "./utilities";
  *     verifyDiskSpace: true,
  * });
  * ```
- * Note: `Key` argument has to match to the resource name.\
+ * Note: `Key` argument has to match to the resource name.
  * Reference Link: [JFrog Artifactory Backup](https://www.jfrog.com/confluence/display/JFROG/Backups)
  *
  * ## Import
@@ -74,7 +76,7 @@ export class Backup extends pulumi.CustomResource {
      */
     public readonly createArchive!: pulumi.Output<boolean | undefined>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
     public readonly cronExp!: pulumi.Output<string>;
     /**
@@ -166,7 +168,7 @@ export interface BackupState {
      */
     createArchive?: pulumi.Input<boolean>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
     cronExp?: pulumi.Input<string>;
     /**
@@ -212,7 +214,7 @@ export interface BackupArgs {
      */
     createArchive?: pulumi.Input<boolean>;
     /**
-     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? ".
+     * A valid CRON expression that you can use to control backup frequency. Eg: "0 0 12 * * ? *", "0 0 2 ? * MON-SAT *". Note: please use 7 character format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year. Also, specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html) and in [Cronexp package readme](https://github.com/gorhill/cronexpr#other-details).
      */
     cronExp: pulumi.Input<string>;
     /**

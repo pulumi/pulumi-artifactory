@@ -95,6 +95,17 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Alias == nil {
 		return nil, errors.New("invalid value for required argument 'Alias'")
 	}
+	if args.Content != nil {
+		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringPtrInput)
+	}
+	if args.File != nil {
+		args.File = pulumi.ToSecret(args.File).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"content",
+		"file",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("artifactory:index/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {
