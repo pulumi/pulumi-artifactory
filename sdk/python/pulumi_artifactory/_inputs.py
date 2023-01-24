@@ -117,6 +117,18 @@ __all__ = [
     'RemoteTerraformRepositoryContentSynchronisationArgs',
     'RemoteVcsRepositoryContentSynchronisationArgs',
     'ReplicationConfigReplicationArgs',
+    'GetPermissionTargetBuildArgs',
+    'GetPermissionTargetBuildActionsArgs',
+    'GetPermissionTargetBuildActionsGroupArgs',
+    'GetPermissionTargetBuildActionsUserArgs',
+    'GetPermissionTargetReleaseBundleArgs',
+    'GetPermissionTargetReleaseBundleActionsArgs',
+    'GetPermissionTargetReleaseBundleActionsGroupArgs',
+    'GetPermissionTargetReleaseBundleActionsUserArgs',
+    'GetPermissionTargetRepoArgs',
+    'GetPermissionTargetRepoActionsArgs',
+    'GetPermissionTargetRepoActionsGroupArgs',
+    'GetPermissionTargetRepoActionsUserArgs',
 ]
 
 @pulumi.input_type
@@ -5621,5 +5633,530 @@ class ReplicationConfigReplicationArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetBuildArgs:
+    def __init__(__self__, *,
+                 repositories: Sequence[str],
+                 actions: Optional['GetPermissionTargetBuildActionsArgs'] = None,
+                 excludes_patterns: Optional[Sequence[str]] = None,
+                 includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
+        pulumi.set(__self__, "repositories", repositories)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if excludes_patterns is not None:
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
+        if includes_patterns is not None:
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Sequence[str]):
+        pulumi.set(self, "repositories", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional['GetPermissionTargetBuildActionsArgs']:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional['GetPermissionTargetBuildActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="excludesPatterns")
+    def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
+        return pulumi.get(self, "excludes_patterns")
+
+    @excludes_patterns.setter
+    def excludes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "excludes_patterns", value)
+
+    @property
+    @pulumi.getter(name="includesPatterns")
+    def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
+        return pulumi.get(self, "includes_patterns")
+
+    @includes_patterns.setter
+    def includes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "includes_patterns", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetBuildActionsArgs:
+    def __init__(__self__, *,
+                 groups: Optional[Sequence['GetPermissionTargetBuildActionsGroupArgs']] = None,
+                 users: Optional[Sequence['GetPermissionTargetBuildActionsUserArgs']] = None):
+        """
+        :param Sequence['GetPermissionTargetBuildActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetBuildActionsUserArgs'] users: Users this permission target applies for.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['GetPermissionTargetBuildActionsGroupArgs']]:
+        """
+        Groups this permission applies for.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[Sequence['GetPermissionTargetBuildActionsGroupArgs']]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence['GetPermissionTargetBuildActionsUserArgs']]:
+        """
+        Users this permission target applies for.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[Sequence['GetPermissionTargetBuildActionsUserArgs']]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetBuildActionsGroupArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetBuildActionsUserArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetReleaseBundleArgs:
+    def __init__(__self__, *,
+                 repositories: Sequence[str],
+                 actions: Optional['GetPermissionTargetReleaseBundleActionsArgs'] = None,
+                 excludes_patterns: Optional[Sequence[str]] = None,
+                 includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
+        pulumi.set(__self__, "repositories", repositories)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if excludes_patterns is not None:
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
+        if includes_patterns is not None:
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Sequence[str]):
+        pulumi.set(self, "repositories", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional['GetPermissionTargetReleaseBundleActionsArgs']:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional['GetPermissionTargetReleaseBundleActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="excludesPatterns")
+    def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
+        return pulumi.get(self, "excludes_patterns")
+
+    @excludes_patterns.setter
+    def excludes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "excludes_patterns", value)
+
+    @property
+    @pulumi.getter(name="includesPatterns")
+    def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
+        return pulumi.get(self, "includes_patterns")
+
+    @includes_patterns.setter
+    def includes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "includes_patterns", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetReleaseBundleActionsArgs:
+    def __init__(__self__, *,
+                 groups: Optional[Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs']] = None,
+                 users: Optional[Sequence['GetPermissionTargetReleaseBundleActionsUserArgs']] = None):
+        """
+        :param Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetReleaseBundleActionsUserArgs'] users: Users this permission target applies for.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs']]:
+        """
+        Groups this permission applies for.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[Sequence['GetPermissionTargetReleaseBundleActionsGroupArgs']]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence['GetPermissionTargetReleaseBundleActionsUserArgs']]:
+        """
+        Users this permission target applies for.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[Sequence['GetPermissionTargetReleaseBundleActionsUserArgs']]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetReleaseBundleActionsGroupArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetReleaseBundleActionsUserArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetRepoArgs:
+    def __init__(__self__, *,
+                 repositories: Sequence[str],
+                 actions: Optional['GetPermissionTargetRepoActionsArgs'] = None,
+                 excludes_patterns: Optional[Sequence[str]] = None,
+                 includes_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] repositories: List of repositories this permission target is applicable for. You can specify the
+               name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+               repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        :param Sequence[str] excludes_patterns: Pattern of artifacts to exclude.
+        :param Sequence[str] includes_patterns: Pattern of artifacts to include.
+        """
+        pulumi.set(__self__, "repositories", repositories)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if excludes_patterns is not None:
+            pulumi.set(__self__, "excludes_patterns", excludes_patterns)
+        if includes_patterns is not None:
+            pulumi.set(__self__, "includes_patterns", includes_patterns)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Sequence[str]:
+        """
+        List of repositories this permission target is applicable for. You can specify the
+        name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+        repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Sequence[str]):
+        pulumi.set(self, "repositories", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional['GetPermissionTargetRepoActionsArgs']:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional['GetPermissionTargetRepoActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="excludesPatterns")
+    def excludes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to exclude.
+        """
+        return pulumi.get(self, "excludes_patterns")
+
+    @excludes_patterns.setter
+    def excludes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "excludes_patterns", value)
+
+    @property
+    @pulumi.getter(name="includesPatterns")
+    def includes_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Pattern of artifacts to include.
+        """
+        return pulumi.get(self, "includes_patterns")
+
+    @includes_patterns.setter
+    def includes_patterns(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "includes_patterns", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetRepoActionsArgs:
+    def __init__(__self__, *,
+                 groups: Optional[Sequence['GetPermissionTargetRepoActionsGroupArgs']] = None,
+                 users: Optional[Sequence['GetPermissionTargetRepoActionsUserArgs']] = None):
+        """
+        :param Sequence['GetPermissionTargetRepoActionsGroupArgs'] groups: Groups this permission applies for.
+        :param Sequence['GetPermissionTargetRepoActionsUserArgs'] users: Users this permission target applies for.
+        """
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['GetPermissionTargetRepoActionsGroupArgs']]:
+        """
+        Groups this permission applies for.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[Sequence['GetPermissionTargetRepoActionsGroupArgs']]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence['GetPermissionTargetRepoActionsUserArgs']]:
+        """
+        Users this permission target applies for.
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[Sequence['GetPermissionTargetRepoActionsUserArgs']]):
+        pulumi.set(self, "users", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetRepoActionsGroupArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class GetPermissionTargetRepoActionsUserArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 permissions: Sequence[str]):
+        """
+        :param str name: Name of the permission target.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the permission target.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Sequence[str]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Sequence[str]):
+        pulumi.set(self, "permissions", value)
 
 

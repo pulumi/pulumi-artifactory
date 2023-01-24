@@ -17,10 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.
- * 
- * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -54,6 +50,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ## Managing groups relationship
+ * 
+ * See our recommendation on how to manage user-group relationship.
  * 
  * ## Import
  * 
@@ -109,14 +108,14 @@ public class UnmanagedUser extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Output<Optional<List<String>>> groups() {

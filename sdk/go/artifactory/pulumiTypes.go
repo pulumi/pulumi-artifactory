@@ -15489,6 +15489,1690 @@ func (o ReplicationConfigReplicationArrayOutput) Index(i pulumi.IntInput) Replic
 	}).(ReplicationConfigReplicationOutput)
 }
 
+type GetPermissionTargetBuild struct {
+	Actions *GetPermissionTargetBuildActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories []string `pulumi:"repositories"`
+}
+
+// GetPermissionTargetBuildInput is an input type that accepts GetPermissionTargetBuildArgs and GetPermissionTargetBuildOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildInput` via:
+//
+//	GetPermissionTargetBuildArgs{...}
+type GetPermissionTargetBuildInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildOutput() GetPermissionTargetBuildOutput
+	ToGetPermissionTargetBuildOutputWithContext(context.Context) GetPermissionTargetBuildOutput
+}
+
+type GetPermissionTargetBuildArgs struct {
+	Actions GetPermissionTargetBuildActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+}
+
+func (GetPermissionTargetBuildArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuild)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildArgs) ToGetPermissionTargetBuildOutput() GetPermissionTargetBuildOutput {
+	return i.ToGetPermissionTargetBuildOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildArgs) ToGetPermissionTargetBuildOutputWithContext(ctx context.Context) GetPermissionTargetBuildOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildOutput)
+}
+
+func (i GetPermissionTargetBuildArgs) ToGetPermissionTargetBuildPtrOutput() GetPermissionTargetBuildPtrOutput {
+	return i.ToGetPermissionTargetBuildPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildArgs) ToGetPermissionTargetBuildPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildOutput).ToGetPermissionTargetBuildPtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetBuildPtrInput is an input type that accepts GetPermissionTargetBuildArgs, GetPermissionTargetBuildPtr and GetPermissionTargetBuildPtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildPtrInput` via:
+//
+//	        GetPermissionTargetBuildArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetBuildPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildPtrOutput() GetPermissionTargetBuildPtrOutput
+	ToGetPermissionTargetBuildPtrOutputWithContext(context.Context) GetPermissionTargetBuildPtrOutput
+}
+
+type getPermissionTargetBuildPtrType GetPermissionTargetBuildArgs
+
+func GetPermissionTargetBuildPtr(v *GetPermissionTargetBuildArgs) GetPermissionTargetBuildPtrInput {
+	return (*getPermissionTargetBuildPtrType)(v)
+}
+
+func (*getPermissionTargetBuildPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetBuild)(nil)).Elem()
+}
+
+func (i *getPermissionTargetBuildPtrType) ToGetPermissionTargetBuildPtrOutput() GetPermissionTargetBuildPtrOutput {
+	return i.ToGetPermissionTargetBuildPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetBuildPtrType) ToGetPermissionTargetBuildPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildPtrOutput)
+}
+
+type GetPermissionTargetBuildOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuild)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildOutput) ToGetPermissionTargetBuildOutput() GetPermissionTargetBuildOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildOutput) ToGetPermissionTargetBuildOutputWithContext(ctx context.Context) GetPermissionTargetBuildOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildOutput) ToGetPermissionTargetBuildPtrOutput() GetPermissionTargetBuildPtrOutput {
+	return o.ToGetPermissionTargetBuildPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetBuildOutput) ToGetPermissionTargetBuildPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetBuild) *GetPermissionTargetBuild {
+		return &v
+	}).(GetPermissionTargetBuildPtrOutput)
+}
+
+func (o GetPermissionTargetBuildOutput) Actions() GetPermissionTargetBuildActionsPtrOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuild) *GetPermissionTargetBuildActions { return v.Actions }).(GetPermissionTargetBuildActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetBuildOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuild) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetBuildOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuild) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetBuildOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuild) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetBuildPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetBuild)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildPtrOutput) ToGetPermissionTargetBuildPtrOutput() GetPermissionTargetBuildPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildPtrOutput) ToGetPermissionTargetBuildPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildPtrOutput) Elem() GetPermissionTargetBuildOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuild) GetPermissionTargetBuild {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetBuild
+		return ret
+	}).(GetPermissionTargetBuildOutput)
+}
+
+func (o GetPermissionTargetBuildPtrOutput) Actions() GetPermissionTargetBuildActionsPtrOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuild) *GetPermissionTargetBuildActions {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(GetPermissionTargetBuildActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetBuildPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuild) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetBuildPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuild) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetBuildPtrOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuild) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Repositories
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetBuildActions struct {
+	// Groups this permission applies for.
+	Groups []GetPermissionTargetBuildActionsGroup `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users []GetPermissionTargetBuildActionsUser `pulumi:"users"`
+}
+
+// GetPermissionTargetBuildActionsInput is an input type that accepts GetPermissionTargetBuildActionsArgs and GetPermissionTargetBuildActionsOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsInput` via:
+//
+//	GetPermissionTargetBuildActionsArgs{...}
+type GetPermissionTargetBuildActionsInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsOutput() GetPermissionTargetBuildActionsOutput
+	ToGetPermissionTargetBuildActionsOutputWithContext(context.Context) GetPermissionTargetBuildActionsOutput
+}
+
+type GetPermissionTargetBuildActionsArgs struct {
+	// Groups this permission applies for.
+	Groups GetPermissionTargetBuildActionsGroupArrayInput `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users GetPermissionTargetBuildActionsUserArrayInput `pulumi:"users"`
+}
+
+func (GetPermissionTargetBuildActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActions)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildActionsArgs) ToGetPermissionTargetBuildActionsOutput() GetPermissionTargetBuildActionsOutput {
+	return i.ToGetPermissionTargetBuildActionsOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsArgs) ToGetPermissionTargetBuildActionsOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsOutput)
+}
+
+func (i GetPermissionTargetBuildActionsArgs) ToGetPermissionTargetBuildActionsPtrOutput() GetPermissionTargetBuildActionsPtrOutput {
+	return i.ToGetPermissionTargetBuildActionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsArgs) ToGetPermissionTargetBuildActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsOutput).ToGetPermissionTargetBuildActionsPtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetBuildActionsPtrInput is an input type that accepts GetPermissionTargetBuildActionsArgs, GetPermissionTargetBuildActionsPtr and GetPermissionTargetBuildActionsPtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsPtrInput` via:
+//
+//	        GetPermissionTargetBuildActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetBuildActionsPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsPtrOutput() GetPermissionTargetBuildActionsPtrOutput
+	ToGetPermissionTargetBuildActionsPtrOutputWithContext(context.Context) GetPermissionTargetBuildActionsPtrOutput
+}
+
+type getPermissionTargetBuildActionsPtrType GetPermissionTargetBuildActionsArgs
+
+func GetPermissionTargetBuildActionsPtr(v *GetPermissionTargetBuildActionsArgs) GetPermissionTargetBuildActionsPtrInput {
+	return (*getPermissionTargetBuildActionsPtrType)(v)
+}
+
+func (*getPermissionTargetBuildActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetBuildActions)(nil)).Elem()
+}
+
+func (i *getPermissionTargetBuildActionsPtrType) ToGetPermissionTargetBuildActionsPtrOutput() GetPermissionTargetBuildActionsPtrOutput {
+	return i.ToGetPermissionTargetBuildActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetBuildActionsPtrType) ToGetPermissionTargetBuildActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsPtrOutput)
+}
+
+type GetPermissionTargetBuildActionsOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsOutput) ToGetPermissionTargetBuildActionsOutput() GetPermissionTargetBuildActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsOutput) ToGetPermissionTargetBuildActionsOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsOutput) ToGetPermissionTargetBuildActionsPtrOutput() GetPermissionTargetBuildActionsPtrOutput {
+	return o.ToGetPermissionTargetBuildActionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetBuildActionsOutput) ToGetPermissionTargetBuildActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetBuildActions) *GetPermissionTargetBuildActions {
+		return &v
+	}).(GetPermissionTargetBuildActionsPtrOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetBuildActionsOutput) Groups() GetPermissionTargetBuildActionsGroupArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActions) []GetPermissionTargetBuildActionsGroup { return v.Groups }).(GetPermissionTargetBuildActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetBuildActionsOutput) Users() GetPermissionTargetBuildActionsUserArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActions) []GetPermissionTargetBuildActionsUser { return v.Users }).(GetPermissionTargetBuildActionsUserArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetBuildActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsPtrOutput) ToGetPermissionTargetBuildActionsPtrOutput() GetPermissionTargetBuildActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsPtrOutput) ToGetPermissionTargetBuildActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsPtrOutput) Elem() GetPermissionTargetBuildActionsOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuildActions) GetPermissionTargetBuildActions {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetBuildActions
+		return ret
+	}).(GetPermissionTargetBuildActionsOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetBuildActionsPtrOutput) Groups() GetPermissionTargetBuildActionsGroupArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuildActions) []GetPermissionTargetBuildActionsGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(GetPermissionTargetBuildActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetBuildActionsPtrOutput) Users() GetPermissionTargetBuildActionsUserArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetBuildActions) []GetPermissionTargetBuildActionsUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(GetPermissionTargetBuildActionsUserArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsGroup struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetBuildActionsGroupInput is an input type that accepts GetPermissionTargetBuildActionsGroupArgs and GetPermissionTargetBuildActionsGroupOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsGroupInput` via:
+//
+//	GetPermissionTargetBuildActionsGroupArgs{...}
+type GetPermissionTargetBuildActionsGroupInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsGroupOutput() GetPermissionTargetBuildActionsGroupOutput
+	ToGetPermissionTargetBuildActionsGroupOutputWithContext(context.Context) GetPermissionTargetBuildActionsGroupOutput
+}
+
+type GetPermissionTargetBuildActionsGroupArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetBuildActionsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildActionsGroupArgs) ToGetPermissionTargetBuildActionsGroupOutput() GetPermissionTargetBuildActionsGroupOutput {
+	return i.ToGetPermissionTargetBuildActionsGroupOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsGroupArgs) ToGetPermissionTargetBuildActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsGroupOutput)
+}
+
+// GetPermissionTargetBuildActionsGroupArrayInput is an input type that accepts GetPermissionTargetBuildActionsGroupArray and GetPermissionTargetBuildActionsGroupArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsGroupArrayInput` via:
+//
+//	GetPermissionTargetBuildActionsGroupArray{ GetPermissionTargetBuildActionsGroupArgs{...} }
+type GetPermissionTargetBuildActionsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsGroupArrayOutput() GetPermissionTargetBuildActionsGroupArrayOutput
+	ToGetPermissionTargetBuildActionsGroupArrayOutputWithContext(context.Context) GetPermissionTargetBuildActionsGroupArrayOutput
+}
+
+type GetPermissionTargetBuildActionsGroupArray []GetPermissionTargetBuildActionsGroupInput
+
+func (GetPermissionTargetBuildActionsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetBuildActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildActionsGroupArray) ToGetPermissionTargetBuildActionsGroupArrayOutput() GetPermissionTargetBuildActionsGroupArrayOutput {
+	return i.ToGetPermissionTargetBuildActionsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsGroupArray) ToGetPermissionTargetBuildActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsGroupArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsGroupOutput) ToGetPermissionTargetBuildActionsGroupOutput() GetPermissionTargetBuildActionsGroupOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsGroupOutput) ToGetPermissionTargetBuildActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsGroupOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetBuildActionsGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActionsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetBuildActionsGroupOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActionsGroup) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetBuildActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsGroupArrayOutput) ToGetPermissionTargetBuildActionsGroupArrayOutput() GetPermissionTargetBuildActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsGroupArrayOutput) ToGetPermissionTargetBuildActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsGroupArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetBuildActionsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetBuildActionsGroup {
+		return vs[0].([]GetPermissionTargetBuildActionsGroup)[vs[1].(int)]
+	}).(GetPermissionTargetBuildActionsGroupOutput)
+}
+
+type GetPermissionTargetBuildActionsUser struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetBuildActionsUserInput is an input type that accepts GetPermissionTargetBuildActionsUserArgs and GetPermissionTargetBuildActionsUserOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsUserInput` via:
+//
+//	GetPermissionTargetBuildActionsUserArgs{...}
+type GetPermissionTargetBuildActionsUserInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsUserOutput() GetPermissionTargetBuildActionsUserOutput
+	ToGetPermissionTargetBuildActionsUserOutputWithContext(context.Context) GetPermissionTargetBuildActionsUserOutput
+}
+
+type GetPermissionTargetBuildActionsUserArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetBuildActionsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildActionsUserArgs) ToGetPermissionTargetBuildActionsUserOutput() GetPermissionTargetBuildActionsUserOutput {
+	return i.ToGetPermissionTargetBuildActionsUserOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsUserArgs) ToGetPermissionTargetBuildActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsUserOutput)
+}
+
+// GetPermissionTargetBuildActionsUserArrayInput is an input type that accepts GetPermissionTargetBuildActionsUserArray and GetPermissionTargetBuildActionsUserArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetBuildActionsUserArrayInput` via:
+//
+//	GetPermissionTargetBuildActionsUserArray{ GetPermissionTargetBuildActionsUserArgs{...} }
+type GetPermissionTargetBuildActionsUserArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetBuildActionsUserArrayOutput() GetPermissionTargetBuildActionsUserArrayOutput
+	ToGetPermissionTargetBuildActionsUserArrayOutputWithContext(context.Context) GetPermissionTargetBuildActionsUserArrayOutput
+}
+
+type GetPermissionTargetBuildActionsUserArray []GetPermissionTargetBuildActionsUserInput
+
+func (GetPermissionTargetBuildActionsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetBuildActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetBuildActionsUserArray) ToGetPermissionTargetBuildActionsUserArrayOutput() GetPermissionTargetBuildActionsUserArrayOutput {
+	return i.ToGetPermissionTargetBuildActionsUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetBuildActionsUserArray) ToGetPermissionTargetBuildActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetBuildActionsUserArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsUserOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetBuildActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsUserOutput) ToGetPermissionTargetBuildActionsUserOutput() GetPermissionTargetBuildActionsUserOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsUserOutput) ToGetPermissionTargetBuildActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsUserOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetBuildActionsUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActionsUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetBuildActionsUserOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetBuildActionsUser) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetBuildActionsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetBuildActionsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetBuildActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetBuildActionsUserArrayOutput) ToGetPermissionTargetBuildActionsUserArrayOutput() GetPermissionTargetBuildActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsUserArrayOutput) ToGetPermissionTargetBuildActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetBuildActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetBuildActionsUserArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetBuildActionsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetBuildActionsUser {
+		return vs[0].([]GetPermissionTargetBuildActionsUser)[vs[1].(int)]
+	}).(GetPermissionTargetBuildActionsUserOutput)
+}
+
+type GetPermissionTargetReleaseBundle struct {
+	Actions *GetPermissionTargetReleaseBundleActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories []string `pulumi:"repositories"`
+}
+
+// GetPermissionTargetReleaseBundleInput is an input type that accepts GetPermissionTargetReleaseBundleArgs and GetPermissionTargetReleaseBundleOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleInput` via:
+//
+//	GetPermissionTargetReleaseBundleArgs{...}
+type GetPermissionTargetReleaseBundleInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleOutput() GetPermissionTargetReleaseBundleOutput
+	ToGetPermissionTargetReleaseBundleOutputWithContext(context.Context) GetPermissionTargetReleaseBundleOutput
+}
+
+type GetPermissionTargetReleaseBundleArgs struct {
+	Actions GetPermissionTargetReleaseBundleActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+}
+
+func (GetPermissionTargetReleaseBundleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundle)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleArgs) ToGetPermissionTargetReleaseBundleOutput() GetPermissionTargetReleaseBundleOutput {
+	return i.ToGetPermissionTargetReleaseBundleOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleArgs) ToGetPermissionTargetReleaseBundleOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleOutput)
+}
+
+func (i GetPermissionTargetReleaseBundleArgs) ToGetPermissionTargetReleaseBundlePtrOutput() GetPermissionTargetReleaseBundlePtrOutput {
+	return i.ToGetPermissionTargetReleaseBundlePtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleArgs) ToGetPermissionTargetReleaseBundlePtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleOutput).ToGetPermissionTargetReleaseBundlePtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetReleaseBundlePtrInput is an input type that accepts GetPermissionTargetReleaseBundleArgs, GetPermissionTargetReleaseBundlePtr and GetPermissionTargetReleaseBundlePtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundlePtrInput` via:
+//
+//	        GetPermissionTargetReleaseBundleArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetReleaseBundlePtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundlePtrOutput() GetPermissionTargetReleaseBundlePtrOutput
+	ToGetPermissionTargetReleaseBundlePtrOutputWithContext(context.Context) GetPermissionTargetReleaseBundlePtrOutput
+}
+
+type getPermissionTargetReleaseBundlePtrType GetPermissionTargetReleaseBundleArgs
+
+func GetPermissionTargetReleaseBundlePtr(v *GetPermissionTargetReleaseBundleArgs) GetPermissionTargetReleaseBundlePtrInput {
+	return (*getPermissionTargetReleaseBundlePtrType)(v)
+}
+
+func (*getPermissionTargetReleaseBundlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetReleaseBundle)(nil)).Elem()
+}
+
+func (i *getPermissionTargetReleaseBundlePtrType) ToGetPermissionTargetReleaseBundlePtrOutput() GetPermissionTargetReleaseBundlePtrOutput {
+	return i.ToGetPermissionTargetReleaseBundlePtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetReleaseBundlePtrType) ToGetPermissionTargetReleaseBundlePtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundlePtrOutput)
+}
+
+type GetPermissionTargetReleaseBundleOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundle)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleOutput) ToGetPermissionTargetReleaseBundleOutput() GetPermissionTargetReleaseBundleOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleOutput) ToGetPermissionTargetReleaseBundleOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleOutput) ToGetPermissionTargetReleaseBundlePtrOutput() GetPermissionTargetReleaseBundlePtrOutput {
+	return o.ToGetPermissionTargetReleaseBundlePtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetReleaseBundleOutput) ToGetPermissionTargetReleaseBundlePtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundlePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetReleaseBundle) *GetPermissionTargetReleaseBundle {
+		return &v
+	}).(GetPermissionTargetReleaseBundlePtrOutput)
+}
+
+func (o GetPermissionTargetReleaseBundleOutput) Actions() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundle) *GetPermissionTargetReleaseBundleActions { return v.Actions }).(GetPermissionTargetReleaseBundleActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetReleaseBundleOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundle) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetReleaseBundleOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundle) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetReleaseBundleOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundle) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundlePtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetReleaseBundle)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundlePtrOutput) ToGetPermissionTargetReleaseBundlePtrOutput() GetPermissionTargetReleaseBundlePtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundlePtrOutput) ToGetPermissionTargetReleaseBundlePtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundlePtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundlePtrOutput) Elem() GetPermissionTargetReleaseBundleOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundle) GetPermissionTargetReleaseBundle {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetReleaseBundle
+		return ret
+	}).(GetPermissionTargetReleaseBundleOutput)
+}
+
+func (o GetPermissionTargetReleaseBundlePtrOutput) Actions() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundle) *GetPermissionTargetReleaseBundleActions {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(GetPermissionTargetReleaseBundleActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetReleaseBundlePtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundle) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetReleaseBundlePtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundle) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetReleaseBundlePtrOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundle) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Repositories
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActions struct {
+	// Groups this permission applies for.
+	Groups []GetPermissionTargetReleaseBundleActionsGroup `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users []GetPermissionTargetReleaseBundleActionsUser `pulumi:"users"`
+}
+
+// GetPermissionTargetReleaseBundleActionsInput is an input type that accepts GetPermissionTargetReleaseBundleActionsArgs and GetPermissionTargetReleaseBundleActionsOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsInput` via:
+//
+//	GetPermissionTargetReleaseBundleActionsArgs{...}
+type GetPermissionTargetReleaseBundleActionsInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsOutput() GetPermissionTargetReleaseBundleActionsOutput
+	ToGetPermissionTargetReleaseBundleActionsOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsOutput
+}
+
+type GetPermissionTargetReleaseBundleActionsArgs struct {
+	// Groups this permission applies for.
+	Groups GetPermissionTargetReleaseBundleActionsGroupArrayInput `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users GetPermissionTargetReleaseBundleActionsUserArrayInput `pulumi:"users"`
+}
+
+func (GetPermissionTargetReleaseBundleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActions)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleActionsArgs) ToGetPermissionTargetReleaseBundleActionsOutput() GetPermissionTargetReleaseBundleActionsOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsArgs) ToGetPermissionTargetReleaseBundleActionsOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsOutput)
+}
+
+func (i GetPermissionTargetReleaseBundleActionsArgs) ToGetPermissionTargetReleaseBundleActionsPtrOutput() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsArgs) ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsOutput).ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetReleaseBundleActionsPtrInput is an input type that accepts GetPermissionTargetReleaseBundleActionsArgs, GetPermissionTargetReleaseBundleActionsPtr and GetPermissionTargetReleaseBundleActionsPtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsPtrInput` via:
+//
+//	        GetPermissionTargetReleaseBundleActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetReleaseBundleActionsPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsPtrOutput() GetPermissionTargetReleaseBundleActionsPtrOutput
+	ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsPtrOutput
+}
+
+type getPermissionTargetReleaseBundleActionsPtrType GetPermissionTargetReleaseBundleActionsArgs
+
+func GetPermissionTargetReleaseBundleActionsPtr(v *GetPermissionTargetReleaseBundleActionsArgs) GetPermissionTargetReleaseBundleActionsPtrInput {
+	return (*getPermissionTargetReleaseBundleActionsPtrType)(v)
+}
+
+func (*getPermissionTargetReleaseBundleActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetReleaseBundleActions)(nil)).Elem()
+}
+
+func (i *getPermissionTargetReleaseBundleActionsPtrType) ToGetPermissionTargetReleaseBundleActionsPtrOutput() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetReleaseBundleActionsPtrType) ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsPtrOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsOutput) ToGetPermissionTargetReleaseBundleActionsOutput() GetPermissionTargetReleaseBundleActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsOutput) ToGetPermissionTargetReleaseBundleActionsOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsOutput) ToGetPermissionTargetReleaseBundleActionsPtrOutput() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o.ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetReleaseBundleActionsOutput) ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetReleaseBundleActions) *GetPermissionTargetReleaseBundleActions {
+		return &v
+	}).(GetPermissionTargetReleaseBundleActionsPtrOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetReleaseBundleActionsOutput) Groups() GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActions) []GetPermissionTargetReleaseBundleActionsGroup {
+		return v.Groups
+	}).(GetPermissionTargetReleaseBundleActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetReleaseBundleActionsOutput) Users() GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActions) []GetPermissionTargetReleaseBundleActionsUser {
+		return v.Users
+	}).(GetPermissionTargetReleaseBundleActionsUserArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetReleaseBundleActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsPtrOutput) ToGetPermissionTargetReleaseBundleActionsPtrOutput() GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsPtrOutput) ToGetPermissionTargetReleaseBundleActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsPtrOutput) Elem() GetPermissionTargetReleaseBundleActionsOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundleActions) GetPermissionTargetReleaseBundleActions {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetReleaseBundleActions
+		return ret
+	}).(GetPermissionTargetReleaseBundleActionsOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetReleaseBundleActionsPtrOutput) Groups() GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundleActions) []GetPermissionTargetReleaseBundleActionsGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(GetPermissionTargetReleaseBundleActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetReleaseBundleActionsPtrOutput) Users() GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetReleaseBundleActions) []GetPermissionTargetReleaseBundleActionsUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(GetPermissionTargetReleaseBundleActionsUserArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsGroup struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetReleaseBundleActionsGroupInput is an input type that accepts GetPermissionTargetReleaseBundleActionsGroupArgs and GetPermissionTargetReleaseBundleActionsGroupOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsGroupInput` via:
+//
+//	GetPermissionTargetReleaseBundleActionsGroupArgs{...}
+type GetPermissionTargetReleaseBundleActionsGroupInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsGroupOutput() GetPermissionTargetReleaseBundleActionsGroupOutput
+	ToGetPermissionTargetReleaseBundleActionsGroupOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsGroupOutput
+}
+
+type GetPermissionTargetReleaseBundleActionsGroupArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetReleaseBundleActionsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleActionsGroupArgs) ToGetPermissionTargetReleaseBundleActionsGroupOutput() GetPermissionTargetReleaseBundleActionsGroupOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsGroupOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsGroupArgs) ToGetPermissionTargetReleaseBundleActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsGroupOutput)
+}
+
+// GetPermissionTargetReleaseBundleActionsGroupArrayInput is an input type that accepts GetPermissionTargetReleaseBundleActionsGroupArray and GetPermissionTargetReleaseBundleActionsGroupArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsGroupArrayInput` via:
+//
+//	GetPermissionTargetReleaseBundleActionsGroupArray{ GetPermissionTargetReleaseBundleActionsGroupArgs{...} }
+type GetPermissionTargetReleaseBundleActionsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsGroupArrayOutput() GetPermissionTargetReleaseBundleActionsGroupArrayOutput
+	ToGetPermissionTargetReleaseBundleActionsGroupArrayOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsGroupArrayOutput
+}
+
+type GetPermissionTargetReleaseBundleActionsGroupArray []GetPermissionTargetReleaseBundleActionsGroupInput
+
+func (GetPermissionTargetReleaseBundleActionsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetReleaseBundleActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleActionsGroupArray) ToGetPermissionTargetReleaseBundleActionsGroupArrayOutput() GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsGroupArray) ToGetPermissionTargetReleaseBundleActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsGroupArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupOutput) ToGetPermissionTargetReleaseBundleActionsGroupOutput() GetPermissionTargetReleaseBundleActionsGroupOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupOutput) ToGetPermissionTargetReleaseBundleActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsGroupOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetReleaseBundleActionsGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActionsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActionsGroup) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetReleaseBundleActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupArrayOutput) ToGetPermissionTargetReleaseBundleActionsGroupArrayOutput() GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupArrayOutput) ToGetPermissionTargetReleaseBundleActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsGroupArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetReleaseBundleActionsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetReleaseBundleActionsGroup {
+		return vs[0].([]GetPermissionTargetReleaseBundleActionsGroup)[vs[1].(int)]
+	}).(GetPermissionTargetReleaseBundleActionsGroupOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsUser struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetReleaseBundleActionsUserInput is an input type that accepts GetPermissionTargetReleaseBundleActionsUserArgs and GetPermissionTargetReleaseBundleActionsUserOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsUserInput` via:
+//
+//	GetPermissionTargetReleaseBundleActionsUserArgs{...}
+type GetPermissionTargetReleaseBundleActionsUserInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsUserOutput() GetPermissionTargetReleaseBundleActionsUserOutput
+	ToGetPermissionTargetReleaseBundleActionsUserOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsUserOutput
+}
+
+type GetPermissionTargetReleaseBundleActionsUserArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetReleaseBundleActionsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleActionsUserArgs) ToGetPermissionTargetReleaseBundleActionsUserOutput() GetPermissionTargetReleaseBundleActionsUserOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsUserOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsUserArgs) ToGetPermissionTargetReleaseBundleActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsUserOutput)
+}
+
+// GetPermissionTargetReleaseBundleActionsUserArrayInput is an input type that accepts GetPermissionTargetReleaseBundleActionsUserArray and GetPermissionTargetReleaseBundleActionsUserArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetReleaseBundleActionsUserArrayInput` via:
+//
+//	GetPermissionTargetReleaseBundleActionsUserArray{ GetPermissionTargetReleaseBundleActionsUserArgs{...} }
+type GetPermissionTargetReleaseBundleActionsUserArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetReleaseBundleActionsUserArrayOutput() GetPermissionTargetReleaseBundleActionsUserArrayOutput
+	ToGetPermissionTargetReleaseBundleActionsUserArrayOutputWithContext(context.Context) GetPermissionTargetReleaseBundleActionsUserArrayOutput
+}
+
+type GetPermissionTargetReleaseBundleActionsUserArray []GetPermissionTargetReleaseBundleActionsUserInput
+
+func (GetPermissionTargetReleaseBundleActionsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetReleaseBundleActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetReleaseBundleActionsUserArray) ToGetPermissionTargetReleaseBundleActionsUserArrayOutput() GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return i.ToGetPermissionTargetReleaseBundleActionsUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetReleaseBundleActionsUserArray) ToGetPermissionTargetReleaseBundleActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetReleaseBundleActionsUserArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsUserOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserOutput) ToGetPermissionTargetReleaseBundleActionsUserOutput() GetPermissionTargetReleaseBundleActionsUserOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserOutput) ToGetPermissionTargetReleaseBundleActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsUserOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetReleaseBundleActionsUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActionsUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetReleaseBundleActionsUser) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetReleaseBundleActionsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetReleaseBundleActionsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetReleaseBundleActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserArrayOutput) ToGetPermissionTargetReleaseBundleActionsUserArrayOutput() GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserArrayOutput) ToGetPermissionTargetReleaseBundleActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetReleaseBundleActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetReleaseBundleActionsUserArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetReleaseBundleActionsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetReleaseBundleActionsUser {
+		return vs[0].([]GetPermissionTargetReleaseBundleActionsUser)[vs[1].(int)]
+	}).(GetPermissionTargetReleaseBundleActionsUserOutput)
+}
+
+type GetPermissionTargetRepo struct {
+	Actions *GetPermissionTargetRepoActions `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns []string `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns []string `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories []string `pulumi:"repositories"`
+}
+
+// GetPermissionTargetRepoInput is an input type that accepts GetPermissionTargetRepoArgs and GetPermissionTargetRepoOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoInput` via:
+//
+//	GetPermissionTargetRepoArgs{...}
+type GetPermissionTargetRepoInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoOutput() GetPermissionTargetRepoOutput
+	ToGetPermissionTargetRepoOutputWithContext(context.Context) GetPermissionTargetRepoOutput
+}
+
+type GetPermissionTargetRepoArgs struct {
+	Actions GetPermissionTargetRepoActionsPtrInput `pulumi:"actions"`
+	// Pattern of artifacts to exclude.
+	ExcludesPatterns pulumi.StringArrayInput `pulumi:"excludesPatterns"`
+	// Pattern of artifacts to include.
+	IncludesPatterns pulumi.StringArrayInput `pulumi:"includesPatterns"`
+	// List of repositories this permission target is applicable for. You can specify the
+	// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+	// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+	Repositories pulumi.StringArrayInput `pulumi:"repositories"`
+}
+
+func (GetPermissionTargetRepoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepo)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoArgs) ToGetPermissionTargetRepoOutput() GetPermissionTargetRepoOutput {
+	return i.ToGetPermissionTargetRepoOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoArgs) ToGetPermissionTargetRepoOutputWithContext(ctx context.Context) GetPermissionTargetRepoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoOutput)
+}
+
+func (i GetPermissionTargetRepoArgs) ToGetPermissionTargetRepoPtrOutput() GetPermissionTargetRepoPtrOutput {
+	return i.ToGetPermissionTargetRepoPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoArgs) ToGetPermissionTargetRepoPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoOutput).ToGetPermissionTargetRepoPtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetRepoPtrInput is an input type that accepts GetPermissionTargetRepoArgs, GetPermissionTargetRepoPtr and GetPermissionTargetRepoPtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoPtrInput` via:
+//
+//	        GetPermissionTargetRepoArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetRepoPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoPtrOutput() GetPermissionTargetRepoPtrOutput
+	ToGetPermissionTargetRepoPtrOutputWithContext(context.Context) GetPermissionTargetRepoPtrOutput
+}
+
+type getPermissionTargetRepoPtrType GetPermissionTargetRepoArgs
+
+func GetPermissionTargetRepoPtr(v *GetPermissionTargetRepoArgs) GetPermissionTargetRepoPtrInput {
+	return (*getPermissionTargetRepoPtrType)(v)
+}
+
+func (*getPermissionTargetRepoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetRepo)(nil)).Elem()
+}
+
+func (i *getPermissionTargetRepoPtrType) ToGetPermissionTargetRepoPtrOutput() GetPermissionTargetRepoPtrOutput {
+	return i.ToGetPermissionTargetRepoPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetRepoPtrType) ToGetPermissionTargetRepoPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoPtrOutput)
+}
+
+type GetPermissionTargetRepoOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepo)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoOutput) ToGetPermissionTargetRepoOutput() GetPermissionTargetRepoOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoOutput) ToGetPermissionTargetRepoOutputWithContext(ctx context.Context) GetPermissionTargetRepoOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoOutput) ToGetPermissionTargetRepoPtrOutput() GetPermissionTargetRepoPtrOutput {
+	return o.ToGetPermissionTargetRepoPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetRepoOutput) ToGetPermissionTargetRepoPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetRepo) *GetPermissionTargetRepo {
+		return &v
+	}).(GetPermissionTargetRepoPtrOutput)
+}
+
+func (o GetPermissionTargetRepoOutput) Actions() GetPermissionTargetRepoActionsPtrOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepo) *GetPermissionTargetRepoActions { return v.Actions }).(GetPermissionTargetRepoActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetRepoOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepo) []string { return v.ExcludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetRepoOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepo) []string { return v.IncludesPatterns }).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetRepoOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepo) []string { return v.Repositories }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetRepoPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetRepo)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoPtrOutput) ToGetPermissionTargetRepoPtrOutput() GetPermissionTargetRepoPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoPtrOutput) ToGetPermissionTargetRepoPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoPtrOutput) Elem() GetPermissionTargetRepoOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepo) GetPermissionTargetRepo {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetRepo
+		return ret
+	}).(GetPermissionTargetRepoOutput)
+}
+
+func (o GetPermissionTargetRepoPtrOutput) Actions() GetPermissionTargetRepoActionsPtrOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepo) *GetPermissionTargetRepoActions {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(GetPermissionTargetRepoActionsPtrOutput)
+}
+
+// Pattern of artifacts to exclude.
+func (o GetPermissionTargetRepoPtrOutput) ExcludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Pattern of artifacts to include.
+func (o GetPermissionTargetRepoPtrOutput) IncludesPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludesPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of repositories this permission target is applicable for. You can specify the
+// name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+// repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+func (o GetPermissionTargetRepoPtrOutput) Repositories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Repositories
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetRepoActions struct {
+	// Groups this permission applies for.
+	Groups []GetPermissionTargetRepoActionsGroup `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users []GetPermissionTargetRepoActionsUser `pulumi:"users"`
+}
+
+// GetPermissionTargetRepoActionsInput is an input type that accepts GetPermissionTargetRepoActionsArgs and GetPermissionTargetRepoActionsOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsInput` via:
+//
+//	GetPermissionTargetRepoActionsArgs{...}
+type GetPermissionTargetRepoActionsInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsOutput() GetPermissionTargetRepoActionsOutput
+	ToGetPermissionTargetRepoActionsOutputWithContext(context.Context) GetPermissionTargetRepoActionsOutput
+}
+
+type GetPermissionTargetRepoActionsArgs struct {
+	// Groups this permission applies for.
+	Groups GetPermissionTargetRepoActionsGroupArrayInput `pulumi:"groups"`
+	// Users this permission target applies for.
+	Users GetPermissionTargetRepoActionsUserArrayInput `pulumi:"users"`
+}
+
+func (GetPermissionTargetRepoActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActions)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoActionsArgs) ToGetPermissionTargetRepoActionsOutput() GetPermissionTargetRepoActionsOutput {
+	return i.ToGetPermissionTargetRepoActionsOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsArgs) ToGetPermissionTargetRepoActionsOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsOutput)
+}
+
+func (i GetPermissionTargetRepoActionsArgs) ToGetPermissionTargetRepoActionsPtrOutput() GetPermissionTargetRepoActionsPtrOutput {
+	return i.ToGetPermissionTargetRepoActionsPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsArgs) ToGetPermissionTargetRepoActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsOutput).ToGetPermissionTargetRepoActionsPtrOutputWithContext(ctx)
+}
+
+// GetPermissionTargetRepoActionsPtrInput is an input type that accepts GetPermissionTargetRepoActionsArgs, GetPermissionTargetRepoActionsPtr and GetPermissionTargetRepoActionsPtrOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsPtrInput` via:
+//
+//	        GetPermissionTargetRepoActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetPermissionTargetRepoActionsPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsPtrOutput() GetPermissionTargetRepoActionsPtrOutput
+	ToGetPermissionTargetRepoActionsPtrOutputWithContext(context.Context) GetPermissionTargetRepoActionsPtrOutput
+}
+
+type getPermissionTargetRepoActionsPtrType GetPermissionTargetRepoActionsArgs
+
+func GetPermissionTargetRepoActionsPtr(v *GetPermissionTargetRepoActionsArgs) GetPermissionTargetRepoActionsPtrInput {
+	return (*getPermissionTargetRepoActionsPtrType)(v)
+}
+
+func (*getPermissionTargetRepoActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetRepoActions)(nil)).Elem()
+}
+
+func (i *getPermissionTargetRepoActionsPtrType) ToGetPermissionTargetRepoActionsPtrOutput() GetPermissionTargetRepoActionsPtrOutput {
+	return i.ToGetPermissionTargetRepoActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionTargetRepoActionsPtrType) ToGetPermissionTargetRepoActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsPtrOutput)
+}
+
+type GetPermissionTargetRepoActionsOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsOutput) ToGetPermissionTargetRepoActionsOutput() GetPermissionTargetRepoActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsOutput) ToGetPermissionTargetRepoActionsOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsOutput) ToGetPermissionTargetRepoActionsPtrOutput() GetPermissionTargetRepoActionsPtrOutput {
+	return o.ToGetPermissionTargetRepoActionsPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionTargetRepoActionsOutput) ToGetPermissionTargetRepoActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionTargetRepoActions) *GetPermissionTargetRepoActions {
+		return &v
+	}).(GetPermissionTargetRepoActionsPtrOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetRepoActionsOutput) Groups() GetPermissionTargetRepoActionsGroupArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActions) []GetPermissionTargetRepoActionsGroup { return v.Groups }).(GetPermissionTargetRepoActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetRepoActionsOutput) Users() GetPermissionTargetRepoActionsUserArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActions) []GetPermissionTargetRepoActionsUser { return v.Users }).(GetPermissionTargetRepoActionsUserArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionTargetRepoActions)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsPtrOutput) ToGetPermissionTargetRepoActionsPtrOutput() GetPermissionTargetRepoActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsPtrOutput) ToGetPermissionTargetRepoActionsPtrOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsPtrOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsPtrOutput) Elem() GetPermissionTargetRepoActionsOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepoActions) GetPermissionTargetRepoActions {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionTargetRepoActions
+		return ret
+	}).(GetPermissionTargetRepoActionsOutput)
+}
+
+// Groups this permission applies for.
+func (o GetPermissionTargetRepoActionsPtrOutput) Groups() GetPermissionTargetRepoActionsGroupArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepoActions) []GetPermissionTargetRepoActionsGroup {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(GetPermissionTargetRepoActionsGroupArrayOutput)
+}
+
+// Users this permission target applies for.
+func (o GetPermissionTargetRepoActionsPtrOutput) Users() GetPermissionTargetRepoActionsUserArrayOutput {
+	return o.ApplyT(func(v *GetPermissionTargetRepoActions) []GetPermissionTargetRepoActionsUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(GetPermissionTargetRepoActionsUserArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsGroup struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetRepoActionsGroupInput is an input type that accepts GetPermissionTargetRepoActionsGroupArgs and GetPermissionTargetRepoActionsGroupOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsGroupInput` via:
+//
+//	GetPermissionTargetRepoActionsGroupArgs{...}
+type GetPermissionTargetRepoActionsGroupInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsGroupOutput() GetPermissionTargetRepoActionsGroupOutput
+	ToGetPermissionTargetRepoActionsGroupOutputWithContext(context.Context) GetPermissionTargetRepoActionsGroupOutput
+}
+
+type GetPermissionTargetRepoActionsGroupArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetRepoActionsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoActionsGroupArgs) ToGetPermissionTargetRepoActionsGroupOutput() GetPermissionTargetRepoActionsGroupOutput {
+	return i.ToGetPermissionTargetRepoActionsGroupOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsGroupArgs) ToGetPermissionTargetRepoActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsGroupOutput)
+}
+
+// GetPermissionTargetRepoActionsGroupArrayInput is an input type that accepts GetPermissionTargetRepoActionsGroupArray and GetPermissionTargetRepoActionsGroupArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsGroupArrayInput` via:
+//
+//	GetPermissionTargetRepoActionsGroupArray{ GetPermissionTargetRepoActionsGroupArgs{...} }
+type GetPermissionTargetRepoActionsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsGroupArrayOutput() GetPermissionTargetRepoActionsGroupArrayOutput
+	ToGetPermissionTargetRepoActionsGroupArrayOutputWithContext(context.Context) GetPermissionTargetRepoActionsGroupArrayOutput
+}
+
+type GetPermissionTargetRepoActionsGroupArray []GetPermissionTargetRepoActionsGroupInput
+
+func (GetPermissionTargetRepoActionsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetRepoActionsGroup)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoActionsGroupArray) ToGetPermissionTargetRepoActionsGroupArrayOutput() GetPermissionTargetRepoActionsGroupArrayOutput {
+	return i.ToGetPermissionTargetRepoActionsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsGroupArray) ToGetPermissionTargetRepoActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsGroupArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsGroupOutput) ToGetPermissionTargetRepoActionsGroupOutput() GetPermissionTargetRepoActionsGroupOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsGroupOutput) ToGetPermissionTargetRepoActionsGroupOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsGroupOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetRepoActionsGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActionsGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetRepoActionsGroupOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActionsGroup) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetRepoActionsGroup)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsGroupArrayOutput) ToGetPermissionTargetRepoActionsGroupArrayOutput() GetPermissionTargetRepoActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsGroupArrayOutput) ToGetPermissionTargetRepoActionsGroupArrayOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsGroupArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsGroupArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetRepoActionsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetRepoActionsGroup {
+		return vs[0].([]GetPermissionTargetRepoActionsGroup)[vs[1].(int)]
+	}).(GetPermissionTargetRepoActionsGroupOutput)
+}
+
+type GetPermissionTargetRepoActionsUser struct {
+	// Name of the permission target.
+	Name        string   `pulumi:"name"`
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetPermissionTargetRepoActionsUserInput is an input type that accepts GetPermissionTargetRepoActionsUserArgs and GetPermissionTargetRepoActionsUserOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsUserInput` via:
+//
+//	GetPermissionTargetRepoActionsUserArgs{...}
+type GetPermissionTargetRepoActionsUserInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsUserOutput() GetPermissionTargetRepoActionsUserOutput
+	ToGetPermissionTargetRepoActionsUserOutputWithContext(context.Context) GetPermissionTargetRepoActionsUserOutput
+}
+
+type GetPermissionTargetRepoActionsUserArgs struct {
+	// Name of the permission target.
+	Name        pulumi.StringInput      `pulumi:"name"`
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetPermissionTargetRepoActionsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoActionsUserArgs) ToGetPermissionTargetRepoActionsUserOutput() GetPermissionTargetRepoActionsUserOutput {
+	return i.ToGetPermissionTargetRepoActionsUserOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsUserArgs) ToGetPermissionTargetRepoActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsUserOutput)
+}
+
+// GetPermissionTargetRepoActionsUserArrayInput is an input type that accepts GetPermissionTargetRepoActionsUserArray and GetPermissionTargetRepoActionsUserArrayOutput values.
+// You can construct a concrete instance of `GetPermissionTargetRepoActionsUserArrayInput` via:
+//
+//	GetPermissionTargetRepoActionsUserArray{ GetPermissionTargetRepoActionsUserArgs{...} }
+type GetPermissionTargetRepoActionsUserArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionTargetRepoActionsUserArrayOutput() GetPermissionTargetRepoActionsUserArrayOutput
+	ToGetPermissionTargetRepoActionsUserArrayOutputWithContext(context.Context) GetPermissionTargetRepoActionsUserArrayOutput
+}
+
+type GetPermissionTargetRepoActionsUserArray []GetPermissionTargetRepoActionsUserInput
+
+func (GetPermissionTargetRepoActionsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetRepoActionsUser)(nil)).Elem()
+}
+
+func (i GetPermissionTargetRepoActionsUserArray) ToGetPermissionTargetRepoActionsUserArrayOutput() GetPermissionTargetRepoActionsUserArrayOutput {
+	return i.ToGetPermissionTargetRepoActionsUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionTargetRepoActionsUserArray) ToGetPermissionTargetRepoActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionTargetRepoActionsUserArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsUserOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionTargetRepoActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsUserOutput) ToGetPermissionTargetRepoActionsUserOutput() GetPermissionTargetRepoActionsUserOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsUserOutput) ToGetPermissionTargetRepoActionsUserOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsUserOutput {
+	return o
+}
+
+// Name of the permission target.
+func (o GetPermissionTargetRepoActionsUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActionsUser) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionTargetRepoActionsUserOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionTargetRepoActionsUser) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionTargetRepoActionsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionTargetRepoActionsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionTargetRepoActionsUser)(nil)).Elem()
+}
+
+func (o GetPermissionTargetRepoActionsUserArrayOutput) ToGetPermissionTargetRepoActionsUserArrayOutput() GetPermissionTargetRepoActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsUserArrayOutput) ToGetPermissionTargetRepoActionsUserArrayOutputWithContext(ctx context.Context) GetPermissionTargetRepoActionsUserArrayOutput {
+	return o
+}
+
+func (o GetPermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) GetPermissionTargetRepoActionsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionTargetRepoActionsUser {
+		return vs[0].([]GetPermissionTargetRepoActionsUser)[vs[1].(int)]
+	}).(GetPermissionTargetRepoActionsUserOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenPtrInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
@@ -15704,6 +17388,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), RemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationInput)(nil)).Elem(), ReplicationConfigReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationArrayInput)(nil)).Elem(), ReplicationConfigReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildPtrInput)(nil)).Elem(), GetPermissionTargetBuildArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsInput)(nil)).Elem(), GetPermissionTargetBuildActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsPtrInput)(nil)).Elem(), GetPermissionTargetBuildActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsGroupInput)(nil)).Elem(), GetPermissionTargetBuildActionsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsGroupArrayInput)(nil)).Elem(), GetPermissionTargetBuildActionsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsUserInput)(nil)).Elem(), GetPermissionTargetBuildActionsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetBuildActionsUserArrayInput)(nil)).Elem(), GetPermissionTargetBuildActionsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleInput)(nil)).Elem(), GetPermissionTargetReleaseBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundlePtrInput)(nil)).Elem(), GetPermissionTargetReleaseBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsPtrInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsGroupInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsGroupArrayInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsUserInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetReleaseBundleActionsUserArrayInput)(nil)).Elem(), GetPermissionTargetReleaseBundleActionsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoInput)(nil)).Elem(), GetPermissionTargetRepoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoPtrInput)(nil)).Elem(), GetPermissionTargetRepoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsInput)(nil)).Elem(), GetPermissionTargetRepoActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsPtrInput)(nil)).Elem(), GetPermissionTargetRepoActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsGroupInput)(nil)).Elem(), GetPermissionTargetRepoActionsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsGroupArrayInput)(nil)).Elem(), GetPermissionTargetRepoActionsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsUserInput)(nil)).Elem(), GetPermissionTargetRepoActionsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsUserArrayInput)(nil)).Elem(), GetPermissionTargetRepoActionsUserArray{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactPropertyWebhookCriteriaOutput{})
@@ -15918,4 +17626,28 @@ func init() {
 	pulumi.RegisterOutputType(RemoteVcsRepositoryContentSynchronisationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsGroupOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsUserOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetBuildActionsUserArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundlePtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsGroupOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsUserOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetReleaseBundleActionsUserArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsGroupOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsUserOutput{})
+	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsUserArrayOutput{})
 }

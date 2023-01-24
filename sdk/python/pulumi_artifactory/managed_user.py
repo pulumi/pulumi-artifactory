@@ -28,7 +28,7 @@ class ManagedUserArgs:
         :param pulumi.Input[str] password: Password for the user.
         :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[bool] profile_updatable: When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
@@ -100,7 +100,7 @@ class ManagedUserArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups this user is a part of.
+        List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
@@ -161,7 +161,7 @@ class _ManagedUserState:
         :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[str] password: Password for the user.
@@ -224,7 +224,7 @@ class _ManagedUserState:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of groups this user is a part of.
+        List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 
@@ -296,10 +296,6 @@ class ManagedUser(pulumi.CustomResource):
                  profile_updatable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
-
-        Unlike `UnmanagedUser` and `User`, the `password` attribute is required and cannot be empty.
-
         ## Example Usage
 
         ```python
@@ -329,7 +325,7 @@ class ManagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[str] password: Password for the user.
@@ -342,10 +338,6 @@ class ManagedUser(pulumi.CustomResource):
                  args: ManagedUserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
-
-        Unlike `UnmanagedUser` and `User`, the `password` attribute is required and cannot be empty.
-
         ## Example Usage
 
         ```python
@@ -444,7 +436,7 @@ class ManagedUser(pulumi.CustomResource):
         :param pulumi.Input[bool] admin: When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
         :param pulumi.Input[bool] disable_ui_access: When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
         :param pulumi.Input[str] email: Email for user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         :param pulumi.Input[bool] internal_password_disabled: When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
         :param pulumi.Input[str] name: Username for user.
         :param pulumi.Input[str] password: Password for the user.
@@ -492,7 +484,7 @@ class ManagedUser(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of groups this user is a part of.
+        List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         """
         return pulumi.get(self, "groups")
 

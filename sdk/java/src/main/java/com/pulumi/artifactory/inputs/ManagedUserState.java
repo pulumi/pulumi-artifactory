@@ -63,14 +63,14 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Optional<Output<List<String>>> groups() {
@@ -232,7 +232,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ManagedUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param groups List of groups this user is a part of.
+         * @param groups List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
          * 
          * @return builder
          * 

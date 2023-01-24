@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Artifactory
 {
     /// <summary>
-    /// Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
-    /// 
-    /// Unlike `artifactory.UnmanagedUser` and `artifactory.User`, the `password` attribute is required and cannot be empty.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -68,7 +64,7 @@ namespace Pulumi.Artifactory
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// List of groups this user is a part of.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<string>> Groups { get; private set; } = null!;
@@ -169,7 +165,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {
@@ -241,7 +237,7 @@ namespace Pulumi.Artifactory
         private InputList<string>? _groups;
 
         /// <summary>
-        /// List of groups this user is a part of.
+        /// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
         /// </summary>
         public InputList<string> Groups
         {

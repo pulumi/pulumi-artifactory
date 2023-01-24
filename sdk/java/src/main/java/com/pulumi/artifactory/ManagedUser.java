@@ -17,10 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.
- * 
- * Unlike `artifactory.UnmanagedUser` and `artifactory.User`, the `password` attribute is required and cannot be empty.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -109,14 +105,14 @@ public class ManagedUser extends com.pulumi.resources.CustomResource {
         return this.email;
     }
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     @Export(name="groups", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> groups;
 
     /**
-     * @return List of groups this user is a part of.
+     * @return List of groups this user is a part of. **Notes:** If this attribute is not specified then user&#39;s group membership is set to empty. User will not be part of default &#34;readers&#34; group automatically.
      * 
      */
     public Output<Optional<List<String>>> groups() {

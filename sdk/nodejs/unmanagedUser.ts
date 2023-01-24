@@ -5,10 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.
- *
- * When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -25,6 +21,9 @@ import * as utilities from "./utilities";
  *     password: "my super secret password",
  * });
  * ```
+ * ## Managing groups relationship
+ *
+ * See our recommendation on how to manage user-group relationship.
  *
  * ## Import
  *
@@ -75,7 +74,7 @@ export class UnmanagedUser extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string>;
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     public readonly groups!: pulumi.Output<string[] | undefined>;
     /**
@@ -154,7 +153,7 @@ export interface UnmanagedUserState {
      */
     email?: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -192,7 +191,7 @@ export interface UnmanagedUserArgs {
      */
     email: pulumi.Input<string>;
     /**
-     * List of groups this user is a part of.
+     * List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -633,6 +633,276 @@ export interface FederatedVagrantRepositoryMember {
     url: pulumi.Input<string>;
 }
 
+export interface GetPermissionTargetBuild {
+    actions?: inputs.GetPermissionTargetBuildActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetBuildArgs {
+    actions?: pulumi.Input<inputs.GetPermissionTargetBuildActionsArgs>;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: inputs.GetPermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: inputs.GetPermissionTargetBuildActionsUser[];
+}
+
+export interface GetPermissionTargetBuildActionsArgs {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsGroupArgs>[]>;
+    /**
+     * Users this permission target applies for.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetBuildActionsUserArgs>[]>;
+}
+
+export interface GetPermissionTargetBuildActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetBuildActionsGroupArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetBuildActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetBuildActionsUserArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetReleaseBundle {
+    actions?: inputs.GetPermissionTargetReleaseBundleActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetReleaseBundleArgs {
+    actions?: pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsArgs>;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: inputs.GetPermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: inputs.GetPermissionTargetReleaseBundleActionsUser[];
+}
+
+export interface GetPermissionTargetReleaseBundleActionsArgs {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsGroupArgs>[]>;
+    /**
+     * Users this permission target applies for.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetReleaseBundleActionsUserArgs>[]>;
+}
+
+export interface GetPermissionTargetReleaseBundleActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetReleaseBundleActionsGroupArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetReleaseBundleActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetReleaseBundleActionsUserArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetRepo {
+    actions?: inputs.GetPermissionTargetRepoActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetRepoArgs {
+    actions?: pulumi.Input<inputs.GetPermissionTargetRepoActionsArgs>;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: inputs.GetPermissionTargetRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: inputs.GetPermissionTargetRepoActionsUser[];
+}
+
+export interface GetPermissionTargetRepoActionsArgs {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsGroupArgs>[]>;
+    /**
+     * Users this permission target applies for.
+     */
+    users?: pulumi.Input<pulumi.Input<inputs.GetPermissionTargetRepoActionsUserArgs>[]>;
+}
+
+export interface GetPermissionTargetRepoActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetRepoActionsGroupArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface GetPermissionTargetRepoActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetRepoActionsUserArgs {
+    /**
+     * Name of the permission target.
+     */
+    name: pulumi.Input<string>;
+    permissions: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.
