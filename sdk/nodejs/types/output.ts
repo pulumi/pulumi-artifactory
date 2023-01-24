@@ -633,6 +633,141 @@ export interface FederatedVagrantRepositoryMember {
     url: string;
 }
 
+export interface GetPermissionTargetBuild {
+    actions?: outputs.GetPermissionTargetBuildActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetBuildActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: outputs.GetPermissionTargetBuildActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: outputs.GetPermissionTargetBuildActionsUser[];
+}
+
+export interface GetPermissionTargetBuildActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetBuildActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetReleaseBundle {
+    actions?: outputs.GetPermissionTargetReleaseBundleActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetReleaseBundleActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: outputs.GetPermissionTargetReleaseBundleActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: outputs.GetPermissionTargetReleaseBundleActionsUser[];
+}
+
+export interface GetPermissionTargetReleaseBundleActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetReleaseBundleActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetRepo {
+    actions?: outputs.GetPermissionTargetRepoActions;
+    /**
+     * Pattern of artifacts to exclude.
+     */
+    excludesPatterns?: string[];
+    /**
+     * Pattern of artifacts to include.
+     */
+    includesPatterns?: string[];
+    /**
+     * List of repositories this permission target is applicable for. You can specify the
+     * name `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote
+     * repositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.
+     */
+    repositories: string[];
+}
+
+export interface GetPermissionTargetRepoActions {
+    /**
+     * Groups this permission applies for.
+     */
+    groups?: outputs.GetPermissionTargetRepoActionsGroup[];
+    /**
+     * Users this permission target applies for.
+     */
+    users?: outputs.GetPermissionTargetRepoActionsUser[];
+}
+
+export interface GetPermissionTargetRepoActionsGroup {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
+export interface GetPermissionTargetRepoActionsUser {
+    /**
+     * Name of the permission target.
+     */
+    name: string;
+    permissions: string[];
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.

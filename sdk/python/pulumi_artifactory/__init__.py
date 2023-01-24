@@ -55,6 +55,9 @@ from .federated_vagrant_repository import *
 from .general_security import *
 from .get_file import *
 from .get_fileinfo import *
+from .get_group import *
+from .get_permission_target import *
+from .get_user import *
 from .go_repository import *
 from .group import *
 from .keypair import *

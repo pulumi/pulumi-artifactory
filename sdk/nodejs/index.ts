@@ -255,6 +255,21 @@ export const getFileinfo: typeof import("./getFileinfo").getFileinfo = null as a
 export const getFileinfoOutput: typeof import("./getFileinfo").getFileinfoOutput = null as any;
 utilities.lazyLoad(exports, ["getFileinfo","getFileinfoOutput"], () => require("./getFileinfo"));
 
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetPermissionTargetArgs, GetPermissionTargetResult, GetPermissionTargetOutputArgs } from "./getPermissionTarget";
+export const getPermissionTarget: typeof import("./getPermissionTarget").getPermissionTarget = null as any;
+export const getPermissionTargetOutput: typeof import("./getPermissionTarget").getPermissionTargetOutput = null as any;
+utilities.lazyLoad(exports, ["getPermissionTarget","getPermissionTargetOutput"], () => require("./getPermissionTarget"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
 export { GoRepositoryArgs, GoRepositoryState } from "./goRepository";
 export type GoRepository = import("./goRepository").GoRepository;
 export const GoRepository: typeof import("./goRepository").GoRepository = null as any;

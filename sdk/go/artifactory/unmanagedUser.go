@@ -11,10 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.
-//
-// When the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.
-//
 // ## Example Usage
 //
 // ```go
@@ -45,6 +41,9 @@ import (
 //	}
 //
 // ```
+// ## Managing groups relationship
+//
+// See our recommendation on how to manage user-group relationship.
 //
 // ## Import
 //
@@ -64,7 +63,7 @@ type UnmanagedUser struct {
 	DisableUiAccess pulumi.BoolPtrOutput `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email pulumi.StringOutput `pulumi:"email"`
-	// List of groups this user is a part of.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayOutput `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrOutput `pulumi:"internalPasswordDisabled"`
@@ -121,7 +120,7 @@ type unmanagedUserState struct {
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email *string `pulumi:"email"`
-	// List of groups this user is a part of.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
@@ -140,7 +139,7 @@ type UnmanagedUserState struct {
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringPtrInput
-	// List of groups this user is a part of.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
@@ -163,7 +162,7 @@ type unmanagedUserArgs struct {
 	DisableUiAccess *bool `pulumi:"disableUiAccess"`
 	// Email for user.
 	Email string `pulumi:"email"`
-	// List of groups this user is a part of.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups []string `pulumi:"groups"`
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled *bool `pulumi:"internalPasswordDisabled"`
@@ -183,7 +182,7 @@ type UnmanagedUserArgs struct {
 	DisableUiAccess pulumi.BoolPtrInput
 	// Email for user.
 	Email pulumi.StringInput
-	// List of groups this user is a part of.
+	// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 	Groups pulumi.StringArrayInput
 	// When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
 	InternalPasswordDisabled pulumi.BoolPtrInput
@@ -297,7 +296,7 @@ func (o UnmanagedUserOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }
 
-// List of groups this user is a part of.
+// List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default "readers" group automatically.
 func (o UnmanagedUserOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UnmanagedUser) pulumi.StringArrayOutput { return v.Groups }).(pulumi.StringArrayOutput)
 }
