@@ -4058,6 +4058,423 @@
                     ]
                 }
             }
+        },
+        "artifactory:index/getPermissionTargetBuild:getPermissionTargetBuild": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/artifactory:index/getPermissionTargetBuildActions:getPermissionTargetBuildActions",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "excludesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of repositories this permission target is applicable for. You can specify the\nname `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote\nrepositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositories"
+            ]
+        },
+        "artifactory:index/getPermissionTargetBuildActions:getPermissionTargetBuildActions": {
+            "properties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetBuildActionsGroup:getPermissionTargetBuildActionsGroup"
+                    },
+                    "description": "Groups this permission applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetBuildActionsUser:getPermissionTargetBuildActionsUser"
+                    },
+                    "description": "Users this permission target applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "artifactory:index/getPermissionTargetBuildActionsGroup:getPermissionTargetBuildActionsGroup": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
+        },
+        "artifactory:index/getPermissionTargetBuildActionsUser:getPermissionTargetBuildActionsUser": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
+        },
+        "artifactory:index/getPermissionTargetReleaseBundle:getPermissionTargetReleaseBundle": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/artifactory:index/getPermissionTargetReleaseBundleActions:getPermissionTargetReleaseBundleActions",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "excludesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of repositories this permission target is applicable for. You can specify the\nname `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote\nrepositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositories"
+            ]
+        },
+        "artifactory:index/getPermissionTargetReleaseBundleActions:getPermissionTargetReleaseBundleActions": {
+            "properties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetReleaseBundleActionsGroup:getPermissionTargetReleaseBundleActionsGroup"
+                    },
+                    "description": "Groups this permission applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetReleaseBundleActionsUser:getPermissionTargetReleaseBundleActionsUser"
+                    },
+                    "description": "Users this permission target applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "artifactory:index/getPermissionTargetReleaseBundleActionsGroup:getPermissionTargetReleaseBundleActionsGroup": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
+        },
+        "artifactory:index/getPermissionTargetReleaseBundleActionsUser:getPermissionTargetReleaseBundleActionsUser": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
+        },
+        "artifactory:index/getPermissionTargetRepo:getPermissionTargetRepo": {
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/artifactory:index/getPermissionTargetRepoActions:getPermissionTargetRepoActions",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "excludesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includesPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Pattern of artifacts to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of repositories this permission target is applicable for. You can specify the\nname `ANY` in the repositories section in order to apply to all repositories, `ANY REMOTE` for all remote\nrepositories and `ANY LOCAL` for all local repositories. The default value will be `[]` if nothing is specified.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositories"
+            ]
+        },
+        "artifactory:index/getPermissionTargetRepoActions:getPermissionTargetRepoActions": {
+            "properties": {
+                "groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetRepoActionsGroup:getPermissionTargetRepoActionsGroup"
+                    },
+                    "description": "Groups this permission applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetRepoActionsUser:getPermissionTargetRepoActionsUser"
+                    },
+                    "description": "Users this permission target applies for.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "artifactory:index/getPermissionTargetRepoActionsGroup:getPermissionTargetRepoActionsGroup": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
+        },
+        "artifactory:index/getPermissionTargetRepoActionsUser:getPermissionTargetRepoActionsUser": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the permission target.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "permissions"
+            ]
         }
     },
     "provider": {
@@ -21856,7 +22273,7 @@
             }
         },
         "artifactory:index/managedUser:ManagedUser": {
-            "description": "Provides an Artifactory managed user resource. This can be used to create and maintain Artifactory users. For example, service account where password is known and managed externally.\n\nUnlike `artifactory.UnmanagedUser` and `artifactory.User`, the `password` attribute is required and cannot be empty.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.ManagedUser(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.ManagedUser(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.ManagedUser(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewManagedUser(ctx, \"test-user\", \u0026artifactory.ManagedUserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ManagedUser;\nimport com.pulumi.artifactory.ManagedUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new ManagedUser(\"test-user\", ManagedUserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:ManagedUser\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.ManagedUser(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.ManagedUser(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.ManagedUser(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewManagedUser(ctx, \"test-user\", \u0026artifactory.ManagedUserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ManagedUser;\nimport com.pulumi.artifactory.ManagedUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new ManagedUser(\"test-user\", ManagedUserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:ManagedUser\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/managedUser:ManagedUser test-user myusername\n```\n\n ",
             "properties": {
                 "admin": {
                     "type": "boolean",
@@ -21875,7 +22292,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of groups this user is a part of.\n"
+                    "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                 },
                 "internalPasswordDisabled": {
                     "type": "boolean",
@@ -21918,7 +22335,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of groups this user is a part of.\n"
+                    "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                 },
                 "internalPasswordDisabled": {
                     "type": "boolean",
@@ -21963,7 +22380,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of groups this user is a part of.\n"
+                        "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                     },
                     "internalPasswordDisabled": {
                         "type": "boolean",
@@ -40721,7 +41138,7 @@
             }
         },
         "artifactory:index/unmanagedUser:UnmanagedUser": {
-            "description": "Provides an Artifactory unmanaged user resource. This can be used to create and maintain Artifactory users.\n\nWhen the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.UnmanagedUser(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.UnmanagedUser(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.UnmanagedUser(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewUnmanagedUser(ctx, \"test-user\", \u0026artifactory.UnmanagedUserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.UnmanagedUser;\nimport com.pulumi.artifactory.UnmanagedUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new UnmanagedUser(\"test-user\", UnmanagedUserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:UnmanagedUser\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername\n```\n\n ",
+            "description": "{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.UnmanagedUser(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.UnmanagedUser(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.UnmanagedUser(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewUnmanagedUser(ctx, \"test-user\", \u0026artifactory.UnmanagedUserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.UnmanagedUser;\nimport com.pulumi.artifactory.UnmanagedUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new UnmanagedUser(\"test-user\", UnmanagedUserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:UnmanagedUser\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n## Managing groups relationship\n\nSee our recommendation on how to manage user-group relationship.\n\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/unmanagedUser:UnmanagedUser test-user myusername\n```\n\n ",
             "properties": {
                 "admin": {
                     "type": "boolean",
@@ -40740,7 +41157,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of groups this user is a part of.\n"
+                    "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                 },
                 "internalPasswordDisabled": {
                     "type": "boolean",
@@ -40782,7 +41199,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of groups this user is a part of.\n"
+                    "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                 },
                 "internalPasswordDisabled": {
                     "type": "boolean",
@@ -40826,7 +41243,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of groups this user is a part of.\n"
+                        "description": "List of groups this user is a part of. **Notes:** If this attribute is not specified then user's group membership is set to empty. User will not be part of default \"readers\" group automatically.\n"
                     },
                     "internalPasswordDisabled": {
                         "type": "boolean",
@@ -40851,7 +41268,7 @@
             }
         },
         "artifactory:index/user:User": {
-            "description": "Provides an Artifactory user resource. This can be used to create and manage Artifactory users.\n\nWhen the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.User(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.User(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.User(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewUser(ctx, \"test-user\", \u0026artifactory.UserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.User;\nimport com.pulumi.artifactory.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new User(\"test-user\", UserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:User\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n## Managing groups relationship\n\nSee our recommendation on how to manage user-group relationship.\n\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/user:User test-user myusername\n```\n\n ",
+            "description": "Provides an Artifactory user resource. This can be used to create and manage Artifactory users.\nThe password is a required field by the [Artifactory API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceUser), but we made it optional in this resource to accommodate the scenario where the password is not needed and will be reset by the actual user later.  \nWhen the optional attribute `password` is omitted, a random password is generated according to current Artifactory password policy. \n\n\u003e The generated password won't be stored in the TF state and can not be recovered. The user must reset the password to be able to log in. An admin can always generate the access key for the user as well. The password change won't trigger state drift. We don't recommend to use this resource unless there is a specific use case for it. Recommended resource is `artifactory.ManagedUser`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Create a new Artifactory user called terraform\nconst test_user = new artifactory.User(\"test-user\", {\n    email: \"test-user@artifactory-terraform.com\",\n    groups: [\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password: \"my super secret password\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory user called terraform\ntest_user = artifactory.User(\"test-user\",\n    email=\"test-user@artifactory-terraform.com\",\n    groups=[\n        \"logged-in-users\",\n        \"readers\",\n    ],\n    password=\"my super secret password\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory user called terraform\n    var test_user = new Artifactory.User(\"test-user\", new()\n    {\n        Email = \"test-user@artifactory-terraform.com\",\n        Groups = new[]\n        {\n            \"logged-in-users\",\n            \"readers\",\n        },\n        Password = \"my super secret password\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewUser(ctx, \"test-user\", \u0026artifactory.UserArgs{\n\t\t\tEmail: pulumi.String(\"test-user@artifactory-terraform.com\"),\n\t\t\tGroups: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"logged-in-users\"),\n\t\t\t\tpulumi.String(\"readers\"),\n\t\t\t},\n\t\t\tPassword: pulumi.String(\"my super secret password\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.User;\nimport com.pulumi.artifactory.UserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_user = new User(\"test-user\", UserArgs.builder()        \n            .email(\"test-user@artifactory-terraform.com\")\n            .groups(            \n                \"logged-in-users\",\n                \"readers\")\n            .password(\"my super secret password\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory user called terraform\n  test-user:\n    type: artifactory:User\n    properties:\n      email: test-user@artifactory-terraform.com\n      groups:\n        - logged-in-users\n        - readers\n      password: my super secret password\n```\n{{% /example %}}\n{{% /examples %}}\n## Managing groups relationship\n\nSee our recommendation on how to manage user-group relationship.\n\n\n## Import\n\nUsers can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/user:User test-user myusername\n```\n\n ",
             "properties": {
                 "admin": {
                     "type": "boolean",
@@ -46179,6 +46596,282 @@
                     "sha1",
                     "sha256",
                     "size",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getGroup:getGroup": {
+            "description": "## # Artifactory Group Data Source\n\nProvides an Artifactory group datasource. This can be used to read the configuration of groups in artifactory.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst myGroup = artifactory.getGroup({\n    includeUsers: \"true\",\n    name: \"my_group\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmy_group = artifactory.get_group(include_users=\"true\",\n    name=\"my_group\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var myGroup = Artifactory.GetGroup.Invoke(new()\n    {\n        IncludeUsers = \"true\",\n        Name = \"my_group\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.LookupGroup(ctx, \u0026artifactory.LookupGroupArgs{\n\t\t\tIncludeUsers: pulumi.StringRef(\"true\"),\n\t\t\tName:         \"my_group\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ArtifactoryFunctions;\nimport com.pulumi.artifactory.inputs.GetGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var myGroup = ArtifactoryFunctions.getGroup(GetGroupArgs.builder()\n            .includeUsers(true)\n            .name(\"my_group\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  myGroup:\n    fn::invoke:\n      Function: artifactory:getGroup\n      Arguments:\n        includeUsers: true\n        name: my_group\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getGroup.\n",
+                "properties": {
+                    "adminPrivileges": {
+                        "type": "boolean",
+                        "description": "Any users added to this group will automatically be assigned with admin privileges in the system.\n"
+                    },
+                    "autoJoin": {
+                        "type": "boolean",
+                        "description": "When this parameter is set, any new users defined in the system are automatically assigned to this group.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description for the group\n"
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "New external group ID used to configure the corresponding group in Azure AD.\n"
+                    },
+                    "includeUsers": {
+                        "type": "string",
+                        "description": "Determines if the group's associated user list will return as an attribute. Default is false.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the group.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "policyManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.\n"
+                    },
+                    "realm": {
+                        "type": "string",
+                        "description": "The realm for the group.\n"
+                    },
+                    "realmAttributes": {
+                        "type": "string",
+                        "description": "The realm attributes for the group.\n"
+                    },
+                    "reportsManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.\n"
+                    },
+                    "usersNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of users assigned to the group. Set include_users to `true` to retrieve this list.\n"
+                    },
+                    "watchManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getGroup.\n",
+                "properties": {
+                    "adminPrivileges": {
+                        "type": "boolean",
+                        "description": "Any users added to this group will automatically be assigned with admin privileges in the system.\n"
+                    },
+                    "autoJoin": {
+                        "type": "boolean",
+                        "description": "When this parameter is set, any new users defined in the system are automatically assigned to this group.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "A description for the group\n"
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "New external group ID used to configure the corresponding group in Azure AD.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includeUsers": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "policyManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.\n"
+                    },
+                    "realm": {
+                        "type": "string",
+                        "description": "The realm for the group.\n"
+                    },
+                    "realmAttributes": {
+                        "type": "string",
+                        "description": "The realm attributes for the group.\n"
+                    },
+                    "reportsManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.\n"
+                    },
+                    "usersNames": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of users assigned to the group. Set include_users to `true` to retrieve this list.\n"
+                    },
+                    "watchManager": {
+                        "type": "boolean",
+                        "description": "When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "adminPrivileges",
+                    "autoJoin",
+                    "name",
+                    "realm",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getPermissionTarget:getPermissionTarget": {
+            "description": "## # Artifactory Permission Target Data Source\n\nProvides an Artifactory permission target data source. This can be used to read the configuration of permission targets in artifactory.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst target1 = artifactory.getPermissionTarget({\n    name: \"my_permission\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\ntarget1 = artifactory.get_permission_target(name=\"my_permission\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var target1 = Artifactory.GetPermissionTarget.Invoke(new()\n    {\n        Name = \"my_permission\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.LookupPermissionTarget(ctx, \u0026artifactory.LookupPermissionTargetArgs{\n\t\t\tName: \"my_permission\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ArtifactoryFunctions;\nimport com.pulumi.artifactory.inputs.GetPermissionTargetArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var target1 = ArtifactoryFunctions.getPermissionTarget(GetPermissionTargetArgs.builder()\n            .name(\"my_permission\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  target1:\n    fn::invoke:\n      Function: artifactory:getPermissionTarget\n      Arguments:\n        name: my_permission\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPermissionTarget.\n",
+                "properties": {
+                    "build": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetBuild:getPermissionTargetBuild",
+                        "description": "Same as repo but for artifactory-build-info permissions.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the permission target.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "releaseBundle": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetReleaseBundle:getPermissionTargetReleaseBundle",
+                        "description": "Same as repo but for release-bundles permissions.\n"
+                    },
+                    "repo": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetRepo:getPermissionTargetRepo",
+                        "description": "Repository permission configuration.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPermissionTarget.\n",
+                "properties": {
+                    "build": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetBuild:getPermissionTargetBuild",
+                        "description": "Same as repo but for artifactory-build-info permissions.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "releaseBundle": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetReleaseBundle:getPermissionTargetReleaseBundle",
+                        "description": "Same as repo but for release-bundles permissions.\n"
+                    },
+                    "repo": {
+                        "$ref": "#/types/artifactory:index/getPermissionTargetRepo:getPermissionTargetRepo",
+                        "description": "Repository permission configuration.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getUser:getUser": {
+            "description": "## # Artifactory User Data Source\n\nProvides an Artifactory user data source. This can be used to read the configuration of users in artifactory.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst user1 = artifactory.getUser({\n    name: \"user1\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nuser1 = artifactory.get_user(name=\"user1\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var user1 = Artifactory.GetUser.Invoke(new()\n    {\n        Name = \"user1\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.LookupUser(ctx, \u0026artifactory.LookupUserArgs{\n\t\t\tName: \"user1\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.ArtifactoryFunctions;\nimport com.pulumi.artifactory.inputs.GetUserArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var user1 = ArtifactoryFunctions.getUser(GetUserArgs.builder()\n            .name(\"user1\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  user1:\n    fn::invoke:\n      Function: artifactory:getUser\n      Arguments:\n        name: user1\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getUser.\n",
+                "properties": {
+                    "admin": {
+                        "type": "boolean",
+                        "description": "When enabled, this user is an administrator with all the ensuing privileges. Default value\nis `false`.\n"
+                    },
+                    "disableUiAccess": {
+                        "type": "boolean",
+                        "description": "When set, this user can only access Artifactory through the REST API. This option\ncannot be set if the user has Admin privileges. Default value is `true`.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email for user.\n"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of groups this user is a part of.\n"
+                    },
+                    "internalPasswordDisabled": {
+                        "type": "boolean",
+                        "description": "When set, disables the fallback of using an internal password when external\nauthentication (such as LDAP) is enabled.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the user.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "profileUpdatable": {
+                        "type": "boolean",
+                        "description": "When set, this user can update his profile details (except for the password. Only an\nadministrator can update the password). Default value is `true`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getUser.\n",
+                "properties": {
+                    "admin": {
+                        "type": "boolean",
+                        "description": "When enabled, this user is an administrator with all the ensuing privileges. Default value\nis `false`.\n"
+                    },
+                    "disableUiAccess": {
+                        "type": "boolean",
+                        "description": "When set, this user can only access Artifactory through the REST API. This option\ncannot be set if the user has Admin privileges. Default value is `true`.\n"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Email for user.\n"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of groups this user is a part of.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "internalPasswordDisabled": {
+                        "type": "boolean",
+                        "description": "When set, disables the fallback of using an internal password when external\nauthentication (such as LDAP) is enabled.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "profileUpdatable": {
+                        "type": "boolean",
+                        "description": "When set, this user can update his profile details (except for the password. Only an\nadministrator can update the password). Default value is `true`.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
                     "id"
                 ]
             }
