@@ -4682,7 +4682,7 @@
             }
         },
         "artifactory:index/alpineRepository:AlpineRepository": {
-            "description": "Creates a local Alpine repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypairRSA = new artifactory.Keypair(\"some-keypairRSA\", {\n    pairName: \"some-keypair\",\n    pairType: \"RSA\",\n    alias: \"foo-alias\",\n    privateKey: fs.readFileSync(\"samples/rsa.priv\"),\n    publicKey: fs.readFileSync(\"samples/rsa.pub\"),\n});\nconst terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\", {\n    key: \"terraform-local-test-alpine-repo-basic\",\n    primaryKeypairRef: some_keypairRSA.pairName,\n}, {\n    dependsOn: [some_keypairRSA],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_rsa = artifactory.Keypair(\"some-keypairRSA\",\n    pair_name=\"some-keypair\",\n    pair_type=\"RSA\",\n    alias=\"foo-alias\",\n    private_key=(lambda path: open(path).read())(\"samples/rsa.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/rsa.pub\"))\nterraform_local_test_alpine_repo_basic = artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\",\n    key=\"terraform-local-test-alpine-repo-basic\",\n    primary_keypair_ref=some_keypair_rsa.pair_name,\n    opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairRSA = new Artifactory.Keypair(\"some-keypairRSA\", new()\n    {\n        PairName = \"some-keypair\",\n        PairType = \"RSA\",\n        Alias = \"foo-alias\",\n        PrivateKey = File.ReadAllText(\"samples/rsa.priv\"),\n        PublicKey = File.ReadAllText(\"samples/rsa.pub\"),\n    });\n\n    var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\", new()\n    {\n        Key = \"terraform-local-test-alpine-repo-basic\",\n        PrimaryKeypairRef = some_keypairRSA.PairName,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypairRSA,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypairRSA\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"some-keypair\"),\n\t\t\tPairType:   pulumi.String(\"RSA\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/rsa.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/rsa.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewAlpineRepository(ctx, \"terraform-local-test-alpine-repo-basic\", \u0026artifactory.AlpineRepositoryArgs{\n\t\t\tKey:               pulumi.String(\"terraform-local-test-alpine-repo-basic\"),\n\t\t\tPrimaryKeypairRef: some_keypairRSA.PairName,\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairRSA,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.AlpineRepository;\nimport com.pulumi.artifactory.AlpineRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairRSA = new Keypair(\"some-keypairRSA\", KeypairArgs.builder()        \n            .pairName(\"some-keypair\")\n            .pairType(\"RSA\")\n            .alias(\"foo-alias\")\n            .privateKey(Files.readString(Paths.get(\"samples/rsa.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/rsa.pub\")))\n            .build());\n\n        var terraform_local_test_alpine_repo_basic = new AlpineRepository(\"terraform-local-test-alpine-repo-basic\", AlpineRepositoryArgs.builder()        \n            .key(\"terraform-local-test-alpine-repo-basic\")\n            .primaryKeypairRef(some_keypairRSA.pairName())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(some_keypairRSA)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairRSA:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair\n      pairType: RSA\n      alias: foo-alias\n      privateKey:\n        fn::readFile: samples/rsa.priv\n      publicKey:\n        fn::readFile: samples/rsa.pub\n  terraform-local-test-alpine-repo-basic:\n    type: artifactory:AlpineRepository\n    properties:\n      key: terraform-local-test-alpine-repo-basic\n      primaryKeypairRef: ${[\"some-keypairRSA\"].pairName}\n    options:\n      dependson:\n        - ${[\"some-keypairRSA\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic\n```\n\n ",
+            "description": "Creates a local Alpine repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypairRSA = new artifactory.Keypair(\"some-keypairRSA\", {\n    pairName: \"some-keypair\",\n    pairType: \"RSA\",\n    alias: \"foo-alias\",\n    privateKey: fs.readFileSync(\"samples/rsa.priv\"),\n    publicKey: fs.readFileSync(\"samples/rsa.pub\"),\n});\nconst terraform_local_test_alpine_repo_basic = new artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\", {\n    key: \"terraform-local-test-alpine-repo-basic\",\n    primaryKeypairRef: some_keypairRSA.pairName,\n}, {\n    dependsOn: [some_keypairRSA],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_rsa = artifactory.Keypair(\"some-keypairRSA\",\n    pair_name=\"some-keypair\",\n    pair_type=\"RSA\",\n    alias=\"foo-alias\",\n    private_key=(lambda path: open(path).read())(\"samples/rsa.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/rsa.pub\"))\nterraform_local_test_alpine_repo_basic = artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\",\n    key=\"terraform-local-test-alpine-repo-basic\",\n    primary_keypair_ref=some_keypair_rsa.pair_name,\n    opts=pulumi.ResourceOptions(depends_on=[some_keypair_rsa]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairRSA = new Artifactory.Keypair(\"some-keypairRSA\", new()\n    {\n        PairName = \"some-keypair\",\n        PairType = \"RSA\",\n        Alias = \"foo-alias\",\n        PrivateKey = File.ReadAllText(\"samples/rsa.priv\"),\n        PublicKey = File.ReadAllText(\"samples/rsa.pub\"),\n    });\n\n    var terraform_local_test_alpine_repo_basic = new Artifactory.AlpineRepository(\"terraform-local-test-alpine-repo-basic\", new()\n    {\n        Key = \"terraform-local-test-alpine-repo-basic\",\n        PrimaryKeypairRef = some_keypairRSA.PairName,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypairRSA,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypairRSA\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"some-keypair\"),\n\t\t\tPairType:   pulumi.String(\"RSA\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/rsa.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/rsa.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewAlpineRepository(ctx, \"terraform-local-test-alpine-repo-basic\", \u0026artifactory.AlpineRepositoryArgs{\n\t\t\tKey:               pulumi.String(\"terraform-local-test-alpine-repo-basic\"),\n\t\t\tPrimaryKeypairRef: some_keypairRSA.PairName,\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairRSA,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.AlpineRepository;\nimport com.pulumi.artifactory.AlpineRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairRSA = new Keypair(\"some-keypairRSA\", KeypairArgs.builder()        \n            .pairName(\"some-keypair\")\n            .pairType(\"RSA\")\n            .alias(\"foo-alias\")\n            .privateKey(Files.readString(Paths.get(\"samples/rsa.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/rsa.pub\")))\n            .build());\n\n        var terraform_local_test_alpine_repo_basic = new AlpineRepository(\"terraform-local-test-alpine-repo-basic\", AlpineRepositoryArgs.builder()        \n            .key(\"terraform-local-test-alpine-repo-basic\")\n            .primaryKeypairRef(some_keypairRSA.pairName())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(some_keypairRSA)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairRSA:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair\n      pairType: RSA\n      alias: foo-alias\n      privateKey:\n        fn::readFile: samples/rsa.priv\n      publicKey:\n        fn::readFile: samples/rsa.pub\n  terraform-local-test-alpine-repo-basic:\n    type: artifactory:AlpineRepository\n    properties:\n      key: terraform-local-test-alpine-repo-basic\n      primaryKeypairRef: ${[\"some-keypairRSA\"].pairName}\n    options:\n      dependson:\n        - ${[\"some-keypairRSA\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/alpineRepository:AlpineRepository terraform-local-test-alpine-repo-basic terraform-local-test-alpine-repo-basic\n```\n\n ",
             "properties": {
                 "archiveBrowsingEnabled": {
                     "type": "boolean",
@@ -5598,7 +5598,7 @@
             }
         },
         "artifactory:index/certificate:Certificate": {
-            "description": "Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\n// Create a new Artifactory certificate called my-cert\nconst my_cert = new artifactory.Certificate(\"my-cert\", {\n    alias: \"my-cert\",\n    content: fs.readFileSync(\"/path/to/bundle.pem\"),\n});\n// This can then be used by a remote repository\nconst my_remote = new artifactory.RemoteMavenRepository(\"my-remote\", {clientTlsCertificate: my_cert.alias});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory certificate called my-cert\nmy_cert = artifactory.Certificate(\"my-cert\",\n    alias=\"my-cert\",\n    content=(lambda path: open(path).read())(\"/path/to/bundle.pem\"))\n# This can then be used by a remote repository\nmy_remote = artifactory.RemoteMavenRepository(\"my-remote\", client_tls_certificate=my_cert.alias)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory certificate called my-cert\n    var my_cert = new Artifactory.Certificate(\"my-cert\", new()\n    {\n        Alias = \"my-cert\",\n        Content = File.ReadAllText(\"/path/to/bundle.pem\"),\n    });\n\n    // This can then be used by a remote repository\n    var my_remote = new Artifactory.RemoteMavenRepository(\"my-remote\", new()\n    {\n        ClientTlsCertificate = my_cert.Alias,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewCertificate(ctx, \"my-cert\", \u0026artifactory.CertificateArgs{\n\t\t\tAlias:   pulumi.String(\"my-cert\"),\n\t\t\tContent: readFileOrPanic(\"/path/to/bundle.pem\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewRemoteMavenRepository(ctx, \"my-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tClientTlsCertificate: my_cert.Alias,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Certificate;\nimport com.pulumi.artifactory.CertificateArgs;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_cert = new Certificate(\"my-cert\", CertificateArgs.builder()        \n            .alias(\"my-cert\")\n            .content(Files.readString(Paths.get(\"/path/to/bundle.pem\")))\n            .build());\n\n        var my_remote = new RemoteMavenRepository(\"my-remote\", RemoteMavenRepositoryArgs.builder()        \n            .clientTlsCertificate(my_cert.alias())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory certificate called my-cert\n  my-cert:\n    type: artifactory:Certificate\n    properties:\n      alias: my-cert\n      content:\n        fn::readFile: /path/to/bundle.pem\n  # This can then be used by a remote repository\n  my-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      # more code\n      clientTlsCertificate: ${[\"my-cert\"].alias}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCertificates can be imported using their alias, e.g.\n\n```sh\n $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert\n```\n\n ",
+            "description": "Provides an Artifactory certificate resource. This can be used to create and manage Artifactory certificates which can be used as client authentication against remote repositories.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\n// Create a new Artifactory certificate called my-cert\nconst my_cert = new artifactory.Certificate(\"my-cert\", {\n    alias: \"my-cert\",\n    content: fs.readFileSync(\"/path/to/bundle.pem\"),\n});\n// This can then be used by a remote repository\nconst my_remote = new artifactory.RemoteMavenRepository(\"my-remote\", {clientTlsCertificate: my_cert.alias});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Create a new Artifactory certificate called my-cert\nmy_cert = artifactory.Certificate(\"my-cert\",\n    alias=\"my-cert\",\n    content=(lambda path: open(path).read())(\"/path/to/bundle.pem\"))\n# This can then be used by a remote repository\nmy_remote = artifactory.RemoteMavenRepository(\"my-remote\", client_tls_certificate=my_cert.alias)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Create a new Artifactory certificate called my-cert\n    var my_cert = new Artifactory.Certificate(\"my-cert\", new()\n    {\n        Alias = \"my-cert\",\n        Content = File.ReadAllText(\"/path/to/bundle.pem\"),\n    });\n\n    // This can then be used by a remote repository\n    var my_remote = new Artifactory.RemoteMavenRepository(\"my-remote\", new()\n    {\n        ClientTlsCertificate = my_cert.Alias,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewCertificate(ctx, \"my-cert\", \u0026artifactory.CertificateArgs{\n\t\t\tAlias:   pulumi.String(\"my-cert\"),\n\t\t\tContent: readFileOrPanic(\"/path/to/bundle.pem\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewRemoteMavenRepository(ctx, \"my-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tClientTlsCertificate: my_cert.Alias,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Certificate;\nimport com.pulumi.artifactory.CertificateArgs;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var my_cert = new Certificate(\"my-cert\", CertificateArgs.builder()        \n            .alias(\"my-cert\")\n            .content(Files.readString(Paths.get(\"/path/to/bundle.pem\")))\n            .build());\n\n        var my_remote = new RemoteMavenRepository(\"my-remote\", RemoteMavenRepositoryArgs.builder()        \n            .clientTlsCertificate(my_cert.alias())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Create a new Artifactory certificate called my-cert\n  my-cert:\n    type: artifactory:Certificate\n    properties:\n      alias: my-cert\n      content:\n        fn::readFile: /path/to/bundle.pem\n  # This can then be used by a remote repository\n  my-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      # more code\n      clientTlsCertificate: ${[\"my-cert\"].alias}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCertificates can be imported using their alias, e.g.\n\n```sh\n $ pulumi import artifactory:index/certificate:Certificate my-cert my-cert\n```\n\n ",
             "properties": {
                 "alias": {
                     "type": "string",
@@ -5703,7 +5703,7 @@
             }
         },
         "artifactory:index/debianRepository:DebianRepository": {
-            "description": "Creates a local Debian repository and allows for the creation of a GPG key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypairGPG1 = new artifactory.Keypair(\"some-keypairGPG1\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst some_keypairGPG2 = new artifactory.Keypair(\"some-keypairGPG2\", {\n    pairName: `some-keypair4${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst my_debian_repo = new artifactory.DebianRepository(\"my-debian-repo\", {\n    key: \"my-debian-repo\",\n    primaryKeypairRef: some_keypairGPG1.pairName,\n    secondaryKeypairRef: some_keypairGPG2.pairName,\n    indexCompressionFormats: [\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivialLayout: true,\n}, {\n    dependsOn: [\n        some_keypairGPG1,\n        some_keypairGPG2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_gpg1 = artifactory.Keypair(\"some-keypairGPG1\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsome_keypair_gpg2 = artifactory.Keypair(\"some-keypairGPG2\",\n    pair_name=f\"some-keypair4{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nmy_debian_repo = artifactory.DebianRepository(\"my-debian-repo\",\n    key=\"my-debian-repo\",\n    primary_keypair_ref=some_keypair_gpg1.pair_name,\n    secondary_keypair_ref=some_keypair_gpg2.pair_name,\n    index_compression_formats=[\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivial_layout=True,\n    opts=pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg1,\n            some_keypair_gpg2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairGPG1 = new Artifactory.Keypair(\"some-keypairGPG1\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var some_keypairGPG2 = new Artifactory.Keypair(\"some-keypairGPG2\", new()\n    {\n        PairName = $\"some-keypair4{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var my_debian_repo = new Artifactory.DebianRepository(\"my-debian-repo\", new()\n    {\n        Key = \"my-debian-repo\",\n        PrimaryKeypairRef = some_keypairGPG1.PairName,\n        SecondaryKeypairRef = some_keypairGPG2.PairName,\n        IndexCompressionFormats = new[]\n        {\n            \"bz2\",\n            \"lzma\",\n            \"xz\",\n        },\n        TrivialLayout = true,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypairGPG1,\n            some_keypairGPG2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypairGPG1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"some-keypairGPG2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair4%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewDebianRepository(ctx, \"my-debian-repo\", \u0026artifactory.DebianRepositoryArgs{\n\t\t\tKey:                 pulumi.String(\"my-debian-repo\"),\n\t\t\tPrimaryKeypairRef:   some_keypairGPG1.PairName,\n\t\t\tSecondaryKeypairRef: some_keypairGPG2.PairName,\n\t\t\tIndexCompressionFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"bz2\"),\n\t\t\t\tpulumi.String(\"lzma\"),\n\t\t\t\tpulumi.String(\"xz\"),\n\t\t\t},\n\t\t\tTrivialLayout: pulumi.Bool(true),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairGPG1,\n\t\t\tsome_keypairGPG2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.DebianRepository;\nimport com.pulumi.artifactory.DebianRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairGPG1 = new Keypair(\"some-keypairGPG1\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var some_keypairGPG2 = new Keypair(\"some-keypairGPG2\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair4%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var my_debian_repo = new DebianRepository(\"my-debian-repo\", DebianRepositoryArgs.builder()        \n            .key(\"my-debian-repo\")\n            .primaryKeypairRef(some_keypairGPG1.pairName())\n            .secondaryKeypairRef(some_keypairGPG2.pairName())\n            .indexCompressionFormats(            \n                \"bz2\",\n                \"lzma\",\n                \"xz\")\n            .trivialLayout(true)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypairGPG1,\n                    some_keypairGPG2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairGPG1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  some-keypairGPG2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair4${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  my-debian-repo:\n    type: artifactory:DebianRepository\n    properties:\n      key: my-debian-repo\n      primaryKeypairRef: ${[\"some-keypairGPG1\"].pairName}\n      secondaryKeypairRef: ${[\"some-keypairGPG2\"].pairName}\n      indexCompressionFormats:\n        - bz2\n        - lzma\n        - xz\n      trivialLayout: true\n    options:\n      dependson:\n        - ${[\"some-keypairGPG1\"]}\n        - ${[\"some-keypairGPG2\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo\n```\n\n ",
+            "description": "Creates a local Debian repository and allows for the creation of a GPG key.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypairGPG1 = new artifactory.Keypair(\"some-keypairGPG1\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst some_keypairGPG2 = new artifactory.Keypair(\"some-keypairGPG2\", {\n    pairName: `some-keypair4${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst my_debian_repo = new artifactory.DebianRepository(\"my-debian-repo\", {\n    key: \"my-debian-repo\",\n    primaryKeypairRef: some_keypairGPG1.pairName,\n    secondaryKeypairRef: some_keypairGPG2.pairName,\n    indexCompressionFormats: [\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivialLayout: true,\n}, {\n    dependsOn: [\n        some_keypairGPG1,\n        some_keypairGPG2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_gpg1 = artifactory.Keypair(\"some-keypairGPG1\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsome_keypair_gpg2 = artifactory.Keypair(\"some-keypairGPG2\",\n    pair_name=f\"some-keypair4{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nmy_debian_repo = artifactory.DebianRepository(\"my-debian-repo\",\n    key=\"my-debian-repo\",\n    primary_keypair_ref=some_keypair_gpg1.pair_name,\n    secondary_keypair_ref=some_keypair_gpg2.pair_name,\n    index_compression_formats=[\n        \"bz2\",\n        \"lzma\",\n        \"xz\",\n    ],\n    trivial_layout=True,\n    opts=pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg1,\n            some_keypair_gpg2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypairGPG1 = new Artifactory.Keypair(\"some-keypairGPG1\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var some_keypairGPG2 = new Artifactory.Keypair(\"some-keypairGPG2\", new()\n    {\n        PairName = $\"some-keypair4{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var my_debian_repo = new Artifactory.DebianRepository(\"my-debian-repo\", new()\n    {\n        Key = \"my-debian-repo\",\n        PrimaryKeypairRef = some_keypairGPG1.PairName,\n        SecondaryKeypairRef = some_keypairGPG2.PairName,\n        IndexCompressionFormats = new[]\n        {\n            \"bz2\",\n            \"lzma\",\n            \"xz\",\n        },\n        TrivialLayout = true,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypairGPG1,\n            some_keypairGPG2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypairGPG1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"some-keypairGPG2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair4%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewDebianRepository(ctx, \"my-debian-repo\", \u0026artifactory.DebianRepositoryArgs{\n\t\t\tKey:                 pulumi.String(\"my-debian-repo\"),\n\t\t\tPrimaryKeypairRef:   some_keypairGPG1.PairName,\n\t\t\tSecondaryKeypairRef: some_keypairGPG2.PairName,\n\t\t\tIndexCompressionFormats: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"bz2\"),\n\t\t\t\tpulumi.String(\"lzma\"),\n\t\t\t\tpulumi.String(\"xz\"),\n\t\t\t},\n\t\t\tTrivialLayout: pulumi.Bool(true),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypairGPG1,\n\t\t\tsome_keypairGPG2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.DebianRepository;\nimport com.pulumi.artifactory.DebianRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypairGPG1 = new Keypair(\"some-keypairGPG1\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var some_keypairGPG2 = new Keypair(\"some-keypairGPG2\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair4%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var my_debian_repo = new DebianRepository(\"my-debian-repo\", DebianRepositoryArgs.builder()        \n            .key(\"my-debian-repo\")\n            .primaryKeypairRef(some_keypairGPG1.pairName())\n            .secondaryKeypairRef(some_keypairGPG2.pairName())\n            .indexCompressionFormats(            \n                \"bz2\",\n                \"lzma\",\n                \"xz\")\n            .trivialLayout(true)\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypairGPG1,\n                    some_keypairGPG2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypairGPG1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  some-keypairGPG2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair4${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  my-debian-repo:\n    type: artifactory:DebianRepository\n    properties:\n      key: my-debian-repo\n      primaryKeypairRef: ${[\"some-keypairGPG1\"].pairName}\n      secondaryKeypairRef: ${[\"some-keypairGPG2\"].pairName}\n      indexCompressionFormats:\n        - bz2\n        - lzma\n        - xz\n      trivialLayout: true\n    options:\n      dependson:\n        - ${[\"some-keypairGPG1\"]}\n        - ${[\"some-keypairGPG2\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/debianRepository:DebianRepository my-debian-repo my-debian-repo\n```\n\n ",
             "properties": {
                 "archiveBrowsingEnabled": {
                     "type": "boolean",
@@ -15254,7 +15254,7 @@
             }
         },
         "artifactory:index/keypair:Keypair": {
-            "description": "RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are\nused to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple\nRSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple\npairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM\nthrough the Keys Management UI and REST API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypair6543461672124900137 = new artifactory.Keypair(\"some-keypair6543461672124900137\", {\n    pairName: \"some-keypair6543461672124900137\",\n    pairType: \"RSA\",\n    alias: \"foo-alias6543461672124900137\",\n    privateKey: fs.readFileSync(\"samples/rsa.priv\"),\n    publicKey: fs.readFileSync(\"samples/rsa.pub\"),\n    passphrase: \"PASSPHRASE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair6543461672124900137 = artifactory.Keypair(\"some-keypair6543461672124900137\",\n    pair_name=\"some-keypair6543461672124900137\",\n    pair_type=\"RSA\",\n    alias=\"foo-alias6543461672124900137\",\n    private_key=(lambda path: open(path).read())(\"samples/rsa.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/rsa.pub\"),\n    passphrase=\"PASSPHRASE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypair6543461672124900137 = new Artifactory.Keypair(\"some-keypair6543461672124900137\", new()\n    {\n        PairName = \"some-keypair6543461672124900137\",\n        PairType = \"RSA\",\n        Alias = \"foo-alias6543461672124900137\",\n        PrivateKey = File.ReadAllText(\"samples/rsa.priv\"),\n        PublicKey = File.ReadAllText(\"samples/rsa.pub\"),\n        Passphrase = \"PASSPHRASE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypair6543461672124900137\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"some-keypair6543461672124900137\"),\n\t\t\tPairType:   pulumi.String(\"RSA\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias6543461672124900137\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/rsa.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/rsa.pub\"),\n\t\t\tPassphrase: pulumi.String(\"PASSPHRASE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypair6543461672124900137 = new Keypair(\"some-keypair6543461672124900137\", KeypairArgs.builder()        \n            .pairName(\"some-keypair6543461672124900137\")\n            .pairType(\"RSA\")\n            .alias(\"foo-alias6543461672124900137\")\n            .privateKey(Files.readString(Paths.get(\"samples/rsa.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/rsa.pub\")))\n            .passphrase(\"PASSPHRASE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypair6543461672124900137:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair6543461672124900137\n      pairType: RSA\n      alias: foo-alias6543461672124900137\n      privateKey:\n        fn::readFile: samples/rsa.priv\n      publicKey:\n        fn::readFile: samples/rsa.pub\n      passphrase: PASSPHRASE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nKeypair can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair\n```\n\n ",
+            "description": "RSA key pairs are used to sign and verify the Alpine Linux index files in JFrog Artifactory, while GPG key pairs are\nused to sign and validate packages integrity in JFrog Distribution. The JFrog Platform enables you to manage multiple\nRSA and GPG signing keys through the Keys Management UI and REST API. The JFrog Platform supports managing multiple\npairs of GPG signing keys to sign packages for authentication of several package types such as Debian, Opkg, and RPM\nthrough the Keys Management UI and REST API.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypair6543461672124900137 = new artifactory.Keypair(\"some-keypair6543461672124900137\", {\n    pairName: \"some-keypair6543461672124900137\",\n    pairType: \"RSA\",\n    alias: \"foo-alias6543461672124900137\",\n    privateKey: fs.readFileSync(\"samples/rsa.priv\"),\n    publicKey: fs.readFileSync(\"samples/rsa.pub\"),\n    passphrase: \"PASSPHRASE\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair6543461672124900137 = artifactory.Keypair(\"some-keypair6543461672124900137\",\n    pair_name=\"some-keypair6543461672124900137\",\n    pair_type=\"RSA\",\n    alias=\"foo-alias6543461672124900137\",\n    private_key=(lambda path: open(path).read())(\"samples/rsa.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/rsa.pub\"),\n    passphrase=\"PASSPHRASE\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypair6543461672124900137 = new Artifactory.Keypair(\"some-keypair6543461672124900137\", new()\n    {\n        PairName = \"some-keypair6543461672124900137\",\n        PairType = \"RSA\",\n        Alias = \"foo-alias6543461672124900137\",\n        PrivateKey = File.ReadAllText(\"samples/rsa.priv\"),\n        PublicKey = File.ReadAllText(\"samples/rsa.pub\"),\n        Passphrase = \"PASSPHRASE\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypair6543461672124900137\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"some-keypair6543461672124900137\"),\n\t\t\tPairType:   pulumi.String(\"RSA\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias6543461672124900137\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/rsa.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/rsa.pub\"),\n\t\t\tPassphrase: pulumi.String(\"PASSPHRASE\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypair6543461672124900137 = new Keypair(\"some-keypair6543461672124900137\", KeypairArgs.builder()        \n            .pairName(\"some-keypair6543461672124900137\")\n            .pairType(\"RSA\")\n            .alias(\"foo-alias6543461672124900137\")\n            .privateKey(Files.readString(Paths.get(\"samples/rsa.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/rsa.pub\")))\n            .passphrase(\"PASSPHRASE\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  some-keypair6543461672124900137:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair6543461672124900137\n      pairType: RSA\n      alias: foo-alias6543461672124900137\n      privateKey:\n        fn::readFile: samples/rsa.priv\n      publicKey:\n        fn::readFile: samples/rsa.pub\n      passphrase: PASSPHRASE\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nKeypair can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/keypair:Keypair my-keypair my-keypair\n```\n\n ",
             "properties": {
                 "alias": {
                     "type": "string",
@@ -20645,7 +20645,7 @@
             }
         },
         "artifactory:index/localRpmRepository:LocalRpmRepository": {
-            "description": "Creates a local RPM repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypair_gpg_1 = new artifactory.Keypair(\"some-keypair-gpg-1\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst some_keypair_gpg_2 = new artifactory.Keypair(\"some-keypair-gpg-2\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", {\n    key: \"terraform-local-test-rpm-repo-basic\",\n    yumRootDepth: 5,\n    calculateYumMetadata: true,\n    enableFileListsIndexing: true,\n    yumGroupFileNames: \"file-1.xml,file-2.xml\",\n    primaryKeypairRef: artifactory_keypair[\"some-keypairGPG1\"].pair_name,\n    secondaryKeypairRef: artifactory_keypair[\"some-keypairGPG2\"].pair_name,\n}, {\n    dependsOn: [\n        some_keypair_gpg_1,\n        some_keypair_gpg_2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_gpg_1 = artifactory.Keypair(\"some-keypair-gpg-1\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsome_keypair_gpg_2 = artifactory.Keypair(\"some-keypair-gpg-2\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nterraform_local_test_rpm_repo_basic = artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\",\n    key=\"terraform-local-test-rpm-repo-basic\",\n    yum_root_depth=5,\n    calculate_yum_metadata=True,\n    enable_file_lists_indexing=True,\n    yum_group_file_names=\"file-1.xml,file-2.xml\",\n    primary_keypair_ref=artifactory_keypair[\"some-keypairGPG1\"][\"pair_name\"],\n    secondary_keypair_ref=artifactory_keypair[\"some-keypairGPG2\"][\"pair_name\"],\n    opts=pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg_1,\n            some_keypair_gpg_2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypair_gpg_1 = new Artifactory.Keypair(\"some-keypair-gpg-1\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var some_keypair_gpg_2 = new Artifactory.Keypair(\"some-keypair-gpg-2\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", new()\n    {\n        Key = \"terraform-local-test-rpm-repo-basic\",\n        YumRootDepth = 5,\n        CalculateYumMetadata = true,\n        EnableFileListsIndexing = true,\n        YumGroupFileNames = \"file-1.xml,file-2.xml\",\n        PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,\n        SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypair_gpg_1,\n            some_keypair_gpg_2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypair-gpg-1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"some-keypair-gpg-2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalRpmRepository(ctx, \"terraform-local-test-rpm-repo-basic\", \u0026artifactory.LocalRpmRepositoryArgs{\n\t\t\tKey:                     pulumi.String(\"terraform-local-test-rpm-repo-basic\"),\n\t\t\tYumRootDepth:            pulumi.Int(5),\n\t\t\tCalculateYumMetadata:    pulumi.Bool(true),\n\t\t\tEnableFileListsIndexing: pulumi.Bool(true),\n\t\t\tYumGroupFileNames:       pulumi.String(\"file-1.xml,file-2.xml\"),\n\t\t\tPrimaryKeypairRef:       pulumi.Any(artifactory_keypair.SomeKeypairGPG1.Pair_name),\n\t\t\tSecondaryKeypairRef:     pulumi.Any(artifactory_keypair.SomeKeypairGPG2.Pair_name),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypair_gpg_1,\n\t\t\tsome_keypair_gpg_2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.LocalRpmRepository;\nimport com.pulumi.artifactory.LocalRpmRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypair_gpg_1 = new Keypair(\"some-keypair-gpg-1\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var some_keypair_gpg_2 = new Keypair(\"some-keypair-gpg-2\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", LocalRpmRepositoryArgs.builder()        \n            .key(\"terraform-local-test-rpm-repo-basic\")\n            .yumRootDepth(5)\n            .calculateYumMetadata(true)\n            .enableFileListsIndexing(true)\n            .yumGroupFileNames(\"file-1.xml,file-2.xml\")\n            .primaryKeypairRef(artifactory_keypair.some-keypairGPG1().pair_name())\n            .secondaryKeypairRef(artifactory_keypair.some-keypairGPG2().pair_name())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypair_gpg_1,\n                    some_keypair_gpg_2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  terraform-local-test-rpm-repo-basic:\n    type: artifactory:LocalRpmRepository\n    properties:\n      key: terraform-local-test-rpm-repo-basic\n      yumRootDepth: 5\n      calculateYumMetadata: true\n      enableFileListsIndexing: true\n      yumGroupFileNames: file-1.xml,file-2.xml\n      primaryKeypairRef: ${artifactory_keypair\"some-keypairGPG1\"[%!s(MISSING)].pair_name}\n      secondaryKeypairRef: ${artifactory_keypair\"some-keypairGPG2\"[%!s(MISSING)].pair_name}\n    options:\n      dependson:\n        - ${[\"some-keypair-gpg-1\"]}\n        - ${[\"some-keypair-gpg-2\"]}\n  some-keypair-gpg-1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  some-keypair-gpg-2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic\n```\n\n ",
+            "description": "Creates a local RPM repository.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst some_keypair_gpg_1 = new artifactory.Keypair(\"some-keypair-gpg-1\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst some_keypair_gpg_2 = new artifactory.Keypair(\"some-keypair-gpg-2\", {\n    pairName: `some-keypair${random_id.randid.id}`,\n    pairType: \"GPG\",\n    alias: \"foo-alias2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst terraform_local_test_rpm_repo_basic = new artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", {\n    key: \"terraform-local-test-rpm-repo-basic\",\n    yumRootDepth: 5,\n    calculateYumMetadata: true,\n    enableFileListsIndexing: true,\n    yumGroupFileNames: \"file-1.xml,file-2.xml\",\n    primaryKeypairRef: artifactory_keypair[\"some-keypairGPG1\"].pair_name,\n    secondaryKeypairRef: artifactory_keypair[\"some-keypairGPG2\"].pair_name,\n}, {\n    dependsOn: [\n        some_keypair_gpg_1,\n        some_keypair_gpg_2,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nsome_keypair_gpg_1 = artifactory.Keypair(\"some-keypair-gpg-1\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsome_keypair_gpg_2 = artifactory.Keypair(\"some-keypair-gpg-2\",\n    pair_name=f\"some-keypair{random_id['randid']['id']}\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nterraform_local_test_rpm_repo_basic = artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\",\n    key=\"terraform-local-test-rpm-repo-basic\",\n    yum_root_depth=5,\n    calculate_yum_metadata=True,\n    enable_file_lists_indexing=True,\n    yum_group_file_names=\"file-1.xml,file-2.xml\",\n    primary_keypair_ref=artifactory_keypair[\"some-keypairGPG1\"][\"pair_name\"],\n    secondary_keypair_ref=artifactory_keypair[\"some-keypairGPG2\"][\"pair_name\"],\n    opts=pulumi.ResourceOptions(depends_on=[\n            some_keypair_gpg_1,\n            some_keypair_gpg_2,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var some_keypair_gpg_1 = new Artifactory.Keypair(\"some-keypair-gpg-1\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var some_keypair_gpg_2 = new Artifactory.Keypair(\"some-keypair-gpg-2\", new()\n    {\n        PairName = $\"some-keypair{random_id.Randid.Id}\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var terraform_local_test_rpm_repo_basic = new Artifactory.LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", new()\n    {\n        Key = \"terraform-local-test-rpm-repo-basic\",\n        YumRootDepth = 5,\n        CalculateYumMetadata = true,\n        EnableFileListsIndexing = true,\n        YumGroupFileNames = \"file-1.xml,file-2.xml\",\n        PrimaryKeypairRef = artifactory_keypair.Some_keypairGPG1.Pair_name,\n        SecondaryKeypairRef = artifactory_keypair.Some_keypairGPG2.Pair_name,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            some_keypair_gpg_1,\n            some_keypair_gpg_2,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"some-keypair-gpg-1\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"some-keypair-gpg-2\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(fmt.Sprintf(\"some-keypair%v\", random_id.Randid.Id)),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewLocalRpmRepository(ctx, \"terraform-local-test-rpm-repo-basic\", \u0026artifactory.LocalRpmRepositoryArgs{\n\t\t\tKey:                     pulumi.String(\"terraform-local-test-rpm-repo-basic\"),\n\t\t\tYumRootDepth:            pulumi.Int(5),\n\t\t\tCalculateYumMetadata:    pulumi.Bool(true),\n\t\t\tEnableFileListsIndexing: pulumi.Bool(true),\n\t\t\tYumGroupFileNames:       pulumi.String(\"file-1.xml,file-2.xml\"),\n\t\t\tPrimaryKeypairRef:       pulumi.Any(artifactory_keypair.SomeKeypairGPG1.Pair_name),\n\t\t\tSecondaryKeypairRef:     pulumi.Any(artifactory_keypair.SomeKeypairGPG2.Pair_name),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tsome_keypair_gpg_1,\n\t\t\tsome_keypair_gpg_2,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.LocalRpmRepository;\nimport com.pulumi.artifactory.LocalRpmRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var some_keypair_gpg_1 = new Keypair(\"some-keypair-gpg-1\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var some_keypair_gpg_2 = new Keypair(\"some-keypair-gpg-2\", KeypairArgs.builder()        \n            .pairName(String.format(\"some-keypair%s\", random_id.randid().id()))\n            .pairType(\"GPG\")\n            .alias(\"foo-alias2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var terraform_local_test_rpm_repo_basic = new LocalRpmRepository(\"terraform-local-test-rpm-repo-basic\", LocalRpmRepositoryArgs.builder()        \n            .key(\"terraform-local-test-rpm-repo-basic\")\n            .yumRootDepth(5)\n            .calculateYumMetadata(true)\n            .enableFileListsIndexing(true)\n            .yumGroupFileNames(\"file-1.xml,file-2.xml\")\n            .primaryKeypairRef(artifactory_keypair.some-keypairGPG1().pair_name())\n            .secondaryKeypairRef(artifactory_keypair.some-keypairGPG2().pair_name())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    some_keypair_gpg_1,\n                    some_keypair_gpg_2)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  terraform-local-test-rpm-repo-basic:\n    type: artifactory:LocalRpmRepository\n    properties:\n      key: terraform-local-test-rpm-repo-basic\n      yumRootDepth: 5\n      calculateYumMetadata: true\n      enableFileListsIndexing: true\n      yumGroupFileNames: file-1.xml,file-2.xml\n      primaryKeypairRef: ${artifactory_keypair\"some-keypairGPG1\"[%!s(MISSING)].pair_name}\n      secondaryKeypairRef: ${artifactory_keypair\"some-keypairGPG2\"[%!s(MISSING)].pair_name}\n    options:\n      dependson:\n        - ${[\"some-keypair-gpg-1\"]}\n        - ${[\"some-keypair-gpg-2\"]}\n  some-keypair-gpg-1:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  some-keypair-gpg-2:\n    type: artifactory:Keypair\n    properties:\n      pairName: some-keypair${random_id.randid.id}\n      pairType: GPG\n      alias: foo-alias2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nLocal repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/localRpmRepository:LocalRpmRepository terraform-local-test-rpm-repo-basic terraform-local-test-rpm-repo-basic\n```\n\n ",
             "properties": {
                 "archiveBrowsingEnabled": {
                     "type": "boolean",
@@ -22625,7 +22625,7 @@
             }
         },
         "artifactory:index/oauthSettings:OauthSettings": {
-            "description": "This resource can be used to manage Artifactory's OAuth SSO settings.\n\nOnly a single `artifactory.OauthSettings` resource is meant to be defined.\n\n~\u003eThe `artifactory.OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Configure Artifactory OAuth SSO settings\nconst oauth = new artifactory.OauthSettings(\"oauth\", {\n    allowUserToAccessProfile: true,\n    enable: true,\n    oauthProviders: [{\n        apiUrl: \"https://organization.okta.com/oauth2/v1/userinfo\",\n        authUrl: \"https://organization.okta.com/oauth2/v1/authorize\",\n        clientId: \"foo\",\n        clientSecret: \"bar\",\n        enabled: false,\n        name: \"okta\",\n        tokenUrl: \"https://organization.okta.com/oauth2/v1/token\",\n        type: \"openId\",\n    }],\n    persistUsers: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Configure Artifactory OAuth SSO settings\noauth = artifactory.OauthSettings(\"oauth\",\n    allow_user_to_access_profile=True,\n    enable=True,\n    oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(\n        api_url=\"https://organization.okta.com/oauth2/v1/userinfo\",\n        auth_url=\"https://organization.okta.com/oauth2/v1/authorize\",\n        client_id=\"foo\",\n        client_secret=\"bar\",\n        enabled=False,\n        name=\"okta\",\n        token_url=\"https://organization.okta.com/oauth2/v1/token\",\n        type=\"openId\",\n    )],\n    persist_users=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure Artifactory OAuth SSO settings\n    var oauth = new Artifactory.OauthSettings(\"oauth\", new()\n    {\n        AllowUserToAccessProfile = true,\n        Enable = true,\n        OauthProviders = new[]\n        {\n            new Artifactory.Inputs.OauthSettingsOauthProviderArgs\n            {\n                ApiUrl = \"https://organization.okta.com/oauth2/v1/userinfo\",\n                AuthUrl = \"https://organization.okta.com/oauth2/v1/authorize\",\n                ClientId = \"foo\",\n                ClientSecret = \"bar\",\n                Enabled = false,\n                Name = \"okta\",\n                TokenUrl = \"https://organization.okta.com/oauth2/v1/token\",\n                Type = \"openId\",\n            },\n        },\n        PersistUsers = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewOauthSettings(ctx, \"oauth\", \u0026artifactory.OauthSettingsArgs{\n\t\t\tAllowUserToAccessProfile: pulumi.Bool(true),\n\t\t\tEnable:                   pulumi.Bool(true),\n\t\t\tOauthProviders: artifactory.OauthSettingsOauthProviderArray{\n\t\t\t\t\u0026artifactory.OauthSettingsOauthProviderArgs{\n\t\t\t\t\tApiUrl:       pulumi.String(\"https://organization.okta.com/oauth2/v1/userinfo\"),\n\t\t\t\t\tAuthUrl:      pulumi.String(\"https://organization.okta.com/oauth2/v1/authorize\"),\n\t\t\t\t\tClientId:     pulumi.String(\"foo\"),\n\t\t\t\t\tClientSecret: pulumi.String(\"bar\"),\n\t\t\t\t\tEnabled:      pulumi.Bool(false),\n\t\t\t\t\tName:         pulumi.String(\"okta\"),\n\t\t\t\t\tTokenUrl:     pulumi.String(\"https://organization.okta.com/oauth2/v1/token\"),\n\t\t\t\t\tType:         pulumi.String(\"openId\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPersistUsers: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.OauthSettings;\nimport com.pulumi.artifactory.OauthSettingsArgs;\nimport com.pulumi.artifactory.inputs.OauthSettingsOauthProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var oauth = new OauthSettings(\"oauth\", OauthSettingsArgs.builder()        \n            .allowUserToAccessProfile(true)\n            .enable(true)\n            .oauthProviders(OauthSettingsOauthProviderArgs.builder()\n                .apiUrl(\"https://organization.okta.com/oauth2/v1/userinfo\")\n                .authUrl(\"https://organization.okta.com/oauth2/v1/authorize\")\n                .clientId(\"foo\")\n                .clientSecret(\"bar\")\n                .enabled(false)\n                .name(\"okta\")\n                .tokenUrl(\"https://organization.okta.com/oauth2/v1/token\")\n                .type(\"openId\")\n                .build())\n            .persistUsers(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure Artifactory OAuth SSO settings\n  oauth:\n    type: artifactory:OauthSettings\n    properties:\n      allowUserToAccessProfile: true\n      enable: true\n      oauthProviders:\n        - apiUrl: https://organization.okta.com/oauth2/v1/userinfo\n          authUrl: https://organization.okta.com/oauth2/v1/authorize\n          clientId: foo\n          clientSecret: bar\n          enabled: false\n          name: okta\n          tokenUrl: https://organization.okta.com/oauth2/v1/token\n          type: openId\n      persistUsers: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCurrent OAuth SSO settings can be imported using `oauth_settings` as the `ID`, e.g.\n\n```sh\n $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings\n```\n\n ",
+            "description": "This resource can be used to manage Artifactory's OAuth SSO settings.\n\nOnly a single `artifactory.OauthSettings` resource is meant to be defined.\n\n~\u003eThe `artifactory.OauthSettings` resource utilizes endpoints which are blocked/removed in SaaS environments (i.e. in Artifactory online), rendering this resource incompatible with Artifactory SaaS environments.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\n// Configure Artifactory OAuth SSO settings\nconst oauth = new artifactory.OauthSettings(\"oauth\", {\n    allowUserToAccessProfile: true,\n    enable: true,\n    oauthProviders: [{\n        apiUrl: \"https://organization.okta.com/oauth2/v1/userinfo\",\n        authUrl: \"https://organization.okta.com/oauth2/v1/authorize\",\n        clientId: \"foo\",\n        clientSecret: \"bar\",\n        enabled: false,\n        name: \"okta\",\n        tokenUrl: \"https://organization.okta.com/oauth2/v1/token\",\n        type: \"openId\",\n    }],\n    persistUsers: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\n# Configure Artifactory OAuth SSO settings\noauth = artifactory.OauthSettings(\"oauth\",\n    allow_user_to_access_profile=True,\n    enable=True,\n    oauth_providers=[artifactory.OauthSettingsOauthProviderArgs(\n        api_url=\"https://organization.okta.com/oauth2/v1/userinfo\",\n        auth_url=\"https://organization.okta.com/oauth2/v1/authorize\",\n        client_id=\"foo\",\n        client_secret=\"bar\",\n        enabled=False,\n        name=\"okta\",\n        token_url=\"https://organization.okta.com/oauth2/v1/token\",\n        type=\"openId\",\n    )],\n    persist_users=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    // Configure Artifactory OAuth SSO settings\n    var oauth = new Artifactory.OauthSettings(\"oauth\", new()\n    {\n        AllowUserToAccessProfile = true,\n        Enable = true,\n        OauthProviders = new[]\n        {\n            new Artifactory.Inputs.OauthSettingsOauthProviderArgs\n            {\n                ApiUrl = \"https://organization.okta.com/oauth2/v1/userinfo\",\n                AuthUrl = \"https://organization.okta.com/oauth2/v1/authorize\",\n                ClientId = \"foo\",\n                ClientSecret = \"bar\",\n                Enabled = false,\n                Name = \"okta\",\n                TokenUrl = \"https://organization.okta.com/oauth2/v1/token\",\n                Type = \"openId\",\n            },\n        },\n        PersistUsers = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewOauthSettings(ctx, \"oauth\", \u0026artifactory.OauthSettingsArgs{\n\t\t\tAllowUserToAccessProfile: pulumi.Bool(true),\n\t\t\tEnable:                   pulumi.Bool(true),\n\t\t\tOauthProviders: artifactory.OauthSettingsOauthProviderArray{\n\t\t\t\t\u0026artifactory.OauthSettingsOauthProviderArgs{\n\t\t\t\t\tApiUrl:       pulumi.String(\"https://organization.okta.com/oauth2/v1/userinfo\"),\n\t\t\t\t\tAuthUrl:      pulumi.String(\"https://organization.okta.com/oauth2/v1/authorize\"),\n\t\t\t\t\tClientId:     pulumi.String(\"foo\"),\n\t\t\t\t\tClientSecret: pulumi.String(\"bar\"),\n\t\t\t\t\tEnabled:      pulumi.Bool(false),\n\t\t\t\t\tName:         pulumi.String(\"okta\"),\n\t\t\t\t\tTokenUrl:     pulumi.String(\"https://organization.okta.com/oauth2/v1/token\"),\n\t\t\t\t\tType:         pulumi.String(\"openId\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPersistUsers: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.OauthSettings;\nimport com.pulumi.artifactory.OauthSettingsArgs;\nimport com.pulumi.artifactory.inputs.OauthSettingsOauthProviderArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var oauth = new OauthSettings(\"oauth\", OauthSettingsArgs.builder()        \n            .allowUserToAccessProfile(true)\n            .enable(true)\n            .oauthProviders(OauthSettingsOauthProviderArgs.builder()\n                .apiUrl(\"https://organization.okta.com/oauth2/v1/userinfo\")\n                .authUrl(\"https://organization.okta.com/oauth2/v1/authorize\")\n                .clientId(\"foo\")\n                .clientSecret(\"bar\")\n                .enabled(false)\n                .name(\"okta\")\n                .tokenUrl(\"https://organization.okta.com/oauth2/v1/token\")\n                .type(\"openId\")\n                .build())\n            .persistUsers(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  # Configure Artifactory OAuth SSO settings\n  oauth:\n    type: artifactory:OauthSettings\n    properties:\n      allowUserToAccessProfile: true\n      enable: true\n      oauthProviders:\n        - apiUrl: https://organization.okta.com/oauth2/v1/userinfo\n          authUrl: https://organization.okta.com/oauth2/v1/authorize\n          clientId: foo\n          clientSecret: bar\n          enabled: false\n          name: okta\n          tokenUrl: https://organization.okta.com/oauth2/v1/token\n          type: openId\n      persistUsers: true\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nCurrent OAuth SSO settings can be imported using `oauth_settings` as the `ID`. If the resource is being imported, there will be a state drift, because `client_secret` can't be known. There are two options on how to approach this:\n\n1) Don't set `client_secret` initially, import, then update the config with actual secret; 2) Accept that there is a drift initially and run `terraform apply` twice;\n\n```sh\n $ pulumi import artifactory:index/oauthSettings:OauthSettings oauth oauth_settings\n```\n\n ",
             "properties": {
                 "allowUserToAccessProfile": {
                     "type": "boolean",
@@ -23559,10 +23559,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -23733,10 +23729,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -23910,10 +23902,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -24086,10 +24074,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -24273,10 +24257,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -24461,10 +24441,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -24651,10 +24627,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -24834,10 +24806,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -25020,10 +24988,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -25192,10 +25156,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -25367,10 +25327,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -25544,10 +25500,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -25720,10 +25672,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -25907,10 +25855,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -26096,10 +26040,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -26280,10 +26220,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -26467,10 +26403,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -26656,10 +26588,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -26841,10 +26769,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -27019,10 +26943,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -27200,10 +27120,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -27372,10 +27288,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -27547,10 +27459,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -27724,10 +27632,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -27896,10 +27800,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -28071,10 +27971,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -28248,10 +28144,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -28420,10 +28312,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -28596,10 +28484,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -28771,10 +28655,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -28963,10 +28843,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -29161,10 +29037,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -29356,10 +29228,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -29528,10 +29396,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -29704,10 +29568,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -29879,10 +29739,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -30577,10 +30433,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -30751,10 +30603,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -30928,10 +30776,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -31100,10 +30944,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -31279,10 +31119,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -31459,10 +31295,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -31652,10 +31484,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -31855,10 +31683,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -32060,10 +31884,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -32260,10 +32080,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -32450,10 +32266,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -32643,10 +32455,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -32831,10 +32639,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -33034,10 +32838,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -33239,10 +33039,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -33443,10 +33239,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -33652,10 +33444,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -33860,10 +33648,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -34045,10 +33829,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -34219,10 +33999,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -34395,10 +34171,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -34580,10 +34352,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -34775,10 +34543,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -34972,10 +34736,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -35153,10 +34913,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -35327,10 +35083,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -35504,10 +35256,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -35676,10 +35424,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -35851,10 +35595,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -36028,10 +35768,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -36200,10 +35936,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -36375,10 +36107,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -36552,10 +36280,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -36724,10 +36448,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -36899,10 +36619,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -37076,10 +36792,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -37248,10 +36960,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -37431,10 +37139,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -37616,10 +37320,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -37797,10 +37497,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -37971,10 +37667,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -38147,10 +37839,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -38336,10 +38024,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -38539,10 +38223,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -38744,10 +38424,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -38929,10 +38605,6 @@
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                 },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                },
                 "propertySets": {
                     "type": "array",
                     "items": {
@@ -39103,10 +38775,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -39280,10 +38948,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -39452,10 +39116,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -39635,10 +39295,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -39820,10 +39476,6 @@
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
                     },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
-                    },
                     "propertySets": {
                         "type": "array",
                         "items": {
@@ -40004,10 +39656,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -40191,10 +39839,6 @@
                 "projectKey": {
                     "type": "string",
                     "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                },
-                "propagateQueryParams": {
-                    "type": "boolean",
-                    "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                 },
                 "propertySets": {
                     "type": "array",
@@ -40379,10 +40023,6 @@
                     "projectKey": {
                         "type": "string",
                         "description": "Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When\nassigning repository to a project, repository key must be prefixed with project key, separated by a dash.\n"
-                    },
-                    "propagateQueryParams": {
-                        "type": "boolean",
-                        "description": "When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.\n"
                     },
                     "propertySets": {
                         "type": "array",
@@ -45592,7 +45232,7 @@
             }
         },
         "artifactory:index/virtualRpmRepository:VirtualRpmRepository": {
-            "description": "Creates a virtual Rpm repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst primary_keypair = new artifactory.Keypair(\"primary-keypair\", {\n    pairName: \"primary-keypair\",\n    pairType: \"GPG\",\n    alias: \"foo-alias-1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst secondary_keypair = new artifactory.Keypair(\"secondary-keypair\", {\n    pairName: \"secondary-keypair\",\n    pairType: \"GPG\",\n    alias: \"foo-alias-2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst foo_rpm_virtual = new artifactory.VirtualRpmRepository(\"foo-rpm-virtual\", {\n    key: \"foo-rpm-virtual\",\n    primaryKeypairRef: primary_keypair.pairName,\n    secondaryKeypairRef: secondary_keypair.pairName,\n}, {\n    dependsOn: [\n        primary_keypair,\n        secondary_keypair,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nprimary_keypair = artifactory.Keypair(\"primary-keypair\",\n    pair_name=\"primary-keypair\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias-1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsecondary_keypair = artifactory.Keypair(\"secondary-keypair\",\n    pair_name=\"secondary-keypair\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias-2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nfoo_rpm_virtual = artifactory.VirtualRpmRepository(\"foo-rpm-virtual\",\n    key=\"foo-rpm-virtual\",\n    primary_keypair_ref=primary_keypair.pair_name,\n    secondary_keypair_ref=secondary_keypair.pair_name,\n    opts=pulumi.ResourceOptions(depends_on=[\n            primary_keypair,\n            secondary_keypair,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var primary_keypair = new Artifactory.Keypair(\"primary-keypair\", new()\n    {\n        PairName = \"primary-keypair\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias-1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var secondary_keypair = new Artifactory.Keypair(\"secondary-keypair\", new()\n    {\n        PairName = \"secondary-keypair\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias-2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var foo_rpm_virtual = new Artifactory.VirtualRpmRepository(\"foo-rpm-virtual\", new()\n    {\n        Key = \"foo-rpm-virtual\",\n        PrimaryKeypairRef = primary_keypair.PairName,\n        SecondaryKeypairRef = secondary_keypair.PairName,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            primary_keypair,\n            secondary_keypair,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"primary-keypair\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"primary-keypair\"),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias-1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"secondary-keypair\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"secondary-keypair\"),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias-2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewVirtualRpmRepository(ctx, \"foo-rpm-virtual\", \u0026artifactory.VirtualRpmRepositoryArgs{\n\t\t\tKey:                 pulumi.String(\"foo-rpm-virtual\"),\n\t\t\tPrimaryKeypairRef:   primary_keypair.PairName,\n\t\t\tSecondaryKeypairRef: secondary_keypair.PairName,\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tprimary_keypair,\n\t\t\tsecondary_keypair,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.VirtualRpmRepository;\nimport com.pulumi.artifactory.VirtualRpmRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var primary_keypair = new Keypair(\"primary-keypair\", KeypairArgs.builder()        \n            .pairName(\"primary-keypair\")\n            .pairType(\"GPG\")\n            .alias(\"foo-alias-1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var secondary_keypair = new Keypair(\"secondary-keypair\", KeypairArgs.builder()        \n            .pairName(\"secondary-keypair\")\n            .pairType(\"GPG\")\n            .alias(\"foo-alias-2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var foo_rpm_virtual = new VirtualRpmRepository(\"foo-rpm-virtual\", VirtualRpmRepositoryArgs.builder()        \n            .key(\"foo-rpm-virtual\")\n            .primaryKeypairRef(primary_keypair.pairName())\n            .secondaryKeypairRef(secondary_keypair.pairName())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    primary_keypair,\n                    secondary_keypair)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  primary-keypair:\n    type: artifactory:Keypair\n    properties:\n      pairName: primary-keypair\n      pairType: GPG\n      alias: foo-alias-1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  secondary-keypair:\n    type: artifactory:Keypair\n    properties:\n      pairName: secondary-keypair\n      pairType: GPG\n      alias: foo-alias-2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  foo-rpm-virtual:\n    type: artifactory:VirtualRpmRepository\n    properties:\n      key: foo-rpm-virtual\n      primaryKeypairRef: ${[\"primary-keypair\"].pairName}\n      secondaryKeypairRef: ${[\"secondary-keypair\"].pairName}\n    options:\n      dependson:\n        - ${[\"primary-keypair\"]}\n        - ${[\"secondary-keypair\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nVirtual repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual\n```\n\n ",
+            "description": "Creates a virtual Rpm repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/RPM+Repositories).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\nimport * as fs from \"fs\";\n\nconst primary_keypair = new artifactory.Keypair(\"primary-keypair\", {\n    pairName: \"primary-keypair\",\n    pairType: \"GPG\",\n    alias: \"foo-alias-1\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst secondary_keypair = new artifactory.Keypair(\"secondary-keypair\", {\n    pairName: \"secondary-keypair\",\n    pairType: \"GPG\",\n    alias: \"foo-alias-2\",\n    privateKey: fs.readFileSync(\"samples/gpg.priv\"),\n    publicKey: fs.readFileSync(\"samples/gpg.pub\"),\n});\nconst foo_rpm_virtual = new artifactory.VirtualRpmRepository(\"foo-rpm-virtual\", {\n    key: \"foo-rpm-virtual\",\n    primaryKeypairRef: primary_keypair.pairName,\n    secondaryKeypairRef: secondary_keypair.pairName,\n}, {\n    dependsOn: [\n        primary_keypair,\n        secondary_keypair,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nprimary_keypair = artifactory.Keypair(\"primary-keypair\",\n    pair_name=\"primary-keypair\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias-1\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nsecondary_keypair = artifactory.Keypair(\"secondary-keypair\",\n    pair_name=\"secondary-keypair\",\n    pair_type=\"GPG\",\n    alias=\"foo-alias-2\",\n    private_key=(lambda path: open(path).read())(\"samples/gpg.priv\"),\n    public_key=(lambda path: open(path).read())(\"samples/gpg.pub\"))\nfoo_rpm_virtual = artifactory.VirtualRpmRepository(\"foo-rpm-virtual\",\n    key=\"foo-rpm-virtual\",\n    primary_keypair_ref=primary_keypair.pair_name,\n    secondary_keypair_ref=secondary_keypair.pair_name,\n    opts=pulumi.ResourceOptions(depends_on=[\n            primary_keypair,\n            secondary_keypair,\n        ]))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var primary_keypair = new Artifactory.Keypair(\"primary-keypair\", new()\n    {\n        PairName = \"primary-keypair\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias-1\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var secondary_keypair = new Artifactory.Keypair(\"secondary-keypair\", new()\n    {\n        PairName = \"secondary-keypair\",\n        PairType = \"GPG\",\n        Alias = \"foo-alias-2\",\n        PrivateKey = File.ReadAllText(\"samples/gpg.priv\"),\n        PublicKey = File.ReadAllText(\"samples/gpg.pub\"),\n    });\n\n    var foo_rpm_virtual = new Artifactory.VirtualRpmRepository(\"foo-rpm-virtual\", new()\n    {\n        Key = \"foo-rpm-virtual\",\n        PrimaryKeypairRef = primary_keypair.PairName,\n        SecondaryKeypairRef = secondary_keypair.PairName,\n    }, new CustomResourceOptions\n    {\n        DependsOn = new[]\n        {\n            primary_keypair,\n            secondary_keypair,\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewKeypair(ctx, \"primary-keypair\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"primary-keypair\"),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias-1\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewKeypair(ctx, \"secondary-keypair\", \u0026artifactory.KeypairArgs{\n\t\t\tPairName:   pulumi.String(\"secondary-keypair\"),\n\t\t\tPairType:   pulumi.String(\"GPG\"),\n\t\t\tAlias:      pulumi.String(\"foo-alias-2\"),\n\t\t\tPrivateKey: readFileOrPanic(\"samples/gpg.priv\"),\n\t\t\tPublicKey:  readFileOrPanic(\"samples/gpg.pub\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = artifactory.NewVirtualRpmRepository(ctx, \"foo-rpm-virtual\", \u0026artifactory.VirtualRpmRepositoryArgs{\n\t\t\tKey:                 pulumi.String(\"foo-rpm-virtual\"),\n\t\t\tPrimaryKeypairRef:   primary_keypair.PairName,\n\t\t\tSecondaryKeypairRef: secondary_keypair.PairName,\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tprimary_keypair,\n\t\t\tsecondary_keypair,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.Keypair;\nimport com.pulumi.artifactory.KeypairArgs;\nimport com.pulumi.artifactory.VirtualRpmRepository;\nimport com.pulumi.artifactory.VirtualRpmRepositoryArgs;\nimport com.pulumi.resources.CustomResourceOptions;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var primary_keypair = new Keypair(\"primary-keypair\", KeypairArgs.builder()        \n            .pairName(\"primary-keypair\")\n            .pairType(\"GPG\")\n            .alias(\"foo-alias-1\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var secondary_keypair = new Keypair(\"secondary-keypair\", KeypairArgs.builder()        \n            .pairName(\"secondary-keypair\")\n            .pairType(\"GPG\")\n            .alias(\"foo-alias-2\")\n            .privateKey(Files.readString(Paths.get(\"samples/gpg.priv\")))\n            .publicKey(Files.readString(Paths.get(\"samples/gpg.pub\")))\n            .build());\n\n        var foo_rpm_virtual = new VirtualRpmRepository(\"foo-rpm-virtual\", VirtualRpmRepositoryArgs.builder()        \n            .key(\"foo-rpm-virtual\")\n            .primaryKeypairRef(primary_keypair.pairName())\n            .secondaryKeypairRef(secondary_keypair.pairName())\n            .build(), CustomResourceOptions.builder()\n                .dependsOn(                \n                    primary_keypair,\n                    secondary_keypair)\n                .build());\n\n    }\n}\n```\n```yaml\nresources:\n  primary-keypair:\n    type: artifactory:Keypair\n    properties:\n      pairName: primary-keypair\n      pairType: GPG\n      alias: foo-alias-1\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  secondary-keypair:\n    type: artifactory:Keypair\n    properties:\n      pairName: secondary-keypair\n      pairType: GPG\n      alias: foo-alias-2\n      privateKey:\n        fn::readFile: samples/gpg.priv\n      publicKey:\n        fn::readFile: samples/gpg.pub\n  foo-rpm-virtual:\n    type: artifactory:VirtualRpmRepository\n    properties:\n      key: foo-rpm-virtual\n      primaryKeypairRef: ${[\"primary-keypair\"].pairName}\n      secondaryKeypairRef: ${[\"secondary-keypair\"].pairName}\n    options:\n      dependson:\n        - ${[\"primary-keypair\"]}\n        - ${[\"secondary-keypair\"]}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nVirtual repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/virtualRpmRepository:VirtualRpmRepository foo-rpm-virtual foo-rpm-virtual\n```\n\n ",
             "properties": {
                 "artifactoryRequestsCanRetrieveRemoteArtifacts": {
                     "type": "boolean",
