@@ -137,8 +137,6 @@ type RemoteIvyRepository struct {
 	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
-	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-	PropagateQueryParams pulumi.BoolPtrOutput `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
@@ -303,8 +301,6 @@ type remoteIvyRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
@@ -428,8 +424,6 @@ type RemoteIvyRepositoryState struct {
 	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
@@ -556,8 +550,6 @@ type remoteIvyRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
-	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-	PropagateQueryParams *bool `pulumi:"propagateQueryParams"`
 	// List of property set names
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
@@ -681,8 +673,6 @@ type RemoteIvyRepositoryArgs struct {
 	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
-	// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-	PropagateQueryParams pulumi.BoolPtrInput
 	// List of property set names
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
@@ -982,11 +972,6 @@ func (o RemoteIvyRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutpu
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o RemoteIvyRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteIvyRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)
-}
-
-// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-func (o RemoteIvyRepositoryOutput) PropagateQueryParams() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RemoteIvyRepository) pulumi.BoolPtrOutput { return v.PropagateQueryParams }).(pulumi.BoolPtrOutput)
 }
 
 // List of property set names

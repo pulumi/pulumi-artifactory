@@ -246,12 +246,6 @@ namespace Pulumi.Artifactory
         public Output<string?> ProjectKey { get; private set; } = null!;
 
         /// <summary>
-        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
-        [Output("propagateQueryParams")]
-        public Output<bool?> PropagateQueryParams { get; private set; } = null!;
-
-        /// <summary>
         /// List of property set names
         /// </summary>
         [Output("propertySets")]
@@ -601,12 +595,6 @@ namespace Pulumi.Artifactory
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
 
-        /// <summary>
-        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
-        [Input("propagateQueryParams")]
-        public Input<bool>? PropagateQueryParams { get; set; }
-
         [Input("propertySets")]
         private InputList<string>? _propertySets;
 
@@ -923,12 +911,6 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("projectKey")]
         public Input<string>? ProjectKey { get; set; }
-
-        /// <summary>
-        /// When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        /// </summary>
-        [Input("propagateQueryParams")]
-        public Input<bool>? PropagateQueryParams { get; set; }
 
         [Input("propertySets")]
         private InputList<string>? _propertySets;

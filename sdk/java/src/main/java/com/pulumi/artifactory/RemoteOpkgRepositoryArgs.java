@@ -425,21 +425,6 @@ public final class RemoteOpkgRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
-    @Import(name="propagateQueryParams")
-    private @Nullable Output<Boolean> propagateQueryParams;
-
-    /**
-     * @return When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
-    public Optional<Output<Boolean>> propagateQueryParams() {
-        return Optional.ofNullable(this.propagateQueryParams);
-    }
-
-    /**
      * List of property set names
      * 
      */
@@ -677,7 +662,6 @@ public final class RemoteOpkgRepositoryArgs extends com.pulumi.resources.Resourc
         this.priorityResolution = $.priorityResolution;
         this.projectEnvironments = $.projectEnvironments;
         this.projectKey = $.projectKey;
-        this.propagateQueryParams = $.propagateQueryParams;
         this.propertySets = $.propertySets;
         this.proxy = $.proxy;
         this.queryParams = $.queryParams;
@@ -1269,27 +1253,6 @@ public final class RemoteOpkgRepositoryArgs extends com.pulumi.resources.Resourc
          */
         public Builder projectKey(String projectKey) {
             return projectKey(Output.of(projectKey));
-        }
-
-        /**
-         * @param propagateQueryParams When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder propagateQueryParams(@Nullable Output<Boolean> propagateQueryParams) {
-            $.propagateQueryParams = propagateQueryParams;
-            return this;
-        }
-
-        /**
-         * @param propagateQueryParams When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder propagateQueryParams(Boolean propagateQueryParams) {
-            return propagateQueryParams(Output.of(propagateQueryParams));
         }
 
         /**
