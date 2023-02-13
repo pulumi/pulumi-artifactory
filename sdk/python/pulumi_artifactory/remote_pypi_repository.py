@@ -42,7 +42,6 @@ class RemotePypiRepositoryArgs:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  pypi_registry_url: Optional[pulumi.Input[str]] = None,
@@ -107,7 +106,6 @@ class RemotePypiRepositoryArgs:
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
@@ -180,8 +178,6 @@ class RemotePypiRepositoryArgs:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
-        if propagate_query_params is not None:
-            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -543,18 +539,6 @@ class RemotePypiRepositoryArgs:
         pulumi.set(self, "project_key", value)
 
     @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
-
-    @propagate_query_params.setter
-    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "propagate_query_params", value)
-
-    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -766,7 +750,6 @@ class _RemotePypiRepositoryState:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  pypi_registry_url: Optional[pulumi.Input[str]] = None,
@@ -831,7 +814,6 @@ class _RemotePypiRepositoryState:
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
@@ -907,8 +889,6 @@ class _RemotePypiRepositoryState:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
-        if propagate_query_params is not None:
-            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -1269,18 +1249,6 @@ class _RemotePypiRepositoryState:
         pulumi.set(self, "project_key", value)
 
     @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
-
-    @propagate_query_params.setter
-    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "propagate_query_params", value)
-
-    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1505,7 +1473,6 @@ class RemotePypiRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  pypi_registry_url: Optional[pulumi.Input[str]] = None,
@@ -1596,7 +1563,6 @@ class RemotePypiRepository(pulumi.CustomResource):
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
@@ -1691,7 +1657,6 @@ class RemotePypiRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  pypi_registry_url: Optional[pulumi.Input[str]] = None,
@@ -1744,7 +1709,6 @@ class RemotePypiRepository(pulumi.CustomResource):
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
-            __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
             __props__.__dict__["pypi_registry_url"] = pypi_registry_url
@@ -1802,7 +1766,6 @@ class RemotePypiRepository(pulumi.CustomResource):
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
-            propagate_query_params: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             proxy: Optional[pulumi.Input[str]] = None,
             pypi_registry_url: Optional[pulumi.Input[str]] = None,
@@ -1872,7 +1835,6 @@ class RemotePypiRepository(pulumi.CustomResource):
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
@@ -1926,7 +1888,6 @@ class RemotePypiRepository(pulumi.CustomResource):
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
-        __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
         __props__.__dict__["pypi_registry_url"] = pypi_registry_url
@@ -2166,14 +2127,6 @@ class RemotePypiRepository(pulumi.CustomResource):
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
-
-    @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
 
     @property
     @pulumi.getter(name="propertySets")

@@ -43,7 +43,6 @@ class RemoteConanRepositoryArgs:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
@@ -107,7 +106,6 @@ class RemoteConanRepositoryArgs:
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -180,8 +178,6 @@ class RemoteConanRepositoryArgs:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
-        if propagate_query_params is not None:
-            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -551,18 +547,6 @@ class RemoteConanRepositoryArgs:
         pulumi.set(self, "project_key", value)
 
     @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
-
-    @propagate_query_params.setter
-    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "propagate_query_params", value)
-
-    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -751,7 +735,6 @@ class _RemoteConanRepositoryState:
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
@@ -815,7 +798,6 @@ class _RemoteConanRepositoryState:
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -891,8 +873,6 @@ class _RemoteConanRepositoryState:
             pulumi.set(__self__, "project_environments", project_environments)
         if project_key is not None:
             pulumi.set(__self__, "project_key", project_key)
-        if propagate_query_params is not None:
-            pulumi.set(__self__, "propagate_query_params", propagate_query_params)
         if property_sets is not None:
             pulumi.set(__self__, "property_sets", property_sets)
         if proxy is not None:
@@ -1261,18 +1241,6 @@ class _RemoteConanRepositoryState:
         pulumi.set(self, "project_key", value)
 
     @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
-
-    @propagate_query_params.setter
-    def propagate_query_params(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "propagate_query_params", value)
-
-    @property
     @pulumi.getter(name="propertySets")
     def property_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1474,7 +1442,6 @@ class RemoteConanRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
@@ -1563,7 +1530,6 @@ class RemoteConanRepository(pulumi.CustomResource):
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -1656,7 +1622,6 @@ class RemoteConanRepository(pulumi.CustomResource):
                  priority_resolution: Optional[pulumi.Input[bool]] = None,
                  project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_key: Optional[pulumi.Input[str]] = None,
-                 propagate_query_params: Optional[pulumi.Input[bool]] = None,
                  property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proxy: Optional[pulumi.Input[str]] = None,
                  query_params: Optional[pulumi.Input[str]] = None,
@@ -1708,7 +1673,6 @@ class RemoteConanRepository(pulumi.CustomResource):
             __props__.__dict__["priority_resolution"] = priority_resolution
             __props__.__dict__["project_environments"] = project_environments
             __props__.__dict__["project_key"] = project_key
-            __props__.__dict__["propagate_query_params"] = propagate_query_params
             __props__.__dict__["property_sets"] = property_sets
             __props__.__dict__["proxy"] = proxy
             __props__.__dict__["query_params"] = query_params
@@ -1765,7 +1729,6 @@ class RemoteConanRepository(pulumi.CustomResource):
             priority_resolution: Optional[pulumi.Input[bool]] = None,
             project_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_key: Optional[pulumi.Input[str]] = None,
-            propagate_query_params: Optional[pulumi.Input[bool]] = None,
             property_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             proxy: Optional[pulumi.Input[str]] = None,
             query_params: Optional[pulumi.Input[str]] = None,
@@ -1834,7 +1797,6 @@ class RemoteConanRepository(pulumi.CustomResource):
                will remain in the Terraform state, which will create state drift during the update.
         :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
-        :param pulumi.Input[bool] propagate_query_params: When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
@@ -1887,7 +1849,6 @@ class RemoteConanRepository(pulumi.CustomResource):
         __props__.__dict__["priority_resolution"] = priority_resolution
         __props__.__dict__["project_environments"] = project_environments
         __props__.__dict__["project_key"] = project_key
-        __props__.__dict__["propagate_query_params"] = propagate_query_params
         __props__.__dict__["property_sets"] = property_sets
         __props__.__dict__["proxy"] = proxy
         __props__.__dict__["query_params"] = query_params
@@ -2133,14 +2094,6 @@ class RemoteConanRepository(pulumi.CustomResource):
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
-
-    @property
-    @pulumi.getter(name="propagateQueryParams")
-    def propagate_query_params(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-        """
-        return pulumi.get(self, "propagate_query_params")
 
     @property
     @pulumi.getter(name="propertySets")

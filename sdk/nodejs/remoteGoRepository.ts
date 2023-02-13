@@ -178,10 +178,6 @@ export class RemoteGoRepository extends pulumi.CustomResource {
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
     /**
-     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
-    public readonly propagateQueryParams!: pulumi.Output<boolean | undefined>;
-    /**
      * List of property set names
      */
     public readonly propertySets!: pulumi.Output<string[] | undefined>;
@@ -283,7 +279,6 @@ export class RemoteGoRepository extends pulumi.CustomResource {
             resourceInputs["priorityResolution"] = state ? state.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = state ? state.projectEnvironments : undefined;
             resourceInputs["projectKey"] = state ? state.projectKey : undefined;
-            resourceInputs["propagateQueryParams"] = state ? state.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = state ? state.propertySets : undefined;
             resourceInputs["proxy"] = state ? state.proxy : undefined;
             resourceInputs["queryParams"] = state ? state.queryParams : undefined;
@@ -332,7 +327,6 @@ export class RemoteGoRepository extends pulumi.CustomResource {
             resourceInputs["priorityResolution"] = args ? args.priorityResolution : undefined;
             resourceInputs["projectEnvironments"] = args ? args.projectEnvironments : undefined;
             resourceInputs["projectKey"] = args ? args.projectKey : undefined;
-            resourceInputs["propagateQueryParams"] = args ? args.propagateQueryParams : undefined;
             resourceInputs["propertySets"] = args ? args.propertySets : undefined;
             resourceInputs["proxy"] = args ? args.proxy : undefined;
             resourceInputs["queryParams"] = args ? args.queryParams : undefined;
@@ -479,10 +473,6 @@ export interface RemoteGoRepositoryState {
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
-    /**
-     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
-    propagateQueryParams?: pulumi.Input<boolean>;
     /**
      * List of property set names
      */
@@ -668,10 +658,6 @@ export interface RemoteGoRepositoryArgs {
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
-    /**
-     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     */
-    propagateQueryParams?: pulumi.Input<boolean>;
     /**
      * List of property set names
      */

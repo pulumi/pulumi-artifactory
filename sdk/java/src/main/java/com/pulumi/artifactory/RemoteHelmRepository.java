@@ -500,20 +500,6 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.projectKey);
     }
     /**
-     * When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
-    @Export(name="propagateQueryParams", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> propagateQueryParams;
-
-    /**
-     * @return When set, if query params are included in the request to Artifactory, they will be passed on to the remote repository.
-     * 
-     */
-    public Output<Optional<Boolean>> propagateQueryParams() {
-        return Codegen.optional(this.propagateQueryParams);
-    }
-    /**
      * List of property set names
      * 
      */
