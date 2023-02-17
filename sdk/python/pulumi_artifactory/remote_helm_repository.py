@@ -83,10 +83,10 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -383,7 +383,7 @@ class RemoteHelmRepositoryArgs:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, external dependencies are rewritten.
+        When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -395,9 +395,9 @@ class RemoteHelmRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -809,10 +809,10 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -1091,7 +1091,7 @@ class _RemoteHelmRepositoryState:
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, external dependencies are rewritten.
+        When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -1103,9 +1103,9 @@ class _RemoteHelmRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1579,10 +1579,10 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -1858,10 +1858,10 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An Allow List of Ant-style path expressions that specify where external
-               dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-               from any external source.
+        :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -2058,7 +2058,7 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesEnabled")
     def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, external dependencies are rewritten.
+        When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         """
         return pulumi.get(self, "external_dependencies_enabled")
 
@@ -2066,9 +2066,9 @@ class RemoteHelmRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An Allow List of Ant-style path expressions that specify where external
-        dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        from any external source.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

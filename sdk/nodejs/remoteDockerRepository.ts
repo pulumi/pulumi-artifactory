@@ -126,9 +126,14 @@ export class RemoteDockerRepository extends pulumi.CustomResource {
     /**
      * Also known as 'Foreign Layers Caching' on the UI.
      */
-    public readonly externalDependenciesEnabled!: pulumi.Output<boolean>;
+    public readonly externalDependenciesEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * This attribute must be set together with `externalDependenciesEnabled = true`.
      */
     public readonly externalDependenciesPatterns!: pulumi.Output<string[] | undefined>;
     /**
@@ -444,7 +449,12 @@ export interface RemoteDockerRepositoryState {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * This attribute must be set together with `externalDependenciesEnabled = true`.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -644,7 +654,12 @@ export interface RemoteDockerRepositoryArgs {
      */
     externalDependenciesEnabled?: pulumi.Input<boolean>;
     /**
-     * An allow list of Ant-style path patterns that determine which remote VCS.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+     * By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * Due to SDKv2 limitations, we can't set the default value for the list.
+     * This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+     * This attribute must be set together with `externalDependenciesEnabled = true`.
      */
     externalDependenciesPatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

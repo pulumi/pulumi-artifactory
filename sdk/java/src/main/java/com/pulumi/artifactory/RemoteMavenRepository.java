@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *             .fetchJarsEagerly(true)
  *             .fetchSourcesEagerly(false)
  *             .key(&#34;maven-remote-foo&#34;)
- *             .metadataRetrievalTimeoutSeconds(120)
+ *             .metadataRetrievalTimeoutSecs(120)
  *             .rejectInvalidJars(true)
  *             .suppressPomConsistencyChecks(false)
  *             .url(&#34;https://repo1.maven.org/maven2/&#34;)
@@ -375,27 +375,11 @@ public class RemoteMavenRepository extends com.pulumi.resources.CustomResource {
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
      * 
      */
-    @Export(name="metadataRetrievalTimeoutSeconds", type=Integer.class, parameters={})
-    private Output<Integer> metadataRetrievalTimeoutSeconds;
-
-    /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-     * 
-     */
-    public Output<Integer> metadataRetrievalTimeoutSeconds() {
-        return this.metadataRetrievalTimeoutSeconds;
-    }
-    /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
-     * 
-     */
     @Export(name="metadataRetrievalTimeoutSecs", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> metadataRetrievalTimeoutSecs;
 
     /**
-     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
      * 
      */
     public Output<Optional<Integer>> metadataRetrievalTimeoutSecs() {

@@ -37,7 +37,6 @@ class RemoteMavenRepositoryArgs:
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
-                 metadata_retrieval_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -100,9 +99,7 @@ class RemoteMavenRepositoryArgs:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -180,8 +177,6 @@ class RemoteMavenRepositoryArgs:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
-        if metadata_retrieval_timeout_seconds is not None:
-            pulumi.set(__self__, "metadata_retrieval_timeout_seconds", metadata_retrieval_timeout_seconds)
         if metadata_retrieval_timeout_secs is not None:
             pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
@@ -498,23 +493,10 @@ class RemoteMavenRepositoryArgs:
         pulumi.set(self, "local_address", value)
 
     @property
-    @pulumi.getter(name="metadataRetrievalTimeoutSeconds")
-    def metadata_retrieval_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        """
-        return pulumi.get(self, "metadata_retrieval_timeout_seconds")
-
-    @metadata_retrieval_timeout_seconds.setter
-    def metadata_retrieval_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "metadata_retrieval_timeout_seconds", value)
-
-    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -840,7 +822,6 @@ class _RemoteMavenRepositoryState:
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
-                 metadata_retrieval_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -904,9 +885,7 @@ class _RemoteMavenRepositoryState:
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -985,8 +964,6 @@ class _RemoteMavenRepositoryState:
             pulumi.set(__self__, "list_remote_folder_items", list_remote_folder_items)
         if local_address is not None:
             pulumi.set(__self__, "local_address", local_address)
-        if metadata_retrieval_timeout_seconds is not None:
-            pulumi.set(__self__, "metadata_retrieval_timeout_seconds", metadata_retrieval_timeout_seconds)
         if metadata_retrieval_timeout_secs is not None:
             pulumi.set(__self__, "metadata_retrieval_timeout_secs", metadata_retrieval_timeout_secs)
         if mismatching_mime_types_override_list is not None:
@@ -1295,23 +1272,10 @@ class _RemoteMavenRepositoryState:
         pulumi.set(self, "local_address", value)
 
     @property
-    @pulumi.getter(name="metadataRetrievalTimeoutSeconds")
-    def metadata_retrieval_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        """
-        return pulumi.get(self, "metadata_retrieval_timeout_seconds")
-
-    @metadata_retrieval_timeout_seconds.setter
-    def metadata_retrieval_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "metadata_retrieval_timeout_seconds", value)
-
-    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> Optional[pulumi.Input[int]]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 
@@ -1660,7 +1624,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
-                 metadata_retrieval_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -1702,7 +1665,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
             key="maven-remote-foo",
-            metadata_retrieval_timeout_seconds=120,
+            metadata_retrieval_timeout_secs=120,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
@@ -1752,9 +1715,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -1813,7 +1774,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             fetch_jars_eagerly=True,
             fetch_sources_eagerly=False,
             key="maven-remote-foo",
-            metadata_retrieval_timeout_seconds=120,
+            metadata_retrieval_timeout_secs=120,
             reject_invalid_jars=True,
             suppress_pom_consistency_checks=False,
             url="https://repo1.maven.org/maven2/")
@@ -1862,7 +1823,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  key: Optional[pulumi.Input[str]] = None,
                  list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
                  local_address: Optional[pulumi.Input[str]] = None,
-                 metadata_retrieval_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
                  mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
                  missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -1920,7 +1880,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             __props__.__dict__["key"] = key
             __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
             __props__.__dict__["local_address"] = local_address
-            __props__.__dict__["metadata_retrieval_timeout_seconds"] = metadata_retrieval_timeout_seconds
             __props__.__dict__["metadata_retrieval_timeout_secs"] = metadata_retrieval_timeout_secs
             __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
             __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
@@ -1982,7 +1941,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
             key: Optional[pulumi.Input[str]] = None,
             list_remote_folder_items: Optional[pulumi.Input[bool]] = None,
             local_address: Optional[pulumi.Input[str]] = None,
-            metadata_retrieval_timeout_seconds: Optional[pulumi.Input[int]] = None,
             metadata_retrieval_timeout_secs: Optional[pulumi.Input[int]] = None,
             mismatching_mime_types_override_list: Optional[pulumi.Input[str]] = None,
             missed_cache_period_seconds: Optional[pulumi.Input[int]] = None,
@@ -2051,9 +2009,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                the 'Retrieval Cache Period'. Default value is 'true'.
         :param pulumi.Input[str] local_address: The local address to be used when creating connections. Useful for specifying the interface to use on systems with
                multiple network interfaces.
-        :param pulumi.Input[int] metadata_retrieval_timeout_seconds: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        :param pulumi.Input[int] metadata_retrieval_timeout_secs: Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-               the remote before serving locally cached artifact or fail the request.
+        :param pulumi.Input[int] metadata_retrieval_timeout_secs: This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         :param pulumi.Input[str] mismatching_mime_types_override_list: The set of mime types that should override the block_mismatching_mime_types setting. Eg:
                'application/json,application/xml'. Default value is empty.
         :param pulumi.Input[int] missed_cache_period_seconds: Missed Retrieval Cache Period (Sec) in the UI. The number of seconds to cache artifact retrieval misses (artifact not
@@ -2116,7 +2072,6 @@ class RemoteMavenRepository(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["list_remote_folder_items"] = list_remote_folder_items
         __props__.__dict__["local_address"] = local_address
-        __props__.__dict__["metadata_retrieval_timeout_seconds"] = metadata_retrieval_timeout_seconds
         __props__.__dict__["metadata_retrieval_timeout_secs"] = metadata_retrieval_timeout_secs
         __props__.__dict__["mismatching_mime_types_override_list"] = mismatching_mime_types_override_list
         __props__.__dict__["missed_cache_period_seconds"] = missed_cache_period_seconds
@@ -2319,19 +2274,10 @@ class RemoteMavenRepository(pulumi.CustomResource):
         return pulumi.get(self, "local_address")
 
     @property
-    @pulumi.getter(name="metadataRetrievalTimeoutSeconds")
-    def metadata_retrieval_timeout_seconds(self) -> pulumi.Output[int]:
-        """
-        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        """
-        return pulumi.get(self, "metadata_retrieval_timeout_seconds")
-
-    @property
     @pulumi.getter(name="metadataRetrievalTimeoutSecs")
     def metadata_retrieval_timeout_secs(self) -> pulumi.Output[Optional[int]]:
         """
-        Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        the remote before serving locally cached artifact or fail the request.
+        This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         """
         return pulumi.get(self, "metadata_retrieval_timeout_secs")
 

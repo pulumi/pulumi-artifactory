@@ -89,7 +89,12 @@ class RemoteDockerRepositoryArgs:
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+               This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -425,7 +430,12 @@ class RemoteDockerRepositoryArgs:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+        This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -831,7 +841,12 @@ class _RemoteDockerRepositoryState:
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+               This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -1149,7 +1164,12 @@ class _RemoteDockerRepositoryState:
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+        This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1618,7 +1638,12 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+               This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -1902,7 +1927,12 @@ class RemoteDockerRepository(pulumi.CustomResource):
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[bool] external_dependencies_enabled: Also known as 'Foreign Layers Caching' on the UI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+               follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+               By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+               This attribute must be set together with `external_dependencies_enabled = true`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -2115,7 +2145,7 @@ class RemoteDockerRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="externalDependenciesEnabled")
-    def external_dependencies_enabled(self) -> pulumi.Output[bool]:
+    def external_dependencies_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Also known as 'Foreign Layers Caching' on the UI.
         """
@@ -2125,7 +2155,12 @@ class RemoteDockerRepository(pulumi.CustomResource):
     @pulumi.getter(name="externalDependenciesPatterns")
     def external_dependencies_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        An allow list of Ant-style path patterns that determine which remote VCS.
+        An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value must be assigned to the attribute manually, if user don't specify any other non-default values.
+        This attribute must be set together with `external_dependencies_enabled = true`.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

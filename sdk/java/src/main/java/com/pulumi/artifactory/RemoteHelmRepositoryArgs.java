@@ -197,14 +197,14 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * When set, external dependencies are rewritten.
+     * When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
      * 
      */
     @Import(name="externalDependenciesEnabled")
     private @Nullable Output<Boolean> externalDependenciesEnabled;
 
     /**
-     * @return When set, external dependencies are rewritten.
+     * @return When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
      * 
      */
     public Optional<Output<Boolean>> externalDependenciesEnabled() {
@@ -212,18 +212,18 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
      * 
      */
     @Import(name="externalDependenciesPatterns")
     private @Nullable Output<List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
      * 
      */
     public Optional<Output<List<String>>> externalDependenciesPatterns() {
@@ -988,7 +988,7 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param externalDependenciesEnabled When set, external dependencies are rewritten.
+         * @param externalDependenciesEnabled When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
          * 
          * @return builder
          * 
@@ -999,7 +999,7 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param externalDependenciesEnabled When set, external dependencies are rewritten.
+         * @param externalDependenciesEnabled When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
          * 
          * @return builder
          * 
@@ -1009,9 +1009,9 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external
-         * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-         * from any external source.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
          * 
          * @return builder
          * 
@@ -1022,9 +1022,9 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external
-         * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-         * from any external source.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
          * 
          * @return builder
          * 
@@ -1034,9 +1034,9 @@ public final class RemoteHelmRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param externalDependenciesPatterns An Allow List of Ant-style path expressions that specify where external
-         * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-         * from any external source.
+         * @param externalDependenciesPatterns An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+         * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+         * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
          * 
          * @return builder
          * 

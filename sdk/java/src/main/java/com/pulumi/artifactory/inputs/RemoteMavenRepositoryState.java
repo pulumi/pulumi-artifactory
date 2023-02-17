@@ -345,28 +345,11 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
      * 
      */
-    @Import(name="metadataRetrievalTimeoutSeconds")
-    private @Nullable Output<Integer> metadataRetrievalTimeoutSeconds;
-
-    /**
-     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-     * 
-     */
-    public Optional<Output<Integer>> metadataRetrievalTimeoutSeconds() {
-        return Optional.ofNullable(this.metadataRetrievalTimeoutSeconds);
-    }
-
-    /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
-     * 
-     */
     @Import(name="metadataRetrievalTimeoutSecs")
     private @Nullable Output<Integer> metadataRetrievalTimeoutSecs;
 
     /**
-     * @return Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
+     * @return This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
      * 
      */
     public Optional<Output<Integer>> metadataRetrievalTimeoutSecs() {
@@ -784,7 +767,6 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
         this.key = $.key;
         this.listRemoteFolderItems = $.listRemoteFolderItems;
         this.localAddress = $.localAddress;
-        this.metadataRetrievalTimeoutSeconds = $.metadataRetrievalTimeoutSeconds;
         this.metadataRetrievalTimeoutSecs = $.metadataRetrievalTimeoutSecs;
         this.mismatchingMimeTypesOverrideList = $.mismatchingMimeTypesOverrideList;
         this.missedCachePeriodSeconds = $.missedCachePeriodSeconds;
@@ -1271,29 +1253,7 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metadataRetrievalTimeoutSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metadataRetrievalTimeoutSeconds(@Nullable Output<Integer> metadataRetrievalTimeoutSeconds) {
-            $.metadataRetrievalTimeoutSeconds = metadataRetrievalTimeoutSeconds;
-            return this;
-        }
-
-        /**
-         * @param metadataRetrievalTimeoutSeconds This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder metadataRetrievalTimeoutSeconds(Integer metadataRetrievalTimeoutSeconds) {
-            return metadataRetrievalTimeoutSeconds(Output.of(metadataRetrievalTimeoutSeconds));
-        }
-
-        /**
-         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-         * the remote before serving locally cached artifact or fail the request.
+         * @param metadataRetrievalTimeoutSecs This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
          * 
          * @return builder
          * 
@@ -1304,8 +1264,7 @@ public final class RemoteMavenRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metadataRetrievalTimeoutSecs Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-         * the remote before serving locally cached artifact or fail the request.
+         * @param metadataRetrievalTimeoutSecs This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
          * 
          * @return builder
          * 

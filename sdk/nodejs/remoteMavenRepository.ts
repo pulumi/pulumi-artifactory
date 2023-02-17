@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     fetchJarsEagerly: true,
  *     fetchSourcesEagerly: false,
  *     key: "maven-remote-foo",
- *     metadataRetrievalTimeoutSeconds: 120,
+ *     metadataRetrievalTimeoutSecs: 120,
  *     rejectInvalidJars: true,
  *     suppressPomConsistencyChecks: false,
  *     url: "https://repo1.maven.org/maven2/",
@@ -157,11 +157,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
     public readonly localAddress!: pulumi.Output<string | undefined>;
     /**
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-     */
-    public readonly metadataRetrievalTimeoutSeconds!: pulumi.Output<number>;
-    /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
      */
     public readonly metadataRetrievalTimeoutSecs!: pulumi.Output<number | undefined>;
     /**
@@ -305,7 +300,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["listRemoteFolderItems"] = state ? state.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = state ? state.localAddress : undefined;
-            resourceInputs["metadataRetrievalTimeoutSeconds"] = state ? state.metadataRetrievalTimeoutSeconds : undefined;
             resourceInputs["metadataRetrievalTimeoutSecs"] = state ? state.metadataRetrievalTimeoutSecs : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = state ? state.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = state ? state.missedCachePeriodSeconds : undefined;
@@ -361,7 +355,6 @@ export class RemoteMavenRepository extends pulumi.CustomResource {
             resourceInputs["key"] = args ? args.key : undefined;
             resourceInputs["listRemoteFolderItems"] = args ? args.listRemoteFolderItems : undefined;
             resourceInputs["localAddress"] = args ? args.localAddress : undefined;
-            resourceInputs["metadataRetrievalTimeoutSeconds"] = args ? args.metadataRetrievalTimeoutSeconds : undefined;
             resourceInputs["metadataRetrievalTimeoutSecs"] = args ? args.metadataRetrievalTimeoutSecs : undefined;
             resourceInputs["mismatchingMimeTypesOverrideList"] = args ? args.mismatchingMimeTypesOverrideList : undefined;
             resourceInputs["missedCachePeriodSeconds"] = args ? args.missedCachePeriodSeconds : undefined;
@@ -495,11 +488,6 @@ export interface RemoteMavenRepositoryState {
     localAddress?: pulumi.Input<string>;
     /**
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-     */
-    metadataRetrievalTimeoutSeconds?: pulumi.Input<number>;
-    /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**
@@ -709,11 +697,6 @@ export interface RemoteMavenRepositoryArgs {
     localAddress?: pulumi.Input<string>;
     /**
      * This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-     */
-    metadataRetrievalTimeoutSeconds?: pulumi.Input<number>;
-    /**
-     * Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-     * the remote before serving locally cached artifact or fail the request.
      */
     metadataRetrievalTimeoutSecs?: pulumi.Input<number>;
     /**

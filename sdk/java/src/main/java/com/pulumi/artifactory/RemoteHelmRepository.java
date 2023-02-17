@@ -234,32 +234,32 @@ public class RemoteHelmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When set, external dependencies are rewritten.
+     * When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
      * 
      */
     @Export(name="externalDependenciesEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> externalDependenciesEnabled;
 
     /**
-     * @return When set, external dependencies are rewritten.
+     * @return When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
      * 
      */
     public Output<Optional<Boolean>> externalDependenciesEnabled() {
         return Codegen.optional(this.externalDependenciesEnabled);
     }
     /**
-     * An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
      * 
      */
     @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> externalDependenciesPatterns;
 
     /**
-     * @return An Allow List of Ant-style path expressions that specify where external
-     * dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-     * from any external source.
+     * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+     * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
+     * Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {

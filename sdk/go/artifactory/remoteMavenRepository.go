@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteMavenRepository(ctx, "maven-remote", &artifactory.RemoteMavenRepositoryArgs{
-//				FetchJarsEagerly:                pulumi.Bool(true),
-//				FetchSourcesEagerly:             pulumi.Bool(false),
-//				Key:                             pulumi.String("maven-remote-foo"),
-//				MetadataRetrievalTimeoutSeconds: pulumi.Int(120),
-//				RejectInvalidJars:               pulumi.Bool(true),
-//				SuppressPomConsistencyChecks:    pulumi.Bool(false),
-//				Url:                             pulumi.String("https://repo1.maven.org/maven2/"),
+//				FetchJarsEagerly:             pulumi.Bool(true),
+//				FetchSourcesEagerly:          pulumi.Bool(false),
+//				Key:                          pulumi.String("maven-remote-foo"),
+//				MetadataRetrievalTimeoutSecs: pulumi.Int(120),
+//				RejectInvalidJars:            pulumi.Bool(true),
+//				SuppressPomConsistencyChecks: pulumi.Bool(false),
+//				Url:                          pulumi.String("https://repo1.maven.org/maven2/"),
 //			})
 //			if err != nil {
 //				return err
@@ -113,9 +113,6 @@ type RemoteMavenRepository struct {
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrOutput `pulumi:"localAddress"`
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-	MetadataRetrievalTimeoutSeconds pulumi.IntOutput `pulumi:"metadataRetrievalTimeoutSeconds"`
-	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrOutput `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -279,9 +276,6 @@ type remoteMavenRepositoryState struct {
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-	MetadataRetrievalTimeoutSeconds *int `pulumi:"metadataRetrievalTimeoutSeconds"`
-	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -404,9 +398,6 @@ type RemoteMavenRepositoryState struct {
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-	MetadataRetrievalTimeoutSeconds pulumi.IntPtrInput
-	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -533,9 +524,6 @@ type remoteMavenRepositoryArgs struct {
 	// multiple network interfaces.
 	LocalAddress *string `pulumi:"localAddress"`
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-	MetadataRetrievalTimeoutSeconds *int `pulumi:"metadataRetrievalTimeoutSeconds"`
-	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs *int `pulumi:"metadataRetrievalTimeoutSecs"`
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -658,9 +646,6 @@ type RemoteMavenRepositoryArgs struct {
 	// multiple network interfaces.
 	LocalAddress pulumi.StringPtrInput
 	// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-	MetadataRetrievalTimeoutSeconds pulumi.IntPtrInput
-	// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-	// the remote before serving locally cached artifact or fail the request.
 	MetadataRetrievalTimeoutSecs pulumi.IntPtrInput
 	// The set of mime types that should override the block_mismatching_mime_types setting. Eg:
 	// 'application/json,application/xml'. Default value is empty.
@@ -930,12 +915,6 @@ func (o RemoteMavenRepositoryOutput) LocalAddress() pulumi.StringPtrOutput {
 }
 
 // This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrievalCachePeriodSeconds` attribute.
-func (o RemoteMavenRepositoryOutput) MetadataRetrievalTimeoutSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.IntOutput { return v.MetadataRetrievalTimeoutSeconds }).(pulumi.IntOutput)
-}
-
-// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-// the remote before serving locally cached artifact or fail the request.
 func (o RemoteMavenRepositoryOutput) MetadataRetrievalTimeoutSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.IntPtrOutput { return v.MetadataRetrievalTimeoutSecs }).(pulumi.IntPtrOutput)
 }
