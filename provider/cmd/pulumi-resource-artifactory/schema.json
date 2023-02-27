@@ -28780,7 +28780,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An allow list of Ant-style path patterns that determine which remote VCS.\n"
+                    "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nBy default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.\nDue to SDKv2 limitations, we can't set the default value for the list.\nThis value must be assigned to the attribute manually, if user don't specify any other non-default values.\nThis attribute must be set together with `external_dependencies_enabled = true`.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -28907,7 +28907,6 @@
                 "clientTlsCertificate",
                 "contentSynchronisation",
                 "enableTokenAuthentication",
-                "externalDependenciesEnabled",
                 "key",
                 "packageType",
                 "projectEnvironments",
@@ -28975,7 +28974,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "An allow list of Ant-style path patterns that determine which remote VCS.\n"
+                    "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nBy default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.\nDue to SDKv2 limitations, we can't set the default value for the list.\nThis value must be assigned to the attribute manually, if user don't specify any other non-default values.\nThis attribute must be set together with `external_dependencies_enabled = true`.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -29162,7 +29161,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "An allow list of Ant-style path patterns that determine which remote VCS.\n"
+                        "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nBy default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.\nDue to SDKv2 limitations, we can't set the default value for the list.\nThis value must be assigned to the attribute manually, if user don't specify any other non-default values.\nThis attribute must be set together with `external_dependencies_enabled = true`.\n"
                     },
                     "hardFail": {
                         "type": "boolean",
@@ -32005,14 +32004,14 @@
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
-                    "description": "When set, external dependencies are rewritten.\n"
+                    "description": "When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.\n"
                 },
                 "externalDependenciesPatterns": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n"
+                    "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nDefault value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.\n"
                 },
                 "hardFail": {
                     "type": "boolean",
@@ -32193,14 +32192,14 @@
                 },
                 "externalDependenciesEnabled": {
                     "type": "boolean",
-                    "description": "When set, external dependencies are rewritten.\n"
+                    "description": "When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.\n"
                 },
                 "externalDependenciesPatterns": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n",
+                    "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nDefault value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.\n",
                     "willReplaceOnChanges": true
                 },
                 "hardFail": {
@@ -32377,14 +32376,14 @@
                     },
                     "externalDependenciesEnabled": {
                         "type": "boolean",
-                        "description": "When set, external dependencies are rewritten.\n"
+                        "description": "When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.\n"
                     },
                     "externalDependenciesPatterns": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "An Allow List of Ant-style path expressions that specify where external\ndependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded\nfrom any external source.\n",
+                        "description": "An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will\nfollow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.\nDefault value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.\n",
                         "willReplaceOnChanges": true
                     },
                     "hardFail": {
@@ -33113,7 +33112,7 @@
             }
         },
         "artifactory:index/remoteMavenRepository:RemoteMavenRepository": {
-            "description": "Creates a remote Maven repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst maven_remote = new artifactory.RemoteMavenRepository(\"maven-remote\", {\n    fetchJarsEagerly: true,\n    fetchSourcesEagerly: false,\n    key: \"maven-remote-foo\",\n    metadataRetrievalTimeoutSeconds: 120,\n    rejectInvalidJars: true,\n    suppressPomConsistencyChecks: false,\n    url: \"https://repo1.maven.org/maven2/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmaven_remote = artifactory.RemoteMavenRepository(\"maven-remote\",\n    fetch_jars_eagerly=True,\n    fetch_sources_eagerly=False,\n    key=\"maven-remote-foo\",\n    metadata_retrieval_timeout_seconds=120,\n    reject_invalid_jars=True,\n    suppress_pom_consistency_checks=False,\n    url=\"https://repo1.maven.org/maven2/\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var maven_remote = new Artifactory.RemoteMavenRepository(\"maven-remote\", new()\n    {\n        FetchJarsEagerly = true,\n        FetchSourcesEagerly = false,\n        Key = \"maven-remote-foo\",\n        MetadataRetrievalTimeoutSeconds = 120,\n        RejectInvalidJars = true,\n        SuppressPomConsistencyChecks = false,\n        Url = \"https://repo1.maven.org/maven2/\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteMavenRepository(ctx, \"maven-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tFetchJarsEagerly:                pulumi.Bool(true),\n\t\t\tFetchSourcesEagerly:             pulumi.Bool(false),\n\t\t\tKey:                             pulumi.String(\"maven-remote-foo\"),\n\t\t\tMetadataRetrievalTimeoutSeconds: pulumi.Int(120),\n\t\t\tRejectInvalidJars:               pulumi.Bool(true),\n\t\t\tSuppressPomConsistencyChecks:    pulumi.Bool(false),\n\t\t\tUrl:                             pulumi.String(\"https://repo1.maven.org/maven2/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var maven_remote = new RemoteMavenRepository(\"maven-remote\", RemoteMavenRepositoryArgs.builder()        \n            .fetchJarsEagerly(true)\n            .fetchSourcesEagerly(false)\n            .key(\"maven-remote-foo\")\n            .metadataRetrievalTimeoutSeconds(120)\n            .rejectInvalidJars(true)\n            .suppressPomConsistencyChecks(false)\n            .url(\"https://repo1.maven.org/maven2/\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  maven-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      fetchJarsEagerly: true\n      fetchSourcesEagerly: false\n      key: maven-remote-foo\n      metadataRetrievalTimeoutSeconds: 120\n      rejectInvalidJars: true\n      suppressPomConsistencyChecks: false\n      url: https://repo1.maven.org/maven2/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote\n```\n\n ",
+            "description": "Creates a remote Maven repository.\nOfficial documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Maven+Repository).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as artifactory from \"@pulumi/artifactory\";\n\nconst maven_remote = new artifactory.RemoteMavenRepository(\"maven-remote\", {\n    fetchJarsEagerly: true,\n    fetchSourcesEagerly: false,\n    key: \"maven-remote-foo\",\n    metadataRetrievalTimeoutSecs: 120,\n    rejectInvalidJars: true,\n    suppressPomConsistencyChecks: false,\n    url: \"https://repo1.maven.org/maven2/\",\n});\n```\n```python\nimport pulumi\nimport pulumi_artifactory as artifactory\n\nmaven_remote = artifactory.RemoteMavenRepository(\"maven-remote\",\n    fetch_jars_eagerly=True,\n    fetch_sources_eagerly=False,\n    key=\"maven-remote-foo\",\n    metadata_retrieval_timeout_secs=120,\n    reject_invalid_jars=True,\n    suppress_pom_consistency_checks=False,\n    url=\"https://repo1.maven.org/maven2/\")\n```\n```csharp\nusing System.Collections.Generic;\nusing Pulumi;\nusing Artifactory = Pulumi.Artifactory;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var maven_remote = new Artifactory.RemoteMavenRepository(\"maven-remote\", new()\n    {\n        FetchJarsEagerly = true,\n        FetchSourcesEagerly = false,\n        Key = \"maven-remote-foo\",\n        MetadataRetrievalTimeoutSecs = 120,\n        RejectInvalidJars = true,\n        SuppressPomConsistencyChecks = false,\n        Url = \"https://repo1.maven.org/maven2/\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := artifactory.NewRemoteMavenRepository(ctx, \"maven-remote\", \u0026artifactory.RemoteMavenRepositoryArgs{\n\t\t\tFetchJarsEagerly:             pulumi.Bool(true),\n\t\t\tFetchSourcesEagerly:          pulumi.Bool(false),\n\t\t\tKey:                          pulumi.String(\"maven-remote-foo\"),\n\t\t\tMetadataRetrievalTimeoutSecs: pulumi.Int(120),\n\t\t\tRejectInvalidJars:            pulumi.Bool(true),\n\t\t\tSuppressPomConsistencyChecks: pulumi.Bool(false),\n\t\t\tUrl:                          pulumi.String(\"https://repo1.maven.org/maven2/\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.artifactory.RemoteMavenRepository;\nimport com.pulumi.artifactory.RemoteMavenRepositoryArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var maven_remote = new RemoteMavenRepository(\"maven-remote\", RemoteMavenRepositoryArgs.builder()        \n            .fetchJarsEagerly(true)\n            .fetchSourcesEagerly(false)\n            .key(\"maven-remote-foo\")\n            .metadataRetrievalTimeoutSecs(120)\n            .rejectInvalidJars(true)\n            .suppressPomConsistencyChecks(false)\n            .url(\"https://repo1.maven.org/maven2/\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  maven-remote:\n    type: artifactory:RemoteMavenRepository\n    properties:\n      fetchJarsEagerly: true\n      fetchSourcesEagerly: false\n      key: maven-remote-foo\n      metadataRetrievalTimeoutSecs: 120\n      rejectInvalidJars: true\n      suppressPomConsistencyChecks: false\n      url: https://repo1.maven.org/maven2/\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nRemote repositories can be imported using their name, e.g.\n\n```sh\n $ pulumi import artifactory:index/remoteMavenRepository:RemoteMavenRepository maven-remote maven-remote\n```\n\n ",
             "properties": {
                 "allowAnyHostAuth": {
                     "type": "boolean",
@@ -33194,13 +33193,9 @@
                     "type": "string",
                     "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
                 },
-                "metadataRetrievalTimeoutSeconds": {
-                    "type": "integer",
-                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
-                },
                 "metadataRetrievalTimeoutSecs": {
                     "type": "integer",
-                    "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from\nthe remote before serving locally cached artifact or fail the request.\n"
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                 },
                 "mismatchingMimeTypesOverrideList": {
                     "type": "string",
@@ -33314,7 +33309,6 @@
                 "clientTlsCertificate",
                 "contentSynchronisation",
                 "key",
-                "metadataRetrievalTimeoutSeconds",
                 "packageType",
                 "projectEnvironments",
                 "shareConfiguration",
@@ -33401,13 +33395,9 @@
                     "type": "string",
                     "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
                 },
-                "metadataRetrievalTimeoutSeconds": {
-                    "type": "integer",
-                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
-                },
                 "metadataRetrievalTimeoutSecs": {
                     "type": "integer",
-                    "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from\nthe remote before serving locally cached artifact or fail the request.\n"
+                    "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                 },
                 "mismatchingMimeTypesOverrideList": {
                     "type": "string",
@@ -33601,13 +33591,9 @@
                         "type": "string",
                         "description": "The local address to be used when creating connections. Useful for specifying the interface to use on systems with\nmultiple network interfaces.\n"
                     },
-                    "metadataRetrievalTimeoutSeconds": {
-                        "type": "integer",
-                        "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
-                    },
                     "metadataRetrievalTimeoutSecs": {
                         "type": "integer",
-                        "description": "Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from\nthe remote before serving locally cached artifact or fail the request.\n"
+                        "description": "This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.\n"
                     },
                     "mismatchingMimeTypesOverrideList": {
                         "type": "string",
@@ -46366,6 +46352,2586 @@
                     "autoJoin",
                     "name",
                     "realm",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalBowerRepository:getLocalBowerRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalBowerRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalBowerRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalChefRepository:getLocalChefRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalChefRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalChefRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalCocoapodsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalCocoapodsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalComposerRepository:getLocalComposerRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalComposerRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalComposerRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalConanRepository:getLocalConanRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalConanRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalConanRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalCondaRepository:getLocalCondaRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalCondaRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalCondaRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalCranRepository:getLocalCranRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalCranRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalCranRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalGemsRepository:getLocalGemsRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalGemsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalGemsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalGenericRepository:getLocalGenericRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalGenericRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalGenericRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalGitlfsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalGitlfsRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalGoRepository:getLocalGoRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalGoRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalGoRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalHelmRepository:getLocalHelmRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalHelmRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalHelmRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalNpmRepository:getLocalNpmRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalNpmRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalNpmRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalOpkgRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalOpkgRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalPubRepository:getLocalPubRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalPubRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalPubRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalPuppetRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalPuppetRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalPypiRepository:getLocalPypiRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalPypiRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalPypiRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalSwiftRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalSwiftRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalTerraformbackendRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalTerraformbackendRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
+                    "id"
+                ]
+            }
+        },
+        "artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getLocalVagrantRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string",
+                        "willReplaceOnChanges": true
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "key"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getLocalVagrantRepository.\n",
+                "properties": {
+                    "archiveBrowsingEnabled": {
+                        "type": "boolean"
+                    },
+                    "blackedOut": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "downloadDirect": {
+                        "type": "boolean"
+                    },
+                    "excludesPattern": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "includesPattern": {
+                        "type": "string"
+                    },
+                    "key": {
+                        "type": "string"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "packageType": {
+                        "type": "string"
+                    },
+                    "priorityResolution": {
+                        "type": "boolean"
+                    },
+                    "projectEnvironments": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "projectKey": {
+                        "type": "string"
+                    },
+                    "propertySets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "repoLayoutRef": {
+                        "type": "string"
+                    },
+                    "xrayIndex": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "excludesPattern",
+                    "includesPattern",
+                    "key",
+                    "packageType",
+                    "projectEnvironments",
                     "id"
                 ]
             }

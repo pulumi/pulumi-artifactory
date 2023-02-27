@@ -10,6 +10,46 @@ import com.pulumi.artifactory.inputs.GetFileinfoArgs;
 import com.pulumi.artifactory.inputs.GetFileinfoPlainArgs;
 import com.pulumi.artifactory.inputs.GetGroupArgs;
 import com.pulumi.artifactory.inputs.GetGroupPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalBowerRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalChefRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalChefRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalCocoapodsRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalComposerRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalConanRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalConanRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalCondaRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalCranRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalCranRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalGemsRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalGenericRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalGitlfsRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalGoRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalGoRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalHelmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalNpmRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalOpkgRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalPubRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalPubRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalPuppetRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalPypiRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalSwiftRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalTerraformbackendRepositoryPlainArgs;
+import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryArgs;
+import com.pulumi.artifactory.inputs.GetLocalVagrantRepositoryPlainArgs;
 import com.pulumi.artifactory.inputs.GetPermissionTargetArgs;
 import com.pulumi.artifactory.inputs.GetPermissionTargetPlainArgs;
 import com.pulumi.artifactory.inputs.GetUserArgs;
@@ -17,6 +57,26 @@ import com.pulumi.artifactory.inputs.GetUserPlainArgs;
 import com.pulumi.artifactory.outputs.GetFileResult;
 import com.pulumi.artifactory.outputs.GetFileinfoResult;
 import com.pulumi.artifactory.outputs.GetGroupResult;
+import com.pulumi.artifactory.outputs.GetLocalBowerRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalChefRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalCocoapodsRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalComposerRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalConanRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalCondaRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalCranRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalGemsRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalGenericRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalGitlfsRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalGoRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalHelmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalNpmRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalOpkgRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalPubRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalPuppetRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalPypiRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalSwiftRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalTerraformbackendRepositoryResult;
+import com.pulumi.artifactory.outputs.GetLocalVagrantRepositoryResult;
 import com.pulumi.artifactory.outputs.GetPermissionTargetResult;
 import com.pulumi.artifactory.outputs.GetUserResult;
 import com.pulumi.core.Output;
@@ -509,6 +569,246 @@ public final class ArtifactoryFunctions {
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("artifactory:index/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args) {
+        return getLocalBowerRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args) {
+        return getLocalBowerRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalBowerRepositoryResult> getLocalBowerRepository(GetLocalBowerRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", TypeShape.of(GetLocalBowerRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalBowerRepositoryResult> getLocalBowerRepositoryPlain(GetLocalBowerRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalBowerRepository:getLocalBowerRepository", TypeShape.of(GetLocalBowerRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args) {
+        return getLocalChefRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args) {
+        return getLocalChefRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalChefRepositoryResult> getLocalChefRepository(GetLocalChefRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalChefRepository:getLocalChefRepository", TypeShape.of(GetLocalChefRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalChefRepositoryResult> getLocalChefRepositoryPlain(GetLocalChefRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalChefRepository:getLocalChefRepository", TypeShape.of(GetLocalChefRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args) {
+        return getLocalCocoapodsRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args) {
+        return getLocalCocoapodsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepository(GetLocalCocoapodsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", TypeShape.of(GetLocalCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalCocoapodsRepositoryResult> getLocalCocoapodsRepositoryPlain(GetLocalCocoapodsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCocoapodsRepository:getLocalCocoapodsRepository", TypeShape.of(GetLocalCocoapodsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args) {
+        return getLocalComposerRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args) {
+        return getLocalComposerRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalComposerRepositoryResult> getLocalComposerRepository(GetLocalComposerRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", TypeShape.of(GetLocalComposerRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalComposerRepositoryResult> getLocalComposerRepositoryPlain(GetLocalComposerRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", TypeShape.of(GetLocalComposerRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args) {
+        return getLocalConanRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args) {
+        return getLocalConanRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalConanRepositoryResult> getLocalConanRepository(GetLocalConanRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalConanRepository:getLocalConanRepository", TypeShape.of(GetLocalConanRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalConanRepositoryResult> getLocalConanRepositoryPlain(GetLocalConanRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalConanRepository:getLocalConanRepository", TypeShape.of(GetLocalConanRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args) {
+        return getLocalCondaRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args) {
+        return getLocalCondaRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalCondaRepositoryResult> getLocalCondaRepository(GetLocalCondaRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", TypeShape.of(GetLocalCondaRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalCondaRepositoryResult> getLocalCondaRepositoryPlain(GetLocalCondaRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCondaRepository:getLocalCondaRepository", TypeShape.of(GetLocalCondaRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args) {
+        return getLocalCranRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args) {
+        return getLocalCranRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalCranRepositoryResult> getLocalCranRepository(GetLocalCranRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalCranRepository:getLocalCranRepository", TypeShape.of(GetLocalCranRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalCranRepositoryResult> getLocalCranRepositoryPlain(GetLocalCranRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalCranRepository:getLocalCranRepository", TypeShape.of(GetLocalCranRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args) {
+        return getLocalGemsRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args) {
+        return getLocalGemsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalGemsRepositoryResult> getLocalGemsRepository(GetLocalGemsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", TypeShape.of(GetLocalGemsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalGemsRepositoryResult> getLocalGemsRepositoryPlain(GetLocalGemsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", TypeShape.of(GetLocalGemsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args) {
+        return getLocalGenericRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args) {
+        return getLocalGenericRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalGenericRepositoryResult> getLocalGenericRepository(GetLocalGenericRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", TypeShape.of(GetLocalGenericRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalGenericRepositoryResult> getLocalGenericRepositoryPlain(GetLocalGenericRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGenericRepository:getLocalGenericRepository", TypeShape.of(GetLocalGenericRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args) {
+        return getLocalGitlfsRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args) {
+        return getLocalGitlfsRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepository(GetLocalGitlfsRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", TypeShape.of(GetLocalGitlfsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalGitlfsRepositoryResult> getLocalGitlfsRepositoryPlain(GetLocalGitlfsRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGitlfsRepository:getLocalGitlfsRepository", TypeShape.of(GetLocalGitlfsRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args) {
+        return getLocalGoRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args) {
+        return getLocalGoRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalGoRepositoryResult> getLocalGoRepository(GetLocalGoRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalGoRepository:getLocalGoRepository", TypeShape.of(GetLocalGoRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalGoRepositoryResult> getLocalGoRepositoryPlain(GetLocalGoRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalGoRepository:getLocalGoRepository", TypeShape.of(GetLocalGoRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args) {
+        return getLocalHelmRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args) {
+        return getLocalHelmRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalHelmRepositoryResult> getLocalHelmRepository(GetLocalHelmRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalHelmRepositoryResult> getLocalHelmRepositoryPlain(GetLocalHelmRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalHelmRepository:getLocalHelmRepository", TypeShape.of(GetLocalHelmRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args) {
+        return getLocalNpmRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args) {
+        return getLocalNpmRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalNpmRepositoryResult> getLocalNpmRepository(GetLocalNpmRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", TypeShape.of(GetLocalNpmRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalNpmRepositoryResult> getLocalNpmRepositoryPlain(GetLocalNpmRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalNpmRepository:getLocalNpmRepository", TypeShape.of(GetLocalNpmRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args) {
+        return getLocalOpkgRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args) {
+        return getLocalOpkgRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalOpkgRepositoryResult> getLocalOpkgRepository(GetLocalOpkgRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", TypeShape.of(GetLocalOpkgRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalOpkgRepositoryResult> getLocalOpkgRepositoryPlain(GetLocalOpkgRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalOpkgRepository:getLocalOpkgRepository", TypeShape.of(GetLocalOpkgRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args) {
+        return getLocalPubRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args) {
+        return getLocalPubRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalPubRepositoryResult> getLocalPubRepository(GetLocalPubRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalPubRepository:getLocalPubRepository", TypeShape.of(GetLocalPubRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalPubRepositoryResult> getLocalPubRepositoryPlain(GetLocalPubRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPubRepository:getLocalPubRepository", TypeShape.of(GetLocalPubRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args) {
+        return getLocalPuppetRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args) {
+        return getLocalPuppetRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalPuppetRepositoryResult> getLocalPuppetRepository(GetLocalPuppetRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", TypeShape.of(GetLocalPuppetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalPuppetRepositoryResult> getLocalPuppetRepositoryPlain(GetLocalPuppetRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPuppetRepository:getLocalPuppetRepository", TypeShape.of(GetLocalPuppetRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args) {
+        return getLocalPypiRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args) {
+        return getLocalPypiRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalPypiRepositoryResult> getLocalPypiRepository(GetLocalPypiRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", TypeShape.of(GetLocalPypiRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalPypiRepositoryResult> getLocalPypiRepositoryPlain(GetLocalPypiRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalPypiRepository:getLocalPypiRepository", TypeShape.of(GetLocalPypiRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args) {
+        return getLocalSwiftRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args) {
+        return getLocalSwiftRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalSwiftRepositoryResult> getLocalSwiftRepository(GetLocalSwiftRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", TypeShape.of(GetLocalSwiftRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalSwiftRepositoryResult> getLocalSwiftRepositoryPlain(GetLocalSwiftRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalSwiftRepository:getLocalSwiftRepository", TypeShape.of(GetLocalSwiftRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args) {
+        return getLocalTerraformbackendRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args) {
+        return getLocalTerraformbackendRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepository(GetLocalTerraformbackendRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalTerraformbackendRepositoryResult> getLocalTerraformbackendRepositoryPlain(GetLocalTerraformbackendRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalTerraformbackendRepository:getLocalTerraformbackendRepository", TypeShape.of(GetLocalTerraformbackendRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args) {
+        return getLocalVagrantRepository(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args) {
+        return getLocalVagrantRepositoryPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetLocalVagrantRepositoryResult> getLocalVagrantRepository(GetLocalVagrantRepositoryArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", TypeShape.of(GetLocalVagrantRepositoryResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetLocalVagrantRepositoryResult> getLocalVagrantRepositoryPlain(GetLocalVagrantRepositoryPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("artifactory:index/getLocalVagrantRepository:getLocalVagrantRepository", TypeShape.of(GetLocalVagrantRepositoryResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## # Artifactory Permission Target Data Source

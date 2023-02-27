@@ -89,11 +89,11 @@ type RemoteHelmRepository struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten.
+	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+	// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -247,11 +247,11 @@ type remoteHelmRepositoryState struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten.
+	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+	// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -364,11 +364,11 @@ type RemoteHelmRepositoryState struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten.
+	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+	// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -485,11 +485,11 @@ type remoteHelmRepositoryArgs struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// When set, external dependencies are rewritten.
+	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
-	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+	// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -602,11 +602,11 @@ type RemoteHelmRepositoryArgs struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// When set, external dependencies are rewritten.
+	// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
-	// An Allow List of Ant-style path expressions that specify where external
-	// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-	// from any external source.
+	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+	// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -839,14 +839,14 @@ func (o RemoteHelmRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// When set, external dependencies are rewritten.
+// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
 func (o RemoteHelmRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.BoolPtrOutput { return v.ExternalDependenciesEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An Allow List of Ant-style path expressions that specify where external
-// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-// from any external source.
+// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+// Default value in the UI is empty. This attribute must be set together with `externalDependenciesEnabled = true`.
 func (o RemoteHelmRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteHelmRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }

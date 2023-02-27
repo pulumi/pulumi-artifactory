@@ -316,10 +316,37 @@ func Provider() tfbridge.ProviderInfo {
 	}
 
 	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("artifactory_", mainMod,
-		func(module, name string) (string, error) {
-			return makeToken(module, name), nil
-		}))
+		tfbridge.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
+
+	// The provider doesn't have docs for the following data sources, so we exclude them.
+	docLessDataSources := []string{
+		"artifactory_local_bower_repository",
+		"artifactory_local_chef_repository",
+		"artifactory_local_cocoapods_repository",
+		"artifactory_local_composer_repository",
+		"artifactory_local_conan_repository",
+		"artifactory_local_conda_repository",
+		"artifactory_local_cran_repository",
+		"artifactory_local_gems_repository",
+		"artifactory_local_generic_repository",
+		"artifactory_local_gitlfs_repository",
+		"artifactory_local_go_repository",
+		"artifactory_local_helm_repository",
+		"artifactory_local_npm_repository",
+		"artifactory_local_opkg_repository",
+		"artifactory_local_pub_repository",
+		"artifactory_local_puppet_repository",
+		"artifactory_local_pypi_repository",
+		"artifactory_local_swift_repository",
+		"artifactory_local_terraformbackend_repository",
+		"artifactory_local_vagrant_repository",
+	}
+	for _, s := range docLessDataSources {
+		prov.DataSources[s].Docs = &tfbridge.DocInfo{
+			Markdown: []byte{' '},
+		}
+	}
 
 	prov.SetAutonaming(255, "-")
 

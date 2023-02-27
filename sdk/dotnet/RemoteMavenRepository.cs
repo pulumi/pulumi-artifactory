@@ -27,7 +27,7 @@ namespace Pulumi.Artifactory
     ///         FetchJarsEagerly = true,
     ///         FetchSourcesEagerly = false,
     ///         Key = "maven-remote-foo",
-    ///         MetadataRetrievalTimeoutSeconds = 120,
+    ///         MetadataRetrievalTimeoutSecs = 120,
     ///         RejectInvalidJars = true,
     ///         SuppressPomConsistencyChecks = false,
     ///         Url = "https://repo1.maven.org/maven2/",
@@ -181,13 +181,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        /// </summary>
-        [Output("metadataRetrievalTimeoutSeconds")]
-        public Output<int> MetadataRetrievalTimeoutSeconds { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Output("metadataRetrievalTimeoutSecs")]
         public Output<int?> MetadataRetrievalTimeoutSecs { get; private set; } = null!;
@@ -536,13 +529,6 @@ namespace Pulumi.Artifactory
         /// <summary>
         /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
         /// </summary>
-        [Input("metadataRetrievalTimeoutSeconds")]
-        public Input<int>? MetadataRetrievalTimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
-        /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }
 
@@ -865,13 +851,6 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// This value refers to the number of seconds to cache metadata files before checking for newer versions on remote server. A value of 0 indicates no caching. Cannot be larger than `retrieval_cache_period_seconds` attribute.
-        /// </summary>
-        [Input("metadataRetrievalTimeoutSeconds")]
-        public Input<int>? MetadataRetrievalTimeoutSeconds { get; set; }
-
-        /// <summary>
-        /// Metadata Retrieval Cache Timeout (Sec) in the UI.This value refers to the number of seconds to wait for retrieval from
-        /// the remote before serving locally cached artifact or fail the request.
         /// </summary>
         [Input("metadataRetrievalTimeoutSecs")]
         public Input<int>? MetadataRetrievalTimeoutSecs { get; set; }

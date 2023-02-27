@@ -122,15 +122,15 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// When set, external dependencies are rewritten.
+        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         /// </summary>
         [Output("externalDependenciesEnabled")]
         public Output<bool?> ExternalDependenciesEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        /// Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         /// </summary>
         [Output("externalDependenciesPatterns")]
         public Output<ImmutableArray<string>> ExternalDependenciesPatterns { get; private set; } = null!;
@@ -448,7 +448,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten.
+        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -457,9 +457,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        /// Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
@@ -756,7 +756,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When set, external dependencies are rewritten.
+        /// When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         /// </summary>
         [Input("externalDependenciesEnabled")]
         public Input<bool>? ExternalDependenciesEnabled { get; set; }
@@ -765,9 +765,9 @@ namespace Pulumi.Artifactory
         private InputList<string>? _externalDependenciesPatterns;
 
         /// <summary>
-        /// An Allow List of Ant-style path expressions that specify where external
-        /// dependencies may be downloaded from. By default, this is set to ** which means that dependencies may be downloaded
-        /// from any external source.
+        /// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
+        /// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
+        /// Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
         /// </summary>
         public InputList<string> ExternalDependenciesPatterns
         {
