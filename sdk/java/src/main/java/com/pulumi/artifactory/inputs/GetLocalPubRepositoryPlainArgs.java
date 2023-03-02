@@ -30,6 +30,13 @@ public final class GetLocalPubRepositoryPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.blackedOut);
     }
 
+    @Import(name="cdnRedirect")
+    private @Nullable Boolean cdnRedirect;
+
+    public Optional<Boolean> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
     @Import(name="description")
     private @Nullable String description;
 
@@ -119,6 +126,7 @@ public final class GetLocalPubRepositoryPlainArgs extends com.pulumi.resources.I
     private GetLocalPubRepositoryPlainArgs(GetLocalPubRepositoryPlainArgs $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -158,6 +166,11 @@ public final class GetLocalPubRepositoryPlainArgs extends com.pulumi.resources.I
 
         public Builder blackedOut(@Nullable Boolean blackedOut) {
             $.blackedOut = blackedOut;
+            return this;
+        }
+
+        public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
             return this;
         }
 

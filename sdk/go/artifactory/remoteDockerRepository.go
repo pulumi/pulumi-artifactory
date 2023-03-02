@@ -81,6 +81,9 @@ type RemoteDockerRepository struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrOutput `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                                `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
@@ -143,7 +146,7 @@ type RemoteDockerRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
@@ -246,6 +249,9 @@ type remoteDockerRepositoryState struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
@@ -308,7 +314,7 @@ type remoteDockerRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -370,6 +376,9 @@ type RemoteDockerRepositoryState struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrInput
@@ -432,7 +441,7 @@ type RemoteDockerRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -498,6 +507,9 @@ type remoteDockerRepositoryArgs struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                       `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteDockerRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
@@ -559,7 +571,7 @@ type remoteDockerRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -622,6 +634,9 @@ type RemoteDockerRepositoryArgs struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteDockerRepositoryContentSynchronisationPtrInput
@@ -683,7 +698,7 @@ type RemoteDockerRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -849,6 +864,12 @@ func (o RemoteDockerRepositoryOutput) BypassHeadRequests() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.BypassHeadRequests }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o RemoteDockerRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 // Client TLS certificate name.
 func (o RemoteDockerRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
@@ -982,7 +1003,7 @@ func (o RemoteDockerRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOu
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o RemoteDockerRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

@@ -25,6 +25,7 @@ namespace Pulumi.Artifactory
     ///     var my_remote_cargo = new Artifactory.RemoteCargoRepository("my-remote-cargo", new()
     ///     {
     ///         AnonymousAccess = true,
+    ///         EnableSparseIndex = true,
     ///         GitRegistryUrl = "https://github.com/rust-lang/foo.index",
     ///         Key = "my-remote-cargo",
     ///         Url = "https://github.com/rust-lang/crates.io-index",
@@ -56,7 +57,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> AllowAnyHostAuth { get; private set; } = null!;
 
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Output("anonymousAccess")]
         public Output<bool?> AnonymousAccess { get; private set; } = null!;
@@ -93,6 +94,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> BypassHeadRequests { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool?> CdnRedirect { get; private set; } = null!;
+
+        /// <summary>
         /// Client TLS certificate name.
         /// </summary>
         [Output("clientTlsCertificate")]
@@ -119,6 +127,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Output("enableCookieManagement")]
         public Output<bool?> EnableCookieManagement { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// </summary>
+        [Output("enableSparseIndex")]
+        public Output<bool?> EnableSparseIndex { get; private set; } = null!;
 
         /// <summary>
         /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -224,7 +238,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
@@ -374,7 +388,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -411,6 +425,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BypassHeadRequests { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Client TLS certificate name.
         /// </summary>
         [Input("clientTlsCertificate")]
@@ -437,6 +458,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
+
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// </summary>
+        [Input("enableSparseIndex")]
+        public Input<bool>? EnableSparseIndex { get; set; }
 
         /// <summary>
         /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -554,7 +581,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
@@ -668,7 +695,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? AllowAnyHostAuth { get; set; }
 
         /// <summary>
-        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        /// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         /// </summary>
         [Input("anonymousAccess")]
         public Input<bool>? AnonymousAccess { get; set; }
@@ -705,6 +732,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BypassHeadRequests { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Client TLS certificate name.
         /// </summary>
         [Input("clientTlsCertificate")]
@@ -731,6 +765,12 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("enableCookieManagement")]
         public Input<bool>? EnableCookieManagement { get; set; }
+
+        /// <summary>
+        /// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        /// </summary>
+        [Input("enableSparseIndex")]
+        public Input<bool>? EnableSparseIndex { get; set; }
 
         /// <summary>
         /// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -851,7 +891,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]

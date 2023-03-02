@@ -18,6 +18,7 @@ import * as utilities from "./utilities";
  *
  * const my_remote_cargo = new artifactory.RemoteCargoRepository("my-remote-cargo", {
  *     anonymousAccess: true,
+ *     enableSparseIndex: true,
  *     gitRegistryUrl: "https://github.com/rust-lang/foo.index",
  *     key: "my-remote-cargo",
  *     url: "https://github.com/rust-lang/crates.io-index",
@@ -70,7 +71,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly allowAnyHostAuth!: pulumi.Output<boolean | undefined>;
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -97,6 +98,11 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly bypassHeadRequests!: pulumi.Output<boolean | undefined>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    /**
      * Client TLS certificate name.
      */
     public readonly clientTlsCertificate!: pulumi.Output<string>;
@@ -114,6 +120,10 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     public readonly enableCookieManagement!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    public readonly enableSparseIndex!: pulumi.Output<boolean | undefined>;
     /**
      * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
      * default no artifacts are excluded.
@@ -186,7 +196,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -268,11 +278,13 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = state ? state.blockMismatchingMimeTypes : undefined;
             resourceInputs["bypassHeadRequests"] = state ? state.bypassHeadRequests : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = state ? state.enableCookieManagement : undefined;
+            resourceInputs["enableSparseIndex"] = state ? state.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             resourceInputs["gitRegistryUrl"] = state ? state.gitRegistryUrl : undefined;
             resourceInputs["hardFail"] = state ? state.hardFail : undefined;
@@ -321,11 +333,13 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = args ? args.blockMismatchingMimeTypes : undefined;
             resourceInputs["bypassHeadRequests"] = args ? args.bypassHeadRequests : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableCookieManagement"] = args ? args.enableCookieManagement : undefined;
+            resourceInputs["enableSparseIndex"] = args ? args.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             resourceInputs["gitRegistryUrl"] = args ? args.gitRegistryUrl : undefined;
             resourceInputs["hardFail"] = args ? args.hardFail : undefined;
@@ -375,7 +389,7 @@ export interface RemoteCargoRepositoryState {
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -402,6 +416,11 @@ export interface RemoteCargoRepositoryState {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
+    /**
      * Client TLS certificate name.
      */
     clientTlsCertificate?: pulumi.Input<string>;
@@ -419,6 +438,10 @@ export interface RemoteCargoRepositoryState {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    enableSparseIndex?: pulumi.Input<boolean>;
     /**
      * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
      * default no artifacts are excluded.
@@ -491,7 +514,7 @@ export interface RemoteCargoRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -565,7 +588,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     allowAnyHostAuth?: pulumi.Input<boolean>;
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -592,6 +615,11 @@ export interface RemoteCargoRepositoryArgs {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
+    /**
      * Client TLS certificate name.
      */
     clientTlsCertificate?: pulumi.Input<string>;
@@ -609,6 +637,10 @@ export interface RemoteCargoRepositoryArgs {
      * Enables cookie management if the remote repository uses cookies to manage client state.
      */
     enableCookieManagement?: pulumi.Input<boolean>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    enableSparseIndex?: pulumi.Input<boolean>;
     /**
      * List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By
      * default no artifacts are excluded.
@@ -680,7 +712,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;

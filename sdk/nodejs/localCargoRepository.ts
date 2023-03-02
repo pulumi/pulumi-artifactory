@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * const terraform_local_test_cargo_repo_basic = new artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic", {
  *     anonymousAccess: false,
+ *     enableSparseIndex: true,
  *     key: "terraform-local-test-cargo-repo-basic",
  * });
  * ```
@@ -57,8 +58,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
 
     /**
      * Cargo client does not send credentials when performing download and search for crates. 
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     public readonly anonymousAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -71,12 +71,21 @@ export class LocalCargoRepository extends pulumi.CustomResource {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    public readonly enableSparseIndex!: pulumi.Output<boolean | undefined>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
      * artifacts are excluded.
@@ -105,7 +114,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -139,8 +148,10 @@ export class LocalCargoRepository extends pulumi.CustomResource {
             resourceInputs["anonymousAccess"] = state ? state.anonymousAccess : undefined;
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
+            resourceInputs["enableSparseIndex"] = state ? state.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
             resourceInputs["includesPattern"] = state ? state.includesPattern : undefined;
             resourceInputs["indexCompressionFormats"] = state ? state.indexCompressionFormats : undefined;
@@ -161,8 +172,10 @@ export class LocalCargoRepository extends pulumi.CustomResource {
             resourceInputs["anonymousAccess"] = args ? args.anonymousAccess : undefined;
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
+            resourceInputs["enableSparseIndex"] = args ? args.enableSparseIndex : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
             resourceInputs["includesPattern"] = args ? args.includesPattern : undefined;
             resourceInputs["indexCompressionFormats"] = args ? args.indexCompressionFormats : undefined;
@@ -187,8 +200,7 @@ export class LocalCargoRepository extends pulumi.CustomResource {
 export interface LocalCargoRepositoryState {
     /**
      * Cargo client does not send credentials when performing download and search for crates. 
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -201,12 +213,21 @@ export interface LocalCargoRepositoryState {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    enableSparseIndex?: pulumi.Input<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
      * artifacts are excluded.
@@ -235,7 +256,7 @@ export interface LocalCargoRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -260,8 +281,7 @@ export interface LocalCargoRepositoryState {
 export interface LocalCargoRepositoryArgs {
     /**
      * Cargo client does not send credentials when performing download and search for crates. 
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      */
     anonymousAccess?: pulumi.Input<boolean>;
     /**
@@ -274,12 +294,21 @@ export interface LocalCargoRepositoryArgs {
      * When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
      */
     blackedOut?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
      * storage provider. Available in Enterprise+ and Edge licenses only.
      */
     downloadDirect?: pulumi.Input<boolean>;
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     */
+    enableSparseIndex?: pulumi.Input<boolean>;
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**&#47;z/*. By default no
      * artifacts are excluded.
@@ -307,7 +336,7 @@ export interface LocalCargoRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;

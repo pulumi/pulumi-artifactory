@@ -73,6 +73,13 @@ namespace Pulumi.Artifactory
         [Output("blockPushingSchema1")]
         public Output<bool> BlockPushingSchema1 { get; private set; } = null!;
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool?> CdnRedirect { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -136,7 +143,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
@@ -224,6 +231,13 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -296,7 +310,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
@@ -354,6 +368,13 @@ namespace Pulumi.Artifactory
 
         [Input("blockPushingSchema1")]
         public Input<bool>? BlockPushingSchema1 { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
 
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -430,7 +451,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]

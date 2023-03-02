@@ -27,6 +27,9 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public bool? BlackedOut { get; set; }
 
+        [Input("cdnRedirect")]
+        public bool? CdnRedirect { get; set; }
+
         [Input("description")]
         public string? Description { get; set; }
 
@@ -87,6 +90,9 @@ namespace Pulumi.Artifactory
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
 
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -145,6 +151,7 @@ namespace Pulumi.Artifactory
     {
         public readonly bool? ArchiveBrowsingEnabled;
         public readonly bool? BlackedOut;
+        public readonly bool? CdnRedirect;
         public readonly string? Description;
         public readonly bool? DownloadDirect;
         public readonly string ExcludesPattern;
@@ -168,6 +175,8 @@ namespace Pulumi.Artifactory
             bool? archiveBrowsingEnabled,
 
             bool? blackedOut,
+
+            bool? cdnRedirect,
 
             string? description,
 
@@ -199,6 +208,7 @@ namespace Pulumi.Artifactory
         {
             ArchiveBrowsingEnabled = archiveBrowsingEnabled;
             BlackedOut = blackedOut;
+            CdnRedirect = cdnRedirect;
             Description = description;
             DownloadDirect = downloadDirect;
             ExcludesPattern = excludesPattern;

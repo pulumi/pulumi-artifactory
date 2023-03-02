@@ -89,6 +89,11 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly bypassHeadRequests!: pulumi.Output<boolean | undefined>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
+    /**
      * Client TLS certificate name.
      */
     public readonly clientTlsCertificate!: pulumi.Output<string>;
@@ -174,7 +179,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -255,6 +260,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = state ? state.blockMismatchingMimeTypes : undefined;
             resourceInputs["bypassHeadRequests"] = state ? state.bypassHeadRequests : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = state ? state.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = state ? state.contentSynchronisation : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -303,6 +309,7 @@ export class RemoteNpmRepository extends pulumi.CustomResource {
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["blockMismatchingMimeTypes"] = args ? args.blockMismatchingMimeTypes : undefined;
             resourceInputs["bypassHeadRequests"] = args ? args.bypassHeadRequests : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["clientTlsCertificate"] = args ? args.clientTlsCertificate : undefined;
             resourceInputs["contentSynchronisation"] = args ? args.contentSynchronisation : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -378,6 +385,11 @@ export interface RemoteNpmRepositoryState {
      * Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     /**
      * Client TLS certificate name.
      */
@@ -464,7 +476,7 @@ export interface RemoteNpmRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -561,6 +573,11 @@ export interface RemoteNpmRepositoryArgs {
      */
     bypassHeadRequests?: pulumi.Input<boolean>;
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
+    /**
      * Client TLS certificate name.
      */
     clientTlsCertificate?: pulumi.Input<string>;
@@ -645,7 +662,7 @@ export interface RemoteNpmRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;

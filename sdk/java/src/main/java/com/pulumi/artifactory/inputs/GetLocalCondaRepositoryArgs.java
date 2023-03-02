@@ -31,6 +31,13 @@ public final class GetLocalCondaRepositoryArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.blackedOut);
     }
 
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -120,6 +127,7 @@ public final class GetLocalCondaRepositoryArgs extends com.pulumi.resources.Invo
     private GetLocalCondaRepositoryArgs(GetLocalCondaRepositoryArgs $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.excludesPattern = $.excludesPattern;
@@ -168,6 +176,15 @@ public final class GetLocalCondaRepositoryArgs extends com.pulumi.resources.Invo
 
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
+        }
+
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         public Builder description(@Nullable Output<String> description) {

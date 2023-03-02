@@ -19,8 +19,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
 
     /**
      * Cargo client does not send credentials when performing download and search for crates.
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     @Import(name="anonymousAccess")
@@ -28,8 +27,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return Cargo client does not send credentials when performing download and search for crates.
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> anonymousAccess() {
@@ -70,6 +68,23 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.blackedOut);
     }
 
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
     @Import(name="description")
     private @Nullable Output<String> description;
 
@@ -92,6 +107,21 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<Boolean>> downloadDirect() {
         return Optional.ofNullable(this.downloadDirect);
+    }
+
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    @Import(name="enableSparseIndex")
+    private @Nullable Output<Boolean> enableSparseIndex;
+
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSparseIndex() {
+        return Optional.ofNullable(this.enableSparseIndex);
     }
 
     /**
@@ -192,7 +222,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -200,7 +230,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -261,8 +291,10 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
         this.anonymousAccess = $.anonymousAccess;
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
+        this.enableSparseIndex = $.enableSparseIndex;
         this.excludesPattern = $.excludesPattern;
         this.includesPattern = $.includesPattern;
         this.indexCompressionFormats = $.indexCompressionFormats;
@@ -296,8 +328,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates.
-         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-         * Default value is `false`.
+         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
          * 
          * @return builder
          * 
@@ -309,8 +340,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates.
-         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-         * Default value is `false`.
+         * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
          * 
          * @return builder
          * 
@@ -365,6 +395,29 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
             return blackedOut(Output.of(blackedOut));
         }
 
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
+        }
+
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
@@ -395,6 +448,27 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
          */
         public Builder downloadDirect(Boolean downloadDirect) {
             return downloadDirect(Output.of(downloadDirect));
+        }
+
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSparseIndex(@Nullable Output<Boolean> enableSparseIndex) {
+            $.enableSparseIndex = enableSparseIndex;
+            return this;
+        }
+
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSparseIndex(Boolean enableSparseIndex) {
+            return enableSparseIndex(Output.of(enableSparseIndex));
         }
 
         /**
@@ -545,7 +619,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -557,7 +631,7 @@ public final class LocalCargoRepositoryArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder

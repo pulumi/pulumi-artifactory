@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var terraform_local_test_cargo_repo_basic = new LocalCargoRepository(&#34;terraform-local-test-cargo-repo-basic&#34;, LocalCargoRepositoryArgs.builder()        
  *             .anonymousAccess(false)
+ *             .enableSparseIndex(true)
  *             .key(&#34;terraform-local-test-cargo-repo-basic&#34;)
  *             .build());
  * 
@@ -63,8 +64,7 @@ import javax.annotation.Nullable;
 public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
     /**
      * Cargo client does not send credentials when performing download and search for crates.
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     @Export(name="anonymousAccess", type=Boolean.class, parameters={})
@@ -72,8 +72,7 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Cargo client does not send credentials when performing download and search for crates.
-     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-     * Default value is `false`.
+     * Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> anonymousAccess() {
@@ -111,6 +110,22 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> blackedOut() {
         return Codegen.optional(this.blackedOut);
     }
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Optional<Boolean>> cdnRedirect() {
+        return Codegen.optional(this.cdnRedirect);
+    }
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
@@ -132,6 +147,20 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> downloadDirect() {
         return Codegen.optional(this.downloadDirect);
+    }
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    @Export(name="enableSparseIndex", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> enableSparseIndex;
+
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> enableSparseIndex() {
+        return Codegen.optional(this.enableSparseIndex);
     }
     /**
      * List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**{@literal /}z/*. By default no
@@ -230,7 +259,7 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -238,7 +267,7 @@ public class LocalCargoRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */

@@ -18,8 +18,10 @@ class LocalCargoRepositoryArgs:
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -34,14 +36,16 @@ class LocalCargoRepositoryArgs:
         The set of arguments for constructing a LocalCargoRepository resource.
         :param pulumi.Input[str] key: the identity key of the repo.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
-               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-               Default value is `false`.
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -50,7 +54,7 @@ class LocalCargoRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -64,10 +68,14 @@ class LocalCargoRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
+        if enable_sparse_index is not None:
+            pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
@@ -106,8 +114,7 @@ class LocalCargoRepositoryArgs:
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
         Cargo client does not send credentials when performing download and search for crates. 
-        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-        Default value is `false`.
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -142,6 +149,19 @@ class LocalCargoRepositoryArgs:
         pulumi.set(self, "blacked_out", value)
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -162,6 +182,18 @@ class LocalCargoRepositoryArgs:
     @download_direct.setter
     def download_direct(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "download_direct", value)
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
+
+    @enable_sparse_index.setter
+    def enable_sparse_index(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sparse_index", value)
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -237,7 +269,7 @@ class LocalCargoRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -290,8 +322,10 @@ class _LocalCargoRepositoryState:
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -307,14 +341,16 @@ class _LocalCargoRepositoryState:
         """
         Input properties used for looking up and filtering LocalCargoRepository resources.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
-               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-               Default value is `false`.
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -324,7 +360,7 @@ class _LocalCargoRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -337,10 +373,14 @@ class _LocalCargoRepositoryState:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if download_direct is not None:
             pulumi.set(__self__, "download_direct", download_direct)
+        if enable_sparse_index is not None:
+            pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if includes_pattern is not None:
@@ -371,8 +411,7 @@ class _LocalCargoRepositoryState:
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
         Cargo client does not send credentials when performing download and search for crates. 
-        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-        Default value is `false`.
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -407,6 +446,19 @@ class _LocalCargoRepositoryState:
         pulumi.set(self, "blacked_out", value)
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "description")
@@ -427,6 +479,18 @@ class _LocalCargoRepositoryState:
     @download_direct.setter
     def download_direct(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "download_direct", value)
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
+
+    @enable_sparse_index.setter
+    def enable_sparse_index(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sparse_index", value)
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -523,7 +587,7 @@ class _LocalCargoRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -578,8 +642,10 @@ class LocalCargoRepository(pulumi.CustomResource):
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -603,6 +669,7 @@ class LocalCargoRepository(pulumi.CustomResource):
 
         terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
             anonymous_access=False,
+            enable_sparse_index=True,
             key="terraform-local-test-cargo-repo-basic")
         ```
 
@@ -617,14 +684,16 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
-               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-               Default value is `false`.
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -634,7 +703,7 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -658,6 +727,7 @@ class LocalCargoRepository(pulumi.CustomResource):
 
         terraform_local_test_cargo_repo_basic = artifactory.LocalCargoRepository("terraform-local-test-cargo-repo-basic",
             anonymous_access=False,
+            enable_sparse_index=True,
             key="terraform-local-test-cargo-repo-basic")
         ```
 
@@ -687,8 +757,10 @@ class LocalCargoRepository(pulumi.CustomResource):
                  anonymous_access: Optional[pulumi.Input[bool]] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
                  index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -712,8 +784,10 @@ class LocalCargoRepository(pulumi.CustomResource):
             __props__.__dict__["anonymous_access"] = anonymous_access
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
+            __props__.__dict__["enable_sparse_index"] = enable_sparse_index
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             __props__.__dict__["includes_pattern"] = includes_pattern
             __props__.__dict__["index_compression_formats"] = index_compression_formats
@@ -741,8 +815,10 @@ class LocalCargoRepository(pulumi.CustomResource):
             anonymous_access: Optional[pulumi.Input[bool]] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
+            enable_sparse_index: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             includes_pattern: Optional[pulumi.Input[str]] = None,
             index_compression_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -763,14 +839,16 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. 
-               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-               Default value is `false`.
+               Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[bool] archive_browsing_enabled: When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -780,7 +858,7 @@ class LocalCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -794,8 +872,10 @@ class LocalCargoRepository(pulumi.CustomResource):
         __props__.__dict__["anonymous_access"] = anonymous_access
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
+        __props__.__dict__["enable_sparse_index"] = enable_sparse_index
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["includes_pattern"] = includes_pattern
         __props__.__dict__["index_compression_formats"] = index_compression_formats
@@ -815,8 +895,7 @@ class LocalCargoRepository(pulumi.CustomResource):
     def anonymous_access(self) -> pulumi.Output[Optional[bool]]:
         """
         Cargo client does not send credentials when performing download and search for crates. 
-        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-        Default value is `false`.
+        Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -839,6 +918,15 @@ class LocalCargoRepository(pulumi.CustomResource):
         return pulumi.get(self, "blacked_out")
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "description")
@@ -851,6 +939,14 @@ class LocalCargoRepository(pulumi.CustomResource):
         storage provider. Available in Enterprise+ and Edge licenses only.
         """
         return pulumi.get(self, "download_direct")
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -915,7 +1011,7 @@ class LocalCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")

@@ -53,6 +53,23 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
+    /**
      * Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
      * conflicts with the locally calculated checksum (bad checksum). Options are: &#34;client-checksums&#34;, or
      * &#34;server-generated-checksums&#34;. Default: &#34;client-checksums&#34;\n For more details, please refer to Checksum Policy -
@@ -242,7 +259,7 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -250,7 +267,7 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -350,6 +367,7 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
     private LocalIvyRepositoryState(LocalIvyRepositoryState $) {
         this.archiveBrowsingEnabled = $.archiveBrowsingEnabled;
         this.blackedOut = $.blackedOut;
+        this.cdnRedirect = $.cdnRedirect;
         this.checksumPolicyType = $.checksumPolicyType;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
@@ -433,6 +451,29 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
          */
         public Builder blackedOut(Boolean blackedOut) {
             return blackedOut(Output.of(blackedOut));
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -703,7 +744,7 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -715,7 +756,7 @@ public final class LocalIvyRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder

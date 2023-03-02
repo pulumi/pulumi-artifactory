@@ -28,8 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewLocalCargoRepository(ctx, "terraform-local-test-cargo-repo-basic", &artifactory.LocalCargoRepositoryArgs{
-//				AnonymousAccess: pulumi.Bool(false),
-//				Key:             pulumi.String("terraform-local-test-cargo-repo-basic"),
+//				AnonymousAccess:   pulumi.Bool(false),
+//				EnableSparseIndex: pulumi.Bool(true),
+//				Key:               pulumi.String("terraform-local-test-cargo-repo-basic"),
 //			})
 //			if err != nil {
 //				return err
@@ -53,19 +54,23 @@ type LocalCargoRepository struct {
 	pulumi.CustomResourceState
 
 	// Cargo client does not send credentials when performing download and search for crates.
-	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	// Default value is `false`.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
+	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput   `pulumi:"cdnRedirect"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringOutput `pulumi:"excludesPattern"`
@@ -83,7 +88,7 @@ type LocalCargoRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -128,19 +133,23 @@ func GetLocalCargoRepository(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LocalCargoRepository resources.
 type localCargoRepositoryState struct {
 	// Cargo client does not send credentials when performing download and search for crates.
-	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	// Default value is `false`.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  *bool   `pulumi:"blackedOut"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -158,7 +167,7 @@ type localCargoRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -172,19 +181,23 @@ type localCargoRepositoryState struct {
 
 type LocalCargoRepositoryState struct {
 	// Cargo client does not send credentials when performing download and search for crates.
-	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	// Default value is `false`.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -202,7 +215,7 @@ type LocalCargoRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -220,19 +233,23 @@ func (LocalCargoRepositoryState) ElementType() reflect.Type {
 
 type localCargoRepositoryArgs struct {
 	// Cargo client does not send credentials when performing download and search for crates.
-	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	// Default value is `false`.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  *bool   `pulumi:"blackedOut"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -249,7 +266,7 @@ type localCargoRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -264,19 +281,23 @@ type localCargoRepositoryArgs struct {
 // The set of arguments for constructing a LocalCargoRepository resource.
 type LocalCargoRepositoryArgs struct {
 	// Cargo client does not send credentials when performing download and search for crates.
-	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-	// Default value is `false`.
+	// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// When set, you may view content such as HTML or Javadoc files directly from Artifactory. This may not be safe and
 	// therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -293,7 +314,7 @@ type LocalCargoRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -393,8 +414,7 @@ func (o LocalCargoRepositoryOutput) ToLocalCargoRepositoryOutputWithContext(ctx 
 }
 
 // Cargo client does not send credentials when performing download and search for crates.
-// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
-// Default value is `false`.
+// Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 func (o LocalCargoRepositoryOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -411,6 +431,12 @@ func (o LocalCargoRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalCargoRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 func (o LocalCargoRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -419,6 +445,11 @@ func (o LocalCargoRepositoryOutput) Description() pulumi.StringPtrOutput {
 // storage provider. Available in Enterprise+ and Edge licenses only.
 func (o LocalCargoRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
+}
+
+// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+func (o LocalCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocalCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
 
 // List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
@@ -462,7 +493,7 @@ func (o LocalCargoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalCargoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalCargoRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

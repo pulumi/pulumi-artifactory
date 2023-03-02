@@ -94,6 +94,11 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      * Default: false.
      */
     public readonly calculateYumMetadata!: pulumi.Output<boolean | undefined>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -135,7 +140,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -187,6 +192,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = state ? state.calculateYumMetadata : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = state ? state.enableFileListsIndexing : undefined;
@@ -213,6 +219,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["calculateYumMetadata"] = args ? args.calculateYumMetadata : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["enableFileListsIndexing"] = args ? args.enableFileListsIndexing : undefined;
@@ -255,6 +262,11 @@ export interface LocalRpmRepositoryState {
      * Default: false.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -296,7 +308,7 @@ export interface LocalRpmRepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -351,6 +363,11 @@ export interface LocalRpmRepositoryArgs {
      * Default: false.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -391,7 +408,7 @@ export interface LocalRpmRepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
