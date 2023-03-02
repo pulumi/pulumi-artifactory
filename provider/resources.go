@@ -22,6 +22,7 @@ import (
 	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory/provider"
 	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -315,37 +316,52 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := prov.ComputeDefaults(tfbridge.TokensSingleModule("artifactory_", mainMod,
-		tfbridge.MakeStandardToken(mainPkg)))
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("artifactory_", mainMod,
+		x.MakeStandardToken(mainPkg)))
 	contract.AssertNoError(err)
 
 	// The provider doesn't have docs for the following data sources, so we exclude them.
 	docLessDataSources := []string{
+		"artifactory_local_alpine_repository",
 		"artifactory_local_bower_repository",
+		"artifactory_local_cargo_repository",
 		"artifactory_local_chef_repository",
 		"artifactory_local_cocoapods_repository",
 		"artifactory_local_composer_repository",
 		"artifactory_local_conan_repository",
 		"artifactory_local_conda_repository",
 		"artifactory_local_cran_repository",
+		"artifactory_local_debian_repository",
+		"artifactory_local_docker_v1_repository",
+		"artifactory_local_docker_v2_repository",
 		"artifactory_local_gems_repository",
 		"artifactory_local_generic_repository",
 		"artifactory_local_gitlfs_repository",
 		"artifactory_local_go_repository",
+		"artifactory_local_gradle_repository",
 		"artifactory_local_helm_repository",
+		"artifactory_local_ivy_repository",
+		"artifactory_local_maven_repository",
 		"artifactory_local_npm_repository",
+		"artifactory_local_nuget_repository",
 		"artifactory_local_opkg_repository",
 		"artifactory_local_pub_repository",
 		"artifactory_local_puppet_repository",
 		"artifactory_local_pypi_repository",
+		"artifactory_local_rpm_repository",
+		"artifactory_local_sbt_repository",
 		"artifactory_local_swift_repository",
+		"artifactory_local_terraform_module_repository",
+		"artifactory_local_terraform_provider_repository",
 		"artifactory_local_terraformbackend_repository",
 		"artifactory_local_vagrant_repository",
 	}
+
+	missingDocInfo := &tfbridge.DocInfo{
+		Markdown: []byte{' '},
+	}
 	for _, s := range docLessDataSources {
-		prov.DataSources[s].Docs = &tfbridge.DocInfo{
-			Markdown: []byte{' '},
-		}
+		prov.DataSources[s].Docs = missingDocInfo
 	}
 
 	prov.SetAutonaming(255, "-")
