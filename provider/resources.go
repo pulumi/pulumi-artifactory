@@ -82,6 +82,7 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
 		TFProviderModuleVersion: "v7",
+		UpstreamRepoPath:        "https://github.com/jfrog/terraform-provider-artifactory/tree/master/docs",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
