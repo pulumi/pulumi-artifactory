@@ -23,6 +23,7 @@ func LookupLocalComposerRepository(ctx *pulumi.Context, args *LookupLocalCompose
 type LookupLocalComposerRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool    `pulumi:"blackedOut"`
+	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
 	Description            *string  `pulumi:"description"`
 	DownloadDirect         *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern        *string  `pulumi:"excludesPattern"`
@@ -41,6 +42,7 @@ type LookupLocalComposerRepositoryArgs struct {
 type LookupLocalComposerRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -75,6 +77,7 @@ func LookupLocalComposerRepositoryOutput(ctx *pulumi.Context, args LookupLocalCo
 type LookupLocalComposerRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
 	Description            pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -114,6 +117,10 @@ func (o LookupLocalComposerRepositoryResultOutput) ArchiveBrowsingEnabled() pulu
 
 func (o LookupLocalComposerRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalComposerRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupLocalComposerRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLocalComposerRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupLocalComposerRepositoryResultOutput) Description() pulumi.StringPtrOutput {

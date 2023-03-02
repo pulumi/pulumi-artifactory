@@ -116,6 +116,22 @@ public class FederatedDockerV1Repository extends com.pulumi.resources.CustomReso
     public Output<Boolean> blockPushingSchema1() {
         return this.blockPushingSchema1;
     }
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Export(name="cdnRedirect", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Output<Optional<Boolean>> cdnRedirect() {
+        return Codegen.optional(this.cdnRedirect);
+    }
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
@@ -255,7 +271,7 @@ public class FederatedDockerV1Repository extends com.pulumi.resources.CustomReso
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -263,7 +279,7 @@ public class FederatedDockerV1Repository extends com.pulumi.resources.CustomReso
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */

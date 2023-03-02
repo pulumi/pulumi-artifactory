@@ -66,9 +66,12 @@ type FederatedRpmRepository struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
-	CalculateYumMetadata pulumi.BoolPtrOutput   `pulumi:"calculateYumMetadata"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
+	BlackedOut           pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	CalculateYumMetadata pulumi.BoolPtrOutput `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput   `pulumi:"cdnRedirect"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -96,7 +99,7 @@ type FederatedRpmRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -158,9 +161,12 @@ type federatedRpmRepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
-	Description          *string `pulumi:"description"`
+	BlackedOut           *bool `pulumi:"blackedOut"`
+	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
+	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
@@ -188,7 +194,7 @@ type federatedRpmRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -218,7 +224,10 @@ type FederatedRpmRepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           pulumi.BoolPtrInput
 	CalculateYumMetadata pulumi.BoolPtrInput
-	Description          pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
+	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
@@ -246,7 +255,7 @@ type FederatedRpmRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -278,9 +287,12 @@ type federatedRpmRepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut           *bool   `pulumi:"blackedOut"`
-	CalculateYumMetadata *bool   `pulumi:"calculateYumMetadata"`
-	Description          *string `pulumi:"description"`
+	BlackedOut           *bool `pulumi:"blackedOut"`
+	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
+	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          *bool `pulumi:"downloadDirect"`
@@ -307,7 +319,7 @@ type federatedRpmRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -338,7 +350,10 @@ type FederatedRpmRepositoryArgs struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut           pulumi.BoolPtrInput
 	CalculateYumMetadata pulumi.BoolPtrInput
-	Description          pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
+	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect          pulumi.BoolPtrInput
@@ -365,7 +380,7 @@ type FederatedRpmRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -490,6 +505,12 @@ func (o FederatedRpmRepositoryOutput) CalculateYumMetadata() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.CalculateYumMetadata }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o FederatedRpmRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 func (o FederatedRpmRepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -554,7 +575,7 @@ func (o FederatedRpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOu
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedRpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedRpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

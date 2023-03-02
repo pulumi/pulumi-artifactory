@@ -68,6 +68,13 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlackedOut { get; private set; } = null!;
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Output("cdnRedirect")]
+        public Output<bool?> CdnRedirect { get; private set; } = null!;
+
+        /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
         /// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
         /// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -155,7 +162,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ProjectEnvironments { get; private set; } = null!;
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Output("projectKey")]
@@ -258,6 +265,13 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlackedOut { get; set; }
 
         /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
+
+        /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
         /// conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
         /// "server-generated-checksums". Default: "client-checksums"\n For more details, please refer to Checksum Policy -
@@ -354,7 +368,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]
@@ -423,6 +437,13 @@ namespace Pulumi.Artifactory
         /// </summary>
         [Input("blackedOut")]
         public Input<bool>? BlackedOut { get; set; }
+
+        /// <summary>
+        /// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        /// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        /// </summary>
+        [Input("cdnRedirect")]
+        public Input<bool>? CdnRedirect { get; set; }
 
         /// <summary>
         /// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
@@ -524,7 +545,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        /// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         /// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         /// </summary>
         [Input("projectKey")]

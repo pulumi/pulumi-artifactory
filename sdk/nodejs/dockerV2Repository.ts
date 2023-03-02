@@ -75,6 +75,11 @@ export class DockerV2Repository extends pulumi.CustomResource {
      * v2 schema 1 to this repository.
      */
     public readonly blockPushingSchema1!: pulumi.Output<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    public readonly cdnRedirect!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -114,7 +119,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
      */
     public readonly projectEnvironments!: pulumi.Output<string[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     public readonly projectKey!: pulumi.Output<string | undefined>;
@@ -154,6 +159,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = state ? state.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = state ? state.blackedOut : undefined;
             resourceInputs["blockPushingSchema1"] = state ? state.blockPushingSchema1 : undefined;
+            resourceInputs["cdnRedirect"] = state ? state.cdnRedirect : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["downloadDirect"] = state ? state.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = state ? state.excludesPattern : undefined;
@@ -177,6 +183,7 @@ export class DockerV2Repository extends pulumi.CustomResource {
             resourceInputs["archiveBrowsingEnabled"] = args ? args.archiveBrowsingEnabled : undefined;
             resourceInputs["blackedOut"] = args ? args.blackedOut : undefined;
             resourceInputs["blockPushingSchema1"] = args ? args.blockPushingSchema1 : undefined;
+            resourceInputs["cdnRedirect"] = args ? args.cdnRedirect : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["downloadDirect"] = args ? args.downloadDirect : undefined;
             resourceInputs["excludesPattern"] = args ? args.excludesPattern : undefined;
@@ -222,6 +229,11 @@ export interface DockerV2RepositoryState {
      * v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -261,7 +273,7 @@ export interface DockerV2RepositoryState {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;
@@ -304,6 +316,11 @@ export interface DockerV2RepositoryArgs {
      * v2 schema 1 to this repository.
      */
     blockPushingSchema1?: pulumi.Input<boolean>;
+    /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+     */
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     /**
      * When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -342,7 +359,7 @@ export interface DockerV2RepositoryArgs {
      */
     projectEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      */
     projectKey?: pulumi.Input<string>;

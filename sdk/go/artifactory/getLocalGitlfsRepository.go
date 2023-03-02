@@ -23,6 +23,7 @@ func GetLocalGitlfsRepository(ctx *pulumi.Context, args *GetLocalGitlfsRepositor
 type GetLocalGitlfsRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool    `pulumi:"blackedOut"`
+	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
 	Description            *string  `pulumi:"description"`
 	DownloadDirect         *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern        *string  `pulumi:"excludesPattern"`
@@ -41,6 +42,7 @@ type GetLocalGitlfsRepositoryArgs struct {
 type GetLocalGitlfsRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -75,6 +77,7 @@ func GetLocalGitlfsRepositoryOutput(ctx *pulumi.Context, args GetLocalGitlfsRepo
 type GetLocalGitlfsRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
 	Description            pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -114,6 +117,10 @@ func (o GetLocalGitlfsRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.Bo
 
 func (o GetLocalGitlfsRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetLocalGitlfsRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetLocalGitlfsRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLocalGitlfsRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetLocalGitlfsRepositoryResultOutput) Description() pulumi.StringPtrOutput {

@@ -23,6 +23,7 @@ func LookupLocalNpmRepository(ctx *pulumi.Context, args *LookupLocalNpmRepositor
 type LookupLocalNpmRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool    `pulumi:"blackedOut"`
+	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
 	Description            *string  `pulumi:"description"`
 	DownloadDirect         *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern        *string  `pulumi:"excludesPattern"`
@@ -41,6 +42,7 @@ type LookupLocalNpmRepositoryArgs struct {
 type LookupLocalNpmRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -75,6 +77,7 @@ func LookupLocalNpmRepositoryOutput(ctx *pulumi.Context, args LookupLocalNpmRepo
 type LookupLocalNpmRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
 	Description            pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -114,6 +117,10 @@ func (o LookupLocalNpmRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.Bo
 
 func (o LookupLocalNpmRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalNpmRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupLocalNpmRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLocalNpmRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupLocalNpmRepositoryResultOutput) Description() pulumi.StringPtrOutput {

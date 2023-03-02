@@ -260,10 +260,20 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetLocalAlpineRepositoryArgs, GetLocalAlpineRepositoryResult, GetLocalAlpineRepositoryOutputArgs } from "./getLocalAlpineRepository";
+export const getLocalAlpineRepository: typeof import("./getLocalAlpineRepository").getLocalAlpineRepository = null as any;
+export const getLocalAlpineRepositoryOutput: typeof import("./getLocalAlpineRepository").getLocalAlpineRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalAlpineRepository","getLocalAlpineRepositoryOutput"], () => require("./getLocalAlpineRepository"));
+
 export { GetLocalBowerRepositoryArgs, GetLocalBowerRepositoryResult, GetLocalBowerRepositoryOutputArgs } from "./getLocalBowerRepository";
 export const getLocalBowerRepository: typeof import("./getLocalBowerRepository").getLocalBowerRepository = null as any;
 export const getLocalBowerRepositoryOutput: typeof import("./getLocalBowerRepository").getLocalBowerRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalBowerRepository","getLocalBowerRepositoryOutput"], () => require("./getLocalBowerRepository"));
+
+export { GetLocalCargoRepositoryArgs, GetLocalCargoRepositoryResult, GetLocalCargoRepositoryOutputArgs } from "./getLocalCargoRepository";
+export const getLocalCargoRepository: typeof import("./getLocalCargoRepository").getLocalCargoRepository = null as any;
+export const getLocalCargoRepositoryOutput: typeof import("./getLocalCargoRepository").getLocalCargoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalCargoRepository","getLocalCargoRepositoryOutput"], () => require("./getLocalCargoRepository"));
 
 export { GetLocalChefRepositoryArgs, GetLocalChefRepositoryResult, GetLocalChefRepositoryOutputArgs } from "./getLocalChefRepository";
 export const getLocalChefRepository: typeof import("./getLocalChefRepository").getLocalChefRepository = null as any;
@@ -295,6 +305,21 @@ export const getLocalCranRepository: typeof import("./getLocalCranRepository").g
 export const getLocalCranRepositoryOutput: typeof import("./getLocalCranRepository").getLocalCranRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalCranRepository","getLocalCranRepositoryOutput"], () => require("./getLocalCranRepository"));
 
+export { GetLocalDebianRepositoryArgs, GetLocalDebianRepositoryResult, GetLocalDebianRepositoryOutputArgs } from "./getLocalDebianRepository";
+export const getLocalDebianRepository: typeof import("./getLocalDebianRepository").getLocalDebianRepository = null as any;
+export const getLocalDebianRepositoryOutput: typeof import("./getLocalDebianRepository").getLocalDebianRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalDebianRepository","getLocalDebianRepositoryOutput"], () => require("./getLocalDebianRepository"));
+
+export { GetLocalDockerV1RepositoryArgs, GetLocalDockerV1RepositoryResult, GetLocalDockerV1RepositoryOutputArgs } from "./getLocalDockerV1Repository";
+export const getLocalDockerV1Repository: typeof import("./getLocalDockerV1Repository").getLocalDockerV1Repository = null as any;
+export const getLocalDockerV1RepositoryOutput: typeof import("./getLocalDockerV1Repository").getLocalDockerV1RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalDockerV1Repository","getLocalDockerV1RepositoryOutput"], () => require("./getLocalDockerV1Repository"));
+
+export { GetLocalDockerV2RepositoryArgs, GetLocalDockerV2RepositoryResult, GetLocalDockerV2RepositoryOutputArgs } from "./getLocalDockerV2Repository";
+export const getLocalDockerV2Repository: typeof import("./getLocalDockerV2Repository").getLocalDockerV2Repository = null as any;
+export const getLocalDockerV2RepositoryOutput: typeof import("./getLocalDockerV2Repository").getLocalDockerV2RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalDockerV2Repository","getLocalDockerV2RepositoryOutput"], () => require("./getLocalDockerV2Repository"));
+
 export { GetLocalGemsRepositoryArgs, GetLocalGemsRepositoryResult, GetLocalGemsRepositoryOutputArgs } from "./getLocalGemsRepository";
 export const getLocalGemsRepository: typeof import("./getLocalGemsRepository").getLocalGemsRepository = null as any;
 export const getLocalGemsRepositoryOutput: typeof import("./getLocalGemsRepository").getLocalGemsRepositoryOutput = null as any;
@@ -315,15 +340,35 @@ export const getLocalGoRepository: typeof import("./getLocalGoRepository").getLo
 export const getLocalGoRepositoryOutput: typeof import("./getLocalGoRepository").getLocalGoRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalGoRepository","getLocalGoRepositoryOutput"], () => require("./getLocalGoRepository"));
 
+export { GetLocalGradleRepositoryArgs, GetLocalGradleRepositoryResult, GetLocalGradleRepositoryOutputArgs } from "./getLocalGradleRepository";
+export const getLocalGradleRepository: typeof import("./getLocalGradleRepository").getLocalGradleRepository = null as any;
+export const getLocalGradleRepositoryOutput: typeof import("./getLocalGradleRepository").getLocalGradleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalGradleRepository","getLocalGradleRepositoryOutput"], () => require("./getLocalGradleRepository"));
+
 export { GetLocalHelmRepositoryArgs, GetLocalHelmRepositoryResult, GetLocalHelmRepositoryOutputArgs } from "./getLocalHelmRepository";
 export const getLocalHelmRepository: typeof import("./getLocalHelmRepository").getLocalHelmRepository = null as any;
 export const getLocalHelmRepositoryOutput: typeof import("./getLocalHelmRepository").getLocalHelmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalHelmRepository","getLocalHelmRepositoryOutput"], () => require("./getLocalHelmRepository"));
 
+export { GetLocalIvyRepositoryArgs, GetLocalIvyRepositoryResult, GetLocalIvyRepositoryOutputArgs } from "./getLocalIvyRepository";
+export const getLocalIvyRepository: typeof import("./getLocalIvyRepository").getLocalIvyRepository = null as any;
+export const getLocalIvyRepositoryOutput: typeof import("./getLocalIvyRepository").getLocalIvyRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalIvyRepository","getLocalIvyRepositoryOutput"], () => require("./getLocalIvyRepository"));
+
+export { GetLocalMavenRepositoryArgs, GetLocalMavenRepositoryResult, GetLocalMavenRepositoryOutputArgs } from "./getLocalMavenRepository";
+export const getLocalMavenRepository: typeof import("./getLocalMavenRepository").getLocalMavenRepository = null as any;
+export const getLocalMavenRepositoryOutput: typeof import("./getLocalMavenRepository").getLocalMavenRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalMavenRepository","getLocalMavenRepositoryOutput"], () => require("./getLocalMavenRepository"));
+
 export { GetLocalNpmRepositoryArgs, GetLocalNpmRepositoryResult, GetLocalNpmRepositoryOutputArgs } from "./getLocalNpmRepository";
 export const getLocalNpmRepository: typeof import("./getLocalNpmRepository").getLocalNpmRepository = null as any;
 export const getLocalNpmRepositoryOutput: typeof import("./getLocalNpmRepository").getLocalNpmRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalNpmRepository","getLocalNpmRepositoryOutput"], () => require("./getLocalNpmRepository"));
+
+export { GetLocalNugetRepositoryArgs, GetLocalNugetRepositoryResult, GetLocalNugetRepositoryOutputArgs } from "./getLocalNugetRepository";
+export const getLocalNugetRepository: typeof import("./getLocalNugetRepository").getLocalNugetRepository = null as any;
+export const getLocalNugetRepositoryOutput: typeof import("./getLocalNugetRepository").getLocalNugetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalNugetRepository","getLocalNugetRepositoryOutput"], () => require("./getLocalNugetRepository"));
 
 export { GetLocalOpkgRepositoryArgs, GetLocalOpkgRepositoryResult, GetLocalOpkgRepositoryOutputArgs } from "./getLocalOpkgRepository";
 export const getLocalOpkgRepository: typeof import("./getLocalOpkgRepository").getLocalOpkgRepository = null as any;
@@ -345,10 +390,30 @@ export const getLocalPypiRepository: typeof import("./getLocalPypiRepository").g
 export const getLocalPypiRepositoryOutput: typeof import("./getLocalPypiRepository").getLocalPypiRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalPypiRepository","getLocalPypiRepositoryOutput"], () => require("./getLocalPypiRepository"));
 
+export { GetLocalRpmRepositoryArgs, GetLocalRpmRepositoryResult, GetLocalRpmRepositoryOutputArgs } from "./getLocalRpmRepository";
+export const getLocalRpmRepository: typeof import("./getLocalRpmRepository").getLocalRpmRepository = null as any;
+export const getLocalRpmRepositoryOutput: typeof import("./getLocalRpmRepository").getLocalRpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalRpmRepository","getLocalRpmRepositoryOutput"], () => require("./getLocalRpmRepository"));
+
+export { GetLocalSbtRepositoryArgs, GetLocalSbtRepositoryResult, GetLocalSbtRepositoryOutputArgs } from "./getLocalSbtRepository";
+export const getLocalSbtRepository: typeof import("./getLocalSbtRepository").getLocalSbtRepository = null as any;
+export const getLocalSbtRepositoryOutput: typeof import("./getLocalSbtRepository").getLocalSbtRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalSbtRepository","getLocalSbtRepositoryOutput"], () => require("./getLocalSbtRepository"));
+
 export { GetLocalSwiftRepositoryArgs, GetLocalSwiftRepositoryResult, GetLocalSwiftRepositoryOutputArgs } from "./getLocalSwiftRepository";
 export const getLocalSwiftRepository: typeof import("./getLocalSwiftRepository").getLocalSwiftRepository = null as any;
 export const getLocalSwiftRepositoryOutput: typeof import("./getLocalSwiftRepository").getLocalSwiftRepositoryOutput = null as any;
 utilities.lazyLoad(exports, ["getLocalSwiftRepository","getLocalSwiftRepositoryOutput"], () => require("./getLocalSwiftRepository"));
+
+export { GetLocalTerraformModuleRepositoryArgs, GetLocalTerraformModuleRepositoryResult, GetLocalTerraformModuleRepositoryOutputArgs } from "./getLocalTerraformModuleRepository";
+export const getLocalTerraformModuleRepository: typeof import("./getLocalTerraformModuleRepository").getLocalTerraformModuleRepository = null as any;
+export const getLocalTerraformModuleRepositoryOutput: typeof import("./getLocalTerraformModuleRepository").getLocalTerraformModuleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalTerraformModuleRepository","getLocalTerraformModuleRepositoryOutput"], () => require("./getLocalTerraformModuleRepository"));
+
+export { GetLocalTerraformProviderRepositoryArgs, GetLocalTerraformProviderRepositoryResult, GetLocalTerraformProviderRepositoryOutputArgs } from "./getLocalTerraformProviderRepository";
+export const getLocalTerraformProviderRepository: typeof import("./getLocalTerraformProviderRepository").getLocalTerraformProviderRepository = null as any;
+export const getLocalTerraformProviderRepositoryOutput: typeof import("./getLocalTerraformProviderRepository").getLocalTerraformProviderRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getLocalTerraformProviderRepository","getLocalTerraformProviderRepositoryOutput"], () => require("./getLocalTerraformProviderRepository"));
 
 export { GetLocalTerraformbackendRepositoryArgs, GetLocalTerraformbackendRepositoryResult, GetLocalTerraformbackendRepositoryOutputArgs } from "./getLocalTerraformbackendRepository";
 export const getLocalTerraformbackendRepository: typeof import("./getLocalTerraformbackendRepository").getLocalTerraformbackendRepository = null as any;

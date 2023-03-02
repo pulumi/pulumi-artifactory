@@ -23,6 +23,7 @@ func GetLocalTerraformbackendRepository(ctx *pulumi.Context, args *GetLocalTerra
 type GetLocalTerraformbackendRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool    `pulumi:"blackedOut"`
+	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
 	Description            *string  `pulumi:"description"`
 	DownloadDirect         *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern        *string  `pulumi:"excludesPattern"`
@@ -41,6 +42,7 @@ type GetLocalTerraformbackendRepositoryArgs struct {
 type GetLocalTerraformbackendRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -75,6 +77,7 @@ func GetLocalTerraformbackendRepositoryOutput(ctx *pulumi.Context, args GetLocal
 type GetLocalTerraformbackendRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
 	Description            pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -114,6 +117,10 @@ func (o GetLocalTerraformbackendRepositoryResultOutput) ArchiveBrowsingEnabled()
 
 func (o GetLocalTerraformbackendRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetLocalTerraformbackendRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetLocalTerraformbackendRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetLocalTerraformbackendRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o GetLocalTerraformbackendRepositoryResultOutput) Description() pulumi.StringPtrOutput {

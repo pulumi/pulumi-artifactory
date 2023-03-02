@@ -63,6 +63,9 @@ type LocalMavenRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
 	// - `server-generated-checksums`.
@@ -96,7 +99,7 @@ type LocalMavenRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -153,6 +156,9 @@ type localMavenRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
 	// - `server-generated-checksums`.
@@ -186,7 +192,7 @@ type localMavenRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -212,6 +218,9 @@ type LocalMavenRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
 	// - `server-generated-checksums`.
@@ -245,7 +254,7 @@ type LocalMavenRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -275,6 +284,9 @@ type localMavenRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
 	// - `server-generated-checksums`.
@@ -307,7 +319,7 @@ type localMavenRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -334,6 +346,9 @@ type LocalMavenRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 	// - `client-checksums`
 	// - `server-generated-checksums`.
@@ -366,7 +381,7 @@ type LocalMavenRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -484,6 +499,12 @@ func (o LocalMavenRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o LocalMavenRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LocalMavenRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 // Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or conflicts with the locally calculated checksum (bad checksum). The options are:
 //   - `client-checksums`
 //   - `server-generated-checksums`.
@@ -556,7 +577,7 @@ func (o LocalMavenRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o LocalMavenRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalMavenRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

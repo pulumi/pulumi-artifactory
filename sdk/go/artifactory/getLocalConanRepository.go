@@ -23,6 +23,7 @@ func LookupLocalConanRepository(ctx *pulumi.Context, args *LookupLocalConanRepos
 type LookupLocalConanRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool    `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool    `pulumi:"blackedOut"`
+	CdnRedirect            *bool    `pulumi:"cdnRedirect"`
 	Description            *string  `pulumi:"description"`
 	DownloadDirect         *bool    `pulumi:"downloadDirect"`
 	ExcludesPattern        *string  `pulumi:"excludesPattern"`
@@ -41,6 +42,7 @@ type LookupLocalConanRepositoryArgs struct {
 type LookupLocalConanRepositoryResult struct {
 	ArchiveBrowsingEnabled *bool   `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             *bool   `pulumi:"blackedOut"`
+	CdnRedirect            *bool   `pulumi:"cdnRedirect"`
 	Description            *string `pulumi:"description"`
 	DownloadDirect         *bool   `pulumi:"downloadDirect"`
 	ExcludesPattern        string  `pulumi:"excludesPattern"`
@@ -75,6 +77,7 @@ func LookupLocalConanRepositoryOutput(ctx *pulumi.Context, args LookupLocalConan
 type LookupLocalConanRepositoryOutputArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput     `pulumi:"archiveBrowsingEnabled"`
 	BlackedOut             pulumi.BoolPtrInput     `pulumi:"blackedOut"`
+	CdnRedirect            pulumi.BoolPtrInput     `pulumi:"cdnRedirect"`
 	Description            pulumi.StringPtrInput   `pulumi:"description"`
 	DownloadDirect         pulumi.BoolPtrInput     `pulumi:"downloadDirect"`
 	ExcludesPattern        pulumi.StringPtrInput   `pulumi:"excludesPattern"`
@@ -114,6 +117,10 @@ func (o LookupLocalConanRepositoryResultOutput) ArchiveBrowsingEnabled() pulumi.
 
 func (o LookupLocalConanRepositoryResultOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *bool { return v.BlackedOut }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupLocalConanRepositoryResultOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLocalConanRepositoryResult) *bool { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupLocalConanRepositoryResultOutput) Description() pulumi.StringPtrOutput {

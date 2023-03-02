@@ -17,6 +17,7 @@ class LocalSbtRepositoryArgs:
                  key: pulumi.Input[str],
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -41,6 +42,8 @@ class LocalSbtRepositoryArgs:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
@@ -59,7 +62,7 @@ class LocalSbtRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -78,6 +81,8 @@ class LocalSbtRepositoryArgs:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
             pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
         if description is not None:
@@ -150,6 +155,19 @@ class LocalSbtRepositoryArgs:
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="checksumPolicyType")
@@ -290,7 +308,7 @@ class LocalSbtRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -371,6 +389,7 @@ class _LocalSbtRepositoryState:
     def __init__(__self__, *,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -396,6 +415,8 @@ class _LocalSbtRepositoryState:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
@@ -415,7 +436,7 @@ class _LocalSbtRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -433,6 +454,8 @@ class _LocalSbtRepositoryState:
             pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out is not None:
             pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if checksum_policy_type is not None:
             pulumi.set(__self__, "checksum_policy_type", checksum_policy_type)
         if description is not None:
@@ -497,6 +520,19 @@ class _LocalSbtRepositoryState:
     @blacked_out.setter
     def blacked_out(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "blacked_out", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="checksumPolicyType")
@@ -658,7 +694,7 @@ class _LocalSbtRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -741,6 +777,7 @@ class LocalSbtRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -786,6 +823,8 @@ class LocalSbtRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
@@ -805,7 +844,7 @@ class LocalSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -862,6 +901,7 @@ class LocalSbtRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
                  blacked_out: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  checksum_policy_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
@@ -891,6 +931,7 @@ class LocalSbtRepository(pulumi.CustomResource):
 
             __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
             __props__.__dict__["blacked_out"] = blacked_out
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["checksum_policy_type"] = checksum_policy_type
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
@@ -924,6 +965,7 @@ class LocalSbtRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             archive_browsing_enabled: Optional[pulumi.Input[bool]] = None,
             blacked_out: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             checksum_policy_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
@@ -954,6 +996,8 @@ class LocalSbtRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] checksum_policy_type: Checksum policy determines how Artifactory behaves when a client checksum for a deployed resource is missing or
                conflicts with the locally calculated checksum (bad checksum). Options are: "client-checksums", or
                "server-generated-checksums". Default: "client-checksums"\\n For more details, please refer to Checksum Policy -
@@ -973,7 +1017,7 @@ class LocalSbtRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set name
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
@@ -993,6 +1037,7 @@ class LocalSbtRepository(pulumi.CustomResource):
 
         __props__.__dict__["archive_browsing_enabled"] = archive_browsing_enabled
         __props__.__dict__["blacked_out"] = blacked_out
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["checksum_policy_type"] = checksum_policy_type
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
@@ -1031,6 +1076,15 @@ class LocalSbtRepository(pulumi.CustomResource):
         When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
         """
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter(name="checksumPolicyType")
@@ -1140,7 +1194,7 @@ class LocalSbtRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")

@@ -67,9 +67,12 @@ type FederatedDockerV1Repository struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut          pulumi.BoolPtrOutput   `pulumi:"blackedOut"`
-	BlockPushingSchema1 pulumi.BoolOutput      `pulumi:"blockPushingSchema1"`
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	BlackedOut          pulumi.BoolPtrOutput `pulumi:"blackedOut"`
+	BlockPushingSchema1 pulumi.BoolOutput    `pulumi:"blockPushingSchema1"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput   `pulumi:"cdnRedirect"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
@@ -95,7 +98,7 @@ type FederatedDockerV1Repository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set name
@@ -149,9 +152,12 @@ type federatedDockerV1RepositoryState struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut          *bool   `pulumi:"blackedOut"`
-	BlockPushingSchema1 *bool   `pulumi:"blockPushingSchema1"`
-	Description         *string `pulumi:"description"`
+	BlackedOut          *bool `pulumi:"blackedOut"`
+	BlockPushingSchema1 *bool `pulumi:"blockPushingSchema1"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
+	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
@@ -177,7 +183,7 @@ type federatedDockerV1RepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -199,7 +205,10 @@ type FederatedDockerV1RepositoryState struct {
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut          pulumi.BoolPtrInput
 	BlockPushingSchema1 pulumi.BoolPtrInput
-	Description         pulumi.StringPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
+	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
@@ -225,7 +234,7 @@ type FederatedDockerV1RepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -248,7 +257,10 @@ type federatedDockerV1RepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  *bool   `pulumi:"blackedOut"`
+	BlackedOut *bool `pulumi:"blackedOut"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool   `pulumi:"cdnRedirect"`
 	Description *string `pulumi:"description"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -274,7 +286,7 @@ type federatedDockerV1RepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set name
@@ -293,7 +305,10 @@ type FederatedDockerV1RepositoryArgs struct {
 	// security (e.g., cross-site scripting attacks).
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-	BlackedOut  pulumi.BoolPtrInput
+	BlackedOut pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	Description pulumi.StringPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
@@ -319,7 +334,7 @@ type FederatedDockerV1RepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set name
@@ -438,6 +453,12 @@ func (o FederatedDockerV1RepositoryOutput) BlockPushingSchema1() pulumi.BoolOutp
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolOutput { return v.BlockPushingSchema1 }).(pulumi.BoolOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o FederatedDockerV1RepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 func (o FederatedDockerV1RepositoryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -497,7 +518,7 @@ func (o FederatedDockerV1RepositoryOutput) ProjectEnvironments() pulumi.StringAr
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o FederatedDockerV1RepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FederatedDockerV1Repository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

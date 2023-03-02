@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 public final class GetLocalChefRepositoryResult {
     private @Nullable Boolean archiveBrowsingEnabled;
     private @Nullable Boolean blackedOut;
+    private @Nullable Boolean cdnRedirect;
     private @Nullable String description;
     private @Nullable Boolean downloadDirect;
     private String excludesPattern;
@@ -40,6 +41,9 @@ public final class GetLocalChefRepositoryResult {
     }
     public Optional<Boolean> blackedOut() {
         return Optional.ofNullable(this.blackedOut);
+    }
+    public Optional<Boolean> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
     }
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
@@ -99,6 +103,7 @@ public final class GetLocalChefRepositoryResult {
     public static final class Builder {
         private @Nullable Boolean archiveBrowsingEnabled;
         private @Nullable Boolean blackedOut;
+        private @Nullable Boolean cdnRedirect;
         private @Nullable String description;
         private @Nullable Boolean downloadDirect;
         private String excludesPattern;
@@ -118,6 +123,7 @@ public final class GetLocalChefRepositoryResult {
     	      Objects.requireNonNull(defaults);
     	      this.archiveBrowsingEnabled = defaults.archiveBrowsingEnabled;
     	      this.blackedOut = defaults.blackedOut;
+    	      this.cdnRedirect = defaults.cdnRedirect;
     	      this.description = defaults.description;
     	      this.downloadDirect = defaults.downloadDirect;
     	      this.excludesPattern = defaults.excludesPattern;
@@ -142,6 +148,11 @@ public final class GetLocalChefRepositoryResult {
         @CustomType.Setter
         public Builder blackedOut(@Nullable Boolean blackedOut) {
             this.blackedOut = blackedOut;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cdnRedirect(@Nullable Boolean cdnRedirect) {
+            this.cdnRedirect = cdnRedirect;
             return this;
         }
         @CustomType.Setter
@@ -224,6 +235,7 @@ public final class GetLocalChefRepositoryResult {
             final var o = new GetLocalChefRepositoryResult();
             o.archiveBrowsingEnabled = archiveBrowsingEnabled;
             o.blackedOut = blackedOut;
+            o.cdnRedirect = cdnRedirect;
             o.description = description;
             o.downloadDirect = downloadDirect;
             o.excludesPattern = excludesPattern;

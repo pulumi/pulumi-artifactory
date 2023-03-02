@@ -25,11 +25,13 @@ class RemoteCargoRepositoryArgs:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteCargoRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
                  includes_pattern: Optional[pulumi.Input[str]] = None,
@@ -65,7 +67,7 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -77,11 +79,14 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
@@ -106,7 +111,7 @@ class RemoteCargoRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -143,6 +148,8 @@ class RemoteCargoRepositoryArgs:
             pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
             pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
@@ -153,6 +160,8 @@ class RemoteCargoRepositoryArgs:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+        if enable_sparse_index is not None:
+            pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if hard_fail is not None:
@@ -262,7 +271,7 @@ class RemoteCargoRepositoryArgs:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -326,6 +335,19 @@ class RemoteCargoRepositoryArgs:
         pulumi.set(self, "bypass_head_requests", value)
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
+
+    @property
     @pulumi.getter(name="clientTlsCertificate")
     def client_tls_certificate(self) -> Optional[pulumi.Input[str]]:
         """
@@ -382,6 +404,18 @@ class RemoteCargoRepositoryArgs:
     @enable_cookie_management.setter
     def enable_cookie_management(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_cookie_management", value)
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
+
+    @enable_sparse_index.setter
+    def enable_sparse_index(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sparse_index", value)
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -552,7 +586,7 @@ class RemoteCargoRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -729,11 +763,13 @@ class _RemoteCargoRepositoryState:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteCargoRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  git_registry_url: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -769,7 +805,7 @@ class _RemoteCargoRepositoryState:
         Input properties used for looking up and filtering RemoteCargoRepository resources.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -781,11 +817,14 @@ class _RemoteCargoRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
@@ -813,7 +852,7 @@ class _RemoteCargoRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -848,6 +887,8 @@ class _RemoteCargoRepositoryState:
             pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
             pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
@@ -858,6 +899,8 @@ class _RemoteCargoRepositoryState:
             pulumi.set(__self__, "download_direct", download_direct)
         if enable_cookie_management is not None:
             pulumi.set(__self__, "enable_cookie_management", enable_cookie_management)
+        if enable_sparse_index is not None:
+            pulumi.set(__self__, "enable_sparse_index", enable_sparse_index)
         if excludes_pattern is not None:
             pulumi.set(__self__, "excludes_pattern", excludes_pattern)
         if git_registry_url is not None:
@@ -938,7 +981,7 @@ class _RemoteCargoRepositoryState:
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> Optional[pulumi.Input[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -1002,6 +1045,19 @@ class _RemoteCargoRepositoryState:
         pulumi.set(self, "bypass_head_requests", value)
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
+
+    @property
     @pulumi.getter(name="clientTlsCertificate")
     def client_tls_certificate(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1058,6 +1114,18 @@ class _RemoteCargoRepositoryState:
     @enable_cookie_management.setter
     def enable_cookie_management(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_cookie_management", value)
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
+
+    @enable_sparse_index.setter
+    def enable_sparse_index(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_sparse_index", value)
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -1262,7 +1330,7 @@ class _RemoteCargoRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -1453,11 +1521,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCargoRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  git_registry_url: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -1501,6 +1571,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
         my_remote_cargo = artifactory.RemoteCargoRepository("my-remote-cargo",
             anonymous_access=True,
+            enable_sparse_index=True,
             git_registry_url="https://github.com/rust-lang/foo.index",
             key="my-remote-cargo",
             url="https://github.com/rust-lang/crates.io-index")
@@ -1522,7 +1593,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -1534,11 +1605,14 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
@@ -1566,7 +1640,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -1607,6 +1681,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
 
         my_remote_cargo = artifactory.RemoteCargoRepository("my-remote-cargo",
             anonymous_access=True,
+            enable_sparse_index=True,
             git_registry_url="https://github.com/rust-lang/foo.index",
             key="my-remote-cargo",
             url="https://github.com/rust-lang/crates.io-index")
@@ -1645,11 +1720,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCargoRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  download_direct: Optional[pulumi.Input[bool]] = None,
                  enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+                 enable_sparse_index: Optional[pulumi.Input[bool]] = None,
                  excludes_pattern: Optional[pulumi.Input[str]] = None,
                  git_registry_url: Optional[pulumi.Input[str]] = None,
                  hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -1695,11 +1772,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
             __props__.__dict__["bypass_head_requests"] = bypass_head_requests
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
             __props__.__dict__["download_direct"] = download_direct
             __props__.__dict__["enable_cookie_management"] = enable_cookie_management
+            __props__.__dict__["enable_sparse_index"] = enable_sparse_index
             __props__.__dict__["excludes_pattern"] = excludes_pattern
             if git_registry_url is None and not opts.urn:
                 raise TypeError("Missing required property 'git_registry_url'")
@@ -1755,11 +1834,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
             blacked_out: Optional[pulumi.Input[bool]] = None,
             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
             bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteCargoRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             download_direct: Optional[pulumi.Input[bool]] = None,
             enable_cookie_management: Optional[pulumi.Input[bool]] = None,
+            enable_sparse_index: Optional[pulumi.Input[bool]] = None,
             excludes_pattern: Optional[pulumi.Input[str]] = None,
             git_registry_url: Optional[pulumi.Input[str]] = None,
             hard_fail: Optional[pulumi.Input[bool]] = None,
@@ -1800,7 +1881,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_any_host_auth: 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
                other host.
-        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        :param pulumi.Input[bool] anonymous_access: Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         :param pulumi.Input[int] assumed_offline_period_secs: The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
                an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
                offline.
@@ -1812,11 +1893,14 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
+        :param pulumi.Input[bool] enable_sparse_index: Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
         :param pulumi.Input[str] git_registry_url: This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
@@ -1844,7 +1928,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -1877,11 +1961,13 @@ class RemoteCargoRepository(pulumi.CustomResource):
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
         __props__.__dict__["bypass_head_requests"] = bypass_head_requests
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
         __props__.__dict__["download_direct"] = download_direct
         __props__.__dict__["enable_cookie_management"] = enable_cookie_management
+        __props__.__dict__["enable_sparse_index"] = enable_sparse_index
         __props__.__dict__["excludes_pattern"] = excludes_pattern
         __props__.__dict__["git_registry_url"] = git_registry_url
         __props__.__dict__["hard_fail"] = hard_fail
@@ -1928,7 +2014,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="anonymousAccess")
     def anonymous_access(self) -> pulumi.Output[Optional[bool]]:
         """
-        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+        Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
         """
         return pulumi.get(self, "anonymous_access")
 
@@ -1972,6 +2058,15 @@ class RemoteCargoRepository(pulumi.CustomResource):
         return pulumi.get(self, "bypass_head_requests")
 
     @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @property
     @pulumi.getter(name="clientTlsCertificate")
     def client_tls_certificate(self) -> pulumi.Output[str]:
         """
@@ -2008,6 +2103,14 @@ class RemoteCargoRepository(pulumi.CustomResource):
         Enables cookie management if the remote repository uses cookies to manage client state.
         """
         return pulumi.get(self, "enable_cookie_management")
+
+    @property
+    @pulumi.getter(name="enableSparseIndex")
+    def enable_sparse_index(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+        """
+        return pulumi.get(self, "enable_sparse_index")
 
     @property
     @pulumi.getter(name="excludesPattern")
@@ -2148,7 +2251,7 @@ class RemoteCargoRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")

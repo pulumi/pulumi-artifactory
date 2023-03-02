@@ -10,6 +10,7 @@ export function getLocalComposerRepository(args: GetLocalComposerRepositoryArgs,
     return pulumi.runtime.invoke("artifactory:index/getLocalComposerRepository:getLocalComposerRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
@@ -31,6 +32,7 @@ export function getLocalComposerRepository(args: GetLocalComposerRepositoryArgs,
 export interface GetLocalComposerRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
+    cdnRedirect?: boolean;
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
@@ -51,6 +53,7 @@ export interface GetLocalComposerRepositoryArgs {
 export interface GetLocalComposerRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
+    readonly cdnRedirect?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
@@ -79,6 +82,7 @@ export function getLocalComposerRepositoryOutput(args: GetLocalComposerRepositor
 export interface GetLocalComposerRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

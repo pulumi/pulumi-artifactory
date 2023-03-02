@@ -89,7 +89,7 @@ type VirtualNpmRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// Repository layout key for the local repository
@@ -164,7 +164,7 @@ type virtualNpmRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
@@ -208,7 +208,7 @@ type VirtualNpmRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -254,7 +254,7 @@ type virtualNpmRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// Repository layout key for the local repository
@@ -297,7 +297,7 @@ type VirtualNpmRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// Repository layout key for the local repository
@@ -465,7 +465,7 @@ func (o VirtualNpmRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o VirtualNpmRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNpmRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

@@ -10,6 +10,7 @@ export function getLocalGemsRepository(args: GetLocalGemsRepositoryArgs, opts?: 
     return pulumi.runtime.invoke("artifactory:index/getLocalGemsRepository:getLocalGemsRepository", {
         "archiveBrowsingEnabled": args.archiveBrowsingEnabled,
         "blackedOut": args.blackedOut,
+        "cdnRedirect": args.cdnRedirect,
         "description": args.description,
         "downloadDirect": args.downloadDirect,
         "excludesPattern": args.excludesPattern,
@@ -31,6 +32,7 @@ export function getLocalGemsRepository(args: GetLocalGemsRepositoryArgs, opts?: 
 export interface GetLocalGemsRepositoryArgs {
     archiveBrowsingEnabled?: boolean;
     blackedOut?: boolean;
+    cdnRedirect?: boolean;
     description?: string;
     downloadDirect?: boolean;
     excludesPattern?: string;
@@ -51,6 +53,7 @@ export interface GetLocalGemsRepositoryArgs {
 export interface GetLocalGemsRepositoryResult {
     readonly archiveBrowsingEnabled?: boolean;
     readonly blackedOut?: boolean;
+    readonly cdnRedirect?: boolean;
     readonly description?: string;
     readonly downloadDirect?: boolean;
     readonly excludesPattern: string;
@@ -79,6 +82,7 @@ export function getLocalGemsRepositoryOutput(args: GetLocalGemsRepositoryOutputA
 export interface GetLocalGemsRepositoryOutputArgs {
     archiveBrowsingEnabled?: pulumi.Input<boolean>;
     blackedOut?: pulumi.Input<boolean>;
+    cdnRedirect?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     downloadDirect?: pulumi.Input<boolean>;
     excludesPattern?: pulumi.Input<string>;

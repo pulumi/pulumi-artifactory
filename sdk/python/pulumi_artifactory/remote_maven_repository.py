@@ -23,6 +23,7 @@ class RemoteMavenRepositoryArgs:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteMavenRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -80,6 +81,8 @@ class RemoteMavenRepositoryArgs:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -112,7 +115,7 @@ class RemoteMavenRepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -149,6 +152,8 @@ class RemoteMavenRepositoryArgs:
             pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
             pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
@@ -320,6 +325,19 @@ class RemoteMavenRepositoryArgs:
     @bypass_head_requests.setter
     def bypass_head_requests(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bypass_head_requests", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
@@ -595,7 +613,7 @@ class RemoteMavenRepositoryArgs:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -807,6 +825,7 @@ class _RemoteMavenRepositoryState:
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input['RemoteMavenRepositoryContentSynchronisationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -864,6 +883,8 @@ class _RemoteMavenRepositoryState:
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -898,7 +919,7 @@ class _RemoteMavenRepositoryState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -934,6 +955,8 @@ class _RemoteMavenRepositoryState:
             pulumi.set(__self__, "block_mismatching_mime_types", block_mismatching_mime_types)
         if bypass_head_requests is not None:
             pulumi.set(__self__, "bypass_head_requests", bypass_head_requests)
+        if cdn_redirect is not None:
+            pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if client_tls_certificate is not None:
             pulumi.set(__self__, "client_tls_certificate", client_tls_certificate)
         if content_synchronisation is not None:
@@ -1086,6 +1109,19 @@ class _RemoteMavenRepositoryState:
     @bypass_head_requests.setter
     def bypass_head_requests(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bypass_head_requests", value)
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
+
+    @cdn_redirect.setter
+    def cdn_redirect(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cdn_redirect", value)
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
@@ -1383,7 +1419,7 @@ class _RemoteMavenRepositoryState:
     @pulumi.getter(name="projectKey")
     def project_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")
@@ -1609,6 +1645,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteMavenRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -1694,6 +1731,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -1728,7 +1767,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -1808,6 +1847,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                  blacked_out: Optional[pulumi.Input[bool]] = None,
                  block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
                  bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+                 cdn_redirect: Optional[pulumi.Input[bool]] = None,
                  client_tls_certificate: Optional[pulumi.Input[str]] = None,
                  content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteMavenRepositoryContentSynchronisationArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -1863,6 +1903,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             __props__.__dict__["blacked_out"] = blacked_out
             __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
             __props__.__dict__["bypass_head_requests"] = bypass_head_requests
+            __props__.__dict__["cdn_redirect"] = cdn_redirect
             __props__.__dict__["client_tls_certificate"] = client_tls_certificate
             __props__.__dict__["content_synchronisation"] = content_synchronisation
             __props__.__dict__["description"] = description
@@ -1926,6 +1967,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
             blacked_out: Optional[pulumi.Input[bool]] = None,
             block_mismatching_mime_types: Optional[pulumi.Input[bool]] = None,
             bypass_head_requests: Optional[pulumi.Input[bool]] = None,
+            cdn_redirect: Optional[pulumi.Input[bool]] = None,
             client_tls_certificate: Optional[pulumi.Input[str]] = None,
             content_synchronisation: Optional[pulumi.Input[pulumi.InputType['RemoteMavenRepositoryContentSynchronisationArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -1988,6 +2030,8 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
+        :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+               CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
@@ -2022,7 +2066,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
                will remain in the Terraform state, which will create state drift during the update.
-        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        :param pulumi.Input[str] project_key: Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
@@ -2057,6 +2101,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         __props__.__dict__["blacked_out"] = blacked_out
         __props__.__dict__["block_mismatching_mime_types"] = block_mismatching_mime_types
         __props__.__dict__["bypass_head_requests"] = bypass_head_requests
+        __props__.__dict__["cdn_redirect"] = cdn_redirect
         __props__.__dict__["client_tls_certificate"] = client_tls_certificate
         __props__.__dict__["content_synchronisation"] = content_synchronisation
         __props__.__dict__["description"] = description
@@ -2148,6 +2193,15 @@ class RemoteMavenRepository(pulumi.CustomResource):
         Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
         """
         return pulumi.get(self, "bypass_head_requests")
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+        CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+        """
+        return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter(name="clientTlsCertificate")
@@ -2349,7 +2403,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="projectKey")
     def project_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+        Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
         assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         """
         return pulumi.get(self, "project_key")

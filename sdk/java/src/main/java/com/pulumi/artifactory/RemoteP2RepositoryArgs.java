@@ -111,6 +111,23 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
+    /**
      * Client TLS certificate name.
      * 
      */
@@ -408,7 +425,7 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -416,7 +433,7 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -642,6 +659,7 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
         this.bypassHeadRequests = $.bypassHeadRequests;
+        this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
@@ -815,6 +833,29 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
          */
         public Builder bypassHeadRequests(Boolean bypassHeadRequests) {
             return bypassHeadRequests(Output.of(bypassHeadRequests));
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
         }
 
         /**
@@ -1233,7 +1274,7 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -1245,7 +1286,7 @@ public final class RemoteP2RepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder

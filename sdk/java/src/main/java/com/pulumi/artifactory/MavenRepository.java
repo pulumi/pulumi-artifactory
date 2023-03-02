@@ -269,7 +269,7 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
         return this.projectEnvironments;
     }
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -277,7 +277,7 @@ public class MavenRepository extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */

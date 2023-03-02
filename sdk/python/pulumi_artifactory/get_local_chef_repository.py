@@ -21,13 +21,16 @@ class GetLocalChefRepositoryResult:
     """
     A collection of values returned by getLocalChefRepository.
     """
-    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
+    def __init__(__self__, archive_browsing_enabled=None, blacked_out=None, cdn_redirect=None, description=None, download_direct=None, excludes_pattern=None, id=None, includes_pattern=None, key=None, notes=None, package_type=None, priority_resolution=None, project_environments=None, project_key=None, property_sets=None, repo_layout_ref=None, xray_index=None):
         if archive_browsing_enabled and not isinstance(archive_browsing_enabled, bool):
             raise TypeError("Expected argument 'archive_browsing_enabled' to be a bool")
         pulumi.set(__self__, "archive_browsing_enabled", archive_browsing_enabled)
         if blacked_out and not isinstance(blacked_out, bool):
             raise TypeError("Expected argument 'blacked_out' to be a bool")
         pulumi.set(__self__, "blacked_out", blacked_out)
+        if cdn_redirect and not isinstance(cdn_redirect, bool):
+            raise TypeError("Expected argument 'cdn_redirect' to be a bool")
+        pulumi.set(__self__, "cdn_redirect", cdn_redirect)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -80,6 +83,11 @@ class GetLocalChefRepositoryResult:
     @pulumi.getter(name="blackedOut")
     def blacked_out(self) -> Optional[bool]:
         return pulumi.get(self, "blacked_out")
+
+    @property
+    @pulumi.getter(name="cdnRedirect")
+    def cdn_redirect(self) -> Optional[bool]:
+        return pulumi.get(self, "cdn_redirect")
 
     @property
     @pulumi.getter
@@ -163,6 +171,7 @@ class AwaitableGetLocalChefRepositoryResult(GetLocalChefRepositoryResult):
         return GetLocalChefRepositoryResult(
             archive_browsing_enabled=self.archive_browsing_enabled,
             blacked_out=self.blacked_out,
+            cdn_redirect=self.cdn_redirect,
             description=self.description,
             download_direct=self.download_direct,
             excludes_pattern=self.excludes_pattern,
@@ -181,6 +190,7 @@ class AwaitableGetLocalChefRepositoryResult(GetLocalChefRepositoryResult):
 
 def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
                               blacked_out: Optional[bool] = None,
+                              cdn_redirect: Optional[bool] = None,
                               description: Optional[str] = None,
                               download_direct: Optional[bool] = None,
                               excludes_pattern: Optional[str] = None,
@@ -200,6 +210,7 @@ def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
     __args__ = dict()
     __args__['archiveBrowsingEnabled'] = archive_browsing_enabled
     __args__['blackedOut'] = blacked_out
+    __args__['cdnRedirect'] = cdn_redirect
     __args__['description'] = description
     __args__['downloadDirect'] = download_direct
     __args__['excludesPattern'] = excludes_pattern
@@ -218,6 +229,7 @@ def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
     return AwaitableGetLocalChefRepositoryResult(
         archive_browsing_enabled=__ret__.archive_browsing_enabled,
         blacked_out=__ret__.blacked_out,
+        cdn_redirect=__ret__.cdn_redirect,
         description=__ret__.description,
         download_direct=__ret__.download_direct,
         excludes_pattern=__ret__.excludes_pattern,
@@ -237,6 +249,7 @@ def get_local_chef_repository(archive_browsing_enabled: Optional[bool] = None,
 @_utilities.lift_output_func(get_local_chef_repository)
 def get_local_chef_repository_output(archive_browsing_enabled: Optional[pulumi.Input[Optional[bool]]] = None,
                                      blacked_out: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     cdn_redirect: Optional[pulumi.Input[Optional[bool]]] = None,
                                      description: Optional[pulumi.Input[Optional[str]]] = None,
                                      download_direct: Optional[pulumi.Input[Optional[bool]]] = None,
                                      excludes_pattern: Optional[pulumi.Input[Optional[str]]] = None,

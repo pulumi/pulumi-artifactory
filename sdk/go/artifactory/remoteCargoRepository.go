@@ -29,10 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := artifactory.NewRemoteCargoRepository(ctx, "my-remote-cargo", &artifactory.RemoteCargoRepositoryArgs{
-//				AnonymousAccess: pulumi.Bool(true),
-//				GitRegistryUrl:  pulumi.String("https://github.com/rust-lang/foo.index"),
-//				Key:             pulumi.String("my-remote-cargo"),
-//				Url:             pulumi.String("https://github.com/rust-lang/crates.io-index"),
+//				AnonymousAccess:   pulumi.Bool(true),
+//				EnableSparseIndex: pulumi.Bool(true),
+//				GitRegistryUrl:    pulumi.String("https://github.com/rust-lang/foo.index"),
+//				Key:               pulumi.String("my-remote-cargo"),
+//				Url:               pulumi.String("https://github.com/rust-lang/crates.io-index"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +63,7 @@ type RemoteCargoRepository struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrOutput `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrOutput `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -79,6 +80,9 @@ type RemoteCargoRepository struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrOutput `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrOutput `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringOutput                               `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationOutput `pulumi:"contentSynchronisation"`
@@ -89,6 +93,8 @@ type RemoteCargoRepository struct {
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrOutput `pulumi:"enableCookieManagement"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrOutput `pulumi:"enableSparseIndex"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
@@ -132,7 +138,7 @@ type RemoteCargoRepository struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayOutput `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrOutput `pulumi:"projectKey"`
 	// List of property set names
@@ -219,7 +225,7 @@ type remoteCargoRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -236,6 +242,9 @@ type remoteCargoRepositoryState struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                      `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
@@ -246,6 +255,8 @@ type remoteCargoRepositoryState struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -289,7 +300,7 @@ type remoteCargoRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -332,7 +343,7 @@ type RemoteCargoRepositoryState struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -349,6 +360,9 @@ type RemoteCargoRepositoryState struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationPtrInput
@@ -359,6 +373,8 @@ type RemoteCargoRepositoryState struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -402,7 +418,7 @@ type RemoteCargoRepositoryState struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -449,7 +465,7 @@ type remoteCargoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth *bool `pulumi:"allowAnyHostAuth"`
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess *bool `pulumi:"anonymousAccess"`
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -466,6 +482,9 @@ type remoteCargoRepositoryArgs struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests *bool `pulumi:"bypassHeadRequests"`
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect *bool `pulumi:"cdnRedirect"`
 	// Client TLS certificate name.
 	ClientTlsCertificate   *string                                      `pulumi:"clientTlsCertificate"`
 	ContentSynchronisation *RemoteCargoRepositoryContentSynchronisation `pulumi:"contentSynchronisation"`
@@ -476,6 +495,8 @@ type remoteCargoRepositoryArgs struct {
 	DownloadDirect *bool `pulumi:"downloadDirect"`
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement *bool `pulumi:"enableCookieManagement"`
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex *bool `pulumi:"enableSparseIndex"`
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
@@ -518,7 +539,7 @@ type remoteCargoRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments []string `pulumi:"projectEnvironments"`
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey *string `pulumi:"projectKey"`
 	// List of property set names
@@ -562,7 +583,7 @@ type RemoteCargoRepositoryArgs struct {
 	// 'Lenient Host Authentication' in the UI. Allow credentials of this repository to be used on requests redirected to any
 	// other host.
 	AllowAnyHostAuth pulumi.BoolPtrInput
-	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+	// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 	AnonymousAccess pulumi.BoolPtrInput
 	// The number of seconds the repository stays in assumed offline state after a connection error. At the end of this time,
 	// an online check is attempted in order to reset the offline status. A value of 0 means the repository is never assumed
@@ -579,6 +600,9 @@ type RemoteCargoRepositoryArgs struct {
 	// HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
 	// Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
 	BypassHeadRequests pulumi.BoolPtrInput
+	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+	CdnRedirect pulumi.BoolPtrInput
 	// Client TLS certificate name.
 	ClientTlsCertificate   pulumi.StringPtrInput
 	ContentSynchronisation RemoteCargoRepositoryContentSynchronisationPtrInput
@@ -589,6 +613,8 @@ type RemoteCargoRepositoryArgs struct {
 	DownloadDirect pulumi.BoolPtrInput
 	// Enables cookie management if the remote repository uses cookies to manage client state.
 	EnableCookieManagement pulumi.BoolPtrInput
+	// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+	EnableSparseIndex pulumi.BoolPtrInput
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
@@ -631,7 +657,7 @@ type RemoteCargoRepositoryArgs struct {
 	// if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
 	// will remain in the Terraform state, which will create state drift during the update.
 	ProjectEnvironments pulumi.StringArrayInput
-	// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+	// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 	// assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 	ProjectKey pulumi.StringPtrInput
 	// List of property set names
@@ -763,7 +789,7 @@ func (o RemoteCargoRepositoryOutput) AllowAnyHostAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.AllowAnyHostAuth }).(pulumi.BoolPtrOutput)
 }
 
-// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+// Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
 func (o RemoteCargoRepositoryOutput) AnonymousAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.AnonymousAccess }).(pulumi.BoolPtrOutput)
 }
@@ -795,6 +821,12 @@ func (o RemoteCargoRepositoryOutput) BypassHeadRequests() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.BypassHeadRequests }).(pulumi.BoolPtrOutput)
 }
 
+// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
+func (o RemoteCargoRepositoryOutput) CdnRedirect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.CdnRedirect }).(pulumi.BoolPtrOutput)
+}
+
 // Client TLS certificate name.
 func (o RemoteCargoRepositoryOutput) ClientTlsCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringOutput { return v.ClientTlsCertificate }).(pulumi.StringOutput)
@@ -820,6 +852,11 @@ func (o RemoteCargoRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 // Enables cookie management if the remote repository uses cookies to manage client state.
 func (o RemoteCargoRepositoryOutput) EnableCookieManagement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.EnableCookieManagement }).(pulumi.BoolPtrOutput)
+}
+
+// Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+func (o RemoteCargoRepositoryOutput) EnableSparseIndex() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.BoolPtrOutput { return v.EnableSparseIndex }).(pulumi.BoolPtrOutput)
 }
 
 // List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
@@ -913,7 +950,7 @@ func (o RemoteCargoRepositoryOutput) ProjectEnvironments() pulumi.StringArrayOut
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringArrayOutput { return v.ProjectEnvironments }).(pulumi.StringArrayOutput)
 }
 
-// Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+// Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
 // assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
 func (o RemoteCargoRepositoryOutput) ProjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteCargoRepository) pulumi.StringPtrOutput { return v.ProjectKey }).(pulumi.StringPtrOutput)

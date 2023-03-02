@@ -37,14 +37,14 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     @Import(name="anonymousAccess")
     private @Nullable Output<Boolean> anonymousAccess;
 
     /**
-     * @return Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+     * @return Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> anonymousAccess() {
@@ -126,6 +126,23 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
+     * When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    @Import(name="cdnRedirect")
+    private @Nullable Output<Boolean> cdnRedirect;
+
+    /**
+     * @return When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+     * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+     * 
+     */
+    public Optional<Output<Boolean>> cdnRedirect() {
+        return Optional.ofNullable(this.cdnRedirect);
+    }
+
+    /**
      * Client TLS certificate name.
      * 
      */
@@ -192,6 +209,21 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
      */
     public Optional<Output<Boolean>> enableCookieManagement() {
         return Optional.ofNullable(this.enableCookieManagement);
+    }
+
+    /**
+     * Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    @Import(name="enableSparseIndex")
+    private @Nullable Output<Boolean> enableSparseIndex;
+
+    /**
+     * @return Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSparseIndex() {
+        return Optional.ofNullable(this.enableSparseIndex);
     }
 
     /**
@@ -445,7 +477,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -453,7 +485,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
     private @Nullable Output<String> projectKey;
 
     /**
-     * @return Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+     * @return Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
      * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
      * 
      */
@@ -680,11 +712,13 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         this.blackedOut = $.blackedOut;
         this.blockMismatchingMimeTypes = $.blockMismatchingMimeTypes;
         this.bypassHeadRequests = $.bypassHeadRequests;
+        this.cdnRedirect = $.cdnRedirect;
         this.clientTlsCertificate = $.clientTlsCertificate;
         this.contentSynchronisation = $.contentSynchronisation;
         this.description = $.description;
         this.downloadDirect = $.downloadDirect;
         this.enableCookieManagement = $.enableCookieManagement;
+        this.enableSparseIndex = $.enableSparseIndex;
         this.excludesPattern = $.excludesPattern;
         this.gitRegistryUrl = $.gitRegistryUrl;
         this.hardFail = $.hardFail;
@@ -760,7 +794,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
          * 
          * @return builder
          * 
@@ -771,7 +805,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option.
+         * @param anonymousAccess Cargo client does not send credentials when performing download and search for crates. Enable this to allow anonymous access to these resources (only), note that this will override the security anonymous access option. Default value is `false`.
          * 
          * @return builder
          * 
@@ -879,6 +913,29 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(@Nullable Output<Boolean> cdnRedirect) {
+            $.cdnRedirect = cdnRedirect;
+            return this;
+        }
+
+        /**
+         * @param cdnRedirect When set, download requests to this repository will redirect the client to download the artifact directly from AWS
+         * CloudFront. Available in Enterprise+ and Edge licenses only. Default value is &#39;false&#39;
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cdnRedirect(Boolean cdnRedirect) {
+            return cdnRedirect(Output.of(cdnRedirect));
+        }
+
+        /**
          * @param clientTlsCertificate Client TLS certificate name.
          * 
          * @return builder
@@ -971,6 +1028,27 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
          */
         public Builder enableCookieManagement(Boolean enableCookieManagement) {
             return enableCookieManagement(Output.of(enableCookieManagement));
+        }
+
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSparseIndex(@Nullable Output<Boolean> enableSparseIndex) {
+            $.enableSparseIndex = enableSparseIndex;
+            return this;
+        }
+
+        /**
+         * @param enableSparseIndex Enable internal index support based on Cargo sparse index specifications, instead of the default git index. Default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSparseIndex(Boolean enableSparseIndex) {
+            return enableSparseIndex(Output.of(enableSparseIndex));
         }
 
         /**
@@ -1324,7 +1402,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
@@ -1336,7 +1414,7 @@ public final class RemoteCargoRepositoryState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param projectKey Project key for assigning this repository to. Must be 2 - 10 lowercase alphanumeric and hyphen characters. When
+         * @param projectKey Project key for assigning this repository to. Must be 2 - 20 lowercase alphanumeric and hyphen characters. When
          * assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
          * 
          * @return builder
