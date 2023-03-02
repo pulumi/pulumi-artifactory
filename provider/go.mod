@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-artifactory/provider/v2
+module github.com/pulumi/pulumi-artifactory/provider/v3
 
 go 1.19
 

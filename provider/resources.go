@@ -20,7 +20,7 @@ import (
 	"unicode"
 
 	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory/provider"
-	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
+	"github.com/pulumi/pulumi-artifactory/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -81,7 +81,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v6",
+		TFProviderModuleVersion: "v7",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
