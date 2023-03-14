@@ -84,7 +84,7 @@ class RemoteConanRepositoryArgs:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -391,7 +391,7 @@ class RemoteConanRepositoryArgs:
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_conan_authentication")
 
@@ -792,7 +792,7 @@ class _RemoteConanRepositoryState:
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -1081,7 +1081,7 @@ class _RemoteConanRepositoryState:
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_conan_authentication")
 
@@ -1542,7 +1542,7 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -1814,7 +1814,7 @@ class RemoteConanRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[bool] force_conan_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -2018,7 +2018,7 @@ class RemoteConanRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceConanAuthentication")
     def force_conan_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_conan_authentication")
 

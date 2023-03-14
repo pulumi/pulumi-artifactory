@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,9 +82,9 @@ type ArtifactPropertyWebhook struct {
 	Criteria ArtifactPropertyWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers ArtifactPropertyWebhookHandlerArrayOutput `pulumi:"handlers"`
@@ -137,9 +137,9 @@ type artifactPropertyWebhookState struct {
 	Criteria *ArtifactPropertyWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []ArtifactPropertyWebhookHandler `pulumi:"handlers"`
@@ -152,9 +152,9 @@ type ArtifactPropertyWebhookState struct {
 	Criteria ArtifactPropertyWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers ArtifactPropertyWebhookHandlerArrayInput
@@ -171,9 +171,9 @@ type artifactPropertyWebhookArgs struct {
 	Criteria ArtifactPropertyWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []ArtifactPropertyWebhookHandler `pulumi:"handlers"`
@@ -187,9 +187,9 @@ type ArtifactPropertyWebhookArgs struct {
 	Criteria ArtifactPropertyWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers ArtifactPropertyWebhookHandlerArrayInput
@@ -294,12 +294,12 @@ func (o ArtifactPropertyWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'.
+// Status of webhook. Default to `true`.
 func (o ArtifactPropertyWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
 func (o ArtifactPropertyWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }

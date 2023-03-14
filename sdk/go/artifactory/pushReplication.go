@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -58,8 +58,8 @@ import (
 //						Url: providerTestDest.Key.ApplyT(func(key string) (string, error) {
 //							return fmt.Sprintf("%v/%v", artifactoryUrl, key), nil
 //						}).(pulumi.StringOutput),
-//						Username: pulumi.String(fmt.Sprintf("$var.artifactory_username")),
-//						Password: pulumi.String(fmt.Sprintf("$var.artifactory_password")),
+//						Username: pulumi.String("$var.artifactory_username"),
+//						Password: pulumi.String("$var.artifactory_password"),
 //						Enabled:  pulumi.Bool(true),
 //					},
 //				},

@@ -36,7 +36,7 @@ func NewProvider(ctx *pulumi.Context,
 		args = &ProviderArgs{}
 	}
 
-	if isZero(args.CheckLicense) {
+	if args.CheckLicense == nil {
 		args.CheckLicense = pulumi.BoolPtr(false)
 	}
 	if args.AccessToken != nil {

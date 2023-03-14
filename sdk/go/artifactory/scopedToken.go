@@ -18,7 +18,7 @@ type ScopedToken struct {
 
 	// Returns the access token to authenticate to Artifactory
 	AccessToken pulumi.StringOutput `pulumi:"accessToken"`
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
 	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -79,7 +79,7 @@ func GetScopedToken(ctx *pulumi.Context,
 type scopedTokenState struct {
 	// Returns the access token to authenticate to Artifactory
 	AccessToken *string `pulumi:"accessToken"`
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 	Audiences []string `pulumi:"audiences"`
 	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
@@ -107,7 +107,7 @@ type scopedTokenState struct {
 type ScopedTokenState struct {
 	// Returns the access token to authenticate to Artifactory
 	AccessToken pulumi.StringPtrInput
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 	Audiences pulumi.StringArrayInput
 	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
@@ -137,7 +137,7 @@ func (ScopedTokenState) ElementType() reflect.Type {
 }
 
 type scopedTokenArgs struct {
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 	Audiences []string `pulumi:"audiences"`
 	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description *string `pulumi:"description"`
@@ -153,7 +153,7 @@ type scopedTokenArgs struct {
 
 // The set of arguments for constructing a ScopedToken resource.
 type ScopedTokenArgs struct {
-	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+	// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 	Audiences pulumi.StringArrayInput
 	// (Optional) Free text token description. Useful for filtering and managing tokens. Limited to 1024 characters.
 	Description pulumi.StringPtrInput
@@ -259,7 +259,7 @@ func (o ScopedTokenOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringOutput { return v.AccessToken }).(pulumi.StringOutput)
 }
 
-// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to '*@*' if not set. Service ID must begin with 'jfrt@'. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
+// (Optional) A list of the other instances or services that should accept this token identified by their Service-IDs. Limited to total 255 characters. Default to `*@*` if not set. Service ID must begin with `jfrt@`. For instructions to retrieve the Artifactory Service ID see this [documentation](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-GetServiceID).
 func (o ScopedTokenOutput) Audiences() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScopedToken) pulumi.StringArrayOutput { return v.Audiences }).(pulumi.StringArrayOutput)
 }

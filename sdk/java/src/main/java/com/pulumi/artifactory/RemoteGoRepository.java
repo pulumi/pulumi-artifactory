@@ -648,14 +648,14 @@ public class RemoteGoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.username);
     }
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      * 
      */
     @Export(name="vcsGitProvider", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {

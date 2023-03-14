@@ -32,7 +32,7 @@ class BackupArgs:
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
         :param pulumi.Input[bool] verify_disk_space: If set, Artifactory will verify that the backup target location has enough disk space available to hold the backed up data. If there is not enough space available, Artifactory will abort the backup and write a message in the log file. Applicable only to non-incremental backups.
@@ -132,7 +132,7 @@ class BackupArgs:
     @pulumi.getter(name="exportMissionControl")
     def export_mission_control(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "export_mission_control")
 
@@ -197,7 +197,7 @@ class _BackupState:
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
@@ -288,7 +288,7 @@ class _BackupState:
     @pulumi.getter(name="exportMissionControl")
     def export_mission_control(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "export_mission_control")
 
@@ -406,7 +406,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
@@ -536,7 +536,7 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Flag to enable or disable the backup config. Default value is `true`.
         :param pulumi.Input[bool] exclude_new_repositories: When set, new repositories will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_repositories: A list of excluded repositories from the backup. Default is empty list.
-        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        :param pulumi.Input[bool] export_mission_control: When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         :param pulumi.Input[str] key: The unique ID of the artifactory backup config.
         :param pulumi.Input[int] retention_period_hours: The number of hours to keep a backup before Artifactory will clean it up to free up disk space. Applicable only to non-incremental backups. Default value is 168 hours ie: 7 days.
         :param pulumi.Input[bool] send_mail_on_error: If set, all Artifactory administrators will be notified by email if any problem is encountered during backup. Default value is `true`.
@@ -602,7 +602,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="exportMissionControl")
     def export_mission_control(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         """
         return pulumi.get(self, "export_mission_control")
 

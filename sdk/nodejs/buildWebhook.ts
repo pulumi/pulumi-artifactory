@@ -78,11 +78,11 @@ export class BuildWebhook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
@@ -152,11 +152,11 @@ export interface BuildWebhookState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -182,11 +182,11 @@ export interface BuildWebhookArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

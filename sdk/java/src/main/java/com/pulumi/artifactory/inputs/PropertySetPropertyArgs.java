@@ -19,14 +19,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     public static final PropertySetPropertyArgs Empty = new PropertySetPropertyArgs();
 
     /**
-     * Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+     * Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
      * 
      */
     @Import(name="closedPredefinedValues")
     private @Nullable Output<Boolean> closedPredefinedValues;
 
     /**
-     * @return Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
      * 
      */
     public Optional<Output<Boolean>> closedPredefinedValues() {
@@ -34,14 +34,14 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+     * Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
      * 
      */
     @Import(name="multipleChoice")
     private @Nullable Output<Boolean> multipleChoice;
 
     /**
-     * @return Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> multipleChoice() {
@@ -106,7 +106,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closedPredefinedValues Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param closedPredefinedValues Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+         * @param closedPredefinedValues Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param multipleChoice Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class PropertySetPropertyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param multipleChoice Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+         * @param multipleChoice Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
          * 
          * @return builder
          * 

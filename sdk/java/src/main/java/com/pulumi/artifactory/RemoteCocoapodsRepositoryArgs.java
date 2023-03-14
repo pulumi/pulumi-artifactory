@@ -387,14 +387,14 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
+     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      * 
      */
     @Import(name="podsSpecsRepoUrl")
     private @Nullable Output<String> podsSpecsRepoUrl;
 
     /**
-     * @return Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
+     * @return Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      * 
      */
     public Optional<Output<String>> podsSpecsRepoUrl() {
@@ -650,14 +650,14 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     public Optional<Output<String>> vcsGitDownloadUrl() {
@@ -665,16 +665,16 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-     * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-     * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1262,7 +1262,7 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
+         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
          * 
          * @return builder
          * 
@@ -1273,7 +1273,7 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is &#34;https://github.com/CocoaPods/Specs&#34;.
+         * @param podsSpecsRepoUrl Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
          * 
          * @return builder
          * 
@@ -1641,7 +1641,7 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1652,7 +1652,7 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1662,8 +1662,8 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-         * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+         * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
          * 
          * @return builder
          * 
@@ -1674,8 +1674,8 @@ public final class RemoteCocoapodsRepositoryArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-         * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`.
+         * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
          * 
          * @return builder
          * 

@@ -53,14 +53,14 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Default: false.
+     * Default: `false`.
      * 
      */
     @Import(name="calculateYumMetadata")
     private @Nullable Output<Boolean> calculateYumMetadata;
 
     /**
-     * @return Default: false.
+     * @return Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> calculateYumMetadata() {
@@ -109,14 +109,14 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Default: false.
+     * Default: `false`.
      * 
      */
     @Import(name="enableFileListsIndexing")
     private @Nullable Output<Boolean> enableFileListsIndexing;
 
     /**
-     * @return Default: false.
+     * @return Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> enableFileListsIndexing() {
@@ -440,7 +440,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param calculateYumMetadata Default: false.
+         * @param calculateYumMetadata Default: `false`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param calculateYumMetadata Default: false.
+         * @param calculateYumMetadata Default: `false`.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enableFileListsIndexing Default: false.
+         * @param enableFileListsIndexing Default: `false`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class LocalRpmRepositoryArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param enableFileListsIndexing Default: false.
+         * @param enableFileListsIndexing Default: `false`.
          * 
          * @return builder
          * 

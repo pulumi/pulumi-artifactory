@@ -89,7 +89,11 @@ class RemoteHelmRepositoryArgs:
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
                follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -415,7 +419,11 @@ class RemoteHelmRepositoryArgs:
         """
         An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
         follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -833,7 +841,11 @@ class _RemoteHelmRepositoryState:
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
                follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -1141,7 +1153,11 @@ class _RemoteHelmRepositoryState:
         """
         An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
         follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 
@@ -1621,7 +1637,11 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
                follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -1905,7 +1925,11 @@ class RemoteHelmRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] external_dependencies_enabled: When set, external dependencies are rewritten. `External Dependency Rewrite` in the UI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_dependencies_patterns: An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
                follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-               Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+               By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+               Due to SDKv2 limitations, we can't set the default value for the list.
+               This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+               We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+               `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] helm_charts_base_url: No documentation is available. Hopefully you know what this means.
@@ -2122,7 +2146,11 @@ class RemoteHelmRepository(pulumi.CustomResource):
         """
         An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
         follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-        Default value in the UI is empty. This attribute must be set together with `external_dependencies_enabled = true`.
+        By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
+        Due to SDKv2 limitations, we can't set the default value for the list.
+        This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+        We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+        `[**]` on update if HCL doesn't have the attribute set or the list is empty.
         """
         return pulumi.get(self, "external_dependencies_patterns")
 

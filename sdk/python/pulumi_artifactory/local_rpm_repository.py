@@ -42,12 +42,12 @@ class LocalRpmRepositoryArgs:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] calculate_yum_metadata: Default: false.
+        :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_file_lists_indexing: Default: false.
+        :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -157,7 +157,7 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="calculateYumMetadata")
     def calculate_yum_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "calculate_yum_metadata")
 
@@ -204,7 +204,7 @@ class LocalRpmRepositoryArgs:
     @pulumi.getter(name="enableFileListsIndexing")
     def enable_file_lists_indexing(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "enable_file_lists_indexing")
 
@@ -409,12 +409,12 @@ class _LocalRpmRepositoryState:
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] calculate_yum_metadata: Default: false.
+        :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_file_lists_indexing: Default: false.
+        :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -516,7 +516,7 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="calculateYumMetadata")
     def calculate_yum_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "calculate_yum_metadata")
 
@@ -563,7 +563,7 @@ class _LocalRpmRepositoryState:
     @pulumi.getter(name="enableFileListsIndexing")
     def enable_file_lists_indexing(self) -> Optional[pulumi.Input[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "enable_file_lists_indexing")
 
@@ -834,12 +834,12 @@ class LocalRpmRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] calculate_yum_metadata: Default: false.
+        :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_file_lists_indexing: Default: false.
+        :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -1027,12 +1027,12 @@ class LocalRpmRepository(pulumi.CustomResource):
                therefore requires strict content moderation to prevent malicious users from uploading content that may compromise
                security (e.g., cross-site scripting attacks).
         :param pulumi.Input[bool] blacked_out: When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
-        :param pulumi.Input[bool] calculate_yum_metadata: Default: false.
+        :param pulumi.Input[bool] calculate_yum_metadata: Default: `false`.
         :param pulumi.Input[bool] cdn_redirect: When set, download requests to this repository will redirect the client to download the artifact directly from AWS
                CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only.
-        :param pulumi.Input[bool] enable_file_lists_indexing: Default: false.
+        :param pulumi.Input[bool] enable_file_lists_indexing: Default: `false`.
         :param pulumi.Input[str] excludes_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
                artifacts are excluded.
         :param pulumi.Input[str] includes_pattern: List of artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When used, only
@@ -1109,7 +1109,7 @@ class LocalRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="calculateYumMetadata")
     def calculate_yum_metadata(self) -> pulumi.Output[Optional[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "calculate_yum_metadata")
 
@@ -1140,7 +1140,7 @@ class LocalRpmRepository(pulumi.CustomResource):
     @pulumi.getter(name="enableFileListsIndexing")
     def enable_file_lists_indexing(self) -> pulumi.Output[Optional[bool]]:
         """
-        Default: false.
+        Default: `false`.
         """
         return pulumi.get(self, "enable_file_lists_indexing")
 

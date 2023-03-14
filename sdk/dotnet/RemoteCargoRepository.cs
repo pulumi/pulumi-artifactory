@@ -142,7 +142,7 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         /// </summary>
         [Output("gitRegistryUrl")]
         public Output<string> GitRegistryUrl { get; private set; } = null!;
@@ -473,7 +473,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         /// </summary>
         [Input("gitRegistryUrl", required: true)]
         public Input<string> GitRegistryUrl { get; set; } = null!;
@@ -780,7 +780,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+        /// This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
         /// </summary>
         [Input("gitRegistryUrl")]
         public Input<string>? GitRegistryUrl { get; set; }

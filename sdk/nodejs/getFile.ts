@@ -39,7 +39,7 @@ export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetFileArgs {
     /**
-     * If set to true, an existing file in the outputPath will be overwritten. Default: false
+     * If set to true, an existing file in the outputPath will be overwritten. Default: `false`
      */
     forceOverwrite?: boolean;
     /**
@@ -146,7 +146,7 @@ export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetFileOutputArgs {
     /**
-     * If set to true, an existing file in the outputPath will be overwritten. Default: false
+     * If set to true, an existing file in the outputPath will be overwritten. Default: `false`
      */
     forceOverwrite?: pulumi.Input<boolean>;
     /**

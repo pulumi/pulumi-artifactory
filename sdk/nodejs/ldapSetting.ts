@@ -85,7 +85,7 @@ export class LdapSetting extends pulumi.CustomResource {
     public readonly autoCreateUser!: pulumi.Output<boolean | undefined>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      */
     public readonly emailAttribute!: pulumi.Output<string | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface LdapSettingState {
     autoCreateUser?: pulumi.Input<boolean>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      */
     emailAttribute?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface LdapSettingArgs {
     autoCreateUser?: pulumi.Input<boolean>;
     /**
      * An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      */
     emailAttribute?: pulumi.Input<string>;
     /**

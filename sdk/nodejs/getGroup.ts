@@ -61,7 +61,7 @@ export interface GetGroupArgs {
      */
     externalId?: string;
     /**
-     * Determines if the group's associated user list will return as an attribute. Default is false.
+     * Determines if the group's associated user list will return as an attribute. Default is `false`.
      */
     includeUsers?: string;
     /**
@@ -69,7 +69,7 @@ export interface GetGroupArgs {
      */
     name: string;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     policyManager?: boolean;
     /**
@@ -81,7 +81,7 @@ export interface GetGroupArgs {
      */
     realmAttributes?: string;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: boolean;
     /**
@@ -89,7 +89,7 @@ export interface GetGroupArgs {
      */
     usersNames?: string[];
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     watchManager?: boolean;
 }
@@ -121,7 +121,7 @@ export interface GetGroupResult {
     readonly includeUsers?: string;
     readonly name: string;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     readonly policyManager?: boolean;
     /**
@@ -133,7 +133,7 @@ export interface GetGroupResult {
      */
     readonly realmAttributes?: string;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     readonly reportsManager?: boolean;
     /**
@@ -141,7 +141,7 @@ export interface GetGroupResult {
      */
     readonly usersNames?: string[];
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     readonly watchManager?: boolean;
 }
@@ -187,7 +187,7 @@ export interface GetGroupOutputArgs {
      */
     externalId?: pulumi.Input<string>;
     /**
-     * Determines if the group's associated user list will return as an attribute. Default is false.
+     * Determines if the group's associated user list will return as an attribute. Default is `false`.
      */
     includeUsers?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface GetGroupOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      */
     policyManager?: pulumi.Input<boolean>;
     /**
@@ -207,7 +207,7 @@ export interface GetGroupOutputArgs {
      */
     realmAttributes?: pulumi.Input<string>;
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      */
     reportsManager?: pulumi.Input<boolean>;
     /**
@@ -215,7 +215,7 @@ export interface GetGroupOutputArgs {
      */
     usersNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      */
     watchManager?: pulumi.Input<boolean>;
 }

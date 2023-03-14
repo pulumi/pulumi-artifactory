@@ -148,9 +148,9 @@ type ArtifactPropertyWebhookCriteria struct {
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys []string `pulumi:"repoKeys"`
@@ -172,9 +172,9 @@ type ArtifactPropertyWebhookCriteriaArgs struct {
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
@@ -267,12 +267,12 @@ func (o ArtifactPropertyWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactPropertyWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactPropertyWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactPropertyWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -326,7 +326,7 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
 		if v == nil {
@@ -336,7 +336,7 @@ func (o ArtifactPropertyWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactPropertyWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactPropertyWebhookCriteria) []string {
 		if v == nil {
@@ -485,9 +485,9 @@ type ArtifactWebhookCriteria struct {
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys []string `pulumi:"repoKeys"`
@@ -509,9 +509,9 @@ type ArtifactWebhookCriteriaArgs struct {
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
@@ -604,12 +604,12 @@ func (o ArtifactWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -663,7 +663,7 @@ func (o ArtifactWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
 		if v == nil {
@@ -673,7 +673,7 @@ func (o ArtifactWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o ArtifactWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactWebhookCriteria) []string {
 		if v == nil {
@@ -820,9 +820,9 @@ func (o ArtifactWebhookHandlerArrayOutput) Index(i pulumi.IntInput) ArtifactWebh
 type ArtifactoryReleaseBundleWebhookCriteria struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
@@ -842,9 +842,9 @@ type ArtifactoryReleaseBundleWebhookCriteriaInput interface {
 type ArtifactoryReleaseBundleWebhookCriteriaArgs struct {
 	// Trigger on any release bundle
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
@@ -932,12 +932,12 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 func (o ArtifactoryReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ArtifactoryReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -981,7 +981,7 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -991,7 +991,7 @@ func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
 func (o ArtifactoryReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -1138,9 +1138,9 @@ func (o ArtifactoryReleaseBundleWebhookHandlerArrayOutput) Index(i pulumi.IntInp
 type BuildWebhookCriteria struct {
 	// Trigger on any build.
 	AnyBuild bool `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds []string `pulumi:"selectedBuilds"`
@@ -1160,9 +1160,9 @@ type BuildWebhookCriteriaInput interface {
 type BuildWebhookCriteriaArgs struct {
 	// Trigger on any build.
 	AnyBuild pulumi.BoolInput `pulumi:"anyBuild"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of build names.
 	SelectedBuilds pulumi.StringArrayInput `pulumi:"selectedBuilds"`
@@ -1250,12 +1250,12 @@ func (o BuildWebhookCriteriaOutput) AnyBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) bool { return v.AnyBuild }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o BuildWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o BuildWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -1299,7 +1299,7 @@ func (o BuildWebhookCriteriaPtrOutput) AnyBuild() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -1309,7 +1309,7 @@ func (o BuildWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o BuildWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BuildWebhookCriteria) []string {
 		if v == nil {
@@ -1456,9 +1456,9 @@ func (o BuildWebhookHandlerArrayOutput) Index(i pulumi.IntInput) BuildWebhookHan
 type DistributionWebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
@@ -1478,9 +1478,9 @@ type DistributionWebhookCriteriaInput interface {
 type DistributionWebhookCriteriaArgs struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
@@ -1568,12 +1568,12 @@ func (o DistributionWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput 
 	return o.ApplyT(func(v DistributionWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DistributionWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DistributionWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -1617,7 +1617,7 @@ func (o DistributionWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DistributionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
 		if v == nil {
@@ -1627,7 +1627,7 @@ func (o DistributionWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DistributionWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionWebhookCriteria) []string {
 		if v == nil {
@@ -1776,9 +1776,9 @@ type DockerWebhookCriteria struct {
 	AnyLocal bool `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote bool `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys []string `pulumi:"repoKeys"`
@@ -1800,9 +1800,9 @@ type DockerWebhookCriteriaArgs struct {
 	AnyLocal pulumi.BoolInput `pulumi:"anyLocal"`
 	// Trigger on any remote repo.
 	AnyRemote pulumi.BoolInput `pulumi:"anyRemote"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of repo keys.
 	RepoKeys pulumi.StringArrayInput `pulumi:"repoKeys"`
@@ -1895,12 +1895,12 @@ func (o DockerWebhookCriteriaOutput) AnyRemote() pulumi.BoolOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) bool { return v.AnyRemote }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DockerWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DockerWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DockerWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -1954,7 +1954,7 @@ func (o DockerWebhookCriteriaPtrOutput) AnyRemote() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DockerWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
 		if v == nil {
@@ -1964,7 +1964,7 @@ func (o DockerWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
 func (o DockerWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhookCriteria) []string {
 		if v == nil {
@@ -9077,9 +9077,9 @@ func (o PermissionTargetsRepoActionsUserArrayOutput) Index(i pulumi.IntInput) Pe
 }
 
 type PropertySetProperty struct {
-	// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+	// Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
 	ClosedPredefinedValues *bool `pulumi:"closedPredefinedValues"`
-	// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice *bool `pulumi:"multipleChoice"`
 	// Predefined property name.
 	Name string `pulumi:"name"`
@@ -9099,9 +9099,9 @@ type PropertySetPropertyInput interface {
 }
 
 type PropertySetPropertyArgs struct {
-	// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+	// Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
 	ClosedPredefinedValues pulumi.BoolPtrInput `pulumi:"closedPredefinedValues"`
-	// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+	// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 	MultipleChoice pulumi.BoolPtrInput `pulumi:"multipleChoice"`
 	// Predefined property name.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -9160,12 +9160,12 @@ func (o PropertySetPropertyOutput) ToPropertySetPropertyOutputWithContext(ctx co
 	return o
 }
 
-// Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+// Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
 func (o PropertySetPropertyOutput) ClosedPredefinedValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertySetProperty) *bool { return v.ClosedPredefinedValues }).(pulumi.BoolPtrOutput)
 }
 
-// Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+// Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
 func (o PropertySetPropertyOutput) MultipleChoice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PropertySetProperty) *bool { return v.MultipleChoice }).(pulumi.BoolPtrOutput)
 }
@@ -9502,9 +9502,9 @@ func (o PushReplicationReplicationArrayOutput) Index(i pulumi.IntInput) PushRepl
 type ReleaseBundleWebhookCriteria struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle bool `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 	ExcludePatterns []string `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 	IncludePatterns []string `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	RegisteredReleaseBundleNames []string `pulumi:"registeredReleaseBundleNames"`
@@ -9524,9 +9524,9 @@ type ReleaseBundleWebhookCriteriaInput interface {
 type ReleaseBundleWebhookCriteriaArgs struct {
 	// Trigger on any release bundle.
 	AnyReleaseBundle pulumi.BoolInput `pulumi:"anyReleaseBundle"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 	ExcludePatterns pulumi.StringArrayInput `pulumi:"excludePatterns"`
-	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+	// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 	IncludePatterns pulumi.StringArrayInput `pulumi:"includePatterns"`
 	// Trigger on this list of release bundle names.
 	RegisteredReleaseBundleNames pulumi.StringArrayInput `pulumi:"registeredReleaseBundleNames"`
@@ -9614,12 +9614,12 @@ func (o ReleaseBundleWebhookCriteriaOutput) AnyReleaseBundle() pulumi.BoolOutput
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) bool { return v.AnyReleaseBundle }).(pulumi.BoolOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 func (o ReleaseBundleWebhookCriteriaOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.ExcludePatterns }).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 func (o ReleaseBundleWebhookCriteriaOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReleaseBundleWebhookCriteria) []string { return v.IncludePatterns }).(pulumi.StringArrayOutput)
 }
@@ -9663,7 +9663,7 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) AnyReleaseBundle() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 func (o ReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -9673,7 +9673,7 @@ func (o ReleaseBundleWebhookCriteriaPtrOutput) ExcludePatterns() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+// Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
 func (o ReleaseBundleWebhookCriteriaPtrOutput) IncludePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReleaseBundleWebhookCriteria) []string {
 		if v == nil {
@@ -17173,6 +17173,5528 @@ func (o GetPermissionTargetRepoActionsUserArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetPermissionTargetRepoActionsUserOutput)
 }
 
+type GetRemoteAlpineRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteAlpineRepositoryContentSynchronisationInput is an input type that accepts GetRemoteAlpineRepositoryContentSynchronisationArgs and GetRemoteAlpineRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteAlpineRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteAlpineRepositoryContentSynchronisationArgs{...}
+type GetRemoteAlpineRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteAlpineRepositoryContentSynchronisationOutput() GetRemoteAlpineRepositoryContentSynchronisationOutput
+	ToGetRemoteAlpineRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteAlpineRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteAlpineRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteAlpineRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteAlpineRepositoryContentSynchronisationArgs) ToGetRemoteAlpineRepositoryContentSynchronisationOutput() GetRemoteAlpineRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteAlpineRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteAlpineRepositoryContentSynchronisationArgs) ToGetRemoteAlpineRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAlpineRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteAlpineRepositoryContentSynchronisationArgs) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutput() GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteAlpineRepositoryContentSynchronisationArgs) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAlpineRepositoryContentSynchronisationOutput).ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteAlpineRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteAlpineRepositoryContentSynchronisationArgs, GetRemoteAlpineRepositoryContentSynchronisationPtr and GetRemoteAlpineRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteAlpineRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteAlpineRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteAlpineRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutput() GetRemoteAlpineRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteAlpineRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteAlpineRepositoryContentSynchronisationPtrType GetRemoteAlpineRepositoryContentSynchronisationArgs
+
+func GetRemoteAlpineRepositoryContentSynchronisationPtr(v *GetRemoteAlpineRepositoryContentSynchronisationArgs) GetRemoteAlpineRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteAlpineRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteAlpineRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteAlpineRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteAlpineRepositoryContentSynchronisationPtrType) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutput() GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteAlpineRepositoryContentSynchronisationPtrType) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteAlpineRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteAlpineRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteAlpineRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) ToGetRemoteAlpineRepositoryContentSynchronisationOutput() GetRemoteAlpineRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) ToGetRemoteAlpineRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutput() GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteAlpineRepositoryContentSynchronisation) *GetRemoteAlpineRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteAlpineRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteAlpineRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteAlpineRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteAlpineRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutput() GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) ToGetRemoteAlpineRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteAlpineRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteAlpineRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) GetRemoteAlpineRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteAlpineRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteAlpineRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteAlpineRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteAlpineRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteBowerRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteBowerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteBowerRepositoryContentSynchronisationArgs and GetRemoteBowerRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteBowerRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteBowerRepositoryContentSynchronisationArgs{...}
+type GetRemoteBowerRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteBowerRepositoryContentSynchronisationOutput() GetRemoteBowerRepositoryContentSynchronisationOutput
+	ToGetRemoteBowerRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteBowerRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteBowerRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteBowerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteBowerRepositoryContentSynchronisationArgs) ToGetRemoteBowerRepositoryContentSynchronisationOutput() GetRemoteBowerRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteBowerRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteBowerRepositoryContentSynchronisationArgs) ToGetRemoteBowerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteBowerRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteBowerRepositoryContentSynchronisationArgs) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutput() GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteBowerRepositoryContentSynchronisationArgs) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteBowerRepositoryContentSynchronisationOutput).ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteBowerRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteBowerRepositoryContentSynchronisationArgs, GetRemoteBowerRepositoryContentSynchronisationPtr and GetRemoteBowerRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteBowerRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteBowerRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteBowerRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteBowerRepositoryContentSynchronisationPtrOutput() GetRemoteBowerRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteBowerRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteBowerRepositoryContentSynchronisationPtrType GetRemoteBowerRepositoryContentSynchronisationArgs
+
+func GetRemoteBowerRepositoryContentSynchronisationPtr(v *GetRemoteBowerRepositoryContentSynchronisationArgs) GetRemoteBowerRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteBowerRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteBowerRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteBowerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteBowerRepositoryContentSynchronisationPtrType) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutput() GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteBowerRepositoryContentSynchronisationPtrType) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteBowerRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteBowerRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteBowerRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) ToGetRemoteBowerRepositoryContentSynchronisationOutput() GetRemoteBowerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) ToGetRemoteBowerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutput() GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteBowerRepositoryContentSynchronisation) *GetRemoteBowerRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteBowerRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteBowerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteBowerRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteBowerRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteBowerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutput() GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) ToGetRemoteBowerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteBowerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteBowerRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) GetRemoteBowerRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteBowerRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteBowerRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteBowerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteBowerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCargoRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteCargoRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCargoRepositoryContentSynchronisationArgs and GetRemoteCargoRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteCargoRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteCargoRepositoryContentSynchronisationArgs{...}
+type GetRemoteCargoRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteCargoRepositoryContentSynchronisationOutput() GetRemoteCargoRepositoryContentSynchronisationOutput
+	ToGetRemoteCargoRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteCargoRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteCargoRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteCargoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCargoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteCargoRepositoryContentSynchronisationArgs) ToGetRemoteCargoRepositoryContentSynchronisationOutput() GetRemoteCargoRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteCargoRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCargoRepositoryContentSynchronisationArgs) ToGetRemoteCargoRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCargoRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteCargoRepositoryContentSynchronisationArgs) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutput() GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCargoRepositoryContentSynchronisationArgs) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCargoRepositoryContentSynchronisationOutput).ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteCargoRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteCargoRepositoryContentSynchronisationArgs, GetRemoteCargoRepositoryContentSynchronisationPtr and GetRemoteCargoRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteCargoRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteCargoRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteCargoRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteCargoRepositoryContentSynchronisationPtrOutput() GetRemoteCargoRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteCargoRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteCargoRepositoryContentSynchronisationPtrType GetRemoteCargoRepositoryContentSynchronisationArgs
+
+func GetRemoteCargoRepositoryContentSynchronisationPtr(v *GetRemoteCargoRepositoryContentSynchronisationArgs) GetRemoteCargoRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteCargoRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteCargoRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCargoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteCargoRepositoryContentSynchronisationPtrType) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutput() GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteCargoRepositoryContentSynchronisationPtrType) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCargoRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteCargoRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCargoRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCargoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) ToGetRemoteCargoRepositoryContentSynchronisationOutput() GetRemoteCargoRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) ToGetRemoteCargoRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutput() GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteCargoRepositoryContentSynchronisation) *GetRemoteCargoRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteCargoRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCargoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCargoRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCargoRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCargoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutput() GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) ToGetRemoteCargoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCargoRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteCargoRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) GetRemoteCargoRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteCargoRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteCargoRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCargoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCargoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteChefRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteChefRepositoryContentSynchronisationInput is an input type that accepts GetRemoteChefRepositoryContentSynchronisationArgs and GetRemoteChefRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteChefRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteChefRepositoryContentSynchronisationArgs{...}
+type GetRemoteChefRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteChefRepositoryContentSynchronisationOutput() GetRemoteChefRepositoryContentSynchronisationOutput
+	ToGetRemoteChefRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteChefRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteChefRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteChefRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteChefRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteChefRepositoryContentSynchronisationArgs) ToGetRemoteChefRepositoryContentSynchronisationOutput() GetRemoteChefRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteChefRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteChefRepositoryContentSynchronisationArgs) ToGetRemoteChefRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteChefRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteChefRepositoryContentSynchronisationArgs) ToGetRemoteChefRepositoryContentSynchronisationPtrOutput() GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteChefRepositoryContentSynchronisationArgs) ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteChefRepositoryContentSynchronisationOutput).ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteChefRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteChefRepositoryContentSynchronisationArgs, GetRemoteChefRepositoryContentSynchronisationPtr and GetRemoteChefRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteChefRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteChefRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteChefRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteChefRepositoryContentSynchronisationPtrOutput() GetRemoteChefRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteChefRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteChefRepositoryContentSynchronisationPtrType GetRemoteChefRepositoryContentSynchronisationArgs
+
+func GetRemoteChefRepositoryContentSynchronisationPtr(v *GetRemoteChefRepositoryContentSynchronisationArgs) GetRemoteChefRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteChefRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteChefRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteChefRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteChefRepositoryContentSynchronisationPtrType) ToGetRemoteChefRepositoryContentSynchronisationPtrOutput() GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteChefRepositoryContentSynchronisationPtrType) ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteChefRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteChefRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteChefRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteChefRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) ToGetRemoteChefRepositoryContentSynchronisationOutput() GetRemoteChefRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) ToGetRemoteChefRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) ToGetRemoteChefRepositoryContentSynchronisationPtrOutput() GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteChefRepositoryContentSynchronisation) *GetRemoteChefRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteChefRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteChefRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteChefRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteChefRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteChefRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) ToGetRemoteChefRepositoryContentSynchronisationPtrOutput() GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) ToGetRemoteChefRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteChefRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteChefRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) GetRemoteChefRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteChefRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteChefRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteChefRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteChefRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCocoapodsRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteCocoapodsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCocoapodsRepositoryContentSynchronisationArgs and GetRemoteCocoapodsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteCocoapodsRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteCocoapodsRepositoryContentSynchronisationArgs{...}
+type GetRemoteCocoapodsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteCocoapodsRepositoryContentSynchronisationOutput() GetRemoteCocoapodsRepositoryContentSynchronisationOutput
+	ToGetRemoteCocoapodsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteCocoapodsRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCocoapodsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ToGetRemoteCocoapodsRepositoryContentSynchronisationOutput() GetRemoteCocoapodsRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteCocoapodsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ToGetRemoteCocoapodsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCocoapodsRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput() GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCocoapodsRepositoryContentSynchronisationArgs) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCocoapodsRepositoryContentSynchronisationOutput).ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteCocoapodsRepositoryContentSynchronisationArgs, GetRemoteCocoapodsRepositoryContentSynchronisationPtr and GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteCocoapodsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput() GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteCocoapodsRepositoryContentSynchronisationPtrType GetRemoteCocoapodsRepositoryContentSynchronisationArgs
+
+func GetRemoteCocoapodsRepositoryContentSynchronisationPtr(v *GetRemoteCocoapodsRepositoryContentSynchronisationArgs) GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteCocoapodsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteCocoapodsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCocoapodsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteCocoapodsRepositoryContentSynchronisationPtrType) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput() GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteCocoapodsRepositoryContentSynchronisationPtrType) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteCocoapodsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCocoapodsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationOutput() GetRemoteCocoapodsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput() GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteCocoapodsRepositoryContentSynchronisation) *GetRemoteCocoapodsRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCocoapodsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCocoapodsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput() GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) ToGetRemoteCocoapodsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteCocoapodsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) GetRemoteCocoapodsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteCocoapodsRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteCocoapodsRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCocoapodsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteComposerRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteComposerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteComposerRepositoryContentSynchronisationArgs and GetRemoteComposerRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteComposerRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteComposerRepositoryContentSynchronisationArgs{...}
+type GetRemoteComposerRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteComposerRepositoryContentSynchronisationOutput() GetRemoteComposerRepositoryContentSynchronisationOutput
+	ToGetRemoteComposerRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteComposerRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteComposerRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteComposerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteComposerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteComposerRepositoryContentSynchronisationArgs) ToGetRemoteComposerRepositoryContentSynchronisationOutput() GetRemoteComposerRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteComposerRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteComposerRepositoryContentSynchronisationArgs) ToGetRemoteComposerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteComposerRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteComposerRepositoryContentSynchronisationArgs) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutput() GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteComposerRepositoryContentSynchronisationArgs) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteComposerRepositoryContentSynchronisationOutput).ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteComposerRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteComposerRepositoryContentSynchronisationArgs, GetRemoteComposerRepositoryContentSynchronisationPtr and GetRemoteComposerRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteComposerRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteComposerRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteComposerRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteComposerRepositoryContentSynchronisationPtrOutput() GetRemoteComposerRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteComposerRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteComposerRepositoryContentSynchronisationPtrType GetRemoteComposerRepositoryContentSynchronisationArgs
+
+func GetRemoteComposerRepositoryContentSynchronisationPtr(v *GetRemoteComposerRepositoryContentSynchronisationArgs) GetRemoteComposerRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteComposerRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteComposerRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteComposerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteComposerRepositoryContentSynchronisationPtrType) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutput() GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteComposerRepositoryContentSynchronisationPtrType) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteComposerRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteComposerRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteComposerRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteComposerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) ToGetRemoteComposerRepositoryContentSynchronisationOutput() GetRemoteComposerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) ToGetRemoteComposerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutput() GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteComposerRepositoryContentSynchronisation) *GetRemoteComposerRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteComposerRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteComposerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteComposerRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteComposerRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteComposerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutput() GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) ToGetRemoteComposerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteComposerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteComposerRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) GetRemoteComposerRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteComposerRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteComposerRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteComposerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteComposerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteConanRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteConanRepositoryContentSynchronisationInput is an input type that accepts GetRemoteConanRepositoryContentSynchronisationArgs and GetRemoteConanRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteConanRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteConanRepositoryContentSynchronisationArgs{...}
+type GetRemoteConanRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteConanRepositoryContentSynchronisationOutput() GetRemoteConanRepositoryContentSynchronisationOutput
+	ToGetRemoteConanRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteConanRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteConanRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteConanRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteConanRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteConanRepositoryContentSynchronisationArgs) ToGetRemoteConanRepositoryContentSynchronisationOutput() GetRemoteConanRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteConanRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteConanRepositoryContentSynchronisationArgs) ToGetRemoteConanRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteConanRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteConanRepositoryContentSynchronisationArgs) ToGetRemoteConanRepositoryContentSynchronisationPtrOutput() GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteConanRepositoryContentSynchronisationArgs) ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteConanRepositoryContentSynchronisationOutput).ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteConanRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteConanRepositoryContentSynchronisationArgs, GetRemoteConanRepositoryContentSynchronisationPtr and GetRemoteConanRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteConanRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteConanRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteConanRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteConanRepositoryContentSynchronisationPtrOutput() GetRemoteConanRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteConanRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteConanRepositoryContentSynchronisationPtrType GetRemoteConanRepositoryContentSynchronisationArgs
+
+func GetRemoteConanRepositoryContentSynchronisationPtr(v *GetRemoteConanRepositoryContentSynchronisationArgs) GetRemoteConanRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteConanRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteConanRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteConanRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteConanRepositoryContentSynchronisationPtrType) ToGetRemoteConanRepositoryContentSynchronisationPtrOutput() GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteConanRepositoryContentSynchronisationPtrType) ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteConanRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteConanRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteConanRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteConanRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) ToGetRemoteConanRepositoryContentSynchronisationOutput() GetRemoteConanRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) ToGetRemoteConanRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) ToGetRemoteConanRepositoryContentSynchronisationPtrOutput() GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteConanRepositoryContentSynchronisation) *GetRemoteConanRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteConanRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteConanRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteConanRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteConanRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteConanRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) ToGetRemoteConanRepositoryContentSynchronisationPtrOutput() GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) ToGetRemoteConanRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteConanRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteConanRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) GetRemoteConanRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteConanRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteConanRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteConanRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteConanRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCondaRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteCondaRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCondaRepositoryContentSynchronisationArgs and GetRemoteCondaRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteCondaRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteCondaRepositoryContentSynchronisationArgs{...}
+type GetRemoteCondaRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteCondaRepositoryContentSynchronisationOutput() GetRemoteCondaRepositoryContentSynchronisationOutput
+	ToGetRemoteCondaRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteCondaRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteCondaRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteCondaRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCondaRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteCondaRepositoryContentSynchronisationArgs) ToGetRemoteCondaRepositoryContentSynchronisationOutput() GetRemoteCondaRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteCondaRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCondaRepositoryContentSynchronisationArgs) ToGetRemoteCondaRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCondaRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteCondaRepositoryContentSynchronisationArgs) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutput() GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCondaRepositoryContentSynchronisationArgs) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCondaRepositoryContentSynchronisationOutput).ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteCondaRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteCondaRepositoryContentSynchronisationArgs, GetRemoteCondaRepositoryContentSynchronisationPtr and GetRemoteCondaRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteCondaRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteCondaRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteCondaRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteCondaRepositoryContentSynchronisationPtrOutput() GetRemoteCondaRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteCondaRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteCondaRepositoryContentSynchronisationPtrType GetRemoteCondaRepositoryContentSynchronisationArgs
+
+func GetRemoteCondaRepositoryContentSynchronisationPtr(v *GetRemoteCondaRepositoryContentSynchronisationArgs) GetRemoteCondaRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteCondaRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteCondaRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCondaRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteCondaRepositoryContentSynchronisationPtrType) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutput() GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteCondaRepositoryContentSynchronisationPtrType) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCondaRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteCondaRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCondaRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCondaRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) ToGetRemoteCondaRepositoryContentSynchronisationOutput() GetRemoteCondaRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) ToGetRemoteCondaRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutput() GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteCondaRepositoryContentSynchronisation) *GetRemoteCondaRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteCondaRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCondaRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCondaRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCondaRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCondaRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutput() GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) ToGetRemoteCondaRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCondaRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteCondaRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) GetRemoteCondaRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteCondaRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteCondaRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCondaRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCondaRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCranRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteCranRepositoryContentSynchronisationInput is an input type that accepts GetRemoteCranRepositoryContentSynchronisationArgs and GetRemoteCranRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteCranRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteCranRepositoryContentSynchronisationArgs{...}
+type GetRemoteCranRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteCranRepositoryContentSynchronisationOutput() GetRemoteCranRepositoryContentSynchronisationOutput
+	ToGetRemoteCranRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteCranRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteCranRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteCranRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCranRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteCranRepositoryContentSynchronisationArgs) ToGetRemoteCranRepositoryContentSynchronisationOutput() GetRemoteCranRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteCranRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCranRepositoryContentSynchronisationArgs) ToGetRemoteCranRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCranRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteCranRepositoryContentSynchronisationArgs) ToGetRemoteCranRepositoryContentSynchronisationPtrOutput() GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteCranRepositoryContentSynchronisationArgs) ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCranRepositoryContentSynchronisationOutput).ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteCranRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteCranRepositoryContentSynchronisationArgs, GetRemoteCranRepositoryContentSynchronisationPtr and GetRemoteCranRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteCranRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteCranRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteCranRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteCranRepositoryContentSynchronisationPtrOutput() GetRemoteCranRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteCranRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteCranRepositoryContentSynchronisationPtrType GetRemoteCranRepositoryContentSynchronisationArgs
+
+func GetRemoteCranRepositoryContentSynchronisationPtr(v *GetRemoteCranRepositoryContentSynchronisationArgs) GetRemoteCranRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteCranRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteCranRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCranRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteCranRepositoryContentSynchronisationPtrType) ToGetRemoteCranRepositoryContentSynchronisationPtrOutput() GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteCranRepositoryContentSynchronisationPtrType) ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteCranRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteCranRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCranRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteCranRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) ToGetRemoteCranRepositoryContentSynchronisationOutput() GetRemoteCranRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) ToGetRemoteCranRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) ToGetRemoteCranRepositoryContentSynchronisationPtrOutput() GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteCranRepositoryContentSynchronisation) *GetRemoteCranRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteCranRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteCranRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteCranRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteCranRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteCranRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) ToGetRemoteCranRepositoryContentSynchronisationPtrOutput() GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) ToGetRemoteCranRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteCranRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteCranRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) GetRemoteCranRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteCranRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteCranRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteCranRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteCranRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteDebianRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteDebianRepositoryContentSynchronisationInput is an input type that accepts GetRemoteDebianRepositoryContentSynchronisationArgs and GetRemoteDebianRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteDebianRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteDebianRepositoryContentSynchronisationArgs{...}
+type GetRemoteDebianRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteDebianRepositoryContentSynchronisationOutput() GetRemoteDebianRepositoryContentSynchronisationOutput
+	ToGetRemoteDebianRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteDebianRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteDebianRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteDebianRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteDebianRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteDebianRepositoryContentSynchronisationArgs) ToGetRemoteDebianRepositoryContentSynchronisationOutput() GetRemoteDebianRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteDebianRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteDebianRepositoryContentSynchronisationArgs) ToGetRemoteDebianRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDebianRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteDebianRepositoryContentSynchronisationArgs) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutput() GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteDebianRepositoryContentSynchronisationArgs) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDebianRepositoryContentSynchronisationOutput).ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteDebianRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteDebianRepositoryContentSynchronisationArgs, GetRemoteDebianRepositoryContentSynchronisationPtr and GetRemoteDebianRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteDebianRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteDebianRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteDebianRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteDebianRepositoryContentSynchronisationPtrOutput() GetRemoteDebianRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteDebianRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteDebianRepositoryContentSynchronisationPtrType GetRemoteDebianRepositoryContentSynchronisationArgs
+
+func GetRemoteDebianRepositoryContentSynchronisationPtr(v *GetRemoteDebianRepositoryContentSynchronisationArgs) GetRemoteDebianRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteDebianRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteDebianRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteDebianRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteDebianRepositoryContentSynchronisationPtrType) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutput() GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteDebianRepositoryContentSynchronisationPtrType) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDebianRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteDebianRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteDebianRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteDebianRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) ToGetRemoteDebianRepositoryContentSynchronisationOutput() GetRemoteDebianRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) ToGetRemoteDebianRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutput() GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteDebianRepositoryContentSynchronisation) *GetRemoteDebianRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteDebianRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDebianRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteDebianRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteDebianRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteDebianRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutput() GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) ToGetRemoteDebianRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDebianRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteDebianRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) GetRemoteDebianRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteDebianRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteDebianRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDebianRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDebianRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteDockerRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteDockerRepositoryContentSynchronisationInput is an input type that accepts GetRemoteDockerRepositoryContentSynchronisationArgs and GetRemoteDockerRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteDockerRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteDockerRepositoryContentSynchronisationArgs{...}
+type GetRemoteDockerRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteDockerRepositoryContentSynchronisationOutput() GetRemoteDockerRepositoryContentSynchronisationOutput
+	ToGetRemoteDockerRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteDockerRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteDockerRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteDockerRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteDockerRepositoryContentSynchronisationArgs) ToGetRemoteDockerRepositoryContentSynchronisationOutput() GetRemoteDockerRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteDockerRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteDockerRepositoryContentSynchronisationArgs) ToGetRemoteDockerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDockerRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteDockerRepositoryContentSynchronisationArgs) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutput() GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteDockerRepositoryContentSynchronisationArgs) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDockerRepositoryContentSynchronisationOutput).ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteDockerRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteDockerRepositoryContentSynchronisationArgs, GetRemoteDockerRepositoryContentSynchronisationPtr and GetRemoteDockerRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteDockerRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteDockerRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteDockerRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteDockerRepositoryContentSynchronisationPtrOutput() GetRemoteDockerRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteDockerRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteDockerRepositoryContentSynchronisationPtrType GetRemoteDockerRepositoryContentSynchronisationArgs
+
+func GetRemoteDockerRepositoryContentSynchronisationPtr(v *GetRemoteDockerRepositoryContentSynchronisationArgs) GetRemoteDockerRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteDockerRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteDockerRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteDockerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteDockerRepositoryContentSynchronisationPtrType) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutput() GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteDockerRepositoryContentSynchronisationPtrType) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteDockerRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteDockerRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteDockerRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) ToGetRemoteDockerRepositoryContentSynchronisationOutput() GetRemoteDockerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) ToGetRemoteDockerRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutput() GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteDockerRepositoryContentSynchronisation) *GetRemoteDockerRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteDockerRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteDockerRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteDockerRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteDockerRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteDockerRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutput() GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) ToGetRemoteDockerRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteDockerRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteDockerRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) GetRemoteDockerRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteDockerRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteDockerRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteDockerRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteDockerRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGemsRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteGemsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGemsRepositoryContentSynchronisationArgs and GetRemoteGemsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteGemsRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteGemsRepositoryContentSynchronisationArgs{...}
+type GetRemoteGemsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput
+	ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteGemsRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteGemsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGemsRepositoryContentSynchronisationArgs) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationOutput).ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteGemsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGemsRepositoryContentSynchronisationArgs, GetRemoteGemsRepositoryContentSynchronisationPtr and GetRemoteGemsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteGemsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteGemsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteGemsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteGemsRepositoryContentSynchronisationPtrType GetRemoteGemsRepositoryContentSynchronisationArgs
+
+func GetRemoteGemsRepositoryContentSynchronisationPtr(v *GetRemoteGemsRepositoryContentSynchronisationArgs) GetRemoteGemsRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteGemsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteGemsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteGemsRepositoryContentSynchronisationPtrType) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteGemsRepositoryContentSynchronisationPtrType) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGemsRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteGemsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGemsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationOutput() GetRemoteGemsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGemsRepositoryContentSynchronisation) *GetRemoteGemsRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteGemsRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGemsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGemsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGemsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutput() GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGemsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGemsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGemsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) GetRemoteGemsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteGemsRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteGemsRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGemsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGemsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGenericRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteGenericRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGenericRepositoryContentSynchronisationArgs and GetRemoteGenericRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteGenericRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteGenericRepositoryContentSynchronisationArgs{...}
+type GetRemoteGenericRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteGenericRepositoryContentSynchronisationOutput() GetRemoteGenericRepositoryContentSynchronisationOutput
+	ToGetRemoteGenericRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGenericRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteGenericRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteGenericRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteGenericRepositoryContentSynchronisationArgs) ToGetRemoteGenericRepositoryContentSynchronisationOutput() GetRemoteGenericRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteGenericRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGenericRepositoryContentSynchronisationArgs) ToGetRemoteGenericRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGenericRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteGenericRepositoryContentSynchronisationArgs) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutput() GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGenericRepositoryContentSynchronisationArgs) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGenericRepositoryContentSynchronisationOutput).ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteGenericRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGenericRepositoryContentSynchronisationArgs, GetRemoteGenericRepositoryContentSynchronisationPtr and GetRemoteGenericRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteGenericRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteGenericRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteGenericRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteGenericRepositoryContentSynchronisationPtrOutput() GetRemoteGenericRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGenericRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteGenericRepositoryContentSynchronisationPtrType GetRemoteGenericRepositoryContentSynchronisationArgs
+
+func GetRemoteGenericRepositoryContentSynchronisationPtr(v *GetRemoteGenericRepositoryContentSynchronisationArgs) GetRemoteGenericRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteGenericRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteGenericRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGenericRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteGenericRepositoryContentSynchronisationPtrType) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutput() GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteGenericRepositoryContentSynchronisationPtrType) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGenericRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteGenericRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGenericRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) ToGetRemoteGenericRepositoryContentSynchronisationOutput() GetRemoteGenericRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) ToGetRemoteGenericRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutput() GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGenericRepositoryContentSynchronisation) *GetRemoteGenericRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteGenericRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGenericRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGenericRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGenericRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGenericRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutput() GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) ToGetRemoteGenericRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGenericRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGenericRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) GetRemoteGenericRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteGenericRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteGenericRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGenericRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGenericRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGitlfsRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteGitlfsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGitlfsRepositoryContentSynchronisationArgs and GetRemoteGitlfsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteGitlfsRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteGitlfsRepositoryContentSynchronisationArgs{...}
+type GetRemoteGitlfsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteGitlfsRepositoryContentSynchronisationOutput() GetRemoteGitlfsRepositoryContentSynchronisationOutput
+	ToGetRemoteGitlfsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGitlfsRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteGitlfsRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteGitlfsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGitlfsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteGitlfsRepositoryContentSynchronisationArgs) ToGetRemoteGitlfsRepositoryContentSynchronisationOutput() GetRemoteGitlfsRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteGitlfsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGitlfsRepositoryContentSynchronisationArgs) ToGetRemoteGitlfsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGitlfsRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteGitlfsRepositoryContentSynchronisationArgs) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutput() GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGitlfsRepositoryContentSynchronisationArgs) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGitlfsRepositoryContentSynchronisationOutput).ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteGitlfsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGitlfsRepositoryContentSynchronisationArgs, GetRemoteGitlfsRepositoryContentSynchronisationPtr and GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteGitlfsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteGitlfsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteGitlfsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutput() GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteGitlfsRepositoryContentSynchronisationPtrType GetRemoteGitlfsRepositoryContentSynchronisationArgs
+
+func GetRemoteGitlfsRepositoryContentSynchronisationPtr(v *GetRemoteGitlfsRepositoryContentSynchronisationArgs) GetRemoteGitlfsRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteGitlfsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteGitlfsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGitlfsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteGitlfsRepositoryContentSynchronisationPtrType) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutput() GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteGitlfsRepositoryContentSynchronisationPtrType) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteGitlfsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGitlfsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGitlfsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationOutput() GetRemoteGitlfsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutput() GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGitlfsRepositoryContentSynchronisation) *GetRemoteGitlfsRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGitlfsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGitlfsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutput() GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) ToGetRemoteGitlfsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGitlfsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) GetRemoteGitlfsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteGitlfsRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteGitlfsRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGitlfsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGoRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteGoRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGoRepositoryContentSynchronisationArgs and GetRemoteGoRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteGoRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteGoRepositoryContentSynchronisationArgs{...}
+type GetRemoteGoRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteGoRepositoryContentSynchronisationOutput() GetRemoteGoRepositoryContentSynchronisationOutput
+	ToGetRemoteGoRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGoRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteGoRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteGoRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteGoRepositoryContentSynchronisationArgs) ToGetRemoteGoRepositoryContentSynchronisationOutput() GetRemoteGoRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteGoRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGoRepositoryContentSynchronisationArgs) ToGetRemoteGoRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGoRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteGoRepositoryContentSynchronisationArgs) ToGetRemoteGoRepositoryContentSynchronisationPtrOutput() GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGoRepositoryContentSynchronisationArgs) ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGoRepositoryContentSynchronisationOutput).ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteGoRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGoRepositoryContentSynchronisationArgs, GetRemoteGoRepositoryContentSynchronisationPtr and GetRemoteGoRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteGoRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteGoRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteGoRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteGoRepositoryContentSynchronisationPtrOutput() GetRemoteGoRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGoRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteGoRepositoryContentSynchronisationPtrType GetRemoteGoRepositoryContentSynchronisationArgs
+
+func GetRemoteGoRepositoryContentSynchronisationPtr(v *GetRemoteGoRepositoryContentSynchronisationArgs) GetRemoteGoRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteGoRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteGoRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteGoRepositoryContentSynchronisationPtrType) ToGetRemoteGoRepositoryContentSynchronisationPtrOutput() GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteGoRepositoryContentSynchronisationPtrType) ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGoRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteGoRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGoRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) ToGetRemoteGoRepositoryContentSynchronisationOutput() GetRemoteGoRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) ToGetRemoteGoRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) ToGetRemoteGoRepositoryContentSynchronisationPtrOutput() GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGoRepositoryContentSynchronisation) *GetRemoteGoRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteGoRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGoRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGoRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGoRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGoRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) ToGetRemoteGoRepositoryContentSynchronisationPtrOutput() GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) ToGetRemoteGoRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGoRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGoRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) GetRemoteGoRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteGoRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteGoRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGoRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGoRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGradleRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteGradleRepositoryContentSynchronisationInput is an input type that accepts GetRemoteGradleRepositoryContentSynchronisationArgs and GetRemoteGradleRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteGradleRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteGradleRepositoryContentSynchronisationArgs{...}
+type GetRemoteGradleRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteGradleRepositoryContentSynchronisationOutput() GetRemoteGradleRepositoryContentSynchronisationOutput
+	ToGetRemoteGradleRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteGradleRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteGradleRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteGradleRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGradleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteGradleRepositoryContentSynchronisationArgs) ToGetRemoteGradleRepositoryContentSynchronisationOutput() GetRemoteGradleRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteGradleRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGradleRepositoryContentSynchronisationArgs) ToGetRemoteGradleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGradleRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteGradleRepositoryContentSynchronisationArgs) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutput() GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteGradleRepositoryContentSynchronisationArgs) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGradleRepositoryContentSynchronisationOutput).ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteGradleRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteGradleRepositoryContentSynchronisationArgs, GetRemoteGradleRepositoryContentSynchronisationPtr and GetRemoteGradleRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteGradleRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteGradleRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteGradleRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteGradleRepositoryContentSynchronisationPtrOutput() GetRemoteGradleRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteGradleRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteGradleRepositoryContentSynchronisationPtrType GetRemoteGradleRepositoryContentSynchronisationArgs
+
+func GetRemoteGradleRepositoryContentSynchronisationPtr(v *GetRemoteGradleRepositoryContentSynchronisationArgs) GetRemoteGradleRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteGradleRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteGradleRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGradleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteGradleRepositoryContentSynchronisationPtrType) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutput() GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteGradleRepositoryContentSynchronisationPtrType) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteGradleRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteGradleRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGradleRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteGradleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) ToGetRemoteGradleRepositoryContentSynchronisationOutput() GetRemoteGradleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) ToGetRemoteGradleRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutput() GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteGradleRepositoryContentSynchronisation) *GetRemoteGradleRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteGradleRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteGradleRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteGradleRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteGradleRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteGradleRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutput() GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) ToGetRemoteGradleRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteGradleRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteGradleRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) GetRemoteGradleRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteGradleRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteGradleRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteGradleRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteGradleRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteHelmRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteHelmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteHelmRepositoryContentSynchronisationArgs and GetRemoteHelmRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteHelmRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteHelmRepositoryContentSynchronisationArgs{...}
+type GetRemoteHelmRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteHelmRepositoryContentSynchronisationOutput() GetRemoteHelmRepositoryContentSynchronisationOutput
+	ToGetRemoteHelmRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteHelmRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteHelmRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteHelmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteHelmRepositoryContentSynchronisationArgs) ToGetRemoteHelmRepositoryContentSynchronisationOutput() GetRemoteHelmRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteHelmRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteHelmRepositoryContentSynchronisationArgs) ToGetRemoteHelmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteHelmRepositoryContentSynchronisationArgs) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutput() GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteHelmRepositoryContentSynchronisationArgs) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmRepositoryContentSynchronisationOutput).ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteHelmRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteHelmRepositoryContentSynchronisationArgs, GetRemoteHelmRepositoryContentSynchronisationPtr and GetRemoteHelmRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteHelmRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteHelmRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteHelmRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteHelmRepositoryContentSynchronisationPtrOutput() GetRemoteHelmRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteHelmRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteHelmRepositoryContentSynchronisationPtrType GetRemoteHelmRepositoryContentSynchronisationArgs
+
+func GetRemoteHelmRepositoryContentSynchronisationPtr(v *GetRemoteHelmRepositoryContentSynchronisationArgs) GetRemoteHelmRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteHelmRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteHelmRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteHelmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteHelmRepositoryContentSynchronisationPtrType) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutput() GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteHelmRepositoryContentSynchronisationPtrType) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteHelmRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteHelmRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteHelmRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) ToGetRemoteHelmRepositoryContentSynchronisationOutput() GetRemoteHelmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) ToGetRemoteHelmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutput() GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteHelmRepositoryContentSynchronisation) *GetRemoteHelmRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteHelmRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteHelmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteHelmRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteHelmRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteHelmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutput() GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) ToGetRemoteHelmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteHelmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteHelmRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) GetRemoteHelmRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteHelmRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteHelmRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteHelmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteHelmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteIvyRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteIvyRepositoryContentSynchronisationInput is an input type that accepts GetRemoteIvyRepositoryContentSynchronisationArgs and GetRemoteIvyRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteIvyRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteIvyRepositoryContentSynchronisationArgs{...}
+type GetRemoteIvyRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteIvyRepositoryContentSynchronisationOutput() GetRemoteIvyRepositoryContentSynchronisationOutput
+	ToGetRemoteIvyRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteIvyRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteIvyRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteIvyRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteIvyRepositoryContentSynchronisationArgs) ToGetRemoteIvyRepositoryContentSynchronisationOutput() GetRemoteIvyRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteIvyRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteIvyRepositoryContentSynchronisationArgs) ToGetRemoteIvyRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteIvyRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteIvyRepositoryContentSynchronisationArgs) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutput() GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteIvyRepositoryContentSynchronisationArgs) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteIvyRepositoryContentSynchronisationOutput).ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteIvyRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteIvyRepositoryContentSynchronisationArgs, GetRemoteIvyRepositoryContentSynchronisationPtr and GetRemoteIvyRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteIvyRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteIvyRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteIvyRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteIvyRepositoryContentSynchronisationPtrOutput() GetRemoteIvyRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteIvyRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteIvyRepositoryContentSynchronisationPtrType GetRemoteIvyRepositoryContentSynchronisationArgs
+
+func GetRemoteIvyRepositoryContentSynchronisationPtr(v *GetRemoteIvyRepositoryContentSynchronisationArgs) GetRemoteIvyRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteIvyRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteIvyRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteIvyRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteIvyRepositoryContentSynchronisationPtrType) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutput() GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteIvyRepositoryContentSynchronisationPtrType) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteIvyRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteIvyRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteIvyRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) ToGetRemoteIvyRepositoryContentSynchronisationOutput() GetRemoteIvyRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) ToGetRemoteIvyRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutput() GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteIvyRepositoryContentSynchronisation) *GetRemoteIvyRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteIvyRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteIvyRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteIvyRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteIvyRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteIvyRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutput() GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) ToGetRemoteIvyRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteIvyRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteIvyRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) GetRemoteIvyRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteIvyRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteIvyRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteIvyRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteIvyRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteMavenRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteMavenRepositoryContentSynchronisationInput is an input type that accepts GetRemoteMavenRepositoryContentSynchronisationArgs and GetRemoteMavenRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteMavenRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteMavenRepositoryContentSynchronisationArgs{...}
+type GetRemoteMavenRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteMavenRepositoryContentSynchronisationOutput() GetRemoteMavenRepositoryContentSynchronisationOutput
+	ToGetRemoteMavenRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteMavenRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteMavenRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteMavenRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteMavenRepositoryContentSynchronisationArgs) ToGetRemoteMavenRepositoryContentSynchronisationOutput() GetRemoteMavenRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteMavenRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteMavenRepositoryContentSynchronisationArgs) ToGetRemoteMavenRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteMavenRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteMavenRepositoryContentSynchronisationArgs) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutput() GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteMavenRepositoryContentSynchronisationArgs) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteMavenRepositoryContentSynchronisationOutput).ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteMavenRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteMavenRepositoryContentSynchronisationArgs, GetRemoteMavenRepositoryContentSynchronisationPtr and GetRemoteMavenRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteMavenRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteMavenRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteMavenRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteMavenRepositoryContentSynchronisationPtrOutput() GetRemoteMavenRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteMavenRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteMavenRepositoryContentSynchronisationPtrType GetRemoteMavenRepositoryContentSynchronisationArgs
+
+func GetRemoteMavenRepositoryContentSynchronisationPtr(v *GetRemoteMavenRepositoryContentSynchronisationArgs) GetRemoteMavenRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteMavenRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteMavenRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteMavenRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteMavenRepositoryContentSynchronisationPtrType) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutput() GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteMavenRepositoryContentSynchronisationPtrType) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteMavenRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteMavenRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteMavenRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) ToGetRemoteMavenRepositoryContentSynchronisationOutput() GetRemoteMavenRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) ToGetRemoteMavenRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutput() GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteMavenRepositoryContentSynchronisation) *GetRemoteMavenRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteMavenRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteMavenRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteMavenRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteMavenRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteMavenRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutput() GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) ToGetRemoteMavenRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteMavenRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteMavenRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) GetRemoteMavenRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteMavenRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteMavenRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteMavenRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteMavenRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteNpmRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteNpmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteNpmRepositoryContentSynchronisationArgs and GetRemoteNpmRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteNpmRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteNpmRepositoryContentSynchronisationArgs{...}
+type GetRemoteNpmRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteNpmRepositoryContentSynchronisationOutput() GetRemoteNpmRepositoryContentSynchronisationOutput
+	ToGetRemoteNpmRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteNpmRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteNpmRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteNpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteNpmRepositoryContentSynchronisationArgs) ToGetRemoteNpmRepositoryContentSynchronisationOutput() GetRemoteNpmRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteNpmRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteNpmRepositoryContentSynchronisationArgs) ToGetRemoteNpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNpmRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteNpmRepositoryContentSynchronisationArgs) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutput() GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteNpmRepositoryContentSynchronisationArgs) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNpmRepositoryContentSynchronisationOutput).ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteNpmRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteNpmRepositoryContentSynchronisationArgs, GetRemoteNpmRepositoryContentSynchronisationPtr and GetRemoteNpmRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteNpmRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteNpmRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteNpmRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteNpmRepositoryContentSynchronisationPtrOutput() GetRemoteNpmRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteNpmRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteNpmRepositoryContentSynchronisationPtrType GetRemoteNpmRepositoryContentSynchronisationArgs
+
+func GetRemoteNpmRepositoryContentSynchronisationPtr(v *GetRemoteNpmRepositoryContentSynchronisationArgs) GetRemoteNpmRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteNpmRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteNpmRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteNpmRepositoryContentSynchronisationPtrType) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutput() GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteNpmRepositoryContentSynchronisationPtrType) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNpmRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteNpmRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteNpmRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) ToGetRemoteNpmRepositoryContentSynchronisationOutput() GetRemoteNpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) ToGetRemoteNpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutput() GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteNpmRepositoryContentSynchronisation) *GetRemoteNpmRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteNpmRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteNpmRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteNpmRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteNpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutput() GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) ToGetRemoteNpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteNpmRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) GetRemoteNpmRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteNpmRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteNpmRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteNugetRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteNugetRepositoryContentSynchronisationInput is an input type that accepts GetRemoteNugetRepositoryContentSynchronisationArgs and GetRemoteNugetRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteNugetRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteNugetRepositoryContentSynchronisationArgs{...}
+type GetRemoteNugetRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteNugetRepositoryContentSynchronisationOutput() GetRemoteNugetRepositoryContentSynchronisationOutput
+	ToGetRemoteNugetRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteNugetRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteNugetRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteNugetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteNugetRepositoryContentSynchronisationArgs) ToGetRemoteNugetRepositoryContentSynchronisationOutput() GetRemoteNugetRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteNugetRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteNugetRepositoryContentSynchronisationArgs) ToGetRemoteNugetRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNugetRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteNugetRepositoryContentSynchronisationArgs) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutput() GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteNugetRepositoryContentSynchronisationArgs) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNugetRepositoryContentSynchronisationOutput).ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteNugetRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteNugetRepositoryContentSynchronisationArgs, GetRemoteNugetRepositoryContentSynchronisationPtr and GetRemoteNugetRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteNugetRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteNugetRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteNugetRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteNugetRepositoryContentSynchronisationPtrOutput() GetRemoteNugetRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteNugetRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteNugetRepositoryContentSynchronisationPtrType GetRemoteNugetRepositoryContentSynchronisationArgs
+
+func GetRemoteNugetRepositoryContentSynchronisationPtr(v *GetRemoteNugetRepositoryContentSynchronisationArgs) GetRemoteNugetRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteNugetRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteNugetRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteNugetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteNugetRepositoryContentSynchronisationPtrType) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutput() GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteNugetRepositoryContentSynchronisationPtrType) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteNugetRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteNugetRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteNugetRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) ToGetRemoteNugetRepositoryContentSynchronisationOutput() GetRemoteNugetRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) ToGetRemoteNugetRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutput() GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteNugetRepositoryContentSynchronisation) *GetRemoteNugetRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteNugetRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteNugetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteNugetRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteNugetRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteNugetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutput() GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) ToGetRemoteNugetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteNugetRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteNugetRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) GetRemoteNugetRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteNugetRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteNugetRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteNugetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteNugetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteOpkgRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteOpkgRepositoryContentSynchronisationInput is an input type that accepts GetRemoteOpkgRepositoryContentSynchronisationArgs and GetRemoteOpkgRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteOpkgRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteOpkgRepositoryContentSynchronisationArgs{...}
+type GetRemoteOpkgRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteOpkgRepositoryContentSynchronisationOutput() GetRemoteOpkgRepositoryContentSynchronisationOutput
+	ToGetRemoteOpkgRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteOpkgRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteOpkgRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteOpkgRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteOpkgRepositoryContentSynchronisationArgs) ToGetRemoteOpkgRepositoryContentSynchronisationOutput() GetRemoteOpkgRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteOpkgRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteOpkgRepositoryContentSynchronisationArgs) ToGetRemoteOpkgRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOpkgRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteOpkgRepositoryContentSynchronisationArgs) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutput() GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteOpkgRepositoryContentSynchronisationArgs) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOpkgRepositoryContentSynchronisationOutput).ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteOpkgRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteOpkgRepositoryContentSynchronisationArgs, GetRemoteOpkgRepositoryContentSynchronisationPtr and GetRemoteOpkgRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteOpkgRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteOpkgRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteOpkgRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutput() GetRemoteOpkgRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteOpkgRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteOpkgRepositoryContentSynchronisationPtrType GetRemoteOpkgRepositoryContentSynchronisationArgs
+
+func GetRemoteOpkgRepositoryContentSynchronisationPtr(v *GetRemoteOpkgRepositoryContentSynchronisationArgs) GetRemoteOpkgRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteOpkgRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteOpkgRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteOpkgRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteOpkgRepositoryContentSynchronisationPtrType) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutput() GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteOpkgRepositoryContentSynchronisationPtrType) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteOpkgRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteOpkgRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteOpkgRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) ToGetRemoteOpkgRepositoryContentSynchronisationOutput() GetRemoteOpkgRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) ToGetRemoteOpkgRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutput() GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteOpkgRepositoryContentSynchronisation) *GetRemoteOpkgRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteOpkgRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteOpkgRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteOpkgRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteOpkgRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutput() GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) ToGetRemoteOpkgRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteOpkgRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteOpkgRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) GetRemoteOpkgRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteOpkgRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteOpkgRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteOpkgRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteOpkgRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteP2RepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteP2RepositoryContentSynchronisationInput is an input type that accepts GetRemoteP2RepositoryContentSynchronisationArgs and GetRemoteP2RepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteP2RepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteP2RepositoryContentSynchronisationArgs{...}
+type GetRemoteP2RepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteP2RepositoryContentSynchronisationOutput() GetRemoteP2RepositoryContentSynchronisationOutput
+	ToGetRemoteP2RepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteP2RepositoryContentSynchronisationOutput
+}
+
+type GetRemoteP2RepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteP2RepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteP2RepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteP2RepositoryContentSynchronisationArgs) ToGetRemoteP2RepositoryContentSynchronisationOutput() GetRemoteP2RepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteP2RepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteP2RepositoryContentSynchronisationArgs) ToGetRemoteP2RepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteP2RepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteP2RepositoryContentSynchronisationArgs) ToGetRemoteP2RepositoryContentSynchronisationPtrOutput() GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteP2RepositoryContentSynchronisationArgs) ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteP2RepositoryContentSynchronisationOutput).ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteP2RepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteP2RepositoryContentSynchronisationArgs, GetRemoteP2RepositoryContentSynchronisationPtr and GetRemoteP2RepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteP2RepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteP2RepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteP2RepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteP2RepositoryContentSynchronisationPtrOutput() GetRemoteP2RepositoryContentSynchronisationPtrOutput
+	ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteP2RepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteP2RepositoryContentSynchronisationPtrType GetRemoteP2RepositoryContentSynchronisationArgs
+
+func GetRemoteP2RepositoryContentSynchronisationPtr(v *GetRemoteP2RepositoryContentSynchronisationArgs) GetRemoteP2RepositoryContentSynchronisationPtrInput {
+	return (*getRemoteP2RepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteP2RepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteP2RepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteP2RepositoryContentSynchronisationPtrType) ToGetRemoteP2RepositoryContentSynchronisationPtrOutput() GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteP2RepositoryContentSynchronisationPtrType) ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteP2RepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteP2RepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteP2RepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteP2RepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) ToGetRemoteP2RepositoryContentSynchronisationOutput() GetRemoteP2RepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) ToGetRemoteP2RepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) ToGetRemoteP2RepositoryContentSynchronisationPtrOutput() GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteP2RepositoryContentSynchronisation) *GetRemoteP2RepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteP2RepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteP2RepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteP2RepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteP2RepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteP2RepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) ToGetRemoteP2RepositoryContentSynchronisationPtrOutput() GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) ToGetRemoteP2RepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteP2RepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) Elem() GetRemoteP2RepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) GetRemoteP2RepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteP2RepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteP2RepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteP2RepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteP2RepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePubRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemotePubRepositoryContentSynchronisationInput is an input type that accepts GetRemotePubRepositoryContentSynchronisationArgs and GetRemotePubRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemotePubRepositoryContentSynchronisationInput` via:
+//
+//	GetRemotePubRepositoryContentSynchronisationArgs{...}
+type GetRemotePubRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemotePubRepositoryContentSynchronisationOutput() GetRemotePubRepositoryContentSynchronisationOutput
+	ToGetRemotePubRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemotePubRepositoryContentSynchronisationOutput
+}
+
+type GetRemotePubRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemotePubRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePubRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemotePubRepositoryContentSynchronisationArgs) ToGetRemotePubRepositoryContentSynchronisationOutput() GetRemotePubRepositoryContentSynchronisationOutput {
+	return i.ToGetRemotePubRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemotePubRepositoryContentSynchronisationArgs) ToGetRemotePubRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePubRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemotePubRepositoryContentSynchronisationArgs) ToGetRemotePubRepositoryContentSynchronisationPtrOutput() GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemotePubRepositoryContentSynchronisationArgs) ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePubRepositoryContentSynchronisationOutput).ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemotePubRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemotePubRepositoryContentSynchronisationArgs, GetRemotePubRepositoryContentSynchronisationPtr and GetRemotePubRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemotePubRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemotePubRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemotePubRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemotePubRepositoryContentSynchronisationPtrOutput() GetRemotePubRepositoryContentSynchronisationPtrOutput
+	ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemotePubRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemotePubRepositoryContentSynchronisationPtrType GetRemotePubRepositoryContentSynchronisationArgs
+
+func GetRemotePubRepositoryContentSynchronisationPtr(v *GetRemotePubRepositoryContentSynchronisationArgs) GetRemotePubRepositoryContentSynchronisationPtrInput {
+	return (*getRemotePubRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemotePubRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePubRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemotePubRepositoryContentSynchronisationPtrType) ToGetRemotePubRepositoryContentSynchronisationPtrOutput() GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemotePubRepositoryContentSynchronisationPtrType) ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePubRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemotePubRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePubRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePubRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) ToGetRemotePubRepositoryContentSynchronisationOutput() GetRemotePubRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) ToGetRemotePubRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) ToGetRemotePubRepositoryContentSynchronisationPtrOutput() GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemotePubRepositoryContentSynchronisation) *GetRemotePubRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemotePubRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePubRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePubRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePubRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePubRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) ToGetRemotePubRepositoryContentSynchronisationPtrOutput() GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) ToGetRemotePubRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePubRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) Elem() GetRemotePubRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) GetRemotePubRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemotePubRepositoryContentSynchronisation
+		return ret
+	}).(GetRemotePubRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePubRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePubRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePuppetRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemotePuppetRepositoryContentSynchronisationInput is an input type that accepts GetRemotePuppetRepositoryContentSynchronisationArgs and GetRemotePuppetRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemotePuppetRepositoryContentSynchronisationInput` via:
+//
+//	GetRemotePuppetRepositoryContentSynchronisationArgs{...}
+type GetRemotePuppetRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemotePuppetRepositoryContentSynchronisationOutput() GetRemotePuppetRepositoryContentSynchronisationOutput
+	ToGetRemotePuppetRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemotePuppetRepositoryContentSynchronisationOutput
+}
+
+type GetRemotePuppetRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemotePuppetRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePuppetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemotePuppetRepositoryContentSynchronisationArgs) ToGetRemotePuppetRepositoryContentSynchronisationOutput() GetRemotePuppetRepositoryContentSynchronisationOutput {
+	return i.ToGetRemotePuppetRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemotePuppetRepositoryContentSynchronisationArgs) ToGetRemotePuppetRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePuppetRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemotePuppetRepositoryContentSynchronisationArgs) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutput() GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemotePuppetRepositoryContentSynchronisationArgs) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePuppetRepositoryContentSynchronisationOutput).ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemotePuppetRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemotePuppetRepositoryContentSynchronisationArgs, GetRemotePuppetRepositoryContentSynchronisationPtr and GetRemotePuppetRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemotePuppetRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemotePuppetRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemotePuppetRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemotePuppetRepositoryContentSynchronisationPtrOutput() GetRemotePuppetRepositoryContentSynchronisationPtrOutput
+	ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemotePuppetRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemotePuppetRepositoryContentSynchronisationPtrType GetRemotePuppetRepositoryContentSynchronisationArgs
+
+func GetRemotePuppetRepositoryContentSynchronisationPtr(v *GetRemotePuppetRepositoryContentSynchronisationArgs) GetRemotePuppetRepositoryContentSynchronisationPtrInput {
+	return (*getRemotePuppetRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemotePuppetRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePuppetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemotePuppetRepositoryContentSynchronisationPtrType) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutput() GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemotePuppetRepositoryContentSynchronisationPtrType) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePuppetRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemotePuppetRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePuppetRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePuppetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) ToGetRemotePuppetRepositoryContentSynchronisationOutput() GetRemotePuppetRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) ToGetRemotePuppetRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutput() GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemotePuppetRepositoryContentSynchronisation) *GetRemotePuppetRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemotePuppetRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePuppetRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePuppetRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePuppetRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePuppetRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutput() GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) ToGetRemotePuppetRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePuppetRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) Elem() GetRemotePuppetRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) GetRemotePuppetRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemotePuppetRepositoryContentSynchronisation
+		return ret
+	}).(GetRemotePuppetRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePuppetRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePuppetRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePypiRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemotePypiRepositoryContentSynchronisationInput is an input type that accepts GetRemotePypiRepositoryContentSynchronisationArgs and GetRemotePypiRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemotePypiRepositoryContentSynchronisationInput` via:
+//
+//	GetRemotePypiRepositoryContentSynchronisationArgs{...}
+type GetRemotePypiRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemotePypiRepositoryContentSynchronisationOutput() GetRemotePypiRepositoryContentSynchronisationOutput
+	ToGetRemotePypiRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemotePypiRepositoryContentSynchronisationOutput
+}
+
+type GetRemotePypiRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemotePypiRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemotePypiRepositoryContentSynchronisationArgs) ToGetRemotePypiRepositoryContentSynchronisationOutput() GetRemotePypiRepositoryContentSynchronisationOutput {
+	return i.ToGetRemotePypiRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemotePypiRepositoryContentSynchronisationArgs) ToGetRemotePypiRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePypiRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemotePypiRepositoryContentSynchronisationArgs) ToGetRemotePypiRepositoryContentSynchronisationPtrOutput() GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemotePypiRepositoryContentSynchronisationArgs) ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePypiRepositoryContentSynchronisationOutput).ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemotePypiRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemotePypiRepositoryContentSynchronisationArgs, GetRemotePypiRepositoryContentSynchronisationPtr and GetRemotePypiRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemotePypiRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemotePypiRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemotePypiRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemotePypiRepositoryContentSynchronisationPtrOutput() GetRemotePypiRepositoryContentSynchronisationPtrOutput
+	ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemotePypiRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemotePypiRepositoryContentSynchronisationPtrType GetRemotePypiRepositoryContentSynchronisationArgs
+
+func GetRemotePypiRepositoryContentSynchronisationPtr(v *GetRemotePypiRepositoryContentSynchronisationArgs) GetRemotePypiRepositoryContentSynchronisationPtrInput {
+	return (*getRemotePypiRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemotePypiRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemotePypiRepositoryContentSynchronisationPtrType) ToGetRemotePypiRepositoryContentSynchronisationPtrOutput() GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemotePypiRepositoryContentSynchronisationPtrType) ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemotePypiRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemotePypiRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePypiRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) ToGetRemotePypiRepositoryContentSynchronisationOutput() GetRemotePypiRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) ToGetRemotePypiRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) ToGetRemotePypiRepositoryContentSynchronisationPtrOutput() GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemotePypiRepositoryContentSynchronisation) *GetRemotePypiRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemotePypiRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemotePypiRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemotePypiRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemotePypiRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemotePypiRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) ToGetRemotePypiRepositoryContentSynchronisationPtrOutput() GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) ToGetRemotePypiRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemotePypiRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) Elem() GetRemotePypiRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) GetRemotePypiRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemotePypiRepositoryContentSynchronisation
+		return ret
+	}).(GetRemotePypiRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemotePypiRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemotePypiRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteRpmRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteRpmRepositoryContentSynchronisationInput is an input type that accepts GetRemoteRpmRepositoryContentSynchronisationArgs and GetRemoteRpmRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteRpmRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteRpmRepositoryContentSynchronisationArgs{...}
+type GetRemoteRpmRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteRpmRepositoryContentSynchronisationOutput() GetRemoteRpmRepositoryContentSynchronisationOutput
+	ToGetRemoteRpmRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteRpmRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteRpmRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteRpmRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteRpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteRpmRepositoryContentSynchronisationArgs) ToGetRemoteRpmRepositoryContentSynchronisationOutput() GetRemoteRpmRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteRpmRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteRpmRepositoryContentSynchronisationArgs) ToGetRemoteRpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteRpmRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteRpmRepositoryContentSynchronisationArgs) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutput() GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteRpmRepositoryContentSynchronisationArgs) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteRpmRepositoryContentSynchronisationOutput).ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteRpmRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteRpmRepositoryContentSynchronisationArgs, GetRemoteRpmRepositoryContentSynchronisationPtr and GetRemoteRpmRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteRpmRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteRpmRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteRpmRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteRpmRepositoryContentSynchronisationPtrOutput() GetRemoteRpmRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteRpmRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteRpmRepositoryContentSynchronisationPtrType GetRemoteRpmRepositoryContentSynchronisationArgs
+
+func GetRemoteRpmRepositoryContentSynchronisationPtr(v *GetRemoteRpmRepositoryContentSynchronisationArgs) GetRemoteRpmRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteRpmRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteRpmRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteRpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteRpmRepositoryContentSynchronisationPtrType) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutput() GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteRpmRepositoryContentSynchronisationPtrType) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteRpmRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteRpmRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteRpmRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteRpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) ToGetRemoteRpmRepositoryContentSynchronisationOutput() GetRemoteRpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) ToGetRemoteRpmRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutput() GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteRpmRepositoryContentSynchronisation) *GetRemoteRpmRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteRpmRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteRpmRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteRpmRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteRpmRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteRpmRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutput() GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) ToGetRemoteRpmRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteRpmRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteRpmRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) GetRemoteRpmRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteRpmRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteRpmRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteRpmRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteRpmRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteSbtRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteSbtRepositoryContentSynchronisationInput is an input type that accepts GetRemoteSbtRepositoryContentSynchronisationArgs and GetRemoteSbtRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteSbtRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteSbtRepositoryContentSynchronisationArgs{...}
+type GetRemoteSbtRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteSbtRepositoryContentSynchronisationOutput() GetRemoteSbtRepositoryContentSynchronisationOutput
+	ToGetRemoteSbtRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteSbtRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteSbtRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteSbtRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteSbtRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteSbtRepositoryContentSynchronisationArgs) ToGetRemoteSbtRepositoryContentSynchronisationOutput() GetRemoteSbtRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteSbtRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteSbtRepositoryContentSynchronisationArgs) ToGetRemoteSbtRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSbtRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteSbtRepositoryContentSynchronisationArgs) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutput() GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteSbtRepositoryContentSynchronisationArgs) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSbtRepositoryContentSynchronisationOutput).ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteSbtRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteSbtRepositoryContentSynchronisationArgs, GetRemoteSbtRepositoryContentSynchronisationPtr and GetRemoteSbtRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteSbtRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteSbtRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteSbtRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteSbtRepositoryContentSynchronisationPtrOutput() GetRemoteSbtRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteSbtRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteSbtRepositoryContentSynchronisationPtrType GetRemoteSbtRepositoryContentSynchronisationArgs
+
+func GetRemoteSbtRepositoryContentSynchronisationPtr(v *GetRemoteSbtRepositoryContentSynchronisationArgs) GetRemoteSbtRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteSbtRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteSbtRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteSbtRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteSbtRepositoryContentSynchronisationPtrType) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutput() GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteSbtRepositoryContentSynchronisationPtrType) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSbtRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteSbtRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteSbtRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteSbtRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) ToGetRemoteSbtRepositoryContentSynchronisationOutput() GetRemoteSbtRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) ToGetRemoteSbtRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutput() GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteSbtRepositoryContentSynchronisation) *GetRemoteSbtRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteSbtRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSbtRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteSbtRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteSbtRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteSbtRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutput() GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) ToGetRemoteSbtRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSbtRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteSbtRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) GetRemoteSbtRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteSbtRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteSbtRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSbtRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSbtRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteSwiftRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteSwiftRepositoryContentSynchronisationInput is an input type that accepts GetRemoteSwiftRepositoryContentSynchronisationArgs and GetRemoteSwiftRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteSwiftRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteSwiftRepositoryContentSynchronisationArgs{...}
+type GetRemoteSwiftRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteSwiftRepositoryContentSynchronisationOutput() GetRemoteSwiftRepositoryContentSynchronisationOutput
+	ToGetRemoteSwiftRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteSwiftRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteSwiftRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteSwiftRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteSwiftRepositoryContentSynchronisationArgs) ToGetRemoteSwiftRepositoryContentSynchronisationOutput() GetRemoteSwiftRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteSwiftRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteSwiftRepositoryContentSynchronisationArgs) ToGetRemoteSwiftRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSwiftRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteSwiftRepositoryContentSynchronisationArgs) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutput() GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteSwiftRepositoryContentSynchronisationArgs) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSwiftRepositoryContentSynchronisationOutput).ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteSwiftRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteSwiftRepositoryContentSynchronisationArgs, GetRemoteSwiftRepositoryContentSynchronisationPtr and GetRemoteSwiftRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteSwiftRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteSwiftRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteSwiftRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutput() GetRemoteSwiftRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteSwiftRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteSwiftRepositoryContentSynchronisationPtrType GetRemoteSwiftRepositoryContentSynchronisationArgs
+
+func GetRemoteSwiftRepositoryContentSynchronisationPtr(v *GetRemoteSwiftRepositoryContentSynchronisationArgs) GetRemoteSwiftRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteSwiftRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteSwiftRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteSwiftRepositoryContentSynchronisationPtrType) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutput() GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteSwiftRepositoryContentSynchronisationPtrType) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteSwiftRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteSwiftRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteSwiftRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) ToGetRemoteSwiftRepositoryContentSynchronisationOutput() GetRemoteSwiftRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) ToGetRemoteSwiftRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutput() GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteSwiftRepositoryContentSynchronisation) *GetRemoteSwiftRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteSwiftRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteSwiftRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteSwiftRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteSwiftRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutput() GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) ToGetRemoteSwiftRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteSwiftRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteSwiftRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) GetRemoteSwiftRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteSwiftRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteSwiftRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteSwiftRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteSwiftRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteTerraformRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteTerraformRepositoryContentSynchronisationInput is an input type that accepts GetRemoteTerraformRepositoryContentSynchronisationArgs and GetRemoteTerraformRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteTerraformRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteTerraformRepositoryContentSynchronisationArgs{...}
+type GetRemoteTerraformRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteTerraformRepositoryContentSynchronisationOutput() GetRemoteTerraformRepositoryContentSynchronisationOutput
+	ToGetRemoteTerraformRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteTerraformRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteTerraformRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteTerraformRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteTerraformRepositoryContentSynchronisationArgs) ToGetRemoteTerraformRepositoryContentSynchronisationOutput() GetRemoteTerraformRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteTerraformRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteTerraformRepositoryContentSynchronisationArgs) ToGetRemoteTerraformRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteTerraformRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteTerraformRepositoryContentSynchronisationArgs) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutput() GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteTerraformRepositoryContentSynchronisationArgs) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteTerraformRepositoryContentSynchronisationOutput).ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteTerraformRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteTerraformRepositoryContentSynchronisationArgs, GetRemoteTerraformRepositoryContentSynchronisationPtr and GetRemoteTerraformRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteTerraformRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteTerraformRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteTerraformRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutput() GetRemoteTerraformRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteTerraformRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteTerraformRepositoryContentSynchronisationPtrType GetRemoteTerraformRepositoryContentSynchronisationArgs
+
+func GetRemoteTerraformRepositoryContentSynchronisationPtr(v *GetRemoteTerraformRepositoryContentSynchronisationArgs) GetRemoteTerraformRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteTerraformRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteTerraformRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteTerraformRepositoryContentSynchronisationPtrType) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutput() GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteTerraformRepositoryContentSynchronisationPtrType) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteTerraformRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteTerraformRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteTerraformRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) ToGetRemoteTerraformRepositoryContentSynchronisationOutput() GetRemoteTerraformRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) ToGetRemoteTerraformRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutput() GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteTerraformRepositoryContentSynchronisation) *GetRemoteTerraformRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteTerraformRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool {
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteTerraformRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteTerraformRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteTerraformRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutput() GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) ToGetRemoteTerraformRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteTerraformRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteTerraformRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) GetRemoteTerraformRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteTerraformRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteTerraformRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteTerraformRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteTerraformRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteVcsRepositoryContentSynchronisation struct {
+	Enabled                      *bool `pulumi:"enabled"`
+	PropertiesEnabled            *bool `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection *bool `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            *bool `pulumi:"statisticsEnabled"`
+}
+
+// GetRemoteVcsRepositoryContentSynchronisationInput is an input type that accepts GetRemoteVcsRepositoryContentSynchronisationArgs and GetRemoteVcsRepositoryContentSynchronisationOutput values.
+// You can construct a concrete instance of `GetRemoteVcsRepositoryContentSynchronisationInput` via:
+//
+//	GetRemoteVcsRepositoryContentSynchronisationArgs{...}
+type GetRemoteVcsRepositoryContentSynchronisationInput interface {
+	pulumi.Input
+
+	ToGetRemoteVcsRepositoryContentSynchronisationOutput() GetRemoteVcsRepositoryContentSynchronisationOutput
+	ToGetRemoteVcsRepositoryContentSynchronisationOutputWithContext(context.Context) GetRemoteVcsRepositoryContentSynchronisationOutput
+}
+
+type GetRemoteVcsRepositoryContentSynchronisationArgs struct {
+	Enabled                      pulumi.BoolPtrInput `pulumi:"enabled"`
+	PropertiesEnabled            pulumi.BoolPtrInput `pulumi:"propertiesEnabled"`
+	SourceOriginAbsenceDetection pulumi.BoolPtrInput `pulumi:"sourceOriginAbsenceDetection"`
+	StatisticsEnabled            pulumi.BoolPtrInput `pulumi:"statisticsEnabled"`
+}
+
+func (GetRemoteVcsRepositoryContentSynchronisationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i GetRemoteVcsRepositoryContentSynchronisationArgs) ToGetRemoteVcsRepositoryContentSynchronisationOutput() GetRemoteVcsRepositoryContentSynchronisationOutput {
+	return i.ToGetRemoteVcsRepositoryContentSynchronisationOutputWithContext(context.Background())
+}
+
+func (i GetRemoteVcsRepositoryContentSynchronisationArgs) ToGetRemoteVcsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteVcsRepositoryContentSynchronisationOutput)
+}
+
+func (i GetRemoteVcsRepositoryContentSynchronisationArgs) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutput() GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i GetRemoteVcsRepositoryContentSynchronisationArgs) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteVcsRepositoryContentSynchronisationOutput).ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx)
+}
+
+// GetRemoteVcsRepositoryContentSynchronisationPtrInput is an input type that accepts GetRemoteVcsRepositoryContentSynchronisationArgs, GetRemoteVcsRepositoryContentSynchronisationPtr and GetRemoteVcsRepositoryContentSynchronisationPtrOutput values.
+// You can construct a concrete instance of `GetRemoteVcsRepositoryContentSynchronisationPtrInput` via:
+//
+//	        GetRemoteVcsRepositoryContentSynchronisationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetRemoteVcsRepositoryContentSynchronisationPtrInput interface {
+	pulumi.Input
+
+	ToGetRemoteVcsRepositoryContentSynchronisationPtrOutput() GetRemoteVcsRepositoryContentSynchronisationPtrOutput
+	ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Context) GetRemoteVcsRepositoryContentSynchronisationPtrOutput
+}
+
+type getRemoteVcsRepositoryContentSynchronisationPtrType GetRemoteVcsRepositoryContentSynchronisationArgs
+
+func GetRemoteVcsRepositoryContentSynchronisationPtr(v *GetRemoteVcsRepositoryContentSynchronisationArgs) GetRemoteVcsRepositoryContentSynchronisationPtrInput {
+	return (*getRemoteVcsRepositoryContentSynchronisationPtrType)(v)
+}
+
+func (*getRemoteVcsRepositoryContentSynchronisationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (i *getRemoteVcsRepositoryContentSynchronisationPtrType) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutput() GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return i.ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (i *getRemoteVcsRepositoryContentSynchronisationPtrType) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRemoteVcsRepositoryContentSynchronisationPtrOutput)
+}
+
+type GetRemoteVcsRepositoryContentSynchronisationOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteVcsRepositoryContentSynchronisationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) ToGetRemoteVcsRepositoryContentSynchronisationOutput() GetRemoteVcsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) ToGetRemoteVcsRepositoryContentSynchronisationOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationOutput {
+	return o
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutput() GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o.ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(context.Background())
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetRemoteVcsRepositoryContentSynchronisation) *GetRemoteVcsRepositoryContentSynchronisation {
+		return &v
+	}).(GetRemoteVcsRepositoryContentSynchronisationPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.PropertiesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.SourceOriginAbsenceDetection }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRemoteVcsRepositoryContentSynchronisation) *bool { return v.StatisticsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GetRemoteVcsRepositoryContentSynchronisationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetRemoteVcsRepositoryContentSynchronisationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetRemoteVcsRepositoryContentSynchronisation)(nil)).Elem()
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutput() GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) ToGetRemoteVcsRepositoryContentSynchronisationPtrOutputWithContext(ctx context.Context) GetRemoteVcsRepositoryContentSynchronisationPtrOutput {
+	return o
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) Elem() GetRemoteVcsRepositoryContentSynchronisationOutput {
+	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) GetRemoteVcsRepositoryContentSynchronisation {
+		if v != nil {
+			return *v
+		}
+		var ret GetRemoteVcsRepositoryContentSynchronisation
+		return ret
+	}).(GetRemoteVcsRepositoryContentSynchronisationOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) PropertiesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PropertiesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) SourceOriginAbsenceDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SourceOriginAbsenceDetection
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRemoteVcsRepositoryContentSynchronisationPtrOutput) StatisticsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetRemoteVcsRepositoryContentSynchronisation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessTokenAdminTokenPtrInput)(nil)).Elem(), AccessTokenAdminTokenArgs{})
@@ -17412,6 +22934,68 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsGroupArrayInput)(nil)).Elem(), GetPermissionTargetRepoActionsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsUserInput)(nil)).Elem(), GetPermissionTargetRepoActionsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionTargetRepoActionsUserArrayInput)(nil)).Elem(), GetPermissionTargetRepoActionsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteAlpineRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteAlpineRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteAlpineRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteBowerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteBowerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteBowerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCargoRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteCargoRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCargoRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteCargoRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteChefRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteChefRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteChefRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteChefRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCocoapodsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteCocoapodsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCocoapodsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteCocoapodsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteComposerRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteComposerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteComposerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteComposerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteConanRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteConanRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteConanRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteConanRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCondaRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteCondaRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCondaRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteCondaRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCranRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteCranRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteCranRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteCranRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDebianRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteDebianRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDebianRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteDebianRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteDockerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteDockerRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteDockerRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGemsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGemsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGemsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGenericRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGenericRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGenericRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGitlfsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGitlfsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGitlfsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGitlfsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGoRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGoRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGoRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGoRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGradleRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteGradleRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteGradleRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteGradleRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteHelmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteHelmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteIvyRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteIvyRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteMavenRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteMavenRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteMavenRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteNpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteNpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteNugetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteNugetRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteNugetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteOpkgRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteOpkgRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteOpkgRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteP2RepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteP2RepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteP2RepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteP2RepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePubRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemotePubRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePubRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemotePubRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePuppetRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemotePuppetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePuppetRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemotePuppetRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePypiRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemotePypiRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemotePypiRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemotePypiRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteRpmRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteRpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteRpmRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteRpmRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteSbtRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteSbtRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteSbtRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteSbtRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteSwiftRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteSwiftRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteSwiftRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteSwiftRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteTerraformRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteTerraformRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteTerraformRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteTerraformRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRemoteVcsRepositoryContentSynchronisationPtrInput)(nil)).Elem(), GetRemoteVcsRepositoryContentSynchronisationArgs{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenOutput{})
 	pulumi.RegisterOutputType(AccessTokenAdminTokenPtrOutput{})
 	pulumi.RegisterOutputType(ArtifactPropertyWebhookCriteriaOutput{})
@@ -17650,4 +23234,66 @@ func init() {
 	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsUserOutput{})
 	pulumi.RegisterOutputType(GetPermissionTargetRepoActionsUserArrayOutput{})
+	pulumi.RegisterOutputType(GetRemoteAlpineRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteAlpineRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteBowerRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteBowerRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteCargoRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteCargoRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteChefRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteChefRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteCocoapodsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteCocoapodsRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteComposerRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteComposerRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteConanRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteConanRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteCondaRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteCondaRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteCranRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteCranRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteDebianRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteDebianRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteDockerRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteDockerRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteGemsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteGemsRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteGenericRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteGenericRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteGitlfsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteGitlfsRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteGoRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteGoRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteGradleRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteGradleRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteHelmRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteHelmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteIvyRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteMavenRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteMavenRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteNpmRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteNpmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteNugetRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteNugetRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteOpkgRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteOpkgRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteP2RepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteP2RepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemotePubRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemotePubRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemotePuppetRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemotePuppetRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemotePypiRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemotePypiRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteRpmRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteRpmRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteSbtRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteSbtRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteSwiftRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteSwiftRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteTerraformRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteTerraformRepositoryContentSynchronisationPtrOutput{})
+	pulumi.RegisterOutputType(GetRemoteVcsRepositoryContentSynchronisationOutput{})
+	pulumi.RegisterOutputType(GetRemoteVcsRepositoryContentSynchronisationPtrOutput{})
 }

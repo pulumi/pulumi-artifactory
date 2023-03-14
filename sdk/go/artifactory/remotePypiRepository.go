@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -134,9 +134,9 @@ type RemotePypiRepository struct {
 	PropertySets pulumi.StringArrayOutput `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrOutput `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrOutput `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 	PypiRepositorySuffix pulumi.StringPtrOutput `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -291,9 +291,9 @@ type remotePypiRepositoryState struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy *string `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 	PypiRepositorySuffix *string `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -407,9 +407,9 @@ type RemotePypiRepositoryState struct {
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrInput
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
-	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 	PypiRepositorySuffix pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -526,9 +526,9 @@ type remotePypiRepositoryArgs struct {
 	PropertySets []string `pulumi:"propertySets"`
 	// Proxy key from Artifactory Proxies settings
 	Proxy *string `pulumi:"proxy"`
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl *string `pulumi:"pypiRegistryUrl"`
-	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 	PypiRepositorySuffix *string `pulumi:"pypiRepositorySuffix"`
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -642,9 +642,9 @@ type RemotePypiRepositoryArgs struct {
 	PropertySets pulumi.StringArrayInput
 	// Proxy key from Artifactory Proxies settings
 	Proxy pulumi.StringPtrInput
-	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+	// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 	PypiRegistryUrl pulumi.StringPtrInput
-	// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+	// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 	PypiRepositorySuffix pulumi.StringPtrInput
 	// Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
 	// `param1=val1&param2=val2&param3=val3`
@@ -933,12 +933,12 @@ func (o RemotePypiRepositoryOutput) Proxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.Proxy }).(pulumi.StringPtrOutput)
 }
 
-// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+// To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
 func (o RemotePypiRepositoryOutput) PypiRegistryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.PypiRegistryUrl }).(pulumi.StringPtrOutput)
 }
 
-// Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+// Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
 func (o RemotePypiRepositoryOutput) PypiRepositorySuffix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemotePypiRepository) pulumi.StringPtrOutput { return v.PypiRepositorySuffix }).(pulumi.StringPtrOutput)
 }

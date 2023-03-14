@@ -244,13 +244,13 @@ export class RemoteVcsRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
      * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
-     * 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -563,13 +563,13 @@ export interface RemoteVcsRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
      * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
-     * 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -765,13 +765,13 @@ export interface RemoteVcsRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
      * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: 'GITHUB', 'BITBUCKET', 'OLDSTASH',
-     * 'STASH', 'ARTIFACTORY', 'CUSTOM'. Default value is 'GITHUB'
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

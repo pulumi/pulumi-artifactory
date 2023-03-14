@@ -48,14 +48,14 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -63,14 +63,14 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -163,7 +163,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class DockerWebhookCriteriaArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
          * 
          * @return builder
          * 

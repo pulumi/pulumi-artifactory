@@ -18,12 +18,12 @@ public final class ReleaseBundleWebhookCriteria {
      */
     private Boolean anyReleaseBundle;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     private @Nullable List<String> excludePatterns;
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     private @Nullable List<String> includePatterns;
@@ -42,14 +42,14 @@ public final class ReleaseBundleWebhookCriteria {
         return this.anyReleaseBundle;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     public List<String> excludePatterns() {
         return this.excludePatterns == null ? List.of() : this.excludePatterns;
     }
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     public List<String> includePatterns() {

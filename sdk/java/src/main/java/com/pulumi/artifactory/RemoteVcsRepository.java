@@ -668,14 +668,14 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.username);
     }
     /**
-     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     @Export(name="vcsGitDownloadUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     public Output<Optional<String>> vcsGitDownloadUrl() {
@@ -683,8 +683,8 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-     * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      * 
      */
     @Export(name="vcsGitProvider", type=String.class, parameters={})
@@ -692,8 +692,8 @@ public class RemoteVcsRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-     * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      * 
      */
     public Output<Optional<String>> vcsGitProvider() {

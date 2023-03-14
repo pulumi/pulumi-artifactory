@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +76,7 @@ type LdapSetting struct {
 	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrOutput `pulumi:"autoCreateUser"`
 	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+	// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrOutput `pulumi:"emailAttribute"`
 	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -151,7 +151,7 @@ type ldapSettingState struct {
 	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser *bool `pulumi:"autoCreateUser"`
 	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+	// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 	EmailAttribute *string `pulumi:"emailAttribute"`
 	// When set, these settings are enabled. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -185,7 +185,7 @@ type LdapSettingState struct {
 	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrInput
 	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+	// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrInput
 	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
@@ -223,7 +223,7 @@ type ldapSettingArgs struct {
 	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser *bool `pulumi:"autoCreateUser"`
 	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+	// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 	EmailAttribute *string `pulumi:"emailAttribute"`
 	// When set, these settings are enabled. Default value is `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -258,7 +258,7 @@ type LdapSettingArgs struct {
 	// When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
 	AutoCreateUser pulumi.BoolPtrInput
 	// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-	// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+	// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 	EmailAttribute pulumi.StringPtrInput
 	// When set, these settings are enabled. Default value is `true`.
 	Enabled pulumi.BoolPtrInput
@@ -384,7 +384,7 @@ func (o LdapSettingOutput) AutoCreateUser() pulumi.BoolPtrOutput {
 }
 
 // An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
 func (o LdapSettingOutput) EmailAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LdapSetting) pulumi.StringPtrOutput { return v.EmailAttribute }).(pulumi.StringPtrOutput)
 }

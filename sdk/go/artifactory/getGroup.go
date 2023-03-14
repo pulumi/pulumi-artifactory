@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,21 +59,21 @@ type LookupGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId *string `pulumi:"externalId"`
-	// Determines if the group's associated user list will return as an attribute. Default is false.
+	// Determines if the group's associated user list will return as an attribute. Default is `false`.
 	IncludeUsers *string `pulumi:"includeUsers"`
 	// Name of the group.
 	Name string `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager *bool `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm *string `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager *bool `pulumi:"reportsManager"`
 	// List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
 	UsersNames []string `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
 
@@ -91,17 +91,17 @@ type LookupGroupResult struct {
 	Id           string  `pulumi:"id"`
 	IncludeUsers *string `pulumi:"includeUsers"`
 	Name         string  `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager *bool `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm string `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes *string `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager *bool `pulumi:"reportsManager"`
 	// List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
 	UsersNames []string `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager *bool `pulumi:"watchManager"`
 }
 
@@ -128,21 +128,21 @@ type LookupGroupOutputArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// New external group ID used to configure the corresponding group in Azure AD.
 	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// Determines if the group's associated user list will return as an attribute. Default is false.
+	// Determines if the group's associated user list will return as an attribute. Default is `false`.
 	IncludeUsers pulumi.StringPtrInput `pulumi:"includeUsers"`
 	// Name of the group.
 	Name pulumi.StringInput `pulumi:"name"`
-	// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+	// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 	PolicyManager pulumi.BoolPtrInput `pulumi:"policyManager"`
 	// The realm for the group.
 	Realm pulumi.StringPtrInput `pulumi:"realm"`
 	// The realm attributes for the group.
 	RealmAttributes pulumi.StringPtrInput `pulumi:"realmAttributes"`
-	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 	ReportsManager pulumi.BoolPtrInput `pulumi:"reportsManager"`
 	// List of users assigned to the group. Set includeUsers to `true` to retrieve this list.
 	UsersNames pulumi.StringArrayInput `pulumi:"usersNames"`
-	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+	// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 	WatchManager pulumi.BoolPtrInput `pulumi:"watchManager"`
 }
 
@@ -198,7 +198,7 @@ func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// When this override is set, User in the group can set Xray security and compliance policies. Default value is 'false'.
+// When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
 func (o LookupGroupResultOutput) PolicyManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *bool { return v.PolicyManager }).(pulumi.BoolPtrOutput)
 }
@@ -213,7 +213,7 @@ func (o LookupGroupResultOutput) RealmAttributes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *string { return v.RealmAttributes }).(pulumi.StringPtrOutput)
 }
 
-// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is 'false'.
+// When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
 func (o LookupGroupResultOutput) ReportsManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *bool { return v.ReportsManager }).(pulumi.BoolPtrOutput)
 }
@@ -223,7 +223,7 @@ func (o LookupGroupResultOutput) UsersNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.UsersNames }).(pulumi.StringArrayOutput)
 }
 
-// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is 'false'.
+// When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
 func (o LookupGroupResultOutput) WatchManager() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *bool { return v.WatchManager }).(pulumi.BoolPtrOutput)
 }

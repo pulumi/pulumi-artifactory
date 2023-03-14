@@ -82,11 +82,11 @@ export class DistributionWebhook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
@@ -156,11 +156,11 @@ export interface DistributionWebhookState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -186,11 +186,11 @@ export interface DistributionWebhookArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "distributeStarted", "distributeCompleted", "distributeAborted", "distributeFailed", "deleteStarted", "deleteCompleted", "deleteFailed"
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `distributeStarted`, `distributeCompleted`, `distributeAborted`, `distribute_failed, `deleteStarted`, `deleteCompleted`, `deleteFailed`
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

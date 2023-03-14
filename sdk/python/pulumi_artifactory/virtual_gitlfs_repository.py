@@ -447,6 +447,21 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         Creates a virtual Git LFS repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories#GitLFSRepositories-VirtualRepositories).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_gitlfs = artifactory.VirtualGitlfsRepository("foo-gitlfs",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-gitlfs",
+            notes="Internal description",
+            repositories=[])
+        ```
+
         ## Import
 
         Virtual repositories can be imported using their name, e.g.
@@ -486,6 +501,21 @@ class VirtualGitlfsRepository(pulumi.CustomResource):
         """
         Creates a virtual Git LFS repository.
         Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories#GitLFSRepositories-VirtualRepositories).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_artifactory as artifactory
+
+        foo_gitlfs = artifactory.VirtualGitlfsRepository("foo-gitlfs",
+            description="A test virtual repo",
+            excludes_pattern="com/google/**",
+            includes_pattern="com/jfrog/**,cloud/jfrog/**",
+            key="foo-gitlfs",
+            notes="Internal description",
+            repositories=[])
+        ```
 
         ## Import
 

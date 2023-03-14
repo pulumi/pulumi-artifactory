@@ -88,7 +88,7 @@ namespace Pulumi.Artifactory
         public Output<ImmutableArray<string>> ExcludedRepositories { get; private set; } = null!;
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         /// </summary>
         [Output("exportMissionControl")]
         public Output<bool?> ExportMissionControl { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         /// </summary>
         [Input("exportMissionControl")]
         public Input<bool>? ExportMissionControl { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Artifactory
         }
 
         /// <summary>
-        /// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+        /// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
         /// </summary>
         [Input("exportMissionControl")]
         public Input<bool>? ExportMissionControl { get; set; }

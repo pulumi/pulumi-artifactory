@@ -122,7 +122,7 @@ class RemoteMavenRepositoryArgs:
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
@@ -133,7 +133,7 @@ class RemoteMavenRepositoryArgs:
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
@@ -675,7 +675,7 @@ class RemoteMavenRepositoryArgs:
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -761,7 +761,7 @@ class RemoteMavenRepositoryArgs:
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
@@ -926,7 +926,7 @@ class _RemoteMavenRepositoryState:
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
@@ -937,7 +937,7 @@ class _RemoteMavenRepositoryState:
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
@@ -1481,7 +1481,7 @@ class _RemoteMavenRepositoryState:
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
     def remote_repo_checksum_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -1567,7 +1567,7 @@ class _RemoteMavenRepositoryState:
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> Optional[pulumi.Input[bool]]:
         """
-        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 
@@ -1774,7 +1774,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
@@ -1785,7 +1785,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
@@ -2073,7 +2073,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[bool] reject_invalid_jars: Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
-        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        :param pulumi.Input[str] remote_repo_checksum_policy_type: Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
         :param pulumi.Input[str] repo_layout_ref: Repository layout key for the local repository
         :param pulumi.Input[int] retrieval_cache_period_seconds: Metadata Retrieval Cache Period (Sec) in the UI. This value refers to the number of seconds to cache metadata files
@@ -2084,7 +2084,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
                direct repository-to-client streaming is used. This can be useful for multi-server setups over a high-speed LAN, with
                one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
                servers.
-        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        :param pulumi.Input[bool] suppress_pom_consistency_checks: By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
@@ -2445,7 +2445,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="remoteRepoChecksumPolicyType")
     def remote_repo_checksum_policy_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         """
         return pulumi.get(self, "remote_repo_checksum_policy_type")
 
@@ -2503,7 +2503,7 @@ class RemoteMavenRepository(pulumi.CustomResource):
     @pulumi.getter(name="suppressPomConsistencyChecks")
     def suppress_pom_consistency_checks(self) -> pulumi.Output[Optional[bool]]:
         """
-        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         """
         return pulumi.get(self, "suppress_pom_consistency_checks")
 

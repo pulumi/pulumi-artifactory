@@ -116,7 +116,7 @@ export class RemoteConanRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     public readonly forceConanAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -419,7 +419,7 @@ export interface RemoteConanRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     forceConanAuthentication?: pulumi.Input<boolean>;
     /**
@@ -610,7 +610,7 @@ export interface RemoteConanRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     forceConanAuthentication?: pulumi.Input<boolean>;
     /**

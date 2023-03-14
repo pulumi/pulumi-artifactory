@@ -654,14 +654,14 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     @Import(name="vcsGitDownloadUrl")
     private @Nullable Output<String> vcsGitDownloadUrl;
 
     /**
-     * @return This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+     * @return This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
      * 
      */
     public Optional<Output<String>> vcsGitDownloadUrl() {
@@ -670,8 +670,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
 
     /**
      * Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-     * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      * 
      */
     @Import(name="vcsGitProvider")
@@ -679,8 +679,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
 
     /**
      * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-     * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+     * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+     * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1651,7 +1651,7 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1662,7 +1662,7 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to &#39;CUSTOM&#39;. Provided URL will be used as proxy.
+         * @param vcsGitDownloadUrl This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
          * 
          * @return builder
          * 
@@ -1673,8 +1673,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
 
         /**
          * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-         * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+         * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
          * 
          * @return builder
          * 
@@ -1686,8 +1686,8 @@ public final class RemoteVcsRepositoryArgs extends com.pulumi.resources.Resource
 
         /**
          * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub, Bitbucket,
-         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: &#39;GITHUB&#39;, &#39;BITBUCKET&#39;, &#39;OLDSTASH&#39;,
-         * &#39;STASH&#39;, &#39;ARTIFACTORY&#39;, &#39;CUSTOM&#39;. Default value is &#39;GITHUB&#39;
+         * Stash, a remote Artifactory instance or a custom Git repository. Allowed values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`,
+         * `STASH`, `ARTIFACTORY`, `CUSTOM`. Default value is `GITHUB`
          * 
          * @return builder
          * 

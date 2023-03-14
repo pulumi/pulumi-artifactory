@@ -110,7 +110,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
     }
     /**
      * An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      * 
      */
     @Export(name="emailAttribute", type=String.class, parameters={})
@@ -118,7 +118,7 @@ public class LdapSetting extends com.pulumi.resources.CustomResource {
 
     /**
      * @return An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      * 
      */
     public Output<Optional<String>> emailAttribute() {

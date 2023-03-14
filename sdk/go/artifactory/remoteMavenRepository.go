@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,7 +149,7 @@ type RemoteMavenRepository struct {
 	QueryParams pulumi.StringPtrOutput `pulumi:"queryParams"`
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrOutput `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrOutput `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrOutput `pulumi:"remoteRepoLayoutRef"`
@@ -167,7 +167,7 @@ type RemoteMavenRepository struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrOutput `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrOutput `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrOutput `pulumi:"synchronizeProperties"`
@@ -315,7 +315,7 @@ type remoteMavenRepositoryState struct {
 	QueryParams *string `pulumi:"queryParams"`
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
@@ -333,7 +333,7 @@ type remoteMavenRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -440,7 +440,7 @@ type RemoteMavenRepositoryState struct {
 	QueryParams pulumi.StringPtrInput
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
@@ -458,7 +458,7 @@ type RemoteMavenRepositoryState struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -568,7 +568,7 @@ type remoteMavenRepositoryArgs struct {
 	QueryParams *string `pulumi:"queryParams"`
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars *bool `pulumi:"rejectInvalidJars"`
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType *string `pulumi:"remoteRepoChecksumPolicyType"`
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef *string `pulumi:"remoteRepoLayoutRef"`
@@ -586,7 +586,7 @@ type remoteMavenRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally *bool `pulumi:"storeArtifactsLocally"`
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks *bool `pulumi:"suppressPomConsistencyChecks"`
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties *bool `pulumi:"synchronizeProperties"`
@@ -693,7 +693,7 @@ type RemoteMavenRepositoryArgs struct {
 	QueryParams pulumi.StringPtrInput
 	// Reject the caching of jar files that are found to be invalid. For example, pseudo jars retrieved behind a "captive portal".
 	RejectInvalidJars pulumi.BoolPtrInput
-	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+	// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 	RemoteRepoChecksumPolicyType pulumi.StringPtrInput
 	// Repository layout key for the remote layout mapping.
 	RemoteRepoLayoutRef pulumi.StringPtrInput
@@ -711,7 +711,7 @@ type RemoteMavenRepositoryArgs struct {
 	// one Artifactory caching certain data on central storage, and streaming it directly to satellite pass-though Artifactory
 	// servers.
 	StoreArtifactsLocally pulumi.BoolPtrInput
-	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+	// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 	SuppressPomConsistencyChecks pulumi.BoolPtrInput
 	// When set, remote artifacts are fetched along with their properties.
 	SynchronizeProperties pulumi.BoolPtrInput
@@ -1011,7 +1011,7 @@ func (o RemoteMavenRepositoryOutput) RejectInvalidJars() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.BoolPtrOutput { return v.RejectInvalidJars }).(pulumi.BoolPtrOutput)
 }
 
-// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
 func (o RemoteMavenRepositoryOutput) RemoteRepoChecksumPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.StringPtrOutput { return v.RemoteRepoChecksumPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -1050,7 +1050,7 @@ func (o RemoteMavenRepositoryOutput) StoreArtifactsLocally() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.BoolPtrOutput { return v.StoreArtifactsLocally }).(pulumi.BoolPtrOutput)
 }
 
-// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
 func (o RemoteMavenRepositoryOutput) SuppressPomConsistencyChecks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteMavenRepository) pulumi.BoolPtrOutput { return v.SuppressPomConsistencyChecks }).(pulumi.BoolPtrOutput)
 }

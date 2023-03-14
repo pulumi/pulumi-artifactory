@@ -102,7 +102,7 @@ class RemoteCocoapodsRepositoryArgs:
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
@@ -128,9 +128,9 @@ class RemoteCocoapodsRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+               Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -524,7 +524,7 @@ class RemoteCocoapodsRepositoryArgs:
     @pulumi.getter(name="podsSpecsRepoUrl")
     def pods_specs_repo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         """
         return pulumi.get(self, "pods_specs_repo_url")
 
@@ -722,7 +722,7 @@ class RemoteCocoapodsRepositoryArgs:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -734,8 +734,8 @@ class RemoteCocoapodsRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+        Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -846,7 +846,7 @@ class _RemoteCocoapodsRepositoryState:
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
@@ -873,9 +873,9 @@ class _RemoteCocoapodsRepositoryState:
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+               Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1270,7 +1270,7 @@ class _RemoteCocoapodsRepositoryState:
     @pulumi.getter(name="podsSpecsRepoUrl")
     def pods_specs_repo_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         """
         return pulumi.get(self, "pods_specs_repo_url")
 
@@ -1480,7 +1480,7 @@ class _RemoteCocoapodsRepositoryState:
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> Optional[pulumi.Input[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -1492,8 +1492,8 @@ class _RemoteCocoapodsRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+        Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1631,7 +1631,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
@@ -1658,9 +1658,9 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+               Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1913,7 +1913,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
                found). A value of 0 indicates no caching.
         :param pulumi.Input[str] notes: Internal description.
         :param pulumi.Input[bool] offline: If set, Artifactory does not try to fetch remote artifacts. Only locally-cached artifacts are retrieved.
-        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        :param pulumi.Input[str] pods_specs_repo_url: Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         :param pulumi.Input[bool] priority_resolution: Setting Priority Resolution takes precedence over the resolution order when resolving virtual repositories. Setting
                repositories with priority will cause metadata to be merged only from repositories set with a priority. If a package is
                not found in those repositories, Artifactory will merge from repositories marked as non-priority.
@@ -1940,9 +1940,9 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+               Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2202,7 +2202,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
     @pulumi.getter(name="podsSpecsRepoUrl")
     def pods_specs_repo_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+        Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
         """
         return pulumi.get(self, "pods_specs_repo_url")
 
@@ -2344,7 +2344,7 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitDownloadUrl")
     def vcs_git_download_url(self) -> pulumi.Output[Optional[str]]:
         """
-        This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         """
         return pulumi.get(self, "vcs_git_download_url")
 
@@ -2352,8 +2352,8 @@ class RemoteCocoapodsRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+        Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 

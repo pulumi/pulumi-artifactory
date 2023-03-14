@@ -25,11 +25,11 @@ class BuildWebhookArgs:
         """
         The set of arguments for constructing a BuildWebhook resource.
         :param pulumi.Input['BuildWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         :param pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
@@ -56,7 +56,7 @@ class BuildWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         """
         return pulumi.get(self, "event_types")
 
@@ -104,7 +104,7 @@ class BuildWebhookArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'.
+        Status of webhook. Default to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -126,8 +126,8 @@ class _BuildWebhookState:
         Input properties used for looking up and filtering BuildWebhook resources.
         :param pulumi.Input['BuildWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         :param pulumi.Input[Sequence[pulumi.Input['BuildWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -172,7 +172,7 @@ class _BuildWebhookState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'.
+        Status of webhook. Default to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -184,7 +184,7 @@ class _BuildWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         """
         return pulumi.get(self, "event_types")
 
@@ -267,8 +267,8 @@ class BuildWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -381,8 +381,8 @@ class BuildWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BuildWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -418,7 +418,7 @@ class BuildWebhook(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Status of webhook. Default to 'true'.
+        Status of webhook. Default to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -426,7 +426,7 @@ class BuildWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "uploaded", "deleted", "promoted".
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `uploaded`, `deleted`, `promoted`.
         """
         return pulumi.get(self, "event_types")
 

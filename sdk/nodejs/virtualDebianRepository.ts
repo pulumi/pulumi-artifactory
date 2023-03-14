@@ -103,7 +103,7 @@ export class VirtualDebianRepository extends pulumi.CustomResource {
      */
     public readonly notes!: pulumi.Output<string | undefined>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      */
     public readonly optionalIndexCompressionFormats!: pulumi.Output<string[]>;
     /**
@@ -242,7 +242,7 @@ export interface VirtualDebianRepositoryState {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      */
     optionalIndexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -324,7 +324,7 @@ export interface VirtualDebianRepositoryArgs {
      */
     notes?: pulumi.Input<string>;
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      */
     optionalIndexCompressionFormats?: pulumi.Input<pulumi.Input<string>[]>;
     /**

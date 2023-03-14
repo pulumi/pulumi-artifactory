@@ -48,7 +48,7 @@ public final class LdapSettingState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      * 
      */
     @Import(name="emailAttribute")
@@ -56,7 +56,7 @@ public final class LdapSettingState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-     * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+     * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
      * 
      */
     public Optional<Output<String>> emailAttribute() {
@@ -313,7 +313,7 @@ public final class LdapSettingState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-         * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+         * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class LdapSettingState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param emailAttribute An attribute that can be used to map a user&#39;s email address to a user created automatically in Artifactory. Default value is `mail`.
-         * - Note: If blank/empty string input was set for email_attribute, Default value &#34;mail&#34; takes effect. This is to match with Artifactory behavior.
+         * - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
          * 
          * @return builder
          * 

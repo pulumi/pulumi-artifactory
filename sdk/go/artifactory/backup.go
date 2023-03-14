@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ type Backup struct {
 	ExcludeNewRepositories pulumi.BoolPtrOutput `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayOutput `pulumi:"excludedRepositories"`
-	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 	ExportMissionControl pulumi.BoolPtrOutput `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringOutput `pulumi:"key"`
@@ -134,7 +134,7 @@ type backupState struct {
 	ExcludeNewRepositories *bool `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories []string `pulumi:"excludedRepositories"`
-	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 	ExportMissionControl *bool `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key *string `pulumi:"key"`
@@ -157,7 +157,7 @@ type BackupState struct {
 	ExcludeNewRepositories pulumi.BoolPtrInput
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayInput
-	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 	ExportMissionControl pulumi.BoolPtrInput
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringPtrInput
@@ -184,7 +184,7 @@ type backupArgs struct {
 	ExcludeNewRepositories *bool `pulumi:"excludeNewRepositories"`
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories []string `pulumi:"excludedRepositories"`
-	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 	ExportMissionControl *bool `pulumi:"exportMissionControl"`
 	// The unique ID of the artifactory backup config.
 	Key string `pulumi:"key"`
@@ -208,7 +208,7 @@ type BackupArgs struct {
 	ExcludeNewRepositories pulumi.BoolPtrInput
 	// A list of excluded repositories from the backup. Default is empty list.
 	ExcludedRepositories pulumi.StringArrayInput
-	// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+	// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 	ExportMissionControl pulumi.BoolPtrInput
 	// The unique ID of the artifactory backup config.
 	Key pulumi.StringInput
@@ -332,7 +332,7 @@ func (o BackupOutput) ExcludedRepositories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringArrayOutput { return v.ExcludedRepositories }).(pulumi.StringArrayOutput)
 }
 
-// When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+// When set to true, mission control will not be automatically added to the backup. Default value is `false`.
 func (o BackupOutput) ExportMissionControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.BoolPtrOutput { return v.ExportMissionControl }).(pulumi.BoolPtrOutput)
 }

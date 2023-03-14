@@ -35,7 +35,7 @@ class LdapSettingArgs:
         :param pulumi.Input[bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         :param pulumi.Input[bool] auto_create_user: When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         :param pulumi.Input[str] email_attribute: An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-               - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+               - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         :param pulumi.Input[bool] enabled: When set, these settings are enabled. Default value is `true`.
         :param pulumi.Input[bool] ldap_poisoning_protection: Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
         :param pulumi.Input[str] manager_dn: The full DN of a user with permissions that allow querying the LDAP server. When working with LDAP Groups, the user should have permissions for any extra group attributes such as memberOf.
@@ -128,7 +128,7 @@ class LdapSettingArgs:
     def email_attribute(self) -> Optional[pulumi.Input[str]]:
         """
         An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         """
         return pulumi.get(self, "email_attribute")
 
@@ -269,7 +269,7 @@ class _LdapSettingState:
         :param pulumi.Input[bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         :param pulumi.Input[bool] auto_create_user: When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         :param pulumi.Input[str] email_attribute: An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-               - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+               - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         :param pulumi.Input[bool] enabled: When set, these settings are enabled. Default value is `true`.
         :param pulumi.Input[str] key: The unique ID of the LDAP setting.
         :param pulumi.Input[bool] ldap_poisoning_protection: Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
@@ -342,7 +342,7 @@ class _LdapSettingState:
     def email_attribute(self) -> Optional[pulumi.Input[str]]:
         """
         An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         """
         return pulumi.get(self, "email_attribute")
 
@@ -552,7 +552,7 @@ class LdapSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         :param pulumi.Input[bool] auto_create_user: When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         :param pulumi.Input[str] email_attribute: An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-               - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+               - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         :param pulumi.Input[bool] enabled: When set, these settings are enabled. Default value is `true`.
         :param pulumi.Input[str] key: The unique ID of the LDAP setting.
         :param pulumi.Input[bool] ldap_poisoning_protection: Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
@@ -707,7 +707,7 @@ class LdapSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_user_to_access_profile: When set, users created after logging in using LDAP will be able to access their profile page.  Default value is `false`.
         :param pulumi.Input[bool] auto_create_user: When set, the system will automatically create new users for those who have logged in using LDAP, and assign them to the default groups.  Default value is `true`.
         :param pulumi.Input[str] email_attribute: An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-               - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+               - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         :param pulumi.Input[bool] enabled: When set, these settings are enabled. Default value is `true`.
         :param pulumi.Input[str] key: The unique ID of the LDAP setting.
         :param pulumi.Input[bool] ldap_poisoning_protection: Protects against LDAP poisoning by filtering out users exposed to vulnerabilities.  Default value is `true`.
@@ -763,7 +763,7 @@ class LdapSetting(pulumi.CustomResource):
     def email_attribute(self) -> pulumi.Output[Optional[str]]:
         """
         An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         """
         return pulumi.get(self, "email_attribute")
 

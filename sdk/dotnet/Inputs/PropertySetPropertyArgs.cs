@@ -13,13 +13,13 @@ namespace Pulumi.Artifactory.Inputs
     public sealed class PropertySetPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Disables "multiple_choice" if set to "false" at the same time with multiple_choice set to "true". Default value is `false`
+        /// Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
         /// </summary>
         [Input("closedPredefinedValues")]
         public Input<bool>? ClosedPredefinedValues { get; set; }
 
         /// <summary>
-        /// Defines if user can select multiple values. "closed_predefined_values" should be set to `true`. Default value is `false`.
+        /// Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
         /// </summary>
         [Input("multipleChoice")]
         public Input<bool>? MultipleChoice { get; set; }

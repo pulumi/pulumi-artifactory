@@ -244,14 +244,14 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
     @Import(name="gitRegistryUrl", required=true)
     private Output<String> gitRegistryUrl;
 
     /**
-     * @return This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+     * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
     public Output<String> gitRegistryUrl() {
@@ -1067,7 +1067,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
          * 
          * @return builder
          * 
@@ -1078,7 +1078,7 @@ public final class RemoteCargoRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+         * @param gitRegistryUrl This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
          * 
          * @return builder
          * 

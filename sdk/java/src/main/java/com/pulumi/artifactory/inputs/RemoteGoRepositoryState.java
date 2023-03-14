@@ -642,14 +642,14 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -1603,7 +1603,7 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
          * 
          * @return builder
          * 
@@ -1614,7 +1614,7 @@ public final class RemoteGoRepositoryState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;ARTIFACTORY&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `ARTIFACTORY`.
          * 
          * @return builder
          * 

@@ -8,6 +8,22 @@ import * as utilities from "./utilities";
  * Creates a virtual Git LFS repository.
  * Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories#GitLFSRepositories-VirtualRepositories).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as artifactory from "@pulumi/artifactory";
+ *
+ * const foo_gitlfs = new artifactory.VirtualGitlfsRepository("foo-gitlfs", {
+ *     description: "A test virtual repo",
+ *     excludesPattern: "com/google/**",
+ *     includesPattern: "com/jfrog/**,cloud/jfrog/**",
+ *     key: "foo-gitlfs",
+ *     notes: "Internal description",
+ *     repositories: [],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual repositories can be imported using their name, e.g.

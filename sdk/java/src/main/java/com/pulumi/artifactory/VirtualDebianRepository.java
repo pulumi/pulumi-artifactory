@@ -194,14 +194,14 @@ public class VirtualDebianRepository extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.notes);
     }
     /**
-     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+     * Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      * 
      */
     @Export(name="optionalIndexCompressionFormats", type=List.class, parameters={String.class})
     private Output<List<String>> optionalIndexCompressionFormats;
 
     /**
-     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are &#39;bz2&#39;,&#39;lzma&#39; and &#39;xz&#39;. Default value is &#39;bz2&#39;.
+     * @return Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
      * 
      */
     public Output<List<String>> optionalIndexCompressionFormats() {

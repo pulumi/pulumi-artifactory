@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,10 +103,11 @@ type RemoteDockerRepository struct {
 	ExternalDependenciesEnabled pulumi.BoolPtrOutput `pulumi:"externalDependenciesEnabled"`
 	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// This attribute must be set together with `externalDependenciesEnabled = true`.
+	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 	ExternalDependenciesPatterns pulumi.StringArrayOutput `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -271,10 +272,11 @@ type remoteDockerRepositoryState struct {
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// This attribute must be set together with `externalDependenciesEnabled = true`.
+	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -398,10 +400,11 @@ type RemoteDockerRepositoryState struct {
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// This attribute must be set together with `externalDependenciesEnabled = true`.
+	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -529,10 +532,11 @@ type remoteDockerRepositoryArgs struct {
 	ExternalDependenciesEnabled *bool `pulumi:"externalDependenciesEnabled"`
 	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// This attribute must be set together with `externalDependenciesEnabled = true`.
+	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 	ExternalDependenciesPatterns []string `pulumi:"externalDependenciesPatterns"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -656,10 +660,11 @@ type RemoteDockerRepositoryArgs struct {
 	ExternalDependenciesEnabled pulumi.BoolPtrInput
 	// An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 	// follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-	// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+	// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 	// Due to SDKv2 limitations, we can't set the default value for the list.
-	// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-	// This attribute must be set together with `externalDependenciesEnabled = true`.
+	// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+	// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+	// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 	ExternalDependenciesPatterns pulumi.StringArrayInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -915,10 +920,11 @@ func (o RemoteDockerRepositoryOutput) ExternalDependenciesEnabled() pulumi.BoolP
 
 // An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
 // follow to download remote modules from, when presented with 'go-import' meta tags in the remote repository response.
-// By default, this is set to '**' in the UI, which means that remote modules may be downloaded from any external VCS source.
+// By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
 // Due to SDKv2 limitations, we can't set the default value for the list.
-// This value must be assigned to the attribute manually, if user don't specify any other non-default values.
-// This attribute must be set together with `externalDependenciesEnabled = true`.
+// This value `[**]` must be assigned to the attribute manually, if user don't specify any other non-default values.
+// We don't want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+// `[**]` on update if HCL doesn't have the attribute set or the list is empty.
 func (o RemoteDockerRepositoryOutput) ExternalDependenciesPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RemoteDockerRepository) pulumi.StringArrayOutput { return v.ExternalDependenciesPatterns }).(pulumi.StringArrayOutput)
 }

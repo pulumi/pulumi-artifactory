@@ -31,8 +31,8 @@ import * as utilities from "./utilities";
  *     enableEventReplication: true,
  *     replications: [{
  *         url: pulumi.interpolate`${artifactoryUrl}/${providerTestDest.key}`,
- *         username: `$var.artifactory_username`,
- *         password: `$var.artifactory_password`,
+ *         username: "$var.artifactory_username",
+ *         password: "$var.artifactory_password",
  *         enabled: true,
  *     }],
  * });

@@ -74,7 +74,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> BlockMismatchingMimeTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         /// </summary>
         [Output("bowerRegistryUrl")]
         public Output<string?> BowerRegistryUrl { get; private set; } = null!;
@@ -312,8 +312,7 @@ namespace Pulumi.Artifactory
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -406,7 +405,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         /// </summary>
         [Input("bowerRegistryUrl")]
         public Input<string>? BowerRegistryUrl { get; set; }
@@ -662,8 +661,7 @@ namespace Pulumi.Artifactory
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -714,7 +712,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? BlockMismatchingMimeTypes { get; set; }
 
         /// <summary>
-        /// Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        /// Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         /// </summary>
         [Input("bowerRegistryUrl")]
         public Input<string>? BowerRegistryUrl { get; set; }
@@ -973,8 +971,7 @@ namespace Pulumi.Artifactory
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

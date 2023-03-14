@@ -273,7 +273,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> RejectInvalidJars { get; private set; } = null!;
 
         /// <summary>
-        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         [Output("remoteRepoChecksumPolicyType")]
         public Output<string?> RemoteRepoChecksumPolicyType { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Artifactory
         public Output<bool?> StoreArtifactsLocally { get; private set; } = null!;
 
         /// <summary>
-        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         /// </summary>
         [Output("suppressPomConsistencyChecks")]
         public Output<bool?> SuppressPomConsistencyChecks { get; private set; } = null!;
@@ -645,7 +645,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? RejectInvalidJars { get; set; }
 
         /// <summary>
-        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
@@ -689,7 +689,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? StoreArtifactsLocally { get; set; }
 
         /// <summary>
-        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }
@@ -978,7 +978,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? RejectInvalidJars { get; set; }
 
         /// <summary>
-        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are 'generate-if-absent', 'fail', 'ignore-and-generate', and 'pass-thru'.
+        /// Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
         /// </summary>
         [Input("remoteRepoChecksumPolicyType")]
         public Input<string>? RemoteRepoChecksumPolicyType { get; set; }
@@ -1022,7 +1022,7 @@ namespace Pulumi.Artifactory
         public Input<bool>? StoreArtifactsLocally { get; set; }
 
         /// <summary>
-        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to 'true'.
+        /// By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a "409 Conflict" error. You can disable this behavior by setting this attribute to `true`.
         /// </summary>
         [Input("suppressPomConsistencyChecks")]
         public Input<bool>? SuppressPomConsistencyChecks { get; set; }

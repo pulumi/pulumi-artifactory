@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PropertySetProperty {
     /**
-     * @return Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
      * 
      */
     private @Nullable Boolean closedPredefinedValues;
     /**
-     * @return Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
      * 
      */
     private @Nullable Boolean multipleChoice;
@@ -37,14 +37,14 @@ public final class PropertySetProperty {
 
     private PropertySetProperty() {}
     /**
-     * @return Disables &#34;multiple_choice&#34; if set to &#34;false&#34; at the same time with multiple_choice set to &#34;true&#34;. Default value is `false`
+     * @return Disables `multiple_choice` if set to `false` at the same time with multiple_choice set to `true`. Default value is `false`
      * 
      */
     public Optional<Boolean> closedPredefinedValues() {
         return Optional.ofNullable(this.closedPredefinedValues);
     }
     /**
-     * @return Defines if user can select multiple values. &#34;closed_predefined_values&#34; should be set to `true`. Default value is `false`.
+     * @return Defines if user can select multiple values. `closed_predefined_values` should be set to `true`. Default value is `false`.
      * 
      */
     public Optional<Boolean> multipleChoice() {

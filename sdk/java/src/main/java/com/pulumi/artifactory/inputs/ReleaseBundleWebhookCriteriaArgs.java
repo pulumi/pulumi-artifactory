@@ -33,14 +33,14 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     @Import(name="excludePatterns")
     private @Nullable Output<List<String>> excludePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     public Optional<Output<List<String>>> excludePatterns() {
@@ -48,14 +48,14 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
     }
 
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     @Import(name="includePatterns")
     private @Nullable Output<List<String>> includePatterns;
 
     /**
-     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+     * @return Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
      * 
      */
     public Optional<Output<List<String>>> includePatterns() {
@@ -126,7 +126,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param excludePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ReleaseBundleWebhookCriteriaArgs extends com.pulumi.resources
         }
 
         /**
-         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: &#34;org/apache/**&#34;.
+         * @param includePatterns Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: &#34;org/apache/**&#34;.
          * 
          * @return builder
          * 

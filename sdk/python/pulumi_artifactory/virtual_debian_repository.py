@@ -45,7 +45,7 @@ class VirtualDebianRepositoryArgs:
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
                used, only artifacts matching one of the include patterns are served. By default, all artifacts are included (**/*).
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
@@ -194,7 +194,7 @@ class VirtualDebianRepositoryArgs:
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
@@ -325,7 +325,7 @@ class _VirtualDebianRepositoryState:
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
@@ -478,7 +478,7 @@ class _VirtualDebianRepositoryState:
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 
@@ -655,7 +655,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
                if the repository is already assigned to the existing project. If not, the attribute will be ignored by Artifactory, but
@@ -811,7 +811,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
         :param pulumi.Input[str] key: A mandatory identifier for the repository that must be unique. It cannot begin with a number or
                contain spaces or special characters.
         :param pulumi.Input[str] notes: A free text field to add additional notes about the repository. These are only visible to the administrator.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_index_compression_formats: Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         :param pulumi.Input[str] package_type: The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
         :param pulumi.Input[str] primary_keypair_ref: Primary keypair used to sign artifacts. Default is empty.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] project_environments: Project environment for assigning this repository to. Allow values: "DEV" or "PROD". The attribute should only be used
@@ -920,7 +920,7 @@ class VirtualDebianRepository(pulumi.CustomResource):
     @pulumi.getter(name="optionalIndexCompressionFormats")
     def optional_index_compression_formats(self) -> pulumi.Output[Sequence[str]]:
         """
-        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+        Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
         """
         return pulumi.get(self, "optional_index_compression_formats")
 

@@ -83,11 +83,11 @@ export class ArtifactWebhook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
@@ -157,11 +157,11 @@ export interface ArtifactWebhookState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -187,11 +187,11 @@ export interface ArtifactWebhookArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "deployed", "deleted", "moved", "copied", "cached".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

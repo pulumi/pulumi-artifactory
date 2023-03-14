@@ -214,14 +214,14 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     @Import(name="forceConanAuthentication")
     private @Nullable Output<Boolean> forceConanAuthentication;
 
     /**
-     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> forceConanAuthentication() {
@@ -993,7 +993,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
          * 
          * @return builder
          * 
@@ -1004,7 +1004,7 @@ public final class RemoteConanRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+         * @param forceConanAuthentication Force basic authentication credentials in order to use this repository. Default value is `false`.
          * 
          * @return builder
          * 

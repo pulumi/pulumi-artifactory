@@ -39,13 +39,11 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetUserArgs {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     admin?: boolean;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: boolean;
     /**
@@ -57,8 +55,7 @@ export interface GetUserArgs {
      */
     groups?: string[];
     /**
-     * When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     internalPasswordDisabled?: boolean;
     /**
@@ -66,8 +63,7 @@ export interface GetUserArgs {
      */
     name: string;
     /**
-     * When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: boolean;
 }
@@ -77,13 +73,11 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     readonly admin?: boolean;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     readonly disableUiAccess?: boolean;
     /**
@@ -99,14 +93,12 @@ export interface GetUserResult {
      */
     readonly id: string;
     /**
-     * When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     readonly internalPasswordDisabled?: boolean;
     readonly name: string;
     /**
-     * When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     readonly profileUpdatable?: boolean;
 }
@@ -135,13 +127,11 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetUserOutputArgs {
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      */
     admin?: pulumi.Input<boolean>;
     /**
-     * When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      */
     disableUiAccess?: pulumi.Input<boolean>;
     /**
@@ -153,8 +143,7 @@ export interface GetUserOutputArgs {
      */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      */
     internalPasswordDisabled?: pulumi.Input<boolean>;
     /**
@@ -162,8 +151,7 @@ export interface GetUserOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      */
     profileUpdatable?: pulumi.Input<boolean>;
 }

@@ -244,7 +244,7 @@ def get_file(force_overwrite: Optional[bool] = None,
     ```
 
 
-    :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: false
+    :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
     :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
@@ -304,7 +304,7 @@ def get_file_output(force_overwrite: Optional[pulumi.Input[Optional[bool]]] = No
     ```
 
 
-    :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: false
+    :param bool force_overwrite: If set to true, an existing file in the output_path will be overwritten. Default: `false`
     :param str output_path: The local path the file should be downloaded to.
     :param str path: The path to the file within the repository.
     :param bool path_is_aliased: If set to `true`, the provider will get the artifact directly from Artifactory without attempting to resolve it or verify it and will delegate this to artifactory
