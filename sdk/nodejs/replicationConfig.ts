@@ -24,9 +24,9 @@ import * as utilities from "./utilities";
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
  *     replications: [{
- *         password: `$var.artifactory_password`,
- *         url: `$var.artifactory_url`,
- *         username: `$var.artifactory_username`,
+ *         password: "$var.artifactory_password",
+ *         url: "$var.artifactory_url",
+ *         username: "$var.artifactory_username",
  *     }],
  *     repoKey: providerTestSource.key,
  * });

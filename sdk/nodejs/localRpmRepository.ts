@@ -91,7 +91,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly blackedOut!: pulumi.Output<boolean | undefined>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     public readonly calculateYumMetadata!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,7 +106,7 @@ export class LocalRpmRepository extends pulumi.CustomResource {
      */
     public readonly downloadDirect!: pulumi.Output<boolean | undefined>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     public readonly enableFileListsIndexing!: pulumi.Output<boolean | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface LocalRpmRepositoryState {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
     /**
@@ -274,7 +274,7 @@ export interface LocalRpmRepositoryState {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     enableFileListsIndexing?: pulumi.Input<boolean>;
     /**
@@ -360,7 +360,7 @@ export interface LocalRpmRepositoryArgs {
      */
     blackedOut?: pulumi.Input<boolean>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     calculateYumMetadata?: pulumi.Input<boolean>;
     /**
@@ -375,7 +375,7 @@ export interface LocalRpmRepositoryArgs {
      */
     downloadDirect?: pulumi.Input<boolean>;
     /**
-     * Default: false.
+     * Default: `false`.
      */
     enableFileListsIndexing?: pulumi.Input<boolean>;
     /**

@@ -41,7 +41,7 @@ public final class GetGroupResult {
     private @Nullable String includeUsers;
     private String name;
     /**
-     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     private @Nullable Boolean policyManager;
@@ -56,7 +56,7 @@ public final class GetGroupResult {
      */
     private @Nullable String realmAttributes;
     /**
-     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     private @Nullable Boolean reportsManager;
@@ -66,7 +66,7 @@ public final class GetGroupResult {
      */
     private @Nullable List<String> usersNames;
     /**
-     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     private @Nullable Boolean watchManager;
@@ -114,7 +114,7 @@ public final class GetGroupResult {
         return this.name;
     }
     /**
-     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     public Optional<Boolean> policyManager() {
@@ -135,7 +135,7 @@ public final class GetGroupResult {
         return Optional.ofNullable(this.realmAttributes);
     }
     /**
-     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     public Optional<Boolean> reportsManager() {
@@ -149,7 +149,7 @@ public final class GetGroupResult {
         return this.usersNames == null ? List.of() : this.usersNames;
     }
     /**
-     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     public Optional<Boolean> watchManager() {

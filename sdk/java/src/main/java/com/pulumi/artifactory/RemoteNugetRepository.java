@@ -206,8 +206,8 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
     }
     /**
      * The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is &#39;https://nuget.org/api/v2/package&#39;, so the repository
-     * URL should be configured as &#39;https://nuget.org&#39; and the download context path should be configured as &#39;api/v2/package&#39;. Default value is &#39;api/v2/package&#39;.
+     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
      */
     @Export(name="downloadContextPath", type=String.class, parameters={})
@@ -215,8 +215,8 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is &#39;https://nuget.org/api/v2/package&#39;, so the repository
-     * URL should be configured as &#39;https://nuget.org&#39; and the download context path should be configured as &#39;api/v2/package&#39;. Default value is &#39;api/v2/package&#39;.
+     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      * 
      */
     public Output<Optional<String>> downloadContextPath() {
@@ -269,28 +269,28 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is &#39;api/v2&#39;.
+     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      * 
      */
     @Export(name="feedContextPath", type=String.class, parameters={})
     private Output</* @Nullable */ String> feedContextPath;
 
     /**
-     * @return When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is &#39;api/v2&#39;.
+     * @return When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      * 
      */
     public Output<Optional<String>> feedContextPath() {
         return Codegen.optional(this.feedContextPath);
     }
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     @Export(name="forceNugetAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceNugetAuthentication;
 
     /**
-     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> forceNugetAuthentication() {
@@ -711,14 +711,14 @@ public class RemoteNugetRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.username);
     }
     /**
-     * The URL to the NuGet v3 feed. Default value is &#39;https://api.nuget.org/v3/index.json&#39;.
+     * The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      * 
      */
     @Export(name="v3FeedUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> v3FeedUrl;
 
     /**
-     * @return The URL to the NuGet v3 feed. Default value is &#39;https://api.nuget.org/v3/index.json&#39;.
+     * @return The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      * 
      */
     public Output<Optional<String>> v3FeedUrl() {

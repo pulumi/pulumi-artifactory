@@ -81,11 +81,11 @@ export class ArtifactPropertyWebhook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
      */
     public readonly eventTypes!: pulumi.Output<string[]>;
     /**
@@ -155,11 +155,11 @@ export interface ArtifactPropertyWebhookState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
      */
     eventTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -185,11 +185,11 @@ export interface ArtifactPropertyWebhookArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Status of webhook. Default to 'true'.
+     * Status of webhook. Default to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "added", "deleted".
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `added`, `deleted`.
      */
     eventTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -571,14 +571,14 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are &#39;generate-if-absent&#39;, &#39;fail&#39;, &#39;ignore-and-generate&#39;, and &#39;pass-thru&#39;.
+     * Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
      * 
      */
     @Import(name="remoteRepoChecksumPolicyType")
     private @Nullable Output<String> remoteRepoChecksumPolicyType;
 
     /**
-     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are &#39;generate-if-absent&#39;, &#39;fail&#39;, &#39;ignore-and-generate&#39;, and &#39;pass-thru&#39;.
+     * @return Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
      * 
      */
     public Optional<Output<String>> remoteRepoChecksumPolicyType() {
@@ -678,14 +678,14 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;.
+     * By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
      * 
      */
     @Import(name="suppressPomConsistencyChecks")
     private @Nullable Output<Boolean> suppressPomConsistencyChecks;
 
     /**
-     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;.
+     * @return By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
      * 
      */
     public Optional<Output<Boolean>> suppressPomConsistencyChecks() {
@@ -1606,7 +1606,7 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are &#39;generate-if-absent&#39;, &#39;fail&#39;, &#39;ignore-and-generate&#39;, and &#39;pass-thru&#39;.
+         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
          * 
          * @return builder
          * 
@@ -1617,7 +1617,7 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are &#39;generate-if-absent&#39;, &#39;fail&#39;, &#39;ignore-and-generate&#39;, and &#39;pass-thru&#39;.
+         * @param remoteRepoChecksumPolicyType Checking the Checksum effectively verifies the integrity of a deployed resource. The Checksum Policy determines how the system behaves when a client checksum for a remote resource is missing or conflicts with the locally calculated checksum. Available policies are `generate-if-absent`, `fail`, `ignore-and-generate`, and `pass-thru`.
          * 
          * @return builder
          * 
@@ -1751,7 +1751,7 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;.
+         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
          * 
          * @return builder
          * 
@@ -1762,7 +1762,7 @@ public final class RemoteIvyRepositoryState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to &#39;true&#39;.
+         * @param suppressPomConsistencyChecks By default, the system keeps your repositories healthy by refusing POMs with incorrect coordinates (path). If the groupId:artifactId:version information inside the POM does not match the deployed path, Artifactory rejects the deployment with a &#34;409 Conflict&#34; error. You can disable this behavior by setting this attribute to `true`.
          * 
          * @return builder
          * 

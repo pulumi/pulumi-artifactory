@@ -92,14 +92,14 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+     * Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      * 
      */
     @Import(name="bowerRegistryUrl")
     private @Nullable Output<String> bowerRegistryUrl;
 
     /**
-     * @return Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+     * @return Proxy remote Bower repository. Default value is `https://registry.bower.io`.
      * 
      */
     public Optional<Output<String>> bowerRegistryUrl() {
@@ -665,16 +665,14 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-     * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     @Import(name="vcsGitProvider")
     private @Nullable Output<String> vcsGitProvider;
 
     /**
-     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-     * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+     * @return Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      * 
      */
     public Optional<Output<String>> vcsGitProvider() {
@@ -861,7 +859,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is `https://registry.bower.io`.
          * 
          * @return builder
          * 
@@ -872,7 +870,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is &#34;https://registry.bower.io&#34;.
+         * @param bowerRegistryUrl Proxy remote Bower repository. Default value is `https://registry.bower.io`.
          * 
          * @return builder
          * 
@@ -1662,8 +1660,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-         * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
          * 
          * @return builder
          * 
@@ -1674,8 +1671,7 @@ public final class RemoteBowerRepositoryArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is &#34;GITHUB&#34;.
-         * Possible values are: &#34;GITHUB&#34;, &#34;BITBUCKET&#34;, &#34;OLDSTASH&#34;, &#34;STASH&#34;, &#34;ARTIFACTORY&#34;, &#34;CUSTOM&#34;.
+         * @param vcsGitProvider Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
          * 
          * @return builder
          * 

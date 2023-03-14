@@ -13,6 +13,28 @@ namespace Pulumi.Artifactory
     /// Creates a virtual Git LFS repository.
     /// Official documentation can be found [here](https://www.jfrog.com/confluence/display/JFROG/Git+LFS+Repositories#GitLFSRepositories-VirtualRepositories).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using Artifactory = Pulumi.Artifactory;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_gitlfs = new Artifactory.VirtualGitlfsRepository("foo-gitlfs", new()
+    ///     {
+    ///         Description = "A test virtual repo",
+    ///         ExcludesPattern = "com/google/**",
+    ///         IncludesPattern = "com/jfrog/**,cloud/jfrog/**",
+    ///         Key = "foo-gitlfs",
+    ///         Notes = "Internal description",
+    ///         Repositories = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual repositories can be imported using their name, e.g.

@@ -108,8 +108,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The context path prefix through which NuGet downloads are served.
-        /// For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        /// URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
         [Output("downloadContextPath")]
         public Output<string?> DownloadContextPath { get; private set; } = null!;
@@ -135,13 +135,13 @@ namespace Pulumi.Artifactory
         public Output<string?> ExcludesPattern { get; private set; } = null!;
 
         /// <summary>
-        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         /// </summary>
         [Output("feedContextPath")]
         public Output<string?> FeedContextPath { get; private set; } = null!;
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
         /// </summary>
         [Output("forceNugetAuthentication")]
         public Output<bool?> ForceNugetAuthentication { get; private set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         /// </summary>
         [Output("v3FeedUrl")]
         public Output<string?> V3FeedUrl { get; private set; } = null!;
@@ -453,8 +453,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The context path prefix through which NuGet downloads are served.
-        /// For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        /// URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
@@ -480,13 +480,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         /// </summary>
         [Input("feedContextPath")]
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         /// </summary>
         [Input("v3FeedUrl")]
         public Input<string>? V3FeedUrl { get; set; }
@@ -774,8 +774,8 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// The context path prefix through which NuGet downloads are served.
-        /// For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        /// URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        /// For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        /// URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         /// </summary>
         [Input("downloadContextPath")]
         public Input<string>? DownloadContextPath { get; set; }
@@ -801,13 +801,13 @@ namespace Pulumi.Artifactory
         public Input<string>? ExcludesPattern { get; set; }
 
         /// <summary>
-        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        /// When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         /// </summary>
         [Input("feedContextPath")]
         public Input<string>? FeedContextPath { get; set; }
 
         /// <summary>
-        /// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        /// Force basic authentication credentials in order to use this repository. Default value is `false`.
         /// </summary>
         [Input("forceNugetAuthentication")]
         public Input<bool>? ForceNugetAuthentication { get; set; }
@@ -1016,7 +1016,7 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        /// The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         /// </summary>
         [Input("v3FeedUrl")]
         public Input<string>? V3FeedUrl { get; set; }

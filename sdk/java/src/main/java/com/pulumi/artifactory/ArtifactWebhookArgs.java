@@ -50,14 +50,14 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Status of webhook. Default to &#39;true&#39;.
+     * Status of webhook. Default to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;.
+     * @return Status of webhook. Default to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -65,14 +65,14 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;deployed&#34;, &#34;deleted&#34;, &#34;moved&#34;, &#34;copied&#34;, &#34;cached&#34;.
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
      * 
      */
     @Import(name="eventTypes", required=true)
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;deployed&#34;, &#34;deleted&#34;, &#34;moved&#34;, &#34;copied&#34;, &#34;cached&#34;.
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
      * 
      */
     public Output<List<String>> eventTypes() {
@@ -181,7 +181,7 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;.
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;.
+         * @param enabled Status of webhook. Default to `true`.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;deployed&#34;, &#34;deleted&#34;, &#34;moved&#34;, &#34;copied&#34;, &#34;cached&#34;.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;deployed&#34;, &#34;deleted&#34;, &#34;moved&#34;, &#34;copied&#34;, &#34;cached&#34;.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ArtifactWebhookArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;deployed&#34;, &#34;deleted&#34;, &#34;moved&#34;, &#34;copied&#34;, &#34;cached&#34;.
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `deployed`, `deleted`, `moved`, `copied`, `cached`.
          * 
          * @return builder
          * 

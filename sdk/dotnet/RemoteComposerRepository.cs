@@ -95,7 +95,7 @@ namespace Pulumi.Artifactory
         public Output<string> ClientTlsCertificate { get; private set; } = null!;
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Output("composerRegistryUrl")]
         public Output<string?> ComposerRegistryUrl { get; private set; } = null!;
@@ -306,14 +306,13 @@ namespace Pulumi.Artifactory
         public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Output("vcsGitDownloadUrl")]
         public Output<string?> VcsGitDownloadUrl { get; private set; } = null!;
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Output("vcsGitProvider")]
         public Output<string?> VcsGitProvider { get; private set; } = null!;
@@ -427,7 +426,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ClientTlsCertificate { get; set; }
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Input("composerRegistryUrl")]
         public Input<string>? ComposerRegistryUrl { get; set; }
@@ -656,14 +655,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }
@@ -735,7 +733,7 @@ namespace Pulumi.Artifactory
         public Input<string>? ClientTlsCertificate { get; set; }
 
         /// <summary>
-        /// Proxy remote Composer repository. Default value is "https://packagist.org".
+        /// Proxy remote Composer repository. Default value is `https://packagist.org`.
         /// </summary>
         [Input("composerRegistryUrl")]
         public Input<string>? ComposerRegistryUrl { get; set; }
@@ -967,14 +965,13 @@ namespace Pulumi.Artifactory
         public Input<string>? Username { get; set; }
 
         /// <summary>
-        /// This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
+        /// This attribute is used when vcs_git_provider is set to `CUSTOM`. Provided URL will be used as proxy.
         /// </summary>
         [Input("vcsGitDownloadUrl")]
         public Input<string>? VcsGitDownloadUrl { get; set; }
 
         /// <summary>
-        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        /// Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        /// Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         /// </summary>
         [Input("vcsGitProvider")]
         public Input<string>? VcsGitProvider { get; set; }

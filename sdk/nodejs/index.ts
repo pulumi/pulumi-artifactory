@@ -430,6 +430,161 @@ export const getPermissionTarget: typeof import("./getPermissionTarget").getPerm
 export const getPermissionTargetOutput: typeof import("./getPermissionTarget").getPermissionTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getPermissionTarget","getPermissionTargetOutput"], () => require("./getPermissionTarget"));
 
+export { GetRemoteAlpineRepositoryArgs, GetRemoteAlpineRepositoryResult, GetRemoteAlpineRepositoryOutputArgs } from "./getRemoteAlpineRepository";
+export const getRemoteAlpineRepository: typeof import("./getRemoteAlpineRepository").getRemoteAlpineRepository = null as any;
+export const getRemoteAlpineRepositoryOutput: typeof import("./getRemoteAlpineRepository").getRemoteAlpineRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteAlpineRepository","getRemoteAlpineRepositoryOutput"], () => require("./getRemoteAlpineRepository"));
+
+export { GetRemoteBowerRepositoryArgs, GetRemoteBowerRepositoryResult, GetRemoteBowerRepositoryOutputArgs } from "./getRemoteBowerRepository";
+export const getRemoteBowerRepository: typeof import("./getRemoteBowerRepository").getRemoteBowerRepository = null as any;
+export const getRemoteBowerRepositoryOutput: typeof import("./getRemoteBowerRepository").getRemoteBowerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteBowerRepository","getRemoteBowerRepositoryOutput"], () => require("./getRemoteBowerRepository"));
+
+export { GetRemoteCargoRepositoryArgs, GetRemoteCargoRepositoryResult, GetRemoteCargoRepositoryOutputArgs } from "./getRemoteCargoRepository";
+export const getRemoteCargoRepository: typeof import("./getRemoteCargoRepository").getRemoteCargoRepository = null as any;
+export const getRemoteCargoRepositoryOutput: typeof import("./getRemoteCargoRepository").getRemoteCargoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteCargoRepository","getRemoteCargoRepositoryOutput"], () => require("./getRemoteCargoRepository"));
+
+export { GetRemoteChefRepositoryArgs, GetRemoteChefRepositoryResult, GetRemoteChefRepositoryOutputArgs } from "./getRemoteChefRepository";
+export const getRemoteChefRepository: typeof import("./getRemoteChefRepository").getRemoteChefRepository = null as any;
+export const getRemoteChefRepositoryOutput: typeof import("./getRemoteChefRepository").getRemoteChefRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteChefRepository","getRemoteChefRepositoryOutput"], () => require("./getRemoteChefRepository"));
+
+export { GetRemoteCocoapodsRepositoryArgs, GetRemoteCocoapodsRepositoryResult, GetRemoteCocoapodsRepositoryOutputArgs } from "./getRemoteCocoapodsRepository";
+export const getRemoteCocoapodsRepository: typeof import("./getRemoteCocoapodsRepository").getRemoteCocoapodsRepository = null as any;
+export const getRemoteCocoapodsRepositoryOutput: typeof import("./getRemoteCocoapodsRepository").getRemoteCocoapodsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteCocoapodsRepository","getRemoteCocoapodsRepositoryOutput"], () => require("./getRemoteCocoapodsRepository"));
+
+export { GetRemoteComposerRepositoryArgs, GetRemoteComposerRepositoryResult, GetRemoteComposerRepositoryOutputArgs } from "./getRemoteComposerRepository";
+export const getRemoteComposerRepository: typeof import("./getRemoteComposerRepository").getRemoteComposerRepository = null as any;
+export const getRemoteComposerRepositoryOutput: typeof import("./getRemoteComposerRepository").getRemoteComposerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteComposerRepository","getRemoteComposerRepositoryOutput"], () => require("./getRemoteComposerRepository"));
+
+export { GetRemoteConanRepositoryArgs, GetRemoteConanRepositoryResult, GetRemoteConanRepositoryOutputArgs } from "./getRemoteConanRepository";
+export const getRemoteConanRepository: typeof import("./getRemoteConanRepository").getRemoteConanRepository = null as any;
+export const getRemoteConanRepositoryOutput: typeof import("./getRemoteConanRepository").getRemoteConanRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteConanRepository","getRemoteConanRepositoryOutput"], () => require("./getRemoteConanRepository"));
+
+export { GetRemoteCondaRepositoryArgs, GetRemoteCondaRepositoryResult, GetRemoteCondaRepositoryOutputArgs } from "./getRemoteCondaRepository";
+export const getRemoteCondaRepository: typeof import("./getRemoteCondaRepository").getRemoteCondaRepository = null as any;
+export const getRemoteCondaRepositoryOutput: typeof import("./getRemoteCondaRepository").getRemoteCondaRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteCondaRepository","getRemoteCondaRepositoryOutput"], () => require("./getRemoteCondaRepository"));
+
+export { GetRemoteCranRepositoryArgs, GetRemoteCranRepositoryResult, GetRemoteCranRepositoryOutputArgs } from "./getRemoteCranRepository";
+export const getRemoteCranRepository: typeof import("./getRemoteCranRepository").getRemoteCranRepository = null as any;
+export const getRemoteCranRepositoryOutput: typeof import("./getRemoteCranRepository").getRemoteCranRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteCranRepository","getRemoteCranRepositoryOutput"], () => require("./getRemoteCranRepository"));
+
+export { GetRemoteDebianRepositoryArgs, GetRemoteDebianRepositoryResult, GetRemoteDebianRepositoryOutputArgs } from "./getRemoteDebianRepository";
+export const getRemoteDebianRepository: typeof import("./getRemoteDebianRepository").getRemoteDebianRepository = null as any;
+export const getRemoteDebianRepositoryOutput: typeof import("./getRemoteDebianRepository").getRemoteDebianRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteDebianRepository","getRemoteDebianRepositoryOutput"], () => require("./getRemoteDebianRepository"));
+
+export { GetRemoteDockerRepositoryArgs, GetRemoteDockerRepositoryResult, GetRemoteDockerRepositoryOutputArgs } from "./getRemoteDockerRepository";
+export const getRemoteDockerRepository: typeof import("./getRemoteDockerRepository").getRemoteDockerRepository = null as any;
+export const getRemoteDockerRepositoryOutput: typeof import("./getRemoteDockerRepository").getRemoteDockerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteDockerRepository","getRemoteDockerRepositoryOutput"], () => require("./getRemoteDockerRepository"));
+
+export { GetRemoteGemsRepositoryArgs, GetRemoteGemsRepositoryResult, GetRemoteGemsRepositoryOutputArgs } from "./getRemoteGemsRepository";
+export const getRemoteGemsRepository: typeof import("./getRemoteGemsRepository").getRemoteGemsRepository = null as any;
+export const getRemoteGemsRepositoryOutput: typeof import("./getRemoteGemsRepository").getRemoteGemsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteGemsRepository","getRemoteGemsRepositoryOutput"], () => require("./getRemoteGemsRepository"));
+
+export { GetRemoteGenericRepositoryArgs, GetRemoteGenericRepositoryResult, GetRemoteGenericRepositoryOutputArgs } from "./getRemoteGenericRepository";
+export const getRemoteGenericRepository: typeof import("./getRemoteGenericRepository").getRemoteGenericRepository = null as any;
+export const getRemoteGenericRepositoryOutput: typeof import("./getRemoteGenericRepository").getRemoteGenericRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteGenericRepository","getRemoteGenericRepositoryOutput"], () => require("./getRemoteGenericRepository"));
+
+export { GetRemoteGitlfsRepositoryArgs, GetRemoteGitlfsRepositoryResult, GetRemoteGitlfsRepositoryOutputArgs } from "./getRemoteGitlfsRepository";
+export const getRemoteGitlfsRepository: typeof import("./getRemoteGitlfsRepository").getRemoteGitlfsRepository = null as any;
+export const getRemoteGitlfsRepositoryOutput: typeof import("./getRemoteGitlfsRepository").getRemoteGitlfsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteGitlfsRepository","getRemoteGitlfsRepositoryOutput"], () => require("./getRemoteGitlfsRepository"));
+
+export { GetRemoteGoRepositoryArgs, GetRemoteGoRepositoryResult, GetRemoteGoRepositoryOutputArgs } from "./getRemoteGoRepository";
+export const getRemoteGoRepository: typeof import("./getRemoteGoRepository").getRemoteGoRepository = null as any;
+export const getRemoteGoRepositoryOutput: typeof import("./getRemoteGoRepository").getRemoteGoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteGoRepository","getRemoteGoRepositoryOutput"], () => require("./getRemoteGoRepository"));
+
+export { GetRemoteGradleRepositoryArgs, GetRemoteGradleRepositoryResult, GetRemoteGradleRepositoryOutputArgs } from "./getRemoteGradleRepository";
+export const getRemoteGradleRepository: typeof import("./getRemoteGradleRepository").getRemoteGradleRepository = null as any;
+export const getRemoteGradleRepositoryOutput: typeof import("./getRemoteGradleRepository").getRemoteGradleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteGradleRepository","getRemoteGradleRepositoryOutput"], () => require("./getRemoteGradleRepository"));
+
+export { GetRemoteHelmRepositoryArgs, GetRemoteHelmRepositoryResult, GetRemoteHelmRepositoryOutputArgs } from "./getRemoteHelmRepository";
+export const getRemoteHelmRepository: typeof import("./getRemoteHelmRepository").getRemoteHelmRepository = null as any;
+export const getRemoteHelmRepositoryOutput: typeof import("./getRemoteHelmRepository").getRemoteHelmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteHelmRepository","getRemoteHelmRepositoryOutput"], () => require("./getRemoteHelmRepository"));
+
+export { GetRemoteIvyRepositoryArgs, GetRemoteIvyRepositoryResult, GetRemoteIvyRepositoryOutputArgs } from "./getRemoteIvyRepository";
+export const getRemoteIvyRepository: typeof import("./getRemoteIvyRepository").getRemoteIvyRepository = null as any;
+export const getRemoteIvyRepositoryOutput: typeof import("./getRemoteIvyRepository").getRemoteIvyRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteIvyRepository","getRemoteIvyRepositoryOutput"], () => require("./getRemoteIvyRepository"));
+
+export { GetRemoteMavenRepositoryArgs, GetRemoteMavenRepositoryResult, GetRemoteMavenRepositoryOutputArgs } from "./getRemoteMavenRepository";
+export const getRemoteMavenRepository: typeof import("./getRemoteMavenRepository").getRemoteMavenRepository = null as any;
+export const getRemoteMavenRepositoryOutput: typeof import("./getRemoteMavenRepository").getRemoteMavenRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteMavenRepository","getRemoteMavenRepositoryOutput"], () => require("./getRemoteMavenRepository"));
+
+export { GetRemoteNpmRepositoryArgs, GetRemoteNpmRepositoryResult, GetRemoteNpmRepositoryOutputArgs } from "./getRemoteNpmRepository";
+export const getRemoteNpmRepository: typeof import("./getRemoteNpmRepository").getRemoteNpmRepository = null as any;
+export const getRemoteNpmRepositoryOutput: typeof import("./getRemoteNpmRepository").getRemoteNpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteNpmRepository","getRemoteNpmRepositoryOutput"], () => require("./getRemoteNpmRepository"));
+
+export { GetRemoteNugetRepositoryArgs, GetRemoteNugetRepositoryResult, GetRemoteNugetRepositoryOutputArgs } from "./getRemoteNugetRepository";
+export const getRemoteNugetRepository: typeof import("./getRemoteNugetRepository").getRemoteNugetRepository = null as any;
+export const getRemoteNugetRepositoryOutput: typeof import("./getRemoteNugetRepository").getRemoteNugetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteNugetRepository","getRemoteNugetRepositoryOutput"], () => require("./getRemoteNugetRepository"));
+
+export { GetRemoteOpkgRepositoryArgs, GetRemoteOpkgRepositoryResult, GetRemoteOpkgRepositoryOutputArgs } from "./getRemoteOpkgRepository";
+export const getRemoteOpkgRepository: typeof import("./getRemoteOpkgRepository").getRemoteOpkgRepository = null as any;
+export const getRemoteOpkgRepositoryOutput: typeof import("./getRemoteOpkgRepository").getRemoteOpkgRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteOpkgRepository","getRemoteOpkgRepositoryOutput"], () => require("./getRemoteOpkgRepository"));
+
+export { GetRemoteP2RepositoryArgs, GetRemoteP2RepositoryResult, GetRemoteP2RepositoryOutputArgs } from "./getRemoteP2Repository";
+export const getRemoteP2Repository: typeof import("./getRemoteP2Repository").getRemoteP2Repository = null as any;
+export const getRemoteP2RepositoryOutput: typeof import("./getRemoteP2Repository").getRemoteP2RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteP2Repository","getRemoteP2RepositoryOutput"], () => require("./getRemoteP2Repository"));
+
+export { GetRemotePubRepositoryArgs, GetRemotePubRepositoryResult, GetRemotePubRepositoryOutputArgs } from "./getRemotePubRepository";
+export const getRemotePubRepository: typeof import("./getRemotePubRepository").getRemotePubRepository = null as any;
+export const getRemotePubRepositoryOutput: typeof import("./getRemotePubRepository").getRemotePubRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemotePubRepository","getRemotePubRepositoryOutput"], () => require("./getRemotePubRepository"));
+
+export { GetRemotePuppetRepositoryArgs, GetRemotePuppetRepositoryResult, GetRemotePuppetRepositoryOutputArgs } from "./getRemotePuppetRepository";
+export const getRemotePuppetRepository: typeof import("./getRemotePuppetRepository").getRemotePuppetRepository = null as any;
+export const getRemotePuppetRepositoryOutput: typeof import("./getRemotePuppetRepository").getRemotePuppetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemotePuppetRepository","getRemotePuppetRepositoryOutput"], () => require("./getRemotePuppetRepository"));
+
+export { GetRemotePypiRepositoryArgs, GetRemotePypiRepositoryResult, GetRemotePypiRepositoryOutputArgs } from "./getRemotePypiRepository";
+export const getRemotePypiRepository: typeof import("./getRemotePypiRepository").getRemotePypiRepository = null as any;
+export const getRemotePypiRepositoryOutput: typeof import("./getRemotePypiRepository").getRemotePypiRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemotePypiRepository","getRemotePypiRepositoryOutput"], () => require("./getRemotePypiRepository"));
+
+export { GetRemoteRpmRepositoryArgs, GetRemoteRpmRepositoryResult, GetRemoteRpmRepositoryOutputArgs } from "./getRemoteRpmRepository";
+export const getRemoteRpmRepository: typeof import("./getRemoteRpmRepository").getRemoteRpmRepository = null as any;
+export const getRemoteRpmRepositoryOutput: typeof import("./getRemoteRpmRepository").getRemoteRpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteRpmRepository","getRemoteRpmRepositoryOutput"], () => require("./getRemoteRpmRepository"));
+
+export { GetRemoteSbtRepositoryArgs, GetRemoteSbtRepositoryResult, GetRemoteSbtRepositoryOutputArgs } from "./getRemoteSbtRepository";
+export const getRemoteSbtRepository: typeof import("./getRemoteSbtRepository").getRemoteSbtRepository = null as any;
+export const getRemoteSbtRepositoryOutput: typeof import("./getRemoteSbtRepository").getRemoteSbtRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteSbtRepository","getRemoteSbtRepositoryOutput"], () => require("./getRemoteSbtRepository"));
+
+export { GetRemoteSwiftRepositoryArgs, GetRemoteSwiftRepositoryResult, GetRemoteSwiftRepositoryOutputArgs } from "./getRemoteSwiftRepository";
+export const getRemoteSwiftRepository: typeof import("./getRemoteSwiftRepository").getRemoteSwiftRepository = null as any;
+export const getRemoteSwiftRepositoryOutput: typeof import("./getRemoteSwiftRepository").getRemoteSwiftRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteSwiftRepository","getRemoteSwiftRepositoryOutput"], () => require("./getRemoteSwiftRepository"));
+
+export { GetRemoteTerraformRepositoryArgs, GetRemoteTerraformRepositoryResult, GetRemoteTerraformRepositoryOutputArgs } from "./getRemoteTerraformRepository";
+export const getRemoteTerraformRepository: typeof import("./getRemoteTerraformRepository").getRemoteTerraformRepository = null as any;
+export const getRemoteTerraformRepositoryOutput: typeof import("./getRemoteTerraformRepository").getRemoteTerraformRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteTerraformRepository","getRemoteTerraformRepositoryOutput"], () => require("./getRemoteTerraformRepository"));
+
+export { GetRemoteVcsRepositoryArgs, GetRemoteVcsRepositoryResult, GetRemoteVcsRepositoryOutputArgs } from "./getRemoteVcsRepository";
+export const getRemoteVcsRepository: typeof import("./getRemoteVcsRepository").getRemoteVcsRepository = null as any;
+export const getRemoteVcsRepositoryOutput: typeof import("./getRemoteVcsRepository").getRemoteVcsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getRemoteVcsRepository","getRemoteVcsRepositoryOutput"], () => require("./getRemoteVcsRepository"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;

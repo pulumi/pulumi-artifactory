@@ -282,14 +282,14 @@ public class RemoteCargoRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
     @Export(name="gitRegistryUrl", type=String.class, parameters={})
     private Output<String> gitRegistryUrl;
 
     /**
-     * @return This is the index url, expected to be a git repository. Default value is &#34;https://github.com/rust-lang/crates.io-index&#34;.
+     * @return This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      * 
      */
     public Output<String> gitRegistryUrl() {

@@ -77,14 +77,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Determines if the group&#39;s associated user list will return as an attribute. Default is false.
+     * Determines if the group&#39;s associated user list will return as an attribute. Default is `false`.
      * 
      */
     @Import(name="includeUsers")
     private @Nullable String includeUsers;
 
     /**
-     * @return Determines if the group&#39;s associated user list will return as an attribute. Default is false.
+     * @return Determines if the group&#39;s associated user list will return as an attribute. Default is `false`.
      * 
      */
     public Optional<String> includeUsers() {
@@ -107,14 +107,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     @Import(name="policyManager")
     private @Nullable Boolean policyManager;
 
     /**
-     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
      * 
      */
     public Optional<Boolean> policyManager() {
@@ -152,14 +152,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     @Import(name="reportsManager")
     private @Nullable Boolean reportsManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
      * 
      */
     public Optional<Boolean> reportsManager() {
@@ -182,14 +182,14 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     @Import(name="watchManager")
     private @Nullable Boolean watchManager;
 
     /**
-     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+     * @return When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
      * 
      */
     public Optional<Boolean> watchManager() {
@@ -276,7 +276,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param includeUsers Determines if the group&#39;s associated user list will return as an attribute. Default is false.
+         * @param includeUsers Determines if the group&#39;s associated user list will return as an attribute. Default is `false`.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is &#39;false&#39;.
+         * @param policyManager When this override is set, User in the group can set Xray security and compliance policies. Default value is `false`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is &#39;false&#39;.
+         * @param reportsManager When this override is set, User in the group can manage Xray Reports on any resource type. Default value is `false`.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is &#39;false&#39;.
+         * @param watchManager When this override is set, User in the group can manage Xray Watches on any resource type. Default value is `false`.
          * 
          * @return builder
          * 

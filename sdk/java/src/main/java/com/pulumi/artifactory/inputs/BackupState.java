@@ -94,14 +94,14 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      * 
      */
     @Import(name="exportMissionControl")
     private @Nullable Output<Boolean> exportMissionControl;
 
     /**
-     * @return When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * @return When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> exportMissionControl() {
@@ -317,7 +317,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is `false`.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class BackupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+         * @param exportMissionControl When set to true, mission control will not be automatically added to the backup. Default value is `false`.
          * 
          * @return builder
          * 

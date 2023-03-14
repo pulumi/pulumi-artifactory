@@ -74,7 +74,7 @@ class RemoteBowerRepositoryArgs:
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -129,8 +129,7 @@ class RemoteBowerRepositoryArgs:
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -302,7 +301,7 @@ class RemoteBowerRepositoryArgs:
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -734,8 +733,7 @@ class RemoteBowerRepositoryArgs:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -816,7 +814,7 @@ class _RemoteBowerRepositoryState:
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -874,8 +872,7 @@ class _RemoteBowerRepositoryState:
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1026,7 +1023,7 @@ class _RemoteBowerRepositoryState:
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -1492,8 +1489,7 @@ class _RemoteBowerRepositoryState:
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> Optional[pulumi.Input[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 
@@ -1600,7 +1596,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1658,8 +1654,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1881,7 +1876,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
         :param pulumi.Input[bool] block_mismatching_mime_types: If set, artifacts will fail to download if a mismatch is detected between requested and received mimetype, according to
                the list specified in the system properties file under blockedMismatchingMimeTypes. You can override by adding mimetypes
                to the override list 'mismatching_mime_types_override_list'.
-        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        :param pulumi.Input[str] bower_registry_url: Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         :param pulumi.Input[bool] bypass_head_requests: Before caching an artifact, Artifactory first sends a HEAD request to the remote resource. In some remote resources,
                HEAD requests are disallowed and therefore rejected, even though downloading the artifact is allowed. When checked,
                Artifactory will bypass the HEAD request and cache the artifact directly using a GET request.
@@ -1939,8 +1934,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
         :param pulumi.Input[str] vcs_git_download_url: This attribute is used when vcs_git_provider is set to 'CUSTOM'. Provided URL will be used as proxy.
-        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-               Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        :param pulumi.Input[str] vcs_git_provider: Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2036,7 +2030,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="bowerRegistryUrl")
     def bower_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Proxy remote Bower repository. Default value is "https://registry.bower.io".
+        Proxy remote Bower repository. Default value is `https://registry.bower.io`.
         """
         return pulumi.get(self, "bower_registry_url")
 
@@ -2350,8 +2344,7 @@ class RemoteBowerRepository(pulumi.CustomResource):
     @pulumi.getter(name="vcsGitProvider")
     def vcs_git_provider(self) -> pulumi.Output[Optional[str]]:
         """
-        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-        Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+        Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
         """
         return pulumi.get(self, "vcs_git_provider")
 

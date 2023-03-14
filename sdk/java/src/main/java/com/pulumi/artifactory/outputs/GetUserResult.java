@@ -14,14 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetUserResult {
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     private @Nullable Boolean admin;
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     private @Nullable Boolean disableUiAccess;
@@ -41,31 +39,27 @@ public final class GetUserResult {
      */
     private String id;
     /**
-     * @return When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     private @Nullable Boolean internalPasswordDisabled;
     private String name;
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     private @Nullable Boolean profileUpdatable;
 
     private GetUserResult() {}
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     public Optional<Boolean> admin() {
         return Optional.ofNullable(this.admin);
     }
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     public Optional<Boolean> disableUiAccess() {
@@ -93,8 +87,7 @@ public final class GetUserResult {
         return this.id;
     }
     /**
-     * @return When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Optional<Boolean> internalPasswordDisabled() {
@@ -104,8 +97,7 @@ public final class GetUserResult {
         return this.name;
     }
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     public Optional<Boolean> profileUpdatable() {

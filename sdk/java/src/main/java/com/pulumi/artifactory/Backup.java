@@ -148,14 +148,14 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludedRepositories);
     }
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      * 
      */
     @Export(name="exportMissionControl", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> exportMissionControl;
 
     /**
-     * @return When set to true, mission control will not be automatically added to the backup. Default value is &#39;false&#39;.
+     * @return When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> exportMissionControl() {

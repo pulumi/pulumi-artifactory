@@ -25,11 +25,11 @@ class ArtifactoryReleaseBundleWebhookArgs:
         """
         The set of arguments for constructing a ArtifactoryReleaseBundleWebhook resource.
         :param pulumi.Input['ArtifactoryReleaseBundleWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "event_types", event_types)
@@ -56,7 +56,7 @@ class ArtifactoryReleaseBundleWebhookArgs:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
@@ -104,7 +104,7 @@ class ArtifactoryReleaseBundleWebhookArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -126,8 +126,8 @@ class _ArtifactoryReleaseBundleWebhookState:
         Input properties used for looking up and filtering ArtifactoryReleaseBundleWebhook resources.
         :param pulumi.Input['ArtifactoryReleaseBundleWebhookCriteriaArgs'] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactoryReleaseBundleWebhookHandlerArgs']]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -172,7 +172,7 @@ class _ArtifactoryReleaseBundleWebhookState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -184,7 +184,7 @@ class _ArtifactoryReleaseBundleWebhookState:
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         """
         return pulumi.get(self, "event_types")
 
@@ -268,8 +268,8 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactoryReleaseBundleWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactoryReleaseBundleWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -383,8 +383,8 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArtifactoryReleaseBundleWebhookCriteriaArgs']] criteria: Specifies where the webhook will be applied on which repositories.
         :param pulumi.Input[str] description: Webhook description. Max length 1000 characters.
-        :param pulumi.Input[bool] enabled: Status of webhook. Default to 'true'
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        :param pulumi.Input[bool] enabled: Status of webhook. Default to `true`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArtifactoryReleaseBundleWebhookHandlerArgs']]]] handlers: At least one is required.
         :param pulumi.Input[str] key: The identity key of the webhook. Must be between 2 and 200 characters. Cannot contain spaces.
         """
@@ -420,7 +420,7 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Status of webhook. Default to 'true'
+        Status of webhook. Default to `true`
         """
         return pulumi.get(self, "enabled")
 
@@ -428,7 +428,7 @@ class ArtifactoryReleaseBundleWebhook(pulumi.CustomResource):
     @pulumi.getter(name="eventTypes")
     def event_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "delete_started", "delete_completed", "delete_failed"
+        List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
         """
         return pulumi.get(self, "event_types")
 

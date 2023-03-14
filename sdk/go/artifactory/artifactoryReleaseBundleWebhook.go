@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,9 +75,9 @@ type ArtifactoryReleaseBundleWebhook struct {
 	Criteria ArtifactoryReleaseBundleWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers ArtifactoryReleaseBundleWebhookHandlerArrayOutput `pulumi:"handlers"`
@@ -130,9 +130,9 @@ type artifactoryReleaseBundleWebhookState struct {
 	Criteria *ArtifactoryReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []ArtifactoryReleaseBundleWebhookHandler `pulumi:"handlers"`
@@ -145,9 +145,9 @@ type ArtifactoryReleaseBundleWebhookState struct {
 	Criteria ArtifactoryReleaseBundleWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers ArtifactoryReleaseBundleWebhookHandlerArrayInput
@@ -164,9 +164,9 @@ type artifactoryReleaseBundleWebhookArgs struct {
 	Criteria ArtifactoryReleaseBundleWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []ArtifactoryReleaseBundleWebhookHandler `pulumi:"handlers"`
@@ -180,9 +180,9 @@ type ArtifactoryReleaseBundleWebhookArgs struct {
 	Criteria ArtifactoryReleaseBundleWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'
+	// Status of webhook. Default to `true`
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers ArtifactoryReleaseBundleWebhookHandlerArrayInput
@@ -289,12 +289,12 @@ func (o ArtifactoryReleaseBundleWebhookOutput) Description() pulumi.StringPtrOut
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'
+// Status of webhook. Default to `true`
 func (o ArtifactoryReleaseBundleWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "received", "deleteStarted", "deleteCompleted", "deleteFailed"
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `deleteStarted`, `deleteCompleted`, `deleteFailed`
 func (o ArtifactoryReleaseBundleWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ArtifactoryReleaseBundleWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }

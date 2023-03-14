@@ -17,16 +17,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     @Import(name="admin")
     private @Nullable Boolean admin;
 
     /**
-     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value
-     * is `false`.
+     * @return When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
      * 
      */
     public Optional<Boolean> admin() {
@@ -34,16 +32,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     @Import(name="disableUiAccess")
     private @Nullable Boolean disableUiAccess;
 
     /**
-     * @return When set, this user can only access Artifactory through the REST API. This option
-     * cannot be set if the user has Admin privileges. Default value is `true`.
+     * @return When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
      * 
      */
     public Optional<Boolean> disableUiAccess() {
@@ -81,16 +77,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     @Import(name="internalPasswordDisabled")
     private @Nullable Boolean internalPasswordDisabled;
 
     /**
-     * @return When set, disables the fallback of using an internal password when external
-     * authentication (such as LDAP) is enabled.
+     * @return When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
      * 
      */
     public Optional<Boolean> internalPasswordDisabled() {
@@ -113,16 +107,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     @Import(name="profileUpdatable")
     private @Nullable Boolean profileUpdatable;
 
     /**
-     * @return When set, this user can update his profile details (except for the password. Only an
-     * administrator can update the password). Default value is `true`.
+     * @return When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
      * 
      */
     public Optional<Boolean> profileUpdatable() {
@@ -160,8 +152,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param admin When enabled, this user is an administrator with all the ensuing privileges. Default value
-         * is `false`.
+         * @param admin When enabled, this user is an administrator with all the ensuing privileges. Default value is `false`.
          * 
          * @return builder
          * 
@@ -172,8 +163,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param disableUiAccess When set, this user can only access Artifactory through the REST API. This option
-         * cannot be set if the user has Admin privileges. Default value is `true`.
+         * @param disableUiAccess When set, this user can only access Artifactory through the REST API. This option cannot be set if the user has Admin privileges. Default value is `true`.
          * 
          * @return builder
          * 
@@ -216,8 +206,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param internalPasswordDisabled When set, disables the fallback of using an internal password when external
-         * authentication (such as LDAP) is enabled.
+         * @param internalPasswordDisabled When set, disables the fallback of using an internal password when external authentication (such as LDAP) is enabled.
          * 
          * @return builder
          * 
@@ -239,8 +228,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param profileUpdatable When set, this user can update his profile details (except for the password. Only an
-         * administrator can update the password). Default value is `true`.
+         * @param profileUpdatable When set, this user can update his profile details (except for the password. Only an administrator can update the password). Default value is `true`.
          * 
          * @return builder
          * 

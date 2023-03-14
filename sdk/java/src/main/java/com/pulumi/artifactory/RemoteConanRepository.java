@@ -248,14 +248,14 @@ public class RemoteConanRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.excludesPattern);
     }
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     @Export(name="forceConanAuthentication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> forceConanAuthentication;
 
     /**
-     * @return Force basic authentication credentials in order to use this repository. Default value is &#39;false&#39;.
+     * @return Force basic authentication credentials in order to use this repository. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> forceConanAuthentication() {

@@ -130,7 +130,7 @@ export class RemoteCargoRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     public readonly gitRegistryUrl!: pulumi.Output<string>;
     /**
@@ -448,7 +448,7 @@ export interface RemoteCargoRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     gitRegistryUrl?: pulumi.Input<string>;
     /**
@@ -647,7 +647,7 @@ export interface RemoteCargoRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * This is the index url, expected to be a git repository. Default value is "https://github.com/rust-lang/crates.io-index".
+     * This is the index url, expected to be a git repository. Default value is `https://github.com/rust-lang/crates.io-index`.
      */
     gitRegistryUrl: pulumi.Input<string>;
     /**

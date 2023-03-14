@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,9 +83,9 @@ type DockerWebhook struct {
 	Criteria DockerWebhookCriteriaOutput `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayOutput `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers DockerWebhookHandlerArrayOutput `pulumi:"handlers"`
@@ -138,9 +138,9 @@ type dockerWebhookState struct {
 	Criteria *DockerWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []DockerWebhookHandler `pulumi:"handlers"`
@@ -153,9 +153,9 @@ type DockerWebhookState struct {
 	Criteria DockerWebhookCriteriaPtrInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers DockerWebhookHandlerArrayInput
@@ -172,9 +172,9 @@ type dockerWebhookArgs struct {
 	Criteria DockerWebhookCriteria `pulumi:"criteria"`
 	// Webhook description. Max length 1000 characters.
 	Description *string `pulumi:"description"`
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes []string `pulumi:"eventTypes"`
 	// At least one is required.
 	Handlers []DockerWebhookHandler `pulumi:"handlers"`
@@ -188,9 +188,9 @@ type DockerWebhookArgs struct {
 	Criteria DockerWebhookCriteriaInput
 	// Webhook description. Max length 1000 characters.
 	Description pulumi.StringPtrInput
-	// Status of webhook. Default to 'true'.
+	// Status of webhook. Default to `true`.
 	Enabled pulumi.BoolPtrInput
-	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+	// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 	EventTypes pulumi.StringArrayInput
 	// At least one is required.
 	Handlers DockerWebhookHandlerArrayInput
@@ -295,12 +295,12 @@ func (o DockerWebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Status of webhook. Default to 'true'.
+// Status of webhook. Default to `true`.
 func (o DockerWebhookOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: "pushed", "deleted", "promoted".
+// List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `pushed`, `deleted`, `promoted`.
 func (o DockerWebhookOutput) EventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DockerWebhook) pulumi.StringArrayOutput { return v.EventTypes }).(pulumi.StringArrayOutput)
 }

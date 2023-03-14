@@ -50,14 +50,14 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
     }
 
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -65,14 +65,14 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
     }
 
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     @Import(name="eventTypes", required=true)
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     public Output<List<String>> eventTypes() {
@@ -181,7 +181,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param enabled Status of webhook. Default to &#39;true&#39;
+         * @param enabled Status of webhook. Default to `true`
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class ArtifactoryReleaseBundleWebhookArgs extends com.pulumi.resour
         }
 
         /**
-         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+         * @param eventTypes List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
          * 
          * @return builder
          * 

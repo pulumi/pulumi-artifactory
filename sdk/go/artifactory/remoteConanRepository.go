@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,7 +88,7 @@ type RemoteConanRepository struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrOutput `pulumi:"excludesPattern"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication pulumi.BoolPtrOutput `pulumi:"forceConanAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -243,7 +243,7 @@ type remoteConanRepositoryState struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -357,7 +357,7 @@ type RemoteConanRepositoryState struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -475,7 +475,7 @@ type remoteConanRepositoryArgs struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern *string `pulumi:"excludesPattern"`
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication *bool `pulumi:"forceConanAuthentication"`
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -589,7 +589,7 @@ type RemoteConanRepositoryArgs struct {
 	// List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
 	// default no artifacts are excluded.
 	ExcludesPattern pulumi.StringPtrInput
-	// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+	// Force basic authentication credentials in order to use this repository. Default value is `false`.
 	ForceConanAuthentication pulumi.BoolPtrInput
 	// When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
 	// communicate with this repository.
@@ -826,7 +826,7 @@ func (o RemoteConanRepositoryOutput) ExcludesPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.StringPtrOutput { return v.ExcludesPattern }).(pulumi.StringPtrOutput)
 }
 
-// Force basic authentication credentials in order to use this repository. Default value is 'false'.
+// Force basic authentication credentials in order to use this repository. Default value is `false`.
 func (o RemoteConanRepositoryOutput) ForceConanAuthentication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RemoteConanRepository) pulumi.BoolPtrOutput { return v.ForceConanAuthentication }).(pulumi.BoolPtrOutput)
 }

@@ -106,8 +106,8 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-     * URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
     public readonly downloadContextPath!: pulumi.Output<string | undefined>;
     /**
@@ -125,11 +125,11 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
      */
     public readonly excludesPattern!: pulumi.Output<string | undefined>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      */
     public readonly feedContextPath!: pulumi.Output<string | undefined>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     public readonly forceNugetAuthentication!: pulumi.Output<boolean | undefined>;
     /**
@@ -257,7 +257,7 @@ export class RemoteNugetRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      */
     public readonly v3FeedUrl!: pulumi.Output<string | undefined>;
     /**
@@ -435,8 +435,8 @@ export interface RemoteNugetRepositoryState {
     description?: pulumi.Input<string>;
     /**
      * The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-     * URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
     downloadContextPath?: pulumi.Input<string>;
     /**
@@ -454,11 +454,11 @@ export interface RemoteNugetRepositoryState {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      */
     feedContextPath?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -586,7 +586,7 @@ export interface RemoteNugetRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      */
     v3FeedUrl?: pulumi.Input<string>;
     /**
@@ -644,8 +644,8 @@ export interface RemoteNugetRepositoryArgs {
     description?: pulumi.Input<string>;
     /**
      * The context path prefix through which NuGet downloads are served.
-     * For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-     * URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+     * For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+     * URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
      */
     downloadContextPath?: pulumi.Input<string>;
     /**
@@ -663,11 +663,11 @@ export interface RemoteNugetRepositoryArgs {
      */
     excludesPattern?: pulumi.Input<string>;
     /**
-     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+     * When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
      */
     feedContextPath?: pulumi.Input<string>;
     /**
-     * Force basic authentication credentials in order to use this repository. Default value is 'false'.
+     * Force basic authentication credentials in order to use this repository. Default value is `false`.
      */
     forceNugetAuthentication?: pulumi.Input<boolean>;
     /**
@@ -794,7 +794,7 @@ export interface RemoteNugetRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+     * The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
      */
     v3FeedUrl?: pulumi.Input<string>;
     /**

@@ -111,8 +111,8 @@ class RemotePypiRepositoryArgs:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -584,7 +584,7 @@ class RemotePypiRepositoryArgs:
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -596,7 +596,7 @@ class RemotePypiRepositoryArgs:
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 
@@ -837,8 +837,8 @@ class _RemotePypiRepositoryState:
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -1312,7 +1312,7 @@ class _RemotePypiRepositoryState:
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> Optional[pulumi.Input[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -1324,7 +1324,7 @@ class _RemotePypiRepositoryState:
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 
@@ -1604,8 +1604,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -1881,8 +1881,8 @@ class RemotePypiRepository(pulumi.CustomResource):
                assigning repository to a project, repository key must be prefixed with project key, separated by a dash.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_sets: List of property set names
         :param pulumi.Input[str] proxy: Proxy key from Artifactory Proxies settings
-        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
-        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        :param pulumi.Input[str] pypi_registry_url: To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
+        :param pulumi.Input[str] pypi_repository_suffix: Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         :param pulumi.Input[str] query_params: Custom HTTP query parameters that will be automatically included in all remote resource requests. For example:
                `param1=val1&param2=val2&param3=val3`
         :param pulumi.Input[str] remote_repo_layout_ref: Repository layout key for the remote layout mapping.
@@ -2202,7 +2202,7 @@ class RemotePypiRepository(pulumi.CustomResource):
     @pulumi.getter(name="pypiRegistryUrl")
     def pypi_registry_url(self) -> pulumi.Output[Optional[str]]:
         """
-        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is 'https://pypi.org'.
+        To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
         """
         return pulumi.get(self, "pypi_registry_url")
 
@@ -2210,7 +2210,7 @@ class RemotePypiRepository(pulumi.CustomResource):
     @pulumi.getter(name="pypiRepositorySuffix")
     def pypi_repository_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        Usually should be left as a default for 'simple', unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is 'simple'.
+        Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
         """
         return pulumi.get(self, "pypi_repository_suffix")
 

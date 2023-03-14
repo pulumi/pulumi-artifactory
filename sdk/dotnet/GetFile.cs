@@ -78,7 +78,7 @@ namespace Pulumi.Artifactory
     public sealed class GetFileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// If set to true, an existing file in the output_path will be overwritten. Default: false
+        /// If set to true, an existing file in the output_path will be overwritten. Default: `false`
         /// </summary>
         [Input("forceOverwrite")]
         public bool? ForceOverwrite { get; set; }
@@ -117,7 +117,7 @@ namespace Pulumi.Artifactory
     public sealed class GetFileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// If set to true, an existing file in the output_path will be overwritten. Default: false
+        /// If set to true, an existing file in the output_path will be overwritten. Default: `false`
         /// </summary>
         [Input("forceOverwrite")]
         public Input<bool>? ForceOverwrite { get; set; }

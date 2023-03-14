@@ -92,7 +92,7 @@ export class Backup extends pulumi.CustomResource {
      */
     public readonly excludedRepositories!: pulumi.Output<string[] | undefined>;
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
     public readonly exportMissionControl!: pulumi.Output<boolean | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface BackupState {
      */
     excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
     exportMissionControl?: pulumi.Input<boolean>;
     /**
@@ -230,7 +230,7 @@ export interface BackupArgs {
      */
     excludedRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When set to true, mission control will not be automatically added to the backup. Default value is 'false'.
+     * When set to true, mission control will not be automatically added to the backup. Default value is `false`.
      */
     exportMissionControl?: pulumi.Input<boolean>;
     /**

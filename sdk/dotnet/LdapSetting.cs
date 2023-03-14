@@ -75,7 +75,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Output("emailAttribute")]
         public Output<string?> EmailAttribute { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Artifactory
 
         /// <summary>
         /// An attribute that can be used to map a user's email address to a user created automatically in Artifactory. Default value is `mail`.
-        /// - Note: If blank/empty string input was set for email_attribute, Default value "mail" takes effect. This is to match with Artifactory behavior.
+        /// - Note: If blank/empty string input was set for email_attribute, Default value `mail` takes effect. This is to match with Artifactory behavior.
         /// </summary>
         [Input("emailAttribute")]
         public Input<string>? EmailAttribute { get; set; }

@@ -84,15 +84,15 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
-               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+               For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+               URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -135,7 +135,7 @@ class RemoteNugetRepositoryArgs:
         :param pulumi.Input[bool] synchronize_properties: When set, remote artifacts are fetched along with their properties.
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
-        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -372,8 +372,8 @@ class RemoteNugetRepositoryArgs:
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
         The context path prefix through which NuGet downloads are served.
-        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -423,7 +423,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -435,7 +435,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -769,7 +769,7 @@ class RemoteNugetRepositoryArgs:
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         """
         return pulumi.get(self, "v3_feed_url")
 
@@ -860,15 +860,15 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
-               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+               For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+               URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -914,7 +914,7 @@ class _RemoteNugetRepositoryState:
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1130,8 +1130,8 @@ class _RemoteNugetRepositoryState:
     def download_context_path(self) -> Optional[pulumi.Input[str]]:
         """
         The context path prefix through which NuGet downloads are served.
-        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -1181,7 +1181,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -1193,7 +1193,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> Optional[pulumi.Input[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -1561,7 +1561,7 @@ class _RemoteNugetRepositoryState:
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         """
         return pulumi.get(self, "v3_feed_url")
 
@@ -1681,15 +1681,15 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
-               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+               For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+               URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -1735,7 +1735,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -1974,15 +1974,15 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[str] client_tls_certificate: Client TLS certificate name.
         :param pulumi.Input[str] description: Public description.
         :param pulumi.Input[str] download_context_path: The context path prefix through which NuGet downloads are served.
-               For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-               URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+               For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+               URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         :param pulumi.Input[bool] download_direct: When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
                storage provider. Available in Enterprise+ and Edge licenses only. Default value is 'false'.
         :param pulumi.Input[bool] enable_cookie_management: Enables cookie management if the remote repository uses cookies to manage client state.
         :param pulumi.Input[str] excludes_pattern: List of comma-separated artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By
                default no artifacts are excluded.
-        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
-        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        :param pulumi.Input[str] feed_context_path: When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
+        :param pulumi.Input[bool] force_nuget_authentication: Force basic authentication credentials in order to use this repository. Default value is `false`.
         :param pulumi.Input[bool] hard_fail: When set, Artifactory will return an error to the client that causes the build to fail if there is a failure to
                communicate with this repository.
         :param pulumi.Input[str] includes_pattern: List of comma-separated artifact patterns to include when evaluating artifact requests in the form of x/y/**/z/*. When
@@ -2028,7 +2028,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
         :param pulumi.Input[int] unused_artifacts_cleanup_period_hours: Unused Artifacts Cleanup Period (Hr) in the UI. The number of hours to wait before an artifact is deemed 'unused' and
                eligible for cleanup from the repository. A value of 0 means automatic cleanup of cached artifacts is disabled.
         :param pulumi.Input[str] url: The remote repo URL.
-        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        :param pulumi.Input[str] v3_feed_url: The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         :param pulumi.Input[bool] xray_index: Enable Indexing In Xray. Repository will be indexed with the default retention period. You will be able to change it via
                Xray settings.
         """
@@ -2167,8 +2167,8 @@ class RemoteNugetRepository(pulumi.CustomResource):
     def download_context_path(self) -> pulumi.Output[Optional[str]]:
         """
         The context path prefix through which NuGet downloads are served.
-        For example, the NuGet Gallery download URL is 'https://nuget.org/api/v2/package', so the repository
-        URL should be configured as 'https://nuget.org' and the download context path should be configured as 'api/v2/package'. Default value is 'api/v2/package'.
+        For example, the NuGet Gallery download URL is `https://nuget.org/api/v2/package`, so the repository
+        URL should be configured as `https://nuget.org` and the download context path should be configured as `api/v2/package`. Default value is `api/v2/package`.
         """
         return pulumi.get(self, "download_context_path")
 
@@ -2202,7 +2202,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="feedContextPath")
     def feed_context_path(self) -> pulumi.Output[Optional[str]]:
         """
-        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is 'api/v2'.
+        When proxying a remote NuGet repository, customize feed resource location using this attribute. Default value is `api/v2`.
         """
         return pulumi.get(self, "feed_context_path")
 
@@ -2210,7 +2210,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="forceNugetAuthentication")
     def force_nuget_authentication(self) -> pulumi.Output[Optional[bool]]:
         """
-        Force basic authentication credentials in order to use this repository. Default value is 'false'.
+        Force basic authentication credentials in order to use this repository. Default value is `false`.
         """
         return pulumi.get(self, "force_nuget_authentication")
 
@@ -2458,7 +2458,7 @@ class RemoteNugetRepository(pulumi.CustomResource):
     @pulumi.getter(name="v3FeedUrl")
     def v3_feed_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The URL to the NuGet v3 feed. Default value is 'https://api.nuget.org/v3/index.json'.
+        The URL to the NuGet v3 feed. Default value is `https://api.nuget.org/v3/index.json`.
         """
         return pulumi.get(self, "v3_feed_url")
 

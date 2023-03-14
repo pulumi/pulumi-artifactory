@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +83,7 @@ type VirtualDebianRepository struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayOutput `pulumi:"optionalIndexCompressionFormats"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
@@ -159,7 +159,7 @@ type virtualDebianRepositoryState struct {
 	Key *string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType *string `pulumi:"packageType"`
@@ -204,7 +204,7 @@ type VirtualDebianRepositoryState struct {
 	Key pulumi.StringPtrInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// The Package Type. This must be specified when the repository is created, and once set, cannot be changed.
 	PackageType pulumi.StringPtrInput
@@ -253,7 +253,7 @@ type virtualDebianRepositoryArgs struct {
 	Key string `pulumi:"key"`
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes *string `pulumi:"notes"`
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats []string `pulumi:"optionalIndexCompressionFormats"`
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef *string `pulumi:"primaryKeypairRef"`
@@ -297,7 +297,7 @@ type VirtualDebianRepositoryArgs struct {
 	Key pulumi.StringInput
 	// A free text field to add additional notes about the repository. These are only visible to the administrator.
 	Notes pulumi.StringPtrInput
-	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+	// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 	OptionalIndexCompressionFormats pulumi.StringArrayInput
 	// Primary keypair used to sign artifacts. Default is empty.
 	PrimaryKeypairRef pulumi.StringPtrInput
@@ -452,7 +452,7 @@ func (o VirtualDebianRepositoryOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are 'bz2','lzma' and 'xz'. Default value is 'bz2'.
+// Index file formats you would like to create in addition to the default Gzip (.gzip extension). Supported values are `bz2`,`lzma` and `xz`. Default value is `bz2`.
 func (o VirtualDebianRepositoryOutput) OptionalIndexCompressionFormats() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualDebianRepository) pulumi.StringArrayOutput { return v.OptionalIndexCompressionFormats }).(pulumi.StringArrayOutput)
 }

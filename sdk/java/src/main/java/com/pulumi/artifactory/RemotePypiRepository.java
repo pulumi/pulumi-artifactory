@@ -497,28 +497,28 @@ public class RemotePypiRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.proxy);
     }
     /**
-     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is &#39;https://pypi.org&#39;.
+     * To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
      * 
      */
     @Export(name="pypiRegistryUrl", type=String.class, parameters={})
     private Output</* @Nullable */ String> pypiRegistryUrl;
 
     /**
-     * @return To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is &#39;https://pypi.org&#39;.
+     * @return To configure the remote repo to proxy public external PyPI repository, or a PyPI repository hosted on another Artifactory server. See JFrog Pypi documentation [here](https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories) for the usage details. Default value is `https://pypi.org`.
      * 
      */
     public Output<Optional<String>> pypiRegistryUrl() {
         return Codegen.optional(this.pypiRegistryUrl);
     }
     /**
-     * Usually should be left as a default for &#39;simple&#39;, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is &#39;simple&#39;.
+     * Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
      * 
      */
     @Export(name="pypiRepositorySuffix", type=String.class, parameters={})
     private Output</* @Nullable */ String> pypiRepositorySuffix;
 
     /**
-     * @return Usually should be left as a default for &#39;simple&#39;, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is &#39;simple&#39;.
+     * @return Usually should be left as a default for `simple`, unless the remote is a PyPI server that has custom registry suffix, like +simple in DevPI. Default value is `simple`.
      * 
      */
     public Output<Optional<String>> pypiRepositorySuffix() {

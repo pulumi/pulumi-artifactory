@@ -19,11 +19,11 @@ export interface ArtifactPropertyWebhookCriteria {
      */
     anyRemote: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: string[];
     /**
@@ -61,11 +61,11 @@ export interface ArtifactWebhookCriteria {
      */
     anyRemote: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: string[];
     /**
@@ -99,11 +99,11 @@ export interface ArtifactoryReleaseBundleWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
     includePatterns?: string[];
     /**
@@ -137,11 +137,11 @@ export interface BuildWebhookCriteria {
      */
     anyBuild: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: string[];
     /**
@@ -175,11 +175,11 @@ export interface DistributionWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: string[];
     /**
@@ -217,11 +217,11 @@ export interface DockerWebhookCriteria {
      */
     anyRemote: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: string[];
     /**
@@ -768,6 +768,223 @@ export interface GetPermissionTargetRepoActionsUser {
     permissions: string[];
 }
 
+export interface GetRemoteAlpineRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteBowerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCargoRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteChefRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCocoapodsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteComposerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteConanRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCondaRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCranRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteDebianRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteDockerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGemsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGenericRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGitlfsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGoRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGradleRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteHelmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteIvyRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteMavenRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteNpmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteNugetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteOpkgRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteP2RepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePubRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePuppetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePypiRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteRpmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteSbtRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteSwiftRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteTerraformRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteVcsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.
@@ -1063,11 +1280,11 @@ export interface PermissionTargetsRepoActionsUser {
 
 export interface PropertySetProperty {
     /**
-     * Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+     * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      */
     closedPredefinedValues?: boolean;
     /**
-     * Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+     * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      */
     multipleChoice?: boolean;
     /**
@@ -1146,11 +1363,11 @@ export interface ReleaseBundleWebhookCriteria {
      */
     anyReleaseBundle: boolean;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
     excludePatterns?: string[];
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
     includePatterns?: string[];
     /**

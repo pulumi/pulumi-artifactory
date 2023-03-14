@@ -123,14 +123,14 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blackedOut);
     }
     /**
-     * Default: false.
+     * Default: `false`.
      * 
      */
     @Export(name="calculateYumMetadata", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> calculateYumMetadata;
 
     /**
-     * @return Default: false.
+     * @return Default: `false`.
      * 
      */
     public Output<Optional<Boolean>> calculateYumMetadata() {
@@ -175,14 +175,14 @@ public class LocalRpmRepository extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.downloadDirect);
     }
     /**
-     * Default: false.
+     * Default: `false`.
      * 
      */
     @Export(name="enableFileListsIndexing", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableFileListsIndexing;
 
     /**
-     * @return Default: false.
+     * @return Default: `false`.
      * 
      */
     public Output<Optional<Boolean>> enableFileListsIndexing() {

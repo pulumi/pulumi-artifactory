@@ -167,7 +167,7 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
     public /*out*/ readonly packageType!: pulumi.Output<string>;
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      */
     public readonly podsSpecsRepoUrl!: pulumi.Output<string | undefined>;
     /**
@@ -241,12 +241,12 @@ export class RemoteCocoapodsRepository extends pulumi.CustomResource {
     public readonly url!: pulumi.Output<string>;
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     public readonly vcsGitDownloadUrl!: pulumi.Output<string | undefined>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     public readonly vcsGitProvider!: pulumi.Output<string | undefined>;
     /**
@@ -483,7 +483,7 @@ export interface RemoteCocoapodsRepositoryState {
     packageType?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      */
     podsSpecsRepoUrl?: pulumi.Input<string>;
     /**
@@ -557,12 +557,12 @@ export interface RemoteCocoapodsRepositoryState {
     url?: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**
@@ -682,7 +682,7 @@ export interface RemoteCocoapodsRepositoryArgs {
     offline?: pulumi.Input<boolean>;
     password?: pulumi.Input<string>;
     /**
-     * Proxy remote CocoaPods Specs repositories. Default value is "https://github.com/CocoaPods/Specs".
+     * Proxy remote CocoaPods Specs repositories. Default value is `https://github.com/CocoaPods/Specs`.
      */
     podsSpecsRepoUrl?: pulumi.Input<string>;
     /**
@@ -756,12 +756,12 @@ export interface RemoteCocoapodsRepositoryArgs {
     url: pulumi.Input<string>;
     username?: pulumi.Input<string>;
     /**
-     * This attribute is used when vcsGitProvider is set to 'CUSTOM'. Provided URL will be used as proxy.
+     * This attribute is used when vcsGitProvider is set to `CUSTOM`. Provided URL will be used as proxy.
      */
     vcsGitDownloadUrl?: pulumi.Input<string>;
     /**
-     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is "GITHUB". 
-     * Possible values are: "GITHUB", "BITBUCKET", "OLDSTASH", "STASH", "ARTIFACTORY", "CUSTOM".
+     * Artifactory supports proxying the following Git providers out-of-the-box: GitHub or a remote Artifactory instance. Default value is `GITHUB`. 
+     * Possible values are: `GITHUB`, `BITBUCKET`, `OLDSTASH`, `STASH`, `ARTIFACTORY`, `CUSTOM`.
      */
     vcsGitProvider?: pulumi.Input<string>;
     /**

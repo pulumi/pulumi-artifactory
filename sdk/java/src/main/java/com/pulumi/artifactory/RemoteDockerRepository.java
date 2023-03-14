@@ -299,10 +299,11 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     /**
      * An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
      * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
      * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * This attribute must be set together with `external_dependencies_enabled = true`.
+     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
+     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     @Export(name="externalDependenciesPatterns", type=List.class, parameters={String.class})
@@ -311,10 +312,11 @@ public class RemoteDockerRepository extends com.pulumi.resources.CustomResource 
     /**
      * @return An allow list of Ant-style path patterns that determine which remote VCS roots Artifactory will
      * follow to download remote modules from, when presented with &#39;go-import&#39; meta tags in the remote repository response.
-     * By default, this is set to &#39;**&#39; in the UI, which means that remote modules may be downloaded from any external VCS source.
+     * By default, this is set to `[**]` in the UI, which means that remote modules may be downloaded from any external VCS source.
      * Due to SDKv2 limitations, we can&#39;t set the default value for the list.
-     * This value must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
-     * This attribute must be set together with `external_dependencies_enabled = true`.
+     * This value `[**]` must be assigned to the attribute manually, if user don&#39;t specify any other non-default values.
+     * We don&#39;t want to make this attribute required, but it must be set to avoid the state drift on update. Note: Artifactory assigns
+     * `[**]` on update if HCL doesn&#39;t have the attribute set or the list is empty.
      * 
      */
     public Output<Optional<List<String>>> externalDependenciesPatterns() {

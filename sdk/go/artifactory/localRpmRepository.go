@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //	"fmt"
 //	"os"
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,7 +97,7 @@ type LocalRpmRepository struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrOutput `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrOutput `pulumi:"blackedOut"`
-	// Default: false.
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrOutput `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -106,7 +106,7 @@ type LocalRpmRepository struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrOutput `pulumi:"downloadDirect"`
-	// Default: false.
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrOutput `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -188,7 +188,7 @@ type localRpmRepositoryState struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// Default: false.
+	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -197,7 +197,7 @@ type localRpmRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// Default: false.
+	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -248,7 +248,7 @@ type LocalRpmRepositoryState struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// Default: false.
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -257,7 +257,7 @@ type LocalRpmRepositoryState struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// Default: false.
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -312,7 +312,7 @@ type localRpmRepositoryArgs struct {
 	ArchiveBrowsingEnabled *bool `pulumi:"archiveBrowsingEnabled"`
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut *bool `pulumi:"blackedOut"`
-	// Default: false.
+	// Default: `false`.
 	CalculateYumMetadata *bool `pulumi:"calculateYumMetadata"`
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -321,7 +321,7 @@ type localRpmRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect *bool `pulumi:"downloadDirect"`
-	// Default: false.
+	// Default: `false`.
 	EnableFileListsIndexing *bool `pulumi:"enableFileListsIndexing"`
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -372,7 +372,7 @@ type LocalRpmRepositoryArgs struct {
 	ArchiveBrowsingEnabled pulumi.BoolPtrInput
 	// When set, the repository does not participate in artifact resolution and new artifacts cannot be deployed.
 	BlackedOut pulumi.BoolPtrInput
-	// Default: false.
+	// Default: `false`.
 	CalculateYumMetadata pulumi.BoolPtrInput
 	// When set, download requests to this repository will redirect the client to download the artifact directly from AWS
 	// CloudFront. Available in Enterprise+ and Edge licenses only. Default value is 'false'
@@ -381,7 +381,7 @@ type LocalRpmRepositoryArgs struct {
 	// When set, download requests to this repository will redirect the client to download the artifact directly from the cloud
 	// storage provider. Available in Enterprise+ and Edge licenses only.
 	DownloadDirect pulumi.BoolPtrInput
-	// Default: false.
+	// Default: `false`.
 	EnableFileListsIndexing pulumi.BoolPtrInput
 	// List of artifact patterns to exclude when evaluating artifact requests, in the form of x/y/**/z/*. By default no
 	// artifacts are excluded.
@@ -523,7 +523,7 @@ func (o LocalRpmRepositoryOutput) BlackedOut() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.BlackedOut }).(pulumi.BoolPtrOutput)
 }
 
-// Default: false.
+// Default: `false`.
 func (o LocalRpmRepositoryOutput) CalculateYumMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.CalculateYumMetadata }).(pulumi.BoolPtrOutput)
 }
@@ -544,7 +544,7 @@ func (o LocalRpmRepositoryOutput) DownloadDirect() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.DownloadDirect }).(pulumi.BoolPtrOutput)
 }
 
-// Default: false.
+// Default: `false`.
 func (o LocalRpmRepositoryOutput) EnableFileListsIndexing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LocalRpmRepository) pulumi.BoolPtrOutput { return v.EnableFileListsIndexing }).(pulumi.BoolPtrOutput)
 }

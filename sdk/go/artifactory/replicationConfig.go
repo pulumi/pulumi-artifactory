@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +22,7 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,9 +46,9 @@ import (
 //				EnableEventReplication: pulumi.Bool(true),
 //				Replications: artifactory.ReplicationConfigReplicationArray{
 //					&artifactory.ReplicationConfigReplicationArgs{
-//						Password: pulumi.String(fmt.Sprintf("$var.artifactory_password")),
-//						Url:      pulumi.String(fmt.Sprintf("$var.artifactory_url")),
-//						Username: pulumi.String(fmt.Sprintf("$var.artifactory_username")),
+//						Password: pulumi.String("$var.artifactory_password"),
+//						Url:      pulumi.String("$var.artifactory_url"),
+//						Username: pulumi.String("$var.artifactory_username"),
 //					},
 //				},
 //				RepoKey: providerTestSource.Key,

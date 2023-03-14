@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-artifactory/sdk/v2/go/artifactory"
+//	"github.com/pulumi/pulumi-artifactory/sdk/v3/go/artifactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ func GetFile(ctx *pulumi.Context, args *GetFileArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getFile.
 type GetFileArgs struct {
-	// If set to true, an existing file in the outputPath will be overwritten. Default: false
+	// If set to true, an existing file in the outputPath will be overwritten. Default: `false`
 	ForceOverwrite *bool `pulumi:"forceOverwrite"`
 	// The local path the file should be downloaded to.
 	OutputPath string `pulumi:"outputPath"`
@@ -113,7 +113,7 @@ func GetFileOutput(ctx *pulumi.Context, args GetFileOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getFile.
 type GetFileOutputArgs struct {
-	// If set to true, an existing file in the outputPath will be overwritten. Default: false
+	// If set to true, an existing file in the outputPath will be overwritten. Default: `false`
 	ForceOverwrite pulumi.BoolPtrInput `pulumi:"forceOverwrite"`
 	// The local path the file should be downloaded to.
 	OutputPath pulumi.StringInput `pulumi:"outputPath"`

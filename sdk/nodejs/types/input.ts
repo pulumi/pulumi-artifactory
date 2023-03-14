@@ -19,11 +19,11 @@ export interface ArtifactPropertyWebhookCriteria {
      */
     anyRemote: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -61,11 +61,11 @@ export interface ArtifactWebhookCriteria {
      */
     anyRemote: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -99,11 +99,11 @@ export interface ArtifactoryReleaseBundleWebhookCriteria {
      */
     anyReleaseBundle: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**"
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -137,11 +137,11 @@ export interface BuildWebhookCriteria {
      */
     anyBuild: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -175,11 +175,11 @@ export interface DistributionWebhookCriteria {
      */
     anyReleaseBundle: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -217,11 +217,11 @@ export interface DockerWebhookCriteria {
      */
     anyRemote: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: `org/apache/**`.
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -903,6 +903,440 @@ export interface GetPermissionTargetRepoActionsUserArgs {
     permissions: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface GetRemoteAlpineRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteAlpineRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteBowerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteBowerRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteCargoRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCargoRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteChefRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteChefRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteCocoapodsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCocoapodsRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteComposerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteComposerRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteConanRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteConanRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteCondaRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCondaRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteCranRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteCranRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteDebianRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteDebianRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteDockerRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteDockerRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteGemsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGemsRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteGenericRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGenericRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteGitlfsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGitlfsRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteGoRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGoRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteGradleRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteGradleRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteHelmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteHelmRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteIvyRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteIvyRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteMavenRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteMavenRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteNpmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteNpmRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteNugetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteNugetRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteOpkgRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteOpkgRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteP2RepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteP2RepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemotePubRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePubRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemotePuppetRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePuppetRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemotePypiRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemotePypiRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteRpmRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteRpmRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteSbtRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteSbtRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteSwiftRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteSwiftRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteTerraformRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteTerraformRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
+export interface GetRemoteVcsRepositoryContentSynchronisation {
+    enabled?: boolean;
+    propertiesEnabled?: boolean;
+    sourceOriginAbsenceDetection?: boolean;
+    statisticsEnabled?: boolean;
+}
+
+export interface GetRemoteVcsRepositoryContentSynchronisationArgs {
+    enabled?: pulumi.Input<boolean>;
+    propertiesEnabled?: pulumi.Input<boolean>;
+    sourceOriginAbsenceDetection?: pulumi.Input<boolean>;
+    statisticsEnabled?: pulumi.Input<boolean>;
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.
@@ -1198,11 +1632,11 @@ export interface PermissionTargetsRepoActionsUser {
 
 export interface PropertySetProperty {
     /**
-     * Disables "multipleChoice" if set to "false" at the same time with multipleChoice set to "true". Default value is `false`
+     * Disables `multipleChoice` if set to `false` at the same time with multipleChoice set to `true`. Default value is `false`
      */
     closedPredefinedValues?: pulumi.Input<boolean>;
     /**
-     * Defines if user can select multiple values. "closedPredefinedValues" should be set to `true`. Default value is `false`.
+     * Defines if user can select multiple values. `closedPredefinedValues` should be set to `true`. Default value is `false`.
      */
     multipleChoice?: pulumi.Input<boolean>;
     /**
@@ -1281,11 +1715,11 @@ export interface ReleaseBundleWebhookCriteria {
      */
     anyReleaseBundle: pulumi.Input<boolean>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
     excludePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash).\n Ant-style path expressions are supported (*, *\*, ?).\nFor example: "org/apache/**".
+     * Simple comma separated wildcard patterns for repository artifact paths (with no leading slash). Ant-style path expressions are supported (*, *\*, ?). For example: "org/apache/**".
      */
     includePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

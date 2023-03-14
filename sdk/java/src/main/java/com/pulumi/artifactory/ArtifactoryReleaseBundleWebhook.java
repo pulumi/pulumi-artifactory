@@ -107,28 +107,28 @@ public class ArtifactoryReleaseBundleWebhook extends com.pulumi.resources.Custom
         return Codegen.optional(this.description);
     }
     /**
-     * Status of webhook. Default to &#39;true&#39;
+     * Status of webhook. Default to `true`
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Status of webhook. Default to &#39;true&#39;
+     * @return Status of webhook. Default to `true`
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+     * List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     @Export(name="eventTypes", type=List.class, parameters={String.class})
     private Output<List<String>> eventTypes;
 
     /**
-     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: &#34;received&#34;, &#34;delete_started&#34;, &#34;delete_completed&#34;, &#34;delete_failed&#34;
+     * @return List of Events in Artifactory, Distribution, Release Bundle that function as the event trigger for the Webhook. Allow values: `received`, `delete_started`, `delete_completed`, `delete_failed`
      * 
      */
     public Output<List<String>> eventTypes() {
