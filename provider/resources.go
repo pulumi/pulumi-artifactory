@@ -19,13 +19,11 @@ import (
 	"path/filepath"
 	"unicode"
 
-	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v6/pkg/artifactory/provider"
-	"github.com/pulumi/pulumi-artifactory/provider/v2/pkg/version"
+	artifactoryProvider "github.com/jfrog/terraform-provider-artifactory/v7/pkg/artifactory/provider"
+	"github.com/pulumi/pulumi-artifactory/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
@@ -58,14 +56,6 @@ func makeResource(mod string, res string) tokens.Type {
 	return tokens.Type(makeToken(mod, res))
 }
 
-// preConfigureCallback is called before the providerConfigure function of the underlying provider.
-// It should validate that the provider can be configured, and provide actionable errors in the case
-// it cannot be. Configuration variables can be read from `vars` using the `stringValue` function -
-// for example `stringValue(vars, "accessKey")`.
-func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	return nil
-}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() tfbridge.ProviderInfo {
 	// Instantiate the Terraform provider
@@ -81,7 +71,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:                "https://pulumi.io",
 		Repository:              "https://github.com/pulumi/pulumi-artifactory",
 		GitHubOrg:               "jfrog",
-		TFProviderModuleVersion: "v6",
+		TFProviderModuleVersion: "v7",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"check_license": {
 				Default: &tfbridge.DefaultInfo{
@@ -89,7 +79,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
-		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"artifactory_access_token": {
 				Tok: makeResource(mainMod, "AccessToken"),
