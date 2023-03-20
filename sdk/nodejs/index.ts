@@ -725,6 +725,16 @@ export type LocalPypiRepository = import("./localPypiRepository").LocalPypiRepos
 export const LocalPypiRepository: typeof import("./localPypiRepository").LocalPypiRepository = null as any;
 utilities.lazyLoad(exports, ["LocalPypiRepository"], () => require("./localPypiRepository"));
 
+export { LocalRepositoryMultiReplicationArgs, LocalRepositoryMultiReplicationState } from "./localRepositoryMultiReplication";
+export type LocalRepositoryMultiReplication = import("./localRepositoryMultiReplication").LocalRepositoryMultiReplication;
+export const LocalRepositoryMultiReplication: typeof import("./localRepositoryMultiReplication").LocalRepositoryMultiReplication = null as any;
+utilities.lazyLoad(exports, ["LocalRepositoryMultiReplication"], () => require("./localRepositoryMultiReplication"));
+
+export { LocalRepositorySingleReplicationArgs, LocalRepositorySingleReplicationState } from "./localRepositorySingleReplication";
+export type LocalRepositorySingleReplication = import("./localRepositorySingleReplication").LocalRepositorySingleReplication;
+export const LocalRepositorySingleReplication: typeof import("./localRepositorySingleReplication").LocalRepositorySingleReplication = null as any;
+utilities.lazyLoad(exports, ["LocalRepositorySingleReplication"], () => require("./localRepositorySingleReplication"));
+
 export { LocalRpmRepositoryArgs, LocalRpmRepositoryState } from "./localRpmRepository";
 export type LocalRpmRepository = import("./localRpmRepository").LocalRpmRepository;
 export const LocalRpmRepository: typeof import("./localRpmRepository").LocalRpmRepository = null as any;
@@ -944,6 +954,11 @@ export { RemotePypiRepositoryArgs, RemotePypiRepositoryState } from "./remotePyp
 export type RemotePypiRepository = import("./remotePypiRepository").RemotePypiRepository;
 export const RemotePypiRepository: typeof import("./remotePypiRepository").RemotePypiRepository = null as any;
 utilities.lazyLoad(exports, ["RemotePypiRepository"], () => require("./remotePypiRepository"));
+
+export { RemoteRepositoryReplicationArgs, RemoteRepositoryReplicationState } from "./remoteRepositoryReplication";
+export type RemoteRepositoryReplication = import("./remoteRepositoryReplication").RemoteRepositoryReplication;
+export const RemoteRepositoryReplication: typeof import("./remoteRepositoryReplication").RemoteRepositoryReplication = null as any;
+utilities.lazyLoad(exports, ["RemoteRepositoryReplication"], () => require("./remoteRepositoryReplication"));
 
 export { RemoteRpmRepositoryArgs, RemoteRpmRepositoryState } from "./remoteRpmRepository";
 export type RemoteRpmRepository = import("./remoteRpmRepository").RemoteRpmRepository;
@@ -1294,6 +1309,10 @@ const _module = {
                 return new LocalPuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/localPypiRepository:LocalPypiRepository":
                 return new LocalPypiRepository(name, <any>undefined, { urn })
+            case "artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication":
+                return new LocalRepositoryMultiReplication(name, <any>undefined, { urn })
+            case "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication":
+                return new LocalRepositorySingleReplication(name, <any>undefined, { urn })
             case "artifactory:index/localRpmRepository:LocalRpmRepository":
                 return new LocalRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/localSbtRepository:LocalSbtRepository":
@@ -1380,6 +1399,8 @@ const _module = {
                 return new RemotePuppetRepository(name, <any>undefined, { urn })
             case "artifactory:index/remotePypiRepository:RemotePypiRepository":
                 return new RemotePypiRepository(name, <any>undefined, { urn })
+            case "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication":
+                return new RemoteRepositoryReplication(name, <any>undefined, { urn })
             case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
                 return new RemoteRpmRepository(name, <any>undefined, { urn })
             case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
@@ -1534,6 +1555,8 @@ pulumi.runtime.registerResourceModule("artifactory", "index/localOpkgRepository"
 pulumi.runtime.registerResourceModule("artifactory", "index/localPubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localPypiRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localRepositoryMultiReplication", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/localRepositorySingleReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/localSwiftRepository", _module)
@@ -1577,6 +1600,7 @@ pulumi.runtime.registerResourceModule("artifactory", "index/remoteP2Repository",
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePubRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePuppetRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remotePypiRepository", _module)
+pulumi.runtime.registerResourceModule("artifactory", "index/remoteRepositoryReplication", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteRpmRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSbtRepository", _module)
 pulumi.runtime.registerResourceModule("artifactory", "index/remoteSwiftRepository", _module)

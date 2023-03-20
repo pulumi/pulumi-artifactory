@@ -149,6 +149,8 @@ from .local_opkg_repository import *
 from .local_pub_repository import *
 from .local_puppet_repository import *
 from .local_pypi_repository import *
+from .local_repository_multi_replication import *
+from .local_repository_single_replication import *
 from .local_rpm_repository import *
 from .local_sbt_repository import *
 from .local_swift_repository import *
@@ -193,6 +195,7 @@ from .remote_p2_repository import *
 from .remote_pub_repository import *
 from .remote_puppet_repository import *
 from .remote_pypi_repository import *
+from .remote_repository_replication import *
 from .remote_rpm_repository import *
 from .remote_sbt_repository import *
 from .remote_swift_repository import *
@@ -845,6 +848,22 @@ _utilities.register(
  },
  {
   "pkg": "artifactory",
+  "mod": "index/localRepositoryMultiReplication",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication": "LocalRepositoryMultiReplication"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/localRepositorySingleReplication",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication": "LocalRepositorySingleReplication"
+  }
+ },
+ {
+  "pkg": "artifactory",
   "mod": "index/localRpmRepository",
   "fqn": "pulumi_artifactory",
   "classes": {
@@ -1185,6 +1204,14 @@ _utilities.register(
   "fqn": "pulumi_artifactory",
   "classes": {
    "artifactory:index/remotePypiRepository:RemotePypiRepository": "RemotePypiRepository"
+  }
+ },
+ {
+  "pkg": "artifactory",
+  "mod": "index/remoteRepositoryReplication",
+  "fqn": "pulumi_artifactory",
+  "classes": {
+   "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication": "RemoteRepositoryReplication"
   }
  },
  {

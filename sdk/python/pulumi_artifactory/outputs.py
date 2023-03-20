@@ -56,6 +56,7 @@ __all__ = [
     'FederatedTerraformModuleRepositoryMember',
     'FederatedTerraformProviderRepositoryMember',
     'FederatedVagrantRepositoryMember',
+    'LocalRepositoryMultiReplicationReplication',
     'OauthSettingsOauthProvider',
     'PermissionTargetBuild',
     'PermissionTargetBuildActions',
@@ -2103,6 +2104,198 @@ class FederatedVagrantRepositoryMember(dict):
         Full URL to ending with the repository name.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class LocalRepositoryMultiReplicationReplication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "checkBinaryExistenceInFilestore":
+            suggest = "check_binary_existence_in_filestore"
+        elif key == "excludePathPrefixPattern":
+            suggest = "exclude_path_prefix_pattern"
+        elif key == "includePathPrefixPattern":
+            suggest = "include_path_prefix_pattern"
+        elif key == "replicationKey":
+            suggest = "replication_key"
+        elif key == "socketTimeoutMillis":
+            suggest = "socket_timeout_millis"
+        elif key == "syncDeletes":
+            suggest = "sync_deletes"
+        elif key == "syncProperties":
+            suggest = "sync_properties"
+        elif key == "syncStatistics":
+            suggest = "sync_statistics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocalRepositoryMultiReplicationReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocalRepositoryMultiReplicationReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocalRepositoryMultiReplicationReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 username: str,
+                 check_binary_existence_in_filestore: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 exclude_path_prefix_pattern: Optional[str] = None,
+                 include_path_prefix_pattern: Optional[str] = None,
+                 password: Optional[str] = None,
+                 proxy: Optional[str] = None,
+                 replication_key: Optional[str] = None,
+                 socket_timeout_millis: Optional[int] = None,
+                 sync_deletes: Optional[bool] = None,
+                 sync_properties: Optional[bool] = None,
+                 sync_statistics: Optional[bool] = None):
+        """
+        :param str url: The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        :param str username: Username on the remote Artifactory instance.
+        :param bool check_binary_existence_in_filestore: Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        :param bool enabled: When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        :param str exclude_path_prefix_pattern: List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        :param str include_path_prefix_pattern: List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        :param str password: Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        :param str proxy: Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        :param str replication_key: Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        :param int socket_timeout_millis: The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        :param bool sync_deletes: When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        :param bool sync_properties: When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        :param bool sync_statistics: When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        """
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
+        if check_binary_existence_in_filestore is not None:
+            pulumi.set(__self__, "check_binary_existence_in_filestore", check_binary_existence_in_filestore)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if exclude_path_prefix_pattern is not None:
+            pulumi.set(__self__, "exclude_path_prefix_pattern", exclude_path_prefix_pattern)
+        if include_path_prefix_pattern is not None:
+            pulumi.set(__self__, "include_path_prefix_pattern", include_path_prefix_pattern)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if proxy is not None:
+            pulumi.set(__self__, "proxy", proxy)
+        if replication_key is not None:
+            pulumi.set(__self__, "replication_key", replication_key)
+        if socket_timeout_millis is not None:
+            pulumi.set(__self__, "socket_timeout_millis", socket_timeout_millis)
+        if sync_deletes is not None:
+            pulumi.set(__self__, "sync_deletes", sync_deletes)
+        if sync_properties is not None:
+            pulumi.set(__self__, "sync_properties", sync_properties)
+        if sync_statistics is not None:
+            pulumi.set(__self__, "sync_statistics", sync_statistics)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Username on the remote Artifactory instance.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="checkBinaryExistenceInFilestore")
+    def check_binary_existence_in_filestore(self) -> Optional[bool]:
+        """
+        Enabling the `check_binary_existence_in_filestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+        """
+        return pulumi.get(self, "check_binary_existence_in_filestore")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="excludePathPrefixPattern")
+    def exclude_path_prefix_pattern(self) -> Optional[str]:
+        """
+        List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+        """
+        return pulumi.get(self, "exclude_path_prefix_pattern")
+
+    @property
+    @pulumi.getter(name="includePathPrefixPattern")
+    def include_path_prefix_pattern(self) -> Optional[str]:
+        """
+        List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+        """
+        return pulumi.get(self, "include_path_prefix_pattern")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def proxy(self) -> Optional[str]:
+        """
+        Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+        """
+        return pulumi.get(self, "proxy")
+
+    @property
+    @pulumi.getter(name="replicationKey")
+    def replication_key(self) -> Optional[str]:
+        """
+        Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+        """
+        return pulumi.get(self, "replication_key")
+
+    @property
+    @pulumi.getter(name="socketTimeoutMillis")
+    def socket_timeout_millis(self) -> Optional[int]:
+        """
+        The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+        """
+        return pulumi.get(self, "socket_timeout_millis")
+
+    @property
+    @pulumi.getter(name="syncDeletes")
+    def sync_deletes(self) -> Optional[bool]:
+        """
+        When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+        """
+        return pulumi.get(self, "sync_deletes")
+
+    @property
+    @pulumi.getter(name="syncProperties")
+    def sync_properties(self) -> Optional[bool]:
+        """
+        When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+        """
+        return pulumi.get(self, "sync_properties")
+
+    @property
+    @pulumi.getter(name="syncStatistics")
+    def sync_statistics(self) -> Optional[bool]:
+        """
+        When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+        """
+        return pulumi.get(self, "sync_statistics")
 
 
 @pulumi.output_type

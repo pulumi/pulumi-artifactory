@@ -170,6 +170,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LocalPuppetRepository{}
 	case "artifactory:index/localPypiRepository:LocalPypiRepository":
 		r = &LocalPypiRepository{}
+	case "artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication":
+		r = &LocalRepositoryMultiReplication{}
+	case "artifactory:index/localRepositorySingleReplication:LocalRepositorySingleReplication":
+		r = &LocalRepositorySingleReplication{}
 	case "artifactory:index/localRpmRepository:LocalRpmRepository":
 		r = &LocalRpmRepository{}
 	case "artifactory:index/localSbtRepository:LocalSbtRepository":
@@ -256,6 +260,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RemotePuppetRepository{}
 	case "artifactory:index/remotePypiRepository:RemotePypiRepository":
 		r = &RemotePypiRepository{}
+	case "artifactory:index/remoteRepositoryReplication:RemoteRepositoryReplication":
+		r = &RemoteRepositoryReplication{}
 	case "artifactory:index/remoteRpmRepository:RemoteRpmRepository":
 		r = &RemoteRpmRepository{}
 	case "artifactory:index/remoteSbtRepository:RemoteSbtRepository":
@@ -735,6 +741,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"artifactory",
+		"index/localRepositoryMultiReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/localRepositorySingleReplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
 		"index/localRpmRepository",
 		&module{version},
 	)
@@ -946,6 +962,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"artifactory",
 		"index/remotePypiRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"artifactory",
+		"index/remoteRepositoryReplication",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

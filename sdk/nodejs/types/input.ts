@@ -1337,6 +1337,61 @@ export interface GetRemoteVcsRepositoryContentSynchronisationArgs {
     statisticsEnabled?: pulumi.Input<boolean>;
 }
 
+export interface LocalRepositoryMultiReplicationReplication {
+    /**
+     * Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+     */
+    checkBinaryExistenceInFilestore?: pulumi.Input<boolean>;
+    /**
+     * When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**&#47;z/*`. By default, no artifacts are excluded.
+     */
+    excludePathPrefixPattern?: pulumi.Input<string>;
+    /**
+     * List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**&#47;z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**&#47;*)`.
+     */
+    includePathPrefixPattern?: pulumi.Input<string>;
+    /**
+     * Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+     */
+    proxy?: pulumi.Input<string>;
+    /**
+     * Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+     */
+    replicationKey?: pulumi.Input<string>;
+    /**
+     * The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+     */
+    socketTimeoutMillis?: pulumi.Input<number>;
+    /**
+     * When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+     */
+    syncDeletes?: pulumi.Input<boolean>;
+    /**
+     * When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+     */
+    syncProperties?: pulumi.Input<boolean>;
+    /**
+     * When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+     */
+    syncStatistics?: pulumi.Input<boolean>;
+    /**
+     * The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+     */
+    url: pulumi.Input<string>;
+    /**
+     * Username on the remote Artifactory instance.
+     */
+    username: pulumi.Input<string>;
+}
+
 export interface OauthSettingsOauthProvider {
     /**
      * OAuth user info endpoint for the IdP.
