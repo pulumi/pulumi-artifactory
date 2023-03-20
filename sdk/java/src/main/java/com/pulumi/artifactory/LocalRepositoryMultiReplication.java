@@ -3,10 +3,10 @@
 
 package com.pulumi.artifactory;
 
-import com.pulumi.artifactory.PushReplicationArgs;
+import com.pulumi.artifactory.LocalRepositoryMultiReplicationArgs;
 import com.pulumi.artifactory.Utilities;
-import com.pulumi.artifactory.inputs.PushReplicationState;
-import com.pulumi.artifactory.outputs.PushReplicationReplication;
+import com.pulumi.artifactory.inputs.LocalRepositoryMultiReplicationState;
+import com.pulumi.artifactory.outputs.LocalRepositoryMultiReplicationReplication;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -18,14 +18,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; This resource is deprecated and replaced by `artifactory.LocalRepositoryMultiReplication` for clarity.
- * 
- * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
- * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
- * end invoking a synchronization of artifacts to the far end.
+ * Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+ * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+ * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
  * 
- * &gt; This resource requires Artifactory Enterprise license.
+ * &gt; This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
  * 
  * ## Example Usage
  * ```java
@@ -36,9 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.artifactory.LocalMavenRepository;
  * import com.pulumi.artifactory.LocalMavenRepositoryArgs;
- * import com.pulumi.artifactory.PushReplication;
- * import com.pulumi.artifactory.PushReplicationArgs;
- * import com.pulumi.artifactory.inputs.PushReplicationReplicationArgs;
+ * import com.pulumi.artifactory.LocalRepositoryMultiReplication;
+ * import com.pulumi.artifactory.LocalRepositoryMultiReplicationArgs;
+ * import com.pulumi.artifactory.inputs.LocalRepositoryMultiReplicationReplicationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,16 +62,27 @@ import javax.annotation.Nullable;
  *             .key(&#34;provider_test_dest&#34;)
  *             .build());
  * 
- *         var foo_rep = new PushReplication(&#34;foo-rep&#34;, PushReplicationArgs.builder()        
+ *         var providerTestDest1 = new LocalMavenRepository(&#34;providerTestDest1&#34;, LocalMavenRepositoryArgs.builder()        
+ *             .key(&#34;provider_test_dest1&#34;)
+ *             .build());
+ * 
+ *         var foo_rep = new LocalRepositoryMultiReplication(&#34;foo-rep&#34;, LocalRepositoryMultiReplicationArgs.builder()        
  *             .repoKey(providerTestSource.key())
  *             .cronExp(&#34;0 0 * * * ?&#34;)
  *             .enableEventReplication(true)
- *             .replications(PushReplicationReplicationArgs.builder()
- *                 .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/%s&#34;, artifactoryUrl,key)))
- *                 .username(&#34;$var.artifactory_username&#34;)
- *                 .password(&#34;$var.artifactory_password&#34;)
- *                 .enabled(true)
- *                 .build())
+ *             .replications(            
+ *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
+ *                     .url(providerTestDest.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
+ *                     .username(&#34;$var.artifactory_username&#34;)
+ *                     .password(&#34;$var.artifactory_password&#34;)
+ *                     .enabled(true)
+ *                     .build(),
+ *                 LocalRepositoryMultiReplicationReplicationArgs.builder()
+ *                     .url(providerTestDest1.key().applyValue(key -&gt; String.format(&#34;%s/artifactory/%s&#34;, artifactoryUrl,key)))
+ *                     .username(&#34;$var.artifactory_username&#34;)
+ *                     .password(&#34;$var.artifactory_password&#34;)
+ *                     .enabled(true)
+ *                     .build())
  *             .build());
  * 
  *     }
@@ -85,12 +94,12 @@ import javax.annotation.Nullable;
  * Push replication configs can be imported using their repo key, e.g.
  * 
  * ```sh
- *  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+ *  $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
  * ```
  * 
  */
-@ResourceType(type="artifactory:index/pushReplication:PushReplication")
-public class PushReplication extends com.pulumi.resources.CustomResource {
+@ResourceType(type="artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication")
+public class LocalRepositoryMultiReplication extends com.pulumi.resources.CustomResource {
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      * 
@@ -106,23 +115,31 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
         return this.cronExp;
     }
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Export(name="enableEventReplication", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> enableEventReplication() {
         return Codegen.optional(this.enableEventReplication);
     }
-    @Export(name="replications", type=List.class, parameters={PushReplicationReplication.class})
-    private Output</* @Nullable */ List<PushReplicationReplication>> replications;
+    /**
+     * List of replications minimum 1 element.
+     * 
+     */
+    @Export(name="replications", type=List.class, parameters={LocalRepositoryMultiReplicationReplication.class})
+    private Output</* @Nullable */ List<LocalRepositoryMultiReplicationReplication>> replications;
 
-    public Output<Optional<List<PushReplicationReplication>>> replications() {
+    /**
+     * @return List of replications minimum 1 element.
+     * 
+     */
+    public Output<Optional<List<LocalRepositoryMultiReplicationReplication>>> replications() {
         return Codegen.optional(this.replications);
     }
     /**
@@ -144,15 +161,15 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PushReplication(String name) {
-        this(name, PushReplicationArgs.Empty);
+    public LocalRepositoryMultiReplication(String name) {
+        this(name, LocalRepositoryMultiReplicationArgs.Empty);
     }
     /**
      *
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PushReplication(String name, PushReplicationArgs args) {
+    public LocalRepositoryMultiReplication(String name, LocalRepositoryMultiReplicationArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,12 +178,12 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PushReplication(String name, PushReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/pushReplication:PushReplication", name, args == null ? PushReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+    public LocalRepositoryMultiReplication(String name, LocalRepositoryMultiReplicationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, args == null ? LocalRepositoryMultiReplicationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 
-    private PushReplication(String name, Output<String> id, @Nullable PushReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("artifactory:index/pushReplication:PushReplication", name, state, makeResourceOptions(options, id));
+    private LocalRepositoryMultiReplication(String name, Output<String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication", name, state, makeResourceOptions(options, id));
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
@@ -185,7 +202,7 @@ public class PushReplication extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PushReplication get(String name, Output<String> id, @Nullable PushReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        return new PushReplication(name, id, state, options);
+    public static LocalRepositoryMultiReplication get(String name, Output<String> id, @Nullable LocalRepositoryMultiReplicationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        return new LocalRepositoryMultiReplication(name, id, state, options);
     }
 }

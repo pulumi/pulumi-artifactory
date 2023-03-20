@@ -5596,6 +5596,211 @@ func (o FederatedVagrantRepositoryMemberArrayOutput) Index(i pulumi.IntInput) Fe
 	}).(FederatedVagrantRepositoryMemberOutput)
 }
 
+type LocalRepositoryMultiReplicationReplication struct {
+	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+	CheckBinaryExistenceInFilestore *bool `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+	ExcludePathPrefixPattern *string `pulumi:"excludePathPrefixPattern"`
+	// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+	IncludePathPrefixPattern *string `pulumi:"includePathPrefixPattern"`
+	// Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+	Password *string `pulumi:"password"`
+	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+	Proxy *string `pulumi:"proxy"`
+	// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+	ReplicationKey *string `pulumi:"replicationKey"`
+	// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+	SocketTimeoutMillis *int `pulumi:"socketTimeoutMillis"`
+	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+	SyncDeletes *bool `pulumi:"syncDeletes"`
+	// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+	SyncProperties *bool `pulumi:"syncProperties"`
+	// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+	SyncStatistics *bool `pulumi:"syncStatistics"`
+	// The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+	Url string `pulumi:"url"`
+	// Username on the remote Artifactory instance.
+	Username string `pulumi:"username"`
+}
+
+// LocalRepositoryMultiReplicationReplicationInput is an input type that accepts LocalRepositoryMultiReplicationReplicationArgs and LocalRepositoryMultiReplicationReplicationOutput values.
+// You can construct a concrete instance of `LocalRepositoryMultiReplicationReplicationInput` via:
+//
+//	LocalRepositoryMultiReplicationReplicationArgs{...}
+type LocalRepositoryMultiReplicationReplicationInput interface {
+	pulumi.Input
+
+	ToLocalRepositoryMultiReplicationReplicationOutput() LocalRepositoryMultiReplicationReplicationOutput
+	ToLocalRepositoryMultiReplicationReplicationOutputWithContext(context.Context) LocalRepositoryMultiReplicationReplicationOutput
+}
+
+type LocalRepositoryMultiReplicationReplicationArgs struct {
+	// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+	CheckBinaryExistenceInFilestore pulumi.BoolPtrInput `pulumi:"checkBinaryExistenceInFilestore"`
+	// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+	ExcludePathPrefixPattern pulumi.StringPtrInput `pulumi:"excludePathPrefixPattern"`
+	// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+	IncludePathPrefixPattern pulumi.StringPtrInput `pulumi:"includePathPrefixPattern"`
+	// Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+	Proxy pulumi.StringPtrInput `pulumi:"proxy"`
+	// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+	ReplicationKey pulumi.StringPtrInput `pulumi:"replicationKey"`
+	// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+	SocketTimeoutMillis pulumi.IntPtrInput `pulumi:"socketTimeoutMillis"`
+	// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+	SyncDeletes pulumi.BoolPtrInput `pulumi:"syncDeletes"`
+	// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+	SyncProperties pulumi.BoolPtrInput `pulumi:"syncProperties"`
+	// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+	SyncStatistics pulumi.BoolPtrInput `pulumi:"syncStatistics"`
+	// The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+	Url pulumi.StringInput `pulumi:"url"`
+	// Username on the remote Artifactory instance.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (LocalRepositoryMultiReplicationReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalRepositoryMultiReplicationReplication)(nil)).Elem()
+}
+
+func (i LocalRepositoryMultiReplicationReplicationArgs) ToLocalRepositoryMultiReplicationReplicationOutput() LocalRepositoryMultiReplicationReplicationOutput {
+	return i.ToLocalRepositoryMultiReplicationReplicationOutputWithContext(context.Background())
+}
+
+func (i LocalRepositoryMultiReplicationReplicationArgs) ToLocalRepositoryMultiReplicationReplicationOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryMultiReplicationReplicationOutput)
+}
+
+// LocalRepositoryMultiReplicationReplicationArrayInput is an input type that accepts LocalRepositoryMultiReplicationReplicationArray and LocalRepositoryMultiReplicationReplicationArrayOutput values.
+// You can construct a concrete instance of `LocalRepositoryMultiReplicationReplicationArrayInput` via:
+//
+//	LocalRepositoryMultiReplicationReplicationArray{ LocalRepositoryMultiReplicationReplicationArgs{...} }
+type LocalRepositoryMultiReplicationReplicationArrayInput interface {
+	pulumi.Input
+
+	ToLocalRepositoryMultiReplicationReplicationArrayOutput() LocalRepositoryMultiReplicationReplicationArrayOutput
+	ToLocalRepositoryMultiReplicationReplicationArrayOutputWithContext(context.Context) LocalRepositoryMultiReplicationReplicationArrayOutput
+}
+
+type LocalRepositoryMultiReplicationReplicationArray []LocalRepositoryMultiReplicationReplicationInput
+
+func (LocalRepositoryMultiReplicationReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalRepositoryMultiReplicationReplication)(nil)).Elem()
+}
+
+func (i LocalRepositoryMultiReplicationReplicationArray) ToLocalRepositoryMultiReplicationReplicationArrayOutput() LocalRepositoryMultiReplicationReplicationArrayOutput {
+	return i.ToLocalRepositoryMultiReplicationReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i LocalRepositoryMultiReplicationReplicationArray) ToLocalRepositoryMultiReplicationReplicationArrayOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalRepositoryMultiReplicationReplicationArrayOutput)
+}
+
+type LocalRepositoryMultiReplicationReplicationOutput struct{ *pulumi.OutputState }
+
+func (LocalRepositoryMultiReplicationReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalRepositoryMultiReplicationReplication)(nil)).Elem()
+}
+
+func (o LocalRepositoryMultiReplicationReplicationOutput) ToLocalRepositoryMultiReplicationReplicationOutput() LocalRepositoryMultiReplicationReplicationOutput {
+	return o
+}
+
+func (o LocalRepositoryMultiReplicationReplicationOutput) ToLocalRepositoryMultiReplicationReplicationOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationReplicationOutput {
+	return o
+}
+
+// Enabling the `checkBinaryExistenceInFilestore` flag requires an Enterprise Plus license. When true, enables distributed checksum storage. For more information, see [Optimizing Repository Replication with Checksum-Based Storage](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-OptimizingRepositoryReplicationUsingStorageLevelSynchronizationOptions).
+func (o LocalRepositoryMultiReplicationReplicationOutput) CheckBinaryExistenceInFilestore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.CheckBinaryExistenceInFilestore }).(pulumi.BoolPtrOutput)
+}
+
+// When set, enables replication of this repository to the target specified in `url` attribute. Default value is `true`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// List of artifact patterns to exclude when evaluating artifact requests, in the form of `x/y/**/z/*`. By default, no artifacts are excluded.
+func (o LocalRepositoryMultiReplicationReplicationOutput) ExcludePathPrefixPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *string { return v.ExcludePathPrefixPattern }).(pulumi.StringPtrOutput)
+}
+
+// List of artifact patterns to include when evaluating artifact requests in the form of `x/y/**/z/*`. When used, only artifacts matching one of the include patterns are served. By default, all artifacts are included `(**/*)`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) IncludePathPrefixPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *string { return v.IncludePathPrefixPattern }).(pulumi.StringPtrOutput)
+}
+
+// Use either the HTTP authentication password or [identity token](https://www.jfrog.com/confluence/display/JFROG/User+Profile#UserProfile-IdentityTokenidentitytoken).
+func (o LocalRepositoryMultiReplicationReplicationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Proxy key from Artifactory Proxies settings. The proxy configuration will be used when communicating with the remote instance.
+func (o LocalRepositoryMultiReplicationReplicationOutput) Proxy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *string { return v.Proxy }).(pulumi.StringPtrOutput)
+}
+
+// Replication ID, the value is unknown until the resource is created. Can't be set or updated.
+func (o LocalRepositoryMultiReplicationReplicationOutput) ReplicationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *string { return v.ReplicationKey }).(pulumi.StringPtrOutput)
+}
+
+// The network timeout in milliseconds to use for remote operations. Default value is `15000`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) SocketTimeoutMillis() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *int { return v.SocketTimeoutMillis }).(pulumi.IntPtrOutput)
+}
+
+// When set, items that were deleted locally should also be deleted remotely (also applies to properties metadata). Note that enabling this option, will delete artifacts on the target that do not exist in the source repository. Default value is `false`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) SyncDeletes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.SyncDeletes }).(pulumi.BoolPtrOutput)
+}
+
+// When set, the task also synchronizes the properties of replicated artifacts. Default value is `true`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) SyncProperties() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.SyncProperties }).(pulumi.BoolPtrOutput)
+}
+
+// When set, the task also synchronizes artifact download statistics. Set to avoid inadvertent cleanup at the target instance when setting up replication for disaster recovery. Default value is `false`
+func (o LocalRepositoryMultiReplicationReplicationOutput) SyncStatistics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) *bool { return v.SyncStatistics }).(pulumi.BoolPtrOutput)
+}
+
+// The URL of the target local repository on a remote Artifactory server. Use the format `https://<artifactory_url>/artifactory/<repository_name>`.
+func (o LocalRepositoryMultiReplicationReplicationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// Username on the remote Artifactory instance.
+func (o LocalRepositoryMultiReplicationReplicationOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LocalRepositoryMultiReplicationReplication) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type LocalRepositoryMultiReplicationReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (LocalRepositoryMultiReplicationReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocalRepositoryMultiReplicationReplication)(nil)).Elem()
+}
+
+func (o LocalRepositoryMultiReplicationReplicationArrayOutput) ToLocalRepositoryMultiReplicationReplicationArrayOutput() LocalRepositoryMultiReplicationReplicationArrayOutput {
+	return o
+}
+
+func (o LocalRepositoryMultiReplicationReplicationArrayOutput) ToLocalRepositoryMultiReplicationReplicationArrayOutputWithContext(ctx context.Context) LocalRepositoryMultiReplicationReplicationArrayOutput {
+	return o
+}
+
+func (o LocalRepositoryMultiReplicationReplicationArrayOutput) Index(i pulumi.IntInput) LocalRepositoryMultiReplicationReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocalRepositoryMultiReplicationReplication {
+		return vs[0].([]LocalRepositoryMultiReplicationReplication)[vs[1].(int)]
+	}).(LocalRepositoryMultiReplicationReplicationOutput)
+}
+
 type OauthSettingsOauthProvider struct {
 	// OAuth user info endpoint for the IdP.
 	ApiUrl string `pulumi:"apiUrl"`
@@ -22786,6 +22991,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedTerraformProviderRepositoryMemberArrayInput)(nil)).Elem(), FederatedTerraformProviderRepositoryMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMemberInput)(nil)).Elem(), FederatedVagrantRepositoryMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FederatedVagrantRepositoryMemberArrayInput)(nil)).Elem(), FederatedVagrantRepositoryMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryMultiReplicationReplicationInput)(nil)).Elem(), LocalRepositoryMultiReplicationReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalRepositoryMultiReplicationReplicationArrayInput)(nil)).Elem(), LocalRepositoryMultiReplicationReplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderInput)(nil)).Elem(), OauthSettingsOauthProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthSettingsOauthProviderArrayInput)(nil)).Elem(), OauthSettingsOauthProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTargetBuildInput)(nil)).Elem(), PermissionTargetBuildArgs{})
@@ -23086,6 +23293,8 @@ func init() {
 	pulumi.RegisterOutputType(FederatedTerraformProviderRepositoryMemberArrayOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMemberOutput{})
 	pulumi.RegisterOutputType(FederatedVagrantRepositoryMemberArrayOutput{})
+	pulumi.RegisterOutputType(LocalRepositoryMultiReplicationReplicationOutput{})
+	pulumi.RegisterOutputType(LocalRepositoryMultiReplicationReplicationArrayOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderOutput{})
 	pulumi.RegisterOutputType(OauthSettingsOauthProviderArrayOutput{})
 	pulumi.RegisterOutputType(PermissionTargetBuildOutput{})

@@ -3,7 +3,7 @@
 
 package com.pulumi.artifactory;
 
-import com.pulumi.artifactory.inputs.PushReplicationReplicationArgs;
+import com.pulumi.artifactory.inputs.LocalRepositoryMultiReplicationReplicationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -14,9 +14,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs {
+public final class LocalRepositoryMultiReplicationArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final PushReplicationArgs Empty = new PushReplicationArgs();
+    public static final LocalRepositoryMultiReplicationArgs Empty = new LocalRepositoryMultiReplicationArgs();
 
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
@@ -34,24 +34,32 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     @Import(name="enableEventReplication")
     private @Nullable Output<Boolean> enableEventReplication;
 
     /**
-     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * @return When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enableEventReplication() {
         return Optional.ofNullable(this.enableEventReplication);
     }
 
+    /**
+     * List of replications minimum 1 element.
+     * 
+     */
     @Import(name="replications")
-    private @Nullable Output<List<PushReplicationReplicationArgs>> replications;
+    private @Nullable Output<List<LocalRepositoryMultiReplicationReplicationArgs>> replications;
 
-    public Optional<Output<List<PushReplicationReplicationArgs>>> replications() {
+    /**
+     * @return List of replications minimum 1 element.
+     * 
+     */
+    public Optional<Output<List<LocalRepositoryMultiReplicationReplicationArgs>>> replications() {
         return Optional.ofNullable(this.replications);
     }
 
@@ -70,9 +78,9 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
         return this.repoKey;
     }
 
-    private PushReplicationArgs() {}
+    private LocalRepositoryMultiReplicationArgs() {}
 
-    private PushReplicationArgs(PushReplicationArgs $) {
+    private LocalRepositoryMultiReplicationArgs(LocalRepositoryMultiReplicationArgs $) {
         this.cronExp = $.cronExp;
         this.enableEventReplication = $.enableEventReplication;
         this.replications = $.replications;
@@ -82,19 +90,19 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(PushReplicationArgs defaults) {
+    public static Builder builder(LocalRepositoryMultiReplicationArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private PushReplicationArgs $;
+        private LocalRepositoryMultiReplicationArgs $;
 
         public Builder() {
-            $ = new PushReplicationArgs();
+            $ = new LocalRepositoryMultiReplicationArgs();
         }
 
-        public Builder(PushReplicationArgs defaults) {
-            $ = new PushReplicationArgs(Objects.requireNonNull(defaults));
+        public Builder(LocalRepositoryMultiReplicationArgs defaults) {
+            $ = new LocalRepositoryMultiReplicationArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -119,7 +127,7 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -130,7 +138,7 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+         * @param enableEventReplication When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
          * 
          * @return builder
          * 
@@ -139,16 +147,34 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
             return enableEventReplication(Output.of(enableEventReplication));
         }
 
-        public Builder replications(@Nullable Output<List<PushReplicationReplicationArgs>> replications) {
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replications(@Nullable Output<List<LocalRepositoryMultiReplicationReplicationArgs>> replications) {
             $.replications = replications;
             return this;
         }
 
-        public Builder replications(List<PushReplicationReplicationArgs> replications) {
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replications(List<LocalRepositoryMultiReplicationReplicationArgs> replications) {
             return replications(Output.of(replications));
         }
 
-        public Builder replications(PushReplicationReplicationArgs... replications) {
+        /**
+         * @param replications List of replications minimum 1 element.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder replications(LocalRepositoryMultiReplicationReplicationArgs... replications) {
             return replications(List.of(replications));
         }
 
@@ -173,7 +199,7 @@ public final class PushReplicationArgs extends com.pulumi.resources.ResourceArgs
             return repoKey(Output.of(repoKey));
         }
 
-        public PushReplicationArgs build() {
+        public LocalRepositoryMultiReplicationArgs build() {
             $.cronExp = Objects.requireNonNull($.cronExp, "expected parameter 'cronExp' to be non-null");
             $.repoKey = Objects.requireNonNull($.repoKey, "expected parameter 'repoKey' to be non-null");
             return $;

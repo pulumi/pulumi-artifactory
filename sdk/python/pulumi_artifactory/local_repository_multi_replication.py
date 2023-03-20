@@ -11,20 +11,21 @@ from . import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PushReplicationArgs', 'PushReplication']
+__all__ = ['LocalRepositoryMultiReplicationArgs', 'LocalRepositoryMultiReplication']
 
 @pulumi.input_type
-class PushReplicationArgs:
+class LocalRepositoryMultiReplicationArgs:
     def __init__(__self__, *,
                  cron_exp: pulumi.Input[str],
                  repo_key: pulumi.Input[str],
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None):
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None):
         """
-        The set of arguments for constructing a PushReplication resource.
+        The set of arguments for constructing a LocalRepositoryMultiReplication resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
         :param pulumi.Input[str] repo_key: Repository name.
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]] replications: List of replications minimum 1 element.
         """
         pulumi.set(__self__, "cron_exp", cron_exp)
         pulumi.set(__self__, "repo_key", repo_key)
@@ -61,7 +62,7 @@ class PushReplicationArgs:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -71,25 +72,29 @@ class PushReplicationArgs:
 
     @property
     @pulumi.getter
-    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]]:
+    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
+        """
+        List of replications minimum 1 element.
+        """
         return pulumi.get(self, "replications")
 
     @replications.setter
-    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]]):
+    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
         pulumi.set(self, "replications", value)
 
 
 @pulumi.input_type
-class _PushReplicationState:
+class _LocalRepositoryMultiReplicationState:
     def __init__(__self__, *,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering PushReplication resources.
+        Input properties used for looking up and filtering LocalRepositoryMultiReplication resources.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]] replications: List of replications minimum 1 element.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         if cron_exp is not None:
@@ -117,7 +122,7 @@ class _PushReplicationState:
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> Optional[pulumi.Input[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
@@ -127,11 +132,14 @@ class _PushReplicationState:
 
     @property
     @pulumi.getter
-    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]]:
+    def replications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]:
+        """
+        List of replications minimum 1 element.
+        """
         return pulumi.get(self, "replications")
 
     @replications.setter
-    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PushReplicationReplicationArgs']]]]):
+    def replications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocalRepositoryMultiReplicationReplicationArgs']]]]):
         pulumi.set(self, "replications", value)
 
     @property
@@ -147,25 +155,23 @@ class _PushReplicationState:
         pulumi.set(self, "repo_key", value)
 
 
-class PushReplication(pulumi.CustomResource):
+class LocalRepositoryMultiReplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > This resource is deprecated and replaced by `LocalRepositoryMultiReplication` for clarity.
-
-        Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
-        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
-        end invoking a synchronization of artifacts to the far end.
+        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+        This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
-        > This resource requires Artifactory Enterprise license.
+        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
 
         ## Example Usage
 
@@ -180,16 +186,25 @@ class PushReplication(pulumi.CustomResource):
         # Create a replication between two artifactory local repositories
         provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
         provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.PushReplication("foo-rep",
+        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
+        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[
+                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
+                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    username="$var.artifactory_username",
+                    password="$var.artifactory_password",
+                    enabled=True,
+                ),
+                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
+                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    username="$var.artifactory_username",
+                    password="$var.artifactory_password",
+                    enabled=True,
+                ),
+            ])
         ```
 
         ## Import
@@ -197,30 +212,29 @@ class PushReplication(pulumi.CustomResource):
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PushReplicationArgs,
+                 args: LocalRepositoryMultiReplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > This resource is deprecated and replaced by `LocalRepositoryMultiReplication` for clarity.
-
-        Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
-        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
-        end invoking a synchronization of artifacts to the far end.
+        Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+        Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
         See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+        This resource replaces `PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
 
-        > This resource requires Artifactory Enterprise license.
+        > This resource requires Artifactory Enterprise license. Use `LocalRepositorySingleReplication` with other licenses.
 
         ## Example Usage
 
@@ -235,16 +249,25 @@ class PushReplication(pulumi.CustomResource):
         # Create a replication between two artifactory local repositories
         provider_test_source = artifactory.LocalMavenRepository("providerTestSource", key="provider_test_source")
         provider_test_dest = artifactory.LocalMavenRepository("providerTestDest", key="provider_test_dest")
-        foo_rep = artifactory.PushReplication("foo-rep",
+        provider_test_dest1 = artifactory.LocalMavenRepository("providerTestDest1", key="provider_test_dest1")
+        foo_rep = artifactory.LocalRepositoryMultiReplication("foo-rep",
             repo_key=provider_test_source.key,
             cron_exp="0 0 * * * ?",
             enable_event_replication=True,
-            replications=[artifactory.PushReplicationReplicationArgs(
-                url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/{key}"),
-                username="$var.artifactory_username",
-                password="$var.artifactory_password",
-                enabled=True,
-            )])
+            replications=[
+                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
+                    url=provider_test_dest.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    username="$var.artifactory_username",
+                    password="$var.artifactory_password",
+                    enabled=True,
+                ),
+                artifactory.LocalRepositoryMultiReplicationReplicationArgs(
+                    url=provider_test_dest1.key.apply(lambda key: f"{artifactory_url}/artifactory/{key}"),
+                    username="$var.artifactory_username",
+                    password="$var.artifactory_password",
+                    enabled=True,
+                ),
+            ])
         ```
 
         ## Import
@@ -252,16 +275,16 @@ class PushReplication(pulumi.CustomResource):
         Push replication configs can be imported using their repo key, e.g.
 
         ```sh
-         $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+         $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
         ```
 
         :param str resource_name: The name of the resource.
-        :param PushReplicationArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRepositoryMultiReplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PushReplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRepositoryMultiReplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -272,7 +295,7 @@ class PushReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cron_exp: Optional[pulumi.Input[str]] = None,
                  enable_event_replication: Optional[pulumi.Input[bool]] = None,
-                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
+                 replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
                  repo_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,7 +304,7 @@ class PushReplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PushReplicationArgs.__new__(PushReplicationArgs)
+            __props__ = LocalRepositoryMultiReplicationArgs.__new__(LocalRepositoryMultiReplicationArgs)
 
             if cron_exp is None and not opts.urn:
                 raise TypeError("Missing required property 'cron_exp'")
@@ -291,8 +314,8 @@ class PushReplication(pulumi.CustomResource):
             if repo_key is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_key'")
             __props__.__dict__["repo_key"] = repo_key
-        super(PushReplication, __self__).__init__(
-            'artifactory:index/pushReplication:PushReplication',
+        super(LocalRepositoryMultiReplication, __self__).__init__(
+            'artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication',
             resource_name,
             __props__,
             opts)
@@ -303,28 +326,29 @@ class PushReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cron_exp: Optional[pulumi.Input[str]] = None,
             enable_event_replication: Optional[pulumi.Input[bool]] = None,
-            replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PushReplicationReplicationArgs']]]]] = None,
-            repo_key: Optional[pulumi.Input[str]] = None) -> 'PushReplication':
+            replications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]]] = None,
+            repo_key: Optional[pulumi.Input[str]] = None) -> 'LocalRepositoryMultiReplication':
         """
-        Get an existing PushReplication resource's state with the given name, id, and optional extra
+        Get an existing LocalRepositoryMultiReplication resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cron_exp: A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
-        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        :param pulumi.Input[bool] enable_event_replication: When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocalRepositoryMultiReplicationReplicationArgs']]]] replications: List of replications minimum 1 element.
         :param pulumi.Input[str] repo_key: Repository name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _PushReplicationState.__new__(_PushReplicationState)
+        __props__ = _LocalRepositoryMultiReplicationState.__new__(_LocalRepositoryMultiReplicationState)
 
         __props__.__dict__["cron_exp"] = cron_exp
         __props__.__dict__["enable_event_replication"] = enable_event_replication
         __props__.__dict__["replications"] = replications
         __props__.__dict__["repo_key"] = repo_key
-        return PushReplication(resource_name, opts=opts, __props__=__props__)
+        return LocalRepositoryMultiReplication(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="cronExp")
@@ -338,13 +362,16 @@ class PushReplication(pulumi.CustomResource):
     @pulumi.getter(name="enableEventReplication")
     def enable_event_replication(self) -> pulumi.Output[Optional[bool]]:
         """
-        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+        When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
         """
         return pulumi.get(self, "enable_event_replication")
 
     @property
     @pulumi.getter
-    def replications(self) -> pulumi.Output[Optional[Sequence['outputs.PushReplicationReplication']]]:
+    def replications(self) -> pulumi.Output[Optional[Sequence['outputs.LocalRepositoryMultiReplicationReplication']]]:
+        """
+        List of replications minimum 1 element.
+        """
         return pulumi.get(self, "replications")
 
     @property

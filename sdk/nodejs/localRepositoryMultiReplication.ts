@@ -7,14 +7,12 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > This resource is deprecated and replaced by `artifactory.LocalRepositoryMultiReplication` for clarity.
- *
- * Provides an Artifactory push replication resource. This can be used to create and manage Artifactory push replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
- * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near
- * end invoking a synchronization of artifacts to the far end.
+ * Provides a local repository replication resource, also referred to as Artifactory push replication. This can be used to create and manage Artifactory local repository replications using [Multi-push Replication API](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-CreateorReplaceLocalMulti-pushReplication).
+ * Push replication is used to synchronize Local Repositories, and is implemented by the Artifactory server on the near end invoking a synchronization of artifacts to the far end.
  * See the [Official Documentation](https://www.jfrog.com/confluence/display/JFROG/Repository+Replication#RepositoryReplication-PushReplication).
+ * This resource replaces `artifactory.PushReplication` and used to create a replication of one local repository to multiple repositories on the remote server.
  *
- * > This resource requires Artifactory Enterprise license.
+ * > This resource requires Artifactory Enterprise license. Use `artifactory.LocalRepositorySingleReplication` with other licenses.
  *
  * ## Example Usage
  *
@@ -29,16 +27,25 @@ import * as utilities from "./utilities";
  * // Create a replication between two artifactory local repositories
  * const providerTestSource = new artifactory.LocalMavenRepository("providerTestSource", {key: "provider_test_source"});
  * const providerTestDest = new artifactory.LocalMavenRepository("providerTestDest", {key: "provider_test_dest"});
- * const foo_rep = new artifactory.PushReplication("foo-rep", {
+ * const providerTestDest1 = new artifactory.LocalMavenRepository("providerTestDest1", {key: "provider_test_dest1"});
+ * const foo_rep = new artifactory.LocalRepositoryMultiReplication("foo-rep", {
  *     repoKey: providerTestSource.key,
  *     cronExp: "0 0 * * * ?",
  *     enableEventReplication: true,
- *     replications: [{
- *         url: pulumi.interpolate`${artifactoryUrl}/${providerTestDest.key}`,
- *         username: "$var.artifactory_username",
- *         password: "$var.artifactory_password",
- *         enabled: true,
- *     }],
+ *     replications: [
+ *         {
+ *             url: pulumi.interpolate`${artifactoryUrl}/artifactory/${providerTestDest.key}`,
+ *             username: "$var.artifactory_username",
+ *             password: "$var.artifactory_password",
+ *             enabled: true,
+ *         },
+ *         {
+ *             url: pulumi.interpolate`${artifactoryUrl}/artifactory/${providerTestDest1.key}`,
+ *             username: "$var.artifactory_username",
+ *             password: "$var.artifactory_password",
+ *             enabled: true,
+ *         },
+ *     ],
  * });
  * ```
  *
@@ -47,12 +54,12 @@ import * as utilities from "./utilities";
  * Push replication configs can be imported using their repo key, e.g.
  *
  * ```sh
- *  $ pulumi import artifactory:index/pushReplication:PushReplication foo-rep provider_test_source
+ *  $ pulumi import artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication foo-rep provider_test_source
  * ```
  */
-export class PushReplication extends pulumi.CustomResource {
+export class LocalRepositoryMultiReplication extends pulumi.CustomResource {
     /**
-     * Get an existing PushReplication resource's state with the given name, ID, and optional extra
+     * Get an existing LocalRepositoryMultiReplication resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -60,22 +67,22 @@ export class PushReplication extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PushReplicationState, opts?: pulumi.CustomResourceOptions): PushReplication {
-        return new PushReplication(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LocalRepositoryMultiReplicationState, opts?: pulumi.CustomResourceOptions): LocalRepositoryMultiReplication {
+        return new LocalRepositoryMultiReplication(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'artifactory:index/pushReplication:PushReplication';
+    public static readonly __pulumiType = 'artifactory:index/localRepositoryMultiReplication:LocalRepositoryMultiReplication';
 
     /**
-     * Returns true if the given object is an instance of PushReplication.  This is designed to work even
+     * Returns true if the given object is an instance of LocalRepositoryMultiReplication.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is PushReplication {
+    public static isInstance(obj: any): obj is LocalRepositoryMultiReplication {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === PushReplication.__pulumiType;
+        return obj['__pulumiType'] === LocalRepositoryMultiReplication.__pulumiType;
     }
 
     /**
@@ -83,34 +90,37 @@ export class PushReplication extends pulumi.CustomResource {
      */
     public readonly cronExp!: pulumi.Output<string>;
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
     public readonly enableEventReplication!: pulumi.Output<boolean | undefined>;
-    public readonly replications!: pulumi.Output<outputs.PushReplicationReplication[] | undefined>;
+    /**
+     * List of replications minimum 1 element.
+     */
+    public readonly replications!: pulumi.Output<outputs.LocalRepositoryMultiReplicationReplication[] | undefined>;
     /**
      * Repository name.
      */
     public readonly repoKey!: pulumi.Output<string>;
 
     /**
-     * Create a PushReplication resource with the given unique name, arguments, and options.
+     * Create a LocalRepositoryMultiReplication resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PushReplicationArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: PushReplicationArgs | PushReplicationState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LocalRepositoryMultiReplicationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LocalRepositoryMultiReplicationArgs | LocalRepositoryMultiReplicationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as PushReplicationState | undefined;
+            const state = argsOrState as LocalRepositoryMultiReplicationState | undefined;
             resourceInputs["cronExp"] = state ? state.cronExp : undefined;
             resourceInputs["enableEventReplication"] = state ? state.enableEventReplication : undefined;
             resourceInputs["replications"] = state ? state.replications : undefined;
             resourceInputs["repoKey"] = state ? state.repoKey : undefined;
         } else {
-            const args = argsOrState as PushReplicationArgs | undefined;
+            const args = argsOrState as LocalRepositoryMultiReplicationArgs | undefined;
             if ((!args || args.cronExp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cronExp'");
             }
@@ -123,23 +133,26 @@ export class PushReplication extends pulumi.CustomResource {
             resourceInputs["repoKey"] = args ? args.repoKey : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PushReplication.__pulumiType, name, resourceInputs, opts);
+        super(LocalRepositoryMultiReplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering PushReplication resources.
+ * Input properties used for looking up and filtering LocalRepositoryMultiReplication resources.
  */
-export interface PushReplicationState {
+export interface LocalRepositoryMultiReplicationState {
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
     cronExp?: pulumi.Input<string>;
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
     enableEventReplication?: pulumi.Input<boolean>;
-    replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
+    /**
+     * List of replications minimum 1 element.
+     */
+    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[]>;
     /**
      * Repository name.
      */
@@ -147,18 +160,21 @@ export interface PushReplicationState {
 }
 
 /**
- * The set of arguments for constructing a PushReplication resource.
+ * The set of arguments for constructing a LocalRepositoryMultiReplication resource.
  */
-export interface PushReplicationArgs {
+export interface LocalRepositoryMultiReplicationArgs {
     /**
      * A valid CRON expression that you can use to control replication frequency. Eg: `0 0 12 * * ? *`, `0 0 2 ? * MON-SAT *`. Note: use 6 or 7 parts format - Seconds, Minutes Hours, Day Of Month, Month, Day Of Week, Year (optional). Specifying both a day-of-week AND a day-of-month parameter is not supported. One of them should be replaced by `?`. Incorrect: `* 5,7,9 14/2 * * WED,SAT *`, correct: `* 5,7,9 14/2 ? * WED,SAT *`. See details in [Cron Trigger Tutorial](https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html).
      */
     cronExp: pulumi.Input<string>;
     /**
-     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. added, deleted or property change.
+     * When set, each event will trigger replication of the artifacts changed in this event. This can be any type of event on artifact, e.g. add, deleted or property change. Default value is `false`.
      */
     enableEventReplication?: pulumi.Input<boolean>;
-    replications?: pulumi.Input<pulumi.Input<inputs.PushReplicationReplication>[]>;
+    /**
+     * List of replications minimum 1 element.
+     */
+    replications?: pulumi.Input<pulumi.Input<inputs.LocalRepositoryMultiReplicationReplication>[]>;
     /**
      * Repository name.
      */
