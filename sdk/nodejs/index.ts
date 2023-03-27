@@ -245,6 +245,166 @@ export type GeneralSecurity = import("./generalSecurity").GeneralSecurity;
 export const GeneralSecurity: typeof import("./generalSecurity").GeneralSecurity = null as any;
 utilities.lazyLoad(exports, ["GeneralSecurity"], () => require("./generalSecurity"));
 
+export { GetFederatedAlpineRepositoryArgs, GetFederatedAlpineRepositoryResult, GetFederatedAlpineRepositoryOutputArgs } from "./getFederatedAlpineRepository";
+export const getFederatedAlpineRepository: typeof import("./getFederatedAlpineRepository").getFederatedAlpineRepository = null as any;
+export const getFederatedAlpineRepositoryOutput: typeof import("./getFederatedAlpineRepository").getFederatedAlpineRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedAlpineRepository","getFederatedAlpineRepositoryOutput"], () => require("./getFederatedAlpineRepository"));
+
+export { GetFederatedBowerRepositoryArgs, GetFederatedBowerRepositoryResult, GetFederatedBowerRepositoryOutputArgs } from "./getFederatedBowerRepository";
+export const getFederatedBowerRepository: typeof import("./getFederatedBowerRepository").getFederatedBowerRepository = null as any;
+export const getFederatedBowerRepositoryOutput: typeof import("./getFederatedBowerRepository").getFederatedBowerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedBowerRepository","getFederatedBowerRepositoryOutput"], () => require("./getFederatedBowerRepository"));
+
+export { GetFederatedCargoRepositoryArgs, GetFederatedCargoRepositoryResult, GetFederatedCargoRepositoryOutputArgs } from "./getFederatedCargoRepository";
+export const getFederatedCargoRepository: typeof import("./getFederatedCargoRepository").getFederatedCargoRepository = null as any;
+export const getFederatedCargoRepositoryOutput: typeof import("./getFederatedCargoRepository").getFederatedCargoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedCargoRepository","getFederatedCargoRepositoryOutput"], () => require("./getFederatedCargoRepository"));
+
+export { GetFederatedChefRepositoryArgs, GetFederatedChefRepositoryResult, GetFederatedChefRepositoryOutputArgs } from "./getFederatedChefRepository";
+export const getFederatedChefRepository: typeof import("./getFederatedChefRepository").getFederatedChefRepository = null as any;
+export const getFederatedChefRepositoryOutput: typeof import("./getFederatedChefRepository").getFederatedChefRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedChefRepository","getFederatedChefRepositoryOutput"], () => require("./getFederatedChefRepository"));
+
+export { GetFederatedCocoapodsRepositoryArgs, GetFederatedCocoapodsRepositoryResult, GetFederatedCocoapodsRepositoryOutputArgs } from "./getFederatedCocoapodsRepository";
+export const getFederatedCocoapodsRepository: typeof import("./getFederatedCocoapodsRepository").getFederatedCocoapodsRepository = null as any;
+export const getFederatedCocoapodsRepositoryOutput: typeof import("./getFederatedCocoapodsRepository").getFederatedCocoapodsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedCocoapodsRepository","getFederatedCocoapodsRepositoryOutput"], () => require("./getFederatedCocoapodsRepository"));
+
+export { GetFederatedComposerRepositoryArgs, GetFederatedComposerRepositoryResult, GetFederatedComposerRepositoryOutputArgs } from "./getFederatedComposerRepository";
+export const getFederatedComposerRepository: typeof import("./getFederatedComposerRepository").getFederatedComposerRepository = null as any;
+export const getFederatedComposerRepositoryOutput: typeof import("./getFederatedComposerRepository").getFederatedComposerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedComposerRepository","getFederatedComposerRepositoryOutput"], () => require("./getFederatedComposerRepository"));
+
+export { GetFederatedConanRepositoryArgs, GetFederatedConanRepositoryResult, GetFederatedConanRepositoryOutputArgs } from "./getFederatedConanRepository";
+export const getFederatedConanRepository: typeof import("./getFederatedConanRepository").getFederatedConanRepository = null as any;
+export const getFederatedConanRepositoryOutput: typeof import("./getFederatedConanRepository").getFederatedConanRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedConanRepository","getFederatedConanRepositoryOutput"], () => require("./getFederatedConanRepository"));
+
+export { GetFederatedCondaRepositoryArgs, GetFederatedCondaRepositoryResult, GetFederatedCondaRepositoryOutputArgs } from "./getFederatedCondaRepository";
+export const getFederatedCondaRepository: typeof import("./getFederatedCondaRepository").getFederatedCondaRepository = null as any;
+export const getFederatedCondaRepositoryOutput: typeof import("./getFederatedCondaRepository").getFederatedCondaRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedCondaRepository","getFederatedCondaRepositoryOutput"], () => require("./getFederatedCondaRepository"));
+
+export { GetFederatedCranRepositoryArgs, GetFederatedCranRepositoryResult, GetFederatedCranRepositoryOutputArgs } from "./getFederatedCranRepository";
+export const getFederatedCranRepository: typeof import("./getFederatedCranRepository").getFederatedCranRepository = null as any;
+export const getFederatedCranRepositoryOutput: typeof import("./getFederatedCranRepository").getFederatedCranRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedCranRepository","getFederatedCranRepositoryOutput"], () => require("./getFederatedCranRepository"));
+
+export { GetFederatedDebianRepositoryArgs, GetFederatedDebianRepositoryResult, GetFederatedDebianRepositoryOutputArgs } from "./getFederatedDebianRepository";
+export const getFederatedDebianRepository: typeof import("./getFederatedDebianRepository").getFederatedDebianRepository = null as any;
+export const getFederatedDebianRepositoryOutput: typeof import("./getFederatedDebianRepository").getFederatedDebianRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedDebianRepository","getFederatedDebianRepositoryOutput"], () => require("./getFederatedDebianRepository"));
+
+export { GetFederatedDockerRepositoryArgs, GetFederatedDockerRepositoryResult, GetFederatedDockerRepositoryOutputArgs } from "./getFederatedDockerRepository";
+export const getFederatedDockerRepository: typeof import("./getFederatedDockerRepository").getFederatedDockerRepository = null as any;
+export const getFederatedDockerRepositoryOutput: typeof import("./getFederatedDockerRepository").getFederatedDockerRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedDockerRepository","getFederatedDockerRepositoryOutput"], () => require("./getFederatedDockerRepository"));
+
+export { GetFederatedDockerV1RepositoryArgs, GetFederatedDockerV1RepositoryResult, GetFederatedDockerV1RepositoryOutputArgs } from "./getFederatedDockerV1Repository";
+export const getFederatedDockerV1Repository: typeof import("./getFederatedDockerV1Repository").getFederatedDockerV1Repository = null as any;
+export const getFederatedDockerV1RepositoryOutput: typeof import("./getFederatedDockerV1Repository").getFederatedDockerV1RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedDockerV1Repository","getFederatedDockerV1RepositoryOutput"], () => require("./getFederatedDockerV1Repository"));
+
+export { GetFederatedDockerV2RepositoryArgs, GetFederatedDockerV2RepositoryResult, GetFederatedDockerV2RepositoryOutputArgs } from "./getFederatedDockerV2Repository";
+export const getFederatedDockerV2Repository: typeof import("./getFederatedDockerV2Repository").getFederatedDockerV2Repository = null as any;
+export const getFederatedDockerV2RepositoryOutput: typeof import("./getFederatedDockerV2Repository").getFederatedDockerV2RepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedDockerV2Repository","getFederatedDockerV2RepositoryOutput"], () => require("./getFederatedDockerV2Repository"));
+
+export { GetFederatedGemsRepositoryArgs, GetFederatedGemsRepositoryResult, GetFederatedGemsRepositoryOutputArgs } from "./getFederatedGemsRepository";
+export const getFederatedGemsRepository: typeof import("./getFederatedGemsRepository").getFederatedGemsRepository = null as any;
+export const getFederatedGemsRepositoryOutput: typeof import("./getFederatedGemsRepository").getFederatedGemsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedGemsRepository","getFederatedGemsRepositoryOutput"], () => require("./getFederatedGemsRepository"));
+
+export { GetFederatedGenericRepositoryArgs, GetFederatedGenericRepositoryResult, GetFederatedGenericRepositoryOutputArgs } from "./getFederatedGenericRepository";
+export const getFederatedGenericRepository: typeof import("./getFederatedGenericRepository").getFederatedGenericRepository = null as any;
+export const getFederatedGenericRepositoryOutput: typeof import("./getFederatedGenericRepository").getFederatedGenericRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedGenericRepository","getFederatedGenericRepositoryOutput"], () => require("./getFederatedGenericRepository"));
+
+export { GetFederatedGitlfsRepositoryArgs, GetFederatedGitlfsRepositoryResult, GetFederatedGitlfsRepositoryOutputArgs } from "./getFederatedGitlfsRepository";
+export const getFederatedGitlfsRepository: typeof import("./getFederatedGitlfsRepository").getFederatedGitlfsRepository = null as any;
+export const getFederatedGitlfsRepositoryOutput: typeof import("./getFederatedGitlfsRepository").getFederatedGitlfsRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedGitlfsRepository","getFederatedGitlfsRepositoryOutput"], () => require("./getFederatedGitlfsRepository"));
+
+export { GetFederatedGoRepositoryArgs, GetFederatedGoRepositoryResult, GetFederatedGoRepositoryOutputArgs } from "./getFederatedGoRepository";
+export const getFederatedGoRepository: typeof import("./getFederatedGoRepository").getFederatedGoRepository = null as any;
+export const getFederatedGoRepositoryOutput: typeof import("./getFederatedGoRepository").getFederatedGoRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedGoRepository","getFederatedGoRepositoryOutput"], () => require("./getFederatedGoRepository"));
+
+export { GetFederatedGradleRepositoryArgs, GetFederatedGradleRepositoryResult, GetFederatedGradleRepositoryOutputArgs } from "./getFederatedGradleRepository";
+export const getFederatedGradleRepository: typeof import("./getFederatedGradleRepository").getFederatedGradleRepository = null as any;
+export const getFederatedGradleRepositoryOutput: typeof import("./getFederatedGradleRepository").getFederatedGradleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedGradleRepository","getFederatedGradleRepositoryOutput"], () => require("./getFederatedGradleRepository"));
+
+export { GetFederatedHelmRepositoryArgs, GetFederatedHelmRepositoryResult, GetFederatedHelmRepositoryOutputArgs } from "./getFederatedHelmRepository";
+export const getFederatedHelmRepository: typeof import("./getFederatedHelmRepository").getFederatedHelmRepository = null as any;
+export const getFederatedHelmRepositoryOutput: typeof import("./getFederatedHelmRepository").getFederatedHelmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedHelmRepository","getFederatedHelmRepositoryOutput"], () => require("./getFederatedHelmRepository"));
+
+export { GetFederatedIvyRepositoryArgs, GetFederatedIvyRepositoryResult, GetFederatedIvyRepositoryOutputArgs } from "./getFederatedIvyRepository";
+export const getFederatedIvyRepository: typeof import("./getFederatedIvyRepository").getFederatedIvyRepository = null as any;
+export const getFederatedIvyRepositoryOutput: typeof import("./getFederatedIvyRepository").getFederatedIvyRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedIvyRepository","getFederatedIvyRepositoryOutput"], () => require("./getFederatedIvyRepository"));
+
+export { GetFederatedMavenRepositoryArgs, GetFederatedMavenRepositoryResult, GetFederatedMavenRepositoryOutputArgs } from "./getFederatedMavenRepository";
+export const getFederatedMavenRepository: typeof import("./getFederatedMavenRepository").getFederatedMavenRepository = null as any;
+export const getFederatedMavenRepositoryOutput: typeof import("./getFederatedMavenRepository").getFederatedMavenRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedMavenRepository","getFederatedMavenRepositoryOutput"], () => require("./getFederatedMavenRepository"));
+
+export { GetFederatedNpmRepositoryArgs, GetFederatedNpmRepositoryResult, GetFederatedNpmRepositoryOutputArgs } from "./getFederatedNpmRepository";
+export const getFederatedNpmRepository: typeof import("./getFederatedNpmRepository").getFederatedNpmRepository = null as any;
+export const getFederatedNpmRepositoryOutput: typeof import("./getFederatedNpmRepository").getFederatedNpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedNpmRepository","getFederatedNpmRepositoryOutput"], () => require("./getFederatedNpmRepository"));
+
+export { GetFederatedNugetRepositoryArgs, GetFederatedNugetRepositoryResult, GetFederatedNugetRepositoryOutputArgs } from "./getFederatedNugetRepository";
+export const getFederatedNugetRepository: typeof import("./getFederatedNugetRepository").getFederatedNugetRepository = null as any;
+export const getFederatedNugetRepositoryOutput: typeof import("./getFederatedNugetRepository").getFederatedNugetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedNugetRepository","getFederatedNugetRepositoryOutput"], () => require("./getFederatedNugetRepository"));
+
+export { GetFederatedOpkgRepositoryArgs, GetFederatedOpkgRepositoryResult, GetFederatedOpkgRepositoryOutputArgs } from "./getFederatedOpkgRepository";
+export const getFederatedOpkgRepository: typeof import("./getFederatedOpkgRepository").getFederatedOpkgRepository = null as any;
+export const getFederatedOpkgRepositoryOutput: typeof import("./getFederatedOpkgRepository").getFederatedOpkgRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedOpkgRepository","getFederatedOpkgRepositoryOutput"], () => require("./getFederatedOpkgRepository"));
+
+export { GetFederatedPuppetRepositoryArgs, GetFederatedPuppetRepositoryResult, GetFederatedPuppetRepositoryOutputArgs } from "./getFederatedPuppetRepository";
+export const getFederatedPuppetRepository: typeof import("./getFederatedPuppetRepository").getFederatedPuppetRepository = null as any;
+export const getFederatedPuppetRepositoryOutput: typeof import("./getFederatedPuppetRepository").getFederatedPuppetRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedPuppetRepository","getFederatedPuppetRepositoryOutput"], () => require("./getFederatedPuppetRepository"));
+
+export { GetFederatedPypiRepositoryArgs, GetFederatedPypiRepositoryResult, GetFederatedPypiRepositoryOutputArgs } from "./getFederatedPypiRepository";
+export const getFederatedPypiRepository: typeof import("./getFederatedPypiRepository").getFederatedPypiRepository = null as any;
+export const getFederatedPypiRepositoryOutput: typeof import("./getFederatedPypiRepository").getFederatedPypiRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedPypiRepository","getFederatedPypiRepositoryOutput"], () => require("./getFederatedPypiRepository"));
+
+export { GetFederatedRpmRepositoryArgs, GetFederatedRpmRepositoryResult, GetFederatedRpmRepositoryOutputArgs } from "./getFederatedRpmRepository";
+export const getFederatedRpmRepository: typeof import("./getFederatedRpmRepository").getFederatedRpmRepository = null as any;
+export const getFederatedRpmRepositoryOutput: typeof import("./getFederatedRpmRepository").getFederatedRpmRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedRpmRepository","getFederatedRpmRepositoryOutput"], () => require("./getFederatedRpmRepository"));
+
+export { GetFederatedSbtRepositoryArgs, GetFederatedSbtRepositoryResult, GetFederatedSbtRepositoryOutputArgs } from "./getFederatedSbtRepository";
+export const getFederatedSbtRepository: typeof import("./getFederatedSbtRepository").getFederatedSbtRepository = null as any;
+export const getFederatedSbtRepositoryOutput: typeof import("./getFederatedSbtRepository").getFederatedSbtRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedSbtRepository","getFederatedSbtRepositoryOutput"], () => require("./getFederatedSbtRepository"));
+
+export { GetFederatedSwiftRepositoryArgs, GetFederatedSwiftRepositoryResult, GetFederatedSwiftRepositoryOutputArgs } from "./getFederatedSwiftRepository";
+export const getFederatedSwiftRepository: typeof import("./getFederatedSwiftRepository").getFederatedSwiftRepository = null as any;
+export const getFederatedSwiftRepositoryOutput: typeof import("./getFederatedSwiftRepository").getFederatedSwiftRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedSwiftRepository","getFederatedSwiftRepositoryOutput"], () => require("./getFederatedSwiftRepository"));
+
+export { GetFederatedTerraformModuleRepositoryArgs, GetFederatedTerraformModuleRepositoryResult, GetFederatedTerraformModuleRepositoryOutputArgs } from "./getFederatedTerraformModuleRepository";
+export const getFederatedTerraformModuleRepository: typeof import("./getFederatedTerraformModuleRepository").getFederatedTerraformModuleRepository = null as any;
+export const getFederatedTerraformModuleRepositoryOutput: typeof import("./getFederatedTerraformModuleRepository").getFederatedTerraformModuleRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedTerraformModuleRepository","getFederatedTerraformModuleRepositoryOutput"], () => require("./getFederatedTerraformModuleRepository"));
+
+export { GetFederatedTerraformProviderRepositoryArgs, GetFederatedTerraformProviderRepositoryResult, GetFederatedTerraformProviderRepositoryOutputArgs } from "./getFederatedTerraformProviderRepository";
+export const getFederatedTerraformProviderRepository: typeof import("./getFederatedTerraformProviderRepository").getFederatedTerraformProviderRepository = null as any;
+export const getFederatedTerraformProviderRepositoryOutput: typeof import("./getFederatedTerraformProviderRepository").getFederatedTerraformProviderRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedTerraformProviderRepository","getFederatedTerraformProviderRepositoryOutput"], () => require("./getFederatedTerraformProviderRepository"));
+
+export { GetFederatedVagrantRepositoryArgs, GetFederatedVagrantRepositoryResult, GetFederatedVagrantRepositoryOutputArgs } from "./getFederatedVagrantRepository";
+export const getFederatedVagrantRepository: typeof import("./getFederatedVagrantRepository").getFederatedVagrantRepository = null as any;
+export const getFederatedVagrantRepositoryOutput: typeof import("./getFederatedVagrantRepository").getFederatedVagrantRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getFederatedVagrantRepository","getFederatedVagrantRepositoryOutput"], () => require("./getFederatedVagrantRepository"));
+
 export { GetFileArgs, GetFileResult, GetFileOutputArgs } from "./getFile";
 export const getFile: typeof import("./getFile").getFile = null as any;
 export const getFileOutput: typeof import("./getFile").getFileOutput = null as any;
